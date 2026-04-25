@@ -156,43 +156,42 @@ impl Type {
         )
     }
 
-    pub fn remap(type_name: TypeName) -> Remap {
-        match type_name {
-            TypeName("System", "Guid") => Remap::Type(Self::GUID),
-            TypeName("Windows.Win32.Foundation", "PSTR") => Remap::Type(Self::PSTR),
-            TypeName("Windows.Win32.Foundation", "PWSTR") => Remap::Type(Self::PWSTR),
-            TypeName("Windows.Win32.System.WinRT", "HSTRING") => Remap::Type(Self::String),
-            TypeName("Windows.Win32.Foundation", "BSTR") => Remap::Type(Self::BSTR),
-            TypeName("Windows.Win32.System.WinRT", "IInspectable") => Remap::Type(Self::Object),
-            TypeName("Windows.Win32.Foundation", "CHAR") => Remap::Type(Self::I8),
-            TypeName("Windows.Win32.Foundation", "BOOLEAN") => Remap::Type(Self::Bool),
-            TypeName("Windows.Win32.Foundation", "BOOL") => Remap::Type(Self::BOOL),
-            TypeName("Windows.Win32.System.Com", "IUnknown") => Remap::Type(Self::IUnknown),
-            TypeName("System", "Type") => Remap::Type(Self::Type),
+    pub fn remap(namespace: &str, name: &str) -> Remap {
+        match (namespace, name) {
+            ("System", "Guid") => Remap::Type(Self::GUID),
+            ("Windows.Win32.Foundation", "PSTR") => Remap::Type(Self::PSTR),
+            ("Windows.Win32.Foundation", "PWSTR") => Remap::Type(Self::PWSTR),
+            ("Windows.Win32.System.WinRT", "HSTRING") => Remap::Type(Self::String),
+            ("Windows.Win32.Foundation", "BSTR") => Remap::Type(Self::BSTR),
+            ("Windows.Win32.System.WinRT", "IInspectable") => Remap::Type(Self::Object),
+            ("Windows.Win32.Foundation", "CHAR") => Remap::Type(Self::I8),
+            ("Windows.Win32.Foundation", "BOOLEAN") => Remap::Type(Self::Bool),
+            ("Windows.Win32.Foundation", "BOOL") => Remap::Type(Self::BOOL),
+            ("Windows.Win32.System.Com", "IUnknown") => Remap::Type(Self::IUnknown),
+            ("System", "Type") => Remap::Type(Self::Type),
 
-            TypeName("Windows.Foundation", "HResult")
-            | TypeName("Windows.Win32.Foundation", "HRESULT") => Remap::Type(Self::HRESULT),
-
-            TypeName("Windows.Foundation", "EventRegistrationToken")
-            | TypeName("Windows.Win32.System.WinRT", "EventRegistrationToken") => {
-                Remap::Type(Self::I64)
+            ("Windows.Foundation", "HResult") | ("Windows.Win32.Foundation", "HRESULT") => {
+                Remap::Type(Self::HRESULT)
             }
 
-            TypeName("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F") => {
+            ("Windows.Foundation", "EventRegistrationToken")
+            | ("Windows.Win32.System.WinRT", "EventRegistrationToken") => Remap::Type(Self::I64),
+
+            ("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F") => {
                 Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix3x2"))
             }
 
-            TypeName("Windows.Win32.Graphics.Direct3D", "D3DMATRIX")
-            | TypeName("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_4X4_F") => {
+            ("Windows.Win32.Graphics.Direct3D", "D3DMATRIX")
+            | ("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_4X4_F") => {
                 Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix4x4"))
             }
 
-            TypeName("Windows.Win32.Graphics.Direct2D.Common", "D2D_POINT_2F")
-            | TypeName("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_2F") => {
+            ("Windows.Win32.Graphics.Direct2D.Common", "D2D_POINT_2F")
+            | ("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_2F") => {
                 Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector2"))
             }
 
-            TypeName("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_4F") => {
+            ("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_4F") => {
                 Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector4"))
             }
 
@@ -221,7 +220,7 @@ impl Type {
 
         let mut code_name = code.type_name();
 
-        match Self::remap(code_name) {
+        match Self::remap(code_name.namespace(), code_name.name()) {
             Remap::Type(ty) => return ty,
             Remap::Name(type_name) => {
                 code_name = type_name;
@@ -266,48 +265,13 @@ impl Type {
             windows_metadata::Type::ClassName(tn) | windows_metadata::Type::ValueName(tn) => {
                 let ns: &str = &tn.namespace;
                 let n: &str = &tn.name;
-                // Apply type remaps (same logic as Type::remap but for &str)
-                let remap = match (ns, n) {
-                    ("System", "Guid") => Some(Self::GUID),
-                    ("Windows.Win32.Foundation", "PSTR") => Some(Self::PSTR),
-                    ("Windows.Win32.Foundation", "PWSTR") => Some(Self::PWSTR),
-                    ("Windows.Win32.System.WinRT", "HSTRING") => Some(Self::String),
-                    ("Windows.Win32.Foundation", "BSTR") => Some(Self::BSTR),
-                    ("Windows.Win32.System.WinRT", "IInspectable") => Some(Self::Object),
-                    ("Windows.Win32.Foundation", "CHAR") => Some(Self::I8),
-                    ("Windows.Win32.Foundation", "BOOLEAN") => Some(Self::Bool),
-                    ("Windows.Win32.Foundation", "BOOL") => Some(Self::BOOL),
-                    ("Windows.Win32.System.Com", "IUnknown") => Some(Self::IUnknown),
-                    ("System", "Type") => Some(Self::Type),
-                    ("Windows.Foundation", "HResult") | ("Windows.Win32.Foundation", "HRESULT") => {
-                        Some(Self::HRESULT)
-                    }
-                    ("Windows.Foundation", "EventRegistrationToken")
-                    | ("Windows.Win32.System.WinRT", "EventRegistrationToken") => Some(Self::I64),
-                    _ => None,
+
+                let (ns, n) = match Self::remap(ns, n) {
+                    Remap::Type(ty) => return ty,
+                    Remap::Name(type_name) => (type_name.namespace(), type_name.name()),
+                    Remap::None => (ns, n),
                 };
-                if let Some(ty) = remap {
-                    return ty;
-                }
-                // Apply name remaps
-                let (ns, n) = match (ns, n) {
-                    ("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F") => {
-                        ("Windows.Foundation.Numerics", "Matrix3x2")
-                    }
-                    ("Windows.Win32.Graphics.Direct3D", "D3DMATRIX")
-                    | ("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_4X4_F") => {
-                        ("Windows.Foundation.Numerics", "Matrix4x4")
-                    }
-                    ("Windows.Win32.Graphics.Direct2D.Common", "D2D_POINT_2F")
-                    | ("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_2F") => {
-                        ("Windows.Foundation.Numerics", "Vector2")
-                    }
-                    ("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_4F") => {
-                        ("Windows.Foundation.Numerics", "Vector4")
-                    }
-                    _ => (ns, n),
-                };
-                // Handle nested type lookup via enclosing struct
+
                 if let Some(outer) = enclosing {
                     if ns.is_empty() {
                         return Self::CppStruct(outer.nested[n].clone());

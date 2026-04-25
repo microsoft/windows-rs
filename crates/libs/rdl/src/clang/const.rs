@@ -47,9 +47,51 @@ impl Const {
         let name = write_ident(&self.name);
         let ty = write_type(namespace, &self.value.ty());
         let value = write_value(namespace, &self.value);
-        Ok(quote! { const #name: #ty = #value; })
+        match &self.value {
+            metadata::Value::Utf8(_) => {
+                let attr = native_encoding_attr("ansi");
+                Ok(quote! {
+                    #attr
+                    const #name: #ty = #value;
+                })
+            }
+            metadata::Value::Utf16(_) => {
+                let attr = native_encoding_attr("utf-16");
+                Ok(quote! {
+                    #attr
+                    const #name: #ty = #value;
+                })
+            }
+            _ => Ok(quote! { const #name: #ty = #value; }),
+        }
     }
+}
 
+/// A GUID constant produced from a C++ class that is only forward-declared (no body) but
+/// carries a `__declspec(uuid("..."))` attribute.
+///
+/// This handles the MIDL pattern for COM server activation CLSIDs, e.g.:
+/// ```c
+/// class __declspec(uuid("e6756135-1e65-4d17-8576-610761398c3c")) DiaSource;
+/// ```
+/// which is emitted as: `const DiaSource: GUID = 0xe6756135_1e65_4d17_8576_610761398c3c;`
+#[derive(Debug)]
+pub struct GuidConst {
+    pub name: String,
+    /// The UUID string without braces or quotes, e.g. `"e6756135-1e65-4d17-8576-610761398c3c"`.
+    pub uuid: String,
+}
+
+impl GuidConst {
+    pub fn write(&self) -> Result<TokenStream, Error> {
+        let name = write_ident(&self.name);
+        let lit_str = uuid_to_u128_literal(&self.uuid);
+        let lit = syn::LitInt::new(&lit_str, Span::call_site());
+        Ok(quote! { const #name: GUID = #lit; })
+    }
+}
+
+impl Const {
     /// Evaluate a batch of macro names that could not be parsed by the simple
     /// token-based parser (e.g. arithmetic expressions, bitwise shifts, or
     /// references to other macros).
@@ -203,6 +245,7 @@ fn collect_eval_results(tu: &TranslationUnit) -> Result<Vec<Const>, Error> {
 /// Recognised patterns (body tokens after the macro name):
 /// - `LITERAL`                       → numeric or string constant
 /// - `- LITERAL`                     → negated integer constant
+/// - `( LITERAL )`                   → parenthesized literal
 /// - `( ( IDENT ) LITERAL )`         → typed integer cast (2 parens)
 /// - `( IDENT ) LITERAL`             → typed integer cast (1 paren)
 /// - `( ( IDENT ) - LITERAL )`       → typed negated cast (2 parens)
@@ -221,6 +264,12 @@ fn parse_body(
         // Negated literal.
         [(CXToken_Punctuation, minus), (CXToken_Literal, lit)] if minus == "-" => {
             parse_literal(lit, true)
+        }
+        // (LITERAL) — parenthesized literal (e.g. `#define FOO ( "value" )`).
+        [(CXToken_Punctuation, lp), (CXToken_Literal, lit), (CXToken_Punctuation, rp)]
+            if lp == "(" && rp == ")" =>
+        {
+            parse_literal(lit, false)
         }
         // ((TYPE)VALUE) — double-paren typed cast.
         [(CXToken_Punctuation, lp1), (CXToken_Punctuation, lp2), (CXToken_Identifier, ty), (CXToken_Punctuation, rp1), (CXToken_Literal, lit), (CXToken_Punctuation, rp2)]
@@ -250,6 +299,20 @@ fn parse_body(
     }
 }
 
+/// Build the `#[Windows::Win32::Foundation::Metadata::NativeEncoding("...")]`
+/// attribute token stream used to annotate narrow (`"ansi"`) and wide
+/// (`"utf-16"`) string constants in the generated RDL.
+fn native_encoding_attr(encoding: &str) -> TokenStream {
+    let ns = "Windows.Win32.Foundation.Metadata";
+    let mut path = TokenStream::new();
+    for part in ns.split('.') {
+        let ident = write_ident(part);
+        path = quote! { #path #ident :: };
+    }
+    let attr_name = write_ident("NativeEncoding");
+    quote! { #[#path #attr_name(#encoding)] }
+}
+
 /// Parse a C integer or string literal spelling into a [`metadata::Value`].
 ///
 /// Integer literals may carry type suffixes (`L`, `U`, `LL`, `ULL`) and use
@@ -257,7 +320,17 @@ fn parse_body(
 /// the Rust type that best matches the suffix and bit-width, following
 /// Windows LLP64 conventions (`long` = 32-bit).
 fn parse_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
-    // String literal.
+    // Wide string literal (L"...").
+    if lit.starts_with("L\"") {
+        if negate {
+            return None;
+        }
+        // Strip the L prefix and surrounding quotes.
+        let inner = lit.strip_prefix("L\"")?.strip_suffix('"')?;
+        return Some(metadata::Value::Utf16(inner.to_string()));
+    }
+
+    // Narrow string literal ("...").
     if lit.starts_with('"') {
         if negate {
             return None;

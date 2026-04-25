@@ -20,7 +20,7 @@ impl IInspectable {
     pub fn GetRuntimeClassName(&self) -> Result<HSTRING> {
         unsafe {
             let mut abi = null_mut();
-            (self.vtable().GetRuntimeClassName)(core::mem::transmute_copy(self), &mut abi).ok()?;
+            (self.vtable().GetRuntimeClassName)(self.as_raw(), &mut abi).ok()?;
             Ok(core::mem::transmute::<*mut c_void, HSTRING>(abi))
         }
     }
@@ -29,7 +29,7 @@ impl IInspectable {
     pub fn GetTrustLevel(&self) -> Result<i32> {
         unsafe {
             let mut value = 0;
-            (self.vtable().GetTrustLevel)(core::mem::transmute_copy(self), &mut value).ok()?;
+            (self.vtable().GetTrustLevel)(self.as_raw(), &mut value).ok()?;
             Ok(value)
         }
     }

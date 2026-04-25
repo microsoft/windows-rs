@@ -9,11 +9,11 @@ macro_rules! com_call {
 }
 
 #[repr(transparent)]
-pub struct ComPtr(core::ptr::NonNull<core::ffi::c_void>);
+pub struct ComPtr(pub(crate) core::ptr::NonNull<core::ffi::c_void>);
 
 impl ComPtr {
     pub fn as_raw(&self) -> *mut core::ffi::c_void {
-        unsafe { core::mem::transmute_copy(self) }
+        self.0.as_ptr()
     }
 
     pub fn cast(&self, iid: &GUID) -> Option<Self> {

@@ -97,163 +97,174 @@ impl File {
             panic!("heap too large");
         }
 
-        unsafe {
-            let mut guids = vec![0; 16]; // zero guid
-            let size_of_streams = records.len() + guids.len() + strings.len() + blobs.len();
+        let mut guids = vec![0u8; 16]; // zero guid
+        let size_of_streams = records.len() + guids.len() + strings.len() + blobs.len();
 
-            let mut dos: IMAGE_DOS_HEADER = core::mem::zeroed();
-            dos.e_magic = IMAGE_DOS_SIGNATURE;
-            dos.e_lfarlc = 64;
-            dos.e_lfanew = core::mem::size_of::<IMAGE_DOS_HEADER>() as i32;
+        let dos = IMAGE_DOS_HEADER {
+            e_magic: IMAGE_DOS_SIGNATURE,
+            e_lfarlc: 64,
+            e_lfanew: core::mem::size_of::<IMAGE_DOS_HEADER>() as i32,
+            ..Default::default()
+        };
 
-            let mut file: IMAGE_FILE_HEADER = core::mem::zeroed();
-            file.Machine = IMAGE_FILE_MACHINE_I386;
-            file.NumberOfSections = 1;
-            file.SizeOfOptionalHeader = core::mem::size_of::<IMAGE_OPTIONAL_HEADER32>() as u16;
-            file.Characteristics =
-                IMAGE_FILE_DLL | IMAGE_FILE_32BIT_MACHINE | IMAGE_FILE_EXECUTABLE_IMAGE;
+        let file = IMAGE_FILE_HEADER {
+            Machine: IMAGE_FILE_MACHINE_I386,
+            NumberOfSections: 1,
+            SizeOfOptionalHeader: core::mem::size_of::<IMAGE_OPTIONAL_HEADER32>() as u16,
+            Characteristics: IMAGE_FILE_DLL
+                | IMAGE_FILE_32BIT_MACHINE
+                | IMAGE_FILE_EXECUTABLE_IMAGE,
+            ..Default::default()
+        };
 
-            let mut optional: IMAGE_OPTIONAL_HEADER32 = core::mem::zeroed();
-            optional.Magic = IMAGE_NT_OPTIONAL_HDR32_MAGIC;
-            optional.MajorLinkerVersion = 11;
-            optional.SizeOfInitializedData = 1024;
-            optional.ImageBase = 0x400000;
-            optional.SectionAlignment = SECTION_ALIGNMENT;
-            optional.FileAlignment = 512;
-            optional.MajorOperatingSystemVersion = 6;
-            optional.MinorOperatingSystemVersion = 2;
-            optional.MajorSubsystemVersion = 6;
-            optional.MinorSubsystemVersion = 2;
-            optional.SizeOfHeaders = 512;
-            optional.Subsystem = IMAGE_SUBSYSTEM_WINDOWS_CUI;
-            optional.DllCharacteristics = IMAGE_DLLCHARACTERISTICS_NX_COMPAT
+        let mut optional = IMAGE_OPTIONAL_HEADER32 {
+            Magic: IMAGE_NT_OPTIONAL_HDR32_MAGIC,
+            MajorLinkerVersion: 11,
+            SizeOfInitializedData: 1024,
+            ImageBase: 0x400000,
+            SectionAlignment: SECTION_ALIGNMENT,
+            FileAlignment: 512,
+            MajorOperatingSystemVersion: 6,
+            MinorOperatingSystemVersion: 2,
+            MajorSubsystemVersion: 6,
+            MinorSubsystemVersion: 2,
+            SizeOfHeaders: 512,
+            Subsystem: IMAGE_SUBSYSTEM_WINDOWS_CUI,
+            DllCharacteristics: IMAGE_DLLCHARACTERISTICS_NX_COMPAT
                 | IMAGE_DLLCHARACTERISTICS_NO_SEH
-                | IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE;
-            optional.SizeOfStackReserve = 0x100000;
-            optional.SizeOfHeapReserve = 4096;
-            optional.LoaderFlags = 0x100000;
-            optional.NumberOfRvaAndSizes = 16;
+                | IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE,
+            SizeOfStackReserve: 0x100000,
+            SizeOfHeapReserve: 4096,
+            LoaderFlags: 0x100000,
+            NumberOfRvaAndSizes: 16,
+            ..Default::default()
+        };
 
-            let mut section: IMAGE_SECTION_HEADER = core::mem::zeroed();
-            section.Name = *b".text\0\0\0";
-            section.Characteristics = 0x4000_0020;
-            section.VirtualAddress = SECTION_ALIGNMENT;
+        let mut section = IMAGE_SECTION_HEADER {
+            Name: *b".text\0\0\0",
+            Characteristics: 0x4000_0020,
+            VirtualAddress: SECTION_ALIGNMENT,
+            ..Default::default()
+        };
 
-            let mut clr: IMAGE_COR20_HEADER = core::mem::zeroed();
-            clr.cb = core::mem::size_of::<IMAGE_COR20_HEADER>() as u32;
-            clr.MajorRuntimeVersion = 2;
-            clr.MinorRuntimeVersion = 5;
-            clr.Flags = 1;
+        let mut clr = IMAGE_COR20_HEADER {
+            cb: core::mem::size_of::<IMAGE_COR20_HEADER>() as u32,
+            MajorRuntimeVersion: 2,
+            MinorRuntimeVersion: 5,
+            Flags: 1,
+            ..Default::default()
+        };
 
-            let metadata = METADATA_HEADER {
-                signature: METADATA_SIGNATURE,
-                major_version: 1,
-                minor_version: 1,
-                length: 20,
-                version: *b"WindowsRuntime 1.4\0\0",
-                streams: 4,
-                ..Default::default()
-            };
+        let metadata = METADATA_HEADER {
+            signature: METADATA_SIGNATURE,
+            major_version: 1,
+            minor_version: 1,
+            length: 20,
+            version: *b"WindowsRuntime 1.4\0\0",
+            streams: 4,
+            ..Default::default()
+        };
 
-            type TablesHeader = STREAM_HEADER<4>;
-            type StringsHeader = STREAM_HEADER<12>;
-            type GuidsHeader = STREAM_HEADER<8>;
-            type BlobsHeader = STREAM_HEADER<8>;
+        type TablesHeader = STREAM_HEADER<4>;
+        type StringsHeader = STREAM_HEADER<12>;
+        type GuidsHeader = STREAM_HEADER<8>;
+        type BlobsHeader = STREAM_HEADER<8>;
 
-            let size_of_stream_headers = core::mem::size_of::<TablesHeader>()
-                + core::mem::size_of::<StringsHeader>()
-                + core::mem::size_of::<GuidsHeader>()
-                + core::mem::size_of::<BlobsHeader>();
+        let size_of_stream_headers = core::mem::size_of::<TablesHeader>()
+            + core::mem::size_of::<StringsHeader>()
+            + core::mem::size_of::<GuidsHeader>()
+            + core::mem::size_of::<BlobsHeader>();
 
-            let size_of_image = optional.FileAlignment as usize
-                + core::mem::size_of::<IMAGE_COR20_HEADER>()
-                + core::mem::size_of::<METADATA_HEADER>()
-                + size_of_stream_headers
-                + size_of_streams;
+        let size_of_image = optional.FileAlignment as usize
+            + core::mem::size_of::<IMAGE_COR20_HEADER>()
+            + core::mem::size_of::<METADATA_HEADER>()
+            + size_of_stream_headers
+            + size_of_streams;
 
-            section.Misc.VirtualSize = size_of_image as u32 - optional.FileAlignment;
+        let virtual_size = size_of_image as u32 - optional.FileAlignment;
 
-            section.SizeOfRawData = round(
-                section.Misc.VirtualSize as usize,
-                optional.FileAlignment as usize,
-            ) as u32;
+        // Writing a union field is safe; the union variants (VirtualSize and PhysicalAddress)
+        // are both u32, so any bit pattern is valid for either variant.
+        section.Misc.VirtualSize = virtual_size;
 
-            optional.SizeOfImage = round(
-                SECTION_ALIGNMENT as usize + section.SizeOfRawData as usize,
-                optional.SectionAlignment as usize,
-            ) as u32;
+        section.SizeOfRawData =
+            round(virtual_size as usize, optional.FileAlignment as usize) as u32;
 
-            optional.DataDirectory[14] = IMAGE_DATA_DIRECTORY {
+        optional.SizeOfImage = round(
+            SECTION_ALIGNMENT as usize + section.SizeOfRawData as usize,
+            optional.SectionAlignment as usize,
+        ) as u32;
+
+        optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize] =
+            IMAGE_DATA_DIRECTORY {
                 VirtualAddress: SECTION_ALIGNMENT,
                 Size: core::mem::size_of::<IMAGE_COR20_HEADER>() as u32,
             };
 
-            section.PointerToRawData = optional.FileAlignment;
+        section.PointerToRawData = optional.FileAlignment;
 
-            clr.MetaData.VirtualAddress =
-                SECTION_ALIGNMENT + core::mem::size_of::<IMAGE_COR20_HEADER>() as u32;
+        clr.MetaData.VirtualAddress =
+            SECTION_ALIGNMENT + core::mem::size_of::<IMAGE_COR20_HEADER>() as u32;
 
-            clr.MetaData.Size =
-                section.Misc.VirtualSize - core::mem::size_of::<IMAGE_COR20_HEADER>() as u32;
+        clr.MetaData.Size = virtual_size - core::mem::size_of::<IMAGE_COR20_HEADER>() as u32;
 
-            let mut buffer = Vec::<u8>::new();
-            buffer.write_header(&dos);
-            buffer.write_u32(IMAGE_NT_SIGNATURE);
-            buffer.write_header(&file);
-            buffer.write_header(&optional);
-            buffer.write_header(&section);
-            debug_assert!(buffer.len() < optional.FileAlignment as usize);
-            buffer.resize(optional.FileAlignment as usize, 0);
-            buffer.write_header(&clr);
-            let metadata_offset = buffer.len();
-            buffer.write_header(&metadata);
+        let mut buffer = Vec::<u8>::new();
+        buffer.write_header(&dos);
+        buffer.write_u32(IMAGE_NT_SIGNATURE);
+        buffer.write_header(&file);
+        buffer.write_header(&optional);
+        buffer.write_header(&section);
+        debug_assert!(buffer.len() < optional.FileAlignment as usize);
+        buffer.resize(optional.FileAlignment as usize, 0);
+        buffer.write_header(&clr);
+        let metadata_offset = buffer.len();
+        buffer.write_header(&metadata);
 
-            let stream_offset = buffer.len() - metadata_offset + size_of_stream_headers;
+        let stream_offset = buffer.len() - metadata_offset + size_of_stream_headers;
 
-            let tables_header =
-                TablesHeader::new(stream_offset as u32, records.len() as u32, b"#~\0\0");
+        let tables_header =
+            TablesHeader::new(stream_offset as u32, records.len() as u32, b"#~\0\0");
 
-            let strings_header = StringsHeader::new(
-                tables_header.next_offset(),
-                strings.len() as u32,
-                b"#Strings\0\0\0\0",
-            );
+        let strings_header = StringsHeader::new(
+            tables_header.next_offset(),
+            strings.len() as u32,
+            b"#Strings\0\0\0\0",
+        );
 
-            let guids_header = GuidsHeader::new(
-                strings_header.next_offset(),
-                guids.len() as u32,
-                b"#GUID\0\0\0",
-            );
+        let guids_header = GuidsHeader::new(
+            strings_header.next_offset(),
+            guids.len() as u32,
+            b"#GUID\0\0\0",
+        );
 
-            let blobs_header = BlobsHeader::new(
-                guids_header.next_offset(),
-                blobs.len() as u32,
-                b"#Blob\0\0\0",
-            );
+        let blobs_header = BlobsHeader::new(
+            guids_header.next_offset(),
+            blobs.len() as u32,
+            b"#Blob\0\0\0",
+        );
 
-            buffer.write_header(&tables_header);
-            buffer.write_header(&strings_header);
-            buffer.write_header(&guids_header);
-            buffer.write_header(&blobs_header);
+        buffer.write_header(&tables_header);
+        buffer.write_header(&strings_header);
+        buffer.write_header(&guids_header);
+        buffer.write_header(&blobs_header);
 
-            buffer.append(&mut records);
-            buffer.append(&mut strings);
-            buffer.append(&mut guids);
-            buffer.append(&mut blobs);
+        buffer.append(&mut records);
+        buffer.append(&mut strings);
+        buffer.append(&mut guids);
+        buffer.append(&mut blobs);
 
-            let unpadded_size = buffer.len();
-            buffer.resize(
-                optional.FileAlignment as usize + section.SizeOfRawData as usize,
-                0,
-            );
+        let unpadded_size = buffer.len();
+        buffer.resize(
+            optional.FileAlignment as usize + section.SizeOfRawData as usize,
+            0,
+        );
 
-            assert_eq!(clr.MetaData.Size as usize, unpadded_size - metadata_offset);
-            assert_eq!(
-                optional.FileAlignment as usize + section.SizeOfRawData as usize,
-                buffer.len()
-            );
+        assert_eq!(clr.MetaData.Size as usize, unpadded_size - metadata_offset);
+        assert_eq!(
+            optional.FileAlignment as usize + section.SizeOfRawData as usize,
+            buffer.len()
+        );
 
-            buffer
-        }
+        buffer
     }
 }

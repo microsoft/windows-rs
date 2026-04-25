@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[guid(0xcacf84a5_4b53_4c4b_a79c_c6cdd2a5c918)]
+    interface IBar {}
+    #[guid(0x7c185885_a015_4cac_9411_0f4fb39b1f3a)]
+    interface IFoo {}
+}

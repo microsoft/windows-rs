@@ -94,7 +94,8 @@ impl<'a> Parser<'a> {
                 // an anonymous struct that is not nested inside any named type).
                 if is_anonymous_name(&name) {
                     // nothing to emit
-                } else if child.has_pure_virtual_methods() {
+                } else if child.has_pure_virtual_methods() || child.extract_uuid(self.tu).is_some()
+                {
                     if !self.ref_map.contains_key(&name) {
                         collector.insert(Item::Interface(Interface::parse(child, self)?));
                     }
@@ -119,11 +120,30 @@ impl<'a> Parser<'a> {
                     collector.insert(Item::Struct(Struct::parse(child, self, true)?));
                 }
             }
-            CXCursor_ClassDecl if child.is_definition() && child.has_pure_virtual_methods() => {
+            CXCursor_ClassDecl
+                if child.is_definition()
+                    && (child.has_pure_virtual_methods()
+                        || child.extract_uuid(self.tu).is_some()) =>
+            {
                 let tag_name = child.name();
                 let name = self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
                 if !self.ref_map.contains_key(&name) {
                     collector.insert(Item::Interface(Interface::parse(child, self)?));
+                }
+            }
+            // A C++ class that is only forward-declared (no body `{}`) but carries a
+            // `__declspec(uuid("..."))` attribute should be emitted as a GUID constant.
+            // This handles the MIDL pattern for COM server activation CLSIDs, e.g.:
+            //   class DECLSPEC_UUID("e6756135-...") DiaSource;
+            // Only emit when no definition for the class exists anywhere in the TU,
+            // to avoid adding a GUID constant for a class that is separately defined.
+            CXCursor_ClassDecl if !child.is_definition() && !child.has_definition() => {
+                if let Some(uuid) = child.extract_uuid(self.tu) {
+                    let tag_name = child.name();
+                    let name = self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
+                    if !name.is_empty() && !self.ref_map.contains_key(&name) {
+                        collector.insert(Item::GuidConst(GuidConst { name, uuid }));
+                    }
                 }
             }
             CXCursor_EnumDecl if child.is_definition() => {
@@ -188,6 +208,10 @@ impl<'a> Parser<'a> {
                     // `#define EXTERN_C extern "C"`) and cannot be integer
                     // constant expressions; adding them to pending_macros
                     // causes the evaluator to emit bogus zero constants.
+                    // Similarly, skip macros whose body contains string
+                    // literals (narrow or wide): those are not valid integer
+                    // constant expressions and evaluating them produces bogus
+                    // zero constants.
                     // The first token is always the macro name itself; skip
                     // it to examine only the replacement-list body tokens.
                     let tokens = self.tu.tokenize(child.extent());
@@ -195,7 +219,11 @@ impl<'a> Parser<'a> {
                         .iter()
                         .skip(1) // first token is the macro name
                         .any(|(kind, _)| *kind == CXToken_Keyword);
-                    if !body_has_keyword {
+                    let body_has_string_literal = tokens.iter().skip(1).any(|(kind, spelling)| {
+                        *kind == CXToken_Literal
+                            && (spelling.starts_with('"') || spelling.starts_with("L\""))
+                    });
+                    if !body_has_keyword && !body_has_string_literal {
                         // The token parser returned None for a candidate
                         // object-like macro.  Defer to the batch evaluator.
                         self.pending_macros.push(child.name());
@@ -259,6 +287,17 @@ impl Clang {
         self
     }
 
+    pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for input in inputs {
+            self.input.push(input.as_ref().to_string());
+        }
+        self
+    }
+
     pub fn input_str(&mut self, input: &str) -> &mut Self {
         self.input_str.push(input.to_string());
         self
@@ -295,6 +334,24 @@ impl Clang {
     /// disambiguate when multiple files share the same base name.
     pub fn filter(&mut self, filter: &str) -> &mut Self {
         self.filter.push(filter.to_string());
+        self
+    }
+
+    /// Adds multiple header path suffixes to the inclusion filter.
+    pub fn filters<I, S>(&mut self, filters: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for filter in filters {
+            self.filter.push(filter.as_ref().to_string());
+        }
+        self
+    }
+
+    /// Add a single compiler argument to pass to libclang.
+    pub fn arg<S: AsRef<str>>(&mut self, arg: S) -> &mut Self {
+        self.args.push(arg.as_ref().to_string());
         self
     }
 

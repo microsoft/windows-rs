@@ -21,14 +21,9 @@ impl Matrix4x4 {
             M44: 1.0,
         }
     }
+    #[cfg(feature = "std")]
     pub fn rotation_y(degree: f32) -> Self {
-        windows_link::link!("d2d1.dll" "system" fn D2D1SinCos(angle: f32, sin: *mut f32, cos: *mut f32));
-        let angle = degree.to_radians();
-        let mut sin = 0.0;
-        let mut cos = 0.0;
-        unsafe {
-            D2D1SinCos(angle, &mut sin, &mut cos);
-        }
+        let (sin, cos) = degree.to_radians().sin_cos();
         Self {
             M11: cos,
             M12: 0.0,

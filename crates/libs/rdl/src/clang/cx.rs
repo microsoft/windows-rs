@@ -369,6 +369,17 @@ impl Cursor {
         unsafe { clang_CXXMethod_isPureVirtual(self.0) != 0 }
     }
 
+    /// Returns `true` if a definition for this cursor's class/struct exists in the
+    /// translation unit.
+    ///
+    /// For a forward-declaration cursor (e.g. `class DiaSource;`) this is `true` when the
+    /// class body appears elsewhere in the same TU, and `false` when the class is never
+    /// defined (only declared).
+    pub fn has_definition(&self) -> bool {
+        let defn = unsafe { clang_getCursorDefinition(self.0) };
+        unsafe { clang_Cursor_isNull(defn) == 0 }
+    }
+
     /// Returns true if this struct/class cursor has at least one pure-virtual method, indicating
     /// that it is a COM-style abstract interface rather than a plain data struct.
     ///

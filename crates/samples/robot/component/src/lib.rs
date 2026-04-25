@@ -37,6 +37,9 @@ impl bindings::IRobot_Impl for Robot_Impl {
             println!("{} ({:?})", message.display(), self.handle);
         }
 
+        // Flush stdout explicitly so that output is not lost when captured via a pipe.
+        let _ = std::io::Write::flush(&mut std::io::stdout());
+
         Ok(())
     }
 }

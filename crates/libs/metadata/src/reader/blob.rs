@@ -259,20 +259,27 @@ impl<'a> Blob<'a> {
     pub fn read_utf16(&mut self) -> String {
         let slice = self.slice;
 
-        let value = if slice.as_ptr().align_offset(align_of::<u16>()) > 0 {
-            let slice = slice
-                .chunks_exact(2)
-                .take(slice.len() / 2)
-                .map(|chunk| u16::from_le_bytes(chunk.try_into().unwrap()))
-                .collect::<Vec<u16>>();
-
-            String::from_utf16_lossy(&slice)
+        let value = if cfg!(target_endian = "little") {
+            // SAFETY: `align_to::<u16>` is only used as an optimisation to view the
+            // already-aligned byte slice as `u16`s without copying. If any bytes fall
+            // in the prefix or suffix (i.e. the slice is not u16-aligned), we fall back
+            // to the byte-wise path below.
+            let (prefix, chars, suffix) = unsafe { slice.align_to::<u16>() };
+            if prefix.is_empty() && suffix.is_empty() {
+                String::from_utf16_lossy(chars)
+            } else {
+                let chars: Vec<u16> = slice
+                    .chunks_exact(2)
+                    .map(|chunk| u16::from_le_bytes(chunk.try_into().unwrap()))
+                    .collect();
+                String::from_utf16_lossy(&chars)
+            }
         } else {
-            let slice = unsafe {
-                std::slice::from_raw_parts(slice.as_ptr() as *const u16, slice.len() / 2)
-            };
-
-            String::from_utf16_lossy(slice)
+            let chars: Vec<u16> = slice
+                .chunks_exact(2)
+                .map(|chunk| u16::from_le_bytes(chunk.try_into().unwrap()))
+                .collect();
+            String::from_utf16_lossy(&chars)
         };
 
         self.offset(slice.len());

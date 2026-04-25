@@ -43,7 +43,7 @@ macro_rules! h {
         const OUTPUT_LEN: usize = $crate::utf16_len(INPUT) + 1;
         static RESULT: $crate::HSTRING = {
             if OUTPUT_LEN == 1 {
-                unsafe { ::core::mem::transmute(::core::ptr::null::<u16>()) }
+                $crate::HSTRING::new()
             } else {
                 #[repr(C)]
                 struct HSTRING_HEADER {

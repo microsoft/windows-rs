@@ -43,9 +43,6 @@ impl PartialOrd for Row<'_> {
     }
 }
 
-unsafe impl Send for Row<'_> {}
-unsafe impl Sync for Row<'_> {}
-
 impl<'a> Row<'a> {
     pub(crate) fn new(index: &'a TypeIndex, file: usize, pos: usize) -> Self {
         Self { index, file, pos }

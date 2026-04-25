@@ -21,16 +21,21 @@ impl Matrix3x2 {
             M32: y,
         }
     }
+    #[cfg(feature = "std")]
     pub fn rotation(angle: f32) -> Self {
         Self::rotation_around(angle, Vector2::zero())
     }
+    #[cfg(feature = "std")]
     pub fn rotation_around(angle: f32, center: Vector2) -> Self {
-        windows_link::link!("d2d1.dll" "system" fn D2D1MakeRotateMatrix(angle: f32, center: Vector2, matrix: *mut Matrix3x2));
-        let mut matrix = Self::default();
-        unsafe {
-            D2D1MakeRotateMatrix(angle, center, &mut matrix);
+        let (sin, cos) = angle.to_radians().sin_cos();
+        Self {
+            M11: cos,
+            M12: sin,
+            M21: -sin,
+            M22: cos,
+            M31: center.X * (1.0 - cos) + center.Y * sin,
+            M32: center.Y * (1.0 - cos) - center.X * sin,
         }
-        matrix
     }
     pub fn scale(scale_x: f32, scale_y: f32) -> Self {
         Self::scale_around(scale_x, scale_y, Vector2::zero())
@@ -45,16 +50,22 @@ impl Matrix3x2 {
             M32: center.Y - scale_y * center.Y,
         }
     }
+    #[cfg(feature = "std")]
     pub fn skew(angle_x: f32, angle_y: f32) -> Self {
         Self::skew_around(angle_x, angle_y, Vector2::zero())
     }
+    #[cfg(feature = "std")]
     pub fn skew_around(angle_x: f32, angle_y: f32, center: Vector2) -> Self {
-        windows_link::link!("d2d1.dll" "system" fn D2D1MakeSkewMatrix(angle_x: f32, angle_y: f32, center: Vector2, matrix: *mut Matrix3x2));
-        let mut matrix = Self::default();
-        unsafe {
-            D2D1MakeSkewMatrix(angle_x, angle_y, center, &mut matrix);
+        let tan_x = angle_x.to_radians().tan();
+        let tan_y = angle_y.to_radians().tan();
+        Self {
+            M11: 1.0,
+            M12: tan_y,
+            M21: tan_x,
+            M22: 1.0,
+            M31: -center.Y * tan_x,
+            M32: -center.X * tan_y,
         }
-        matrix
     }
     fn impl_add(&self, rhs: &Self) -> Self {
         Self {

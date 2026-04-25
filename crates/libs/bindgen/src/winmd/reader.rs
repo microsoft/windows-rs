@@ -51,9 +51,7 @@ impl Reader {
         for (namespace, name, def) in index.iter() {
             let flags = def.flags();
 
-            let type_name = TypeName(namespace, name);
-
-            if Type::remap(type_name) != Remap::None {
+            if Type::remap(namespace, name) != Remap::None {
                 continue;
             }
 
