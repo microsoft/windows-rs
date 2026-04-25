@@ -43,9 +43,7 @@ impl CppConst {
         let field_ty = self.field.field_type(None, config.reader).to_const_type();
         let tn = field_ty.type_name().name();
         let name = if !tn.is_empty() && self.field.name() == tn {
-            let mut renamed = String::from(tn);
-            renamed.push('_');
-            to_ident(&renamed)
+            to_ident(&format!("{tn}_"))
         } else {
             to_ident(self.field.name())
         };
