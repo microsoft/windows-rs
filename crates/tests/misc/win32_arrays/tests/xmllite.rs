@@ -19,7 +19,7 @@ fn test() -> Result<()> {
             None,
             w!("head"),
             None,
-            w!("The quick brown fox jumps over the lazy dog"),
+            Some(w!("The quick brown fox jumps over the lazy dog")),
         )?;
         writer.WriteStartElement(None, w!("body"), None)?;
         writer.WriteChars(None)?;

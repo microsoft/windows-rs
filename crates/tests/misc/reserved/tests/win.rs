@@ -33,7 +33,15 @@ fn test() -> Result<()> {
         )
         .ok()?;
         let mut len = 0;
-        RegQueryValueExA(key, Some(s!("Content Type")), None, None, None, Some(&mut len)).ok()?;
+        RegQueryValueExA(
+            key,
+            Some(s!("Content Type")),
+            None,
+            None,
+            None,
+            Some(&mut len),
+        )
+        .ok()?;
         let mut buffer = vec![0u8; (len) as usize];
         RegQueryValueExA(
             key,

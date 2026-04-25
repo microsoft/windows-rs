@@ -17,7 +17,7 @@ fn bad_string() -> Result<()> {
     unsafe {
         RegSetValueExW(
             HKEY(key.as_raw()),
-            w!("name"),
+            Some(w!("name")),
             None,
             REG_SZ,
             Some(&bad_string_bytes),

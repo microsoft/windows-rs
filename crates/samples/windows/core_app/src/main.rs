@@ -57,7 +57,9 @@ fn main() -> Result<()> {
         if let Err(result) = Package::Current() {
             MessageBoxW(
                 None,
-                Some(w!("This sample must be registered (via register.cmd) and launched from Start.")),
+                Some(w!(
+                    "This sample must be registered (via register.cmd) and launched from Start."
+                )),
                 Some(w!("Error")),
                 MB_ICONSTOP | MB_OK,
             );
