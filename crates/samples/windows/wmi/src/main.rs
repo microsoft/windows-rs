@@ -71,7 +71,7 @@ fn main() -> Result<()> {
         let class = class.unwrap();
 
         let mut input = None;
-        class.GetMethod(&method_name, 0, &mut input, std::ptr::null_mut())?;
+        class.GetMethod(w!("Create"), 0, &mut input, std::ptr::null_mut())?;
         let input = input.unwrap();
 
         let object = input.SpawnInstance(0)?;
