@@ -567,11 +567,12 @@ mod d3d12_hello_triangle {
         let shaders_hlsl_path = asset_path.join("shaders.hlsl");
         let shaders_hlsl = shaders_hlsl_path.to_str().unwrap();
         let shaders_hlsl: HSTRING = shaders_hlsl.into();
+        let shaders_hlsl = PCWSTR(shaders_hlsl.as_ptr());
 
         let mut vertex_shader = None;
         let vertex_shader = unsafe {
             D3DCompileFromFile(
-                &shaders_hlsl,
+                shaders_hlsl,
                 None,
                 None,
                 s!("VSMain"),
@@ -587,7 +588,7 @@ mod d3d12_hello_triangle {
         let mut pixel_shader = None;
         let pixel_shader = unsafe {
             D3DCompileFromFile(
-                &shaders_hlsl,
+                shaders_hlsl,
                 None,
                 None,
                 s!("PSMain"),

@@ -23,7 +23,7 @@ use windows_core::*;
 
 #[cfg(feature = "std")]
 mod async_ready;
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 mod async_spawn;
 #[cfg(feature = "std")]
 mod future;

@@ -1,4 +1,8 @@
 fn main() {
+    if !cfg!(target_env = "msvc") {
+        return;
+    }
+
     println!("cargo:rerun-if-changed=src/metadata.idl");
 
     let mut command = std::process::Command::new("midlrt.exe");

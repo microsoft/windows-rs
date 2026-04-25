@@ -9,6 +9,7 @@ fn main() {
 
     let include = std::env::var("OUT_DIR").unwrap();
 
+    #[cfg(windows)]
     cppwinrt::cppwinrt([
         "-in",
         "../component/robot.winmd",

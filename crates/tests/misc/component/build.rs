@@ -1,6 +1,10 @@
 fn main() {
     println!("cargo:rerun-if-changed=src/component.rdl");
-    let metadata_dir = format!("{}\\System32\\WinMetadata", env!("windir"));
+
+    let Ok(windir) = std::env::var("windir") else {
+        return;
+    };
+    let metadata_dir = format!("{}\\System32\\WinMetadata", windir);
 
     windows_rdl::reader()
         .input("src/component.rdl")

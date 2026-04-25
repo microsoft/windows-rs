@@ -1,4 +1,8 @@
 fn main() {
+    if !cfg!(windows) {
+        return;
+    }
+
     if !cfg!(target_env = "msvc") {
         return;
     }
@@ -22,6 +26,7 @@ fn main() {
 
     let include = std::env::var("OUT_DIR").unwrap();
 
+    #[cfg(windows)]
     cppwinrt::cppwinrt([
         "-in",
         "../constructors/metadata.winmd",

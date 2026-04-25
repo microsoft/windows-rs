@@ -19,6 +19,7 @@ fn main() {
         .write()
         .unwrap();
 
+    #[cfg(windows)]
     cppwinrt::cppwinrt(["-in", "robot.winmd", reference, "-out", &include]);
 
     cc::Build::new()

@@ -7,7 +7,7 @@ fn main() {
     println!("cargo:rerun-if-changed=src/interop.cpp");
     println!("cargo:rustc-link-lib=onecoreuap");
 
-    let metadata_dir = format!("{}\\System32\\WinMetadata", env!("windir"));
+    let metadata_dir = format!("{}\\System32\\WinMetadata", std::env::var("windir").unwrap());
     let include = std::env::var("OUT_DIR").unwrap();
 
     windows_rdl::reader()
@@ -33,6 +33,7 @@ fn main() {
     ])
     .unwrap();
 
+    #[cfg(windows)]
     cppwinrt::cppwinrt(["-in", "test.winmd", &metadata_dir, "-out", &include]);
 
     cc::Build::new()

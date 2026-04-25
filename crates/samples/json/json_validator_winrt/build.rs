@@ -1,9 +1,13 @@
 fn main() {
     println!("cargo:rerun-if-changed=src/sample.rdl");
 
+    let Ok(windir) = std::env::var("windir") else {
+        return;
+    };
+
     let windows_foundation = format!(
         "{}\\System32\\WinMetadata\\Windows.Foundation.winmd",
-        env!("windir")
+        windir
     );
 
     windows_rdl::reader()
