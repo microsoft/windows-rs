@@ -1,6 +1,5 @@
 use super::*;
 
-/// Error produced by [`Merger::merge`].
 pub struct Error(String);
 
 impl Error {
@@ -23,18 +22,6 @@ impl std::fmt::Display for Error {
     }
 }
 
-/// Builder for merging multiple `.winmd` files into one.
-///
-/// # Example
-///
-/// ```no_run
-/// windows_metadata::merge()
-///     .input("a.winmd")
-///     .input("b.winmd")
-///     .output("merged.winmd")
-///     .merge()
-///     .unwrap();
-/// ```
 #[derive(Default)]
 pub struct Merger {
     input: Vec<String>,
@@ -46,13 +33,11 @@ impl Merger {
         Self::default()
     }
 
-    /// Adds a `.winmd` input file path or directory of `.winmd` files.
     pub fn input(&mut self, input: &str) -> &mut Self {
         self.input.push(input.to_string());
         self
     }
 
-    /// Adds multiple `.winmd` input file paths or directories.
     pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
@@ -64,13 +49,11 @@ impl Merger {
         self
     }
 
-    /// Sets the output `.winmd` file path.
     pub fn output(&mut self, output: &str) -> &mut Self {
         self.output = output.to_string();
         self
     }
 
-    /// Merges the input files and writes the result to the output path.
     pub fn merge(&self) -> Result<(), Error> {
         if self.output.is_empty() {
             return Err(Error::new("output is required"));
@@ -87,7 +70,6 @@ impl Merger {
 
         let mut file = writer::File::new(name);
 
-        // Sort types by (namespace, name) for deterministic output order.
         let mut types: Vec<reader::TypeDef<'_>> = index.types().collect();
         types.sort_by(|a, b| (a.namespace(), a.name()).cmp(&(b.namespace(), b.name())));
 
@@ -219,8 +201,7 @@ fn write_type(
             );
 
             for param_def in method.params() {
-                let param =
-                    file.Param(param_def.name(), param_def.sequence(), param_def.flags());
+                let param = file.Param(param_def.name(), param_def.sequence(), param_def.flags());
                 write_attributes(file, writer::HasAttribute::Param(param), param_def);
             }
 
