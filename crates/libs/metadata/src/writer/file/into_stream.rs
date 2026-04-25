@@ -532,10 +532,10 @@ impl File {
     ) {
         result.push(td);
         if let Some(kids) = children.get(&td) {
-            let mut kids = kids.clone();
-            kids.sort_by(|&a, &b| sort_keys[a].1.cmp(&sort_keys[b].1));
-            for child in kids {
-                Self::dfs_append(child, children, sort_keys, result);
+            let mut indices: Vec<usize> = (0..kids.len()).collect();
+            indices.sort_by(|&a, &b| sort_keys[kids[a]].1.cmp(&sort_keys[kids[b]].1));
+            for i in indices {
+                Self::dfs_append(kids[i], children, sort_keys, result);
             }
         }
     }
