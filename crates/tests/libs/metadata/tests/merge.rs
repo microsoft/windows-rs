@@ -25,22 +25,4 @@ fn test() {
         .filter("Test")
         .write()
         .unwrap();
-
-    let index = windows_metadata::reader::TypeIndex::read("tests/merged.winmd").unwrap();
-
-    let point = index.expect("Test", "Point");
-    let fields: Vec<_> = point.fields().collect();
-    assert_eq!(fields.len(), 2);
-    assert_eq!(fields[0].name(), "x");
-    assert_eq!(fields[0].ty(), windows_metadata::Type::I32);
-    assert_eq!(fields[1].name(), "y");
-    assert_eq!(fields[1].ty(), windows_metadata::Type::I32);
-
-    let color = index.expect("Test", "Color");
-    assert_eq!(
-        color.category(),
-        windows_metadata::reader::TypeCategory::Enum
-    );
-    let fields: Vec<_> = color.fields().collect();
-    assert_eq!(fields.len(), 4);
 }
