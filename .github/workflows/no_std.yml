@@ -36,4 +36,4 @@ jobs:
       - name: Prepare
         run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
       - name: Check
-        run: cargo check -p test_no_std
+        run: cargo check --manifest-path crates/tests/misc/no_std/Cargo.toml

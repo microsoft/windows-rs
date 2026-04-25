@@ -6,3 +6,5 @@
 *.winmd
 obj
 bin
+
+crates/tests/misc/no_std/target/

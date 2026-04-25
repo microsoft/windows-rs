@@ -29,10 +29,14 @@ path = "../../../libs/sys"
 default-features = false
 
 [dependencies.windows-targets]
-workspace = true
+version = "0.53.5"
+path = "../../../libs/targets"
+default-features = false
 
 [dependencies.windows-link]
-workspace = true
+version = "0.2.1"
+path = "../../../libs/link"
+default-features = false
 
 [dependencies.windows-collections]
 path = "../../../libs/collections"
@@ -67,5 +71,6 @@ features = [
     "Win32_System_Variant",
 ]
 
-[lints]
-workspace = true
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib, windows_slim_errors)'] }
+missing_unsafe_on_extern = "warn"

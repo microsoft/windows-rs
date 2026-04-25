@@ -9,6 +9,7 @@ members = [
 ]
 exclude = [
     "crates/targets/baseline",
+    "crates/tests/misc/no_std",
 ]
 
 [profile.dev.package."*"]
