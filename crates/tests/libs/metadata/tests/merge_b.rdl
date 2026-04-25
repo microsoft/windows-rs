@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum Color {
+        Red = 0,
+        Green = 1,
+        Blue = 2,
+    }
+}
