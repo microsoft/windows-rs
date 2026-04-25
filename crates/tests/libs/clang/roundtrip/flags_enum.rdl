@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    #[repr(i32)]
+    #[flags]
+    enum Options {
+        None = 0,
+        Read = 1,
+        Write = 2,
+    }
+}

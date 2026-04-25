@@ -5,6 +5,7 @@ pub struct Enum {
     pub name: String,
     pub repr: &'static str,
     pub variants: Vec<(String, i64)>,
+    pub flags: bool,
 }
 
 impl Enum {
@@ -37,6 +38,7 @@ impl Enum {
             name,
             repr,
             variants,
+            flags: false,
         })
     }
 
@@ -65,11 +67,21 @@ impl Enum {
             quote! { #name = #value, }
         });
 
-        Ok(quote! {
-            #[repr(#repr)]
-            enum #name {
-                #(#variants)*
-            }
-        })
+        if self.flags {
+            Ok(quote! {
+                #[repr(#repr)]
+                #[flags]
+                enum #name {
+                    #(#variants)*
+                }
+            })
+        } else {
+            Ok(quote! {
+                #[repr(#repr)]
+                enum #name {
+                    #(#variants)*
+                }
+            })
+        }
     }
 }
