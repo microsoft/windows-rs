@@ -67,21 +67,18 @@ impl Enum {
             quote! { #name = #value, }
         });
 
-        if self.flags {
-            Ok(quote! {
-                #[repr(#repr)]
-                #[flags]
-                enum #name {
-                    #(#variants)*
-                }
-            })
+        let flags_attr = if self.flags {
+            quote! { #[flags] }
         } else {
-            Ok(quote! {
-                #[repr(#repr)]
-                enum #name {
-                    #(#variants)*
-                }
-            })
-        }
+            quote! {}
+        };
+
+        Ok(quote! {
+            #[repr(#repr)]
+            #flags_attr
+            enum #name {
+                #(#variants)*
+            }
+        })
     }
 }

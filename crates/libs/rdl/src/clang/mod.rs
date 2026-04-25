@@ -242,16 +242,24 @@ impl<'a> Parser<'a> {
             // These mark an enum as a bitfield flags type, which causes `#[flags]`
             // to be emitted in the RDL output for that enum.
             CXCursor_MacroExpansion if child.name() == "DEFINE_ENUM_FLAG_OPERATORS" => {
-                // Tokenize the invocation to extract the argument.
-                // Expected tokens: DEFINE_ENUM_FLAG_OPERATORS ( EnumName )
+                // Tokenize the invocation to extract the enum name argument.
+                // Expected token sequence:
+                //   [0] DEFINE_ENUM_FLAG_OPERATORS  (identifier, the macro name)
+                //   [1] (                            (punctuation)
+                //   [2] EnumName                    (identifier, the argument)
+                //   [3] )                            (punctuation)
                 let tokens = self.tu.tokenize(child.extent());
-                if let Some((CXToken_Identifier, enum_name)) = tokens.get(2) {
-                    let enum_name = enum_name.clone();
-                    // Mark the enum in the collector if already inserted.
-                    collector.mark_flags(&enum_name);
-                    // Also record for the case where the enum definition
-                    // comes after the macro invocation.
-                    self.flag_enums.insert(enum_name);
+                if let [_, (CXToken_Punctuation, lp), (CXToken_Identifier, enum_name), ..] =
+                    tokens.as_slice()
+                {
+                    if lp == "(" {
+                        let enum_name = enum_name.clone();
+                        // Mark the enum in the collector if already inserted.
+                        collector.mark_flags(&enum_name);
+                        // Also record for the case where the enum definition
+                        // comes after the macro invocation.
+                        self.flag_enums.insert(enum_name);
+                    }
                 }
             }
             _ => {}
