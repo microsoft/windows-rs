@@ -31,7 +31,7 @@ impl PartialOrd for Crate {
 
 #[derive(Deserialize)]
 pub struct Lints {
-    pub workspace: bool,
+    pub workspace: Option<bool>,
 }
 
 #[derive(Deserialize)]
@@ -48,6 +48,30 @@ pub struct Package {
     pub readme: Option<String>,
     pub categories: Option<Vec<String>>,
     pub authors: Option<Vec<String>>,
+}
+
+pub fn workspace_excludes<P: AsRef<Path>>(workspace_root: P) -> Vec<std::path::PathBuf> {
+    #[derive(Deserialize)]
+    struct WorkspaceFile {
+        workspace: WorkspaceSection,
+    }
+    #[derive(Deserialize)]
+    struct WorkspaceSection {
+        #[serde(default)]
+        exclude: Vec<String>,
+    }
+
+    let workspace_root = workspace_root.as_ref();
+    let text = std::fs::read_to_string(workspace_root.join("Cargo.toml")).unwrap_or_default();
+    if let Ok(ws) = toml::from_str::<WorkspaceFile>(&text) {
+        ws.workspace
+            .exclude
+            .into_iter()
+            .map(|e| workspace_root.join(e))
+            .collect()
+    } else {
+        vec![]
+    }
 }
 
 pub fn crates<P: AsRef<Path>>(path: P) -> Vec<Crate> {

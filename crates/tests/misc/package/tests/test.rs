@@ -1,11 +1,32 @@
+fn workspace_root() -> std::path::PathBuf {
+    std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .ancestors()
+        .nth(4)
+        .expect("workspace root")
+        .to_path_buf()
+}
+
 #[test]
 fn test() {
+    let root = workspace_root();
+    let excludes = helpers::workspace_excludes(&root);
     for toml in helpers::crates("../../..") {
         let package = &toml.package;
         println!("package: {}", package.name);
 
+        let crate_dir = toml.path.as_deref().and_then(|p| p.parent());
+        if crate_dir
+            .map(|p| excludes.iter().any(|excl| p.starts_with(excl)))
+            .unwrap_or(false)
+        {
+            continue;
+        }
+
         assert!(
-            toml.lints.map(|lints| lints.workspace).unwrap_or(false),
+            toml.lints
+                .as_ref()
+                .and_then(|l| l.workspace)
+                .unwrap_or(false),
             "`{}` missing workspace lints",
             package.name
         );

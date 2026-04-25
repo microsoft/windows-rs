@@ -7,7 +7,10 @@ fn main() {
     println!("cargo:rerun-if-changed=src/interop.cpp");
     println!("cargo:rustc-link-lib=onecoreuap");
 
-    let metadata_dir = format!("{}\\System32\\WinMetadata", std::env::var("windir").unwrap());
+    let metadata_dir = format!(
+        "{}\\System32\\WinMetadata",
+        std::env::var("windir").unwrap()
+    );
     let include = std::env::var("OUT_DIR").unwrap();
 
     windows_rdl::reader()

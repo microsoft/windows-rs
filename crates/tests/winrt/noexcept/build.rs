@@ -4,7 +4,10 @@ fn main() {
     }
 
     println!("cargo:rerun-if-changed=src/test.idl");
-    let metadata_dir = format!("{}\\System32\\WinMetadata", std::env::var("windir").unwrap());
+    let metadata_dir = format!(
+        "{}\\System32\\WinMetadata",
+        std::env::var("windir").unwrap()
+    );
     let mut command = std::process::Command::new("midlrt.exe");
     println!("cargo:rerun-if-changed=src/interop.cpp");
     println!("cargo:rustc-link-lib=onecoreuap");
@@ -47,7 +50,10 @@ fn main() {
     cppwinrt::cppwinrt([
         "-in",
         "test.winmd",
-        &format!("{}\\System32\\WinMetadata", std::env::var("windir").unwrap()),
+        &format!(
+            "{}\\System32\\WinMetadata",
+            std::env::var("windir").unwrap()
+        ),
         "-out",
         &include,
     ]);
