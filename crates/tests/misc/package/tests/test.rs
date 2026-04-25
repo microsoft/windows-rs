@@ -10,7 +10,7 @@ fn workspace_root() -> std::path::PathBuf {
 fn test() {
     let root = workspace_root();
     let excludes = helpers::workspace_excludes(&root);
-    for toml in helpers::crates("../../..") {
+    for toml in helpers::crates(root.join("crates")) {
         let package = &toml.package;
         println!("package: {}", package.name);
 
