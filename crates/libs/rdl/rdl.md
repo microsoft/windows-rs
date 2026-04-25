@@ -501,7 +501,7 @@ mod Windows {
         mod Api {
             #[library("example.dll")]
             extern fn ReadBuffer(
-                #[in] data: *mut i32,    // _In_ — input despite mutable pointer
+                #[in] data: *mut i32,    // _In_ - input despite mutable pointer
                 count: i32,              // plain In (inferred)
             );
 
