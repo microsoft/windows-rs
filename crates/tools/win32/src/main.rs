@@ -19,18 +19,17 @@ fn main() {
 
     // Resolve include-path flags once so they can be appended to every
     // per-namespace clang args list.
-    let include_flags: Vec<String> = opts
-        .includes
-        .iter()
-        .map(|inc| format!("-I{inc}"))
-        .collect();
+    let include_flags: Vec<String> = opts.includes.iter().map(|inc| format!("-I{inc}")).collect();
 
     // The reference .winmd (either from the manifest or from the CLI override)
     // that is passed to Clang and Reader for cross-namespace type resolution.
     let reference: Option<String> = opts.reference.or_else(|| manifest.reference.clone());
 
     std::fs::create_dir_all(&opts.output).unwrap_or_else(|e| {
-        eprintln!("error: failed to create output directory `{}`: {e}", opts.output);
+        eprintln!(
+            "error: failed to create output directory `{}`: {e}",
+            opts.output
+        );
         std::process::exit(1);
     });
 
