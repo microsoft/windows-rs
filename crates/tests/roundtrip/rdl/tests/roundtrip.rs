@@ -96,6 +96,10 @@ fn roundtrip_const() {
     run_roundtrip("const");
 }
 #[test]
+fn roundtrip_const_fields() {
+    run_roundtrip("const_fields");
+}
+#[test]
 fn roundtrip_cross_namespace_enum_attribute() {
     run_roundtrip("cross-namespace-enum-attribute");
 }
@@ -118,6 +122,10 @@ fn roundtrip_enum_flags() {
 #[test]
 fn roundtrip_enum() {
     run_roundtrip("enum");
+}
+#[test]
+fn roundtrip_enum_values() {
+    run_roundtrip("enum_values");
 }
 #[test]
 fn roundtrip_event_interface() {
