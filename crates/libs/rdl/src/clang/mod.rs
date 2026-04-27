@@ -409,15 +409,12 @@ impl Clang {
         let mut collector = Collector::new();
 
         // Build the effective args list: optional --target= first, then user args.
-        let target_arg: String;
-        let args: Vec<&str> = if let Some(ref t) = self.target {
-            target_arg = format!("--target={t}");
-            std::iter::once(target_arg.as_str())
-                .chain(self.args.iter().map(String::as_str))
-                .collect()
-        } else {
-            self.args.iter().map(String::as_str).collect()
-        };
+        let target_arg: Option<String> = self.target.as_ref().map(|t| format!("--target={t}"));
+        let args: Vec<&str> = target_arg
+            .iter()
+            .map(String::as_str)
+            .chain(self.args.iter().map(String::as_str))
+            .collect();
 
         for input in &h_paths {
             let tu = index.parse(input, &args)?;
