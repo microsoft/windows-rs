@@ -1,0 +1,15 @@
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern fn GetValue(result: *mut i32);
+    #[library("test.dll")]
+    extern fn LookupByName(#[opt] name: *const i8);
+    #[library("test.dll")]
+    extern fn Plain(x: i32);
+    #[library("test.dll")]
+    extern fn ReadBuffer(#[in] data: *mut i32, count: i32);
+    #[library("test.dll")]
+    extern fn Transform(#[in] #[out] value: *mut i32);
+    #[library("test.dll")]
+    extern fn TryGetValue(#[opt] result: *mut i32);
+}

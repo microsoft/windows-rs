@@ -473,6 +473,60 @@ mod Contoso {
 
 ---
 
+#### Parameter Direction Attributes
+
+Parameters may carry direction and optional attributes that correspond to Win32 SAL annotations.
+These attributes control how the parameter is treated in generated bindings.
+
+| Attribute | Meaning                                                    | Corresponding SAL                          |
+|-----------|------------------------------------------------------------|--------------------------------------------|
+| `#[in]`   | Input parameter (data flows into the function)             | `_In_`, `_In_z_`, …                        |
+| `#[out]`  | Output parameter (data flows out of the function)          | `_Out_`, `_Out_z_`, …                      |
+| `#[opt]`  | Parameter is optional and may be `NULL`                    | `_In_opt_`, `_Out_opt_`, `_Inout_opt_`, …  |
+
+When neither `#[in]` nor `#[out]` is specified, the direction is inferred from the type:
+mutable pointers and references (`*mut T`, `&mut T`) default to `#[out]`, and everything else
+defaults to `#[in]`.  Explicit attributes are only needed when the SAL annotation differs from
+what would be inferred.
+
+When both `#[in]` and `#[out]` appear on the same parameter (corresponding to `_Inout_`),
+the parameter is treated as both input and output.
+
+**Example:**
+
+```rust
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Api {
+            #[library("example.dll")]
+            extern fn ReadBuffer(
+                #[in] data: *mut i32,    // _In_ - input despite mutable pointer
+                count: i32,              // plain In (inferred)
+            );
+
+            #[library("example.dll")]
+            extern fn Transform(
+                #[in] #[out] value: *mut i32,  // _Inout_
+            );
+
+            #[library("example.dll")]
+            extern fn LookupByName(
+                #[opt] name: *const i8,  // _In_opt_
+            );
+        }
+    }
+}
+```
+
+When clang parses C/C++ headers that use SAL annotations (such as those from the Windows SDK),
+the direction attributes are extracted automatically and emitted in the generated RDL.
+Supported SAL macros include `_In_`, `_Out_`, `_Inout_`, `_In_opt_`, `_Out_opt_`,
+`_Inout_opt_`, `_Outptr_`, `_COM_Outptr_`, `_In_reads_`, `_Out_writes_`, and their
+opt/z/bytes variants.
+
+---
+
 ### Array Types
 
 #### WinRT Arrays (Dynamic Arrays)

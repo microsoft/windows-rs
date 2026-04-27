@@ -396,6 +396,39 @@ pub const COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND_NORMAL: COREWEBVIEW2_BROWSER_PR
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COREWEBVIEW2_BROWSING_DATA_KINDS(pub i32);
+impl COREWEBVIEW2_BROWSING_DATA_KINDS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COREWEBVIEW2_BROWSING_DATA_KINDS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COREWEBVIEW2_BROWSING_DATA_KINDS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COREWEBVIEW2_BROWSING_DATA_KINDS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COREWEBVIEW2_BROWSING_DATA_KINDS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COREWEBVIEW2_BROWSING_DATA_KINDS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE: COREWEBVIEW2_BROWSING_DATA_KINDS =
     COREWEBVIEW2_BROWSING_DATA_KINDS(32i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE: COREWEBVIEW2_BROWSING_DATA_KINDS =
@@ -680,6 +713,39 @@ pub const COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP: COREWEBVIEW2_MOUSE_EVENT_KI
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(pub i32);
+impl COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_CONTROL: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS =
     COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(8i32);
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_LEFT_BUTTON: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS =
@@ -732,6 +798,39 @@ pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE: COREWEBVIEW2_NON_CLIENT_R
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COREWEBVIEW2_PDF_TOOLBAR_ITEMS(pub i32);
+impl COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_BOOKMARKS: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
     COREWEBVIEW2_PDF_TOOLBAR_ITEMS(256i32);
 pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_FIT_PAGE: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
@@ -951,6 +1050,39 @@ pub const COREWEBVIEW2_PROCESS_KIND_UTILITY: COREWEBVIEW2_PROCESS_KIND =
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COREWEBVIEW2_RELEASE_CHANNELS(pub i32);
+impl COREWEBVIEW2_RELEASE_CHANNELS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COREWEBVIEW2_RELEASE_CHANNELS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COREWEBVIEW2_RELEASE_CHANNELS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COREWEBVIEW2_RELEASE_CHANNELS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COREWEBVIEW2_RELEASE_CHANNELS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COREWEBVIEW2_RELEASE_CHANNELS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const COREWEBVIEW2_RELEASE_CHANNELS_BETA: COREWEBVIEW2_RELEASE_CHANNELS =
     COREWEBVIEW2_RELEASE_CHANNELS(2i32);
 pub const COREWEBVIEW2_RELEASE_CHANNELS_CANARY: COREWEBVIEW2_RELEASE_CHANNELS =
@@ -1123,6 +1255,39 @@ pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_XML_HTTP_REQUEST: COREWEBVIEW2_WEB_R
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS(pub i32);
+impl COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL:
     COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS =
     COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS(-1i32);

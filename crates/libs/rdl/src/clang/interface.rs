@@ -118,9 +118,11 @@ impl Interface {
                 }
                 let param_name = param.name();
                 let param_ty = param.ty().to_type(parser);
+                let annotation = extract_sal(&param, parser.tu);
                 params.push(Param {
                     name: param_name,
                     ty: param_ty,
+                    annotation,
                 });
             }
 
@@ -177,7 +179,8 @@ impl Interface {
                 let params = m.params.iter().map(|p| {
                     let pname = write_ident(&p.name);
                     let pty = write_type(namespace, &p.ty);
-                    quote! { #pname: #pty }
+                    let (in_attr, out_attr, opt_attr) = sal_attrs_for_param(&p.annotation, &p.ty);
+                    quote! { #in_attr #out_attr #opt_attr #pname: #pty }
                 });
                 let return_type = match &m.return_type {
                     metadata::Type::Void => quote! {},
