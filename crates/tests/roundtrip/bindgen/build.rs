@@ -1,6 +1,5 @@
 fn main() {
     println!("cargo:rerun-if-changed=src");
-    let out_dir = std::env::var("OUT_DIR").unwrap();
 
     let mut paths: Vec<_> = std::fs::read_dir("src")
         .unwrap()
@@ -18,7 +17,7 @@ fn main() {
 
     for path in &paths {
         let name = path.file_stem().unwrap().to_str().unwrap();
-        let winmd = format!("{out_dir}/{name}.winmd");
+        let winmd = format!("src/{name}.winmd");
         let rs = format!("src/{name}.rs");
 
         windows_rdl::reader()

@@ -4,12 +4,6 @@ fn run_roundtrip(file: &str) {
     let rdl = std::path::Path::new("src").join(format!("{file}.rdl"));
     let winmd = rdl.with_extension("winmd");
 
-    reader()
-        .input(rdl.to_str().unwrap())
-        .output(winmd.to_str().unwrap())
-        .write()
-        .unwrap();
-
     writer()
         .input(winmd.to_str().unwrap())
         .output(rdl.to_str().unwrap())
