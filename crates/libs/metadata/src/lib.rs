@@ -25,6 +25,12 @@ pub use signature::*;
 
 pub use reader::{AsRow, HasAttributes};
 
+pub mod merge;
+
+pub fn merge() -> merge::Merger {
+    merge::Merger::new()
+}
+
 pub fn trim_tick(name: &str) -> &str {
     if let Some(pos) = name.find('`') {
         &name[..pos]
