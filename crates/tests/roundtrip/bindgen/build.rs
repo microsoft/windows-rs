@@ -8,7 +8,9 @@ fn main() {
         .collect();
     paths.sort();
 
-    let mut lib_includes = String::new();
+    let mut lib_content = String::from(
+        "#![allow(\n    non_snake_case,\n    non_upper_case_globals,\n    non_camel_case_types,\n    dead_code,\n    clippy::all\n)]\n",
+    );
     let mut roundtrip_tests = String::new();
 
     for path in &paths {
@@ -23,7 +25,7 @@ fn main() {
             .write()
             .unwrap();
 
-        let rs_path = format!("{out_dir}/{stem}.rs");
+        let rs_path = format!("src/{stem}.rs");
         windows_bindgen::builder()
             .input(&winmd_path)
             .output(&rs_path)
@@ -34,17 +36,27 @@ fn main() {
             .write()
             .unwrap();
 
-        lib_includes.push_str(&format!(
-            "pub mod {mod_name} {{ include!(concat!(env!(\"OUT_DIR\"), \"/{stem}.rs\")); }}\n"
-        ));
+        if mod_name == name {
+            lib_content.push_str(&format!("pub mod {mod_name};\n"));
+        } else {
+            lib_content.push_str(&format!("#[path = \"{stem}.rs\"]\npub mod {mod_name};\n"));
+        }
 
         roundtrip_tests.push_str(&format!(
             "#[test]\nfn roundtrip_{name}() {{\n    run_roundtrip({stem:?});\n}}\n"
         ));
     }
 
-    std::fs::write(format!("{out_dir}/lib_includes.rs"), lib_includes).unwrap();
-    std::fs::write(format!("{out_dir}/roundtrip_tests.rs"), roundtrip_tests).unwrap();
+    std::fs::write("src/lib.rs", lib_content).unwrap();
+
+    let roundtrip_path = "tests/roundtrip.rs";
+    let current = std::fs::read_to_string(roundtrip_path).unwrap();
+    let marker = "// generated tests\n";
+    let base = match current.find(marker) {
+        Some(pos) => &current[..pos + marker.len()],
+        None => current.as_str(),
+    };
+    std::fs::write(roundtrip_path, format!("{base}{roundtrip_tests}")).unwrap();
 
     // Re-run the build script whenever a .rdl file is added or removed.
     println!("cargo:rerun-if-changed=roundtrip");

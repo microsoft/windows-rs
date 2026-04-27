@@ -18,4 +18,20 @@ fn run_roundtrip(file: &str) {
         .unwrap();
 }
 
-include!(concat!(env!("OUT_DIR"), "/roundtrip_tests.rs"));
+// generated tests
+#[test]
+fn roundtrip_const() {
+    run_roundtrip("const");
+}
+#[test]
+fn roundtrip_enum() {
+    run_roundtrip("enum");
+}
+#[test]
+fn roundtrip_fn() {
+    run_roundtrip("fn");
+}
+#[test]
+fn roundtrip_struct() {
+    run_roundtrip("struct");
+}

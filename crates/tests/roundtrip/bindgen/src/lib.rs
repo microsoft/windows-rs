@@ -5,4 +5,11 @@
     dead_code,
     clippy::all
 )]
-include!(concat!(env!("OUT_DIR"), "/lib_includes.rs"));
+#[path = "const.rs"]
+pub mod const_;
+#[path = "enum.rs"]
+pub mod enum_;
+#[path = "fn.rs"]
+pub mod fn_;
+#[path = "struct.rs"]
+pub mod struct_;
