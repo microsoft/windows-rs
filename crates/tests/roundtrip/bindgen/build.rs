@@ -27,12 +27,11 @@ fn main() {
             .write()
             .unwrap();
 
-            lib_rs.push_str(&format!("pub mod r#{name};\n"));
+        lib_rs.push_str(&format!("pub mod r#{name};\n"));
 
         tests.push_str(&format!(
             "#[test]\nfn roundtrip_{name}() {{\n    run_roundtrip({name:?});\n}}\n"
         ));
-
 
         windows_bindgen::builder()
             .input(&winmd)
@@ -43,7 +42,6 @@ fn main() {
             .specific_deps()
             .write()
             .unwrap();
-
     }
 
     std::fs::write("src/lib.rs", lib_rs).unwrap();
