@@ -1,28 +1,9 @@
-#![allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-
 pub mod Test {
+    pub const Execute: Options = Options(4u32);
+    pub const None: Options = Options(0u32);
     #[repr(transparent)]
     #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
     pub struct Options(pub u32);
-    impl Options {
-        pub const None: Self = Self(0u32);
-        pub const Read: Self = Self(1u32);
-        pub const Write: Self = Self(2u32);
-        pub const Execute: Self = Self(4u32);
-    }
-    impl windows_core::TypeKind for Options {
-        type TypeKind = windows_core::CopyType;
-    }
-    impl windows_core::RuntimeType for Options {
-        const SIGNATURE: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::from_slice(b"enum(Test.Options;u4)");
-    }
     impl Options {
         pub const fn contains(&self, other: Self) -> bool {
             self.0 & other.0 == other.0
@@ -56,4 +37,6 @@ pub mod Test {
             Self(self.0.not())
         }
     }
+    pub const Read: Options = Options(1u32);
+    pub const Write: Options = Options(2u32);
 }
