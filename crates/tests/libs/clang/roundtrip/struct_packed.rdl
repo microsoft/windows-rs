@@ -17,6 +17,10 @@ mod Test {
         a: u32,
         b: u64,
     }
+    struct PackedNoOp {
+        a: u32,
+        b: u32,
+    }
     struct Unpacked {
         a: u8,
         b: u32,
