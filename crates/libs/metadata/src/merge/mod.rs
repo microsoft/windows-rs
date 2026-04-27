@@ -99,10 +99,7 @@ impl Merger {
         // Write arch-tagged inputs with computed SupportedArchitecture annotations.
         if !self.arch_inputs.is_empty() {
             // Compute the bitmask for "all arches present in this merge run".
-            let all_arches_mask: i32 = self
-                .arch_inputs
-                .iter()
-                .fold(0, |acc, (_, arch)| acc | arch);
+            let all_arches_mask: i32 = self.arch_inputs.iter().fold(0, |acc, (_, arch)| acc | arch);
 
             // Load each arch-tagged file group.
             let mut arch_groups: Vec<(reader::TypeIndex, i32)> =
@@ -123,16 +120,14 @@ impl Merger {
             }
 
             // Build a flat list of (TypeIndex ref, TypeDef, arch_bits) sorted by (ns, name).
-            let mut all_type_refs: Vec<(&reader::TypeIndex, reader::TypeDef<'_>, i32)> =
-                Vec::new();
+            let mut all_type_refs: Vec<(&reader::TypeIndex, reader::TypeDef<'_>, i32)> = Vec::new();
             for (idx, arch_bits) in &arch_groups {
                 for ty in idx.types() {
                     all_type_refs.push((idx, ty, *arch_bits));
                 }
             }
-            all_type_refs.sort_by(|a, b| {
-                (a.1.namespace(), a.1.name()).cmp(&(b.1.namespace(), b.1.name()))
-            });
+            all_type_refs
+                .sort_by(|a, b| (a.1.namespace(), a.1.name()).cmp(&(b.1.namespace(), b.1.name())));
 
             // Write each type with the appropriate arch annotation.
             // For types present in all arches, deduplicate to a single arch-neutral TypeDef.

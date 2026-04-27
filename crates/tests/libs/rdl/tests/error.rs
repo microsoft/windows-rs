@@ -13,15 +13,12 @@ pub fn error_display() {
 
 /// Helper: try to compile an RDL string and return the error message if it fails.
 fn compile_rdl_err(rdl: &str) -> Option<String> {
-    let out = std::env::temp_dir().join(format!(
-        "test_arch_err_{}_{}.winmd",
-        std::process::id(),
-        {
+    let out =
+        std::env::temp_dir().join(format!("test_arch_err_{}_{}.winmd", std::process::id(), {
             use std::sync::atomic::{AtomicU32, Ordering};
             static N: AtomicU32 = AtomicU32::new(0);
             N.fetch_add(1, Ordering::Relaxed)
-        }
-    ));
+        }));
     let result = reader()
         .input_str(rdl)
         .output(out.to_str().unwrap())

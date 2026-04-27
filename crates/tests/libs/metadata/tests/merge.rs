@@ -58,4 +58,3 @@ fn test_arch() {
         .write()
         .unwrap();
 }
-
