@@ -1,0 +1,55 @@
+# Example win32.toml manifest for tool_win32
+#
+# This file shows how to configure the namespace orchestration tool to compile
+# a small set of Win32 SDK namespaces from C headers into a merged .winmd.
+#
+# Usage:
+#   tool_win32 example.toml --include /path/to/sdk/Include/10.0.26100.0 \
+#       --output target/win32
+#
+# The tool will:
+#   1. For each [[namespace]] entry, run libclang on the listed headers to
+#      produce a per-namespace .rdl file.
+#   2. Compile each .rdl to a per-namespace .winmd.
+#   3. Merge all per-namespace .winmd files into Windows.Win32.winmd.
+
+# Clang arguments applied to every namespace.
+args = [
+    "--target=x86_64-pc-windows-msvc",
+    "-fms-extensions",
+    "-DWIN32_LEAN_AND_MEAN",
+    "-DNOSERVICE",
+    "-DNOMCX",
+    "-DNOIME",
+]
+
+# Optional: path to a previously compiled Windows.Win32.winmd to use as a
+# cross-namespace reference so types defined in other namespaces are not
+# duplicated.
+# reference = "crates/libs/bindgen/default/Windows.Win32.winmd"
+
+# ---------------------------------------------------------------------------
+# Namespace entries
+# ---------------------------------------------------------------------------
+
+[[namespace]]
+name    = "Windows.Win32.Foundation"
+library = "kernel32"
+# The umbrella header includes the SDK headers for this namespace.
+headers = ["um/WinBase.h", "shared/winerror.h"]
+# Only emit declarations originating from these specific SDK headers.
+filters = ["WinBase.h", "winerror.h"]
+
+[[namespace]]
+name    = "Windows.Win32.System.Com"
+library = "ole32"
+headers = ["um/ObjIdl.h", "um/ObjBase.h"]
+filters = ["ObjIdl.h", "ObjBase.h"]
+
+[[namespace]]
+name    = "Windows.Win32.UI.WindowsAndMessaging"
+library = "user32"
+headers = ["um/WinUser.h"]
+filters = ["WinUser.h"]
+# Per-namespace extra args (merged with top-level args above).
+args    = ["-DNOGDI"]
