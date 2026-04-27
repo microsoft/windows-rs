@@ -50,8 +50,8 @@ fn main() {
     let marker = "// generated tests\n";
 
     let base = match current.find(marker) {
-        Some(pos) => &current[..pos + marker.len()],
-        None => current.as_str(),
+        Some(pos) => current[..pos + marker.len()].to_string(),
+        None => format!("{current}\n{marker}"),
     };
 
     std::fs::write(roundtrip_rs, format!("{base}\n{tests}")).unwrap();
