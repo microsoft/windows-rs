@@ -40,13 +40,18 @@ impl CppConst {
             }
         }
 
-        let name = to_ident(self.field.name());
+        let field_ty = self.field.field_type(None, config.reader).to_const_type();
+        let tn = field_ty.type_name().name();
+        let name = if !tn.is_empty() && self.field.name() == tn {
+            to_ident(&format!("{tn}_"))
+        } else {
+            to_ident(self.field.name())
+        };
 
         if let Some(guid) = self.field.guid_attribute() {
             return config.write_cpp_const_guid(name, &guid);
         }
 
-        let field_ty = self.field.field_type(None, config.reader).to_const_type();
         let cfg = self.write_cfg(config);
 
         if let Some(constant) = self.field.constant() {
