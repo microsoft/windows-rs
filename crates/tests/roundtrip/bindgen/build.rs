@@ -1,8 +1,8 @@
 fn main() {
-    println!("cargo:rerun-if-changed=roundtrip");
+    println!("cargo:rerun-if-changed=src");
     let out_dir = std::env::var("OUT_DIR").unwrap();
 
-    let mut paths: Vec<_> = std::fs::read_dir("roundtrip")
+    let mut paths: Vec<_> = std::fs::read_dir("src")
         .unwrap()
         .map(|e| e.unwrap().path())
         .filter(|p| p.extension().and_then(|e| e.to_str()) == Some("rdl"))

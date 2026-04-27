@@ -1,7 +1,7 @@
 use windows_rdl::*;
 
 fn run_roundtrip(file: &str) {
-    let rdl = std::path::Path::new("roundtrip").join(format!("{file}.rdl"));
+    let rdl = std::path::Path::new("src").join(format!("{file}.rdl"));
     let winmd = rdl.with_extension("winmd");
 
     reader()
