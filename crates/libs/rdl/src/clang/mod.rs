@@ -14,6 +14,8 @@ mod collector;
 use collector::*;
 use field::*;
 mod field;
+mod sal;
+use sal::*;
 mod typedef;
 use typedef::*;
 mod callback;
@@ -41,6 +43,8 @@ pub struct Parser<'a> {
     pub tu: &'a TranslationUnit,
     pub pending_typedefs: Vec<Cursor>,
     pub pending_macros: Vec<String>,
+    /// Enum names for which `DEFINE_ENUM_FLAG_OPERATORS(X)` was seen.
+    pub flag_enums: HashSet<String>,
 }
 
 impl<'a> Parser<'a> {
@@ -59,6 +63,7 @@ impl<'a> Parser<'a> {
             tu,
             pending_typedefs: vec![],
             pending_macros: vec![],
+            flag_enums: HashSet::new(),
         }
     }
 
@@ -147,7 +152,7 @@ impl<'a> Parser<'a> {
                 }
             }
             CXCursor_EnumDecl if child.is_definition() => {
-                let e = Enum::parse(child)?;
+                let mut e = Enum::parse(child)?;
                 if is_anonymous_name(&e.name) || is_midl_anonymous_enum_name(&e.name) {
                     // Unnamed enums (e.g. `enum { ONE = 1, TWO };`) are
                     // reported by libclang with a synthesised spelling like
@@ -165,6 +170,11 @@ impl<'a> Parser<'a> {
                         }));
                     }
                 } else if !self.ref_map.contains_key(&e.name) {
+                    // If DEFINE_ENUM_FLAG_OPERATORS was seen before the enum
+                    // definition (unusual but possible), mark it now.
+                    if self.flag_enums.contains(&e.name) {
+                        e.flags = true;
+                    }
                     collector.insert(Item::Enum(e));
                 }
             }
@@ -227,6 +237,30 @@ impl<'a> Parser<'a> {
                         // The token parser returned None for a candidate
                         // object-like macro.  Defer to the batch evaluator.
                         self.pending_macros.push(child.name());
+                    }
+                }
+            }
+            // Detect DEFINE_ENUM_FLAG_OPERATORS(EnumName) macro invocations.
+            // These mark an enum as a bitfield flags type, which causes `#[flags]`
+            // to be emitted in the RDL output for that enum.
+            CXCursor_MacroExpansion if child.name() == "DEFINE_ENUM_FLAG_OPERATORS" => {
+                // Tokenize the invocation to extract the enum name argument.
+                // Expected token sequence:
+                //   [0] DEFINE_ENUM_FLAG_OPERATORS  (identifier, the macro name)
+                //   [1] (                            (punctuation)
+                //   [2] EnumName                    (identifier, the argument)
+                //   [3] )                            (punctuation)
+                let tokens = self.tu.tokenize(child.extent());
+                if let [_, (CXToken_Punctuation, lp), (CXToken_Identifier, enum_name), ..] =
+                    tokens.as_slice()
+                {
+                    if lp == "(" {
+                        let enum_name = enum_name.clone();
+                        // Mark the enum in the collector if already inserted.
+                        collector.mark_flags(&enum_name);
+                        // Also record for the case where the enum definition
+                        // comes after the macro invocation.
+                        self.flag_enums.insert(enum_name);
                     }
                 }
             }
