@@ -125,6 +125,13 @@ impl Encoder<'_> {
         self.output
             .ImplMap(method_def, flags, &name, library.value().as_str());
 
+        if let Some(arch_bits) = self.read_arch(&item.attrs)? {
+            self.emit_arch_attribute(
+                metadata::writer::HasAttribute::MethodDef(method_def),
+                arch_bits,
+            );
+        }
+
         self.encode_attrs(
             metadata::writer::HasAttribute::MethodDef(method_def),
             &item.attrs,

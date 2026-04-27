@@ -497,6 +497,19 @@ impl Encoder<'_> {
         self.encode_named_attribute(target, &attr_ref);
     }
 
+    /// Emits a `Windows.Win32.Foundation.Metadata.SupportedArchitectureAttribute` on `target`
+    /// with the given architecture bitmask value (1=X86, 2=X64, 4=Arm64, combinable with `|`).
+    pub fn emit_arch_attribute(&mut self, target: metadata::writer::HasAttribute, arch_bits: i32) {
+        let attr_ref = AttributeRef {
+            type_name: metadata::TypeName::named(
+                "Windows.Win32.Foundation.Metadata",
+                "SupportedArchitectureAttribute",
+            ),
+            args: vec![("".to_string(), metadata::Value::I32(arch_bits))],
+        };
+        self.encode_named_attribute(target, &attr_ref);
+    }
+
     pub fn is_guid_attribute(&self, attr: &syn::Attribute) -> bool {
         self.find_attribute_type(attr.path())
             .map(|info| &info.type_name == ("Windows.Foundation.Metadata", "GuidAttribute"))
@@ -550,7 +563,7 @@ impl Encoder<'_> {
         for attr in attrs {
             let path = attr.path();
 
-            if path.is_ident("win32") || path.is_ident("winrt") {
+            if path.is_ident("win32") || path.is_ident("winrt") || path.is_ident("arch") {
                 continue;
             }
 

@@ -50,10 +50,17 @@ pub fn write_struct_items(
 
     let keyword = struct_keyword(item);
     let packed_attr = write_packed_attr(item);
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    let arch_attr = write_arch_attr(item.arches());
+    let custom_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["SupportedArchitectureAttribute"],
+    )?;
 
     let main_tokens = quote! {
         #packed_attr
+        #arch_attr
         #(#custom_attrs)*
         #keyword #name_ident {
             #(#fields)*
@@ -223,40 +230,4 @@ fn write_packed_attr_value(packing: Option<u16>) -> TokenStream {
         return quote! { #[packed(#size_literal)] };
     }
     quote! {}
-}
-
-/// Emits a `#[Windows::Win32::Foundation::Metadata::SupportedArchitecture(...)]`
-/// token stream for the given `arches` bitmask, or an empty token stream when
-/// `arches` is zero (meaning "all architectures").
-///
-/// Bit layout (matching the Windows metadata):
-///   bit 0 (1) → X86
-///   bit 1 (2) → X64
-///   bit 2 (4) → Arm64
-fn write_arch_attr(arches: i32) -> TokenStream {
-    if arches == 0 {
-        return quote! {};
-    }
-
-    let mut parts: Vec<TokenStream> = vec![];
-    if arches & 1 != 0 {
-        parts.push(quote! { X86 });
-    }
-    if arches & 2 != 0 {
-        parts.push(quote! { X64 });
-    }
-    if arches & 4 != 0 {
-        parts.push(quote! { Arm64 });
-    }
-
-    if parts.is_empty() {
-        return quote! {};
-    }
-
-    let value = parts
-        .iter()
-        .skip(1)
-        .fold(parts[0].clone(), |acc, p| quote! { #acc | #p });
-
-    quote! { #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(#value)] }
 }

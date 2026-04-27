@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    struct CommonStruct {
+        z: u32,
+    }
+    struct X64OnlyStruct {
+        y: u16,
+    }
+}

@@ -1,0 +1,14 @@
+#[win32]
+mod Test {
+    struct CommonStruct {
+        z: u32,
+    }
+    #[arch(X64)]
+    struct X64OnlyStruct {
+        y: u16,
+    }
+    #[arch(X86)]
+    struct X86OnlyStruct {
+        x: u8,
+    }
+}

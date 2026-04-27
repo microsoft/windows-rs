@@ -424,6 +424,36 @@ impl Encoder<'_> {
         Ok(None)
     }
 
+    /// Parse an optional `#[arch(...)]` attribute from `attrs`.  Returns `Some(bits)` where
+    /// `bits` is the architecture bitmask (1=X86, 2=X64, 4=Arm64, combinable with `|`) if the
+    /// attribute is present, `None` if absent, or an error if the attribute is malformed or uses
+    /// an unknown architecture name.
+    fn read_arch(&self, attrs: &[syn::Attribute]) -> Result<Option<i32>, Error> {
+        for attr in attrs {
+            if !attr.path().is_ident("arch") {
+                continue;
+            }
+
+            let expr = attr.parse_args::<syn::Expr>().map_err(|_| {
+                self.error(
+                    attr,
+                    "`arch` attribute requires architecture arguments (e.g. `#[arch(X86)]`)",
+                )
+            })?;
+
+            let bits = parse_arch_bitmask(&expr).ok_or_else(|| {
+                self.error(
+                    attr,
+                    "invalid `arch` value; expected `X86`, `X64`, `Arm64`, or a `|`-combination",
+                )
+            })?;
+
+            return Ok(Some(bits));
+        }
+
+        Ok(None)
+    }
+
     fn encode_type(&self, ty: &syn::Type) -> Result<metadata::Type, Error> {
         match ty {
             syn::Type::Path(ty) => self.encode_type_path(ty),
@@ -883,6 +913,50 @@ impl Encoder<'_> {
         }
 
         Ok(())
+    }
+}
+
+/// Parses a `#[arch(...)]` expression into an architecture bitmask.
+///
+/// Accepts:
+/// - A single identifier: `X86` → 1, `X64` → 2, `Arm64` → 4.
+/// - A bitwise-OR combination: `X86 | X64` → 3, `X64 | Arm64` → 6, etc.
+///
+/// Returns `None` when the expression contains an unknown architecture name or an
+/// unsupported expression form.
+pub(crate) fn parse_arch_bitmask(expr: &syn::Expr) -> Option<i32> {
+    match expr {
+        syn::Expr::Path(p)
+            if p.qself.is_none()
+                && p.path.leading_colon.is_none()
+                && p.path.segments.len() == 1 =>
+        {
+            arch_name_to_bits(&p.path.segments[0].ident.to_string())
+        }
+        syn::Expr::Binary(syn::ExprBinary {
+            left,
+            op: syn::BinOp::BitOr(_),
+            right,
+            ..
+        }) => {
+            let l = parse_arch_bitmask(left)?;
+            let r = parse_arch_bitmask(right)?;
+            Some(l | r)
+        }
+        _ => None,
+    }
+}
+
+/// Maps a well-known architecture name to its bitmask bit.
+///   `X86`   → 1
+///   `X64`   → 2
+///   `Arm64` → 4
+fn arch_name_to_bits(name: &str) -> Option<i32> {
+    match name {
+        "X86" => Some(1),
+        "X64" => Some(2),
+        "Arm64" => Some(4),
+        _ => None,
     }
 }
 

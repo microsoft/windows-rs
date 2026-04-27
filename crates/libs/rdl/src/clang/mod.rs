@@ -275,6 +275,7 @@ pub struct Clang {
     args: Vec<String>,
     library: String,
     filter: Vec<String>,
+    target: Option<String>,
 }
 
 impl Clang {
@@ -366,6 +367,17 @@ impl Clang {
         self
     }
 
+    /// Sets the target triple used for all clang invocations, e.g.
+    /// `"x86_64-pc-windows-msvc"`, `"i686-pc-windows-msvc"`, or
+    /// `"aarch64-pc-windows-msvc"`.
+    ///
+    /// This is equivalent to passing `--target=<triple>` as the first argument
+    /// via [`arg`][Self::arg], but is cleaner for per-arch builds.
+    pub fn target(&mut self, target: &str) -> &mut Self {
+        self.target = Some(target.to_string());
+        self
+    }
+
     /// Returns the version string reported by the loaded libclang, e.g.
     /// `"clang version 18.1.0 (...)"`.  Loads libclang on first call.
     pub fn version() -> Result<String, Error> {
@@ -395,7 +407,17 @@ impl Clang {
         let _library = Library::new()?;
         let index = Index::new()?;
         let mut collector = Collector::new();
-        let args: Vec<_> = self.args.iter().map(String::as_str).collect();
+
+        // Build the effective args list: optional --target= first, then user args.
+        let target_arg: String;
+        let args: Vec<&str> = if let Some(ref t) = self.target {
+            target_arg = format!("--target={t}");
+            std::iter::once(target_arg.as_str())
+                .chain(self.args.iter().map(String::as_str))
+                .collect()
+        } else {
+            self.args.iter().map(String::as_str).collect()
+        };
 
         for input in &h_paths {
             let tu = index.parse(input, &args)?;

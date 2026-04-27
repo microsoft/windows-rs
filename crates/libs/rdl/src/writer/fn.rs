@@ -35,7 +35,13 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> Result<T
         ));
     };
 
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    let arch_attr = write_arch_attr(item.arches());
+    let custom_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["SupportedArchitectureAttribute"],
+    )?;
 
     let library_attr = if flags.contains(metadata::PInvokeAttributes::SupportsLastError) {
         quote! { #[library(#library, last_error = true)] }
@@ -44,6 +50,7 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> Result<T
     };
 
     Ok(quote! {
+        #arch_attr
         #(#custom_attrs)*
         #library_attr
         extern #abi fn #name(#(#params),*) #return_type;
