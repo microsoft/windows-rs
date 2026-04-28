@@ -34,7 +34,11 @@ fn main() {
 
         // Use a specific derived class filter for the class test to confirm that
         // base classes are automatically pulled in as dependencies (issue #4320).
-        let filter = if name == "class" { "Test.Derived" } else { "Test" };
+        let filter = if name == "class" {
+            "Test.Derived"
+        } else {
+            "Test"
+        };
 
         windows_bindgen::builder()
             .input(&winmd)
