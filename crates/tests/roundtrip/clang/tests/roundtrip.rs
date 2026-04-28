@@ -122,6 +122,10 @@ fn roundtrip_midl_interface() {
     run_roundtrip("midl_interface");
 }
 #[test]
+fn roundtrip_midl_params() {
+    run_roundtrip("midl_params");
+}
+#[test]
 fn roundtrip_nested() {
     run_roundtrip("nested");
 }

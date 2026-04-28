@@ -497,6 +497,22 @@ impl Encoder<'_> {
         self.encode_named_attribute(target, &attr_ref);
     }
 
+    /// Emits the `Windows.Win32.Foundation.Metadata.RetValAttribute` on `target`.
+    ///
+    /// This is the metadata representation of the `#[retval]` pseudo-attribute, which
+    /// originates from MIDL `[retval]` parameter annotations.  Downstream consumers such
+    /// as bindgen look for `RetValAttribute` via `has_attribute("RetValAttribute")`.
+    pub fn emit_retval_attribute(&mut self, target: metadata::writer::HasAttribute) {
+        let attr_ref = AttributeRef {
+            type_name: metadata::TypeName::named(
+                "Windows.Win32.Foundation.Metadata",
+                "RetValAttribute",
+            ),
+            args: vec![],
+        };
+        self.encode_named_attribute(target, &attr_ref);
+    }
+
     /// Emits a `Windows.Win32.Foundation.Metadata.SupportedArchitectureAttribute` on `target`
     /// with the given architecture bitmask value (1=X86, 2=X64, 4=Arm64, combinable with `|`).
     pub fn emit_arch_attribute(&mut self, target: metadata::writer::HasAttribute, arch_bits: i32) {

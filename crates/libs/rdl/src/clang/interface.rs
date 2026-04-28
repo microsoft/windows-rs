@@ -1,40 +1,5 @@
 use super::*;
 
-/// MIDL attributes extracted from the leading block comment of a pure-virtual
-/// method declaration. `propget` and `propput` indicate property accessor functions.
-#[derive(Debug, Default)]
-struct MethodModifiers {
-    /// True when `[propget]` appears in a block comment before the method name.
-    is_propget: bool,
-    /// True when `[propput]` appears in a block comment before the method name.
-    is_propput: bool,
-}
-
-impl MethodModifiers {
-    /// Extract method modifiers by scanning `tokens` up to (but not including)
-    /// the first identifier token whose spelling equals `method_name`.
-    ///
-    /// Only `CXToken_Comment` tokens are inspected; all others are skipped.
-    /// Scanning stops at the function name to avoid reading into the parameter list.
-    fn from_tokens(tokens: &[(CXTokenKind, String)], method_name: &str) -> Self {
-        let mut modifiers = Self::default();
-        for (kind, spelling) in tokens {
-            if *kind == CXToken_Identifier && spelling == method_name {
-                break;
-            }
-            if *kind == CXToken_Comment {
-                if spelling.contains("[propget]") {
-                    modifiers.is_propget = true;
-                }
-                if spelling.contains("[propput]") {
-                    modifiers.is_propput = true;
-                }
-            }
-        }
-        modifiers
-    }
-}
-
 /// A single method on a COM interface, parsed from a pure-virtual `CXCursor_CXXMethod`.
 #[derive(Debug)]
 pub struct InterfaceMethod {
@@ -108,17 +73,31 @@ impl Interface {
             let tokens = parser
                 .tu
                 .tokenize(parser.tu.to_expansion_range(child.extent()));
-            let modifiers = MethodModifiers::from_tokens(&tokens, &method_name);
+            let method_annotation = extract_method_annotation(&tokens, &method_name);
+            // Pre-scan the method tokens for MIDL parameter comment annotations.
+            // SAL annotations on each ParmDecl cursor take priority; MIDL comments
+            // are used as a fallback.
+            let midl_param_annotations = scan_method_param_annotations(&tokens, &method_name);
             let return_type = child.result_type().to_type(parser);
 
             let mut params = vec![];
+            let mut param_idx = 0usize;
             for param in child.children() {
                 if param.kind() != CXCursor_ParmDecl {
                     continue;
                 }
                 let param_name = param.name();
                 let param_ty = param.ty().to_type(parser);
-                let annotation = extract_sal(&param, parser.tu);
+                let sal_annotation = extract_param_annotation(&param, parser.tu);
+                let annotation = if sal_annotation.is_annotated() {
+                    sal_annotation
+                } else {
+                    midl_param_annotations
+                        .get(param_idx)
+                        .cloned()
+                        .unwrap_or_default()
+                };
+                param_idx += 1;
                 params.push(Param {
                     name: param_name,
                     ty: param_ty,
@@ -130,8 +109,8 @@ impl Interface {
                 name: method_name,
                 params,
                 return_type,
-                is_propget: modifiers.is_propget,
-                is_propput: modifiers.is_propput,
+                is_propget: method_annotation.is_propget,
+                is_propput: method_annotation.is_propput,
             });
         }
 
@@ -179,8 +158,8 @@ impl Interface {
                 let params = m.params.iter().map(|p| {
                     let pname = write_ident(&p.name);
                     let pty = write_type(namespace, &p.ty);
-                    let (in_attr, out_attr, opt_attr) = sal_attrs_for_param(&p.annotation, &p.ty);
-                    quote! { #in_attr #out_attr #opt_attr #pname: #pty }
+                    let attrs = param_attrs_for_annotation(&p.annotation, &p.ty);
+                    quote! { #(#attrs)* #pname: #pty }
                 });
                 let return_type = match &m.return_type {
                     metadata::Type::Void => quote! {},
