@@ -160,7 +160,14 @@ pub fn scan_method_param_annotations(
                     paren_depth -= 1;
                 }
                 if paren_depth == 0 && in_params {
-                    // Commit annotation for the last parameter (only if anything was seen).
+                    // Commit annotation for the last parameter.
+                    // Guard: only push when we've already committed at least one param
+                    // (via a `,`) OR when the current annotation is non-empty.  This
+                    // prevents pushing a spurious default entry for zero-parameter
+                    // functions and for single-parameter functions without any MIDL comment.
+                    // For multi-parameter functions the `,` arm already pushed an entry
+                    // for every param except the last, so `!result.is_empty()` is always
+                    // true when there are ≥ 2 params regardless of comments.
                     if !result.is_empty() || current.is_annotated() {
                         result.push(current.clone());
                     }

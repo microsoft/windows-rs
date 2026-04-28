@@ -439,7 +439,6 @@ fn write_params(
             // `RetValAttribute` is emitted as the `#[retval]` pseudo-attribute.
             // Exclude it from the generic custom-attributes path to avoid emitting
             // an unresolvable `#[RetVal]` name on round-trip.
-            use windows_metadata::reader::HasAttributes;
             let retval_attr = if param.find_attribute("RetValAttribute").is_some() {
                 quote! { #[retval] }
             } else {
