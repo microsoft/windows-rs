@@ -1,4 +1,4 @@
-#[winrt]
+#[win32]
 mod Test {
     #[repr(u32)]
     #[flags]

@@ -23,6 +23,10 @@ fn roundtrip_enum() {
     run_roundtrip("enum");
 }
 #[test]
+fn roundtrip_enum_flags() {
+    run_roundtrip("enum_flags");
+}
+#[test]
 fn roundtrip_enum_name_conflict() {
     run_roundtrip("enum_name_conflict");
 }
