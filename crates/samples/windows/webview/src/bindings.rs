@@ -1843,15 +1843,15 @@ impl ICoreWebView2 {
     pub unsafe fn AddHostObjectToScript(
         &self,
         name: LPCWSTR,
-    ) -> windows_core::Result<windows::Win32::System::Variant::VARIANT> {
+        object: *const windows::Win32::System::Variant::VARIANT,
+    ) -> windows_core::Result<()> {
         unsafe {
-            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddHostObjectToScript)(
                 windows_core::Interface::as_raw(self),
                 name,
-                &mut result__,
+                core::mem::transmute(object),
             )
-            .map(|| core::mem::transmute(result__))
+            .ok()
         }
     }
     pub unsafe fn RemoveHostObjectFromScript(&self, name: LPCWSTR) -> windows_core::Result<()> {
@@ -2143,7 +2143,7 @@ pub struct ICoreWebView2_Vtbl {
     pub AddHostObjectToScript: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         LPCWSTR,
-        *mut windows::Win32::System::Variant::VARIANT,
+        *const windows::Win32::System::Variant::VARIANT,
     ) -> windows_core::HRESULT,
     pub RemoveHostObjectFromScript:
         unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> windows_core::HRESULT,
@@ -2298,7 +2298,8 @@ pub trait ICoreWebView2_Impl: windows_core::IUnknownImpl {
     fn AddHostObjectToScript(
         &self,
         name: LPCWSTR,
-    ) -> windows_core::Result<windows::Win32::System::Variant::VARIANT>;
+        object: *const windows::Win32::System::Variant::VARIANT,
+    ) -> windows_core::Result<()>;
     fn RemoveHostObjectFromScript(&self, name: LPCWSTR) -> windows_core::Result<()>;
     fn OpenDevToolsWindow(&self) -> windows_core::Result<()>;
     fn add_ContainsFullScreenElementChanged(
@@ -3163,21 +3164,17 @@ impl ICoreWebView2_Vtbl {
         >(
             this: *mut core::ffi::c_void,
             name: LPCWSTR,
-            object: *mut windows::Win32::System::Variant::VARIANT,
+            object: *const windows::Win32::System::Variant::VARIANT,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2_Impl::AddHostObjectToScript(
+                ICoreWebView2_Impl::AddHostObjectToScript(
                     this,
                     core::mem::transmute_copy(&name),
-                ) {
-                    Ok(ok__) => {
-                        object.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                    core::mem::transmute_copy(&object),
+                )
+                .into()
             }
         }
         unsafe extern "system" fn RemoveHostObjectFromScript<
@@ -3507,14 +3504,14 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs {
     }
     pub unsafe fn PhysicalKeyStatus(
         &self,
-        physicalkeystatus: *mut COREWEBVIEW2_PHYSICAL_KEY_STATUS,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::Result<COREWEBVIEW2_PHYSICAL_KEY_STATUS> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PhysicalKeyStatus)(
                 windows_core::Interface::as_raw(self),
-                physicalkeystatus as _,
+                &mut result__,
             )
-            .ok()
+            .map(|| result__)
         }
     }
     pub unsafe fn Handled(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -3566,10 +3563,7 @@ pub trait ICoreWebView2AcceleratorKeyPressedEventArgs_Impl: windows_core::IUnkno
     fn KeyEventKind(&self) -> windows_core::Result<COREWEBVIEW2_KEY_EVENT_KIND>;
     fn VirtualKey(&self) -> windows_core::Result<UINT>;
     fn KeyEventLParam(&self) -> windows_core::Result<INT>;
-    fn PhysicalKeyStatus(
-        &self,
-        physicalkeystatus: *mut COREWEBVIEW2_PHYSICAL_KEY_STATUS,
-    ) -> windows_core::Result<()>;
+    fn PhysicalKeyStatus(&self) -> windows_core::Result<COREWEBVIEW2_PHYSICAL_KEY_STATUS>;
     fn Handled(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetHandled(&self, handled: windows_core::BOOL) -> windows_core::Result<()>;
 }
@@ -3645,11 +3639,13 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::PhysicalKeyStatus(
-                    this,
-                    core::mem::transmute_copy(&physicalkeystatus),
-                )
-                .into()
+                match ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::PhysicalKeyStatus(this) {
+                    Ok(ok__) => {
+                        physicalkeystatus.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Handled<
@@ -12686,15 +12682,15 @@ impl ICoreWebView2CustomSchemeRegistration {
     pub unsafe fn SetAllowedOrigins(
         &self,
         allowedoriginscount: UINT32,
-    ) -> windows_core::Result<LPCWSTR> {
+        allowedorigins: *const LPCWSTR,
+    ) -> windows_core::Result<()> {
         unsafe {
-            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SetAllowedOrigins)(
                 windows_core::Interface::as_raw(self),
                 allowedoriginscount,
-                &mut result__,
+                allowedorigins,
             )
-            .map(|| result__)
+            .ok()
         }
     }
     pub unsafe fn HasAuthorityComponent(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -12742,7 +12738,7 @@ pub struct ICoreWebView2CustomSchemeRegistration_Vtbl {
     pub SetAllowedOrigins: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         UINT32,
-        *mut LPCWSTR,
+        *const LPCWSTR,
     ) -> windows_core::HRESULT,
     pub HasAuthorityComponent: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -12762,7 +12758,11 @@ pub trait ICoreWebView2CustomSchemeRegistration_Impl: windows_core::IUnknownImpl
         allowedoriginscount: *mut UINT32,
         allowedorigins: *mut *mut LPWSTR,
     ) -> windows_core::Result<()>;
-    fn SetAllowedOrigins(&self, allowedoriginscount: UINT32) -> windows_core::Result<LPCWSTR>;
+    fn SetAllowedOrigins(
+        &self,
+        allowedoriginscount: UINT32,
+        allowedorigins: *const LPCWSTR,
+    ) -> windows_core::Result<()>;
     fn HasAuthorityComponent(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetHasAuthorityComponent(
         &self,
@@ -12852,21 +12852,17 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
         >(
             this: *mut core::ffi::c_void,
             allowedoriginscount: UINT32,
-            allowedorigins: *mut LPCWSTR,
+            allowedorigins: *const LPCWSTR,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2CustomSchemeRegistration_Impl::SetAllowedOrigins(
+                ICoreWebView2CustomSchemeRegistration_Impl::SetAllowedOrigins(
                     this,
                     core::mem::transmute_copy(&allowedoriginscount),
-                ) {
-                    Ok(ok__) => {
-                        allowedorigins.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                    core::mem::transmute_copy(&allowedorigins),
+                )
+                .into()
             }
         }
         unsafe extern "system" fn HasAuthorityComponent<
@@ -15661,17 +15657,17 @@ impl ICoreWebView2Environment14 {
     pub unsafe fn CreateObjectCollection(
         &self,
         length: UINT32,
-        items: *mut Option<windows_core::IUnknown>,
-        objectcollection: *mut Option<ICoreWebView2ObjectCollection>,
-    ) -> windows_core::Result<()> {
+        items: *const Option<windows_core::IUnknown>,
+    ) -> windows_core::Result<ICoreWebView2ObjectCollection> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateObjectCollection)(
                 windows_core::Interface::as_raw(self),
                 length,
                 core::mem::transmute(items),
-                core::mem::transmute(objectcollection),
+                &mut result__,
             )
-            .ok()
+            .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -15694,7 +15690,7 @@ pub struct ICoreWebView2Environment14_Vtbl {
     pub CreateObjectCollection: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         UINT32,
-        *mut *mut core::ffi::c_void,
+        *const *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
@@ -15712,9 +15708,8 @@ pub trait ICoreWebView2Environment14_Impl: ICoreWebView2Environment13_Impl {
     fn CreateObjectCollection(
         &self,
         length: UINT32,
-        items: windows_core::OutRef<windows_core::IUnknown>,
-        objectcollection: windows_core::OutRef<ICoreWebView2ObjectCollection>,
-    ) -> windows_core::Result<()>;
+        items: *const Option<windows_core::IUnknown>,
+    ) -> windows_core::Result<ICoreWebView2ObjectCollection>;
 }
 impl ICoreWebView2Environment14_Vtbl {
     pub const fn new<Identity: ICoreWebView2Environment14_Impl, const OFFSET: isize>() -> Self {
@@ -15774,19 +15769,23 @@ impl ICoreWebView2Environment14_Vtbl {
         >(
             this: *mut core::ffi::c_void,
             length: UINT32,
-            items: *mut *mut core::ffi::c_void,
+            items: *const *mut core::ffi::c_void,
             objectcollection: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Environment14_Impl::CreateObjectCollection(
+                match ICoreWebView2Environment14_Impl::CreateObjectCollection(
                     this,
                     core::mem::transmute_copy(&length),
                     core::mem::transmute_copy(&items),
-                    core::mem::transmute_copy(&objectcollection),
-                )
-                .into()
+                ) {
+                    Ok(ok__) => {
+                        objectcollection.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -17317,15 +17316,15 @@ impl ICoreWebView2EnvironmentOptions4 {
     pub unsafe fn SetCustomSchemeRegistrations(
         &self,
         count: UINT32,
-    ) -> windows_core::Result<ICoreWebView2CustomSchemeRegistration> {
+        schemeregistrations: *const Option<ICoreWebView2CustomSchemeRegistration>,
+    ) -> windows_core::Result<()> {
         unsafe {
-            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SetCustomSchemeRegistrations)(
                 windows_core::Interface::as_raw(self),
                 count,
-                &mut result__,
+                core::mem::transmute(schemeregistrations),
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .ok()
         }
     }
 }
@@ -17341,7 +17340,7 @@ pub struct ICoreWebView2EnvironmentOptions4_Vtbl {
     pub SetCustomSchemeRegistrations: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         UINT32,
-        *mut *mut core::ffi::c_void,
+        *const *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2EnvironmentOptions4_Impl: windows_core::IUnknownImpl {
@@ -17353,7 +17352,8 @@ pub trait ICoreWebView2EnvironmentOptions4_Impl: windows_core::IUnknownImpl {
     fn SetCustomSchemeRegistrations(
         &self,
         count: UINT32,
-    ) -> windows_core::Result<ICoreWebView2CustomSchemeRegistration>;
+        schemeregistrations: *const Option<ICoreWebView2CustomSchemeRegistration>,
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2EnvironmentOptions4_Vtbl {
     pub const fn new<Identity: ICoreWebView2EnvironmentOptions4_Impl, const OFFSET: isize>() -> Self
@@ -17383,21 +17383,17 @@ impl ICoreWebView2EnvironmentOptions4_Vtbl {
         >(
             this: *mut core::ffi::c_void,
             count: UINT32,
-            schemeregistrations: *mut *mut core::ffi::c_void,
+            schemeregistrations: *const *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2EnvironmentOptions4_Impl::SetCustomSchemeRegistrations(
+                ICoreWebView2EnvironmentOptions4_Impl::SetCustomSchemeRegistrations(
                     this,
                     core::mem::transmute_copy(&count),
-                ) {
-                    Ok(ok__) => {
-                        schemeregistrations.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                    core::mem::transmute_copy(&schemeregistrations),
+                )
+                .into()
             }
         }
         Self {
@@ -19576,9 +19572,9 @@ impl ICoreWebView2Frame {
     pub unsafe fn AddHostObjectToScriptWithOrigins(
         &self,
         name: LPCWSTR,
-        object: *mut windows::Win32::System::Variant::VARIANT,
+        object: *const windows::Win32::System::Variant::VARIANT,
         originscount: UINT32,
-        origins: *mut LPCWSTR,
+        origins: *const LPCWSTR,
     ) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).AddHostObjectToScriptWithOrigins)(
@@ -19586,7 +19582,7 @@ impl ICoreWebView2Frame {
                 name,
                 core::mem::transmute(object),
                 originscount,
-                origins as _,
+                origins,
             )
             .ok()
         }
@@ -19650,9 +19646,9 @@ pub struct ICoreWebView2Frame_Vtbl {
     pub AddHostObjectToScriptWithOrigins: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         LPCWSTR,
-        *mut windows::Win32::System::Variant::VARIANT,
+        *const windows::Win32::System::Variant::VARIANT,
         UINT32,
-        *mut LPCWSTR,
+        *const LPCWSTR,
     ) -> windows_core::HRESULT,
     pub RemoveHostObjectFromScript:
         unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> windows_core::HRESULT,
@@ -19678,9 +19674,9 @@ pub trait ICoreWebView2Frame_Impl: windows_core::IUnknownImpl {
     fn AddHostObjectToScriptWithOrigins(
         &self,
         name: LPCWSTR,
-        object: *mut windows::Win32::System::Variant::VARIANT,
+        object: *const windows::Win32::System::Variant::VARIANT,
         originscount: UINT32,
-        origins: *mut LPCWSTR,
+        origins: *const LPCWSTR,
     ) -> windows_core::Result<()>;
     fn RemoveHostObjectFromScript(&self, name: LPCWSTR) -> windows_core::Result<()>;
     fn add_Destroyed(
@@ -19751,9 +19747,9 @@ impl ICoreWebView2Frame_Vtbl {
         >(
             this: *mut core::ffi::c_void,
             name: LPCWSTR,
-            object: *mut windows::Win32::System::Variant::VARIANT,
+            object: *const windows::Win32::System::Variant::VARIANT,
             originscount: UINT32,
-            origins: *mut LPCWSTR,
+            origins: *const LPCWSTR,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
