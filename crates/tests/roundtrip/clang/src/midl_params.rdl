@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    #[guid(0xaabbccdd_1234_5678_9abc_def012345678)]
+    interface IFoo {
+        fn Method1(&self, count: i32) -> i32;
+        fn Method2(&self, result: *mut i32) -> i32;
+        fn Method3(&self, #[retval] value: *mut i32) -> i32;
+        fn Method4(&self, #[in] data: *mut i32) -> i32;
+        fn Method5(&self, #[opt] name: *const i8) -> i32;
+    }
+}

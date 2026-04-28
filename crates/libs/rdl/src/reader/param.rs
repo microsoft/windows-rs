@@ -101,10 +101,18 @@ impl Encoder<'_> {
                 (sequence + 1).try_into().unwrap(),
                 param.attributes,
             );
+            // Handle #[retval] as a pseudo-attribute: store it as RetValAttribute in
+            // the Windows.Win32.Foundation.Metadata namespace so that downstream
+            // consumers (e.g. bindgen) can detect it via has_attribute("RetValAttribute").
+            for attr in &param.attrs {
+                if attr.path().is_ident("retval") {
+                    self.emit_retval_attribute(metadata::writer::HasAttribute::Param(param_id));
+                }
+            }
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),
                 &param.attrs,
-                &["r#in", "out", "opt"],
+                &["r#in", "out", "opt", "retval"],
             )?;
         }
         Ok(())

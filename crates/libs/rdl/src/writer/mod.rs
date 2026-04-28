@@ -436,11 +436,23 @@ fn write_params(
             } else {
                 quote! {}
             };
+            // `RetValAttribute` is emitted as the `#[retval]` pseudo-attribute.
+            // Exclude it from the generic custom-attributes path to avoid emitting
+            // an unresolvable `#[RetVal]` name on round-trip.
+            let retval_attr = if param.find_attribute("RetValAttribute").is_some() {
+                quote! { #[retval] }
+            } else {
+                quote! {}
+            };
             let name = write_ident(param.name());
-            let param_attrs =
-                write_custom_attributes(param.attributes(), namespace, method.index())?;
+            let param_attrs = write_custom_attributes_except(
+                param.attributes(),
+                namespace,
+                method.index(),
+                &["RetValAttribute"],
+            )?;
             let ty = write_type(namespace, &ty);
-            Ok(quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #name: #ty })
+            Ok(quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #retval_attr #name: #ty })
         })
         .collect()
 }

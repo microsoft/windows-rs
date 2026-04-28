@@ -105,7 +105,7 @@ impl Merger {
             let mut arch_groups: Vec<(reader::TypeIndex, i32)> =
                 Vec::with_capacity(self.arch_inputs.len());
             for (path, arch_bits) in &self.arch_inputs {
-                let files = read_inputs(&[path.clone()])?;
+                let files = read_inputs(std::slice::from_ref(path))?;
                 arch_groups.push((reader::TypeIndex::new(files), *arch_bits));
             }
 
