@@ -25,6 +25,9 @@ impl std::fmt::Display for Error {
 #[derive(Default)]
 pub struct Merger {
     input: Vec<String>,
+    /// Arch-tagged inputs: `(path, arch_bits)` where arch_bits is a bitmask
+    /// (1=X86, 2=X64, 4=Arm64) indicating which architecture the file targets.
+    arch_inputs: Vec<(String, i32)>,
     output: String,
 }
 
@@ -49,6 +52,21 @@ impl Merger {
         self
     }
 
+    /// Adds an architecture-tagged input winmd file.
+    ///
+    /// `arch` is a bitmask indicating which architecture this file was built for:
+    ///   - `1` → X86
+    ///   - `2` → X64
+    ///   - `4` → Arm64
+    ///
+    /// When `merge()` is called, types present in **all** arch-tagged inputs get
+    /// no `SupportedArchitectureAttribute`; types present only in a **subset** get
+    /// `SupportedArchitectureAttribute(present_arch_mask)`.
+    pub fn arch_input(&mut self, path: &str, arch: i32) -> &mut Self {
+        self.arch_inputs.push((path.to_string(), arch));
+        self
+    }
+
     pub fn output(&mut self, output: &str) -> &mut Self {
         self.output = output.to_string();
         self
@@ -70,11 +88,68 @@ impl Merger {
 
         let mut file = writer::File::new(name);
 
+        // Write plain (untagged) inputs as-is.
         let mut types: Vec<reader::TypeDef<'_>> = index.types().collect();
         types.sort_by(|a, b| (a.namespace(), a.name()).cmp(&(b.namespace(), b.name())));
 
         for ty in types {
-            write_type(&mut file, &index, ty, None);
+            write_type(&mut file, &index, ty, None, None);
+        }
+
+        // Write arch-tagged inputs with computed SupportedArchitecture annotations.
+        if !self.arch_inputs.is_empty() {
+            // Compute the bitmask for "all arches present in this merge run".
+            let all_arches_mask: i32 = self.arch_inputs.iter().fold(0, |acc, (_, arch)| acc | arch);
+
+            // Load each arch-tagged file group.
+            let mut arch_groups: Vec<(reader::TypeIndex, i32)> =
+                Vec::with_capacity(self.arch_inputs.len());
+            for (path, arch_bits) in &self.arch_inputs {
+                let files = read_inputs(&[path.clone()])?;
+                arch_groups.push((reader::TypeIndex::new(files), *arch_bits));
+            }
+
+            // Compute the union of arch bits for each (namespace, name) pair.
+            let mut arch_presence: HashMap<(String, String), i32> = HashMap::new();
+            for (idx, arch_bits) in &arch_groups {
+                for ty in idx.types() {
+                    *arch_presence
+                        .entry((ty.namespace().to_string(), ty.name().to_string()))
+                        .or_default() |= arch_bits;
+                }
+            }
+
+            // Build a flat list of (TypeIndex ref, TypeDef, arch_bits) sorted by (ns, name).
+            let mut all_type_refs: Vec<(&reader::TypeIndex, reader::TypeDef<'_>, i32)> = Vec::new();
+            for (idx, arch_bits) in &arch_groups {
+                for ty in idx.types() {
+                    all_type_refs.push((idx, ty, *arch_bits));
+                }
+            }
+            all_type_refs
+                .sort_by(|a, b| (a.1.namespace(), a.1.name()).cmp(&(b.1.namespace(), b.1.name())));
+
+            // Write each type with the appropriate arch annotation.
+            // For types present in all arches, deduplicate to a single arch-neutral TypeDef.
+            // For types present in a subset, write each copy with SupportedArchitecture.
+            let mut deduped: HashSet<(String, String)> = HashSet::new();
+            for (idx, ty, _arch_bits) in &all_type_refs {
+                let key = (ty.namespace().to_string(), ty.name().to_string());
+                let present_mask = arch_presence.get(&key).copied().unwrap_or(0);
+
+                let arch_override = if present_mask == all_arches_mask {
+                    // Present on every arch: write once without SupportedArchitecture.
+                    if !deduped.insert(key) {
+                        continue; // Already written.
+                    }
+                    Some(0) // 0 = suppress arch attribute
+                } else {
+                    // Present on a subset: annotate with the union of arches that have it.
+                    Some(present_mask)
+                };
+
+                write_type(&mut file, idx, *ty, None, arch_override);
+            }
         }
 
         let bytes = file.into_stream();
@@ -125,11 +200,18 @@ fn read_inputs(inputs: &[String]) -> Result<Vec<reader::File>, Error> {
     Ok(result)
 }
 
+/// Writes a `TypeDef` (and its nested types) from `index` into `file`.
+///
+/// `arch_override` controls the `SupportedArchitectureAttribute` on the TypeDef:
+///   - `None`     → copy attributes as-is (plain merge, no arch logic)
+///   - `Some(0)`  → drop any existing `SupportedArchitectureAttribute`
+///   - `Some(n)`  → drop existing and write `SupportedArchitecture(n)`
 fn write_type(
     file: &mut writer::File,
     index: &reader::TypeIndex,
     def: reader::TypeDef,
     outer: Option<writer::TypeDef>,
+    arch_override: Option<i32>,
 ) {
     let extends = def
         .extends()
@@ -168,7 +250,12 @@ fn write_type(
         .map(|param| Type::Generic(param.name().to_string(), param.sequence()))
         .collect();
 
-    write_attributes(file, writer::HasAttribute::TypeDef(type_def), def);
+    write_attributes_with_arch(
+        file,
+        writer::HasAttribute::TypeDef(type_def),
+        def,
+        arch_override,
+    );
 
     for map in def.interface_impls() {
         let interface_impl = file.InterfaceImpl(type_def, &map.interface(&generics));
@@ -229,7 +316,7 @@ fn write_type(
     for inner_def in index.nested(def) {
         debug_assert!(inner_def.namespace().is_empty());
         debug_assert!(inner_def.flags().is_nested());
-        write_type(file, index, inner_def, Some(type_def));
+        write_type(file, index, inner_def, Some(type_def), arch_override);
     }
 }
 
@@ -238,9 +325,33 @@ fn write_attributes<'a, R: reader::HasAttributes<'a>>(
     parent: writer::HasAttribute,
     row: R,
 ) {
+    write_attributes_with_arch(file, parent, row, None);
+}
+
+/// Like [`write_attributes`] but with optional architecture annotation overriding.
+///
+/// When `arch_override` is `Some`:
+///   - Any existing `SupportedArchitectureAttribute` on `row` is **dropped**.
+///   - If `arch_override` is `Some(bits)` with `bits != 0`, a new
+///     `SupportedArchitectureAttribute(bits)` is written.
+///   - If `arch_override` is `Some(0)`, no arch attribute is written (arch-neutral).
+fn write_attributes_with_arch<'a, R: reader::HasAttributes<'a>>(
+    file: &mut writer::File,
+    parent: writer::HasAttribute,
+    row: R,
+    arch_override: Option<i32>,
+) {
     for attribute in row.attributes() {
         let ctor = attribute.ctor();
         let ty = ctor.parent();
+
+        // Skip the existing SupportedArchitectureAttribute when we're overriding arch.
+        if arch_override.is_some()
+            && ty.namespace() == "Windows.Win32.Foundation.Metadata"
+            && ty.name() == "SupportedArchitectureAttribute"
+        {
+            continue;
+        }
 
         let attribute_ref =
             writer::MemberRefParent::TypeRef(file.TypeRef(ty.namespace(), ty.name()));
@@ -253,4 +364,37 @@ fn write_attributes<'a, R: reader::HasAttributes<'a>>(
             &attribute.value(),
         );
     }
+
+    // Emit the overriding arch attribute when requested (non-zero bits).
+    if let Some(arch_bits) = arch_override {
+        if arch_bits != 0 {
+            write_supported_architecture_attr(file, parent, arch_bits);
+        }
+    }
+}
+
+/// Writes a `SupportedArchitectureAttribute` with the given `arch_bits` bitmask.
+fn write_supported_architecture_attr(
+    file: &mut writer::File,
+    parent: writer::HasAttribute,
+    arch_bits: i32,
+) {
+    let ns = "Windows.Win32.Foundation.Metadata";
+    let name = "SupportedArchitectureAttribute";
+
+    let type_ref = writer::MemberRefParent::TypeRef(file.TypeRef(ns, name));
+
+    let sig = Signature {
+        flags: MethodCallAttributes::HASTHIS,
+        return_type: Type::Void,
+        types: vec![Type::I32],
+    };
+
+    let ctor_ref = file.MemberRef(".ctor", &sig, type_ref);
+
+    file.Attribute(
+        parent,
+        writer::AttributeType::MemberRef(ctor_ref),
+        &[("".to_string(), Value::I32(arch_bits))],
+    );
 }

@@ -42,6 +42,10 @@ impl Encoder<'_> {
             self.output.ClassLayout(type_def, packing_size, 0);
         }
 
+        if let Some(arch_bits) = self.read_arch(&item.attrs)? {
+            self.emit_arch_attribute(metadata::writer::HasAttribute::TypeDef(type_def), arch_bits);
+        }
+
         self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(type_def),
             &item.attrs,

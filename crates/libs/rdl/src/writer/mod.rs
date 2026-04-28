@@ -669,6 +669,41 @@ fn write_flags_combination(
     Some(result)
 }
 
+/// Emits a `#[arch(...)]` token stream for the given `arches` bitmask, or an empty
+/// token stream when `arches` is zero (meaning "all architectures").
+///
+/// Bit layout (matching the Windows metadata):
+///   bit 0 (1) → X86
+///   bit 1 (2) → X64
+///   bit 2 (4) → Arm64
+pub(super) fn write_arch_attr(arches: i32) -> TokenStream {
+    if arches == 0 {
+        return quote! {};
+    }
+
+    let mut parts: Vec<TokenStream> = vec![];
+    if arches & 1 != 0 {
+        parts.push(quote! { X86 });
+    }
+    if arches & 2 != 0 {
+        parts.push(quote! { X64 });
+    }
+    if arches & 4 != 0 {
+        parts.push(quote! { Arm64 });
+    }
+
+    if parts.is_empty() {
+        return quote! {};
+    }
+
+    let value = parts
+        .iter()
+        .skip(1)
+        .fold(parts[0].clone(), |acc, p| quote! { #acc | #p });
+
+    quote! { #[arch(#value)] }
+}
+
 fn write_type_def(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
     match item.category() {
         // Structs/unions are handled by write_struct_items (which may return
