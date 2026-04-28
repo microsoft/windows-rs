@@ -6,6 +6,9 @@ mod Test {
     class Derived: Base {
         IDerived,
     }
+    class Derived2: Base {
+        IDerived,
+    }
     interface IBase {}
     interface IDerived {}
 }
