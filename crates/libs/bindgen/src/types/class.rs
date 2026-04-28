@@ -364,5 +364,8 @@ impl Dependencies for Class {
         for interface in self.required_interfaces(reader) {
             Type::Interface(interface).combine(dependencies, reader);
         }
+        for base in self.bases(reader) {
+            Type::Class(base).combine(dependencies, reader);
+        }
     }
 }

@@ -16,6 +16,7 @@ windows-rdl = { workspace = true }
 windows-rdl = { workspace = true }
 
 [dependencies]
+windows-core = { workspace = true }
 windows-link = { workspace = true }
 
 [lints]

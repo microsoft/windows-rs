@@ -5,6 +5,7 @@
     dead_code,
     clippy::all
 )]
+pub mod r#class;
 pub mod r#const;
 pub mod r#enum;
 pub mod r#enum_flags;

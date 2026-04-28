@@ -32,10 +32,14 @@ fn main() {
             "#[test]\nfn roundtrip_{name}() {{\n    run_roundtrip({name:?});\n}}\n"
         ));
 
+        // Use a specific derived class filter for the class test to confirm that
+        // base classes are automatically pulled in as dependencies (issue #4320).
+        let filter = if name == "class" { "Test.Derived" } else { "Test" };
+
         windows_bindgen::builder()
             .input(&winmd)
             .output(&rs)
-            .filter("Test")
+            .filter(filter)
             .no_allow()
             .no_comment()
             .specific_deps()

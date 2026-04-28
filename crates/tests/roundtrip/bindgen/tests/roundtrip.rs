@@ -15,6 +15,10 @@ fn run_roundtrip(file: &str) {
 // generated tests
 
 #[test]
+fn roundtrip_class() {
+    run_roundtrip("class");
+}
+#[test]
 fn roundtrip_const() {
     run_roundtrip("const");
 }

@@ -1,0 +1,11 @@
+#[winrt]
+mod Test {
+    class Base {
+        IBase,
+    }
+    class Derived: Base {
+        IDerived,
+    }
+    interface IBase {}
+    interface IDerived {}
+}
