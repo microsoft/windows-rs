@@ -18,4 +18,6 @@ mod iterable;
 #[cfg(feature = "std")]
 mod map_view;
 #[cfg(feature = "std")]
+mod vector;
+#[cfg(feature = "std")]
 mod vector_view;
