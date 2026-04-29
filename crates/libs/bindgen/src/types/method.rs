@@ -45,9 +45,7 @@ impl Method {
                     quote! { core::slice::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
                 } else if param.is_primitive(reader) {
                     quote! { #name }
-                } else if param.is_const_ref() || param.is_interface() {
-                    quote! { core::mem::transmute_copy(&#name) }
-                } else if let Type::Generic(_) = &param.ty {
+                } else if param.is_const_ref() || param.is_interface() || matches!(&param.ty, Type::Generic(_))  {
                     quote! { core::mem::transmute_copy(&#name) }
                 } else {
                     quote! { core::mem::transmute(&#name) }
