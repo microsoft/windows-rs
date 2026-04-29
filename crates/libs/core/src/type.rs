@@ -47,7 +47,7 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + C
     /// This is used in generic collection implementations (e.g. `IMap_Impl`, `IVector_Impl`)
     /// to obtain a `&K::Default` from a `Generic<'_, K>` in order to perform map/vector
     /// operations that operate on the default type.
-    fn param_as_default<'a>(param: &'a Self::Param<'_>) -> &'a Self::Default;
+    fn param_as_default<'a, 'b>(param: &'a Self::Param<'b>) -> &'a Self::Default;
 }
 
 impl<T> Type<T, InterfaceType> for T
@@ -87,7 +87,7 @@ where
         unsafe { core::mem::transmute_copy(abi) }
     }
 
-    fn param_as_default<'a>(param: &'a Ref<'_, Self>) -> &'a Option<Self> {
+    fn param_as_default<'a, 'b>(param: &'a Ref<'b, Self>) -> &'a Option<Self> {
         param
     }
 }
@@ -123,7 +123,7 @@ where
         unsafe { core::mem::transmute_copy(abi) }
     }
 
-    fn param_as_default<'a>(param: &'a Ref<'_, Self>) -> &'a Self {
+    fn param_as_default<'a, 'b>(param: &'a Ref<'b, Self>) -> &'a Self {
         param
     }
 }
@@ -159,7 +159,7 @@ where
         abi.clone()
     }
 
-    fn param_as_default<'a>(param: &'a Self) -> &'a Self {
+    fn param_as_default<'a, 'b>(param: &'a Self) -> &'a Self {
         param
     }
 }
