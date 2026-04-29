@@ -25,7 +25,7 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + C
     /// since these are cheap to copy and `Ref` adds no value.  For `CloneType` (HSTRING, etc.)
     /// and `InterfaceType` (COM interfaces) this is `Ref<'a, T>` — a borrowed wrapper that
     /// matches the ABI representation.
-    type Param<'a>: 'a
+    type Generic<'a>: 'a
     where
         Self: 'a;
 
@@ -34,20 +34,20 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + C
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self>;
     fn from_default(default: &Self::Default) -> Result<Self>;
 
-    /// Converts a raw ABI parameter into the corresponding `Param` type for use
+    /// Converts a raw ABI parameter into the corresponding `Generic` type for use
     /// in vtable upcall adapters that forward to `_Impl` methods.
     ///
     /// # Safety
     ///
     /// The ABI value must be valid for the lifetime `'a`.
-    unsafe fn abi_to_param(abi: &Self::Abi) -> Self::Param<'_>;
+    unsafe fn abi_to_param(abi: &Self::Abi) -> Self::Generic<'_>;
 
-    /// Converts a `Param` reference to a reference to the `Default` representation.
+    /// Converts a `Generic` reference to a reference to the `Default` representation.
     ///
     /// This is used in generic collection implementations (e.g. `IMap_Impl`, `IVector_Impl`)
     /// to obtain a `&K::Default` from a `Generic<'_, K>` in order to perform map/vector
     /// operations that operate on the default type.
-    fn param_as_default<'a, 'b>(param: &'a Self::Param<'b>) -> &'a Self::Default;
+    fn param_as_default<'a, 'b>(param: &'a Self::Generic<'b>) -> &'a Self::Default;
 }
 
 impl<T> Type<T, InterfaceType> for T
@@ -56,7 +56,7 @@ where
 {
     type Abi = *mut core::ffi::c_void;
     type Default = Option<Self>;
-    type Param<'a>
+    type Generic<'a>
         = Ref<'a, Self>
     where
         Self: 'a;
@@ -98,7 +98,7 @@ where
 {
     type Abi = core::mem::MaybeUninit<Self>;
     type Default = Self;
-    type Param<'a>
+    type Generic<'a>
         = Ref<'a, Self>
     where
         Self: 'a;
@@ -134,7 +134,7 @@ where
 {
     type Abi = Self;
     type Default = Self;
-    type Param<'a>
+    type Generic<'a>
         = Self
     where
         Self: 'a;
@@ -204,4 +204,4 @@ pub type AbiType<T> = <T as Type<T>>::Abi;
 ///     }
 /// }
 /// ```
-pub type Generic<'a, T> = <T as Type<T>>::Param<'a>;
+pub type Generic<'a, T> = <T as Type<T>>::Generic<'a>;
