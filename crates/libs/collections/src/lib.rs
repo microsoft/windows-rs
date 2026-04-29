@@ -16,6 +16,8 @@ const E_BOUNDS: windows_core::HRESULT = windows_core::HRESULT(0x8000000B_u32 as 
 #[cfg(feature = "std")]
 mod iterable;
 #[cfg(feature = "std")]
+mod map;
+#[cfg(feature = "std")]
 mod map_view;
 #[cfg(feature = "std")]
 mod vector;
