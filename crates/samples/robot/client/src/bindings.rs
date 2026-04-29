@@ -95,10 +95,9 @@ impl Robot {
         SHARED.call(callback)
     }
     pub fn Speak(&self, message: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Speak)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Speak)(
+                windows_core::Interface::as_raw(self),
                 core::mem::transmute_copy(message),
             )
             .ok()

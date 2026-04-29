@@ -51,17 +51,15 @@ pub struct PerceptionTimestamp(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PerceptionTimestamp, windows_core::IUnknown, windows_core::IInspectable);
 impl PerceptionTimestamp {
     pub fn TargetTime(&self) -> windows_core::Result<super::Foundation::DateTime> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).TargetTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn PredictionAmount(&self) -> windows_core::Result<super::Foundation::TimeSpan> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PredictionAmount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).PredictionAmount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn SystemRelativeTargetTime(&self) -> windows_core::Result<super::Foundation::TimeSpan> {

@@ -25,11 +25,10 @@ impl Callback {
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke(&self, a: i32) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Invoke)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Invoke)(
+                windows_core::Interface::as_raw(self),
                 a,
                 &mut result__,
             )
@@ -123,7 +122,7 @@ impl<F: Fn(i32) -> windows_core::Result<i32> + Send + 'static> CallbackBox<F> {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             match (this.invoke)(a) {
                 Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
+                    result__.write(ok__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -150,32 +149,29 @@ impl Class {
         SHARED.call(callback)
     }
     pub fn Property(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Property)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Property)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn SetProperty(&self, value: i32) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).SetProperty)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).SetProperty)(
+                windows_core::Interface::as_raw(self),
                 value,
             )
             .ok()
         }
     }
     pub fn Flags(&self) -> windows_core::Result<Flags> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Flags)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Flags)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
@@ -187,11 +183,10 @@ impl Class {
         b: &mut [i32],
         c: &mut windows_core::Array<i32>,
     ) -> windows_core::Result<windows_core::Array<i32>> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).Int32Array)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Int32Array)(
+                windows_core::Interface::as_raw(self),
                 a.len().try_into().unwrap(),
                 a.as_ptr(),
                 b.len().try_into().unwrap(),
@@ -210,11 +205,10 @@ impl Class {
         b: &mut [windows_core::HSTRING],
         c: &mut windows_core::Array<windows_core::HSTRING>,
     ) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).StringArray)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).StringArray)(
+                windows_core::Interface::as_raw(self),
                 a.len().try_into().unwrap(),
                 core::mem::transmute(a.as_ptr()),
                 b.len().try_into().unwrap(),
@@ -236,10 +230,9 @@ impl Class {
         P2: windows_core::Param<windows::Foundation::IStringable>,
         P3: windows_core::Param<Callback>,
     {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Input)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Input)(
+                windows_core::Interface::as_raw(self),
                 a.param().abi(),
                 b.param().abi(),
                 c.param().abi(),
@@ -351,7 +344,7 @@ impl IClass_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IClass_Impl::Property(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -377,7 +370,7 @@ impl IClass_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IClass_Impl::Flags(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -544,9 +537,8 @@ impl windows_core::RuntimeType for IThing {
 windows_core::imp::interface_hierarchy!(IThing, windows_core::IUnknown, windows_core::IInspectable);
 impl IThing {
     pub fn Method(&self) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Method)(windows_core::Interface::as_raw(this))
+            (windows_core::Interface::vtable(self).Method)(windows_core::Interface::as_raw(self))
                 .ok()
         }
     }

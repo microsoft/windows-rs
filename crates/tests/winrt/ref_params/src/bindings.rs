@@ -17,11 +17,10 @@ impl ITest {
     where
         P0: windows_core::Param<ITest>,
     {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Input)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Input)(
+                windows_core::Interface::as_raw(self),
                 input.param().abi(),
                 &mut result__,
             )
@@ -29,10 +28,9 @@ impl ITest {
         }
     }
     pub fn Output(&self, value: i32, output: &mut Option<ITest>) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Output)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Output)(
+                windows_core::Interface::as_raw(self),
                 value,
                 output as *mut _ as _,
             )
@@ -40,21 +38,19 @@ impl ITest {
         }
     }
     pub fn Current(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Current)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Current)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn SetCurrent(&self, value: i32) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).SetCurrent)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).SetCurrent)(
+                windows_core::Interface::as_raw(self),
                 value,
             )
             .ok()
@@ -82,7 +78,7 @@ impl ITest_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITest_Impl::Input(this, core::mem::transmute_copy(&input)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -109,7 +105,7 @@ impl ITest_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITest_Impl::Current(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

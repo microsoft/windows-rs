@@ -22,164 +22,149 @@ windows_core::imp::interface_hierarchy!(
 );
 impl IPropertyValue {
     pub fn IsNumericScalar(&self) -> windows_core::Result<bool> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsNumericScalar)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).IsNumericScalar)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn GetUInt8(&self) -> windows_core::Result<u8> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetUInt8)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetUInt8)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn GetInt16(&self) -> windows_core::Result<i16> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetInt16)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetInt16)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn GetUInt16(&self) -> windows_core::Result<u16> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetUInt16)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetUInt16)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn GetInt32(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetInt32)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetInt32)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn GetUInt32(&self) -> windows_core::Result<u32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetUInt32)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetUInt32)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn GetInt64(&self) -> windows_core::Result<i64> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetInt64)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetInt64)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn GetUInt64(&self) -> windows_core::Result<u64> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetUInt64)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetUInt64)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn GetSingle(&self) -> windows_core::Result<f32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSingle)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetSingle)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn GetDouble(&self) -> windows_core::Result<f64> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDouble)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetDouble)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn GetChar16(&self) -> windows_core::Result<u16> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetChar16)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetChar16)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn GetBoolean(&self) -> windows_core::Result<bool> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetBoolean)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetBoolean)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn GetString(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetString)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetString)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| core::mem::transmute(result__))
         }
     }
     pub fn GetGuid(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetGuid)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetGuid)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn GetUInt8Array(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetUInt8Array)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetUInt8Array)(
+                windows_core::Interface::as_raw(self),
                 value.set_abi_len(),
                 value as *mut _ as _,
             )
@@ -187,10 +172,9 @@ impl IPropertyValue {
         }
     }
     pub fn GetInt16Array(&self, value: &mut windows_core::Array<i16>) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetInt16Array)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetInt16Array)(
+                windows_core::Interface::as_raw(self),
                 value.set_abi_len(),
                 value as *mut _ as _,
             )
@@ -198,10 +182,9 @@ impl IPropertyValue {
         }
     }
     pub fn GetUInt16Array(&self, value: &mut windows_core::Array<u16>) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetUInt16Array)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetUInt16Array)(
+                windows_core::Interface::as_raw(self),
                 value.set_abi_len(),
                 value as *mut _ as _,
             )
@@ -209,10 +192,9 @@ impl IPropertyValue {
         }
     }
     pub fn GetInt32Array(&self, value: &mut windows_core::Array<i32>) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetInt32Array)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetInt32Array)(
+                windows_core::Interface::as_raw(self),
                 value.set_abi_len(),
                 value as *mut _ as _,
             )
@@ -220,10 +202,9 @@ impl IPropertyValue {
         }
     }
     pub fn GetUInt32Array(&self, value: &mut windows_core::Array<u32>) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetUInt32Array)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetUInt32Array)(
+                windows_core::Interface::as_raw(self),
                 value.set_abi_len(),
                 value as *mut _ as _,
             )
@@ -231,10 +212,9 @@ impl IPropertyValue {
         }
     }
     pub fn GetInt64Array(&self, value: &mut windows_core::Array<i64>) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetInt64Array)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetInt64Array)(
+                windows_core::Interface::as_raw(self),
                 value.set_abi_len(),
                 value as *mut _ as _,
             )
@@ -242,10 +222,9 @@ impl IPropertyValue {
         }
     }
     pub fn GetUInt64Array(&self, value: &mut windows_core::Array<u64>) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetUInt64Array)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetUInt64Array)(
+                windows_core::Interface::as_raw(self),
                 value.set_abi_len(),
                 value as *mut _ as _,
             )
@@ -253,10 +232,9 @@ impl IPropertyValue {
         }
     }
     pub fn GetSingleArray(&self, value: &mut windows_core::Array<f32>) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetSingleArray)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetSingleArray)(
+                windows_core::Interface::as_raw(self),
                 value.set_abi_len(),
                 value as *mut _ as _,
             )
@@ -264,10 +242,9 @@ impl IPropertyValue {
         }
     }
     pub fn GetDoubleArray(&self, value: &mut windows_core::Array<f64>) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetDoubleArray)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetDoubleArray)(
+                windows_core::Interface::as_raw(self),
                 value.set_abi_len(),
                 value as *mut _ as _,
             )
@@ -275,10 +252,9 @@ impl IPropertyValue {
         }
     }
     pub fn GetChar16Array(&self, value: &mut windows_core::Array<u16>) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetChar16Array)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetChar16Array)(
+                windows_core::Interface::as_raw(self),
                 value.set_abi_len(),
                 value as *mut _ as _,
             )
@@ -289,10 +265,9 @@ impl IPropertyValue {
         &self,
         value: &mut windows_core::Array<bool>,
     ) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetBooleanArray)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetBooleanArray)(
+                windows_core::Interface::as_raw(self),
                 value.set_abi_len(),
                 value as *mut _ as _,
             )
@@ -303,10 +278,9 @@ impl IPropertyValue {
         &self,
         value: &mut windows_core::Array<windows_core::HSTRING>,
     ) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetStringArray)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetStringArray)(
+                windows_core::Interface::as_raw(self),
                 value.set_abi_len(),
                 value as *mut _ as _,
             )
@@ -317,10 +291,9 @@ impl IPropertyValue {
         &self,
         value: &mut windows_core::Array<windows_core::IInspectable>,
     ) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetInspectableArray)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetInspectableArray)(
+                windows_core::Interface::as_raw(self),
                 value.set_abi_len(),
                 value as *mut _ as _,
             )
@@ -331,10 +304,9 @@ impl IPropertyValue {
         &self,
         value: &mut windows_core::Array<windows_core::GUID>,
     ) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetGuidArray)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetGuidArray)(
+                windows_core::Interface::as_raw(self),
                 value.set_abi_len(),
                 value as *mut _ as _,
             )
@@ -398,7 +370,7 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::IsNumericScalar(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -414,7 +386,7 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetUInt8(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -430,7 +402,7 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetInt16(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -446,7 +418,7 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetUInt16(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -462,7 +434,7 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetInt32(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -478,7 +450,7 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetUInt32(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -494,7 +466,7 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetInt64(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -510,7 +482,7 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetUInt64(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -526,7 +498,7 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetSingle(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -542,7 +514,7 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetDouble(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -558,7 +530,7 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetChar16(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -574,7 +546,7 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetBoolean(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -607,7 +579,7 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetGuid(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1105,11 +1077,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropert
 }
 impl<T: windows_core::RuntimeType + 'static> IReference<T> {
     pub fn Value(&self) -> windows_core::Result<T> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Value)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Value)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))

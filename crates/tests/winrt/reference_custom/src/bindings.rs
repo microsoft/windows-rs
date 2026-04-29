@@ -23,10 +23,9 @@ windows_core::imp::interface_hierarchy!(
 windows_core::imp::required_hierarchy!(IAsyncAction, IAsyncInfo);
 impl IAsyncAction {
     pub fn GetResults(&self) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).GetResults)(windows_core::Interface::as_raw(
-                this,
+            (windows_core::Interface::vtable(self).GetResults)(windows_core::Interface::as_raw(
+                self,
             ))
             .ok()
         }
@@ -122,38 +121,34 @@ windows_core::imp::interface_hierarchy!(
 );
 impl IAsyncInfo {
     pub fn Id(&self) -> windows_core::Result<u32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Id)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ErrorCode)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).ErrorCode)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn Cancel(&self) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this))
+            (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self))
                 .ok()
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
+            (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self))
                 .ok()
         }
     }
@@ -178,7 +173,7 @@ impl IAsyncInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAsyncInfo_Impl::Id(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -194,7 +189,7 @@ impl IAsyncInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAsyncInfo_Impl::ErrorCode(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -272,11 +267,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIter
 }
 impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
     pub fn First(&self) -> windows_core::Result<IIterator<T>> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).First)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -379,33 +373,30 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIter
 }
 impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn Current(&self) -> windows_core::Result<T> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Current)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Current)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn HasCurrent(&self) -> windows_core::Result<bool> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasCurrent)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).HasCurrent)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn MoveNext(&self) -> windows_core::Result<bool> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveNext)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).MoveNext)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
@@ -415,11 +406,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
         &self,
         items: &mut [<T as windows_core::Type<T>>::Default],
     ) -> windows_core::Result<u32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMany)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetMany)(
+                windows_core::Interface::as_raw(self),
                 items.len().try_into().unwrap(),
                 core::mem::transmute_copy(&items),
                 &mut result__,
@@ -479,7 +469,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIterator_Impl::HasCurrent(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -499,7 +489,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIterator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -527,7 +517,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
                     ),
                 ) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -592,10 +582,9 @@ impl windows_core::RuntimeType for ITest {
 windows_core::imp::interface_hierarchy!(ITest, windows_core::IUnknown, windows_core::IInspectable);
 impl ITest {
     pub fn Numerics(&self, n: Vector2) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Numerics)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Numerics)(
+                windows_core::Interface::as_raw(self),
                 n,
             )
             .ok()
@@ -605,21 +594,19 @@ impl ITest {
     where
         P0: windows_core::Param<IVector<i32>>,
     {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Collections)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Collections)(
+                windows_core::Interface::as_raw(self),
                 c.param().abi(),
             )
             .ok()
         }
     }
     pub fn Async(&self) -> windows_core::Result<IAsyncAction> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Async)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Async)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -629,10 +616,9 @@ impl ITest {
     where
         P0: windows_core::Param<windows::Foundation::IStringable>,
     {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Windows)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Windows)(
+                windows_core::Interface::as_raw(self),
                 s.param().abi(),
             )
             .ok()
@@ -763,11 +749,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterabl
 }
 impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAt)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetAt)(
+                windows_core::Interface::as_raw(self),
                 index,
                 &mut result__,
             )
@@ -775,11 +760,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Size)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Size)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
@@ -789,11 +773,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     where
         P0: windows_core::Param<T>,
     {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).IndexOf)(
+                windows_core::Interface::as_raw(self),
                 value.param().abi(),
                 index,
                 &mut result__,
@@ -805,10 +788,9 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     where
         P1: windows_core::Param<T>,
     {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).SetAt)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).SetAt)(
+                windows_core::Interface::as_raw(self),
                 index,
                 value.param().abi(),
             )
@@ -819,10 +801,9 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     where
         P1: windows_core::Param<T>,
     {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).InsertAt)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).InsertAt)(
+                windows_core::Interface::as_raw(self),
                 index,
                 value.param().abi(),
             )
@@ -830,10 +811,9 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
         }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).RemoveAt)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).RemoveAt)(
+                windows_core::Interface::as_raw(self),
                 index,
             )
             .ok()
@@ -843,28 +823,25 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     where
         P0: windows_core::Param<T>,
     {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Append)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Append)(
+                windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
             .ok()
         }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(
-                this,
+            (windows_core::Interface::vtable(self).RemoveAtEnd)(windows_core::Interface::as_raw(
+                self,
             ))
             .ok()
         }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this))
+            (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self))
                 .ok()
         }
     }
@@ -873,11 +850,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
         startindex: u32,
         items: &mut [<T as windows_core::Type<T>>::Default],
     ) -> windows_core::Result<u32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMany)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetMany)(
+                windows_core::Interface::as_raw(self),
                 startindex,
                 items.len().try_into().unwrap(),
                 core::mem::transmute_copy(&items),
@@ -890,10 +866,9 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
         &self,
         items: &[<T as windows_core::Type<T>>::Default],
     ) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).ReplaceAll)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).ReplaceAll)(
+                windows_core::Interface::as_raw(self),
                 items.len().try_into().unwrap(),
                 core::mem::transmute(items.as_ptr()),
             )
@@ -989,7 +964,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVector_Impl::Size(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1015,7 +990,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                     core::mem::transmute_copy(&index),
                 ) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1129,7 +1104,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                     ),
                 ) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

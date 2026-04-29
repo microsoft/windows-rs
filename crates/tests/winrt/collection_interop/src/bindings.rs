@@ -17,10 +17,9 @@ impl ITest {
     where
         P0: windows_core::Param<windows_collections::IIterable<i32>>,
     {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).TestIterable)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).TestIterable)(
+                windows_core::Interface::as_raw(self),
                 collection.param().abi(),
                 values.len().try_into().unwrap(),
                 values.as_ptr(),
@@ -32,11 +31,10 @@ impl ITest {
         &self,
         values: &[i32],
     ) -> windows_core::Result<windows_collections::IIterable<i32>> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIterable)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetIterable)(
+                windows_core::Interface::as_raw(self),
                 values.len().try_into().unwrap(),
                 values.as_ptr(),
                 &mut result__,
@@ -50,11 +48,10 @@ impl ITest {
     ) -> windows_core::Result<
         windows_collections::IMapView<i32, windows_collections::IVectorView<i32>>,
     > {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMapView)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetMapView)(
+                windows_core::Interface::as_raw(self),
                 values.len().try_into().unwrap(),
                 values.as_ptr(),
                 &mut result__,

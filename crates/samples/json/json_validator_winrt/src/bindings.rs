@@ -140,11 +140,10 @@ impl JsonValidator {
         &self,
         value: &windows_core::HSTRING,
     ) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Validate)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Validate)(
+                windows_core::Interface::as_raw(self),
                 core::mem::transmute_copy(value),
                 &mut result__,
             )

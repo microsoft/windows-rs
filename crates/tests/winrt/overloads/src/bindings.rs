@@ -25,22 +25,20 @@ impl A {
         SHARED.call(callback)
     }
     pub fn Method(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Method)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Method)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn Method2(&self, a: i32) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Method2)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Method2)(
+                windows_core::Interface::as_raw(self),
                 a,
                 &mut result__,
             )
@@ -80,22 +78,20 @@ impl B {
         SHARED.call(callback)
     }
     pub fn MethodOne(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MethodOne)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).MethodOne)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn MethodTwo(&self, a: i32) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MethodTwo)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).MethodTwo)(
+                windows_core::Interface::as_raw(self),
                 a,
                 &mut result__,
             )
@@ -135,22 +131,20 @@ impl C {
         SHARED.call(callback)
     }
     pub fn Method(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Method)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Method)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn Method2(&self, a: i32) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Method2)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Method2)(
+                windows_core::Interface::as_raw(self),
                 a,
                 &mut result__,
             )
@@ -190,22 +184,20 @@ impl D {
         SHARED.call(callback)
     }
     pub fn Method(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Method)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Method)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn Method2(&self, a: i32) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Method2)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Method2)(
+                windows_core::Interface::as_raw(self),
                 a,
                 &mut result__,
             )
@@ -272,22 +264,20 @@ impl E {
         SHARED.call(callback)
     }
     pub fn MethodOne(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MethodOne)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).MethodOne)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn MethodTwo(&self, a: i32) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MethodTwo)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).MethodTwo)(
+                windows_core::Interface::as_raw(self),
                 a,
                 &mut result__,
             )
@@ -358,7 +348,7 @@ impl IA_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IA_Impl::Method(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -375,7 +365,7 @@ impl IA_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IA_Impl::Method2(this, a) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -424,7 +414,7 @@ impl IB_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IB_Impl::MethodOne(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -441,7 +431,7 @@ impl IB_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IB_Impl::MethodTwo(this, a) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -490,7 +480,7 @@ impl IC_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IC_Impl::Method(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -507,7 +497,7 @@ impl IC_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IC_Impl::Method2(this, a) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -556,7 +546,7 @@ impl ID_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID_Impl::Method(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -573,7 +563,7 @@ impl ID_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID_Impl::Method2(this, a) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -624,7 +614,7 @@ impl ID2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2_Impl::Method(this, a, b) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -643,7 +633,7 @@ impl ID2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2_Impl::Method2(this, a, b, c) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -701,7 +691,7 @@ impl IE_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IE_Impl::MethodOne(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -718,7 +708,7 @@ impl IE_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IE_Impl::MethodTwo(this, a) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -769,7 +759,7 @@ impl IE2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IE2_Impl::MethodThree(this, a, b) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -788,7 +778,7 @@ impl IE2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IE2_Impl::MethodFour(this, a, b, c) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

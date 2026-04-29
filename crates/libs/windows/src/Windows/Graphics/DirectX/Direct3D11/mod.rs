@@ -101,8 +101,7 @@ windows_core::imp::interface_hierarchy!(IDirect3DDevice, windows_core::IUnknown,
 windows_core::imp::required_hierarchy!(IDirect3DDevice, super::super::super::Foundation::IClosable);
 impl IDirect3DDevice {
     pub fn Trim(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Trim)(windows_core::Interface::as_raw(this)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Trim)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -143,10 +142,9 @@ windows_core::imp::interface_hierarchy!(IDirect3DSurface, windows_core::IUnknown
 windows_core::imp::required_hierarchy!(IDirect3DSurface, super::super::super::Foundation::IClosable);
 impl IDirect3DSurface {
     pub fn Description(&self) -> windows_core::Result<Direct3DSurfaceDescription> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -167,7 +165,7 @@ impl IDirect3DSurface_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DSurface_Impl::Description(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

@@ -25,11 +25,10 @@ impl Class {
         SHARED.call(callback)
     }
     pub fn Signal(&self, value: i32) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Signal)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Signal)(
+                windows_core::Interface::as_raw(self),
                 value,
                 &mut result__,
             )
@@ -40,11 +39,10 @@ impl Class {
     where
         P0: windows_core::Param<windows::Foundation::TypedEventHandler<Class, i32>>,
     {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Event)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Event)(
+                windows_core::Interface::as_raw(self),
                 handler.param().abi(),
                 &mut result__,
             )
@@ -52,10 +50,9 @@ impl Class {
         }
     }
     pub fn RemoveEvent(&self, token: i64) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).RemoveEvent)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).RemoveEvent)(
+                windows_core::Interface::as_raw(self),
                 token,
             )
             .ok()

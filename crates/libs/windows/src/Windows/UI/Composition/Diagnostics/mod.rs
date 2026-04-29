@@ -7,29 +7,25 @@ impl CompositionDebugHeatMaps {
     where
         P0: windows_core::Param<super::Visual>,
     {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Hide)(windows_core::Interface::as_raw(this), subtree.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Hide)(windows_core::Interface::as_raw(self), subtree.param().abi()).ok() }
     }
     pub fn ShowMemoryUsage<P0>(&self, subtree: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Visual>,
     {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ShowMemoryUsage)(windows_core::Interface::as_raw(this), subtree.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ShowMemoryUsage)(windows_core::Interface::as_raw(self), subtree.param().abi()).ok() }
     }
     pub fn ShowOverdraw<P0>(&self, subtree: P0, contentkinds: CompositionDebugOverdrawContentKinds) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Visual>,
     {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ShowOverdraw)(windows_core::Interface::as_raw(this), subtree.param().abi(), contentkinds).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ShowOverdraw)(windows_core::Interface::as_raw(self), subtree.param().abi(), contentkinds).ok() }
     }
     pub fn ShowRedraw<P0>(&self, subtree: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Visual>,
     {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ShowRedraw)(windows_core::Interface::as_raw(this), subtree.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ShowRedraw)(windows_core::Interface::as_raw(self), subtree.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for CompositionDebugHeatMaps {
@@ -103,10 +99,9 @@ pub struct CompositionDebugSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionDebugSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl CompositionDebugSettings {
     pub fn HeatMaps(&self) -> windows_core::Result<CompositionDebugHeatMaps> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeatMaps)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).HeatMaps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryGetSettings<P0>(compositor: P0) -> windows_core::Result<CompositionDebugSettings>

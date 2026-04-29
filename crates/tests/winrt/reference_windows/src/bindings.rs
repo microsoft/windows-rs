@@ -14,10 +14,9 @@ impl windows_core::RuntimeType for ITest {
 windows_core::imp::interface_hierarchy!(ITest, windows_core::IUnknown, windows_core::IInspectable);
 impl ITest {
     pub fn Numerics(&self, n: windows_numerics::Vector2) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Numerics)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Numerics)(
+                windows_core::Interface::as_raw(self),
                 n,
             )
             .ok()
@@ -27,21 +26,19 @@ impl ITest {
     where
         P0: windows_core::Param<windows_collections::IVector<i32>>,
     {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Collections)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Collections)(
+                windows_core::Interface::as_raw(self),
                 c.param().abi(),
             )
             .ok()
         }
     }
     pub fn Async(&self) -> windows_core::Result<windows_future::IAsyncAction> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Async)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Async)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -51,10 +48,9 @@ impl ITest {
     where
         P0: windows_core::Param<windows::Foundation::IStringable>,
     {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Windows)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Windows)(
+                windows_core::Interface::as_raw(self),
                 s.param().abi(),
             )
             .ok()

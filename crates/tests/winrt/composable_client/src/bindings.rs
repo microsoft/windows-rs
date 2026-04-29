@@ -31,11 +31,10 @@ impl Compositor {
         SHARED.call(callback)
     }
     pub fn CreateSpriteVisual(&self, brush: i32) -> windows_core::Result<SpriteVisual> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSpriteVisual)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).CreateSpriteVisual)(
+                windows_core::Interface::as_raw(self),
                 brush,
                 &mut result__,
             )
@@ -43,11 +42,10 @@ impl Compositor {
         }
     }
     pub fn CreateContainerVisual(&self, children: i32) -> windows_core::Result<ContainerVisual> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateContainerVisual)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).CreateContainerVisual)(
+                windows_core::Interface::as_raw(self),
                 children,
                 &mut result__,
             )
@@ -79,11 +77,10 @@ windows_core::imp::interface_hierarchy!(
 windows_core::imp::required_hierarchy!(ContainerVisual, Visual);
 impl ContainerVisual {
     pub fn Children(&self) -> i32 {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let hresult__ = (windows_core::Interface::vtable(this).Children)(
-                windows_core::Interface::as_raw(this),
+            let hresult__ = (windows_core::Interface::vtable(self).Children)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             );
             debug_assert!(hresult__.0 == 0);
@@ -239,11 +236,10 @@ impl SpriteVisual {
         }
     }
     pub fn Brush(&self) -> i32 {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let hresult__ = (windows_core::Interface::vtable(this).Brush)(
-                windows_core::Interface::as_raw(this),
+            let hresult__ = (windows_core::Interface::vtable(self).Brush)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             );
             debug_assert!(hresult__.0 == 0);
@@ -281,11 +277,10 @@ pub struct Visual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Visual, windows_core::IUnknown, windows_core::IInspectable);
 impl Visual {
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compositor)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Compositor)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))

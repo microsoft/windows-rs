@@ -7,16 +7,13 @@ impl AppTaskContent {
     where
         P1: windows_core::Param<super::super::super::Foundation::Uri>,
     {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddButton)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), actionuri.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddButton)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), actionuri.param().abi()).ok() }
     }
     pub fn SetTextInput(&self, placeholdertext: &windows_core::HSTRING, actionuritemplate: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTextInput)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(placeholdertext), core::mem::transmute_copy(actionuritemplate)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetTextInput)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(placeholdertext), core::mem::transmute_copy(actionuritemplate)).ok() }
     }
     pub fn SetQuestion(&self, question: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetQuestion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(question)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetQuestion)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(question)).ok() }
     }
     pub fn CreateSequenceOfSteps(completedsteps: &[windows_core::HSTRING], executingstep: &windows_core::HSTRING) -> windows_core::Result<AppTaskContent> {
         Self::IAppTaskContentStatics(|this| unsafe {
@@ -74,85 +71,72 @@ pub struct AppTaskInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppTaskInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppTaskInfo {
     pub fn Remove(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub fn Update<P1>(&self, state: AppTaskState, content: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AppTaskContent>,
     {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this), state, content.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), state, content.param().abi()).ok() }
     }
     pub fn UpdateState(&self, state: AppTaskState) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateState)(windows_core::Interface::as_raw(this), state).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateState)(windows_core::Interface::as_raw(self), state).ok() }
     }
     pub fn UpdateTitles(&self, title: &windows_core::HSTRING, subtitle: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateTitles)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), core::mem::transmute_copy(subtitle)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateTitles)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(title), core::mem::transmute_copy(subtitle)).ok() }
     }
     pub fn GetCompletedSteps(&self) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).GetCompletedSteps)(windows_core::Interface::as_raw(this), windows_core::Array::<windows_core::HSTRING>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetCompletedSteps)(windows_core::Interface::as_raw(self), windows_core::Array::<windows_core::HSTRING>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn GetExecutingStep(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetExecutingStep)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).GetExecutingStep)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).Title)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Subtitle(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Subtitle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).Subtitle)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn DeepLink(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeepLink)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DeepLink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IconUri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IconUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IconUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn State(&self) -> windows_core::Result<AppTaskState> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn StartTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn EndTime(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EndTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EndTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {

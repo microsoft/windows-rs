@@ -235,92 +235,78 @@ pub struct LegacyGipGameControllerProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LegacyGipGameControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl LegacyGipGameControllerProvider {
     pub fn BatteryChargingState(&self) -> windows_core::Result<GameControllerBatteryChargingState> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BatteryChargingState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).BatteryChargingState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn BatteryKind(&self) -> windows_core::Result<GameControllerBatteryKind> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BatteryKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).BatteryKind)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn BatteryLevel(&self) -> windows_core::Result<GameControllerBatteryLevel> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BatteryLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).BatteryLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn GetDeviceFirmwareCorruptionState(&self) -> windows_core::Result<GameControllerFirmwareCorruptReason> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceFirmwareCorruptionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetDeviceFirmwareCorruptionState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn IsFirmwareCorrupted(&self) -> windows_core::Result<bool> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsFirmwareCorrupted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsFirmwareCorrupted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn IsInterfaceSupported(&self, interfaceid: windows_core::GUID) -> windows_core::Result<bool> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsInterfaceSupported)(windows_core::Interface::as_raw(this), interfaceid, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsInterfaceSupported)(windows_core::Interface::as_raw(self), interfaceid, &mut result__).map(|| result__)
         }
     }
     pub fn IsSyntheticDevice(&self) -> windows_core::Result<bool> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsSyntheticDevice)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsSyntheticDevice)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn PreferredTypes(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PreferredTypes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PreferredTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ExecuteCommand(&self, command: DeviceCommand) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ExecuteCommand)(windows_core::Interface::as_raw(this), command).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ExecuteCommand)(windows_core::Interface::as_raw(self), command).ok() }
     }
     pub fn SetHomeLedIntensity(&self, intensity: u8) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetHomeLedIntensity)(windows_core::Interface::as_raw(this), intensity).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetHomeLedIntensity)(windows_core::Interface::as_raw(self), intensity).ok() }
     }
     pub fn GetExtendedDeviceInfo(&self) -> windows_core::Result<windows_core::Array<u8>> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).GetExtendedDeviceInfo)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetExtendedDeviceInfo)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn SetHeadsetOperation(&self, operation: HeadsetOperation, buffer: &[u8]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetHeadsetOperation)(windows_core::Interface::as_raw(this), operation, buffer.len().try_into().unwrap(), buffer.as_ptr()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetHeadsetOperation)(windows_core::Interface::as_raw(self), operation, buffer.len().try_into().unwrap(), buffer.as_ptr()).ok() }
     }
     pub fn GetHeadsetOperation(&self, operation: HeadsetOperation) -> windows_core::Result<windows_core::Array<u8>> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).GetHeadsetOperation)(windows_core::Interface::as_raw(this), operation, windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetHeadsetOperation)(windows_core::Interface::as_raw(self), operation, windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn AppCompatVersion(&self) -> windows_core::Result<u32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppCompatVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).AppCompatVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "System")]
@@ -329,18 +315,16 @@ impl LegacyGipGameControllerProvider {
         P0: windows_core::Param<super::super::super::System::User>,
         P2: windows_core::Param<windows_collections::IMapView<RemappingButtonCategory, windows_core::IInspectable>>,
     {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(this), user.param().abi(), previous, remapping.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(self), user.param().abi(), previous, remapping.param().abi()).ok() }
     }
     #[cfg(feature = "System")]
     pub fn GetStandardControllerButtonRemapping<P0>(&self, user: P0, previous: bool) -> windows_core::Result<windows_collections::IMapView<RemappingButtonCategory, windows_core::IInspectable>>
     where
         P0: windows_core::Param<super::super::super::System::User>,
     {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(this), user.param().abi(), previous, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(self), user.param().abi(), previous, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FromGameController<P0>(controller: P0) -> windows_core::Result<LegacyGipGameControllerProvider>

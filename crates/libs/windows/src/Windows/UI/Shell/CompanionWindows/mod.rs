@@ -4,36 +4,31 @@ pub struct CompanionWindowCoordinator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompanionWindowCoordinator, windows_core::IUnknown, windows_core::IInspectable);
 impl CompanionWindowCoordinator {
     pub fn RequestWindowFromAppAsync(&self, appid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<CompanionWindowRequestResult>> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestWindowFromAppAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestWindowFromAppAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(appid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DetachCompanionWindow(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).DetachCompanionWindow)(windows_core::Interface::as_raw(this)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DetachCompanionWindow)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub fn CompanionWindowId(&self) -> windows_core::Result<super::super::WindowId> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CompanionWindowId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CompanionWindowId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<CompanionWindowCoordinator, windows_core::IInspectable>>,
     {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Changed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), token).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetForWindow(windowid: super::super::WindowId) -> windows_core::Result<CompanionWindowCoordinator> {
         Self::ICompanionWindowCoordinatorStatics(|this| unsafe {
@@ -64,28 +59,24 @@ pub struct CompanionWindowRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompanionWindowRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl CompanionWindowRequest {
     pub fn Accept(&self, windowid: super::super::WindowId) -> windows_core::Result<CompanionWindowCoordinator> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Accept)(windows_core::Interface::as_raw(this), windowid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Accept)(windows_core::Interface::as_raw(self), windowid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Reject(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Reject)(windows_core::Interface::as_raw(this)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Reject)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestingWindowId(&self) -> windows_core::Result<super::super::WindowId> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestingWindowId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).RequestingWindowId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn GetFromLaunchUri<P0>(launchuri: P0) -> windows_core::Result<CompanionWindowRequest>
@@ -120,31 +111,27 @@ pub struct CompanionWindowRequestResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompanionWindowRequestResult, windows_core::IUnknown, windows_core::IInspectable);
 impl CompanionWindowRequestResult {
     pub fn Succeeded(&self) -> windows_core::Result<bool> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Succeeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Succeeded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn Status(&self) -> windows_core::Result<CompanionWindowRequestResultStatus> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).ExtendedError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn CompanionWindowId(&self) -> windows_core::Result<super::super::WindowId> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CompanionWindowId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CompanionWindowId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
 }

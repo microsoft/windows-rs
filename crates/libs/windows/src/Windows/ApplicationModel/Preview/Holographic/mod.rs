@@ -34,20 +34,17 @@ impl HolographicKeyboardPlacementOverridePreview {
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverride)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, normal).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPlacementOverride)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), topcenterposition, normal).ok() }
     }
     #[cfg(feature = "Perception_Spatial")]
     pub fn SetPlacementOverrideWithMaxSize<P0>(&self, coordinatesystem: P0, topcenterposition: windows_numerics::Vector3, normal: windows_numerics::Vector3, maxsize: windows_numerics::Vector2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, normal, maxsize).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPlacementOverrideWithMaxSize)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), topcenterposition, normal, maxsize).ok() }
     }
     pub fn ResetPlacementOverride(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ResetPlacementOverride)(windows_core::Interface::as_raw(this)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ResetPlacementOverride)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub fn GetForCurrentView() -> windows_core::Result<HolographicKeyboardPlacementOverridePreview> {
         Self::IHolographicKeyboardPlacementOverridePreviewStatics(|this| unsafe {

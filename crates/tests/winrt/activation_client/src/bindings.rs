@@ -78,11 +78,10 @@ impl Instance {
         SHARED.call(callback)
     }
     pub fn Property(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Property)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Property)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
@@ -127,9 +126,8 @@ impl Missing {
         SHARED.call(callback)
     }
     pub fn Method(&self) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Method)(windows_core::Interface::as_raw(this))
+            (windows_core::Interface::vtable(self).Method)(windows_core::Interface::as_raw(self))
                 .ok()
         }
     }

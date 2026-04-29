@@ -47,10 +47,9 @@ impl XsltProcessor {
     where
         P0: windows_core::Param<super::Dom::IXmlNode>,
     {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransformToString)(windows_core::Interface::as_raw(this), inputnode.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).TransformToString)(windows_core::Interface::as_raw(self), inputnode.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]

@@ -5,59 +5,49 @@ impl windows_core::RuntimeType for IPwmControllerProvider {
 windows_core::imp::interface_hierarchy!(IPwmControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IPwmControllerProvider {
     pub fn PinCount(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PinCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).PinCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn ActualFrequency(&self) -> windows_core::Result<f64> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActualFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).ActualFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn SetDesiredFrequency(&self, frequency: f64) -> windows_core::Result<f64> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetDesiredFrequency)(windows_core::Interface::as_raw(this), frequency, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).SetDesiredFrequency)(windows_core::Interface::as_raw(self), frequency, &mut result__).map(|| result__)
         }
     }
     pub fn MaxFrequency(&self) -> windows_core::Result<f64> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).MaxFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn MinFrequency(&self) -> windows_core::Result<f64> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MinFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).MinFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn AcquirePin(&self, pin: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AcquirePin)(windows_core::Interface::as_raw(this), pin).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AcquirePin)(windows_core::Interface::as_raw(self), pin).ok() }
     }
     pub fn ReleasePin(&self, pin: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ReleasePin)(windows_core::Interface::as_raw(this), pin).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReleasePin)(windows_core::Interface::as_raw(self), pin).ok() }
     }
     pub fn EnablePin(&self, pin: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).EnablePin)(windows_core::Interface::as_raw(this), pin).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EnablePin)(windows_core::Interface::as_raw(self), pin).ok() }
     }
     pub fn DisablePin(&self, pin: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).DisablePin)(windows_core::Interface::as_raw(this), pin).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DisablePin)(windows_core::Interface::as_raw(self), pin).ok() }
     }
     pub fn SetPulseParameters(&self, pin: i32, dutycycle: f64, invertpolarity: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPulseParameters)(windows_core::Interface::as_raw(this), pin, dutycycle, invertpolarity).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPulseParameters)(windows_core::Interface::as_raw(self), pin, dutycycle, invertpolarity).ok() }
     }
 }
 impl windows_core::RuntimeName for IPwmControllerProvider {
@@ -82,7 +72,7 @@ impl IPwmControllerProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPwmControllerProvider_Impl::PinCount(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -94,7 +84,7 @@ impl IPwmControllerProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPwmControllerProvider_Impl::ActualFrequency(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -106,7 +96,7 @@ impl IPwmControllerProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPwmControllerProvider_Impl::SetDesiredFrequency(this, frequency) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -118,7 +108,7 @@ impl IPwmControllerProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPwmControllerProvider_Impl::MaxFrequency(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -130,7 +120,7 @@ impl IPwmControllerProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPwmControllerProvider_Impl::MinFrequency(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -207,10 +197,9 @@ impl windows_core::RuntimeType for IPwmProvider {
 windows_core::imp::interface_hierarchy!(IPwmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IPwmProvider {
     pub fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IPwmControllerProvider>> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetControllers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

@@ -92,11 +92,10 @@ impl Reference {
     where
         P0: windows_core::Param<windows::Foundation::IStringable>,
     {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Method)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Method)(
+                windows_core::Interface::as_raw(self),
                 stringable.param().abi(),
                 &mut result__,
             )

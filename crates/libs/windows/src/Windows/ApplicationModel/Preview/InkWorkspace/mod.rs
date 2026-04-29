@@ -31,10 +31,9 @@ impl InkWorkspaceHostedAppManager {
     where
         P0: windows_core::Param<super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetThumbnailAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SetThumbnailAsync)(windows_core::Interface::as_raw(self), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetForCurrentApp() -> windows_core::Result<InkWorkspaceHostedAppManager> {

@@ -102,27 +102,22 @@ impl RemoteTextConnection {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn IsEnabled(&self) -> windows_core::Result<bool> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn SetIsEnabled(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsEnabled)(windows_core::Interface::as_raw(this), value).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetIsEnabled)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn RegisterThread(&self, threadid: u32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RegisterThread)(windows_core::Interface::as_raw(this), threadid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterThread)(windows_core::Interface::as_raw(self), threadid).ok() }
     }
     pub fn UnregisterThread(&self, threadid: u32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UnregisterThread)(windows_core::Interface::as_raw(this), threadid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UnregisterThread)(windows_core::Interface::as_raw(self), threadid).ok() }
     }
     pub fn ReportDataReceived(&self, pdudata: &[u8]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ReportDataReceived)(windows_core::Interface::as_raw(this), pdudata.len().try_into().unwrap(), pdudata.as_ptr()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReportDataReceived)(windows_core::Interface::as_raw(self), pdudata.len().try_into().unwrap(), pdudata.as_ptr()).ok() }
     }
     pub fn ReportPredictedKeyEvent(&self, scancode: u16, attributes: RemoteKeyEventAttributes) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IRemoteTextConnection2>(self)?;
@@ -177,10 +172,9 @@ impl RemoteTextConnectionDataHandler {
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke(&self, pdudata: &[u8]) -> windows_core::Result<bool> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), pdudata.len().try_into().unwrap(), pdudata.as_ptr(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), pdudata.len().try_into().unwrap(), pdudata.as_ptr(), &mut result__).map(|| result__)
         }
     }
 }
@@ -243,7 +237,7 @@ impl<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static> RemoteTextConn
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             match (this.invoke)(core::slice::from_raw_parts(core::mem::transmute_copy(&pdudata), pdudata_array_size as usize)) {
                 Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
+                    result__.write(ok__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

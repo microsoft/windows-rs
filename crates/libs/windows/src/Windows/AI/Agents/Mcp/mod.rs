@@ -5,15 +5,13 @@ impl windows_core::RuntimeType for IMcpMessageFilterExperimental {
 windows_core::imp::interface_hierarchy!(IMcpMessageFilterExperimental, windows_core::IUnknown, windows_core::IInspectable);
 impl IMcpMessageFilterExperimental {
     pub fn Initialize(&self, clientappusermodelid: &windows_core::HSTRING, clientprocessid: u32, serveridentity: &windows_core::HSTRING, servername: &windows_core::HSTRING, serverprocessid: u32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Initialize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(clientappusermodelid), clientprocessid, core::mem::transmute_copy(serveridentity), core::mem::transmute_copy(servername), serverprocessid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(clientappusermodelid), clientprocessid, core::mem::transmute_copy(serveridentity), core::mem::transmute_copy(servername), serverprocessid).ok() }
     }
     pub fn OnMessage<P2>(&self, message: &windows_core::HSTRING, direction: McpMessageDirection, filterresponse: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<McpMessageFilterResponse>,
     {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OnMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message), direction, filterresponse.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnMessage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(message), direction, filterresponse.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeName for IMcpMessageFilterExperimental {
@@ -70,26 +68,22 @@ impl windows_core::RuntimeType for IMcpMessageFilterResponseExperimental {
 windows_core::imp::interface_hierarchy!(IMcpMessageFilterResponseExperimental, windows_core::IUnknown, windows_core::IInspectable);
 impl IMcpMessageFilterResponseExperimental {
     pub fn IsAllowed(&self) -> windows_core::Result<bool> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsAllowed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn SetIsAllowed(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsAllowed)(windows_core::Interface::as_raw(this), value).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetIsAllowed)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn MessageIfNotAllowed(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MessageIfNotAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).MessageIfNotAllowed)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetMessageIfNotAllowed(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMessageIfNotAllowed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetMessageIfNotAllowed)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
 }
 impl windows_core::RuntimeName for IMcpMessageFilterResponseExperimental {
@@ -108,7 +102,7 @@ impl IMcpMessageFilterResponseExperimental_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMcpMessageFilterResponseExperimental_Impl::IsAllowed(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -168,12 +162,10 @@ impl windows_core::RuntimeType for IMcpMessageFilterResponseExperimental2 {
 windows_core::imp::interface_hierarchy!(IMcpMessageFilterResponseExperimental2, windows_core::IUnknown, windows_core::IInspectable);
 impl IMcpMessageFilterResponseExperimental2 {
     pub fn Allow(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Allow)(windows_core::Interface::as_raw(this)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Allow)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub fn Reject(&self, reason: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Reject)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(reason)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Reject)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(reason)).ok() }
     }
 }
 impl windows_core::RuntimeName for IMcpMessageFilterResponseExperimental2 {

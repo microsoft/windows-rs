@@ -31,54 +31,46 @@ pub struct UserNotificationListener(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserNotificationListener, windows_core::IUnknown, windows_core::IInspectable);
 impl UserNotificationListener {
     pub fn RequestAccessAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<UserNotificationListenerAccessStatus>> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestAccessAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAccessStatus(&self) -> windows_core::Result<UserNotificationListenerAccessStatus> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAccessStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetAccessStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub fn NotificationChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<UserNotificationListener, super::UserNotificationChangedEventArgs>>,
     {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NotificationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).NotificationChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveNotificationChanged(&self, token: i64) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveNotificationChanged)(windows_core::Interface::as_raw(this), token).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveNotificationChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetNotificationsAsync(&self, kinds: super::NotificationKinds) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::UserNotification>>> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNotificationsAsync)(windows_core::Interface::as_raw(this), kinds, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNotificationsAsync)(windows_core::Interface::as_raw(self), kinds, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetNotification(&self, notificationid: u32) -> windows_core::Result<super::UserNotification> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNotification)(windows_core::Interface::as_raw(this), notificationid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNotification)(windows_core::Interface::as_raw(self), notificationid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ClearNotifications(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ClearNotifications)(windows_core::Interface::as_raw(this)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ClearNotifications)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub fn RemoveNotification(&self, notificationid: u32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveNotification)(windows_core::Interface::as_raw(this), notificationid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveNotification)(windows_core::Interface::as_raw(self), notificationid).ok() }
     }
     pub fn Current() -> windows_core::Result<UserNotificationListener> {
         Self::IUserNotificationListenerStatics(|this| unsafe {

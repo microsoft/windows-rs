@@ -25,22 +25,20 @@ impl A {
         SHARED.call(callback)
     }
     pub fn Method(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Method)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Method)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn Method2(&self, a: i32) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Method2)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Method2)(
+                windows_core::Interface::as_raw(self),
                 a,
                 &mut result__,
             )
@@ -80,22 +78,20 @@ impl B {
         SHARED.call(callback)
     }
     pub fn MethodOne(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MethodOne)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).MethodOne)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn MethodTwo(&self, a: i32) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MethodTwo)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).MethodTwo)(
+                windows_core::Interface::as_raw(self),
                 a,
                 &mut result__,
             )
@@ -135,22 +131,20 @@ impl C {
         SHARED.call(callback)
     }
     pub fn Method(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Method)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Method)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn Method2(&self, a: i32) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Method2)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Method2)(
+                windows_core::Interface::as_raw(self),
                 a,
                 &mut result__,
             )
@@ -190,22 +184,20 @@ impl D {
         SHARED.call(callback)
     }
     pub fn Method(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Method)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Method)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn Method2(&self, a: i32) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Method2)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Method2)(
+                windows_core::Interface::as_raw(self),
                 a,
                 &mut result__,
             )
@@ -272,22 +264,20 @@ impl E {
         SHARED.call(callback)
     }
     pub fn MethodOne(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MethodOne)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).MethodOne)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn MethodTwo(&self, a: i32) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MethodTwo)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).MethodTwo)(
+                windows_core::Interface::as_raw(self),
                 a,
                 &mut result__,
             )

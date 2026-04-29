@@ -103,18 +103,24 @@ impl Method {
                 }
             }
             _ => {
-                let forget = if self.signature.return_type.is_copyable(reader) {
-                    quote! {}
+                // For copyable types the Rust type and ABI type are identical, so write
+                // directly.  For non-copyable types (e.g. interfaces) the ABI type differs
+                // from the Rust type, so transmute_copy is required, and the value must be
+                // forgotten to prevent a double-drop.
+                let write_result = if self.signature.return_type.is_copyable(reader) {
+                    quote! { result__.write(ok__); }
                 } else {
-                    quote! { core::mem::forget(ok__); }
+                    quote! {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                    }
                 };
 
                 if noexcept {
                     quote! {
                         let ok__ = #inner(#this #(#invoke_args,)*);
                         // use `ptr::write` since `result` could be uninitialized
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        #forget
+                        #write_result
                         windows_core::HRESULT(0)
                     }
                 } else {
@@ -122,8 +128,7 @@ impl Method {
                         match #inner(#this #(#invoke_args,)*) {
                             Ok(ok__) => {
                                 // use `ptr::write` since `result` could be uninitialized
-                                result__.write(core::mem::transmute_copy(&ok__));
-                                #forget
+                                #write_result
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into()
@@ -451,7 +456,16 @@ impl Method {
         };
 
         let vname = virtual_names.add(self.def);
-        let vcall = quote! { (windows_core::Interface::vtable(this).#vname)(windows_core::Interface::as_raw(this), #args) };
+
+        // For Default methods the receiver is `self` directly; for all other kinds (None,
+        // Base, Static, Composable) the caller binds a local `this` that the vcall uses.
+        let receiver: TokenStream = if kind == InterfaceKind::Default {
+            quote! { self }
+        } else {
+            quote! { this }
+        };
+
+        let vcall = quote! { (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #args) };
 
         let vcall = match &self.signature.return_type {
             Type::Void => {
@@ -513,7 +527,6 @@ impl Method {
         match kind {
             InterfaceKind::Default => quote! {
                 pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
-                    let this = self;
                     unsafe {
                         #vcall
                     }

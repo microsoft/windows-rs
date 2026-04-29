@@ -31,11 +31,10 @@ impl Activatable {
         SHARED.call(callback)
     }
     pub fn Property(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Property)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Property)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
@@ -83,11 +82,10 @@ windows_core::imp::interface_hierarchy!(
 );
 impl Composable {
     pub fn Property(&self) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Property)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Property)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
@@ -165,7 +163,7 @@ impl IActivatable_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActivatable_Impl::Property(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -271,7 +269,7 @@ impl IComposable_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComposable_Impl::Property(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

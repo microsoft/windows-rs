@@ -91,10 +91,9 @@ impl ResourceLoader {
         SHARED.call(callback)
     }
     pub fn GetString(&self, resource: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).GetString)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(resource), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn GetStringForUri<P0>(&self, uri: P0) -> windows_core::Result<windows_core::HSTRING>

@@ -25,11 +25,10 @@ impl Class {
         SHARED.call(callback)
     }
     pub fn Signal(&self, value: i32) -> windows_core::Result<i32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Signal)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Signal)(
+                windows_core::Interface::as_raw(self),
                 value,
                 &mut result__,
             )
@@ -40,11 +39,10 @@ impl Class {
     where
         P0: windows_core::Param<windows::Foundation::TypedEventHandler<Class, i32>>,
     {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Event)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Event)(
+                windows_core::Interface::as_raw(self),
                 handler.param().abi(),
                 &mut result__,
             )
@@ -52,10 +50,9 @@ impl Class {
         }
     }
     pub fn RemoveEvent(&self, token: i64) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).RemoveEvent)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).RemoveEvent)(
+                windows_core::Interface::as_raw(self),
                 token,
             )
             .ok()
@@ -144,7 +141,7 @@ impl IClass_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IClass_Impl::Signal(this, value) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -161,7 +158,7 @@ impl IClass_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IClass_Impl::Event(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -238,7 +235,7 @@ impl IClassStatics_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IClassStatics_Impl::StaticSignal(this, value) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -255,7 +252,7 @@ impl IClassStatics_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IClassStatics_Impl::StaticEvent(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
