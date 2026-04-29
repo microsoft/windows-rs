@@ -35,8 +35,11 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    fn Lookup(&self, key: Ref<K>) -> Result<V> {
-        let value = self.map.get(&*key).ok_or_else(|| Error::from(E_BOUNDS))?;
+    fn Lookup(&self, key: Generic<K>) -> Result<V> {
+        let value = self
+            .map
+            .get(generic_as_default::<K>(&key))
+            .ok_or_else(|| Error::from(E_BOUNDS))?;
 
         V::from_default(value)
     }
@@ -45,8 +48,8 @@ where
         Ok(self.map.len().try_into()?)
     }
 
-    fn HasKey(&self, key: Ref<K>) -> Result<bool> {
-        Ok(self.map.contains_key(&*key))
+    fn HasKey(&self, key: Generic<K>) -> Result<bool> {
+        Ok(self.map.contains_key(generic_as_default::<K>(&key)))
     }
 
     fn Split(&self, first: OutRef<IMapView<K, V>>, second: OutRef<IMapView<K, V>>) -> Result<()> {

@@ -23,7 +23,7 @@ where
         panic!();
     }
 
-    fn IndexOf(&self, _value: Ref<T>, _index: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, _value: Generic<T>, _index: &mut u32) -> Result<bool> {
         panic!();
     }
 

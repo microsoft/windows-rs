@@ -178,8 +178,7 @@ fn get_view() -> Result<()> {
 fn map_changed_event() -> Result<()> {
     let m = IObservableMap::<i32, u64>::from(BTreeMap::from([(1, 10)]));
 
-    let events: std::sync::Arc<std::sync::Mutex<Vec<(CollectionChange, Option<i32>)>>> =
-        std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
+    let events = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
     let events_clone = events.clone();
 
     let handler =

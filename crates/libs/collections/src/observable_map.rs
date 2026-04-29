@@ -53,9 +53,11 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    fn Lookup(&self, key: Ref<K>) -> Result<V> {
+    fn Lookup(&self, key: Generic<K>) -> Result<V> {
         let map = self.map.read().unwrap();
-        let value = map.get(&*key).ok_or_else(|| Error::from(E_BOUNDS))?;
+        let value = map
+            .get(generic_as_default::<K>(&key))
+            .ok_or_else(|| Error::from(E_BOUNDS))?;
         V::from_default(value)
     }
 
@@ -63,8 +65,12 @@ where
         Ok(self.map.read().unwrap().len().try_into()?)
     }
 
-    fn HasKey(&self, key: Ref<K>) -> Result<bool> {
-        Ok(self.map.read().unwrap().contains_key(&*key))
+    fn HasKey(&self, key: Generic<K>) -> Result<bool> {
+        Ok(self
+            .map
+            .read()
+            .unwrap()
+            .contains_key(generic_as_default::<K>(&key)))
     }
 
     fn GetView(&self) -> Result<IMapView<K, V>> {
@@ -72,11 +78,14 @@ where
         Ok(IMapView::<K, V>::from(snapshot))
     }
 
-    fn Insert(&self, key: Ref<K>, value: Ref<V>) -> Result<bool> {
+    fn Insert(&self, key: Generic<K>, value: Generic<V>) -> Result<bool> {
         let replaced = {
             let mut map = self.map.write().unwrap();
-            let replaced = map.contains_key(&*key);
-            map.insert((*key).clone(), (*value).clone());
+            let replaced = map.contains_key(generic_as_default::<K>(&key));
+            map.insert(
+                generic_as_default::<K>(&key).clone(),
+                generic_as_default::<V>(&value).clone(),
+            );
             replaced
         };
         let change = if replaced {
@@ -84,15 +93,15 @@ where
         } else {
             CollectionChange::ItemInserted
         };
-        self.fire_changed(change, Some((*key).clone()));
+        self.fire_changed(change, Some(generic_as_default::<K>(&key).clone()));
         Ok(replaced)
     }
 
-    fn Remove(&self, key: Ref<K>) -> Result<()> {
-        let key_clone = (*key).clone();
+    fn Remove(&self, key: Generic<K>) -> Result<()> {
+        let key_clone = generic_as_default::<K>(&key).clone();
         {
             let mut map = self.map.write().unwrap();
-            if map.remove(&*key).is_none() {
+            if map.remove(generic_as_default::<K>(&key)).is_none() {
                 return Err(Error::from(E_BOUNDS));
             }
         }
