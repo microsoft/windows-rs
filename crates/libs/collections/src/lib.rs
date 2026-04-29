@@ -23,6 +23,8 @@ mod map;
 #[cfg(feature = "std")]
 mod map_view;
 #[cfg(feature = "std")]
+mod observable_map;
+#[cfg(feature = "std")]
 mod observable_vector;
 #[cfg(feature = "std")]
 mod vector;
