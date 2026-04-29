@@ -85,7 +85,7 @@ fn get_view() -> Result<()> {
 fn map_changed_event() -> Result<()> {
     let m = IObservableMap::<i32, u64>::from(BTreeMap::from([(1, 10)]));
 
-    let events: std::sync::Arc<std::sync::Mutex<Vec<(CollectionChange, i32)>>> =
+    let events: std::sync::Arc<std::sync::Mutex<Vec<(CollectionChange, Option<i32>)>>> =
         std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
     let events_clone = events.clone();
 
@@ -93,7 +93,7 @@ fn map_changed_event() -> Result<()> {
         MapChangedEventHandler::new(move |_sender, args: Ref<IMapChangedEventArgs<i32>>| {
             let args = args.ok()?;
             let change = args.CollectionChange()?;
-            let key = args.Key()?;
+            let key = args.Key().ok();
             events_clone.lock().unwrap().push((change, key));
             Ok(())
         });
@@ -106,7 +106,7 @@ fn map_changed_event() -> Result<()> {
         let ev = events.lock().unwrap();
         assert_eq!(ev.len(), 1);
         assert_eq!(ev[0].0, CollectionChange::ItemInserted);
-        assert_eq!(ev[0].1, 2);
+        assert_eq!(ev[0].1, Some(2));
     }
 
     // Replace existing key fires ItemChanged
@@ -115,7 +115,7 @@ fn map_changed_event() -> Result<()> {
         let ev = events.lock().unwrap();
         assert_eq!(ev.len(), 2);
         assert_eq!(ev[1].0, CollectionChange::ItemChanged);
-        assert_eq!(ev[1].1, 1);
+        assert_eq!(ev[1].1, Some(1));
     }
 
     // Remove fires ItemRemoved
@@ -124,15 +124,16 @@ fn map_changed_event() -> Result<()> {
         let ev = events.lock().unwrap();
         assert_eq!(ev.len(), 3);
         assert_eq!(ev[2].0, CollectionChange::ItemRemoved);
-        assert_eq!(ev[2].1, 2);
+        assert_eq!(ev[2].1, Some(2));
     }
 
-    // Clear fires Reset (key is unspecified for Reset, so we only check change type)
+    // Clear fires Reset; key is unspecified for Reset
     m.Clear()?;
     {
         let ev = events.lock().unwrap();
         assert_eq!(ev.len(), 4);
         assert_eq!(ev[3].0, CollectionChange::Reset);
+        assert_eq!(ev[3].1, None);
     }
 
     // Removing the handler means no more events
