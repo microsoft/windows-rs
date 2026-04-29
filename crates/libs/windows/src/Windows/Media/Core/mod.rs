@@ -1867,14 +1867,8 @@ pub struct IMediaSource2_Vtbl {
     CustomProperties: usize,
     pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsOpen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ExternalTimedTextSources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ExternalTimedTextSources: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ExternalTimedMetadataTracks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ExternalTimedMetadataTracks: usize,
 }
 #[cfg(feature = "Media_Playback")]
 windows_core::imp::define_interface!(IMediaSource3, IMediaSource3_Vtbl, 0xb59f0d9b_4b6e_41ed_bbb4_7c7509a994ad);
@@ -3930,16 +3924,14 @@ impl MediaSource {
             (windows_core::Interface::vtable(this).IsOpen)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ExternalTimedTextSources(&self) -> windows_core::Result<super::super::Foundation::Collections::IObservableVector<TimedTextSource>> {
+    pub fn ExternalTimedTextSources(&self) -> windows_core::Result<windows_collections::IObservableVector<TimedTextSource>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExternalTimedTextSources)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ExternalTimedMetadataTracks(&self) -> windows_core::Result<super::super::Foundation::Collections::IObservableVector<TimedMetadataTrack>> {
+    pub fn ExternalTimedMetadataTracks(&self) -> windows_core::Result<windows_collections::IObservableVector<TimedMetadataTrack>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

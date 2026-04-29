@@ -4,6 +4,7 @@
     missing_docs,
     non_snake_case,
     non_camel_case_types,
+    non_upper_case_globals,
     clippy::missing_transmute_annotations
 )]
 
@@ -21,6 +22,8 @@ mod key_value_pair;
 mod map;
 #[cfg(feature = "std")]
 mod map_view;
+#[cfg(feature = "std")]
+mod observable_vector;
 #[cfg(feature = "std")]
 mod vector;
 #[cfg(feature = "std")]

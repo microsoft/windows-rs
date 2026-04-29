@@ -562,20 +562,11 @@ impl windows_core::RuntimeType for IMediaPlaybackItem {
 #[doc(hidden)]
 pub struct IMediaPlaybackItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub AudioTracksChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AudioTracksChanged: usize,
     pub RemoveAudioTracksChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub VideoTracksChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    VideoTracksChanged: usize,
     pub RemoveVideoTracksChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub TimedMetadataTracksChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TimedMetadataTracksChanged: usize,
     pub RemoveTimedMetadataTracksChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     #[cfg(feature = "Media_Core")]
     pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -713,10 +704,7 @@ pub struct IMediaPlaybackList_Vtbl {
     pub RemoveCurrentItemChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub ItemOpened: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveItemOpened: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Items: usize,
     pub AutoRepeatEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAutoRepeatEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub ShuffleEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2562,10 +2550,9 @@ pub struct MediaPlaybackItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaPlaybackItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaPlaybackItem, IMediaPlaybackSource);
 impl MediaPlaybackItem {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn AudioTracksChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaPlaybackItem, windows_collections::IVectorChangedEventArgs>>,
     {
         let this = self;
         unsafe {
@@ -2577,10 +2564,9 @@ impl MediaPlaybackItem {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAudioTracksChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn VideoTracksChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaPlaybackItem, windows_collections::IVectorChangedEventArgs>>,
     {
         let this = self;
         unsafe {
@@ -2592,10 +2578,9 @@ impl MediaPlaybackItem {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveVideoTracksChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn TimedMetadataTracksChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaPlaybackItem, windows_collections::IVectorChangedEventArgs>>,
     {
         let this = self;
         unsafe {
@@ -2955,8 +2940,7 @@ impl MediaPlaybackList {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveItemOpened)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Items(&self) -> windows_core::Result<super::super::Foundation::Collections::IObservableVector<MediaPlaybackItem>> {
+    pub fn Items(&self) -> windows_core::Result<windows_collections::IObservableVector<MediaPlaybackItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

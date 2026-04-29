@@ -62,10 +62,12 @@ impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Sen
             }
             *interface = if *iid == <DeviceArrivedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
                 &mut (*this).vtable as *mut _ as _
-            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                (*this).count.add_ref();
-                return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
             } else {
+                #[cfg(windows)]
+                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                    (*this).count.add_ref();
+                    return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
+                }
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {
@@ -138,10 +140,12 @@ impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Sen
             }
             *interface = if *iid == <DeviceDepartedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
                 &mut (*this).vtable as *mut _ as _
-            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                (*this).count.add_ref();
-                return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
             } else {
+                #[cfg(windows)]
+                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                    (*this).count.add_ref();
+                    return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
+                }
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {
@@ -407,10 +411,12 @@ impl<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessag
             }
             *interface = if *iid == <MessageReceivedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
                 &mut (*this).vtable as *mut _ as _
-            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                (*this).count.add_ref();
-                return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
             } else {
+                #[cfg(windows)]
+                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                    (*this).count.add_ref();
+                    return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
+                }
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {
@@ -483,10 +489,12 @@ impl<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> 
             }
             *interface = if *iid == <MessageTransmittedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
                 &mut (*this).vtable as *mut _ as _
-            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                (*this).count.add_ref();
-                return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
             } else {
+                #[cfg(windows)]
+                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                    (*this).count.add_ref();
+                    return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
+                }
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {

@@ -41,10 +41,7 @@ pub struct ISearchSuggestionManager_Vtbl {
     pub SetQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetQueryWithLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetQueryWithSearchQueryLinguisticDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Suggestions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Suggestions: usize,
     pub AddToHistory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddToHistoryWithLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearHistory: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -212,8 +209,7 @@ impl SearchSuggestionManager {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(querytext), core::mem::transmute_copy(language), linguisticdetails.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Suggestions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>> {
+    pub fn Suggestions(&self) -> windows_core::Result<windows_collections::IObservableVector<SearchSuggestion>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

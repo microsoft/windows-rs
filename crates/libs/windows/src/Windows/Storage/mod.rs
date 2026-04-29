@@ -647,10 +647,12 @@ impl<F: Fn(windows_core::Ref<SetVersionRequest>) -> windows_core::Result<()> + S
             }
             *interface = if *iid == <ApplicationDataSetVersionHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
                 &mut (*this).vtable as *mut _ as _
-            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                (*this).count.add_ref();
-                return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
             } else {
+                #[cfg(windows)]
+                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                    (*this).count.add_ref();
+                    return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
+                }
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {
@@ -3456,9 +3458,9 @@ pub struct IStorageLibrary_Vtbl {
     pub RequestRemoveFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Search"))]
     RequestRemoveFolderAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
+    #[cfg(feature = "Storage_Search")]
     pub Folders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Search")))]
+    #[cfg(not(feature = "Storage_Search"))]
     Folders: usize,
     #[cfg(feature = "Storage_Search")]
     pub SaveFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5217,8 +5219,8 @@ impl StorageLibrary {
             (windows_core::Interface::vtable(this).RequestRemoveFolderAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
-    pub fn Folders(&self) -> windows_core::Result<super::Foundation::Collections::IObservableVector<StorageFolder>> {
+    #[cfg(feature = "Storage_Search")]
+    pub fn Folders(&self) -> windows_core::Result<windows_collections::IObservableVector<StorageFolder>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5731,10 +5733,12 @@ impl<F: Fn(windows_core::Ref<StreamedFileDataRequest>) -> windows_core::Result<(
             }
             *interface = if *iid == <StreamedFileDataRequestedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
                 &mut (*this).vtable as *mut _ as _
-            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                (*this).count.add_ref();
-                return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
             } else {
+                #[cfg(windows)]
+                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                    (*this).count.add_ref();
+                    return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
+                }
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {

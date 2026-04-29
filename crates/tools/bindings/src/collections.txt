@@ -2,10 +2,14 @@
 --flat --no-comment --no-allow
 
 --filter
+    Windows.Foundation.Collections.CollectionChange
     Windows.Foundation.Collections.IIterable
     Windows.Foundation.Collections.IIterator
     Windows.Foundation.Collections.IKeyValuePair
     Windows.Foundation.Collections.IMap
     Windows.Foundation.Collections.IMapView
+    Windows.Foundation.Collections.IObservableVector
     Windows.Foundation.Collections.IVector
+    Windows.Foundation.Collections.IVectorChangedEventArgs
     Windows.Foundation.Collections.IVectorView
+    Windows.Foundation.Collections.VectorChangedEventHandler

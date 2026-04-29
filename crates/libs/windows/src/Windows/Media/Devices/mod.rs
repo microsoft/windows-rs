@@ -535,10 +535,12 @@ impl<F: Fn(windows_core::Ref<CallControl>) -> windows_core::Result<()> + Send + 
             }
             *interface = if *iid == <CallControlEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
                 &mut (*this).vtable as *mut _ as _
-            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                (*this).count.add_ref();
-                return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
             } else {
+                #[cfg(windows)]
+                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                    (*this).count.add_ref();
+                    return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
+                }
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {
@@ -893,10 +895,12 @@ impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<DialRequestedEventA
             }
             *interface = if *iid == <DialRequestedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
                 &mut (*this).vtable as *mut _ as _
-            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                (*this).count.add_ref();
-                return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
             } else {
+                #[cfg(windows)]
+                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                    (*this).count.add_ref();
+                    return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
+                }
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {
@@ -3156,10 +3160,12 @@ impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<KeypadPressedEventA
             }
             *interface = if *iid == <KeypadPressedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
                 &mut (*this).vtable as *mut _ as _
-            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                (*this).count.add_ref();
-                return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
             } else {
+                #[cfg(windows)]
+                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                    (*this).count.add_ref();
+                    return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
+                }
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {
@@ -3859,10 +3865,12 @@ impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<RedialRequestedEven
             }
             *interface = if *iid == <RedialRequestedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
                 &mut (*this).vtable as *mut _ as _
-            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                (*this).count.add_ref();
-                return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
             } else {
+                #[cfg(windows)]
+                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                    (*this).count.add_ref();
+                    return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
+                }
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {
