@@ -33,21 +33,6 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + C
     unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self;
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self>;
     fn from_default(default: &Self::Default) -> Result<Self>;
-
-    /// Converts a raw ABI parameter into the corresponding `Generic` type for use
-    /// in vtable upcall adapters that forward to `_Impl` methods.
-    ///
-    /// # Safety
-    ///
-    /// The ABI value must be valid for the lifetime `'a`.
-    unsafe fn abi_to_generic(abi: &Self::Abi) -> Self::Generic<'_>;
-
-    /// Converts a `Generic` reference to a reference to the `Default` representation.
-    ///
-    /// This is used in generic collection implementations (e.g. `IMap_Impl`, `IVector_Impl`)
-    /// to obtain a `&K::Default` from a `Generic<'_, K>` in order to perform map/vector
-    /// operations that operate on the default type.
-    fn generic_as_default<'a, 'b>(param: &'a Self::Generic<'b>) -> &'a Self::Default;
 }
 
 impl<T> Type<T, InterfaceType> for T
@@ -82,14 +67,6 @@ where
     fn from_default(default: &Self::Default) -> Result<Self> {
         default.as_ref().cloned().ok_or(Error::empty())
     }
-
-    unsafe fn abi_to_generic(abi: &Self::Abi) -> Ref<'_, Self> {
-        unsafe { core::mem::transmute_copy(abi) }
-    }
-
-    fn generic_as_default<'a, 'b>(param: &'a Ref<'b, Self>) -> &'a Option<Self> {
-        param
-    }
 }
 
 impl<T> Type<T, CloneType> for T
@@ -118,14 +95,6 @@ where
     fn from_default(default: &Self::Default) -> Result<Self> {
         Ok(default.clone())
     }
-
-    unsafe fn abi_to_generic(abi: &Self::Abi) -> Ref<'_, Self> {
-        unsafe { core::mem::transmute_copy(abi) }
-    }
-
-    fn generic_as_default<'a, 'b>(param: &'a Ref<'b, Self>) -> &'a Self {
-        param
-    }
 }
 
 impl<T> Type<T, CopyType> for T
@@ -153,14 +122,6 @@ where
 
     fn from_default(default: &Self) -> Result<Self> {
         Ok(default.clone())
-    }
-
-    unsafe fn abi_to_generic(abi: &Self) -> Self {
-        abi.clone()
-    }
-
-    fn generic_as_default<'a, 'b>(param: &'a Self) -> &'a Self {
-        param
     }
 }
 
@@ -205,3 +166,19 @@ pub type AbiType<T> = <T as Type<T>>::Abi;
 /// }
 /// ```
 pub type Generic<'a, T> = <T as Type<T>>::Generic<'a>;
+
+/// Converts a [`Generic<'_, T>`](Generic) reference into a reference to the corresponding
+/// [`Default`](Type::Default) representation.
+///
+/// `Generic<'_, T>` and `T::Default` always share the same memory layout, so this is a
+/// zero-cost reinterpretation:
+/// - For `CopyType` (primitives, GUID, enums): `Generic<'_> = T = Default`, no-op.
+/// - For `CloneType` (HSTRING, etc.) and `InterfaceType` (COM interfaces):
+///   `Generic<'_> = Ref<'_, T>`, which is `#[repr(transparent)]` over `T::Abi`, and
+///   `T::Abi` has the same layout as `T::Default`.
+#[doc(hidden)]
+pub fn generic_as_default<'a, 'b, T: Type<T>>(
+    param: &'a <T as Type<T>>::Generic<'b>,
+) -> &'a T::Default {
+    unsafe { &*(param as *const <T as Type<T>>::Generic<'b> as *const T::Default) }
+}

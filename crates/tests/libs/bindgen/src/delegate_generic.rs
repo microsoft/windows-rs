@@ -167,7 +167,7 @@ impl<
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
-                <T as windows_core::Type<T>>::abi_to_generic(&args),
+                core::mem::transmute_copy(&args),
             )
             .into()
         }

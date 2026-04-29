@@ -52,7 +52,7 @@ where
         let reader = self.0.read().unwrap();
         match reader
             .iter()
-            .position(|element| element == T::generic_as_default(&value))
+            .position(|element| element == generic_as_default::<T>(&value))
         {
             Some(index) => {
                 *result = index as u32;
@@ -86,7 +86,7 @@ where
     fn SetAt(&self, index: u32, value: Generic<'_, T>) -> Result<()> {
         let mut writer = self.0.write().unwrap();
         let item = writer.get_mut(index as usize).ok_or_else(err_bounds)?;
-        *item = T::generic_as_default(&value).clone();
+        *item = generic_as_default::<T>(&value).clone();
         Ok(())
     }
     fn InsertAt(&self, index: u32, value: Generic<'_, T>) -> Result<()> {
@@ -97,7 +97,7 @@ where
         } else {
             let len = writer.len();
             writer.try_reserve(len + 1).map_err(|_| err_memory())?;
-            writer.insert(index, T::generic_as_default(&value).clone());
+            writer.insert(index, generic_as_default::<T>(&value).clone());
             Ok(())
         }
     }
@@ -115,7 +115,7 @@ where
         let mut writer = self.0.write().unwrap();
         let len = writer.len();
         writer.try_reserve(len + 1).map_err(|_| err_memory())?;
-        writer.insert(len, T::generic_as_default(&value).clone());
+        writer.insert(len, generic_as_default::<T>(&value).clone());
         Ok(())
     }
     fn RemoveAtEnd(&self) -> Result<()> {

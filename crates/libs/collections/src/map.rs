@@ -38,7 +38,7 @@ where
     fn Lookup(&self, key: Generic<'_, K>) -> Result<V> {
         let map = self.map.read().unwrap();
         let value = map
-            .get(K::generic_as_default(&key))
+            .get(generic_as_default::<K>(&key))
             .ok_or_else(|| Error::from(E_BOUNDS))?;
         V::from_default(value)
     }
@@ -52,7 +52,7 @@ where
             .map
             .read()
             .unwrap()
-            .contains_key(K::generic_as_default(&key)))
+            .contains_key(generic_as_default::<K>(&key)))
     }
 
     fn GetView(&self) -> Result<IMapView<K, V>> {
@@ -62,17 +62,17 @@ where
 
     fn Insert(&self, key: Generic<'_, K>, value: Generic<'_, V>) -> Result<bool> {
         let mut map = self.map.write().unwrap();
-        let replaced = map.contains_key(K::generic_as_default(&key));
+        let replaced = map.contains_key(generic_as_default::<K>(&key));
         map.insert(
-            K::generic_as_default(&key).clone(),
-            V::generic_as_default(&value).clone(),
+            generic_as_default::<K>(&key).clone(),
+            generic_as_default::<V>(&value).clone(),
         );
         Ok(replaced)
     }
 
     fn Remove(&self, key: Generic<'_, K>) -> Result<()> {
         let mut map = self.map.write().unwrap();
-        if map.remove(K::generic_as_default(&key)).is_none() {
+        if map.remove(generic_as_default::<K>(&key)).is_none() {
             return Err(Error::from(E_BOUNDS));
         }
         Ok(())

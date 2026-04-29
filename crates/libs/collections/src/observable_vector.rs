@@ -66,7 +66,7 @@ where
         let values = self.values.read().unwrap();
         match values
             .iter()
-            .position(|element| element == T::generic_as_default(&value))
+            .position(|element| element == generic_as_default::<T>(&value))
         {
             Some(index) => {
                 *result = index as u32;
@@ -85,7 +85,7 @@ where
             let item = values
                 .get_mut(index as usize)
                 .ok_or_else(|| Error::from(E_BOUNDS))?;
-            *item = T::generic_as_default(&value).clone();
+            *item = generic_as_default::<T>(&value).clone();
         }
         self.fire_changed(CollectionChange::ItemChanged, index);
         Ok(())
@@ -98,7 +98,7 @@ where
             if index > values.len() {
                 return Err(Error::from(E_BOUNDS));
             }
-            values.insert(index, T::generic_as_default(&value).clone());
+            values.insert(index, generic_as_default::<T>(&value).clone());
         }
         self.fire_changed(CollectionChange::ItemInserted, index);
         Ok(())
@@ -119,7 +119,7 @@ where
     fn Append(&self, value: Generic<'_, T>) -> Result<()> {
         let index = {
             let mut values = self.values.write().unwrap();
-            values.push(T::generic_as_default(&value).clone());
+            values.push(generic_as_default::<T>(&value).clone());
             (values.len() - 1) as u32
         };
         self.fire_changed(CollectionChange::ItemInserted, index);

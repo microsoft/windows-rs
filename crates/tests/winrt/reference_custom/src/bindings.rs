@@ -1016,7 +1016,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVector_Impl::IndexOf(
                     this,
-                    <T as windows_core::Type<T>>::abi_to_generic(&value),
+                    core::mem::transmute_copy(&value),
                     core::mem::transmute_copy(&index),
                 ) {
                     Ok(ok__) => {
@@ -1039,12 +1039,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVector_Impl::SetAt(
-                    this,
-                    index,
-                    <T as windows_core::Type<T>>::abi_to_generic(&value),
-                )
-                .into()
+                IVector_Impl::SetAt(this, index, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn InsertAt<
@@ -1059,12 +1054,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVector_Impl::InsertAt(
-                    this,
-                    index,
-                    <T as windows_core::Type<T>>::abi_to_generic(&value),
-                )
-                .into()
+                IVector_Impl::InsertAt(this, index, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn RemoveAt<
@@ -1092,8 +1082,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVector_Impl::Append(this, <T as windows_core::Type<T>>::abi_to_generic(&value))
-                    .into()
+                IVector_Impl::Append(this, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn RemoveAtEnd<

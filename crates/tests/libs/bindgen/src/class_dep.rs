@@ -538,7 +538,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVectorView_Impl::IndexOf(
                     this,
-                    <T as windows_core::Type<T>>::abi_to_generic(&value),
+                    core::mem::transmute_copy(&value),
                     core::mem::transmute_copy(&index),
                 ) {
                     Ok(ok__) => {

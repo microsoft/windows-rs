@@ -47,9 +47,8 @@ impl Method {
                     quote! { #name }
                 } else if param.is_const_ref() || param.is_interface() {
                     quote! { core::mem::transmute_copy(&#name) }
-                } else if let Type::Generic(g) = &param.ty {
-                    let type_name = to_ident(g.name());
-                    quote! { <#type_name as windows_core::Type<#type_name>>::abi_to_generic(&#name) }
+                } else if let Type::Generic(_) = &param.ty {
+                    quote! { core::mem::transmute_copy(&#name) }
                 } else {
                     quote! { core::mem::transmute(&#name) }
                 }
