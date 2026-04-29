@@ -176,8 +176,6 @@ pub type Ref<'a, T> = <T as Type<T>>::Ref<'a>;
 /// - For `CloneType` (HSTRING, etc.) and `InterfaceType` (COM interfaces):
 ///   `Ref<'_> = InRef<'_, T>`, which is `#[repr(transparent)]` over `T::Abi`, and
 ///   `T::Abi` has the same layout as `T::Default`.
-pub fn ref_as_default<'a, 'b, T: Type<T>>(
-    param: &'a <T as Type<T>>::Ref<'b>,
-) -> &'a T::Default {
+pub fn ref_as_default<'a, 'b, T: Type<T>>(param: &'a <T as Type<T>>::Ref<'b>) -> &'a T::Default {
     unsafe { &*(param as *const <T as Type<T>>::Ref<'b> as *const T::Default) }
 }

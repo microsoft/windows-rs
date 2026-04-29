@@ -2085,11 +2085,7 @@ where
     fn GetAt(&self, index: u32) -> windows_core::Result<T>;
     fn Size(&self) -> windows_core::Result<u32>;
     fn GetView(&self) -> windows_core::Result<IVectorView<T>>;
-    fn IndexOf(
-        &self,
-        value: windows_core::Ref<T>,
-        index: &mut u32,
-    ) -> windows_core::Result<bool>;
+    fn IndexOf(&self, value: windows_core::Ref<T>, index: &mut u32) -> windows_core::Result<bool>;
     fn SetAt(&self, index: u32, value: windows_core::Ref<T>) -> windows_core::Result<()>;
     fn InsertAt(&self, index: u32, value: windows_core::Ref<T>) -> windows_core::Result<()>;
     fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
@@ -2628,11 +2624,7 @@ where
 {
     fn GetAt(&self, index: u32) -> windows_core::Result<T>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn IndexOf(
-        &self,
-        value: windows_core::Ref<T>,
-        index: &mut u32,
-    ) -> windows_core::Result<bool>;
+    fn IndexOf(&self, value: windows_core::Ref<T>, index: &mut u32) -> windows_core::Result<bool>;
     fn GetMany(
         &self,
         startIndex: u32,

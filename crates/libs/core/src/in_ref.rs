@@ -33,7 +33,8 @@ impl<T: Type<T>> InRef<'_, T> {
     /// Panics if the argument is null.
     #[track_caller]
     pub fn unwrap(&self) -> &T {
-        self.as_ref().expect("called `InRef::unwrap` on a null value")
+        self.as_ref()
+            .expect("called `InRef::unwrap` on a null value")
     }
 
     /// Converts the argument to an [`Option<T>`] by cloning the reference.
