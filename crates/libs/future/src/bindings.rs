@@ -160,7 +160,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionProgressHandler<
     pub fn new<
         F: Fn(
                 windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
-                windows_core::Ref<TProgress>,
+                windows_core::Generic<'_, TProgress>,
             ) -> windows_core::Result<()>
             + Send
             + 'static,
@@ -209,7 +209,7 @@ struct AsyncActionProgressHandlerBox<
     TProgress,
     F: Fn(
             windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
-            windows_core::Ref<TProgress>,
+            windows_core::Generic<'_, TProgress>,
         ) -> windows_core::Result<()>
         + Send
         + 'static,
@@ -224,7 +224,7 @@ impl<
         TProgress: windows_core::RuntimeType + 'static,
         F: Fn(
                 windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
-                windows_core::Ref<TProgress>,
+                windows_core::Generic<'_, TProgress>,
             ) -> windows_core::Result<()>
             + Send
             + 'static,
@@ -302,7 +302,7 @@ impl<
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(
                 core::mem::transmute_copy(&asyncinfo),
-                core::mem::transmute_copy(&progressinfo),
+                <TProgress as windows_core::Type<TProgress>>::abi_to_param(&progressinfo),
             )
             .into()
         }
@@ -665,7 +665,7 @@ impl<
     pub fn new<
         F: Fn(
                 windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
-                windows_core::Ref<TProgress>,
+                windows_core::Generic<'_, TProgress>,
             ) -> windows_core::Result<()>
             + Send
             + 'static,
@@ -717,7 +717,7 @@ struct AsyncOperationProgressHandlerBox<
     TProgress,
     F: Fn(
             windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
-            windows_core::Ref<TProgress>,
+            windows_core::Generic<'_, TProgress>,
         ) -> windows_core::Result<()>
         + Send
         + 'static,
@@ -734,7 +734,7 @@ impl<
         TProgress: windows_core::RuntimeType + 'static,
         F: Fn(
                 windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
-                windows_core::Ref<TProgress>,
+                windows_core::Generic<'_, TProgress>,
             ) -> windows_core::Result<()>
             + Send
             + 'static,
@@ -795,7 +795,7 @@ impl<
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(
                 core::mem::transmute_copy(&asyncinfo),
-                core::mem::transmute_copy(&progressinfo),
+                <TProgress as windows_core::Type<TProgress>>::abi_to_param(&progressinfo),
             )
             .into()
         }

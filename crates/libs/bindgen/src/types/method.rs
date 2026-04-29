@@ -45,8 +45,11 @@ impl Method {
                     quote! { core::slice::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
                 } else if param.is_primitive(reader) {
                     quote! { #name }
-                } else if param.is_const_ref() || param.is_interface() || matches!(&param.ty, Type::Generic(_))  {
+                } else if param.is_const_ref() || param.is_interface() {
                     quote! { core::mem::transmute_copy(&#name) }
+                } else if let Type::Generic(g) = &param.ty {
+                    let type_name = to_ident(g.name());
+                    quote! { <#type_name as windows_core::Type<#type_name>>::abi_to_param(&#name) }
                 } else {
                     quote! { core::mem::transmute(&#name) }
                 }
@@ -150,9 +153,12 @@ impl Method {
                     quote! { &[#default_type] }
                 } else if p.is_primitive(config.reader) {
                     quote! { #default_type }
-                } else if p.is_interface() || matches!(&p.ty, Type::Generic(_)) {
+                } else if p.is_interface() {
                     let type_name = p.write_name(config);
                     quote! { windows_core::Ref<#type_name> }
+                } else if matches!(&p.ty, Type::Generic(_)) {
+                    let type_name = p.write_name(config);
+                    quote! { windows_core::Generic<'_, #type_name> }
                 } else {
                     quote! { &#default_type }
                 }

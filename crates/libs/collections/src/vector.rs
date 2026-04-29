@@ -46,9 +46,12 @@ where
         Ok(IVectorView::<T>::from(snapshot))
     }
 
-    fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: Generic<'_, T>, result: &mut u32) -> Result<bool> {
         let values = self.values.read().unwrap();
-        match values.iter().position(|element| element == &*value) {
+        match values
+            .iter()
+            .position(|element| element == T::param_as_default(&value))
+        {
             Some(index) => {
                 *result = index as u32;
                 Ok(true)
@@ -60,22 +63,22 @@ where
         }
     }
 
-    fn SetAt(&self, index: u32, value: Ref<T>) -> Result<()> {
+    fn SetAt(&self, index: u32, value: Generic<'_, T>) -> Result<()> {
         let mut values = self.values.write().unwrap();
         let item = values
             .get_mut(index as usize)
             .ok_or_else(|| Error::from(E_BOUNDS))?;
-        *item = (*value).clone();
+        *item = T::param_as_default(&value).clone();
         Ok(())
     }
 
-    fn InsertAt(&self, index: u32, value: Ref<T>) -> Result<()> {
+    fn InsertAt(&self, index: u32, value: Generic<'_, T>) -> Result<()> {
         let mut values = self.values.write().unwrap();
         let index = index as usize;
         if index > values.len() {
             return Err(Error::from(E_BOUNDS));
         }
-        values.insert(index, (*value).clone());
+        values.insert(index, T::param_as_default(&value).clone());
         Ok(())
     }
 
@@ -88,8 +91,11 @@ where
         Ok(())
     }
 
-    fn Append(&self, value: Ref<T>) -> Result<()> {
-        self.values.write().unwrap().push((*value).clone());
+    fn Append(&self, value: Generic<'_, T>) -> Result<()> {
+        self.values
+            .write()
+            .unwrap()
+            .push(T::param_as_default(&value).clone());
         Ok(())
     }
 

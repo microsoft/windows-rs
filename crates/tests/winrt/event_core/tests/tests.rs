@@ -14,7 +14,7 @@ fn add_remove() -> Result<()> {
 
     // Add event handler.
     event.add(&EventHandler::<i32>::new(move |_, args| {
-        check_sender.store(*args, Ordering::Relaxed);
+        check_sender.store(args, Ordering::Relaxed);
         Ok(())
     }))?;
 
@@ -57,7 +57,7 @@ fn multiple() -> Result<()> {
     assert_eq!(c_check.load(Ordering::Relaxed), 0);
 
     let a_token = event.add(&EventHandler::<i32>::new(move |_, args| {
-        a_check_sender.store(*args, Ordering::Relaxed);
+        a_check_sender.store(args, Ordering::Relaxed);
         Ok(())
     }))?;
 
@@ -70,7 +70,7 @@ fn multiple() -> Result<()> {
     assert_eq!(c_check.load(Ordering::Relaxed), 0);
 
     let b_token = event.add(&EventHandler::<i32>::new(move |_, args| {
-        b_check_sender.store(*args, Ordering::Relaxed);
+        b_check_sender.store(args, Ordering::Relaxed);
         Ok(())
     }))?;
 
@@ -83,7 +83,7 @@ fn multiple() -> Result<()> {
     assert_eq!(c_check.load(Ordering::Relaxed), 0);
 
     let c_token = event.add(&EventHandler::<i32>::new(move |_, args| {
-        c_check_sender.store(*args, Ordering::Relaxed);
+        c_check_sender.store(args, Ordering::Relaxed);
         Ok(())
     }))?;
 

@@ -42,11 +42,10 @@ impl IIterator_Impl<IKeyValuePair<i32, f32>> for Iterator_Impl {
 struct MapView();
 
 impl IMapView_Impl<i32, f32> for MapView_Impl {
-    // TODO: shouldn't require `Ref` for primitive
-    fn HasKey(&self, _key: Ref<i32>) -> Result<bool> {
+    fn HasKey(&self, _key: i32) -> Result<bool> {
         Ok(true)
     }
-    fn Lookup(&self, _key: Ref<i32>) -> Result<f32> {
+    fn Lookup(&self, _key: i32) -> Result<f32> {
         Ok(0.0)
     }
     fn Split(
@@ -80,16 +79,16 @@ impl IMap_Impl<i32, f32> for Map_Impl {
     fn GetView(&self) -> Result<IMapView<i32, f32>> {
         Ok(MapView().into())
     }
-    fn HasKey(&self, _key: Ref<i32>) -> Result<bool> {
+    fn HasKey(&self, _key: i32) -> Result<bool> {
         Ok(true)
     }
-    fn Insert(&self, _key: Ref<i32>, _value: Ref<f32>) -> Result<bool> {
+    fn Insert(&self, _key: i32, _value: f32) -> Result<bool> {
         Ok(true)
     }
-    fn Lookup(&self, _key: Ref<i32>) -> Result<f32> {
+    fn Lookup(&self, _key: i32) -> Result<f32> {
         Ok(0.0)
     }
-    fn Remove(&self, _key: Ref<i32>) -> Result<()> {
+    fn Remove(&self, _key: i32) -> Result<()> {
         Ok(())
     }
     fn Size(&self) -> Result<u32> {
