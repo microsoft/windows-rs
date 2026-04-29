@@ -98,7 +98,7 @@ where
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
         let map = self.owner.map.read().unwrap();
         if let Some((key, value)) = map.iter().nth(current) {
-            Ok(ComObject::new(StockMapKeyValuePair {
+            Ok(ComObject::new(super::key_value_pair::StockKeyValuePair {
                 key: key.clone(),
                 value: value.clone(),
             })
@@ -141,7 +141,7 @@ where
 
         for (item, (key, value)) in items.iter_mut().zip(map.iter().skip(current)) {
             *item = Some(
-                ComObject::new(StockMapKeyValuePair {
+                ComObject::new(super::key_value_pair::StockKeyValuePair {
                     key: key.clone(),
                     value: value.clone(),
                 })
@@ -153,34 +153,6 @@ where
             .fetch_add(actual, std::sync::atomic::Ordering::Relaxed);
 
         Ok(actual as u32)
-    }
-}
-
-#[implement(IKeyValuePair<K, V>)]
-struct StockMapKeyValuePair<K, V>
-where
-    K: RuntimeType + 'static,
-    V: RuntimeType + 'static,
-    K::Default: Clone,
-    V::Default: Clone,
-{
-    key: K::Default,
-    value: V::Default,
-}
-
-impl<K, V> IKeyValuePair_Impl<K, V> for StockMapKeyValuePair_Impl<K, V>
-where
-    K: RuntimeType,
-    V: RuntimeType,
-    K::Default: Clone,
-    V::Default: Clone,
-{
-    fn Key(&self) -> Result<K> {
-        K::from_default(&self.key)
-    }
-
-    fn Value(&self) -> Result<V> {
-        V::from_default(&self.value)
     }
 }
 

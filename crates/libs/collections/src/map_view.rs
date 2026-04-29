@@ -79,7 +79,7 @@ where
         let mut current = self.current.read().unwrap().clone().peekable();
 
         if let Some((key, value)) = current.peek() {
-            Ok(ComObject::new(StockKeyValuePair {
+            Ok(ComObject::new(super::key_value_pair::StockKeyValuePair {
                 key: (*key).clone(),
                 value: (*value).clone(),
             })
@@ -107,7 +107,7 @@ where
         for pair in pairs {
             if let Some((key, value)) = current.next() {
                 *pair = Some(
-                    ComObject::new(StockKeyValuePair {
+                    ComObject::new(super::key_value_pair::StockKeyValuePair {
                         key: (*key).clone(),
                         value: (*value).clone(),
                     })
@@ -120,34 +120,6 @@ where
         }
 
         Ok(actual)
-    }
-}
-
-#[implement(IKeyValuePair<K, V>)]
-struct StockKeyValuePair<K, V>
-where
-    K: RuntimeType + 'static,
-    V: RuntimeType + 'static,
-    K::Default: Clone,
-    V::Default: Clone,
-{
-    key: K::Default,
-    value: V::Default,
-}
-
-impl<K, V> IKeyValuePair_Impl<K, V> for StockKeyValuePair_Impl<K, V>
-where
-    K: RuntimeType,
-    V: RuntimeType,
-    K::Default: Clone,
-    V::Default: Clone,
-{
-    fn Key(&self) -> Result<K> {
-        K::from_default(&self.key)
-    }
-
-    fn Value(&self) -> Result<V> {
-        V::from_default(&self.value)
     }
 }
 
