@@ -653,12 +653,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVector_Impl::SetAt(
-                    this,
-                    index,
-                    core::mem::transmute_copy(&value),
-                )
-                .into()
+                IVector_Impl::SetAt(this, index, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn InsertAt<
@@ -673,12 +668,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVector_Impl::InsertAt(
-                    this,
-                    index,
-                    core::mem::transmute_copy(&value),
-                )
-                .into()
+                IVector_Impl::InsertAt(this, index, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn RemoveAt<
@@ -706,8 +696,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVector_Impl::Append(this, core::mem::transmute_copy(&value))
-                    .into()
+                IVector_Impl::Append(this, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn RemoveAtEnd<
