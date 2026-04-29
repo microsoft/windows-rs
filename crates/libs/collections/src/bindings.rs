@@ -895,6 +895,139 @@ where
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct IMapChangedEventArgs<K>(windows_core::IUnknown, core::marker::PhantomData<K>)
+where
+    K: windows_core::RuntimeType + 'static;
+impl<K: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
+    for IMapChangedEventArgs<K>
+{
+}
+impl<K: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
+    for IMapChangedEventArgs<K>
+{
+}
+unsafe impl<K: windows_core::RuntimeType + 'static> windows_core::Interface
+    for IMapChangedEventArgs<K>
+{
+    type Vtable = IMapChangedEventArgs_Vtbl<K>;
+    const IID: windows_core::GUID =
+        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<K: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IMapChangedEventArgs<K> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"pinterface({9939f4df-050a-4c0f-aa60-77075f9c4777}")
+        .push_slice(b";")
+        .push_other(K::SIGNATURE)
+        .push_slice(b")");
+}
+impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs<K> {
+    pub fn CollectionChange(&self) -> windows_core::Result<CollectionChange> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CollectionChange)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn Key(&self) -> windows_core::Result<K> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Key)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl<K: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IMapChangedEventArgs<K> {
+    const NAME: &'static str = "Windows.Foundation.Collections.IMapChangedEventArgs";
+}
+pub trait IMapChangedEventArgs_Impl<K>: windows_core::IUnknownImpl
+where
+    K: windows_core::RuntimeType + 'static,
+{
+    fn CollectionChange(&self) -> windows_core::Result<CollectionChange>;
+    fn Key(&self) -> windows_core::Result<K>;
+}
+impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
+    pub const fn new<Identity: IMapChangedEventArgs_Impl<K>, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CollectionChange<
+            K: windows_core::RuntimeType + 'static,
+            Identity: IMapChangedEventArgs_Impl<K>,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            result__: *mut CollectionChange,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IMapChangedEventArgs_Impl::CollectionChange(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn Key<
+            K: windows_core::RuntimeType + 'static,
+            Identity: IMapChangedEventArgs_Impl<K>,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            result__: *mut windows_core::AbiType<K>,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IMapChangedEventArgs_Impl::Key(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMapChangedEventArgs<K>, OFFSET>(
+            ),
+            CollectionChange: CollectionChange::<K, Identity, OFFSET>,
+            Key: Key::<K, Identity, OFFSET>,
+            K: core::marker::PhantomData::<K>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMapChangedEventArgs<K> as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMapChangedEventArgs_Vtbl<K>
+where
+    K: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CollectionChange: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut CollectionChange,
+    ) -> windows_core::HRESULT,
+    pub Key: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::AbiType<K>,
+    ) -> windows_core::HRESULT,
+    K: core::marker::PhantomData<K>,
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IMapView<K, V>(
     windows_core::IUnknown,
     core::marker::PhantomData<K>,
@@ -1173,139 +1306,6 @@ where
     ) -> windows_core::HRESULT,
     K: core::marker::PhantomData<K>,
     V: core::marker::PhantomData<V>,
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IMapChangedEventArgs<K>(windows_core::IUnknown, core::marker::PhantomData<K>)
-where
-    K: windows_core::RuntimeType + 'static;
-impl<K: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
-    for IMapChangedEventArgs<K>
-{
-}
-impl<K: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
-    for IMapChangedEventArgs<K>
-{
-}
-unsafe impl<K: windows_core::RuntimeType + 'static> windows_core::Interface
-    for IMapChangedEventArgs<K>
-{
-    type Vtable = IMapChangedEventArgs_Vtbl<K>;
-    const IID: windows_core::GUID =
-        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-}
-impl<K: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IMapChangedEventArgs<K> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({9939f4df-050a-4c0f-aa60-77075f9c4777}")
-        .push_slice(b";")
-        .push_other(K::SIGNATURE)
-        .push_slice(b")");
-}
-impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs<K> {
-    pub fn CollectionChange(&self) -> windows_core::Result<CollectionChange> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CollectionChange)(
-                windows_core::Interface::as_raw(this),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn Key(&self) -> windows_core::Result<K> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Key)(
-                windows_core::Interface::as_raw(this),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl<K: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IMapChangedEventArgs<K> {
-    const NAME: &'static str = "Windows.Foundation.Collections.IMapChangedEventArgs";
-}
-pub trait IMapChangedEventArgs_Impl<K>: windows_core::IUnknownImpl
-where
-    K: windows_core::RuntimeType + 'static,
-{
-    fn CollectionChange(&self) -> windows_core::Result<CollectionChange>;
-    fn Key(&self) -> windows_core::Result<K>;
-}
-impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
-    pub const fn new<Identity: IMapChangedEventArgs_Impl<K>, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CollectionChange<
-            K: windows_core::RuntimeType + 'static,
-            Identity: IMapChangedEventArgs_Impl<K>,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            result__: *mut CollectionChange,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMapChangedEventArgs_Impl::CollectionChange(this) {
-                    Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn Key<
-            K: windows_core::RuntimeType + 'static,
-            Identity: IMapChangedEventArgs_Impl<K>,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            result__: *mut windows_core::AbiType<K>,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMapChangedEventArgs_Impl::Key(this) {
-                    Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMapChangedEventArgs<K>, OFFSET>(
-            ),
-            CollectionChange: CollectionChange::<K, Identity, OFFSET>,
-            Key: Key::<K, Identity, OFFSET>,
-            K: core::marker::PhantomData::<K>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMapChangedEventArgs<K> as windows_core::Interface>::IID
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IMapChangedEventArgs_Vtbl<K>
-where
-    K: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CollectionChange: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut CollectionChange,
-    ) -> windows_core::HRESULT,
-    pub Key: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut windows_core::AbiType<K>,
-    ) -> windows_core::HRESULT,
-    K: core::marker::PhantomData<K>,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

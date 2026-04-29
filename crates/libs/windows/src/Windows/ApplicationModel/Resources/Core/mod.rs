@@ -63,10 +63,7 @@ impl windows_core::RuntimeType for IResourceContext {
 #[doc(hidden)]
 pub struct IResourceContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub QualifierValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    QualifierValues: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResetQualifierValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OverrideToMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -436,8 +433,7 @@ impl ResourceContext {
         static SHARED: windows_core::imp::FactoryCache<ResourceContext, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn QualifierValues(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn QualifierValues(&self) -> windows_core::Result<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1097,15 +1093,11 @@ impl IntoIterator for &ResourceQualifierMapView {
         self.First().unwrap()
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceQualifierObservableMap(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy ! ( ResourceQualifierObservableMap , windows_core::IUnknown , windows_core::IInspectable , super::super::super::Foundation::Collections:: IObservableMap < windows_core::HSTRING , windows_core::HSTRING > );
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy ! ( ResourceQualifierObservableMap , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IObservableMap < windows_core::HSTRING , windows_core::HSTRING > );
 windows_core::imp::required_hierarchy ! ( ResourceQualifierObservableMap , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > );
-#[cfg(feature = "Foundation_Collections")]
 impl ResourceQualifierObservableMap {
     pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
@@ -1159,7 +1151,7 @@ impl ResourceQualifierObservableMap {
     }
     pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -1172,24 +1164,18 @@ impl ResourceQualifierObservableMap {
         unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for ResourceQualifierObservableMap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for ResourceQualifierObservableMap {
-    type Vtable = <super::super::super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for ResourceQualifierObservableMap {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceQualifierObservableMap";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for ResourceQualifierObservableMap {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ResourceQualifierObservableMap {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for ResourceQualifierObservableMap {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
     type IntoIter = windows_collections::IIterator<Self::Item>;
@@ -1197,7 +1183,6 @@ impl IntoIterator for ResourceQualifierObservableMap {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &ResourceQualifierObservableMap {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
     type IntoIter = windows_collections::IIterator<Self::Item>;
