@@ -22,10 +22,10 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + C
     /// The parameter type used in `_Impl` trait method signatures.
     ///
     /// For `CopyType` (primitives, enums, GUID, etc.) this is `T` directly — the type itself,
-    /// since these are cheap to copy and `Ref` adds no value.  For `CloneType` (HSTRING, etc.)
-    /// and `InterfaceType` (COM interfaces) this is `Ref<'a, T>` — a borrowed wrapper that
+    /// since these are cheap to copy and `InRef` adds no value.  For `CloneType` (HSTRING, etc.)
+    /// and `InterfaceType` (COM interfaces) this is `InRef<'a, T>` — a borrowed wrapper that
     /// matches the ABI representation.
-    type Generic<'a>: 'a
+    type Ref<'a>: 'a
     where
         Self: 'a;
 
@@ -41,8 +41,8 @@ where
 {
     type Abi = *mut core::ffi::c_void;
     type Default = Option<Self>;
-    type Generic<'a>
-        = Ref<'a, Self>
+    type Ref<'a>
+        = InRef<'a, Self>
     where
         Self: 'a;
 
@@ -75,8 +75,8 @@ where
 {
     type Abi = core::mem::MaybeUninit<Self>;
     type Default = Self;
-    type Generic<'a>
-        = Ref<'a, Self>
+    type Ref<'a>
+        = InRef<'a, Self>
     where
         Self: 'a;
 
@@ -103,7 +103,7 @@ where
 {
     type Abi = Self;
     type Default = Self;
-    type Generic<'a>
+    type Ref<'a>
         = Self
     where
         Self: 'a;
@@ -159,25 +159,25 @@ pub type AbiType<T> = <T as Type<T>>::Abi;
 ///
 /// ```rust,ignore
 /// impl IMap_Impl<i32, f32> for MyMap_Impl {
-///     fn HasKey(&self, key: Generic<i32>) -> Result<bool> {
-///         // key is just i32 — no Ref wrapper needed
+///     fn HasKey(&self, key: Ref<i32>) -> Result<bool> {
+///         // key is just i32 — no InRef wrapper needed
 ///         Ok(self.map.contains_key(&key))
 ///     }
 /// }
 /// ```
-pub type Generic<'a, T> = <T as Type<T>>::Generic<'a>;
+pub type Ref<'a, T> = <T as Type<T>>::Ref<'a>;
 
-/// Converts a [`Generic<T>`](Generic) reference into a reference to the corresponding
+/// Converts a [`Ref<T>`](Ref) reference into a reference to the corresponding
 /// [`Default`](Type::Default) representation.
 ///
-/// `Generic<T>` and `T::Default` always share the same memory layout, so this is a
+/// `Ref<T>` and `T::Default` always share the same memory layout, so this is a
 /// zero-cost reinterpretation:
-/// - For `CopyType` (primitives, GUID, enums): `Generic<'_> = T = Default`, no-op.
+/// - For `CopyType` (primitives, GUID, enums): `Ref<'_> = T = Default`, no-op.
 /// - For `CloneType` (HSTRING, etc.) and `InterfaceType` (COM interfaces):
-///   `Generic<'_> = Ref<'_, T>`, which is `#[repr(transparent)]` over `T::Abi`, and
+///   `Ref<'_> = InRef<'_, T>`, which is `#[repr(transparent)]` over `T::Abi`, and
 ///   `T::Abi` has the same layout as `T::Default`.
-pub fn generic_as_default<'a, 'b, T: Type<T>>(
-    param: &'a <T as Type<T>>::Generic<'b>,
+pub fn ref_as_default<'a, 'b, T: Type<T>>(
+    param: &'a <T as Type<T>>::Ref<'b>,
 ) -> &'a T::Default {
-    unsafe { &*(param as *const <T as Type<T>>::Generic<'b> as *const T::Default) }
+    unsafe { &*(param as *const <T as Type<T>>::Ref<'b> as *const T::Default) }
 }

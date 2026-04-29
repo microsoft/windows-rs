@@ -3,9 +3,9 @@ use core::mem::transmute;
 
 /// A borrowed type with the same memory layout as the type itself that can be used to construct ABI-compatible function signatures.
 #[repr(transparent)]
-pub struct Ref<'a, T: Type<T>>(T::Abi, core::marker::PhantomData<&'a T>);
+pub struct InRef<'a, T: Type<T>>(T::Abi, core::marker::PhantomData<&'a T>);
 
-impl<T: Type<T>> Ref<'_, T> {
+impl<T: Type<T>> InRef<'_, T> {
     /// Returns `true` if the argument is null.
     pub fn is_null(&self) -> bool {
         T::is_null(&self.0)
@@ -33,7 +33,7 @@ impl<T: Type<T>> Ref<'_, T> {
     /// Panics if the argument is null.
     #[track_caller]
     pub fn unwrap(&self) -> &T {
-        self.as_ref().expect("called `Ref::unwrap` on a null value")
+        self.as_ref().expect("called `InRef::unwrap` on a null value")
     }
 
     /// Converts the argument to an [`Option<T>`] by cloning the reference.
@@ -46,20 +46,20 @@ impl<T: Type<T>> Ref<'_, T> {
     }
 }
 
-impl<T: Type<T>> Default for Ref<'_, T> {
+impl<T: Type<T>> Default for InRef<'_, T> {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 
-impl<T: Type<T>> core::ops::Deref for Ref<'_, T> {
+impl<T: Type<T>> core::ops::Deref for InRef<'_, T> {
     type Target = T::Default;
     fn deref(&self) -> &Self::Target {
         unsafe { transmute(&self.0) }
     }
 }
 
-impl<'a, T: Type<T, InterfaceType>> From<&'a Option<T>> for Ref<'a, T>
+impl<'a, T: Type<T, InterfaceType>> From<&'a Option<T>> for InRef<'a, T>
 where
     T: TypeKind<TypeKind = InterfaceType>,
 {
@@ -68,7 +68,7 @@ where
     }
 }
 
-impl<'a, T: Type<T, InterfaceType>> From<Option<&'a T>> for Ref<'a, T>
+impl<'a, T: Type<T, InterfaceType>> From<Option<&'a T>> for InRef<'a, T>
 where
     T: TypeKind<TypeKind = InterfaceType>,
 {
@@ -81,7 +81,7 @@ where
     }
 }
 
-impl<'a, T: Type<T>> From<&'a T> for Ref<'a, T> {
+impl<'a, T: Type<T>> From<&'a T> for InRef<'a, T> {
     fn from(from: &'a T) -> Self {
         unsafe { core::mem::transmute_copy(from) }
     }

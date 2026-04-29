@@ -160,7 +160,7 @@ impl Method {
                     quote! { windows_core::Ref<#type_name> }
                 } else if matches!(&p.ty, Type::Generic(_)) {
                     let type_name = p.write_name(config);
-                    quote! { windows_core::Generic<#type_name> }
+                    quote! { windows_core::Ref<#type_name> }
                 } else {
                     quote! { &#default_type }
                 }

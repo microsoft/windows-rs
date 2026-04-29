@@ -62,11 +62,11 @@ where
         Ok(IVectorView::<T>::from(snapshot))
     }
 
-    fn IndexOf(&self, value: Generic<T>, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {
         let values = self.values.read().unwrap();
         match values
             .iter()
-            .position(|element| element == generic_as_default::<T>(&value))
+            .position(|element| element == ref_as_default::<T>(&value))
         {
             Some(index) => {
                 *result = index as u32;
@@ -79,26 +79,26 @@ where
         }
     }
 
-    fn SetAt(&self, index: u32, value: Generic<T>) -> Result<()> {
+    fn SetAt(&self, index: u32, value: Ref<T>) -> Result<()> {
         {
             let mut values = self.values.write().unwrap();
             let item = values
                 .get_mut(index as usize)
                 .ok_or_else(|| Error::from(E_BOUNDS))?;
-            *item = generic_as_default::<T>(&value).clone();
+            *item = ref_as_default::<T>(&value).clone();
         }
         self.fire_changed(CollectionChange::ItemChanged, index);
         Ok(())
     }
 
-    fn InsertAt(&self, index: u32, value: Generic<T>) -> Result<()> {
+    fn InsertAt(&self, index: u32, value: Ref<T>) -> Result<()> {
         {
             let mut values = self.values.write().unwrap();
             let index = index as usize;
             if index > values.len() {
                 return Err(Error::from(E_BOUNDS));
             }
-            values.insert(index, generic_as_default::<T>(&value).clone());
+            values.insert(index, ref_as_default::<T>(&value).clone());
         }
         self.fire_changed(CollectionChange::ItemInserted, index);
         Ok(())
@@ -116,10 +116,10 @@ where
         Ok(())
     }
 
-    fn Append(&self, value: Generic<T>) -> Result<()> {
+    fn Append(&self, value: Ref<T>) -> Result<()> {
         let index = {
             let mut values = self.values.write().unwrap();
-            values.push(generic_as_default::<T>(&value).clone());
+            values.push(ref_as_default::<T>(&value).clone());
             (values.len() - 1) as u32
         };
         self.fire_changed(CollectionChange::ItemInserted, index);

@@ -42,11 +42,11 @@ where
         Ok(self.values.len().try_into()?)
     }
 
-    fn IndexOf(&self, value: Generic<T>, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {
         match self
             .values
             .iter()
-            .position(|element| element == generic_as_default::<T>(&value))
+            .position(|element| element == ref_as_default::<T>(&value))
         {
             Some(index) => {
                 *result = index as u32;
