@@ -46,7 +46,7 @@ where
         match self
             .values
             .iter()
-            .position(|element| element == T::param_as_default(&value))
+            .position(|element| element == T::generic_as_default(&value))
         {
             Some(index) => {
                 *result = index as u32;

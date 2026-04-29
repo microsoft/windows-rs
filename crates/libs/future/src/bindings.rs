@@ -302,7 +302,7 @@ impl<
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(
                 core::mem::transmute_copy(&asyncinfo),
-                <TProgress as windows_core::Type<TProgress>>::abi_to_param(&progressinfo),
+                <TProgress as windows_core::Type<TProgress>>::abi_to_generic(&progressinfo),
             )
             .into()
         }
@@ -795,7 +795,7 @@ impl<
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(
                 core::mem::transmute_copy(&asyncinfo),
-                <TProgress as windows_core::Type<TProgress>>::abi_to_param(&progressinfo),
+                <TProgress as windows_core::Type<TProgress>>::abi_to_generic(&progressinfo),
             )
             .into()
         }

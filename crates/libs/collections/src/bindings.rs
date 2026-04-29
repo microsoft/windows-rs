@@ -708,7 +708,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMap_Impl::Lookup(this, <K as windows_core::Type<K>>::abi_to_param(&key)) {
+                match IMap_Impl::Lookup(this, <K as windows_core::Type<K>>::abi_to_generic(&key)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -752,7 +752,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMap_Impl::HasKey(this, <K as windows_core::Type<K>>::abi_to_param(&key)) {
+                match IMap_Impl::HasKey(this, <K as windows_core::Type<K>>::abi_to_generic(&key)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -799,8 +799,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMap_Impl::Insert(
                     this,
-                    <K as windows_core::Type<K>>::abi_to_param(&key),
-                    <V as windows_core::Type<V>>::abi_to_param(&value),
+                    <K as windows_core::Type<K>>::abi_to_generic(&key),
+                    <V as windows_core::Type<V>>::abi_to_generic(&value),
                 ) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -822,7 +822,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMap_Impl::Remove(this, <K as windows_core::Type<K>>::abi_to_param(&key)).into()
+                IMap_Impl::Remove(this, <K as windows_core::Type<K>>::abi_to_generic(&key)).into()
             }
         }
         unsafe extern "system" fn Clear<
@@ -1192,7 +1192,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMapView_Impl::Lookup(this, <K as windows_core::Type<K>>::abi_to_param(&key))
+                match IMapView_Impl::Lookup(this, <K as windows_core::Type<K>>::abi_to_generic(&key))
                 {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1237,7 +1237,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMapView_Impl::HasKey(this, <K as windows_core::Type<K>>::abi_to_param(&key))
+                match IMapView_Impl::HasKey(this, <K as windows_core::Type<K>>::abi_to_generic(&key))
                 {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2225,7 +2225,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVector_Impl::IndexOf(
                     this,
-                    <T as windows_core::Type<T>>::abi_to_param(&value),
+                    <T as windows_core::Type<T>>::abi_to_generic(&value),
                     core::mem::transmute_copy(&index),
                 ) {
                     Ok(ok__) => {
@@ -2251,7 +2251,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                 IVector_Impl::SetAt(
                     this,
                     index,
-                    <T as windows_core::Type<T>>::abi_to_param(&value),
+                    <T as windows_core::Type<T>>::abi_to_generic(&value),
                 )
                 .into()
             }
@@ -2271,7 +2271,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                 IVector_Impl::InsertAt(
                     this,
                     index,
-                    <T as windows_core::Type<T>>::abi_to_param(&value),
+                    <T as windows_core::Type<T>>::abi_to_generic(&value),
                 )
                 .into()
             }
@@ -2301,7 +2301,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVector_Impl::Append(this, <T as windows_core::Type<T>>::abi_to_param(&value))
+                IVector_Impl::Append(this, <T as windows_core::Type<T>>::abi_to_generic(&value))
                     .into()
             }
         }
@@ -2754,7 +2754,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVectorView_Impl::IndexOf(
                     this,
-                    <T as windows_core::Type<T>>::abi_to_param(&value),
+                    <T as windows_core::Type<T>>::abi_to_generic(&value),
                     core::mem::transmute_copy(&index),
                 ) {
                     Ok(ok__) => {

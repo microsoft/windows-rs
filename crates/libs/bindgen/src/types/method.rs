@@ -49,7 +49,7 @@ impl Method {
                     quote! { core::mem::transmute_copy(&#name) }
                 } else if let Type::Generic(g) = &param.ty {
                     let type_name = to_ident(g.name());
-                    quote! { <#type_name as windows_core::Type<#type_name>>::abi_to_param(&#name) }
+                    quote! { <#type_name as windows_core::Type<#type_name>>::abi_to_generic(&#name) }
                 } else {
                     quote! { core::mem::transmute(&#name) }
                 }

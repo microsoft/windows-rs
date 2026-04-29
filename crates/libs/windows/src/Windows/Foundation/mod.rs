@@ -226,7 +226,7 @@ impl<T: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<windows_cor
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: windows_core::AbiType<T>) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), <T as windows_core::Type<T>>::abi_to_param(&args)).into()
+            (this.invoke)(core::mem::transmute_copy(&sender), <T as windows_core::Type<T>>::abi_to_generic(&args)).into()
         }
     }
 }
@@ -2553,7 +2553,7 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: windows_core::AbiType<TSender>, args: windows_core::AbiType<TResult>) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(<TSender as windows_core::Type<TSender>>::abi_to_param(&sender), <TResult as windows_core::Type<TResult>>::abi_to_param(&args)).into()
+            (this.invoke)(<TSender as windows_core::Type<TSender>>::abi_to_generic(&sender), <TResult as windows_core::Type<TResult>>::abi_to_generic(&args)).into()
         }
     }
 }

@@ -40,14 +40,14 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + C
     /// # Safety
     ///
     /// The ABI value must be valid for the lifetime `'a`.
-    unsafe fn abi_to_param(abi: &Self::Abi) -> Self::Generic<'_>;
+    unsafe fn abi_to_generic(abi: &Self::Abi) -> Self::Generic<'_>;
 
     /// Converts a `Generic` reference to a reference to the `Default` representation.
     ///
     /// This is used in generic collection implementations (e.g. `IMap_Impl`, `IVector_Impl`)
     /// to obtain a `&K::Default` from a `Generic<'_, K>` in order to perform map/vector
     /// operations that operate on the default type.
-    fn param_as_default<'a, 'b>(param: &'a Self::Generic<'b>) -> &'a Self::Default;
+    fn generic_as_default<'a, 'b>(param: &'a Self::Generic<'b>) -> &'a Self::Default;
 }
 
 impl<T> Type<T, InterfaceType> for T
@@ -83,11 +83,11 @@ where
         default.as_ref().cloned().ok_or(Error::empty())
     }
 
-    unsafe fn abi_to_param(abi: &Self::Abi) -> Ref<'_, Self> {
+    unsafe fn abi_to_generic(abi: &Self::Abi) -> Ref<'_, Self> {
         unsafe { core::mem::transmute_copy(abi) }
     }
 
-    fn param_as_default<'a, 'b>(param: &'a Ref<'b, Self>) -> &'a Option<Self> {
+    fn generic_as_default<'a, 'b>(param: &'a Ref<'b, Self>) -> &'a Option<Self> {
         param
     }
 }
@@ -119,11 +119,11 @@ where
         Ok(default.clone())
     }
 
-    unsafe fn abi_to_param(abi: &Self::Abi) -> Ref<'_, Self> {
+    unsafe fn abi_to_generic(abi: &Self::Abi) -> Ref<'_, Self> {
         unsafe { core::mem::transmute_copy(abi) }
     }
 
-    fn param_as_default<'a, 'b>(param: &'a Ref<'b, Self>) -> &'a Self {
+    fn generic_as_default<'a, 'b>(param: &'a Ref<'b, Self>) -> &'a Self {
         param
     }
 }
@@ -155,11 +155,11 @@ where
         Ok(default.clone())
     }
 
-    unsafe fn abi_to_param(abi: &Self) -> Self {
+    unsafe fn abi_to_generic(abi: &Self) -> Self {
         abi.clone()
     }
 
-    fn param_as_default<'a, 'b>(param: &'a Self) -> &'a Self {
+    fn generic_as_default<'a, 'b>(param: &'a Self) -> &'a Self {
         param
     }
 }
