@@ -101,6 +101,6 @@ fn test_out_ref() {
     assert!(output.is_none());
 
     // default (optional) input and output
-    let error = return_object(Ref::default(), OutRef::default()).unwrap_err();
+    let error = return_object(InRef::default(), OutRef::default()).unwrap_err();
     assert_eq!(error.code(), E_POINTER);
 }
