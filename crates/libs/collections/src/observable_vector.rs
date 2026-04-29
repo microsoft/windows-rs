@@ -8,8 +8,7 @@ where
     T::Default: Clone + PartialEq,
 {
     values: std::sync::RwLock<Vec<T::Default>>,
-    handlers: std::sync::Mutex<std::collections::BTreeMap<i64, VectorChangedEventHandler<T>>>,
-    next_token: std::sync::atomic::AtomicI64,
+    handlers: Event<VectorChangedEventHandler<T>>,
 }
 
 impl<T> IObservableVector_Impl<T> for StockObservableVector_Impl<T>
@@ -18,18 +17,11 @@ where
     T::Default: Clone + PartialEq,
 {
     fn VectorChanged(&self, vhnd: Ref<VectorChangedEventHandler<T>>) -> Result<i64> {
-        let token = self
-            .next_token
-            .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-        self.handlers
-            .lock()
-            .unwrap()
-            .insert(token, vhnd.ok()?.clone());
-        Ok(token)
+        self.handlers.add(vhnd.ok()?)
     }
 
     fn RemoveVectorChanged(&self, token: i64) -> Result<()> {
-        self.handlers.lock().unwrap().remove(&token);
+        self.handlers.remove(token);
         Ok(())
     }
 }
@@ -185,10 +177,8 @@ where
         let observable: IObservableVector<T> = self.to_object().into_interface();
         let args: IVectorChangedEventArgs =
             ComObject::new(StockVectorChangedEventArgs { change, index }).into_interface();
-        let handlers = self.handlers.lock().unwrap();
-        for handler in handlers.values() {
-            let _ = handler.Invoke(&observable, &args);
-        }
+        self.handlers
+            .call(|handler: &VectorChangedEventHandler<T>| handler.Invoke(&observable, &args));
     }
 }
 
@@ -281,8 +271,7 @@ where
     fn from(values: Vec<T::Default>) -> Self {
         ComObject::new(StockObservableVector {
             values: std::sync::RwLock::new(values),
-            handlers: std::sync::Mutex::new(std::collections::BTreeMap::new()),
-            next_token: std::sync::atomic::AtomicI64::new(0),
+            handlers: Event::new(),
         })
         .into_interface()
     }

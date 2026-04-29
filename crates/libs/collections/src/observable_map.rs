@@ -10,8 +10,7 @@ where
     V::Default: Clone,
 {
     map: std::sync::RwLock<std::collections::BTreeMap<K::Default, V::Default>>,
-    handlers: std::sync::Mutex<std::collections::BTreeMap<i64, MapChangedEventHandler<K, V>>>,
-    next_token: std::sync::atomic::AtomicI64,
+    handlers: Event<MapChangedEventHandler<K, V>>,
 }
 
 impl<K, V> IObservableMap_Impl<K, V> for StockObservableMap_Impl<K, V>
@@ -22,18 +21,11 @@ where
     V::Default: Clone,
 {
     fn MapChanged(&self, vhnd: Ref<MapChangedEventHandler<K, V>>) -> Result<i64> {
-        let token = self
-            .next_token
-            .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-        self.handlers
-            .lock()
-            .unwrap()
-            .insert(token, vhnd.ok()?.clone());
-        Ok(token)
+        self.handlers.add(vhnd.ok()?)
     }
 
     fn RemoveMapChanged(&self, token: i64) -> Result<()> {
-        self.handlers.lock().unwrap().remove(&token);
+        self.handlers.remove(token);
         Ok(())
     }
 }
@@ -92,7 +84,7 @@ where
         } else {
             CollectionChange::ItemInserted
         };
-        self.fire_changed(change, (*key).clone());
+        self.fire_changed(change, Some((*key).clone()));
         Ok(replaced)
     }
 
@@ -104,13 +96,13 @@ where
                 return Err(Error::from(E_BOUNDS));
             }
         }
-        self.fire_changed(CollectionChange::ItemRemoved, key_clone);
+        self.fire_changed(CollectionChange::ItemRemoved, Some(key_clone));
         Ok(())
     }
 
     fn Clear(&self) -> Result<()> {
         self.map.write().unwrap().clear();
-        self.fire_changed_reset();
+        self.fire_changed(CollectionChange::Reset, None);
         Ok(())
     }
 }
@@ -122,30 +114,12 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    fn fire_changed(&self, change: CollectionChange, key: K::Default) {
+    fn fire_changed(&self, change: CollectionChange, key: Option<K::Default>) {
         let observable: IObservableMap<K, V> = self.to_object().into_interface();
-        let args: IMapChangedEventArgs<K> = ComObject::new(StockMapChangedEventArgs {
-            change,
-            key: Some(key),
-        })
-        .into_interface();
-        let handlers = self.handlers.lock().unwrap();
-        for handler in handlers.values() {
-            let _ = handler.Invoke(&observable, &args);
-        }
-    }
-
-    fn fire_changed_reset(&self) {
-        let observable: IObservableMap<K, V> = self.to_object().into_interface();
-        let args: IMapChangedEventArgs<K> = ComObject::new(StockMapChangedEventArgs::<K> {
-            change: CollectionChange::Reset,
-            key: None,
-        })
-        .into_interface();
-        let handlers = self.handlers.lock().unwrap();
-        for handler in handlers.values() {
-            let _ = handler.Invoke(&observable, &args);
-        }
+        let args: IMapChangedEventArgs<K> =
+            ComObject::new(StockMapChangedEventArgs { change, key }).into_interface();
+        self.handlers
+            .call(|handler: &MapChangedEventHandler<K, V>| handler.Invoke(&observable, &args));
     }
 }
 
@@ -171,7 +145,7 @@ where
     fn Key(&self) -> Result<K> {
         match &self.key {
             Some(key) => K::from_default(key),
-            None => Err(Error::empty()),
+            None => Err(Error::from(E_BOUNDS)),
         }
     }
 }
@@ -267,8 +241,7 @@ where
     fn from(map: std::collections::BTreeMap<K::Default, V::Default>) -> Self {
         ComObject::new(StockObservableMap {
             map: std::sync::RwLock::new(map),
-            handlers: std::sync::Mutex::new(std::collections::BTreeMap::new()),
-            next_token: std::sync::atomic::AtomicI64::new(0),
+            handlers: Event::new(),
         })
         .into_interface()
     }
