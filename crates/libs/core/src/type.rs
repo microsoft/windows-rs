@@ -159,7 +159,7 @@ pub type AbiType<T> = <T as Type<T>>::Abi;
 ///
 /// ```rust,ignore
 /// impl IMap_Impl<i32, f32> for MyMap_Impl {
-///     fn HasKey(&self, key: Generic<'_, i32>) -> Result<bool> {
+///     fn HasKey(&self, key: Generic<i32>) -> Result<bool> {
 ///         // key is just i32 — no Ref wrapper needed
 ///         Ok(self.map.contains_key(&key))
 ///     }
@@ -167,16 +167,15 @@ pub type AbiType<T> = <T as Type<T>>::Abi;
 /// ```
 pub type Generic<'a, T> = <T as Type<T>>::Generic<'a>;
 
-/// Converts a [`Generic<'_, T>`](Generic) reference into a reference to the corresponding
+/// Converts a [`Generic<T>`](Generic) reference into a reference to the corresponding
 /// [`Default`](Type::Default) representation.
 ///
-/// `Generic<'_, T>` and `T::Default` always share the same memory layout, so this is a
+/// `Generic<T>` and `T::Default` always share the same memory layout, so this is a
 /// zero-cost reinterpretation:
 /// - For `CopyType` (primitives, GUID, enums): `Generic<'_> = T = Default`, no-op.
 /// - For `CloneType` (HSTRING, etc.) and `InterfaceType` (COM interfaces):
 ///   `Generic<'_> = Ref<'_, T>`, which is `#[repr(transparent)]` over `T::Abi`, and
 ///   `T::Abi` has the same layout as `T::Default`.
-#[doc(hidden)]
 pub fn generic_as_default<'a, 'b, T: Type<T>>(
     param: &'a <T as Type<T>>::Generic<'b>,
 ) -> &'a T::Default {

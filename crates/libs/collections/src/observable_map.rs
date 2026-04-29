@@ -53,7 +53,7 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    fn Lookup(&self, key: Generic<'_, K>) -> Result<V> {
+    fn Lookup(&self, key: Generic<K>) -> Result<V> {
         let map = self.map.read().unwrap();
         let value = map
             .get(generic_as_default::<K>(&key))
@@ -65,7 +65,7 @@ where
         Ok(self.map.read().unwrap().len().try_into()?)
     }
 
-    fn HasKey(&self, key: Generic<'_, K>) -> Result<bool> {
+    fn HasKey(&self, key: Generic<K>) -> Result<bool> {
         Ok(self
             .map
             .read()
@@ -78,7 +78,7 @@ where
         Ok(IMapView::<K, V>::from(snapshot))
     }
 
-    fn Insert(&self, key: Generic<'_, K>, value: Generic<'_, V>) -> Result<bool> {
+    fn Insert(&self, key: Generic<K>, value: Generic<V>) -> Result<bool> {
         let replaced = {
             let mut map = self.map.write().unwrap();
             let replaced = map.contains_key(generic_as_default::<K>(&key));
@@ -97,7 +97,7 @@ where
         Ok(replaced)
     }
 
-    fn Remove(&self, key: Generic<'_, K>) -> Result<()> {
+    fn Remove(&self, key: Generic<K>) -> Result<()> {
         let key_clone = generic_as_default::<K>(&key).clone();
         {
             let mut map = self.map.write().unwrap();

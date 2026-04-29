@@ -62,7 +62,7 @@ where
         Ok(IVectorView::<T>::from(snapshot))
     }
 
-    fn IndexOf(&self, value: Generic<'_, T>, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: Generic<T>, result: &mut u32) -> Result<bool> {
         let values = self.values.read().unwrap();
         match values
             .iter()
@@ -79,7 +79,7 @@ where
         }
     }
 
-    fn SetAt(&self, index: u32, value: Generic<'_, T>) -> Result<()> {
+    fn SetAt(&self, index: u32, value: Generic<T>) -> Result<()> {
         {
             let mut values = self.values.write().unwrap();
             let item = values
@@ -91,7 +91,7 @@ where
         Ok(())
     }
 
-    fn InsertAt(&self, index: u32, value: Generic<'_, T>) -> Result<()> {
+    fn InsertAt(&self, index: u32, value: Generic<T>) -> Result<()> {
         {
             let mut values = self.values.write().unwrap();
             let index = index as usize;
@@ -116,7 +116,7 @@ where
         Ok(())
     }
 
-    fn Append(&self, value: Generic<'_, T>) -> Result<()> {
+    fn Append(&self, value: Generic<T>) -> Result<()> {
         let index = {
             let mut values = self.values.write().unwrap();
             values.push(generic_as_default::<T>(&value).clone());

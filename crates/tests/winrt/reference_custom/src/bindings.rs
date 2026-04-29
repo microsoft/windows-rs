@@ -937,14 +937,13 @@ where
     fn Size(&self) -> windows_core::Result<u32>;
     fn IndexOf(
         &self,
-        value: windows_core::Generic<'_, T>,
+        value: windows_core::Generic<T>,
         index: &mut u32,
     ) -> windows_core::Result<bool>;
-    fn SetAt(&self, index: u32, value: windows_core::Generic<'_, T>) -> windows_core::Result<()>;
-    fn InsertAt(&self, index: u32, value: windows_core::Generic<'_, T>)
-        -> windows_core::Result<()>;
+    fn SetAt(&self, index: u32, value: windows_core::Generic<T>) -> windows_core::Result<()>;
+    fn InsertAt(&self, index: u32, value: windows_core::Generic<T>) -> windows_core::Result<()>;
     fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
-    fn Append(&self, value: windows_core::Generic<'_, T>) -> windows_core::Result<()>;
+    fn Append(&self, value: windows_core::Generic<T>) -> windows_core::Result<()>;
     fn RemoveAtEnd(&self) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
     fn GetMany(

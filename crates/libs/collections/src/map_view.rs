@@ -35,7 +35,7 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    fn Lookup(&self, key: Generic<'_, K>) -> Result<V> {
+    fn Lookup(&self, key: Generic<K>) -> Result<V> {
         let value = self
             .map
             .get(generic_as_default::<K>(&key))
@@ -48,7 +48,7 @@ where
         Ok(self.map.len().try_into()?)
     }
 
-    fn HasKey(&self, key: Generic<'_, K>) -> Result<bool> {
+    fn HasKey(&self, key: Generic<K>) -> Result<bool> {
         Ok(self.map.contains_key(generic_as_default::<K>(&key)))
     }
 

@@ -16,7 +16,7 @@ impl IVectorView_Impl<IStringable> for Thing_Impl {
         panic!();
     }
 
-    fn IndexOf(&self, _value: Generic<'_, IStringable>, _index: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, _value: Generic<IStringable>, _index: &mut u32) -> Result<bool> {
         panic!();
     }
 

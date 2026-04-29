@@ -42,7 +42,7 @@ where
         Ok(self.values.len().try_into()?)
     }
 
-    fn IndexOf(&self, value: Generic<'_, T>, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: Generic<T>, result: &mut u32) -> Result<bool> {
         match self
             .values
             .iter()
