@@ -24,10 +24,9 @@ pub mod Windows {
         );
         impl IClosable {
             pub fn Close(&self) -> windows_core::Result<()> {
-                let this = self;
                 unsafe {
-                    (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(
-                        this,
+                    (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(
+                        self,
                     ))
                     .ok()
                 }
@@ -82,21 +81,19 @@ pub mod Windows {
         windows_core::imp::required_hierarchy!(IMemoryBufferReference, IClosable);
         impl IMemoryBufferReference {
             pub fn Capacity(&self) -> windows_core::Result<u32> {
-                let this = self;
                 unsafe {
                     let mut result__ = core::mem::zeroed();
-                    (windows_core::Interface::vtable(this).Capacity)(
-                        windows_core::Interface::as_raw(this),
+                    (windows_core::Interface::vtable(self).Capacity)(
+                        windows_core::Interface::as_raw(self),
                         &mut result__,
                     )
                     .map(|| result__)
                 }
             }
             pub fn RemoveClosed(&self, cookie: i64) -> windows_core::Result<()> {
-                let this = self;
                 unsafe {
-                    (windows_core::Interface::vtable(this).RemoveClosed)(
-                        windows_core::Interface::as_raw(this),
+                    (windows_core::Interface::vtable(self).RemoveClosed)(
+                        windows_core::Interface::as_raw(self),
                         cookie,
                     )
                     .ok()
@@ -133,7 +130,7 @@ pub mod Windows {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         match IMemoryBufferReference_Impl::Capacity(this) {
                             Ok(ok__) => {
-                                result__.write(core::mem::transmute_copy(&ok__));
+                                result__.write(ok__);
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),

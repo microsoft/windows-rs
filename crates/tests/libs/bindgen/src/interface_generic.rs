@@ -22,38 +22,34 @@ windows_core::imp::interface_hierarchy!(
 );
 impl IAsyncInfo {
     pub fn Id(&self) -> windows_core::Result<u32> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Id)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ErrorCode)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).ErrorCode)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| result__)
         }
     }
     pub fn Cancel(&self) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this))
+            (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self))
                 .ok()
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
+            (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self))
                 .ok()
         }
     }
@@ -78,7 +74,7 @@ impl IAsyncInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAsyncInfo_Impl::Id(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -94,7 +90,7 @@ impl IAsyncInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAsyncInfo_Impl::ErrorCode(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
+                        result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -181,11 +177,10 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IA
 }
 impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
     pub fn GetResults(&self) -> windows_core::Result<TResult> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetResults)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).GetResults)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))

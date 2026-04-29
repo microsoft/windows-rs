@@ -24,10 +24,9 @@ pub mod Windows {
         );
         impl IClosable {
             pub fn Close(&self) -> windows_core::Result<()> {
-                let this = self;
                 unsafe {
-                    (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(
-                        this,
+                    (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(
+                        self,
                     ))
                     .ok()
                 }
@@ -86,11 +85,10 @@ pub mod Windows {
             ) -> windows_core::Result<
                 crate::reference_dependency_skip_root::Windows::Foundation::IMemoryBufferReference,
             > {
-                let this = self;
                 unsafe {
                     let mut result__ = core::mem::zeroed();
-                    (windows_core::Interface::vtable(this).CreateReference)(
-                        windows_core::Interface::as_raw(this),
+                    (windows_core::Interface::vtable(self).CreateReference)(
+                        windows_core::Interface::as_raw(self),
                         &mut result__,
                     )
                     .and_then(|| windows_core::Type::from_abi(result__))

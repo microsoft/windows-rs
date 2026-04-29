@@ -46,10 +46,9 @@ impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
         P0: windows_core::Param<windows_core::IInspectable>,
         P1: windows_core::Param<T>,
     {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Invoke)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).Invoke)(
+                windows_core::Interface::as_raw(self),
                 sender.param().abi(),
                 args.param().abi(),
             )

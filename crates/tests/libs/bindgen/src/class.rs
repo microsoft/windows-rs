@@ -24,9 +24,8 @@ impl Deferral {
         }
     }
     pub fn Complete(&self) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this))
+            (windows_core::Interface::vtable(self).Complete)(windows_core::Interface::as_raw(self))
                 .ok()
         }
     }
@@ -67,9 +66,8 @@ windows_core::imp::interface_hierarchy!(
 );
 impl IClosable {
     pub fn Close(&self) -> windows_core::Result<()> {
-        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
+            (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self))
                 .ok()
         }
     }

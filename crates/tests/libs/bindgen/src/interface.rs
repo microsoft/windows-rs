@@ -22,11 +22,10 @@ windows_core::imp::interface_hierarchy!(
 );
 impl IStringable {
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ToString)(
-                windows_core::Interface::as_raw(this),
+            (windows_core::Interface::vtable(self).ToString)(
+                windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .map(|| core::mem::transmute(result__))
