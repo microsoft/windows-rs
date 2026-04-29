@@ -1,4 +1,4 @@
-use windows::{core::*, Devices::Enumeration::*, Foundation::Collections::*, Foundation::*};
+use windows::{core::*, Devices::Enumeration::*, Foundation::*};
 use windows_collections::*;
 use windows_future::*;
 
