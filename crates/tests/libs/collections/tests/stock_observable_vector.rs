@@ -112,6 +112,7 @@ fn primitive_iterator() -> Result<()> {
 }
 
 #[test]
+fn primitive_mutable() -> Result<()> {
     let v = IObservableVector::<i32>::from(vec![]);
 
     // Append

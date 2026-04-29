@@ -121,6 +121,7 @@ where
 }
 
 #[test]
+fn primitive_mutable() -> Result<()> {
     let m = IObservableMap::<i32, u64>::from(BTreeMap::new());
     assert_eq!(m.Size()?, 0);
 
