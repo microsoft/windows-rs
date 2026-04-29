@@ -1183,8 +1183,8 @@ impl<K: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_
     for IMapChangedEventArgs<K>
 {
 }
-impl<K: windows_core::RuntimeType + 'static>
-    windows_core::imp::CanInto<windows_core::IInspectable> for IMapChangedEventArgs<K>
+impl<K: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
+    for IMapChangedEventArgs<K>
 {
 }
 unsafe impl<K: windows_core::RuntimeType + 'static> windows_core::Interface
@@ -1194,9 +1194,7 @@ unsafe impl<K: windows_core::RuntimeType + 'static> windows_core::Interface
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
 }
-impl<K: windows_core::RuntimeType + 'static> windows_core::RuntimeType
-    for IMapChangedEventArgs<K>
-{
+impl<K: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IMapChangedEventArgs<K> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
         .push_slice(b"pinterface({9939f4df-050a-4c0f-aa60-77075f9c4777}")
         .push_slice(b";")
@@ -1227,9 +1225,7 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs<K> {
         }
     }
 }
-impl<K: windows_core::RuntimeType + 'static> windows_core::RuntimeName
-    for IMapChangedEventArgs<K>
-{
+impl<K: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IMapChangedEventArgs<K> {
     const NAME: &'static str = "Windows.Foundation.Collections.IMapChangedEventArgs";
 }
 pub trait IMapChangedEventArgs_Impl<K>: windows_core::IUnknownImpl
@@ -1283,11 +1279,8 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<
-                Identity,
-                IMapChangedEventArgs<K>,
-                OFFSET,
-            >(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMapChangedEventArgs<K>, OFFSET>(
+            ),
             CollectionChange: CollectionChange::<K, Identity, OFFSET>,
             Key: Key::<K, Identity, OFFSET>,
             K: core::marker::PhantomData::<K>,
@@ -1489,8 +1482,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         }
     }
 }
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
-    IntoIterator for IObservableMap<K, V>
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IntoIterator
+    for IObservableMap<K, V>
 {
     type Item = IKeyValuePair<K, V>;
     type IntoIter = IIterator<Self::Item>;
@@ -1498,8 +1491,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         IntoIterator::into_iter(&self)
     }
 }
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
-    IntoIterator for &IObservableMap<K, V>
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IntoIterator
+    for &IObservableMap<K, V>
 {
     type Item = IKeyValuePair<K, V>;
     type IntoIter = IIterator<Self::Item>;
@@ -1512,8 +1505,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
 {
     const NAME: &'static str = "Windows.Foundation.Collections.IObservableMap";
 }
-pub trait IObservableMap_Impl<K, V>:
-    IIterable_Impl<IKeyValuePair<K, V>> + IMap_Impl<K, V>
+pub trait IObservableMap_Impl<K, V>: IIterable_Impl<IKeyValuePair<K, V>> + IMap_Impl<K, V>
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
@@ -1566,11 +1558,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<
-                Identity,
-                IObservableMap<K, V>,
-                OFFSET,
-            >(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IObservableMap<K, V>, OFFSET>(
+            ),
             MapChanged: MapChanged::<K, V, Identity, OFFSET>,
             RemoveMapChanged: RemoveMapChanged::<K, V, Identity, OFFSET>,
             K: core::marker::PhantomData::<K>,
@@ -2954,8 +2943,7 @@ impl<
             if iid.is_null() || interface.is_null() {
                 return windows_core::HRESULT(-2147467261);
             }
-            *interface = if *iid
-                == <MapChangedEventHandler<K, V> as windows_core::Interface>::IID
+            *interface = if *iid == <MapChangedEventHandler<K, V> as windows_core::Interface>::IID
                 || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
                 || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
             {

@@ -124,8 +124,11 @@ where
 {
     fn fire_changed(&self, change: CollectionChange, key: K::Default) {
         let observable: IObservableMap<K, V> = self.to_object().into_interface();
-        let args: IMapChangedEventArgs<K> =
-            ComObject::new(StockMapChangedEventArgs { change, key: Some(key) }).into_interface();
+        let args: IMapChangedEventArgs<K> = ComObject::new(StockMapChangedEventArgs {
+            change,
+            key: Some(key),
+        })
+        .into_interface();
         let handlers = self.handlers.lock().unwrap();
         for handler in handlers.values() {
             let _ = handler.Invoke(&observable, &args);
@@ -134,12 +137,11 @@ where
 
     fn fire_changed_reset(&self) {
         let observable: IObservableMap<K, V> = self.to_object().into_interface();
-        let args: IMapChangedEventArgs<K> =
-            ComObject::new(StockMapChangedEventArgs::<K> {
-                change: CollectionChange::Reset,
-                key: None,
-            })
-            .into_interface();
+        let args: IMapChangedEventArgs<K> = ComObject::new(StockMapChangedEventArgs::<K> {
+            change: CollectionChange::Reset,
+            key: None,
+        })
+        .into_interface();
         let handlers = self.handlers.lock().unwrap();
         for handler in handlers.values() {
             let _ = handler.Invoke(&observable, &args);

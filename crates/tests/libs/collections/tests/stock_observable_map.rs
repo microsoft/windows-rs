@@ -89,15 +89,14 @@ fn map_changed_event() -> Result<()> {
         std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
     let events_clone = events.clone();
 
-    let handler = MapChangedEventHandler::new(
-        move |_sender, args: Ref<IMapChangedEventArgs<i32>>| {
+    let handler =
+        MapChangedEventHandler::new(move |_sender, args: Ref<IMapChangedEventArgs<i32>>| {
             let args = args.ok()?;
             let change = args.CollectionChange()?;
             let key = args.Key()?;
             events_clone.lock().unwrap().push((change, key));
             Ok(())
-        },
-    );
+        });
 
     let token = m.MapChanged(&handler)?;
 
@@ -228,15 +227,14 @@ fn hstring_map_changed_event() -> Result<()> {
         std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
     let events_clone = events.clone();
 
-    let handler = MapChangedEventHandler::new(
-        move |_sender, args: Ref<IMapChangedEventArgs<HSTRING>>| {
+    let handler =
+        MapChangedEventHandler::new(move |_sender, args: Ref<IMapChangedEventArgs<HSTRING>>| {
             let args = args.ok()?;
             let change = args.CollectionChange()?;
             let key = args.Key()?;
             events_clone.lock().unwrap().push((change, key));
             Ok(())
-        },
-    );
+        });
 
     let _token = m.MapChanged(&handler)?;
 
