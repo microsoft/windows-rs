@@ -20,15 +20,8 @@ where
     V::Default: Clone,
 {
     fn First(&self) -> Result<IIterator<IKeyValuePair<K, V>>> {
-        let pairs: Vec<(K::Default, V::Default)> = self
-            .map
-            .read()
-            .unwrap()
-            .iter()
-            .map(|(k, v)| (k.clone(), v.clone()))
-            .collect();
         Ok(ComObject::new(StockMapIterator::<K, V> {
-            pairs,
+            owner: self.to_object(),
             current: 0.into(),
         })
         .into_interface())
@@ -90,7 +83,7 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    pairs: Vec<(K::Default, V::Default)>,
+    owner: ComObject<StockMap<K, V>>,
     current: std::sync::atomic::AtomicUsize,
 }
 
@@ -103,7 +96,8 @@ where
 {
     fn Current(&self) -> Result<IKeyValuePair<K, V>> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        if let Some((key, value)) = self.pairs.get(current) {
+        let map = self.owner.map.read().unwrap();
+        if let Some((key, value)) = map.iter().nth(current) {
             Ok(ComObject::new(StockMapKeyValuePair {
                 key: key.clone(),
                 value: value.clone(),
@@ -116,12 +110,15 @@ where
 
     fn HasCurrent(&self) -> Result<bool> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        Ok(self.pairs.len() > current)
+        let map = self.owner.map.read().unwrap();
+        Ok(map.len() > current)
     }
 
     fn MoveNext(&self) -> Result<bool> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        let len = self.pairs.len();
+        let map = self.owner.map.read().unwrap();
+        let len = map.len();
+        drop(map);
 
         if current < len {
             self.current
@@ -133,18 +130,16 @@ where
 
     fn GetMany(&self, items: &mut [Option<IKeyValuePair<K, V>>]) -> Result<u32> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
+        let map = self.owner.map.read().unwrap();
 
-        if current >= self.pairs.len() {
+        if current >= map.len() {
             return Ok(0);
         }
 
-        let actual = std::cmp::min(self.pairs.len() - current, items.len());
+        let actual = std::cmp::min(map.len() - current, items.len());
         let (items, _) = items.split_at_mut(actual);
 
-        for (item, (key, value)) in items
-            .iter_mut()
-            .zip(self.pairs[current..current + actual].iter())
-        {
+        for (item, (key, value)) in items.iter_mut().zip(map.iter().skip(current)) {
             *item = Some(
                 ComObject::new(StockMapKeyValuePair {
                     key: key.clone(),
