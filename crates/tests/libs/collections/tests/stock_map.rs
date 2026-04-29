@@ -128,6 +128,16 @@ fn primitive_iterator() -> Result<()> {
     assert!(compare_with(&values[1], &3, &30)?);
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
+    // MoveNext followed by GetMany reads from the advanced position
+    let iter = m.First()?;
+    assert!(iter.MoveNext()?);
+    let mut values = vec![];
+    values.resize_with(5, Default::default);
+    assert_eq!(iter.GetMany(&mut values)?, 2);
+    assert!(compare_with(&values[0], &2, &20)?);
+    assert!(compare_with(&values[1], &3, &30)?);
+    assert_eq!(iter.GetMany(&mut values)?, 0);
+
     Ok(())
 }
 

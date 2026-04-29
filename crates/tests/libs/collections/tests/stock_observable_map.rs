@@ -28,7 +28,99 @@ fn primitive() -> Result<()> {
 }
 
 #[test]
-fn primitive_mutable() -> Result<()> {
+fn primitive_iterator() -> Result<()> {
+    let m = IObservableMap::<i32, u64>::from(BTreeMap::from([]));
+    let iter = m.First()?;
+
+    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+
+    assert!(!iter.HasCurrent()?);
+    assert!(!iter.HasCurrent()?);
+
+    assert!(!iter.MoveNext()?);
+    assert!(!iter.MoveNext()?);
+
+    let mut values = vec![];
+    values.resize_with(5, Default::default);
+    assert_eq!(iter.GetMany(&mut values)?, 0);
+
+    let m = IObservableMap::<i32, u64>::from(BTreeMap::from([(1, 10), (2, 20), (3, 30)]));
+    let iter = m.First()?;
+
+    assert_eq!(iter.Current()?.Key()?, 1i32);
+    assert_eq!(iter.Current()?.Value()?, 10u64);
+
+    assert!(iter.HasCurrent()?);
+    assert!(iter.HasCurrent()?);
+
+    assert!(iter.MoveNext()?);
+    assert_eq!(iter.Current()?.Key()?, 2);
+    assert_eq!(iter.Current()?.Value()?, 20);
+    assert!(iter.HasCurrent()?);
+    assert!(iter.HasCurrent()?);
+
+    assert!(iter.MoveNext()?);
+    assert_eq!(iter.Current()?.Key()?, 3);
+    assert_eq!(iter.Current()?.Value()?, 30);
+    assert!(iter.HasCurrent()?);
+    assert!(iter.HasCurrent()?);
+
+    assert!(!iter.MoveNext()?);
+    assert!(!iter.MoveNext()?);
+    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert!(!iter.HasCurrent()?);
+    assert!(!iter.HasCurrent()?);
+
+    let iter = m.First()?;
+    let mut values = vec![];
+    values.resize_with(5, Default::default);
+    assert_eq!(iter.GetMany(&mut values)?, 3);
+    assert!(compare_with(&values[0], &1, &10)?);
+    assert!(compare_with(&values[1], &2, &20)?);
+    assert!(compare_with(&values[2], &3, &30)?);
+    assert!(values[3].is_none());
+    assert!(values[4].is_none());
+    assert_eq!(iter.GetMany(&mut values)?, 0);
+
+    let iter = m.First()?;
+    let mut values = vec![];
+    values.resize_with(1, Default::default);
+    assert_eq!(iter.GetMany(&mut values)?, 1);
+    assert!(compare_with(&values[0], &1, &10)?);
+    let mut values = vec![];
+    values.resize_with(2, Default::default);
+    assert_eq!(iter.GetMany(&mut values)?, 2);
+    assert!(compare_with(&values[0], &2, &20)?);
+    assert!(compare_with(&values[1], &3, &30)?);
+    assert_eq!(iter.GetMany(&mut values)?, 0);
+
+    // MoveNext followed by GetMany reads from the advanced position
+    let iter = m.First()?;
+    assert!(iter.MoveNext()?);
+    let mut values = vec![];
+    values.resize_with(5, Default::default);
+    assert_eq!(iter.GetMany(&mut values)?, 2);
+    assert!(compare_with(&values[0], &2, &20)?);
+    assert!(compare_with(&values[1], &3, &30)?);
+    assert_eq!(iter.GetMany(&mut values)?, 0);
+
+    Ok(())
+}
+
+fn compare_with<K, V>(pair: &Option<IKeyValuePair<K, V>>, key: &K, value: &V) -> Result<bool>
+where
+    K: RuntimeType + std::cmp::PartialEq,
+    V: RuntimeType + std::cmp::PartialEq,
+{
+    match pair {
+        None => Ok(false),
+        Some(pair) => Ok(&pair.Key()? == key && &pair.Value()? == value),
+    }
+}
+
+#[test]
     let m = IObservableMap::<i32, u64>::from(BTreeMap::new());
     assert_eq!(m.Size()?, 0);
 

@@ -116,3 +116,43 @@ fn primitive_iterator() -> Result<()> {
 
     Ok(())
 }
+
+#[test]
+fn hstring() -> Result<()> {
+    let v = IVectorView::<HSTRING>::from(vec![]);
+    assert_eq!(v.GetAt(0).unwrap_err().code(), E_BOUNDS);
+    assert_eq!(v.Size()?, 0);
+
+    let v = IVectorView::<HSTRING>::from(vec![
+        HSTRING::from("one"),
+        HSTRING::from("two"),
+        HSTRING::from("three"),
+    ]);
+    assert_eq!(v.Size()?, 3);
+    assert_eq!(&v.GetAt(0)?, h!("one"));
+    assert_eq!(&v.GetAt(1)?, h!("two"));
+    assert_eq!(&v.GetAt(2)?, h!("three"));
+    assert_eq!(v.GetAt(3).unwrap_err().code(), E_BOUNDS);
+
+    let mut index = 0;
+    assert!(!(v.IndexOf(h!("missing"), &mut index)?));
+    assert_eq!(index, 0);
+    assert!(v.IndexOf(h!("one"), &mut index)?);
+    assert_eq!(index, 0);
+    assert!(v.IndexOf(h!("two"), &mut index)?);
+    assert_eq!(index, 1);
+    assert!(v.IndexOf(h!("three"), &mut index)?);
+    assert_eq!(index, 2);
+
+    let mut values = vec![HSTRING::default(); 5];
+    assert_eq!(v.GetMany(0, &mut values)?, 3);
+    assert_eq!(&values[0], h!("one"));
+    assert_eq!(&values[1], h!("two"));
+    assert_eq!(&values[2], h!("three"));
+
+    let able: IIterable<HSTRING> = v.cast()?;
+    let v2: IVectorView<HSTRING> = able.cast()?;
+    assert_eq!(v, v2);
+
+    Ok(())
+}

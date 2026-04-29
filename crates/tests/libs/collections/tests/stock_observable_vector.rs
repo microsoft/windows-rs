@@ -42,7 +42,76 @@ fn primitive() -> Result<()> {
 }
 
 #[test]
-fn primitive_mutable() -> Result<()> {
+fn primitive_iterator() -> Result<()> {
+    let v = IObservableVector::<i32>::from(vec![]);
+    let iter = v.First()?;
+
+    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+
+    assert!(!iter.HasCurrent()?);
+    assert!(!iter.HasCurrent()?);
+
+    assert!(!iter.MoveNext()?);
+    assert!(!iter.MoveNext()?);
+
+    assert_eq!(iter.GetMany(&mut [0; 5])?, 0);
+
+    let v = IObservableVector::<i32>::from(vec![1, 2, 3]);
+    let iter = v.First()?;
+
+    assert_eq!(iter.Current()?, 1);
+    assert_eq!(iter.Current()?, 1);
+
+    assert!(iter.HasCurrent()?);
+    assert!(iter.HasCurrent()?);
+
+    assert!(iter.MoveNext()?);
+    assert_eq!(iter.Current()?, 2);
+    assert_eq!(iter.Current()?, 2);
+    assert!(iter.HasCurrent()?);
+    assert!(iter.HasCurrent()?);
+
+    assert!(iter.MoveNext()?);
+    assert_eq!(iter.Current()?, 3);
+    assert_eq!(iter.Current()?, 3);
+    assert!(iter.HasCurrent()?);
+    assert!(iter.HasCurrent()?);
+
+    assert!(!iter.MoveNext()?);
+    assert!(!iter.MoveNext()?);
+    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert!(!iter.HasCurrent()?);
+    assert!(!iter.HasCurrent()?);
+
+    let iter = v.First()?;
+    let mut values = [0; 5];
+    assert_eq!(iter.GetMany(&mut values)?, 3);
+    assert_eq!(values, [1, 2, 3, 0, 0]);
+    assert_eq!(iter.GetMany(&mut values)?, 0);
+
+    let iter = v.First()?;
+    let mut values = [0; 1];
+    assert_eq!(iter.GetMany(&mut values)?, 1);
+    assert_eq!(values, [1]);
+    let mut values = [0; 2];
+    assert_eq!(iter.GetMany(&mut values)?, 2);
+    assert_eq!(values, [2, 3]);
+    assert_eq!(iter.GetMany(&mut values)?, 0);
+
+    // MoveNext followed by GetMany reads from the advanced position
+    let iter = v.First()?;
+    assert!(iter.MoveNext()?);
+    let mut values = [0; 5];
+    assert_eq!(iter.GetMany(&mut values)?, 2);
+    assert_eq!(values[..2], [2, 3]);
+    assert_eq!(iter.GetMany(&mut values)?, 0);
+
+    Ok(())
+}
+
+#[test]
     let v = IObservableVector::<i32>::from(vec![]);
 
     // Append
