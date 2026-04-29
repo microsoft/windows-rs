@@ -125,13 +125,14 @@ fn vector_changed_event() -> Result<()> {
         std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
     let events_clone = events.clone();
 
-    let handler = VectorChangedEventHandler::new(move |_sender, args: Ref<IVectorChangedEventArgs>| {
-        let args = args.ok()?;
-        let change = args.CollectionChange()?;
-        let index = args.Index()?;
-        events_clone.lock().unwrap().push((change, index));
-        Ok(())
-    });
+    let handler =
+        VectorChangedEventHandler::new(move |_sender, args: Ref<IVectorChangedEventArgs>| {
+            let args = args.ok()?;
+            let change = args.CollectionChange()?;
+            let index = args.Index()?;
+            events_clone.lock().unwrap().push((change, index));
+            Ok(())
+        });
 
     let token = v.VectorChanged(&handler)?;
 
@@ -217,12 +218,16 @@ fn multiple_handlers() -> Result<()> {
     let count2 = std::sync::Arc::new(std::sync::atomic::AtomicUsize::new(0));
 
     let c1 = count1.clone();
-    let handler1 =
-        VectorChangedEventHandler::new(move |_, _| { c1.fetch_add(1, std::sync::atomic::Ordering::Relaxed); Ok(()) });
+    let handler1 = VectorChangedEventHandler::new(move |_, _| {
+        c1.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+        Ok(())
+    });
 
     let c2 = count2.clone();
-    let handler2 =
-        VectorChangedEventHandler::new(move |_, _| { c2.fetch_add(1, std::sync::atomic::Ordering::Relaxed); Ok(()) });
+    let handler2 = VectorChangedEventHandler::new(move |_, _| {
+        c2.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+        Ok(())
+    });
 
     let token1 = v.VectorChanged(&handler1)?;
     let token2 = v.VectorChanged(&handler2)?;
