@@ -29,7 +29,11 @@ fn main() {
         let group = group_dir.file_name().unwrap().to_string_lossy().to_string();
         let fixtures = read_dir_sorted(group_dir);
         for fixture_dir in &fixtures {
-            let name = fixture_dir.file_name().unwrap().to_string_lossy().to_string();
+            let name = fixture_dir
+                .file_name()
+                .unwrap()
+                .to_string_lossy()
+                .to_string();
             let test_name = sanitize(&format!("{group}_{name}"));
             writeln!(
                 out,

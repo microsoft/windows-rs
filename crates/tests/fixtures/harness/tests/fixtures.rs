@@ -36,7 +36,18 @@ fn run_fixture(group: &str, name: &str) {
     let fixture = Fixture::new(group, name);
     match group {
         "rdl" => run_rdl(&fixture),
-        "clang" => run_clang(&fixture),
+        "clang" => {
+            // libclang.dll on the Windows CI runner is 64-bit only; the legacy
+            // `tests/roundtrip/clang` crate skips the whole suite on 32-bit
+            // targets via `#![cfg(target_pointer_width = "64")]`. Mirror that
+            // here at runtime so 32-bit builds still discover/compile the
+            // generated tests but skip the clang group.
+            if cfg!(not(target_pointer_width = "64")) {
+                eprintln!("skipping clang/{name} on non-64-bit target");
+                return;
+            }
+            run_clang(&fixture);
+        }
         "bindgen" => run_bindgen(&fixture),
         "error" => run_error(&fixture),
         "merge" => run_merge(&fixture),
@@ -57,11 +68,7 @@ impl Fixture {
         // how cargo is invoked, so fixture lookup is location-independent.
         let manifest = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
         let dir = manifest.join("data").join(group).join(name);
-        assert!(
-            dir.is_dir(),
-            "fixture directory missing: {}",
-            dir.display()
-        );
+        assert!(dir.is_dir(), "fixture directory missing: {}", dir.display());
 
         // OUT_DIR is the build script's per-crate output directory. Test
         // binaries can read it via env! at compile time.
