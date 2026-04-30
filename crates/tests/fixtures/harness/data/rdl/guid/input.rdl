@@ -1,0 +1,4 @@
+#[win32]
+mod Test {
+    const CLSID_SystemClock: GUID = 0xe436ebb1_524f_11ce_9f53_0020af0ba770;
+}

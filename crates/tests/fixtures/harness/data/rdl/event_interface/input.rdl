@@ -1,0 +1,7 @@
+#[winrt]
+mod Test {
+    delegate fn Changed(sender: Object);
+    interface IFoo {
+        event ValueChanged: Changed;
+    }
+}

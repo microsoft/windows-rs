@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    interface IFoo {
+        #[special]
+        fn get_ReadOnly(&self) -> i32;
+        #[special]
+        fn put_WriteOnly(&self, value: i32);
+    }
+}
