@@ -15,11 +15,10 @@ impl AsyncActionCompletedHandler {
     >(
         invoke: F,
     ) -> Self {
-        let com = AsyncActionCompletedHandlerBox {
-            vtable: &AsyncActionCompletedHandlerBox::<F>::VTABLE,
-            count: windows_core::imp::RefCount::new(1),
+        let com = windows_core::imp::DelegateBox::<AsyncActionCompletedHandler, F>::new(
+            &AsyncActionCompletedHandlerBox::<F>::VTABLE,
             invoke,
-        };
+        );
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
@@ -46,14 +45,9 @@ pub struct AsyncActionCompletedHandler_Vtbl {
         asyncstatus: AsyncStatus,
     ) -> windows_core::HRESULT,
 }
-#[repr(C)]
 struct AsyncActionCompletedHandlerBox<
     F: Fn(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static,
-> {
-    vtable: *const AsyncActionCompletedHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
+>(core::marker::PhantomData<(fn() -> F,)>);
 impl<
         F: Fn(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()>
             + Send
@@ -62,71 +56,21 @@ impl<
 {
     const VTABLE: AsyncActionCompletedHandler_Vtbl = AsyncActionCompletedHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
-            QueryInterface: Self::QueryInterface,
-            AddRef: Self::AddRef,
-            Release: Self::Release,
+            QueryInterface:
+                windows_core::imp::DelegateBox::<AsyncActionCompletedHandler, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<AsyncActionCompletedHandler, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<AsyncActionCompletedHandler, F>::Release,
         },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(
-        this: *mut core::ffi::c_void,
-        iid: *const windows_core::GUID,
-        interface: *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
-            }
-            *interface = if *iid == <AsyncActionCompletedHandler as windows_core::Interface>::IID
-                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
-                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
-            {
-                &mut (*this).vtable as *mut _ as _
-            } else {
-                #[cfg(windows)]
-                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                    (*this).count.add_ref();
-                    return windows_core::imp::marshaler(
-                        core::mem::transmute(
-                            &mut (*this).vtable as *mut _ as *mut core::ffi::c_void,
-                        ),
-                        interface,
-                    );
-                }
-                core::ptr::null_mut()
-            };
-            if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
-            } else {
-                (*this).count.add_ref();
-                windows_core::HRESULT(0)
-            }
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            (*this).count.add_ref()
-        }
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            let remaining = (*this).count.release();
-            if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
-            }
-            remaining
-        }
-    }
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
         asyncinfo: *mut core::ffi::c_void,
         asyncstatus: AsyncStatus,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<AsyncActionCompletedHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&asyncinfo), asyncstatus).into()
         }
     }
@@ -166,11 +110,10 @@ impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionProgressHandler<
     >(
         invoke: F,
     ) -> Self {
-        let com = AsyncActionProgressHandlerBox {
-            vtable: &AsyncActionProgressHandlerBox::<TProgress, F>::VTABLE,
-            count: windows_core::imp::RefCount::new(1),
+        let com = windows_core::imp::DelegateBox::<AsyncActionProgressHandler<TProgress>, F>::new(
+            &AsyncActionProgressHandlerBox::<TProgress, F>::VTABLE,
             invoke,
-        };
+        );
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> windows_core::Result<()>
@@ -202,7 +145,6 @@ where
     ) -> windows_core::HRESULT,
     TProgress: core::marker::PhantomData<TProgress>,
 }
-#[repr(C)]
 struct AsyncActionProgressHandlerBox<
     TProgress,
     F: Fn(
@@ -211,13 +153,9 @@ struct AsyncActionProgressHandlerBox<
         ) -> windows_core::Result<()>
         + Send
         + 'static,
-> where
-    TProgress: windows_core::RuntimeType + 'static,
-{
-    vtable: *const AsyncActionProgressHandler_Vtbl<TProgress>,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
+>(core::marker::PhantomData<(TProgress, fn() -> F)>)
+where
+    TProgress: windows_core::RuntimeType + 'static;
 impl<
         TProgress: windows_core::RuntimeType + 'static,
         F: Fn(
@@ -228,76 +166,30 @@ impl<
             + 'static,
     > AsyncActionProgressHandlerBox<TProgress, F>
 {
-    const VTABLE: AsyncActionProgressHandler_Vtbl<TProgress> =
-        AsyncActionProgressHandler_Vtbl::<TProgress> {
-            base__: windows_core::IUnknown_Vtbl {
-                QueryInterface: Self::QueryInterface,
-                AddRef: Self::AddRef,
-                Release: Self::Release,
-            },
-            Invoke: Self::Invoke,
-            TProgress: core::marker::PhantomData::<TProgress>,
-        };
-    unsafe extern "system" fn QueryInterface(
-        this: *mut core::ffi::c_void,
-        iid: *const windows_core::GUID,
-        interface: *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
-            }
-            *interface = if *iid
-                == <AsyncActionProgressHandler<TProgress> as windows_core::Interface>::IID
-                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
-                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
-            {
-                &mut (*this).vtable as *mut _ as _
-            } else {
-                #[cfg(windows)]
-                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                    (*this).count.add_ref();
-                    return windows_core::imp::marshaler(
-                        core::mem::transmute(
-                            &mut (*this).vtable as *mut _ as *mut core::ffi::c_void,
-                        ),
-                        interface,
-                    );
-                }
-                core::ptr::null_mut()
-            };
-            if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
-            } else {
-                (*this).count.add_ref();
-                windows_core::HRESULT(0)
-            }
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            (*this).count.add_ref()
-        }
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            let remaining = (*this).count.release();
-            if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
-            }
-            remaining
-        }
-    }
+    const VTABLE: AsyncActionProgressHandler_Vtbl<TProgress> = AsyncActionProgressHandler_Vtbl::<
+        TProgress,
+    > {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface: windows_core::imp::DelegateBox::<
+                AsyncActionProgressHandler<TProgress>,
+                F,
+            >::QueryInterface,
+            AddRef:
+                windows_core::imp::DelegateBox::<AsyncActionProgressHandler<TProgress>, F>::AddRef,
+            Release:
+                windows_core::imp::DelegateBox::<AsyncActionProgressHandler<TProgress>, F>::Release,
+        },
+        Invoke: Self::Invoke,
+        TProgress: core::marker::PhantomData::<TProgress>,
+    };
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
         asyncinfo: *mut core::ffi::c_void,
         progressinfo: windows_core::AbiType<TProgress>,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<AsyncActionProgressHandler<TProgress>, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&asyncinfo),
                 core::mem::transmute_copy(&progressinfo),
@@ -343,11 +235,13 @@ impl<TProgress: windows_core::RuntimeType + 'static>
     >(
         invoke: F,
     ) -> Self {
-        let com = AsyncActionWithProgressCompletedHandlerBox {
-            vtable: &AsyncActionWithProgressCompletedHandlerBox::<TProgress, F>::VTABLE,
-            count: windows_core::imp::RefCount::new(1),
+        let com = windows_core::imp::DelegateBox::<
+            AsyncActionWithProgressCompletedHandler<TProgress>,
+            F,
+        >::new(
+            &AsyncActionWithProgressCompletedHandlerBox::<TProgress, F>::VTABLE,
             invoke,
-        };
+        );
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
@@ -378,7 +272,6 @@ where
     ) -> windows_core::HRESULT,
     TProgress: core::marker::PhantomData<TProgress>,
 }
-#[repr(C)]
 struct AsyncActionWithProgressCompletedHandlerBox<
     TProgress,
     F: Fn(
@@ -387,13 +280,9 @@ struct AsyncActionWithProgressCompletedHandlerBox<
         ) -> windows_core::Result<()>
         + Send
         + 'static,
-> where
-    TProgress: windows_core::RuntimeType + 'static,
-{
-    vtable: *const AsyncActionWithProgressCompletedHandler_Vtbl<TProgress>,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
+>(core::marker::PhantomData<(TProgress, fn() -> F)>)
+where
+    TProgress: windows_core::RuntimeType + 'static;
 impl<
         TProgress: windows_core::RuntimeType + 'static,
         F: Fn(
@@ -407,55 +296,33 @@ impl<
     const VTABLE: AsyncActionWithProgressCompletedHandler_Vtbl<TProgress> =
         AsyncActionWithProgressCompletedHandler_Vtbl::<TProgress> {
             base__: windows_core::IUnknown_Vtbl {
-                QueryInterface: Self::QueryInterface,
-                AddRef: Self::AddRef,
-                Release: Self::Release,
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    AsyncActionWithProgressCompletedHandler<TProgress>,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    AsyncActionWithProgressCompletedHandler<TProgress>,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    AsyncActionWithProgressCompletedHandler<TProgress>,
+                    F,
+                >::Release,
             },
             Invoke: Self::Invoke,
             TProgress: core::marker::PhantomData::<TProgress>,
         };
-    unsafe extern "system" fn QueryInterface(
-        this: *mut core::ffi::c_void,
-        iid: *const windows_core::GUID,
-        interface: *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
-            }
-            * interface = if * iid == < AsyncActionWithProgressCompletedHandler < TProgress > as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else { # [ cfg ( windows ) ] if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } core::ptr::null_mut ( ) } ;
-            if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
-            } else {
-                (*this).count.add_ref();
-                windows_core::HRESULT(0)
-            }
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            (*this).count.add_ref()
-        }
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            let remaining = (*this).count.release();
-            if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
-            }
-            remaining
-        }
-    }
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
         asyncinfo: *mut core::ffi::c_void,
         asyncstatus: AsyncStatus,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    AsyncActionWithProgressCompletedHandler<TProgress>,
+                    F,
+                >);
             (this.invoke)(core::mem::transmute_copy(&asyncinfo), asyncstatus).into()
         }
     }
@@ -492,11 +359,10 @@ impl<TResult: windows_core::RuntimeType + 'static> AsyncOperationCompletedHandle
     >(
         invoke: F,
     ) -> Self {
-        let com = AsyncOperationCompletedHandlerBox {
-            vtable: &AsyncOperationCompletedHandlerBox::<TResult, F>::VTABLE,
-            count: windows_core::imp::RefCount::new(1),
+        let com = windows_core::imp::DelegateBox::<AsyncOperationCompletedHandler<TResult>, F>::new(
+            &AsyncOperationCompletedHandlerBox::<TResult, F>::VTABLE,
             invoke,
-        };
+        );
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
@@ -527,19 +393,14 @@ where
     ) -> windows_core::HRESULT,
     TResult: core::marker::PhantomData<TResult>,
 }
-#[repr(C)]
 struct AsyncOperationCompletedHandlerBox<
     TResult,
     F: Fn(windows_core::Ref<IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()>
         + Send
         + 'static,
-> where
-    TResult: windows_core::RuntimeType + 'static,
-{
-    vtable: *const AsyncOperationCompletedHandler_Vtbl<TResult>,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
+>(core::marker::PhantomData<(TResult, fn() -> F)>)
+where
+    TResult: windows_core::RuntimeType + 'static;
 impl<
         TResult: windows_core::RuntimeType + 'static,
         F: Fn(windows_core::Ref<IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()>
@@ -549,74 +410,32 @@ impl<
 {
     const VTABLE: AsyncOperationCompletedHandler_Vtbl<TResult> =
         AsyncOperationCompletedHandler_Vtbl::<TResult> {
-            base__: windows_core::IUnknown_Vtbl {
-                QueryInterface: Self::QueryInterface,
-                AddRef: Self::AddRef,
-                Release: Self::Release,
-            },
+            base__:
+                windows_core::IUnknown_Vtbl {
+                    QueryInterface: windows_core::imp::DelegateBox::<
+                        AsyncOperationCompletedHandler<TResult>,
+                        F,
+                    >::QueryInterface,
+                    AddRef: windows_core::imp::DelegateBox::<
+                        AsyncOperationCompletedHandler<TResult>,
+                        F,
+                    >::AddRef,
+                    Release: windows_core::imp::DelegateBox::<
+                        AsyncOperationCompletedHandler<TResult>,
+                        F,
+                    >::Release,
+                },
             Invoke: Self::Invoke,
             TResult: core::marker::PhantomData::<TResult>,
         };
-    unsafe extern "system" fn QueryInterface(
-        this: *mut core::ffi::c_void,
-        iid: *const windows_core::GUID,
-        interface: *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
-            }
-            *interface = if *iid
-                == <AsyncOperationCompletedHandler<TResult> as windows_core::Interface>::IID
-                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
-                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
-            {
-                &mut (*this).vtable as *mut _ as _
-            } else {
-                #[cfg(windows)]
-                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                    (*this).count.add_ref();
-                    return windows_core::imp::marshaler(
-                        core::mem::transmute(
-                            &mut (*this).vtable as *mut _ as *mut core::ffi::c_void,
-                        ),
-                        interface,
-                    );
-                }
-                core::ptr::null_mut()
-            };
-            if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
-            } else {
-                (*this).count.add_ref();
-                windows_core::HRESULT(0)
-            }
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            (*this).count.add_ref()
-        }
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            let remaining = (*this).count.release();
-            if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
-            }
-            remaining
-        }
-    }
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
         asyncinfo: *mut core::ffi::c_void,
         asyncstatus: AsyncStatus,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<AsyncOperationCompletedHandler<TResult>, F>);
             (this.invoke)(core::mem::transmute_copy(&asyncinfo), asyncstatus).into()
         }
     }
@@ -668,11 +487,13 @@ impl<
     >(
         invoke: F,
     ) -> Self {
-        let com = AsyncOperationProgressHandlerBox {
-            vtable: &AsyncOperationProgressHandlerBox::<TResult, TProgress, F>::VTABLE,
-            count: windows_core::imp::RefCount::new(1),
+        let com = windows_core::imp::DelegateBox::<
+            AsyncOperationProgressHandler<TResult, TProgress>,
+            F,
+        >::new(
+            &AsyncOperationProgressHandlerBox::<TResult, TProgress, F>::VTABLE,
             invoke,
-        };
+        );
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> windows_core::Result<()>
@@ -706,7 +527,6 @@ where
     TResult: core::marker::PhantomData<TResult>,
     TProgress: core::marker::PhantomData<TProgress>,
 }
-#[repr(C)]
 struct AsyncOperationProgressHandlerBox<
     TResult,
     TProgress,
@@ -716,14 +536,10 @@ struct AsyncOperationProgressHandlerBox<
         ) -> windows_core::Result<()>
         + Send
         + 'static,
-> where
+>(core::marker::PhantomData<(TResult, TProgress, fn() -> F)>)
+where
     TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-{
-    vtable: *const AsyncOperationProgressHandler_Vtbl<TResult, TProgress>,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
+    TProgress: windows_core::RuntimeType + 'static;
 impl<
         TResult: windows_core::RuntimeType + 'static,
         TProgress: windows_core::RuntimeType + 'static,
@@ -738,56 +554,34 @@ impl<
     const VTABLE: AsyncOperationProgressHandler_Vtbl<TResult, TProgress> =
         AsyncOperationProgressHandler_Vtbl::<TResult, TProgress> {
             base__: windows_core::IUnknown_Vtbl {
-                QueryInterface: Self::QueryInterface,
-                AddRef: Self::AddRef,
-                Release: Self::Release,
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    AsyncOperationProgressHandler<TResult, TProgress>,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    AsyncOperationProgressHandler<TResult, TProgress>,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    AsyncOperationProgressHandler<TResult, TProgress>,
+                    F,
+                >::Release,
             },
             Invoke: Self::Invoke,
             TResult: core::marker::PhantomData::<TResult>,
             TProgress: core::marker::PhantomData::<TProgress>,
         };
-    unsafe extern "system" fn QueryInterface(
-        this: *mut core::ffi::c_void,
-        iid: *const windows_core::GUID,
-        interface: *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
-            }
-            * interface = if * iid == < AsyncOperationProgressHandler < TResult , TProgress > as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else { # [ cfg ( windows ) ] if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } core::ptr::null_mut ( ) } ;
-            if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
-            } else {
-                (*this).count.add_ref();
-                windows_core::HRESULT(0)
-            }
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            (*this).count.add_ref()
-        }
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            let remaining = (*this).count.release();
-            if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
-            }
-            remaining
-        }
-    }
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
         asyncinfo: *mut core::ffi::c_void,
         progressinfo: windows_core::AbiType<TProgress>,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    AsyncOperationProgressHandler<TResult, TProgress>,
+                    F,
+                >);
             (this.invoke)(
                 core::mem::transmute_copy(&asyncinfo),
                 core::mem::transmute_copy(&progressinfo),
@@ -843,11 +637,13 @@ impl<
     >(
         invoke: F,
     ) -> Self {
-        let com = AsyncOperationWithProgressCompletedHandlerBox {
-            vtable: &AsyncOperationWithProgressCompletedHandlerBox::<TResult, TProgress, F>::VTABLE,
-            count: windows_core::imp::RefCount::new(1),
+        let com = windows_core::imp::DelegateBox::<
+            AsyncOperationWithProgressCompletedHandler<TResult, TProgress>,
+            F,
+        >::new(
+            &AsyncOperationWithProgressCompletedHandlerBox::<TResult, TProgress, F>::VTABLE,
             invoke,
-        };
+        );
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
@@ -880,7 +676,6 @@ where
     TResult: core::marker::PhantomData<TResult>,
     TProgress: core::marker::PhantomData<TProgress>,
 }
-#[repr(C)]
 struct AsyncOperationWithProgressCompletedHandlerBox<
     TResult,
     TProgress,
@@ -890,14 +685,10 @@ struct AsyncOperationWithProgressCompletedHandlerBox<
         ) -> windows_core::Result<()>
         + Send
         + 'static,
-> where
+>(core::marker::PhantomData<(TResult, TProgress, fn() -> F)>)
+where
     TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-{
-    vtable: *const AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress>,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
+    TProgress: windows_core::RuntimeType + 'static;
 impl<
         TResult: windows_core::RuntimeType + 'static,
         TProgress: windows_core::RuntimeType + 'static,
@@ -912,56 +703,34 @@ impl<
     const VTABLE: AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress> =
         AsyncOperationWithProgressCompletedHandler_Vtbl::<TResult, TProgress> {
             base__: windows_core::IUnknown_Vtbl {
-                QueryInterface: Self::QueryInterface,
-                AddRef: Self::AddRef,
-                Release: Self::Release,
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    AsyncOperationWithProgressCompletedHandler<TResult, TProgress>,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    AsyncOperationWithProgressCompletedHandler<TResult, TProgress>,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    AsyncOperationWithProgressCompletedHandler<TResult, TProgress>,
+                    F,
+                >::Release,
             },
             Invoke: Self::Invoke,
             TResult: core::marker::PhantomData::<TResult>,
             TProgress: core::marker::PhantomData::<TProgress>,
         };
-    unsafe extern "system" fn QueryInterface(
-        this: *mut core::ffi::c_void,
-        iid: *const windows_core::GUID,
-        interface: *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
-            }
-            * interface = if * iid == < AsyncOperationWithProgressCompletedHandler < TResult , TProgress > as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else { # [ cfg ( windows ) ] if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } core::ptr::null_mut ( ) } ;
-            if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
-            } else {
-                (*this).count.add_ref();
-                windows_core::HRESULT(0)
-            }
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            (*this).count.add_ref()
-        }
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            let remaining = (*this).count.release();
-            if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
-            }
-            remaining
-        }
-    }
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
         asyncinfo: *mut core::ffi::c_void,
         asyncstatus: AsyncStatus,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    AsyncOperationWithProgressCompletedHandler<TResult, TProgress>,
+                    F,
+                >);
             (this.invoke)(core::mem::transmute_copy(&asyncinfo), asyncstatus).into()
         }
     }

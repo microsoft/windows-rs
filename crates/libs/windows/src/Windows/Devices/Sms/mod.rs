@@ -1882,7 +1882,7 @@ impl windows_core::RuntimeType for SmsDeviceStatusChangedEventHandler {
 }
 impl SmsDeviceStatusChangedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = SmsDeviceStatusChangedEventHandlerBox { vtable: &SmsDeviceStatusChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = windows_core::imp::DelegateBox::<SmsDeviceStatusChangedEventHandler, F>::new(&SmsDeviceStatusChangedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
@@ -1898,57 +1898,19 @@ pub struct SmsDeviceStatusChangedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[repr(C)]
-struct SmsDeviceStatusChangedEventHandlerBox<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const SmsDeviceStatusChangedEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
+struct SmsDeviceStatusChangedEventHandlerBox<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
 impl<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 'static> SmsDeviceStatusChangedEventHandlerBox<F> {
-    const VTABLE: SmsDeviceStatusChangedEventHandler_Vtbl = SmsDeviceStatusChangedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
-            }
-            *interface = if *iid == <SmsDeviceStatusChangedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
-                &mut (*this).vtable as *mut _ as _
-            } else {
-                #[cfg(windows)]
-                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                    (*this).count.add_ref();
-                    return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
-                }
-                core::ptr::null_mut()
-            };
-            if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
-            } else {
-                (*this).count.add_ref();
-                windows_core::HRESULT(0)
-            }
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            (*this).count.add_ref()
-        }
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            let remaining = (*this).count.release();
-            if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
-            }
-            remaining
-        }
-    }
+    const VTABLE: SmsDeviceStatusChangedEventHandler_Vtbl = SmsDeviceStatusChangedEventHandler_Vtbl {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface: windows_core::imp::DelegateBox::<SmsDeviceStatusChangedEventHandler, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<SmsDeviceStatusChangedEventHandler, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<SmsDeviceStatusChangedEventHandler, F>::Release,
+        },
+        Invoke: Self::Invoke,
+    };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<SmsDeviceStatusChangedEventHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&sender)).into()
         }
     }
@@ -2236,7 +2198,7 @@ impl windows_core::RuntimeType for SmsMessageReceivedEventHandler {
 }
 impl SmsMessageReceivedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = SmsMessageReceivedEventHandlerBox { vtable: &SmsMessageReceivedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = windows_core::imp::DelegateBox::<SmsMessageReceivedEventHandler, F>::new(&SmsMessageReceivedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
@@ -2253,57 +2215,19 @@ pub struct SmsMessageReceivedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[repr(C)]
-struct SmsMessageReceivedEventHandlerBox<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const SmsMessageReceivedEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
+struct SmsMessageReceivedEventHandlerBox<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
 impl<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> SmsMessageReceivedEventHandlerBox<F> {
-    const VTABLE: SmsMessageReceivedEventHandler_Vtbl = SmsMessageReceivedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
-            }
-            *interface = if *iid == <SmsMessageReceivedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
-                &mut (*this).vtable as *mut _ as _
-            } else {
-                #[cfg(windows)]
-                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                    (*this).count.add_ref();
-                    return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
-                }
-                core::ptr::null_mut()
-            };
-            if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
-            } else {
-                (*this).count.add_ref();
-                windows_core::HRESULT(0)
-            }
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            (*this).count.add_ref()
-        }
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            let remaining = (*this).count.release();
-            if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
-            }
-            remaining
-        }
-    }
+    const VTABLE: SmsMessageReceivedEventHandler_Vtbl = SmsMessageReceivedEventHandler_Vtbl {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface: windows_core::imp::DelegateBox::<SmsMessageReceivedEventHandler, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<SmsMessageReceivedEventHandler, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<SmsMessageReceivedEventHandler, F>::Release,
+        },
+        Invoke: Self::Invoke,
+    };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<SmsMessageReceivedEventHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
         }
     }

@@ -2813,11 +2813,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     >(
         invoke: F,
     ) -> Self {
-        let com = MapChangedEventHandlerBox {
-            vtable: &MapChangedEventHandlerBox::<K, V, F>::VTABLE,
-            count: windows_core::imp::RefCount::new(1),
+        let com = windows_core::imp::DelegateBox::<MapChangedEventHandler<K, V>, F>::new(
+            &MapChangedEventHandlerBox::<K, V, F>::VTABLE,
             invoke,
-        };
+        );
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, event: P1) -> windows_core::Result<()>
@@ -2851,7 +2850,6 @@ where
     K: core::marker::PhantomData<K>,
     V: core::marker::PhantomData<V>,
 }
-#[repr(C)]
 struct MapChangedEventHandlerBox<
     K,
     V,
@@ -2861,14 +2859,10 @@ struct MapChangedEventHandlerBox<
         ) -> windows_core::Result<()>
         + Send
         + 'static,
-> where
+>(core::marker::PhantomData<(K, V, fn() -> F)>)
+where
     K: windows_core::RuntimeType + 'static,
-    V: windows_core::RuntimeType + 'static,
-{
-    vtable: *const MapChangedEventHandler_Vtbl<K, V>,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
+    V: windows_core::RuntimeType + 'static;
 impl<
         K: windows_core::RuntimeType + 'static,
         V: windows_core::RuntimeType + 'static,
@@ -2882,73 +2876,23 @@ impl<
 {
     const VTABLE: MapChangedEventHandler_Vtbl<K, V> = MapChangedEventHandler_Vtbl::<K, V> {
         base__: windows_core::IUnknown_Vtbl {
-            QueryInterface: Self::QueryInterface,
-            AddRef: Self::AddRef,
-            Release: Self::Release,
+            QueryInterface:
+                windows_core::imp::DelegateBox::<MapChangedEventHandler<K, V>, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<MapChangedEventHandler<K, V>, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<MapChangedEventHandler<K, V>, F>::Release,
         },
         Invoke: Self::Invoke,
         K: core::marker::PhantomData::<K>,
         V: core::marker::PhantomData::<V>,
     };
-    unsafe extern "system" fn QueryInterface(
-        this: *mut core::ffi::c_void,
-        iid: *const windows_core::GUID,
-        interface: *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
-            }
-            *interface = if *iid == <MapChangedEventHandler<K, V> as windows_core::Interface>::IID
-                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
-                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
-            {
-                &mut (*this).vtable as *mut _ as _
-            } else {
-                #[cfg(windows)]
-                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                    (*this).count.add_ref();
-                    return windows_core::imp::marshaler(
-                        core::mem::transmute(
-                            &mut (*this).vtable as *mut _ as *mut core::ffi::c_void,
-                        ),
-                        interface,
-                    );
-                }
-                core::ptr::null_mut()
-            };
-            if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
-            } else {
-                (*this).count.add_ref();
-                windows_core::HRESULT(0)
-            }
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            (*this).count.add_ref()
-        }
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            let remaining = (*this).count.release();
-            if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
-            }
-            remaining
-        }
-    }
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
         sender: *mut core::ffi::c_void,
         event: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<MapChangedEventHandler<K, V>, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
                 core::mem::transmute_copy(&event),
@@ -2989,11 +2933,10 @@ impl<T: windows_core::RuntimeType + 'static> VectorChangedEventHandler<T> {
     >(
         invoke: F,
     ) -> Self {
-        let com = VectorChangedEventHandlerBox {
-            vtable: &VectorChangedEventHandlerBox::<T, F>::VTABLE,
-            count: windows_core::imp::RefCount::new(1),
+        let com = windows_core::imp::DelegateBox::<VectorChangedEventHandler<T>, F>::new(
+            &VectorChangedEventHandlerBox::<T, F>::VTABLE,
             invoke,
-        };
+        );
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, event: P1) -> windows_core::Result<()>
@@ -3025,7 +2968,6 @@ where
     ) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
 }
-#[repr(C)]
 struct VectorChangedEventHandlerBox<
     T,
     F: Fn(
@@ -3034,13 +2976,9 @@ struct VectorChangedEventHandlerBox<
         ) -> windows_core::Result<()>
         + Send
         + 'static,
-> where
-    T: windows_core::RuntimeType + 'static,
-{
-    vtable: *const VectorChangedEventHandler_Vtbl<T>,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
+>(core::marker::PhantomData<(T, fn() -> F)>)
+where
+    T: windows_core::RuntimeType + 'static;
 impl<
         T: windows_core::RuntimeType + 'static,
         F: Fn(
@@ -3053,72 +2991,22 @@ impl<
 {
     const VTABLE: VectorChangedEventHandler_Vtbl<T> = VectorChangedEventHandler_Vtbl::<T> {
         base__: windows_core::IUnknown_Vtbl {
-            QueryInterface: Self::QueryInterface,
-            AddRef: Self::AddRef,
-            Release: Self::Release,
+            QueryInterface:
+                windows_core::imp::DelegateBox::<VectorChangedEventHandler<T>, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<VectorChangedEventHandler<T>, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<VectorChangedEventHandler<T>, F>::Release,
         },
         Invoke: Self::Invoke,
         T: core::marker::PhantomData::<T>,
     };
-    unsafe extern "system" fn QueryInterface(
-        this: *mut core::ffi::c_void,
-        iid: *const windows_core::GUID,
-        interface: *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
-            }
-            *interface = if *iid == <VectorChangedEventHandler<T> as windows_core::Interface>::IID
-                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
-                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
-            {
-                &mut (*this).vtable as *mut _ as _
-            } else {
-                #[cfg(windows)]
-                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                    (*this).count.add_ref();
-                    return windows_core::imp::marshaler(
-                        core::mem::transmute(
-                            &mut (*this).vtable as *mut _ as *mut core::ffi::c_void,
-                        ),
-                        interface,
-                    );
-                }
-                core::ptr::null_mut()
-            };
-            if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
-            } else {
-                (*this).count.add_ref();
-                windows_core::HRESULT(0)
-            }
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            (*this).count.add_ref()
-        }
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            let remaining = (*this).count.release();
-            if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
-            }
-            remaining
-        }
-    }
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
         sender: *mut core::ffi::c_void,
         event: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<VectorChangedEventHandler<T>, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
                 core::mem::transmute_copy(&event),
