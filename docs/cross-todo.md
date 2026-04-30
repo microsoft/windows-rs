@@ -14,7 +14,7 @@ in stages, and to verify the result on a GitHub Linux runner.
 **Hybrid (no top-level `cfg(windows)`, but inner `#[cfg(windows)]` gates the Win32-using parts; CI-enforced to build on Linux):**
 - `windows-core` — most trait machinery (`Type`, `Interface`, `IUnknown` vtables, `Param`, `Array`, `GUID`, `IInspectable`) is portable; only ref-count/marshal helpers in `imp/` and a few functions in `inspectable.rs` are gated. Builds cleanly on Linux with default features and `--no-default-features`. (Stage 2.)
 - `windows-result` — `HRESULT`, `Error`, `Result` types are portable; `RoOriginate*` paths in `hresult.rs`/`error.rs` are gated, with `#[cfg(not(windows))]` fallbacks that return inert `E_FAIL`-shaped values. Builds cleanly on Linux with default features and `--no-default-features`. (Stage 2.)
-- `windows-strings` — `PCSTR`, `PCWSTR`, `PSTR`, `PWSTR`, the `s!`/`w!` literal macros, and the UTF-8/UTF-16 `decode` helpers are portable; `HSTRING`, `BSTR`, the `h!` macro, `hstring_builder`, `hstring_header`, `ref_count`, and the kernel32/oleaut32 `bindings` are individually `#[cfg(windows)]`. Builds cleanly on Linux with default features and `--no-default-features`. (Stage 3.)
+- `windows-strings` — fully cross-platform: `PCSTR`, `PCWSTR`, `PSTR`, `PWSTR`, the `s!`/`w!`/`h!` literal macros, the UTF-8/UTF-16 `decode` helpers, and `HSTRING`, `BSTR`, `HStringBuilder` all compile on every target. The allocator behind `HSTRING` and `BSTR` is swapped at compile time: on Windows it goes through the kernel32 process heap and oleaut32 BSTR allocator (interop-compatible with native code), on other targets it is serviced by the Rust global allocator using a layout that matches the Win32 contract. The only `cfg(windows)`-gated public surface is the `OsStr`/`OsString`/`Path` interop (which depends on `std::os::windows::ffi`). (Stage 3.)
 
 **Hard-gated `#![cfg(windows)]` at the top of `lib.rs` (compile to nothing off Windows):**
 - `windows-cppwinrt` — invokes `cppwinrt.exe`, inherently Windows.
@@ -78,24 +78,41 @@ What this stage actually changes:
 
 Risk: low. The code work was already done by previous incremental changes; this stage only enforces it.
 
-## Stage 3 — Split `windows-strings` and expose portable string types
+## Stage 3 — Make `windows-strings` fully cross-platform via a swappable allocator
 
 **Status: ✅ done; locked in by CI.**
 
-1. ✅ Move `pcstr`, `pcwstr`, `pstr`, `pwstr`, `literals`, and `decode` (utf16↔utf8) out from under `#![cfg(windows)]`. These are pure pointer/encoding utilities with no Win32 dependency apart from the `strlen` extern, which works fine against libc on Linux too — no fallback was needed.
-2. ✅ Keep `HSTRING`, `BSTR`, `hstring_builder`, `hstring_header`, `ref_count`, and the `bindings` module (which `link!`s `kernel32`/`oleaut32`) under `#[cfg(windows)]`. The `to_hstring()` methods on `PCWSTR`/`PWSTR` and the `h!` literal macro are gated to `#[cfg(windows)]` for the same reason — they reference `HSTRING`. The `s!` and `w!` macros remain unconditional.
-3. ✅ The crate-level `#[debugger_visualizer(...)]` attribute is now `#[cfg_attr(windows, debugger_visualizer(...))]` — the `.natvis` file is irrelevant on Linux and would otherwise still be parsed by rustc.
-4. ✅ Add `windows-strings` to the Linux build / `--no-default-features` / doc matrix in `.github/workflows/linux.yml`.
+The first iteration of Stage 3 split the crate so that `HSTRING`/`BSTR` (and everything that touches them) stayed `#[cfg(windows)]`-gated while the pointer/literal types were exposed on Linux. Reviewer feedback pointed out that this is unnecessary — the only Windows-specific thing about `HSTRING`/`BSTR` is the *allocator*. Routing allocations through a single abstraction lets every public type compile (and work) on every target while still using the native Windows allocator when run on Windows. That is what this stage now ships.
 
-Net effect: `use windows_strings::{PCSTR, PCWSTR, PSTR, PWSTR, s, w};` works on Linux; `use windows_strings::HSTRING;` (and `h!`) still requires Windows. `windows-core` re-exports `windows_strings::*` only inside its own `#[cfg(windows)]` `windows.rs`, so its Linux surface is unaffected.
+1. ✅ Replaced `crates/libs/strings/src/bindings.rs` with a unified abstraction:
+   - `heap_alloc(bytes, align)` / `heap_free(ptr, bytes, align)` — Windows: `kernel32::GetProcessHeap` + `HeapAlloc`/`HeapFree`. Other targets: `alloc::alloc::alloc` / `dealloc` with a `Layout` reconstructed from the size that the caller already tracks.
+   - `SysAllocStringLen` / `SysStringLen` / `SysFreeString` — Windows: `oleaut32`. Other targets: a hand-rolled allocator that lays out the BSTR exactly as Win32 does (`[u32 length-in-bytes][len × u16 chars][u16 null]`, pointer points at the chars, prefix lives at `ptr - 4`) on top of `alloc::alloc`.
+2. ✅ `HStringHeader::alloc` / `HStringHeader::free` now compute the byte size from `len` (a number the header already carries) and pass it through `heap_alloc` / `heap_free`. This is a no-op on Windows (the byte count is unused) and is what enables `dealloc` to rebuild the matching `Layout` on other targets. Alignment is `align_of::<HStringHeader>()` which is a superset of what the Win32 process heap returns.
+3. ✅ `HSTRING`, `BSTR`, `HStringBuilder`, `hstring_header`, `ref_count`, the `to_hstring()` methods on `PCWSTR`/`PWSTR`, and the `h!` literal macro are no longer `#[cfg(windows)]`-gated. The `h!` macro is interop-clean across platforms because `HSTRING_REFERENCE_FLAG` strings (the static, ref-counted-skip variant the macro emits) never touch the allocator.
+4. ✅ The only public surface still gated is the `std::os::windows::ffi::OsStr`/`OsString`/`Path` interop — `from_wide`, `encode_wide`, `to_os_string`, the `From<&Path>` impl, and the `OsString`/`OsStr` `PartialEq` impls. Those rely on `std::os::windows`, which the standard library only ships on Windows. They remain gated `#[cfg(all(feature = "std", windows))]`.
+5. ✅ Smoke-tested locally on Linux: HSTRING construction / clone / drop, BSTR construction / clone / drop, HStringBuilder writeback, and the `h!` macro literal (including cloning, which exercises the `HSTRING_REFERENCE_FLAG` duplicate path) all round-trip back to the original UTF-8 string.
+6. ✅ The crate-level `#[debugger_visualizer(natvis_file = ...)]` is `#[cfg_attr(windows, ...)]` since the `.natvis` file is irrelevant on other targets.
+7. ✅ `windows-strings` is in the Linux build / `--no-default-features` / doc matrix in `.github/workflows/linux.yml`.
+
+Net effect:
+
+```rust
+// works on every target — no cfg dance for callers
+use windows_strings::{HSTRING, BSTR, HStringBuilder, PCSTR, PCWSTR, s, w, h};
+
+let s: HSTRING = "hello".into();   // allocates via kernel32 on Windows,
+                                   // via the Rust allocator elsewhere
+let b: BSTR    = "world".into();   // same story for BSTR
+let l = h!("literal");             // static, no allocator involved
+```
 
 **Findings worth carrying into later stages:**
-- `windows_link::link!` already expands to a plain `extern $abi` block on non-Windows targets (no `#[link(...)]`), so a Win32-binding module can be left untouched and simply `#[cfg(windows)]`-gated at the `mod` line — no rewrites of individual `link!` invocations are needed.
-- The pattern used here (top-level `#![cfg(windows)]` removed; per-module `#[cfg(windows)]` gates; methods that depend on a Windows-only type also `#[cfg(windows)]`-gated; macros that expand to a Windows-only type the same) is the template Stages 4 and 5 should follow.
-- ⏭️ **Deferred:** Linux-only unit tests for the portable string types (`PCSTR`/`PCWSTR` round-trip, `s!`/`w!` literal contents, `decode_utf8`). The existing `test_strings` crate depends on the `windows` mega-crate and is therefore Windows-only; a lean Linux-friendly test crate is its own bounded follow-up. The build / doc matrix already catches the most common regressions.
-- ⏭️ **Deferred:** dropping `default-target = "x86_64-pc-windows-msvc"` from `crates/libs/strings/Cargo.toml`'s `[package.metadata.docs.rs]`. Doing so today would hide `HSTRING`/`BSTR`/`h!` from docs.rs since they are still `#[cfg(windows)]`. Revisit once `#[doc(cfg(...))]` annotations are in place so docs.rs can render both surfaces from a single Linux build.
+- The "swap the allocator under a thin abstraction" pattern in `bindings.rs` is a clean template for any other Win32-flavoured primitive whose only OS dependency is the heap. Stage 4's `windows-threading` shape may be able to use the same trick (e.g. fall back to `std::thread::spawn` for `submit`).
+- `windows_link::link!` already no-ops the `#[link(...)]` attribute off-Windows, so the same Windows-only `link!` invocations can stay where they are inside an inner `#[cfg(windows)] mod sys { ... }` and be fronted by a pure-Rust shim — no rewrites of the `link!` invocations themselves are required.
+- ⏭️ **Deferred:** Linux-only unit tests for `windows-strings`. The existing `test_strings` crate depends on the `windows` mega-crate and is therefore Windows-only; a lean Linux-friendly test crate is its own bounded follow-up. The smoke test exercised here lives outside the repo. The build / doc matrix already catches the most common regressions.
+- ⏭️ **Deferred:** dropping `default-target = "x86_64-pc-windows-msvc"` from `crates/libs/strings/Cargo.toml`'s `[package.metadata.docs.rs]`. This becomes natural once `#[doc(cfg(...))]` annotations are in place so docs.rs can render both surfaces (Windows and non-Windows) from a single Linux build.
 
-Risk realised: low. No callers in `windows-core` were affected because `windows-core` re-exports `windows_strings::*` from inside its own `#[cfg(windows)]` `windows.rs`.
+Risk realised: low. No callers in `windows-core` were affected because `windows-core` re-exports `windows_strings::*` from inside its own `#[cfg(windows)]` `windows.rs`; that gate is preserved. Anyone who today writes `use windows_strings::HSTRING` on Linux now gets a working `HSTRING` instead of an `unresolved import` error.
 
 ## Stage 4 — `windows-threading` and `windows-future` shapes
 
