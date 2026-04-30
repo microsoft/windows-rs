@@ -12,7 +12,7 @@ mod bindings;
 pub use bindings::*;
 
 #[cfg(feature = "std")]
-pub(crate) const E_BOUNDS: windows_core::HRESULT = windows_core::HRESULT(0x8000000B_u32 as _);
+const E_BOUNDS: windows_core::HRESULT = windows_core::HRESULT(0x8000000B_u32 as _);
 
 #[cfg(feature = "std")]
 mod iterable;
