@@ -41,6 +41,7 @@ mod scoped_interface;
 mod r#type;
 mod unknown;
 mod weak;
+mod resources;
 
 pub use agile_reference::*;
 pub use as_impl::*;
@@ -61,6 +62,7 @@ pub use runtime_type::*;
 pub use scoped_interface::*;
 pub use unknown::*;
 pub use weak::*;
+pub use resources::*;
 pub use windows_implement::implement;
 pub use windows_interface::interface;
 pub use windows_link::link;

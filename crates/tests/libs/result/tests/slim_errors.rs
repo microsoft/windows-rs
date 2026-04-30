@@ -1,4 +1,3 @@
-#![cfg(windows)]
 use windows_result::*;
 
 #[test]

@@ -1,9 +1,8 @@
-#![cfg(windows)]
 use std::cell::Cell;
 use std::rc::Rc;
 
-use windows::core::Free;
-use windows::core::Owned;
+use windows_core::Free;
+use windows_core::Owned;
 
 #[derive(Clone)]
 struct FreeCounter {
