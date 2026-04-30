@@ -217,6 +217,64 @@ Risk realised: low. No public API change in `windows-core`, `windows-result`, `w
 
 `windows-cppwinrt`, `windows-registry`, `windows-services`, `windows-version`, and the generated mega-crates (`windows-sys`, `windows`) are inherently Windows. They keep `#![cfg(windows)]`. The Stage-0 Linux build step uses `--workspace --exclude` for exactly these crates — that exclude list is the documented surface of "not portable" and should shrink to only this set by the end of Stage 5.
 
+## Stage 7 — Fold `linux.yml` into the matrix in `test.yml`
+
+**Status: 📝 analysis only; no code changes yet.**
+
+`linux.yml` today is a hand-curated list (build, `--no-default-features`, `cargo doc`, and named test crates — four lists totalling ~50 crate names that drift apart). `test.yml`'s Windows job, by contrast, runs `cargo test --all --exclude <8 arch-specific target crates>` and lets source-level `#[cfg]` decide what compiles. The question for this stage: can the Linux job be reduced to the same shape — a row in `test.yml`'s matrix that runs `cargo test --all --target x86_64-unknown-linux-gnu --exclude <small list>` — and `linux.yml` deleted (or shrunk to just the genuinely-different non-test checks)?
+
+### Inventory of what's "Windows-only" in the workspace
+
+`find crates -name Cargo.toml | wc -l` → 186 workspace members. Of those:
+
+- **6 inherently-Windows libs** (Stage 6): `windows`, `windows-sys`, `windows-registry`, `windows-services`, `windows-version`, `cppwinrt`. The first five already have `#![cfg(windows)]` at the top of `lib.rs`; `windows-sys` does not but compiles to no-op `extern` blocks off Windows because `windows_link::link!` no-ops off Windows.
+- **8 arch-specific target crates**: already on `test.yml`'s `--exclude` list.
+- **~40 Windows-only samples**: `crates/samples/windows/*` (31 entries) and `crates/samples/windows-sys/*` (9 entries). None have `#![cfg(windows)]` today; they just happen to never be tested on Linux because `linux.yml` doesn't try.
+- **~22 WinRT integration tests**: `crates/tests/winrt/*`. Each depends on the `windows` mega-crate and exercises COM/WinRT activation, so they are inherently Windows.
+- **~30 Windows-only entries under `crates/tests/misc/*` and `crates/tests/libs/*`**: the rest of the `tests/` tree that depends on `windows`/`windows-sys`/`windows-registry`/`windows-services`/etc.
+
+In total, ~100 workspace members are Windows-only by intent. They are the universe that has to be either (A) excluded by name on the Linux job, or (B) source-gated with `#![cfg(windows)]`, before `cargo test --all` is viable on Linux.
+
+### Two strategies
+
+**Strategy A — long `--exclude` list.** Mirrors the existing Windows job; just inverted. The Linux row in `test.yml` would carry an `--exclude` list of ~100 entries. Pros: zero changes to source. Cons: the new exclude list is bigger than the four lists in `linux.yml` combined. We've replaced one manual list with a longer one, and forgetting to add a new Windows-only sample to it now produces a Linux CI failure instead of a quiet skip — slightly worse than today.
+
+**Strategy B — per-crate `#![cfg(windows)]` gates on Windows-only samples and tests.** Apply the same convention the **library** crates already use (the 5 Stage-6 libs and `windows`) to **samples and tests**: any crate that is Windows-only puts `#![cfg(windows)]` at the top of its `lib.rs` / `main.rs`. On Linux those crates compile to empty crates and contribute zero tests; on Windows they are unaffected. After this, `test.yml`'s Linux row needs only the same 8-entry arch-target `--exclude` list the Windows rows already use.
+
+Cost of Strategy B: roughly 100 single-line edits across `crates/samples/**` and the Windows-only entries under `crates/tests/**`. A handful of crates also need their `windows = { workspace = true }` (and similar) deps moved under `[target.'cfg(windows)'.dependencies]` — `crates/tests/libs/collections/Cargo.toml` is the existing template (used in Stage 5).
+
+Risk of Strategy B: low. The gate is uniform and is invisible to the Windows job — `#![cfg(windows)]` is a no-op on Windows. Source-of-portability is encoded where it lives (the crate) rather than in CI YAML.
+
+### What still needs to be elsewhere
+
+`cargo test --all` does not exercise two of the four lists in `linux.yml`:
+
+- **`--no-default-features`** for the `no_std`-friendly crates (`windows-numerics`, `windows-link`, `windows-targets`, `windows-result`, `windows-core`, `windows-strings`, `windows-threading`, `windows-collections`).
+- **`cargo doc --no-deps -p <crate>`** for the portable libs.
+
+These genuinely have to stay as explicit steps with explicit crate lists, because the set of `no_std` crates and the set of `cargo doc`-checked crates is intentionally narrower than "everything that builds on Linux". Two options for hosting them:
+
+1. Keep a (much smaller) `linux.yml` that only carries the `--no-default-features` and `cargo doc` matrices. `linux.yml` shrinks from ~134 lines to ~50, and the build/test list goes away entirely.
+2. Add them as additional steps on the Linux row in `test.yml` (guarded with `if: matrix.os == 'linux'` or equivalent).
+
+(2) is the literal answer to "delete `linux.yml`"; (1) is cleaner because the steps are Linux-specific and don't run on the three Windows rows.
+
+### Recommendation
+
+Strategy **B** is preferred and is practical. The migration is:
+
+1. **One mechanical pass** to add `#![cfg(windows)]` to every Windows-only sample/test `lib.rs`/`main.rs`, plus move `windows`/`windows-sys`/`windows-registry`/`windows-services`/`windows-version`/`cppwinrt` deps under `[target.'cfg(windows)'.dependencies]` where they appear. Inventory is bounded (≈100 entries) and the change is uniform; can be split across a handful of PRs by directory (`samples/windows/`, `samples/windows-sys/`, `tests/winrt/`, `tests/misc/`, `tests/libs/`).
+2. **Add a Linux row** to `test.yml`'s matrix using the existing `cargo test --all --exclude <arch targets>` invocation. The Linux row also needs the `LIBCLANG_PATH=${LLVM_PATH}/lib` adjustment that `linux.yml` already documents (Windows uses `${LLVM_PATH}/bin`), the `libtinfo5` apt install, and Linux-only `if:` guards on the existing rustfmt/fix-environment steps that are MSVC-specific.
+3. **Shrink `linux.yml`** to only the `--no-default-features` build matrix and the `cargo doc` matrix. Both keep their explicit crate lists because those sets are intentionally narrower than "everything testable".
+
+Net effect: the "what is portable?" question stops being answered by a curated CI list and starts being answered by a `#[cfg]` in the crate itself — the same pattern the libs already use. New Windows-only samples and tests fail to compile on Linux only if their author forgot the `#![cfg(windows)]` line, which is a tight, local feedback loop and is a much smaller maintenance surface than the four lists in today's `linux.yml`.
+
+### Findings worth carrying forward
+
+- The `windows` mega-crate's existing `#![cfg(windows)]` gate already does the heavy lifting: any sample that depends on `windows` compiles to a downstream crate with no usable items on Linux, so adding `#![cfg(windows)]` at the sample's own root just makes the sample's own `use windows::...` lines vanish in step. No conditional `Cargo.toml` is strictly required for `windows`-using samples; `[target.'cfg(windows)'.dependencies]` is only needed for crates that depend on `windows-sys` / `windows-registry` / `windows-services` / `windows-version` / `cppwinrt` (which are not all top-gated) **or** when a test crate also has Linux-only dependency paths that would otherwise feature-unify with the Windows-only deps (the `test_collections` case in Stage 5).
+- A pure exclude-list approach (Strategy A) is **not** recommended — the list is larger than the lists it would replace.
+- The three Windows rows in `test.yml` are unaffected by Strategy B; their `cargo test --all --exclude <arch targets>` invocation continues to compile every Windows-only sample/test exactly as today.
+
 ## Cross-cutting items
 
 - **Documentation:** after each stage, update `docs/` (and the per-crate `readme.md`) to state which targets the crate supports. Add a top-level "Cross-platform support matrix" doc.
