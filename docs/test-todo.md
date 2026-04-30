@@ -176,6 +176,23 @@ Strategy: migrate in batches by *shape*, starting with files that fit the existi
 - [x] `filter.rs::filter_qualified_type` → `rdl/filter_qualified_type`. `fixture.toml` sets `filter = "Test.Point"`; `expected.rdl` contains `Point` only.
 - [x] `tests/libs/rdl/tests/filter.rs` deleted; the inline `INPUT` constant and three `make_winmd`/`assert!(contents.contains(…))` blocks are replaced by 3 fixture directories totalling 6 short files. The `filter` knob in `fixture.toml` was already wired up in phase 1 — no harness changes were needed.
 
+**Batch 3 (this commit) — `writer_errors.rs` happy-path smoke tests (4 tests):**
+
+- [x] `writer_errors.rs::writer_succeeds_for_callback`, `writer_succeeds_for_delegate`, `writer_succeeds_for_enum`, `writer_succeeds_for_interface` — **deleted, not migrated.** The four inline RDL inputs are:
+  - `extern fn Handler(value: i32)` — covered by `crates/tests/roundtrip/rdl/src/fn.rdl`,
+  - `delegate fn Handler(value: i32)` — covered by `delegate.rdl`,
+  - `#[repr(u32)] enum Color { Red, Green, Blue }` — covered by `enum.rdl`,
+  - a single-method `interface IFoo` — covered by `class.rdl` and `event-interface.rdl`.
+
+  Each is a strict subset of its existing legacy roundtrip fixture, which exercises the same writer code paths via a byte-stable RDL diff. A byte-diff is strictly stronger than `assert!(result.is_ok())`, so creating four new harness fixtures here would only add maintenance load and a second redundant set of files for phase 5 to delete. The file header in `writer_errors.rs` records this rationale so future readers can trace the deletion.
+- [x] `writer_errors.rs` shrunk from 195 lines / 6 tests to 107 lines / 2 tests. The `compile_rdl_to_winmd` helper is retained because `writer_split_returns_err_for_bad_output_dir` still needs it.
+- [ ] The two remaining `writer_returns_err_for_*` tests stay in place; they exercise filesystem-level I/O failures on the output path, which the harness does not yet model. They are tracked in the deferred table below.
+
+**Batch 3 design decisions / deltas from §4**
+
+- **Migration may be a deletion when an existing fixture already covers the inputs.** The phase 4 strategy in §7 says "migrate bespoke `tests/libs/rdl/tests/*` files, deleting each as its fixture lands." Read literally that implies a 1:1 file-to-fixture mapping, but the underlying goal is to *eliminate duplication*. When the bespoke test's RDL is a strict subset of an already-migrated (or about-to-be-migrated) fixture, the correct outcome is to delete the bespoke test outright. Future batches should apply the same rule: if a bespoke test's only assertion is `assert!(result.is_ok())` and its input is already covered by a roundtrip fixture, delete it.
+- **A subset check is sufficient when the existing fixture's filter is permissive.** All four deleted tests used `filter("Test")`, the same filter the legacy roundtrip cases use, so the writer code path is identical between the bespoke smoke test and the existing fixture. If a future bespoke test relies on a narrower filter, this rule does not apply and the test must become its own fixture.
+
 **Deferred — need a new harness check or knob; tracked here so the next batch can group them by feature:**
 
 | Test file | Why it doesn't fit the current `rdl` group | Harness work needed |
@@ -189,7 +206,7 @@ Strategy: migrate in batches by *shape*, starting with files that fit the existi
 | `filter.rs` | ~~Three roundtrips that each `assert!(contents.contains("…"))` rather than diffing the whole RDL.~~ Migrated in batch 2. | ~~The full-file diff in the existing `rdl` group is strictly stronger; once the inline RDL becomes `input.rdl`, the three filters become three separate fixtures with their own `expected.rdl`. Pure mechanical translation, just three fixtures to author. Defer to batch 2.~~ Done. |
 | `exclusive-to.rs`, `guid-derive.rs`, `const-underlying*.rs` | Read back the produced winmd via `windows_metadata::reader` and assert on attribute *values* (e.g. derived GUIDs, `ExclusiveTo` targets, `const` underlying types). Roundtripping the RDL doesn't prove the attribute was encoded correctly. | Add the §4.2 `winmd_<name>` check (a textual structural dump of the winmd) so these become diffable goldens. This is the same gap §6.7 ("attribute encoding edge cases") calls out, so the dump format should be co-designed with that work. |
 | `error.rs::error_display` | Plain unit test for the `Error` `Display` impl — does not consume the fixture format. | Keep as-is per §5.D. |
-| `writer_errors.rs` | Mix of "writer succeeds for X" smoke tests and "writer returns Err for bad output path" — neither asserts on output content. | The "succeeds" cases should turn into ordinary `rdl` fixtures (their input RDL exists inline today). The two `Err` cases want a `kind = "writer"` fixture where the failure point is an output path / split mode rather than a missing reference, which the current `kind = "writer"` shape doesn't model. Defer to a later batch alongside the §6.4 CLI fixtures. |
+| `writer_errors.rs` | ~~Mix of "writer succeeds for X" smoke tests and "writer returns Err for bad output path" — neither asserts on output content.~~ The 4 happy-path tests were deleted in batch 3 (duplicates of existing roundtrip fixtures). The 2 remaining `writer_returns_err_for_*` tests assert on filesystem-level I/O failures on the output path. | The two `Err` cases want a `kind = "writer"` fixture where the failure point is an output path / split mode rather than a missing reference, which the current `kind = "writer"` shape doesn't model. Defer to a later batch alongside the §6.4 CLI fixtures. |
 
 ## 8. Outcome
 
