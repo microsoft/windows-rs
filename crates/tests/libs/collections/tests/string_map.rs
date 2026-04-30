@@ -1,3 +1,7 @@
+#![cfg(windows)]
+// `StringMap` is a runtime-activated WinRT class; it requires the WinRT
+// activation factory linker symbols and therefore only runs on Windows.
+
 use windows::{core::*, Foundation::Collections::*};
 
 #[test]

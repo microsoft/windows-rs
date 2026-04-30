@@ -1,10 +1,16 @@
-use windows::{
-    core::*,
-    Foundation::*,
-    Win32::Foundation::{E_BOUNDS, E_FAIL},
-};
 use windows_collections::*;
+use windows_core::*;
 
+const E_BOUNDS: HRESULT = HRESULT(0x8000000B_u32 as _);
+
+// `E_FAIL` is a generic Win32 HRESULT used here as a stand-in error code in
+// the failing-iterator tests below. Define it locally so this test file does
+// not need to depend on `windows::Win32::Foundation`.
+const E_FAIL: HRESULT = HRESULT(0x80004005_u32 as _);
+
+// `Calendar` is a runtime-activated WinRT class that requires the WinRT
+// activation factory linker symbols, so this test only runs on Windows.
+#[cfg(windows)]
 #[test]
 fn calendar() -> Result<()> {
     use windows::Globalization::*;
@@ -166,21 +172,30 @@ fn hstring() -> Result<()> {
     Ok(())
 }
 
-#[implement(IStringable)]
+// `IStringable` lives in `windows::Foundation`, which only compiles on
+// Windows. Gate the test that exercises it accordingly. The plain Stock
+// adapter behaviour for non-WinRT element types is covered by the
+// `primitive` and `hstring` tests above, which run on every platform.
+#[cfg(windows)]
+#[implement(windows::Foundation::IStringable)]
 struct Stringable(HSTRING);
 
-impl IStringable_Impl for Stringable_Impl {
+#[cfg(windows)]
+impl windows::Foundation::IStringable_Impl for Stringable_Impl {
     fn ToString(&self) -> Result<HSTRING> {
         Ok(self.0.clone())
     }
 }
 
-fn stringable(value: &str) -> IStringable {
+#[cfg(windows)]
+fn stringable(value: &str) -> windows::Foundation::IStringable {
     Stringable(value.into()).into()
 }
 
+#[cfg(windows)]
 #[test]
 fn defaulted() -> Result<()> {
+    use windows::Foundation::IStringable;
     let able = IIterable::<IStringable>::from(vec![]);
     let iter = able.First()?;
 
