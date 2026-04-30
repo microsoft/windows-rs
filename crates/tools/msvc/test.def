@@ -1,0 +1,6 @@
+
+LIBRARY long-library-name-for-placement-in-long-names-table.dll
+EXPORTS
+A=A.#1
+B=B.#2
+C=C.#3

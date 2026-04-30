@@ -1,3 +1,4 @@
+#![cfg(windows)]
 mod bindings;
 use jsonschema::Validator;
 use windows::{core::*, Win32::Foundation::*, Win32::System::WinRT::*};

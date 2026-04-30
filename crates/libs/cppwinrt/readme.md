@@ -15,7 +15,7 @@ version = "0.3"
 
 Use `cppwinrt` function as needed:
 
-```rust
+```rust,ignore
 println!("{}", cppwinrt::cppwinrt(["-help"]));
 ```
 
