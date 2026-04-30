@@ -132,6 +132,12 @@ struct FixtureConfig {
     no_comment: bool,
     specific_deps: bool,
     references: Vec<String>,
+    /// For `error` fixtures: which stage is expected to fail. Defaults to
+    /// `"reader"` (the legacy behaviour). `"writer"` means the harness must
+    /// successfully compile inputs to a winmd via the reader and then assert
+    /// that the *writer* fails when fed that winmd back without the
+    /// referenced `defs-*.rdl` winmds.
+    kind: Option<String>,
 }
 
 impl FixtureConfig {
@@ -153,6 +159,7 @@ impl FixtureConfig {
                 "no_comment" => cfg.no_comment = parse_bool(value),
                 "specific_deps" => cfg.specific_deps = parse_bool(value),
                 "references" => cfg.references = parse_string_list(value),
+                "kind" => cfg.kind = Some(parse_string(value)),
                 other => panic!("fixture.toml: unknown key {other:?}"),
             }
         }
@@ -317,6 +324,18 @@ fn run_bindgen(f: &Fixture) {
 }
 
 fn run_error(f: &Fixture) {
+    let cfg = f.config();
+    match cfg.kind.as_deref().unwrap_or("reader") {
+        "reader" => run_error_reader(f),
+        "writer" => run_error_writer(f),
+        other => panic!(
+            "[{}/{}] unknown error fixture kind {other:?}; expected \"reader\" or \"writer\"",
+            f.group, f.name
+        ),
+    }
+}
+
+fn run_error_reader(f: &Fixture) {
     let input = f.input("input.rdl");
     let scratch_winmd = f.scratch("out.winmd");
 
@@ -336,6 +355,102 @@ fn run_error(f: &Fixture) {
     // varies per machine; use the raw `message`/`line`/`column` fields so
     // expected.err is portable.
     let actual = format_error(&err, &input);
+    diff_or_update_string(&actual, &f.input("expected.err"));
+}
+
+/// Writer-error layout (`kind = "writer"` in fixture.toml):
+///
+/// ```text
+/// data/error/<name>/
+///     defs-*.rdl     # one or more dependency RDLs (compiled to winmds)
+///     input.rdl      # uses types from the defs above
+///     fixture.toml   # kind = "writer"
+///     expected.err   # writer error (no path/line; Display = "\nerror: <msg>")
+/// ```
+///
+/// The harness:
+///   1. Compiles each `defs-*.rdl` to its own scratch winmd via the reader.
+///   2. Compiles `input.rdl` (with the def winmds as additional inputs) to a
+///      scratch winmd via the reader. Both reader steps must succeed.
+///   3. Runs the *writer* on `input.rdl`'s winmd alone (no def winmds) and
+///      asserts it fails. The error is matched against `expected.err`.
+///
+/// This composes with the future "reference-winmd" coverage from
+/// `docs/test-todo.md` §6.3 and replaces the bespoke
+/// `writer_errors_on_missing_enum_type` test in `tests/libs/rdl/tests/panic.rs`.
+fn run_error_writer(f: &Fixture) {
+    let mut defs: Vec<PathBuf> = std::fs::read_dir(&f.dir)
+        .unwrap()
+        .filter_map(|e| e.ok())
+        .map(|e| e.path())
+        .filter(|p| {
+            p.file_name()
+                .and_then(|n| n.to_str())
+                .is_some_and(|n| n.starts_with("defs-") && n.ends_with(".rdl"))
+        })
+        .collect();
+    defs.sort();
+    assert!(
+        !defs.is_empty(),
+        "writer-error fixture {} needs at least one defs-*.rdl file",
+        f.name
+    );
+
+    // Step 1: compile each defs-*.rdl to its own winmd. Use the source file
+    // stem so scratch artifacts (e.g. `defs-platform.winmd`) are easy to map
+    // back to their inputs when debugging a failure.
+    let mut def_winmds = Vec::with_capacity(defs.len());
+    for def_rdl in &defs {
+        let stem = def_rdl
+            .file_stem()
+            .and_then(|s| s.to_str())
+            .expect("defs-*.rdl path has a UTF-8 file stem");
+        let winmd = f.scratch(&format!("{stem}.winmd"));
+        windows_rdl::reader()
+            .input(def_rdl.to_str().unwrap())
+            .output(winmd.to_str().unwrap())
+            .write()
+            .unwrap_or_else(|e| {
+                panic!(
+                    "[{}/{}] reader({}): {e}",
+                    f.group,
+                    f.name,
+                    def_rdl.display()
+                )
+            });
+        def_winmds.push(winmd);
+    }
+
+    // Step 2: compile input.rdl referencing the def winmds.
+    let input = f.input("input.rdl");
+    let input_winmd = f.scratch("input.winmd");
+    let mut reader = windows_rdl::reader();
+    reader.input(input.to_str().unwrap());
+    for w in &def_winmds {
+        reader.input(w.to_str().unwrap());
+    }
+    reader
+        .output(input_winmd.to_str().unwrap())
+        .write()
+        .unwrap_or_else(|e| panic!("[{}/{}] reader(input): {e}", f.group, f.name));
+
+    // Step 3: run the writer on input.winmd ALONE — must fail.
+    let actual_rdl = f.scratch("out.rdl");
+    let err = windows_rdl::writer()
+        .input(input_winmd.to_str().unwrap())
+        .output(actual_rdl.to_str().unwrap())
+        .write()
+        .err()
+        .unwrap_or_else(|| {
+            panic!(
+                "[{}/{}] expected writer to fail but it succeeded",
+                f.group, f.name
+            )
+        });
+
+    // Writer errors carry no file path or line info (writer_err! sets
+    // file_name="" and line=0), so the Display rendering is portable as-is.
+    let actual = format!("{err}");
     diff_or_update_string(&actual, &f.input("expected.err"));
 }
 

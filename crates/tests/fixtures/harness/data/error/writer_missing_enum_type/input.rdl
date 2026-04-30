@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    #[Defs::SupportedPlatform(X86)]
+    struct A { x: u8, }
+}

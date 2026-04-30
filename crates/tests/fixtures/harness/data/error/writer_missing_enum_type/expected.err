@@ -1,0 +1,2 @@
+
+error: enum type `Defs::Platform` not found in the metadata index; ensure the winmd file that defines it is included
