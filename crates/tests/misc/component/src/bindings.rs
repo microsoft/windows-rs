@@ -17,11 +17,8 @@ impl windows_core::RuntimeType for Callback {
 }
 impl Callback {
     pub fn new<F: Fn(i32) -> windows_core::Result<i32> + Send + 'static>(invoke: F) -> Self {
-        let com = CallbackBox {
-            vtable: &CallbackBox::<F>::VTABLE,
-            count: windows_core::imp::RefCount::new(1),
-            invoke,
-        };
+        let com =
+            windows_core::imp::DelegateBox::<Callback, F>::new(&CallbackBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
     pub fn Invoke(&self, a: i32) -> windows_core::Result<i32> {
@@ -46,80 +43,26 @@ pub struct Callback_Vtbl {
         result__: *mut i32,
     ) -> windows_core::HRESULT,
 }
-#[repr(C)]
-struct CallbackBox<F: Fn(i32) -> windows_core::Result<i32> + Send + 'static> {
-    vtable: *const Callback_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
+struct CallbackBox<F: Fn(i32) -> windows_core::Result<i32> + Send + 'static>(
+    core::marker::PhantomData<(fn() -> F,)>,
+);
 impl<F: Fn(i32) -> windows_core::Result<i32> + Send + 'static> CallbackBox<F> {
     const VTABLE: Callback_Vtbl = Callback_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
-            QueryInterface: Self::QueryInterface,
-            AddRef: Self::AddRef,
-            Release: Self::Release,
+            QueryInterface: windows_core::imp::DelegateBox::<Callback, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<Callback, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<Callback, F>::Release,
         },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(
-        this: *mut core::ffi::c_void,
-        iid: *const windows_core::GUID,
-        interface: *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
-            }
-            *interface = if *iid == <Callback as windows_core::Interface>::IID
-                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
-                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
-            {
-                &mut (*this).vtable as *mut _ as _
-            } else {
-                #[cfg(windows)]
-                if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
-                    (*this).count.add_ref();
-                    return windows_core::imp::marshaler(
-                        core::mem::transmute(
-                            &mut (*this).vtable as *mut _ as *mut core::ffi::c_void,
-                        ),
-                        interface,
-                    );
-                }
-                core::ptr::null_mut()
-            };
-            if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
-            } else {
-                (*this).count.add_ref();
-                windows_core::HRESULT(0)
-            }
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            (*this).count.add_ref()
-        }
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        unsafe {
-            let this = this as *mut *mut core::ffi::c_void as *mut Self;
-            let remaining = (*this).count.release();
-            if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
-            }
-            remaining
-        }
-    }
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
         a: i32,
         result__: *mut i32,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<Callback, F>);
             match (this.invoke)(a) {
                 Ok(ok__) => {
                     result__.write(ok__);
