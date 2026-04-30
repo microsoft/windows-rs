@@ -1,0 +1,5 @@
+# Asserts the writer fails with a clear error when the winmd that defines
+# an attribute's enum-typed argument is not provided as an input.
+#
+# Migrated from `crates/tests/libs/rdl/tests/panic.rs::writer_errors_on_missing_enum_type`.
+kind = "writer"

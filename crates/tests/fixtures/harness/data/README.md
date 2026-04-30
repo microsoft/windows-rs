@@ -34,7 +34,7 @@ preserved (this is what keeps the suite as fast as the existing
 | `rdl`     | `input.rdl`                  | RDL → winmd → RDL, diff vs. `expected.rdl`           |
 | `clang`   | `input.h`                    | Clang → RDL → winmd → RDL, diff vs. `expected.rdl`   |
 | `bindgen` | `input.rdl` + `fixture.toml` | RDL → winmd → bindgen, diff vs. `expected.rs`        |
-| `error`   | `input.rdl` + `expected.err` | reader fails with the expected message               |
+| `error`   | `input.rdl` + `expected.err` (+ optional `defs-*.rdl` for `kind = "writer"`) | reader **or** writer fails with the expected message |
 | `merge`   | `input-*.rdl` (≥ 2)          | each → winmd → merge → RDL, diff vs. `expected.rdl`  |
 
 ## `fixture.toml`
@@ -49,6 +49,7 @@ dependencies. Supported keys:
 | `no_allow`       | bool       | bindgen    | pass `--no-allow` to bindgen              |
 | `no_comment`     | bool       | bindgen    | pass `--no-comment` to bindgen            |
 | `specific_deps`  | bool       | bindgen    | pass `--specific-deps` to bindgen         |
+| `kind`           | string     | error      | `"reader"` (default) or `"writer"` — which stage must fail |
 
 The format is a strict subset of real TOML so a fixture written today
 will keep parsing if the harness later swaps in a full TOML crate.

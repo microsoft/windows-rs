@@ -1,0 +1,7 @@
+#[win32]
+mod Defs {
+    #[repr(i32)]
+    #[flags]
+    enum Platform { X86 = 1, X64 = 2, Arm64 = 4, }
+    attribute SupportedPlatformAttribute { fn(value: Platform); }
+}
