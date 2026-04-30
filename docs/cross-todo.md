@@ -11,13 +11,13 @@ in stages, and to verify the result on a GitHub Linux runner.
 - `windows-interface`, `windows-implement` — proc-macros (build on Linux already).
 - `windows-link`, `windows-targets` — mostly just macros/linkage; the inner `cfg(all(windows, target_arch = "x86"))` gates the only Windows-specific bit.
 
-**Hybrid (no top-level `cfg(windows)`, but inner `#[cfg(windows)]` gates the Win32-using parts; CI-enforced to build on Linux as of Stage 2):**
-- `windows-core` — most trait machinery (`Type`, `Interface`, `IUnknown` vtables, `Param`, `Array`, `GUID`, `IInspectable`) is portable; only ref-count/marshal helpers in `imp/` and a few functions in `inspectable.rs` are gated. Builds cleanly on Linux with default features and `--no-default-features`.
-- `windows-result` — `HRESULT`, `Error`, `Result` types are portable; `RoOriginate*` paths in `hresult.rs`/`error.rs` are gated, with `#[cfg(not(windows))]` fallbacks that return inert `E_FAIL`-shaped values. Builds cleanly on Linux with default features and `--no-default-features`.
+**Hybrid (no top-level `cfg(windows)`, but inner `#[cfg(windows)]` gates the Win32-using parts; CI-enforced to build on Linux):**
+- `windows-core` — most trait machinery (`Type`, `Interface`, `IUnknown` vtables, `Param`, `Array`, `GUID`, `IInspectable`) is portable; only ref-count/marshal helpers in `imp/` and a few functions in `inspectable.rs` are gated. Builds cleanly on Linux with default features and `--no-default-features`. (Stage 2.)
+- `windows-result` — `HRESULT`, `Error`, `Result` types are portable; `RoOriginate*` paths in `hresult.rs`/`error.rs` are gated, with `#[cfg(not(windows))]` fallbacks that return inert `E_FAIL`-shaped values. Builds cleanly on Linux with default features and `--no-default-features`. (Stage 2.)
+- `windows-strings` — `PCSTR`, `PCWSTR`, `PSTR`, `PWSTR`, the `s!`/`w!` literal macros, and the UTF-8/UTF-16 `decode` helpers are portable; `HSTRING`, `BSTR`, the `h!` macro, `hstring_builder`, `hstring_header`, `ref_count`, and the kernel32/oleaut32 `bindings` are individually `#[cfg(windows)]`. Builds cleanly on Linux with default features and `--no-default-features`. (Stage 3.)
 
 **Hard-gated `#![cfg(windows)]` at the top of `lib.rs` (compile to nothing off Windows):**
 - `windows-cppwinrt` — invokes `cppwinrt.exe`, inherently Windows.
-- `windows-strings` — only HSTRING/BSTR truly need Win32; PCSTR/PCWSTR/PSTR/PWSTR/literals are portable.
 - `windows-threading` — `WaitEvent` + thread-pool wrappers are Win32; trait shape (`SubmitThreadpoolCallback` analog) could be exposed.
 - `windows-version` — `GetVersionEx`/`RtlGetVersion` only.
 - `windows-registry` — Win32 registry APIs only.
@@ -25,7 +25,7 @@ in stages, and to verify the result on a GitHub Linux runner.
 - `windows-future` — `IAsyncAction`/etc. trait *shapes* are portable, but the executor (`async_spawn`, `Waker`) calls into `windows-threading`.
 - `windows-collections` — same: trait *shapes* (`IVector`, `IMap`, `IIterable`) and the stock `BTreeMap`/`Vec` adapters are portable; only event-handler dispatch reaches into `windows-core` machinery that currently requires `windows`.
 
-**CI today (`linux.yml`):** runs `cargo test` on `test_linux`, `test_clang`, `test_roundtrip_clang`, `test_rdl`, `test_roundtrip_rdl` against `x86_64-unknown-linux-gnu`, then enforces no diff. As of Stage 0 it also runs `cargo build` and `cargo doc` on every library currently believed to be cross-platform, plus `cargo test` for `test_numerics`, `test_metadata`, `test_link`, and `test_targets`. As of **Stage 2** the Linux build/doc matrix also covers `windows-core` and `windows-result`, and the `--no-default-features` matrix covers them as well.
+**CI today (`linux.yml`):** runs `cargo test` on `test_linux`, `test_clang`, `test_roundtrip_clang`, `test_rdl`, `test_roundtrip_rdl` against `x86_64-unknown-linux-gnu`, then enforces no diff. As of Stage 0 it also runs `cargo build` and `cargo doc` on every library currently believed to be cross-platform, plus `cargo test` for `test_numerics`, `test_metadata`, `test_link`, and `test_targets`. As of Stage 2 the Linux build/doc matrix also covers `windows-core` and `windows-result`, and the `--no-default-features` matrix covers them as well. As of **Stage 3** the build/doc matrix and the `--no-default-features` matrix also cover `windows-strings`.
 
 ## Stage 0 — Better Linux test harness (do this first, no library changes)
 
@@ -80,11 +80,22 @@ Risk: low. The code work was already done by previous incremental changes; this 
 
 ## Stage 3 — Split `windows-strings` and expose portable string types
 
-1. Move `pcstr`, `pcwstr`, `pstr`, `pwstr`, `literals`, and `decode` (utf16↔utf8) out from under `#![cfg(windows)]`. These are pure pointer/encoding utilities and have no Win32 dependency apart from the `strlen` extern, which can be replaced with `core::ffi::CStr::from_ptr(...).to_bytes().len()` or kept (every libc has `strlen`).
-2. Keep `HSTRING`, `BSTR`, `hstring_builder`, `hstring_header`, `ref_count` under `#[cfg(windows)]` (they call `WindowsCreateString*`, `SysAllocString*`).
-3. Net effect: `use windows_strings::PCWSTR` works on Linux; `use windows_strings::HSTRING` still requires Windows (or compiles to a stub type behind the same gating pattern as Stage 2 if needed for downstream crates).
+**Status: ✅ done; locked in by CI.**
 
-Risk: low–medium. Need to audit re-exports (e.g., `windows-core` re-exporting HSTRING) and make sure Linux builds don't break.
+1. ✅ Move `pcstr`, `pcwstr`, `pstr`, `pwstr`, `literals`, and `decode` (utf16↔utf8) out from under `#![cfg(windows)]`. These are pure pointer/encoding utilities with no Win32 dependency apart from the `strlen` extern, which works fine against libc on Linux too — no fallback was needed.
+2. ✅ Keep `HSTRING`, `BSTR`, `hstring_builder`, `hstring_header`, `ref_count`, and the `bindings` module (which `link!`s `kernel32`/`oleaut32`) under `#[cfg(windows)]`. The `to_hstring()` methods on `PCWSTR`/`PWSTR` and the `h!` literal macro are gated to `#[cfg(windows)]` for the same reason — they reference `HSTRING`. The `s!` and `w!` macros remain unconditional.
+3. ✅ The crate-level `#[debugger_visualizer(...)]` attribute is now `#[cfg_attr(windows, debugger_visualizer(...))]` — the `.natvis` file is irrelevant on Linux and would otherwise still be parsed by rustc.
+4. ✅ Add `windows-strings` to the Linux build / `--no-default-features` / doc matrix in `.github/workflows/linux.yml`.
+
+Net effect: `use windows_strings::{PCSTR, PCWSTR, PSTR, PWSTR, s, w};` works on Linux; `use windows_strings::HSTRING;` (and `h!`) still requires Windows. `windows-core` re-exports `windows_strings::*` only inside its own `#[cfg(windows)]` `windows.rs`, so its Linux surface is unaffected.
+
+**Findings worth carrying into later stages:**
+- `windows_link::link!` already expands to a plain `extern $abi` block on non-Windows targets (no `#[link(...)]`), so a Win32-binding module can be left untouched and simply `#[cfg(windows)]`-gated at the `mod` line — no rewrites of individual `link!` invocations are needed.
+- The pattern used here (top-level `#![cfg(windows)]` removed; per-module `#[cfg(windows)]` gates; methods that depend on a Windows-only type also `#[cfg(windows)]`-gated; macros that expand to a Windows-only type the same) is the template Stages 4 and 5 should follow.
+- ⏭️ **Deferred:** Linux-only unit tests for the portable string types (`PCSTR`/`PCWSTR` round-trip, `s!`/`w!` literal contents, `decode_utf8`). The existing `test_strings` crate depends on the `windows` mega-crate and is therefore Windows-only; a lean Linux-friendly test crate is its own bounded follow-up. The build / doc matrix already catches the most common regressions.
+- ⏭️ **Deferred:** dropping `default-target = "x86_64-pc-windows-msvc"` from `crates/libs/strings/Cargo.toml`'s `[package.metadata.docs.rs]`. Doing so today would hide `HSTRING`/`BSTR`/`h!` from docs.rs since they are still `#[cfg(windows)]`. Revisit once `#[doc(cfg(...))]` annotations are in place so docs.rs can render both surfaces from a single Linux build.
+
+Risk realised: low. No callers in `windows-core` were affected because `windows-core` re-exports `windows_strings::*` from inside its own `#[cfg(windows)]` `windows.rs`.
 
 ## Stage 4 — `windows-threading` and `windows-future` shapes
 

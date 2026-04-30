@@ -67,6 +67,7 @@ impl PWSTR {
     /// # Safety
     ///
     /// See the safety information for `PWSTR::as_wide`.
+    #[cfg(windows)]
     pub unsafe fn to_hstring(&self) -> HSTRING {
         unsafe { HSTRING::from_wide(self.as_wide()) }
     }

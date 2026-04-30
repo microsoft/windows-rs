@@ -36,6 +36,7 @@ macro_rules! w {
 }
 
 /// A literal HSTRING, length-prefixed wide string with a trailing null terminator.
+#[cfg(windows)]
 #[macro_export]
 macro_rules! h {
     ($s:literal) => {{
