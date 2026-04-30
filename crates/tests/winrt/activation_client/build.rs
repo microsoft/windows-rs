@@ -1,4 +1,8 @@
 fn main() {
+    if !cfg!(windows) {
+        return;
+    }
+
     println!("cargo:rerun-if-changed=../activation/metadata.winmd");
 
     windows_bindgen::bindgen([
