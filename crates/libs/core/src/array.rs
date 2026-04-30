@@ -28,11 +28,11 @@ impl<T: Type<T>> Array<T> {
             .checked_mul(core::mem::size_of::<T>())
             .expect("Attempted to allocate too large an Array");
 
-        // WinRT arrays must be allocated with CoTaskMemAlloc.
-        // SAFETY: the call to CoTaskMemAlloc is safe to perform
-        // if len is zero and overflow was checked above.
-        // We ensured we alloc enough space by multiplying len * size_of::<T>
-        let data = unsafe { imp::CoTaskMemAlloc(bytes_amount) as *mut T::Default };
+        // SAFETY: `bytes_amount` was computed via a checked multiplication
+        // above, so the underlying allocator can never be asked for more than
+        // `isize::MAX` bytes. `array_alloc::<T>` returns a pointer with
+        // alignment at least `align_of::<T>()`.
+        let data = unsafe { array_alloc::<T>(bytes_amount) as *mut T::Default };
 
         assert!(!data.is_null(), "Could not successfully allocate for Array");
 
@@ -60,7 +60,10 @@ impl<T: Type<T>> Array<T> {
 
     /// Creates an array from a pointer and length. The `len` argument is the number of elements, not the number of bytes.
     /// # Safety
-    /// The `data` argument must have been allocated with `CoTaskMemAlloc`.
+    /// On Windows, `data` must have been allocated with `CoTaskMemAlloc` so that the buffer remains
+    /// compatible with native callers that free it via `CoTaskMemFree`. On other targets, `data`
+    /// must have been allocated by an `Array<T>` constructor (which uses the Rust global allocator),
+    /// since no Windows ABI consumer is in play.
     pub unsafe fn from_raw_parts(data: *mut T::Default, len: u32) -> Self {
         Self { data, len }
     }
@@ -99,9 +102,11 @@ impl<T: Type<T>> Array<T> {
             // SAFETY: the slice cannot be used after the call to `drop_in_place`
             core::ptr::drop_in_place(core::ptr::slice_from_raw_parts_mut(data, len as usize));
             // Free the data memory where the elements were
-            // SAFETY: we have unique access to the data pointer at this point
-            // so freeing it is the right thing to do
-            imp::CoTaskMemFree(data as _);
+            // SAFETY: we have unique access to the data pointer at this point,
+            // and `len` matches the number of elements that were allocated, so
+            // the byte count handed to `array_free` matches the prior alloc.
+            let bytes_amount = (len as usize) * core::mem::size_of::<T>();
+            array_free::<T>(data as *mut u8, bytes_amount);
         }
     }
 
@@ -161,5 +166,68 @@ where
 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         core::ops::Deref::deref(self).fmt(f)
+    }
+}
+
+// `Array<T>`'s buffer is allocated through `CoTaskMemAlloc` on Windows so that
+// values handed off across the WinRT ABI remain compatible with native callers
+// that free them via `CoTaskMemFree`. On other targets (where there is no
+// Windows ABI consumer) the Rust global allocator is used. The two helpers
+// below are the only place in the module that knows about either allocator.
+
+/// Allocates `bytes` bytes of memory suitable to back an `Array<T>`.
+///
+/// Returns null on allocation failure.
+///
+/// # Safety
+/// `bytes` must equal `n * size_of::<T>()` for some `n` (it may be zero), and
+/// must not exceed `isize::MAX`.
+unsafe fn array_alloc<T>(bytes: usize) -> *mut u8 {
+    #[cfg(windows)]
+    {
+        // SAFETY: `CoTaskMemAlloc(0)` is allowed and may return null.
+        unsafe { imp::CoTaskMemAlloc(bytes) as *mut u8 }
+    }
+    #[cfg(not(windows))]
+    {
+        if bytes == 0 {
+            // `Layout::from_size_align` allows zero-sized allocations, but
+            // `alloc::alloc::alloc` is UB on a zero-sized layout. WinRT-shaped
+            // empty arrays usually skip allocation entirely; mirror that here.
+            return core::ptr::null_mut();
+        }
+        // `Layout::from_size_align` only fails when `align` is not a power of
+        // two or `bytes` rounded up exceeds `isize::MAX`. `align_of::<T>` is a
+        // power of two by construction, and `bytes` is bounded by the caller.
+        let layout =
+            alloc::alloc::Layout::from_size_align(bytes, core::mem::align_of::<T>()).unwrap();
+        unsafe { alloc::alloc::alloc(layout) }
+    }
+}
+
+/// Frees a block previously returned by `array_alloc::<T>(bytes)`.
+///
+/// # Safety
+/// `ptr` must be the result of an `array_alloc::<T>(bytes)` call that has not
+/// yet been freed, with the same `T` and `bytes`.
+unsafe fn array_free<T>(ptr: *mut u8, bytes: usize) {
+    #[cfg(windows)]
+    {
+        let _ = bytes;
+        // SAFETY: per the safety contract above.
+        unsafe { imp::CoTaskMemFree(ptr as _) };
+    }
+    #[cfg(not(windows))]
+    {
+        if bytes == 0 {
+            // Mirrors the zero-byte short-circuit in `array_alloc`.
+            return;
+        }
+        // SAFETY: `bytes` and `align_of::<T>()` match the previous successful
+        // call to `array_alloc::<T>(bytes)` (per the safety contract above),
+        // so `Layout::from_size_align` cannot fail here.
+        let layout =
+            alloc::alloc::Layout::from_size_align(bytes, core::mem::align_of::<T>()).unwrap();
+        unsafe { alloc::alloc::dealloc(ptr, layout) };
     }
 }

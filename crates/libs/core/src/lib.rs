@@ -23,6 +23,7 @@ use alloc::boxed::Box;
 pub mod imp;
 
 mod agile_reference;
+mod array;
 mod as_impl;
 mod com_object;
 #[cfg(feature = "std")]
@@ -44,6 +45,7 @@ mod weak;
 mod resources;
 
 pub use agile_reference::*;
+pub use array::*;
 pub use as_impl::*;
 pub use com_object::*;
 #[cfg(feature = "std")]

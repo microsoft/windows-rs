@@ -12,10 +12,13 @@ doctest = false
 workspace = true
 features = ["std"]
 
+[dependencies.windows-core]
+workspace = true
+
 [dependencies.windows-link]
 workspace = true
 
-[dependencies.windows]
+[target.'cfg(windows)'.dependencies.windows]
 workspace = true
 features = [
     "Win32_Foundation",
