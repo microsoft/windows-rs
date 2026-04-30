@@ -43,8 +43,62 @@ jobs:
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/lib" >> "$GITHUB_ENV"
       - name: Install libtinfo5 (Linux)
         run: sudo apt-get install -y libtinfo5
+      - name: Build cross-platform libraries on Linux
+        # Each crate listed here must compile cleanly on Linux. Adding a crate
+        # to this list is the contract that says "this is cross-platform";
+        # removing one (or splitting it) is how we shrink the Windows-only
+        # surface as the staging plan in docs/cross-todo.md progresses.
+        run: |
+          set -euxo pipefail
+          for crate in \
+              windows-numerics \
+              windows-link \
+              windows-targets \
+              windows-interface \
+              windows-implement \
+              windows-metadata \
+              windows-rdl \
+              windows-bindgen \
+              riddle ; do
+            cargo build --target x86_64-unknown-linux-gnu -p "$crate"
+          done
+      - name: Build cross-platform libraries on Linux (no default features)
+        # Preserve the `no_std` / no-default-features path for crates that opt
+        # into it. This guards against accidentally pulling `std` into a crate
+        # that is meant to stay portable down to embedded targets.
+        run: |
+          set -euxo pipefail
+          for crate in \
+              windows-numerics \
+              windows-link \
+              windows-targets ; do
+            cargo build --target x86_64-unknown-linux-gnu --no-default-features -p "$crate"
+          done
+      - name: Doc cross-platform libraries on Linux
+        run: |
+          set -euxo pipefail
+          for crate in \
+              windows-numerics \
+              windows-link \
+              windows-targets \
+              windows-interface \
+              windows-implement \
+              windows-metadata \
+              windows-rdl \
+              windows-bindgen \
+              riddle ; do
+            cargo doc --no-deps --target x86_64-unknown-linux-gnu -p "$crate"
+          done
       - name: Run test_linux
         run: cargo test -p test_linux --target x86_64-unknown-linux-gnu
+      - name: Run test_numerics
+        run: cargo test -p test_numerics --target x86_64-unknown-linux-gnu
+      - name: Run test_metadata
+        run: cargo test -p test_metadata --target x86_64-unknown-linux-gnu
+      - name: Run test_link
+        run: cargo test -p test_link --target x86_64-unknown-linux-gnu
+      - name: Run test_targets
+        run: cargo test -p test_targets --target x86_64-unknown-linux-gnu
       - name: Run test_clang
         run: cargo test -p test_clang --target x86_64-unknown-linux-gnu
       - name: Run test_roundtrip_clang
