@@ -2,8 +2,9 @@
 
 This directory holds the data-driven fixtures consumed by the
 `test_fixtures` harness (`crates/tests/fixtures/harness`). It is the
-phase‑1 implementation of the consolidation plan in
-[`docs/test-todo.md`](../../../../../docs/test-todo.md).
+single living document for how the parser/generator test suite is
+organised; older planning notes have been removed now that the
+consolidation is complete.
 
 ## Layout
 
@@ -52,6 +53,8 @@ dependencies. Supported keys:
 | `no_comment`     | bool       | bindgen    | pass `--no-comment` to bindgen            |
 | `specific_deps`  | bool       | bindgen    | pass `--specific-deps` to bindgen         |
 | `kind`           | string     | error      | `"reader"` (default), `"reader_no_input"`, or `"writer"` — which stage must fail |
+| `arch_inputs`    | string[]   | merge      | per-input arch tagging, e.g. `["input-x86.rdl=X86", "input-x64.rdl=X64"]`. Arches are `X86`/`X64`/`Arm64` or `\|`-joined. When set, the harness uses `Merger::arch_input` so types present in only some arches get a `SupportedArchitecture` attribute. |
+| `outputs`        | string[]   | rdl        | run the writer multiple times. Each entry is `"<expected>=<filter[;filter...]>"`; `;` separates multiple `writer.filter(...)` calls in a single invocation. When omitted, the runner falls back to one writer with `filter` (default `"Test"`) and `expected.rdl`. |
 
 The format is a strict subset of real TOML so a fixture written today
 will keep parsing if the harness later swaps in a full TOML crate.
@@ -84,11 +87,19 @@ cargo test -p test_fixtures bindgen_
 cargo test -p test_fixtures rdl_enum
 ```
 
-## Phase‑1 scope
+## What stays bespoke (and why)
 
-This first cut intentionally lands the harness *alongside* the
-existing `roundtrip/{rdl,clang,bindgen}`, `libs/rdl/tests/panic.rs`
-and `libs/metadata/tests/merge.rs` tests rather than replacing them.
-That gives us a chance to validate the harness on real fixtures
-without losing coverage. Subsequent phases (see `docs/test-todo.md`)
-migrate the bulk fixtures over, then delete the old crates.
+A handful of test files under `crates/tests/` deliberately do **not** use
+this fixture format. They exercise things the harness doesn't model
+(runtime semantics of generated bindings, direct builder/reader-API
+calls, OS-level I/O failures, structural assertions on attribute
+values), and forcing them through a byte-stable RDL roundtrip would lose
+coverage rather than add it:
+
+- `tests/libs/rdl/tests/{assembly_name, const-underlying, const-underlying-rdl, directory, error, exclusive-to, fn_abi, guid-derive, split, struct_fields, struct_values, writer_errors}.rs`
+- `tests/libs/metadata/tests/{empty, struct, attribute, class, interface, reader, load_library, assembly_name}.rs`
+- `tests/libs/bindgen/tests/{bool, deps, delegate_*, panic, ref_params}.rs`
+- `tests/{misc,winrt}/**`
+
+If a future change makes one of these expressible as a roundtrip,
+golden-Rust, or error fixture, migrate it; otherwise leave it alone.

@@ -1,0 +1,7 @@
+# One input.rdl, multiple writer invocations with different filters: proves
+# the writer correctly emits the filtered subtree of recursively nested mods.
+# The legacy `mod-recursive.rs` test asserted four filterings; two of them
+# (filter("Test.C") emitted as both `mod-recursive-not.rdl` and
+# `mod-recursive-subset.rdl`) were textually identical, so the migration
+# dedupes to three distinct outputs.
+outputs = ["expected.rdl=Test", "expected-c.rdl=Test.C", "expected-exclude.rdl=Test;!Test.C"]

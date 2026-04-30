@@ -2,15 +2,13 @@
 //
 // The four `writer_succeeds_for_*` happy-path smoke tests that previously
 // lived in this file (callback / delegate / enum / interface) were removed
-// in phase 4 batch 3 of the `docs/test-todo.md` migration: their inline RDL
-// inputs are strict subsets of the existing
+// during the test-fixture migration: their inline RDL inputs are strict
+// subsets of the existing
 // `crates/tests/fixtures/harness/data/rdl/{fn,delegate,enum,class}/` fixtures,
 // which already exercise the same writer code paths via byte-stable roundtrip
-// diffs (a strictly stronger check than `assert!(result.is_ok())`). The
-// two `writer_returns_err_for_*` tests below remain because the harness
-// does not yet model writer-side I/O failures (filesystem-level errors on
-// the output path) — that knob is deferred to a later batch alongside the
-// §6.4 CLI fixtures, per the deferred table in `docs/test-todo.md`.
+// diffs (a strictly stronger check than `assert!(result.is_ok())`). The two
+// `writer_returns_err_for_*` tests below remain because the harness does not
+// model writer-side I/O failures (filesystem-level errors on the output path).
 
 use std::sync::atomic::{AtomicU32, Ordering};
 

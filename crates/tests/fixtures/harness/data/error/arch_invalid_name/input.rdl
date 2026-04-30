@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    #[arch(X86_32)]
+    struct A { x: u8, }
+}

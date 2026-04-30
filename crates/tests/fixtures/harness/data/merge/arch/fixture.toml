@@ -1,0 +1,3 @@
+# Per-input arch tagging: types in only one input get a SupportedArchitecture
+# attribute in the merged winmd. CommonStruct appears in both → no attribute.
+arch_inputs = ["input-x86.rdl=X86", "input-x64.rdl=X64"]

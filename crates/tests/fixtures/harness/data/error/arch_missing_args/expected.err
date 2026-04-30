@@ -1,0 +1,3 @@
+
+error: `arch` attribute requires architecture arguments (e.g. `#[arch(X86)]`)
+ --> input.rdl:3:5

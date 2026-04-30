@@ -1,32 +1,10 @@
 //! Unified test-fixture harness.
 //!
-//! This crate is the reference implementation of the fixture-driven test
-//! format described in `docs/test-todo.md`. Each fixture lives in
-//! `crates/tests/fixtures/harness/data/<group>/<name>/` and consists of a
-//! small set of input files plus golden output files. `build.rs` discovers
-//! every fixture and emits one `#[test]` per fixture; this file dispatches
-//! by `group` to perform the appropriate check.
-//!
-//! Supported groups (phase 1):
-//!
-//! | group     | inputs                       | check                                               |
-//! |-----------|------------------------------|-----------------------------------------------------|
-//! | `rdl`     | `input.rdl`                  | RDL → winmd → RDL, diff vs. `expected.rdl`          |
-//! | `clang`   | `input.h`                    | Clang → RDL → winmd → RDL, diff vs. `expected.rdl`  |
-//! | `bindgen` | `input.rdl` (+ `fixture.toml`) | RDL → winmd → bindgen, diff vs. `expected.rs`     |
-//! | `error`   | `input.rdl` (+ `expected.err`) | reader fails with the expected error message      |
-//! | `merge`   | `input-*.rdl`                | RDL+RDL → winmd → merge → RDL, diff vs. `expected.rdl` |
-//! | `winmd_to_rdl` | `fixture.toml` only (`winmd_input`, `filter`) | writer reads a prebuilt winmd, diff vs. `expected.rdl` |
-//!
-//! Set `UPDATE_GOLDEN=1` (or `UPDATE_GOLDEN=true`) to overwrite `expected.*`
-//! with the actual output instead of asserting equality. This is the only
-//! way to add new fixtures: drop the inputs into a new directory and run
-//! `UPDATE_GOLDEN=1 cargo test -p test_fixtures`.
-//!
-//! Each test writes scratch files under a unique
-//! `$OUT_DIR/scratch/<group>/<name>/` directory so concurrent tests never
-//! contend on the filesystem; `cargo test` then runs every fixture in
-//! parallel.
+//! Each fixture lives in `crates/tests/fixtures/harness/data/<group>/<name>/`
+//! and consists of a small set of input files plus golden output files.
+//! `build.rs` discovers every fixture and emits one `#[test]` per fixture;
+//! this file dispatches by `group` to perform the appropriate check. See
+//! `data/README.md` for the fixture format and the list of supported groups.
 
 use std::path::{Path, PathBuf};
 
@@ -159,6 +137,20 @@ struct FixtureConfig {
     /// the single legacy `invalid_output` test which asserts the reader
     /// rejects an output path of `.`.
     kind: Option<String>,
+    /// For `merge` fixtures: per-input architecture bits. Each entry is
+    /// `"input-<name>.rdl=<arch>"` where `<arch>` is one of `X86`, `X64`,
+    /// `Arm64`, or a `|`-joined combination (e.g. `"X86|X64"`). When set,
+    /// the harness uses `Merger::arch_input` instead of `Merger::input`,
+    /// so types present in only some arches are tagged with
+    /// `SupportedArchitecture` in the merged winmd.
+    arch_inputs: Vec<String>,
+    /// For `rdl` fixtures: list of additional writer invocations after the
+    /// reader produces the winmd. Each entry is `"<expected>=<filter-spec>"`,
+    /// where `<filter-spec>` is one or more filter strings separated by `;`
+    /// (each becomes a `writer.filter(...)` call). When `outputs` is empty
+    /// the runner falls back to a single writer with `filter` (default
+    /// `"Test"`) and the `expected.rdl` golden.
+    outputs: Vec<String>,
 }
 
 impl FixtureConfig {
@@ -182,6 +174,8 @@ impl FixtureConfig {
                 "references" => cfg.references = parse_string_list(value),
                 "winmd_input" => cfg.winmd_input = Some(parse_string(value)),
                 "kind" => cfg.kind = Some(parse_string(value)),
+                "arch_inputs" => cfg.arch_inputs = parse_string_list(value),
+                "outputs" => cfg.outputs = parse_string_list(value),
                 other => panic!("fixture.toml: unknown key {other:?}"),
             }
         }
@@ -227,10 +221,8 @@ fn parse_string_list(value: &str) -> Vec<String> {
 fn run_rdl(f: &Fixture) {
     let input = f.input("input.rdl");
     let winmd = f.scratch("out.winmd");
-    let actual_rdl = f.scratch("out.rdl");
 
     let cfg = f.config();
-    let filter = cfg.filter.as_deref().unwrap_or("Test");
 
     let mut reader = windows_rdl::reader();
     reader.input(input.to_str().unwrap());
@@ -242,18 +234,54 @@ fn run_rdl(f: &Fixture) {
         .write()
         .unwrap_or_else(|e| panic!("[{}/{}] reader: {e}", f.group, f.name));
 
-    let mut writer = windows_rdl::writer();
-    writer.input(winmd.to_str().unwrap());
-    for r in &cfg.references {
-        writer.input(r);
-    }
-    writer
-        .output(actual_rdl.to_str().unwrap())
-        .filter(filter)
-        .write()
-        .unwrap_or_else(|e| panic!("[{}/{}] writer: {e}", f.group, f.name));
+    // Build the (expected_filename, [filter, ...]) list. With no `outputs`
+    // declared this is a single (expected.rdl, [filter|"Test"]) entry, which
+    // matches the original single-writer behaviour. With `outputs` declared
+    // (today only the migrated `mod_recursive` fixture) we run the writer
+    // once per entry so a single fixture can assert several filtered slices
+    // of the same winmd against their own goldens.
+    let invocations: Vec<(String, Vec<String>)> = if cfg.outputs.is_empty() {
+        let filter = cfg.filter.as_deref().unwrap_or("Test");
+        vec![("expected.rdl".to_string(), vec![filter.to_string()])]
+    } else {
+        cfg.outputs.iter().map(|s| parse_output_spec(s)).collect()
+    };
 
-    diff_or_update(&actual_rdl, &f.input("expected.rdl"));
+    for (i, (expected, filters)) in invocations.iter().enumerate() {
+        // Per-output scratch file so a failing fixture leaves all goldens'
+        // actuals on disk for inspection.
+        let actual_rdl = f.scratch(&format!("out{i}.rdl"));
+        let mut writer = windows_rdl::writer();
+        writer.input(winmd.to_str().unwrap());
+        for r in &cfg.references {
+            writer.input(r);
+        }
+        writer.output(actual_rdl.to_str().unwrap());
+        for filter in filters {
+            writer.filter(filter);
+        }
+        writer
+            .write()
+            .unwrap_or_else(|e| panic!("[{}/{}] writer({expected}): {e}", f.group, f.name));
+
+        diff_or_update(&actual_rdl, &f.input(expected));
+    }
+}
+
+/// Parse one `outputs = [...]` entry of the form `"<expected>=<filter-spec>"`,
+/// where `<filter-spec>` is one or more filter strings separated by `;`. Each
+/// filter becomes a `writer.filter(...)` call; the `;` separator (rather than
+/// `,`) keeps the spec readable inside the comma-separated TOML array.
+fn parse_output_spec(s: &str) -> (String, Vec<String>) {
+    let (expected, filters) = s.split_once('=').unwrap_or_else(|| {
+        panic!("`outputs` entry {s:?} must be of the form \"<expected>=<filter-spec>\"")
+    });
+    let filters: Vec<String> = filters.split(';').map(|f| f.trim().to_string()).collect();
+    assert!(
+        !filters.is_empty() && filters.iter().all(|f| !f.is_empty()),
+        "`outputs` entry {s:?} has an empty filter spec"
+    );
+    (expected.trim().to_string(), filters)
 }
 
 fn run_clang(f: &Fixture) {
@@ -438,9 +466,9 @@ fn run_error_reader_no_input(f: &Fixture) {
 ///   3. Runs the *writer* on `input.rdl`'s winmd alone (no def winmds) and
 ///      asserts it fails. The error is matched against `expected.err`.
 ///
-/// This composes with the future "reference-winmd" coverage from
-/// `docs/test-todo.md` §6.3 and replaces the bespoke
-/// `writer_errors_on_missing_enum_type` test in `tests/libs/rdl/tests/panic.rs`.
+/// This composes with future "reference-winmd" coverage and replaces the
+/// bespoke `writer_errors_on_missing_enum_type` test from the now-removed
+/// `tests/libs/rdl/tests/panic.rs`.
 fn run_error_writer(f: &Fixture) {
     let mut defs: Vec<PathBuf> = std::fs::read_dir(&f.dir)
         .unwrap()
@@ -518,6 +546,8 @@ fn run_error_writer(f: &Fixture) {
 }
 
 fn run_merge(f: &Fixture) {
+    let cfg = f.config();
+
     // Discover input-*.rdl files in lexical order so merge ordering is
     // deterministic and matches authors' intuition (input-a.rdl, input-b.rdl).
     let mut inputs: Vec<PathBuf> = std::fs::read_dir(&f.dir)
@@ -537,6 +567,13 @@ fn run_merge(f: &Fixture) {
         f.name
     );
 
+    // Optional per-input arch tagging. When `arch_inputs` is declared, every
+    // input-*.rdl must have an entry; the harness then uses
+    // `Merger::arch_input` so types present in only some arches are tagged
+    // with `SupportedArchitecture` in the merged winmd. Otherwise we use the
+    // plain `Merger::input` which yields no arch attributes.
+    let arch_map = parse_arch_inputs(&cfg.arch_inputs);
+
     let mut merger = windows_metadata::merge();
     for (i, rdl) in inputs.iter().enumerate() {
         let winmd = f.scratch(&format!("part{i}.winmd"));
@@ -545,7 +582,17 @@ fn run_merge(f: &Fixture) {
             .output(winmd.to_str().unwrap())
             .write()
             .unwrap_or_else(|e| panic!("[{}/{}] reader({}): {e}", f.group, f.name, rdl.display()));
-        merger.input(winmd.to_str().unwrap());
+        if arch_map.is_empty() {
+            merger.input(winmd.to_str().unwrap());
+        } else {
+            let basename = rdl.file_name().and_then(|s| s.to_str()).unwrap();
+            let bits = arch_map.iter().find(|(k, _)| k == basename).map(|(_, v)| *v)
+                .unwrap_or_else(|| panic!(
+                    "[{}/{}] arch_inputs missing entry for {basename}; declare it as `\"{basename}=<arch>\"`",
+                    f.group, f.name
+                ));
+            merger.arch_input(winmd.to_str().unwrap(), bits);
+        }
     }
 
     let merged = f.scratch("merged.winmd");
@@ -555,7 +602,6 @@ fn run_merge(f: &Fixture) {
         .unwrap_or_else(|e| panic!("[{}/{}] merge: {e}", f.group, f.name));
 
     let actual_rdl = f.scratch("out.rdl");
-    let cfg = f.config();
     let filter = cfg.filter.as_deref().unwrap_or("Test");
     windows_rdl::writer()
         .input(merged.to_str().unwrap())
@@ -565,6 +611,33 @@ fn run_merge(f: &Fixture) {
         .unwrap_or_else(|e| panic!("[{}/{}] writer: {e}", f.group, f.name));
 
     diff_or_update(&actual_rdl, &f.input("expected.rdl"));
+}
+
+/// Parse `arch_inputs = ["input-x86.rdl=X86", "input-x64.rdl=X64", ...]`
+/// into `(filename, arch_bits)` pairs. Names map to the bitmask
+/// `windows_metadata::merge` documents (X86=1, X64=2, Arm64=4); multiple
+/// arches can be `|`-joined (e.g. `"input-32.rdl=X86|Arm64"`).
+fn parse_arch_inputs(entries: &[String]) -> Vec<(String, i32)> {
+    entries
+        .iter()
+        .map(|s| {
+            let (name, arches) = s.split_once('=').unwrap_or_else(|| {
+                panic!("`arch_inputs` entry {s:?} must be of the form \"<file>=<arch[|arch...]>\"")
+            });
+            let bits = arches
+                .split('|')
+                .map(|a| match a.trim() {
+                    "X86" => 1,
+                    "X64" => 2,
+                    "Arm64" => 4,
+                    other => panic!(
+                        "`arch_inputs` entry {s:?}: unknown arch {other:?}; expected X86, X64, or Arm64"
+                    ),
+                })
+                .fold(0, |acc, b| acc | b);
+            (name.trim().to_string(), bits)
+        })
+        .collect()
 }
 
 /// Writer-only "filter a prebuilt winmd to RDL" fixture.
@@ -579,8 +652,7 @@ fn run_merge(f: &Fixture) {
 /// There is no `input.rdl` — this group exists for tests that consume a large
 /// prebuilt winmd (today: `crates/libs/bindgen/default/Windows*.winmd`) and
 /// want to diff a small filtered RDL slice. Replaces the bespoke
-/// `nested-arches.rs`, `nested-packing.rs` and `default-interface.rs` tests
-/// listed in `docs/test-todo.md` Phase 4 deferred table.
+/// `nested-arches.rs`, `nested-packing.rs` and `default-interface.rs` tests.
 ///
 /// `winmd_input` is required; `filter` is required (a whole-winmd dump would
 /// produce an unwieldy golden file and is not the point of these tests).

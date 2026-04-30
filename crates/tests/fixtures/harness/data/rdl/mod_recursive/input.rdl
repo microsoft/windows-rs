@@ -1,9 +1,16 @@
 #[winrt]
 mod Test {
+    mod A {
+        struct A {}
+    }
+    mod B {
+        struct B {}
+    }
     mod C {
         mod D {
             struct D {}
         }
         struct C {}
     }
+    struct Test {}
 }
