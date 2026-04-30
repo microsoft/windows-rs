@@ -48,7 +48,12 @@ mod bench {
         println!("{}", "-".repeat(64));
 
         // (1) Single submit + wait, averaged over many trials.
-        bench_single("single", 1_000, |f| windows_threading::submit(f), "win32-pool");
+        bench_single(
+            "single",
+            1_000,
+            |f| windows_threading::submit(f),
+            "win32-pool",
+        );
         bench_single(
             "single",
             1_000,
@@ -59,7 +64,12 @@ mod bench {
         );
 
         // (2) Burst.
-        bench_burst("burst", 10_000, |f| windows_threading::submit(f), "win32-pool");
+        bench_burst(
+            "burst",
+            10_000,
+            |f| windows_threading::submit(f),
+            "win32-pool",
+        );
         bench_burst(
             "burst",
             10_000,
@@ -70,7 +80,12 @@ mod bench {
         );
 
         // (3) Steady-state.
-        bench_burst("steady", 100_000, |f| windows_threading::submit(f), "win32-pool");
+        bench_burst(
+            "steady",
+            100_000,
+            |f| windows_threading::submit(f),
+            "win32-pool",
+        );
         bench_burst(
             "steady",
             100_000,
@@ -155,4 +170,3 @@ mod bench {
         );
     }
 }
-
