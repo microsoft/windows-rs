@@ -1,5 +1,3 @@
-#![windows_subsystem = "windows"]
-
 use windows::{
     core::*,
     ApplicationModel::{Core::*, Package},
