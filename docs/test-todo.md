@@ -163,11 +163,18 @@ D. **Keep as-is:**
 
 Strategy: migrate in batches by *shape*, starting with files that fit the existing `rdl` group (RDL → winmd → RDL roundtrip). Files that need new harness features are deferred and listed below so a future phase 4 batch can co-design the knob with a real consumer.
 
-**Batch 1 (this commit) — pure-roundtrip with no harness changes:**
+**Batch 1 — pure-roundtrip with no harness changes:**
 
 - [x] `opt.rs::opt_before_out` → `rdl/opt_before_out`. Inline RDL string moved into `input.rdl`; the regenerated `expected.rdl` shows that the writer canonicalizes `#[opt] #[out]` to `#[out] #[opt]`. The original test only asserted `contains("#[opt]")`, so the golden RDL is a strictly stronger check (it now also catches drift in attribute ordering or surrounding output).
 - [x] `use-declarations.rs::parse` → `rdl/use_declarations`. The existing `use-declarations.rdl` / `use-declarations-out.rdl` files map directly to `input.rdl` / `expected.rdl` with no edits.
 - [x] `use-declarations.rs::parse_with_reference` → `rdl/use_declarations_ref`. Uses `references = ["../../../libs/bindgen/default/Windows.winmd"]` in `fixture.toml`. Note: the harness's `rdl` runner currently passes `references` to *both* the reader and the writer, while the original test passed the reference winmd to the reader only. The output is byte-identical (the writer's `filter("Test")` already excludes the referenced types from emission), so the existing golden file is reused unchanged.
+
+**Batch 2 (this commit) — `filter.rs` (3 tests):**
+
+- [x] `filter.rs::filter_namespace` → `rdl/filter_namespace`. Uses the default `Test` filter; `expected.rdl` contains both `Color` and `Point` (strictly stronger than the original `contains("Color") && contains("Point")` asserts).
+- [x] `filter.rs::filter_unqualified_type` → `rdl/filter_unqualified_type`. `fixture.toml` sets `filter = "Color"`; `expected.rdl` contains `Color` only, confirming the original `contains("Color") && !contains("Point")` invariant.
+- [x] `filter.rs::filter_qualified_type` → `rdl/filter_qualified_type`. `fixture.toml` sets `filter = "Test.Point"`; `expected.rdl` contains `Point` only.
+- [x] `tests/libs/rdl/tests/filter.rs` deleted; the inline `INPUT` constant and three `make_winmd`/`assert!(contents.contains(…))` blocks are replaced by 3 fixture directories totalling 6 short files. The `filter` knob in `fixture.toml` was already wired up in phase 1 — no harness changes were needed.
 
 **Deferred — need a new harness check or knob; tracked here so the next batch can group them by feature:**
 
@@ -179,7 +186,7 @@ Strategy: migrate in batches by *shape*, starting with files that fit the existi
 | `directory.rs`, `split.rs` | Reader/writer take a *directory* path, not a single file. | Add a `directory_input = true` / `split = true` knob, and have the harness compare directory trees instead of single files. Best paired with the `tool_bindgen` migration in phase 2 since CLI cases hit the same code path. |
 | `assembly_name.rs` | No input file at all (asserts the reader's auto-derived assembly name from the output basename); also uses `windows_metadata::reader::File::read` directly. | Could be expressed as an `rdl` fixture with an empty `input.rdl` plus an `expected.winmd.txt` structural dump (the §4.2 `winmd_<name>` check that's still unimplemented). Until then, it can stay where it is. |
 | `invalid_output.rs` | Single `should_panic` for `reader().output(".").write()` (no input RDL). | Reuse the `error/<name>/` layout but allow `input.rdl` to be omitted when `kind = "reader_no_input"`. Low priority — one test. |
-| `filter.rs` | Three roundtrips that each `assert!(contents.contains("…"))` rather than diffing the whole RDL. | The full-file diff in the existing `rdl` group is strictly stronger; once the inline RDL becomes `input.rdl`, the three filters become three separate fixtures with their own `expected.rdl`. Pure mechanical translation, just three fixtures to author. Defer to batch 2. |
+| `filter.rs` | ~~Three roundtrips that each `assert!(contents.contains("…"))` rather than diffing the whole RDL.~~ Migrated in batch 2. | ~~The full-file diff in the existing `rdl` group is strictly stronger; once the inline RDL becomes `input.rdl`, the three filters become three separate fixtures with their own `expected.rdl`. Pure mechanical translation, just three fixtures to author. Defer to batch 2.~~ Done. |
 | `exclusive-to.rs`, `guid-derive.rs`, `const-underlying*.rs` | Read back the produced winmd via `windows_metadata::reader` and assert on attribute *values* (e.g. derived GUIDs, `ExclusiveTo` targets, `const` underlying types). Roundtripping the RDL doesn't prove the attribute was encoded correctly. | Add the §4.2 `winmd_<name>` check (a textual structural dump of the winmd) so these become diffable goldens. This is the same gap §6.7 ("attribute encoding edge cases") calls out, so the dump format should be co-designed with that work. |
 | `error.rs::error_display` | Plain unit test for the `Error` `Display` impl — does not consume the fixture format. | Keep as-is per §5.D. |
 | `writer_errors.rs` | Mix of "writer succeeds for X" smoke tests and "writer returns Err for bad output path" — neither asserts on output content. | The "succeeds" cases should turn into ordinary `rdl` fixtures (their input RDL exists inline today). The two `Err` cases want a `kind = "writer"` fixture where the failure point is an output path / split mode rather than a missing reference, which the current `kind = "writer"` shape doesn't model. Defer to a later batch alongside the §6.4 CLI fixtures. |
