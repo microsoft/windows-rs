@@ -11,9 +11,9 @@ in stages, and to verify the result on a GitHub Linux runner.
 - `windows-interface`, `windows-implement` — proc-macros (build on Linux already).
 - `windows-link`, `windows-targets` — mostly just macros/linkage; the inner `cfg(all(windows, target_arch = "x86"))` gates the only Windows-specific bit.
 
-**Hybrid (no top-level `cfg(windows)`, but inner `#[cfg(windows)]` gates the Win32-using parts):**
-- `windows-core` — most trait machinery (`Type`, `Interface`, `IUnknown` vtables, `Param`, `Array`, `GUID`, `IInspectable`) is portable; only ref-count/marshal helpers in `imp/` and a few functions in `inspectable.rs` are gated.
-- `windows-result` — `HRESULT`, `Error`, `Result` types are mostly portable; only the `From<windows_link>` and a few `RoOriginate*` paths in `hresult.rs`/`error.rs` are gated.
+**Hybrid (no top-level `cfg(windows)`, but inner `#[cfg(windows)]` gates the Win32-using parts; CI-enforced to build on Linux as of Stage 2):**
+- `windows-core` — most trait machinery (`Type`, `Interface`, `IUnknown` vtables, `Param`, `Array`, `GUID`, `IInspectable`) is portable; only ref-count/marshal helpers in `imp/` and a few functions in `inspectable.rs` are gated. Builds cleanly on Linux with default features and `--no-default-features`.
+- `windows-result` — `HRESULT`, `Error`, `Result` types are portable; `RoOriginate*` paths in `hresult.rs`/`error.rs` are gated, with `#[cfg(not(windows))]` fallbacks that return inert `E_FAIL`-shaped values. Builds cleanly on Linux with default features and `--no-default-features`.
 
 **Hard-gated `#![cfg(windows)]` at the top of `lib.rs` (compile to nothing off Windows):**
 - `windows-cppwinrt` — invokes `cppwinrt.exe`, inherently Windows.
@@ -25,7 +25,7 @@ in stages, and to verify the result on a GitHub Linux runner.
 - `windows-future` — `IAsyncAction`/etc. trait *shapes* are portable, but the executor (`async_spawn`, `Waker`) calls into `windows-threading`.
 - `windows-collections` — same: trait *shapes* (`IVector`, `IMap`, `IIterable`) and the stock `BTreeMap`/`Vec` adapters are portable; only event-handler dispatch reaches into `windows-core` machinery that currently requires `windows`.
 
-**CI today (`linux.yml`):** runs `cargo test` on `test_linux`, `test_clang`, `test_roundtrip_clang`, `test_rdl`, `test_roundtrip_rdl` against `x86_64-unknown-linux-gnu`, then enforces no diff. **As of Stage 0** (see below) it also runs `cargo build` and `cargo doc` on every library currently believed to be cross-platform, plus `cargo test` for `test_numerics`, `test_metadata`, `test_link`, and `test_targets`.
+**CI today (`linux.yml`):** runs `cargo test` on `test_linux`, `test_clang`, `test_roundtrip_clang`, `test_rdl`, `test_roundtrip_rdl` against `x86_64-unknown-linux-gnu`, then enforces no diff. As of Stage 0 it also runs `cargo build` and `cargo doc` on every library currently believed to be cross-platform, plus `cargo test` for `test_numerics`, `test_metadata`, `test_link`, and `test_targets`. As of **Stage 2** the Linux build/doc matrix also covers `windows-core` and `windows-result`, and the `--no-default-features` matrix covers them as well.
 
 ## Stage 0 — Better Linux test harness (do this first, no library changes)
 
@@ -51,25 +51,32 @@ Goal: turn the Linux runner into a tight feedback loop so each subsequent stage 
 
 ## Stage 1 — Promote crates that are *already* portable but not advertised
 
-No code changes to library logic, just lift `cfg(windows)` gates that exist only out of caution and add the crates to the Stage 0 build matrix.
+**Status: ✅ done by Stage 0.**
 
-1. **`windows-numerics`** — already cfg-clean, just add to Linux CI matrix and add a Linux smoke test.
-2. **`windows-link`** — verify the macro expands on Linux (the inner `#[cfg(...)]` already handles the x86 case); add Linux build + a tiny `link!` use site test.
-3. **`windows-interface`, `windows-implement`** — proc-macros; add a Linux trybuild/expand test that does *not* depend on `windows`/`windows-core` runtime symbols, only macro expansion.
-4. **`windows-targets`** — same treatment.
-5. **`riddle`** — already cross-platform; add to matrix and run its existing tests on Linux if not already.
+The Stage-0 build matrix in `linux.yml` already covers every crate this stage was meant to add (`windows-numerics`, `windows-link`, `windows-targets`, `windows-interface`, `windows-implement`, `riddle`), so there is no library-logic work left here — Stage 0 already fulfills the contract.
 
-Risk: very low. This is mostly CI plumbing that documents and enforces the current state.
+The one remaining ambition from the original Stage 1 — "add a Linux trybuild/expand test that does not depend on `windows`/`windows-core` runtime symbols" for the proc-macro crates — is deferred. The existing `test_interface` / `test_implement` integration test crates depend on the `windows` mega-crate (Windows-only), so a Linux trybuild would require a new lean test crate. That is its own bounded piece of work and not on the critical path for higher stages.
+
+Risk: none — this stage is now purely documentation.
 
 ## Stage 2 — Make `windows-core` and `windows-result` build on Linux
 
-These two are the keystone: once they build on Linux, every higher-level crate that wants to be portable can opt in.
+**Status: ✅ done in code; locked in by CI as of this stage.**
 
-1. **`windows-result`**: relax the gates in `hresult.rs`/`error.rs` so that the *types and Display/Debug/From impls* compile unconditionally; keep only the function bodies that call `RoOriginate*`/`GetErrorInfo` under `#[cfg(windows)]`, providing inert fallbacks (e.g., `Error::from_thread()` returns a plain `E_FAIL` on non-Windows). The `#![cfg_attr(not(windows), expect(unused_imports))]` attribute already shows the intent — finish the job so `cargo build -p windows-result --target x86_64-unknown-linux-gnu` succeeds.
-2. **`windows-core`**: similar treatment for `imp/mod.rs`, `imp/weak_ref_count.rs`, `imp/delegate_box.rs`, `inspectable.rs`. The pattern is to keep struct/trait definitions unconditional and gate only the bodies that call `CoTaskMemAlloc`/`RoOriginateError`/`WindowsCreateString` etc. Where a function must exist on both platforms, provide a `#[cfg(not(windows))]` stub that panics or returns a sensible default — these stubs are never wired up because the COM machinery is unreachable without Win32, but they let the crate type-check.
-3. Add `windows-core` and `windows-result` to the Stage-0 Linux matrix and add Linux-only unit tests for the portable pieces (GUID parsing, HRESULT formatting, `Error::new`/`Display`, Param trait derivations).
+When this plan was written, the assumption was that `windows-core` and `windows-result` would need substantial gating work to compile on Linux. Investigation showed that work had already happened incrementally:
 
-Risk: medium. The trick is making sure the gating does not leak into the public API (no functions disappear on Linux, only their bodies become stubs). `#[doc(cfg(...))]` on Windows-only items keeps the docs honest.
+- `windows-result` has no top-level `#![cfg(windows)]`; `lib.rs` already gates `mod com`, `mod strings`, and `mod bstr` behind `#[cfg(windows)]`, and `error.rs`/`hresult.rs` already provide `#[cfg(not(windows))]` fallbacks for `from_thread()` and friends that return inert `E_FAIL`-shaped values. `cargo build -p windows-result --target x86_64-unknown-linux-gnu` succeeds with `RUSTFLAGS=-D warnings`, both with default features and `--no-default-features`.
+- `windows-core` likewise has no top-level `#![cfg(windows)]`. `imp/`, `inspectable.rs`, and the COM ref-count helpers are individually gated, so the public types (`GUID`, `HRESULT`, `Type`, `Interface`, `Param`, `Array`, `IUnknown`, `IInspectable` definitions) all compile on Linux. `cargo build -p windows-core --target x86_64-unknown-linux-gnu` succeeds with `RUSTFLAGS=-D warnings`, both with default features and `--no-default-features`.
+
+What this stage actually changes:
+
+1. ✅ Add `windows-core` and `windows-result` to the Stage-0 Linux build matrix in `.github/workflows/linux.yml` so a regression that re-introduces a Win32 dependency on the portable surface fails CI immediately.
+2. ✅ Add both crates to the `--no-default-features` matrix to preserve the `no_std` path on Linux.
+3. ✅ Add both crates to the `cargo doc --no-deps` matrix on Linux so intra-doc links and the doc build path are exercised off-Windows.
+4. ⏭️ **Deferred:** Linux-only unit tests for the portable pieces (GUID parsing, HRESULT formatting, `Error::new`/`Display`, Param trait derivations). The existing `test_core` / `test_result` crates pull in the `windows` mega-crate (which is Windows-only), so adding Linux unit tests requires a separate, lean test crate that depends only on `windows-core` / `windows-result`. Tracked for a follow-up PR — the build-only matrix already catches the most common regressions (`error[E0432]: unresolved import`, accidentally Windows-only public items, etc.).
+5. ⏭️ **Deferred:** dropping `default-target = "x86_64-pc-windows-msvc"` from `[package.metadata.docs.rs]` in `crates/libs/core/Cargo.toml` and `crates/libs/result/Cargo.toml`. Both crates still expose meaningful Windows-only items behind `#[cfg(windows)]`, so flipping the docs.rs default to a Linux target would render strictly less content. Revisit once `#[doc(cfg(...))]` annotations are in place so docs.rs can show both surfaces from a single Linux build.
+
+Risk: low. The code work was already done by previous incremental changes; this stage only enforces it.
 
 ## Stage 3 — Split `windows-strings` and expose portable string types
 

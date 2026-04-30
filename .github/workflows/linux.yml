@@ -56,6 +56,8 @@ jobs:
               windows-targets \
               windows-interface \
               windows-implement \
+              windows-result \
+              windows-core \
               windows-metadata \
               windows-rdl \
               windows-bindgen \
@@ -71,7 +73,9 @@ jobs:
           for crate in \
               windows-numerics \
               windows-link \
-              windows-targets ; do
+              windows-targets \
+              windows-result \
+              windows-core ; do
             cargo build --target x86_64-unknown-linux-gnu --no-default-features -p "$crate"
           done
       - name: Doc cross-platform libraries on Linux
@@ -83,6 +87,8 @@ jobs:
               windows-targets \
               windows-interface \
               windows-implement \
+              windows-result \
+              windows-core \
               windows-metadata \
               windows-rdl \
               windows-bindgen \
