@@ -61,6 +61,7 @@ jobs:
               windows-strings \
               windows-threading \
               windows-future \
+              windows-collections \
               windows-metadata \
               windows-rdl \
               windows-bindgen \
@@ -80,7 +81,8 @@ jobs:
               windows-result \
               windows-core \
               windows-strings \
-              windows-threading ; do
+              windows-threading \
+              windows-collections ; do
             cargo build --target x86_64-unknown-linux-gnu --no-default-features -p "$crate"
           done
       - name: Doc cross-platform libraries on Linux
@@ -97,6 +99,7 @@ jobs:
               windows-strings \
               windows-threading \
               windows-future \
+              windows-collections \
               windows-metadata \
               windows-rdl \
               windows-bindgen \
@@ -113,6 +116,8 @@ jobs:
         run: cargo test -p test_link --target x86_64-unknown-linux-gnu
       - name: Run test_targets
         run: cargo test -p test_targets --target x86_64-unknown-linux-gnu
+      - name: Run test_collections
+        run: cargo test -p test_collections --target x86_64-unknown-linux-gnu
       - name: Run test_clang
         run: cargo test -p test_clang --target x86_64-unknown-linux-gnu
       - name: Run test_roundtrip_clang

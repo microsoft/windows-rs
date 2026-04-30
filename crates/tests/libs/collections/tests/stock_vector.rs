@@ -1,5 +1,5 @@
-use windows::{core::*, Win32::Foundation::E_BOUNDS};
-use windows_collections::*;
+use windows_collections::{E_BOUNDS, *};
+use windows_core::*;
 
 #[test]
 fn primitive() -> Result<()> {

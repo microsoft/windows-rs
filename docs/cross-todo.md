@@ -12,9 +12,10 @@ in stages, and to verify the result on a GitHub Linux runner.
 - `windows-link`, `windows-targets` — mostly just macros/linkage; the inner `cfg(all(windows, target_arch = "x86"))` gates the only Windows-specific bit.
 
 **Hybrid (no top-level `cfg(windows)`, but inner `#[cfg(windows)]` gates the Win32-using parts; CI-enforced to build on Linux):**
-- `windows-core` — most trait machinery (`Type`, `Interface`, `IUnknown` vtables, `Param`, `Array`, `GUID`, `IInspectable`) is portable; only ref-count/marshal helpers in `imp/` and a few functions in `inspectable.rs` are gated. Builds cleanly on Linux with default features and `--no-default-features`. (Stage 2.)
+- `windows-core` — most trait machinery (`Type`, `Interface`, `IUnknown` vtables, `Param`, `Array`, `GUID`, `IInspectable`) is portable; only ref-count/marshal helpers in `imp/` and a few functions in `inspectable.rs` are gated. Builds cleanly on Linux with default features and `--no-default-features`. As of **Stage 5** the `Event<T>` and `AgileReference<T>` types and the `windows-strings` re-exports (`HSTRING`, `PCWSTR`, `h!`, etc., plus their `Param`/`TypeKind`/`RuntimeType` impls) are also portable; only the `BSTR` `Param`/`TypeKind` impls and `factory<C, I>` activation helper remain `#[cfg(windows)]`-gated. (Stage 2 + Stage 5.)
 - `windows-result` — `HRESULT`, `Error`, `Result` types are portable; `RoOriginate*` paths in `hresult.rs`/`error.rs` are gated, with `#[cfg(not(windows))]` fallbacks that return inert `E_FAIL`-shaped values. Builds cleanly on Linux with default features and `--no-default-features`. (Stage 2.)
 - `windows-strings` — `HSTRING`, `HStringBuilder`, the `h!` literal macro, and the helpers behind them (`hstring_header`, `ref_count`) are cross-platform; the only Win32 dependency — the heap allocator — is swapped at compile time inside `hstring_header.rs` (Windows: `kernel32` process heap, so `HSTRING`s allocated here remain interop-compatible with native callers; other targets: the Rust global allocator). `PCSTR`, `PCWSTR`, `PSTR`, `PWSTR`, `s!`/`w!`, and the UTF-8/UTF-16 `decode` helpers were already portable. `BSTR` and the generated `bindings` module that fronts `oleaut32`/`kernel32` remain `#[cfg(windows)]`-gated because `BSTR` is part of the OLE Automation ABI and must use `SysAllocStringLen`/`SysFreeString` so callers across the FFI boundary can free strings allocated here. The `OsStr`/`OsString`/`Path` interop on `HSTRING` is `#[cfg(all(feature = "std", windows))]` because it depends on `std::os::windows::ffi`. (Stage 3.)
+- `windows-collections` — interface types (`IVector`, `IVectorView`, `IMap`, `IMapView`, `IIterable`, `IIterator`, `IObservableVector`, `IObservableMap`, etc.) and the stock `BTreeMap`/`Vec` adapters (including the observable adapters) are portable. Builds and tests pass on Linux. (Stage 5.)
 
 **Hard-gated `#![cfg(windows)]` at the top of `lib.rs` (compile to nothing off Windows):**
 - `windows-cppwinrt` — invokes `cppwinrt.exe`, inherently Windows.
@@ -23,9 +24,8 @@ in stages, and to verify the result on a GitHub Linux runner.
 - `windows-registry` — Win32 registry APIs only.
 - `windows-services` — Win32 SCM only.
 - `windows-future` — `IAsyncAction`/etc. trait *shapes* are portable, but the executor (`async_spawn`, `Waker`) calls into `windows-threading`.
-- `windows-collections` — same: trait *shapes* (`IVector`, `IMap`, `IIterable`) and the stock `BTreeMap`/`Vec` adapters are portable; only event-handler dispatch reaches into `windows-core` machinery that currently requires `windows`.
 
-**CI today (`linux.yml`):** runs `cargo test` on `test_linux`, `test_clang`, `test_roundtrip_clang`, `test_rdl`, `test_roundtrip_rdl` against `x86_64-unknown-linux-gnu`, then enforces no diff. As of Stage 0 it also runs `cargo build` and `cargo doc` on every library currently believed to be cross-platform, plus `cargo test` for `test_numerics`, `test_metadata`, `test_link`, and `test_targets`. As of Stage 2 the Linux build/doc matrix also covers `windows-core` and `windows-result`, and the `--no-default-features` matrix covers them as well. As of **Stage 3** the build/doc matrix and the `--no-default-features` matrix also cover `windows-strings`.
+**CI today (`linux.yml`):** runs `cargo test` on `test_linux`, `test_clang`, `test_roundtrip_clang`, `test_rdl`, `test_roundtrip_rdl` against `x86_64-unknown-linux-gnu`, then enforces no diff. As of Stage 0 it also runs `cargo build` and `cargo doc` on every library currently believed to be cross-platform, plus `cargo test` for `test_numerics`, `test_metadata`, `test_link`, and `test_targets`. As of Stage 2 the Linux build/doc matrix also covers `windows-core` and `windows-result`, and the `--no-default-features` matrix covers them as well. As of Stage 3 the build/doc matrix and the `--no-default-features` matrix also cover `windows-strings`. As of **Stage 5** the build/doc matrix also covers `windows-collections` (in both default and `--no-default-features` configurations) and `cargo test -p test_collections` runs on Linux.
 
 ## Stage 0 — Better Linux test harness (do this first, no library changes)
 
@@ -174,13 +174,44 @@ This unblocks Stage 5 (`windows-collections` on Linux).
 
 ## Stage 5 — `windows-collections` cross-platform
 
-After Stages 2 and 4, `windows-collections` should build on Linux because all its dependencies do. The only blocker today is `windows-future`'s use of `windows-threading`.
+**Status: ✅ done; locked in by CI.**
 
-1. Drop any inner `#[cfg(windows)]` that becomes unnecessary.
-2. Light up `crates/tests/libs/collections` on Linux. The pure stock-collection paths (`StockVector`, `StockMap`, `StockObservableMap`) do not require any Win32 runtime; the event-firing tests work because dispatch goes through `windows-core` (made portable in Stage 2).
-3. Add to the Linux test-run list in `linux.yml`.
+The original plan assumed `windows-collections` would build on Linux as soon as Stages 2 and 4 landed. Investigation showed two real blockers in `windows-core`:
 
-Risk: low once Stages 2 and 4 are done.
+1. `Event<T>` (used by `StockObservableMap` / `StockObservableVector`) lived behind `windows-core`'s `#[cfg(windows)]` `windows.rs` include because it referenced `imp::EncodePointer` (kernel32) and `AgileReference<T>`.
+2. `AgileReference<T>` lived behind the same gate because its `new` calls `RoGetAgileReference` (combase). On non-Windows this also caused the `windows-strings` re-exports (`HSTRING`, `PCWSTR`, `h!`, etc., plus the `Param`/`TypeKind`/`RuntimeType` impls) to be unreachable from `windows-core`, even though `windows-strings` itself is cross-platform after Stage 3.
+
+### Design decision — keep `Event<T>` and `AgileReference<T>`, swap the OS-specific bits
+
+`EncodePointer` is a pointer obfuscator; `AgileReference` is a marshaler for cross-apartment access. On non-Windows there is **no apartment threading model**, so any interface pointer is already safe to use from any thread. That collapses `AgileReference` to a trivial holder on those targets. The implementation is now:
+
+- `windows_core::imp::EncodePointer` is only called on Windows. On non-Windows `Delegate::to_token` uses the raw pointer value as the token — it is already opaque to callers and only meaningful within this process, so no extra primitive is needed.
+- `AgileReference<T>` keeps its public API on every platform. On Windows it stores an `imp::IAgileReference` returned by `RoGetAgileReference`; on non-Windows it stores an `IUnknown` cloned from the input and `resolve` round-trips back to `T` via `QueryInterface` (pure-Rust dispatch through the vtable). No Win32 linker symbols are referenced.
+
+Because `windows-implement`-generated delegates already respond to `IAgileObject` (see `imp/delegate_box.rs`), `Event::add` always takes the `Direct` path on Linux and the `AgileReference` fallback is dead code in practice — but the type still compiles and behaves correctly if a third-party non-agile delegate ever ends up there.
+
+### What landed
+
+1. ✅ Moved `event` and `agile_reference` modules out of `windows-core`'s `#[cfg(windows)]` `windows.rs` into the top-level `lib.rs` so they compile on every target.
+2. ✅ Lifted the `pub use windows_strings::*` re-export and the cross-platform `Param`/`TypeKind`/`RuntimeType` impls (for `HSTRING`, `PCWSTR`, `PCSTR`, `PWSTR`, `PSTR`) out of `windows.rs` into the cross-platform side of `windows-core`. `windows.rs` now only contains items that genuinely depend on Windows (the `BSTR` `Param`/`TypeKind` impls and the `factory<C, I>` activation helper).
+3. ✅ Replaced `imp::EncodePointer(...)` in `Delegate::to_token` with a `#[cfg]`-gated path: Win32 fast path on Windows, raw-pointer cast elsewhere.
+4. ✅ Made `AgileReference<T>::new` / `resolve` `#[cfg]`-gated: `RoGetAgileReference` on Windows, `IUnknown` round-trip via `QueryInterface` elsewhere.
+5. ✅ `windows-collections` now compiles on Linux with default features and `--no-default-features`, including the observable adapters (`StockObservableMap`, `StockObservableVector`). No code in `windows-collections` itself needed `#[cfg(windows)]`.
+6. ✅ Promoted the crate-private `E_BOUNDS` constant to a public re-export so callers don't need `windows::Win32::Foundation::E_BOUNDS` (which is Windows-only).
+7. ✅ Lit up `crates/tests/libs/collections` on Linux:
+    - The `windows` mega-crate dependency is now `[target.'cfg(windows)'.dependencies]`. The test crate depends on `windows-core`, `windows-strings`, and `windows-collections` directly.
+    - Test files import from `windows_core::*` / `windows_collections::*` instead of `windows::core::*` / `windows::Win32::Foundation::E_BOUNDS`.
+    - Two tests fundamentally need WinRT activation and stay `#[cfg(windows)]`: `stock_iterable::calendar` (uses `windows::Globalization::Calendar`) and the entire `string_map.rs` file (uses `windows::Foundation::Collections::StringMap`). The `defaulted` test in `stock_iterable.rs` is also gated because it relies on `windows::Foundation::IStringable`.
+    - Every other test — `primitive`, `hstring`, `primitive_iterator`, `primitive_mutable`, `get_view`, `multiple_handlers`, `vector_changed_event`, `map_changed_event`, `hstring_map_changed_event`, `rust_iterator_adapter`, `rust_iterator_adapter_yields_value_when_move_next_fails` — runs on Linux. The event-firing observable tests work because `Event<T>`'s dispatch is now portable.
+8. ✅ Added `windows-collections` to the Linux build, `--no-default-features`, and `cargo doc` matrix in `.github/workflows/linux.yml`, and added `cargo test -p test_collections`.
+
+**Findings worth carrying into later stages:**
+- The "any pointer is agile in the absence of an apartment model" insight is reusable: any future Windows-flavoured primitive whose only OS dependency is apartment marshaling can follow the same pattern (store the underlying interface directly off-Windows, cfg-gate the Win32 marshaler call on Windows).
+- `windows-implement`-generated objects respond to `IAgileObject` regardless of platform (see `imp/delegate_box.rs`), so the `Direct` path of `Event<T>` is always taken for in-process Rust delegates — `AgileReference` only matters if/when the codebase grows to wrap externally-provided delegates.
+- The test crate split mirrors what Stages 2 and 3 deferred for `test_core` / `test_result` / `test_strings`: drop the `windows` mega-crate dependency on Linux and import the per-area crates (`windows-core`, `windows-strings`, etc.) directly. Those follow-up test crates can now copy this `Cargo.toml` shape (`[target.'cfg(windows)'.dependencies.windows]` plus direct deps on the cross-platform crates).
+- ⏭️ **Deferred:** dropping `default-target = "x86_64-pc-windows-msvc"` from `crates/libs/collections/Cargo.toml`'s `[package.metadata.docs.rs]`. As with Stages 2 and 3, this becomes natural once `#[doc(cfg(...))]` annotations are in place so docs.rs can render both surfaces from a single Linux build.
+
+Risk realised: low. No public API change in `windows-core`, `windows-result`, `windows-strings`, or `windows-collections`. The only observable behaviour difference is on non-Windows: `AgileReference<T>::new(x)` now succeeds (returning a trivial holder) instead of being unavailable.
 
 ## Stage 6 — Honest Windows-only crates stay Windows-only
 
