@@ -32,6 +32,16 @@ use std::path::{Path, PathBuf};
 
 include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
+/// The legacy `tests/roundtrip/clang` and `tests/roundtrip/rdl` crates
+/// unconditionally passed this reference winmd directory to clang and to
+/// every reader/writer that needed Win32 types. The harness mirrors that
+/// for the `clang` group so individual clang fixtures don't have to declare
+/// it; the `rdl` group still requires the explicit `references = [...]`
+/// because most RDL inputs are self-contained `Test`-namespace fixtures and
+/// reading the full Windows winmd into every test would slow the suite down
+/// noticeably.
+const DEFAULT_REFERENCE: &str = "../../../libs/bindgen/default";
+
 /// Entry point invoked by every generated `#[test]`.
 fn run_fixture(group: &str, name: &str) {
     let fixture = Fixture::new(group, name);
@@ -263,7 +273,14 @@ fn run_clang(f: &Fixture) {
             "--target=x86_64-pc-windows-msvc",
             "-fms-extensions",
         ])
-        .input(input.to_str().unwrap());
+        .input(input.to_str().unwrap())
+        // The legacy `tests/roundtrip/clang` crate unconditionally passed
+        // `default/` to every clang run. Mirror that here so individual
+        // fixtures don't have to declare it: most C++ headers under test
+        // implicitly reference Win32 types (HRESULT, GUID, ...) and the
+        // overhead of registering an extra reference for fixtures that
+        // don't is negligible.
+        .input(DEFAULT_REFERENCE);
     for r in &cfg.references {
         clang.input(r);
     }
@@ -276,6 +293,7 @@ fn run_clang(f: &Fixture) {
 
     let mut reader = windows_rdl::reader();
     reader.input(rdl_intermediate.to_str().unwrap());
+    reader.input(DEFAULT_REFERENCE);
     for r in &cfg.references {
         reader.input(r);
     }
@@ -286,6 +304,7 @@ fn run_clang(f: &Fixture) {
 
     let mut writer = windows_rdl::writer();
     writer.input(winmd.to_str().unwrap());
+    writer.input(DEFAULT_REFERENCE);
     for r in &cfg.references {
         writer.input(r);
     }

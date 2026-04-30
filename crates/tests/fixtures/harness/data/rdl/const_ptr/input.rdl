@@ -1,0 +1,13 @@
+#[win32]
+mod Test {
+    struct HANDLE {
+        Value: *mut void,
+    }
+    struct HKEY {
+        Value: *mut void,
+    }
+    const HKEY_LOCAL_MACHINE: HKEY = -2147483646;
+    const INVALID_HANDLE_VALUE: HANDLE = -1;
+    const NULL_HANDLE: HANDLE = 0;
+    const OVERFLOWS_I32: HANDLE = 4294967296;
+}

@@ -1,0 +1,21 @@
+#[winrt]
+mod Test {
+    #[Test]
+    #[Test(1)]
+    #[Test(1, "bee")]
+    #[Test(1, "bee", 2.3)]
+    #[Test(a = 10)]
+    #[Test(1, b = "bee")]
+    #[Test(1, "bee", c = 2.3)]
+    #[Test(1, "bee", 2.3, a = 10, b = "BEE", c = 23.4)]
+    struct S {}
+    attribute TestAttribute {
+        fn();
+        fn(a: u8);
+        fn(a: u8, b: String);
+        fn(a: u8, b: String, c: f32);
+        a: u8,
+        b: String,
+        c: f32,
+    }
+}

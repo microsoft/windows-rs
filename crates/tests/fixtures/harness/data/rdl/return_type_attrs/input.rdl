@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    attribute ConstAttribute {
+        fn();
+    }
+    #[library("test.dll")]
+    extern fn GetConst() -> #[Const] *const u8;
+}

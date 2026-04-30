@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    #[arch(X86)]
+    struct A {
+        x86: u8,
+    }
+    #[arch(X64 | Arm64)]
+    struct B {
+        arm64: u16,
+        x64: u32,
+    }
+}

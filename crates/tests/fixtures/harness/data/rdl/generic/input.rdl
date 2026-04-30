@@ -1,0 +1,10 @@
+#[winrt]
+mod Test {
+    delegate fn Handler<Arg, Result>(arg: Arg) -> Result;
+    interface IMap<K, V> {
+        fn Lookup(&self, key: K) -> V;
+        fn Handler(&self, handler: Handler<K, V>);
+        fn Generic(&self, map: IMap<K, V>);
+        fn Special(&self, map: IMap<i32, u64>);
+    }
+}

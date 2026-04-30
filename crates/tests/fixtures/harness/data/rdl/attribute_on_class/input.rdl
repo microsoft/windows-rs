@@ -1,0 +1,8 @@
+#[winrt]
+mod Test {
+    attribute FooAttribute {
+        fn(value: u32);
+    }
+    #[Foo(42)]
+    class MyClass {}
+}

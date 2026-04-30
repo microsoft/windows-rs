@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    mod A {
+        mod B {
+            struct C {}
+        }
+    }
+}
