@@ -1,5 +1,5 @@
 use super::*;
-use crate::{Interface, IUnknown, GUID, HRESULT};
+use crate::{IUnknown, Interface, GUID, HRESULT};
 use core::ffi::c_void;
 
 /// A reference-counted, COM-compatible heap allocation used by generated WinRT delegate types.
@@ -20,7 +20,11 @@ pub struct DelegateBox<I: Interface, F> {
 impl<I: Interface, F> DelegateBox<I, F> {
     /// Creates a new `DelegateBox` with a reference count of 1.
     pub const fn new(vtable: *const I::Vtable, invoke: F) -> Self {
-        Self { vtable, invoke, count: RefCount::new(1) }
+        Self {
+            vtable,
+            invoke,
+            count: RefCount::new(1),
+        }
     }
 
     /// Generic `IUnknown::QueryInterface` implementation for delegate boxes.
