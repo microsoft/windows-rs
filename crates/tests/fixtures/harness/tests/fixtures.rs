@@ -1,32 +1,10 @@
 //! Unified test-fixture harness.
 //!
-//! This crate is the reference implementation of the fixture-driven test
-//! format described in `docs/test-todo.md`. Each fixture lives in
-//! `crates/tests/fixtures/harness/data/<group>/<name>/` and consists of a
-//! small set of input files plus golden output files. `build.rs` discovers
-//! every fixture and emits one `#[test]` per fixture; this file dispatches
-//! by `group` to perform the appropriate check.
-//!
-//! Supported groups (phase 1):
-//!
-//! | group     | inputs                       | check                                               |
-//! |-----------|------------------------------|-----------------------------------------------------|
-//! | `rdl`     | `input.rdl`                  | RDL → winmd → RDL, diff vs. `expected.rdl`          |
-//! | `clang`   | `input.h`                    | Clang → RDL → winmd → RDL, diff vs. `expected.rdl`  |
-//! | `bindgen` | `input.rdl` (+ `fixture.toml`) | RDL → winmd → bindgen, diff vs. `expected.rs`     |
-//! | `error`   | `input.rdl` (+ `expected.err`) | reader fails with the expected error message      |
-//! | `merge`   | `input-*.rdl`                | RDL+RDL → winmd → merge → RDL, diff vs. `expected.rdl` |
-//! | `winmd_to_rdl` | `fixture.toml` only (`winmd_input`, `filter`) | writer reads a prebuilt winmd, diff vs. `expected.rdl` |
-//!
-//! Set `UPDATE_GOLDEN=1` (or `UPDATE_GOLDEN=true`) to overwrite `expected.*`
-//! with the actual output instead of asserting equality. This is the only
-//! way to add new fixtures: drop the inputs into a new directory and run
-//! `UPDATE_GOLDEN=1 cargo test -p test_fixtures`.
-//!
-//! Each test writes scratch files under a unique
-//! `$OUT_DIR/scratch/<group>/<name>/` directory so concurrent tests never
-//! contend on the filesystem; `cargo test` then runs every fixture in
-//! parallel.
+//! Each fixture lives in `crates/tests/fixtures/harness/data/<group>/<name>/`
+//! and consists of a small set of input files plus golden output files.
+//! `build.rs` discovers every fixture and emits one `#[test]` per fixture;
+//! this file dispatches by `group` to perform the appropriate check. See
+//! `data/README.md` for the fixture format and the list of supported groups.
 
 use std::path::{Path, PathBuf};
 
@@ -488,9 +466,9 @@ fn run_error_reader_no_input(f: &Fixture) {
 ///   3. Runs the *writer* on `input.rdl`'s winmd alone (no def winmds) and
 ///      asserts it fails. The error is matched against `expected.err`.
 ///
-/// This composes with the future "reference-winmd" coverage from
-/// `docs/test-todo.md` §6.3 and replaces the bespoke
-/// `writer_errors_on_missing_enum_type` test in `tests/libs/rdl/tests/panic.rs`.
+/// This composes with future "reference-winmd" coverage and replaces the
+/// bespoke `writer_errors_on_missing_enum_type` test from the now-removed
+/// `tests/libs/rdl/tests/panic.rs`.
 fn run_error_writer(f: &Fixture) {
     let mut defs: Vec<PathBuf> = std::fs::read_dir(&f.dir)
         .unwrap()
@@ -674,8 +652,7 @@ fn parse_arch_inputs(entries: &[String]) -> Vec<(String, i32)> {
 /// There is no `input.rdl` — this group exists for tests that consume a large
 /// prebuilt winmd (today: `crates/libs/bindgen/default/Windows*.winmd`) and
 /// want to diff a small filtered RDL slice. Replaces the bespoke
-/// `nested-arches.rs`, `nested-packing.rs` and `default-interface.rs` tests
-/// listed in `docs/test-todo.md` Phase 4 deferred table.
+/// `nested-arches.rs`, `nested-packing.rs` and `default-interface.rs` tests.
 ///
 /// `winmd_input` is required; `filter` is required (a whole-winmd dump would
 /// produce an unwieldy golden file and is not the point of these tests).
