@@ -120,13 +120,45 @@ Risk realised: low. `bindings.rs` is unchanged. No callers in `windows-core` wer
 
 ## Stage 4 — `windows-threading` and `windows-future` shapes
 
-These are the pieces blocking `windows-collections` Linux tests today (tests fail because `windows_threading::submit` is not available without `#[cfg(windows)]`).
+**Status: 🚧 in progress — design question open, awaiting benchmark data.**
 
-1. **`windows-threading`**: keep `WaitEvent`/`Pool` Windows-only, but expose the `submit(callback)` entry point as a trait/function that compiles on Linux with a stub body (`unimplemented!()` or a `std::thread::spawn` fallback gated behind a `std` feature). The goal is for *callers* to compile on Linux even if they cannot actually run.
-2. **`windows-future`**: with that stub in place, `IAsyncAction`/`IAsyncOperation`/`Waker` plumbing builds on Linux. Mark the runtime tests `#[cfg(windows)]` and add Linux-only build-only checks.
-3. Add both crates to the Linux build matrix (build-only at first).
+These are the pieces blocking `windows-collections` Linux tests today (tests fail because `windows_threading::submit` is not available without `#[cfg(windows)]`). There are two viable shapes for this stage and the choice between them depends on a measurement that has to run on Windows.
 
-Risk: medium. `windows-future`'s waker integration with the OS thread pool is the trickiest part — keep its body Windows-only and make non-Windows `submit` panic.
+### Open design question — keep `windows-threading`, or drop it from `windows-future`?
+
+`windows-future` only uses `windows-threading` for one thing: a fire-and-forget `submit(closure)` per `IAsyncAction::spawn` / `IAsyncOperation::spawn` (see `crates/libs/future/src/async_spawn.rs`). The waker integration in `future::AsyncFuture::poll` does *not* go through `windows-threading` — it's driven by the WinRT `Completed` handler. So the Stage-4 question reduces to: is `TrySubmitThreadpoolCallback` materially faster than `std::thread::spawn` for that one submit?
+
+If `std::thread::spawn` is "good enough" the cleanest outcome is for `windows-future` to drop the `windows-threading` dependency entirely (replacing each `windows_threading::submit(...)` with `std::thread::spawn(...)` inside the existing `#[cfg(feature = "std")]`-gated `async_spawn` module). `windows-threading` itself stays Windows-only (its `Pool` / `for_each` / `thread_id` / `sleep` surface area is its own product, not used by `windows-future`). That makes Stage 4 a no-op for `windows-threading` and a one-line change in `windows-future`, and Stage 5 (`windows-collections` on Linux) unblocks immediately.
+
+If the Win32 pool is materially faster, we keep the dependency and instead make `submit` cross-platform: leave the Win32 path as the Windows fast path, and add a `std::thread::spawn` fallback on non-Windows, gated behind a default-on `std` feature so the crate's `no_std` story is preserved (`unimplemented!()` body when `no_std` + non-Windows).
+
+### Benchmark to make the call
+
+A self-contained, no-extra-deps Windows-only benchmark lives at [`crates/libs/threading/examples/threading_bench.rs`](../crates/libs/threading/examples/threading_bench.rs). It compares `windows_threading::submit` vs `std::thread::spawn` on three workloads representative of `windows-future`'s usage:
+
+- `single`  — submit one closure, wait, repeat × 1000 (approximates `IAsync*::spawn(...).await` round trip).
+- `burst`   — submit 10 000 closures back-to-back, wait for them all.
+- `steady`  — submit 100 000 closures back-to-back, wait for them all (warm-up amortizes).
+
+Each closure does a single atomic increment, so the dispatch path dominates the measurement. The benchmark file itself is `#![cfg(windows)]` and uses no third-party deps. Run with:
+
+```text
+cargo run --release --example threading_bench -p windows-threading
+```
+
+Decision rule:
+
+- If per-submit cost for `std::thread::spawn` is roughly comparable to the Win32 pool (say, within ~50µs in the `steady` workload), drop `windows-threading` from `windows-future`'s deps. This is the cleanest outcome and is the working assumption.
+- If the Win32 pool is materially faster (say, > 5–10× in `steady`, or `std::thread::spawn` blows past ~500µs/submit), keep the dependency and split `submit` per the alternative above.
+
+### Once the benchmark answer is in, the work in this stage is
+
+1. Apply the chosen shape from above to `windows-future` (and to `windows-threading` if needed).
+2. Mark the runtime async tests `#[cfg(windows)]` and add Linux-only build-only checks.
+3. Add both crates to the Linux build / doc matrix in `.github/workflows/linux.yml`.
+4. Update this section with the actual numbers and the decision taken.
+
+Risk: low–medium. The ambiguity is the design choice; both implementation paths are mechanically simple. `windows-future`'s waker integration is unaffected either way.
 
 ## Stage 5 — `windows-collections` cross-platform
 
