@@ -2,7 +2,7 @@
 ///
 /// This is similar to the [`Drop`] trait, and may be used to implement [`Drop`], but allows resources
 /// to be freed depending on context.
-pub trait Free : Clone {
+pub trait Free: Clone {
     /// Calls the resource's free function.
     ///
     /// # Safety
