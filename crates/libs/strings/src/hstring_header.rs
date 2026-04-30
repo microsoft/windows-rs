@@ -14,9 +14,10 @@ pub struct HStringHeader {
 }
 
 impl HStringHeader {
+    /// Bytes required to back an `HStringHeader` whose `len` field is `len`.
+    /// The space for the terminating null character is already accounted for
+    /// inside of `HStringHeader` (via `buffer_start`).
     fn alloc_bytes(len: u32) -> usize {
-        // Allocate enough space for header and two bytes per character.
-        // The space for the terminating null character is already accounted for inside of `HStringHeader`.
         core::mem::size_of::<Self>() + 2 * len as usize
     }
 
@@ -26,8 +27,7 @@ impl HStringHeader {
         }
 
         let bytes = Self::alloc_bytes(len);
-        let header = unsafe { bindings::heap_alloc(bytes, core::mem::align_of::<Self>()) }
-            as *mut Self;
+        let header = unsafe { heap_alloc(bytes) } as *mut Self;
 
         if header.is_null() {
             panic!("allocation failed");
@@ -57,7 +57,7 @@ impl HStringHeader {
 
         unsafe {
             let bytes = Self::alloc_bytes((*header).len);
-            bindings::heap_free(header as *mut u8, bytes, core::mem::align_of::<Self>());
+            heap_free(header as *mut u8, bytes);
         }
     }
 
@@ -78,3 +78,58 @@ impl HStringHeader {
         }
     }
 }
+
+// HSTRING storage is allocated through the host platform's heap on Windows
+// (so values allocated here are compatible with native callers that free
+// them via `WindowsDeleteString` / `HeapFree`) and through the Rust global
+// allocator on other platforms. The two helpers below are the only place in
+// the crate that knows about either allocator.
+
+/// Allocates `bytes` bytes of memory suitable to back an `HStringHeader`.
+///
+/// Returns null on allocation failure.
+///
+/// # Safety
+/// `bytes` must be non-zero.
+unsafe fn heap_alloc(bytes: usize) -> *mut u8 {
+    #[cfg(windows)]
+    {
+        unsafe { bindings::HeapAlloc(bindings::GetProcessHeap(), 0, bytes) as *mut u8 }
+    }
+    #[cfg(not(windows))]
+    {
+        // `Layout::from_size_align` only fails when `align` is not a power of
+        // two or the rounded-up size would exceed `isize::MAX`. `align_of::<T>`
+        // is a power of two by construction, and `bytes` is bounded by
+        // `size_of::<HStringHeader>() + 2 * u32::MAX`, well under `isize::MAX`
+        // on every supported target.
+        let layout = alloc::alloc::Layout::from_size_align(bytes, ALIGN).unwrap();
+        unsafe { alloc::alloc::alloc(layout) }
+    }
+}
+
+/// Frees a block previously returned by `heap_alloc`.
+///
+/// # Safety
+/// `ptr` must be the result of an `heap_alloc(bytes)` call that has not yet
+/// been freed.
+unsafe fn heap_free(ptr: *mut u8, bytes: usize) {
+    #[cfg(windows)]
+    {
+        let _ = bytes;
+        unsafe {
+            bindings::HeapFree(bindings::GetProcessHeap(), 0, ptr as *mut _);
+        }
+    }
+    #[cfg(not(windows))]
+    {
+        // SAFETY: `bytes` and `ALIGN` match a previous successful call to
+        // `heap_alloc(bytes)` (see safety contract above), so
+        // `Layout::from_size_align` cannot fail here.
+        let layout = alloc::alloc::Layout::from_size_align(bytes, ALIGN).unwrap();
+        unsafe { alloc::alloc::dealloc(ptr, layout) };
+    }
+}
+
+#[cfg(not(windows))]
+const ALIGN: usize = core::mem::align_of::<HStringHeader>();
