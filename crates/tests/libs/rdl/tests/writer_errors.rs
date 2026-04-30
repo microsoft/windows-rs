@@ -1,4 +1,16 @@
 // Tests that writer error conditions return Err instead of panicking.
+//
+// The four `writer_succeeds_for_*` happy-path smoke tests that previously
+// lived in this file (callback / delegate / enum / interface) were removed
+// in phase 4 batch 3 of the `docs/test-todo.md` migration: their inline RDL
+// inputs are strict subsets of the existing
+// `crates/tests/roundtrip/rdl/src/{fn,delegate,enum,class}.rdl` cases, which
+// already exercise the same writer code paths via byte-stable roundtrip
+// diffs (a strictly stronger check than `assert!(result.is_ok())`). The
+// two `writer_returns_err_for_*` tests below remain because the harness
+// does not yet model writer-side I/O failures (filesystem-level errors on
+// the output path) — that knob is deferred to a later batch alongside the
+// §6.4 CLI fixtures, per the deferred table in `docs/test-todo.md`.
 
 use std::sync::atomic::{AtomicU32, Ordering};
 
@@ -89,106 +101,6 @@ mod Test {
     );
 }
 
-// ── Happy-path smoke tests (writer returns Ok for valid metadata) ─────────────
-
-#[test]
-fn writer_succeeds_for_callback() {
-    let winmd = compile_rdl_to_winmd(
-        r#"
-#[win32]
-mod Test {
-    extern fn Handler(value: i32);
-}
-    "#,
-    );
-
-    let outpath = unique_path(".rdl");
-    let result = windows_rdl::writer()
-        .input(winmd.to_str().expect("temp_dir is valid UTF-8"))
-        .output(outpath.to_str().expect("temp_dir is valid UTF-8"))
-        .filter("Test")
-        .write();
-
-    let _ = std::fs::remove_file(&winmd);
-    let _ = std::fs::remove_file(&outpath);
-
-    assert!(result.is_ok(), "writer should succeed for a valid callback");
-}
-
-#[test]
-fn writer_succeeds_for_delegate() {
-    let winmd = compile_rdl_to_winmd(
-        r#"
-#[winrt]
-mod Test {
-    delegate fn Handler(value: i32);
-}
-    "#,
-    );
-
-    let outpath = unique_path(".rdl");
-    let result = windows_rdl::writer()
-        .input(winmd.to_str().expect("temp_dir is valid UTF-8"))
-        .output(outpath.to_str().expect("temp_dir is valid UTF-8"))
-        .filter("Test")
-        .write();
-
-    let _ = std::fs::remove_file(&winmd);
-    let _ = std::fs::remove_file(&outpath);
-
-    assert!(result.is_ok(), "writer should succeed for a valid delegate");
-}
-
-#[test]
-fn writer_succeeds_for_enum() {
-    let winmd = compile_rdl_to_winmd(
-        r#"
-#[win32]
-mod Test {
-    #[repr(u32)]
-    enum Color { Red = 0, Green = 1, Blue = 2, }
-}
-    "#,
-    );
-
-    let outpath = unique_path(".rdl");
-    let result = windows_rdl::writer()
-        .input(winmd.to_str().expect("temp_dir is valid UTF-8"))
-        .output(outpath.to_str().expect("temp_dir is valid UTF-8"))
-        .filter("Test")
-        .write();
-
-    let _ = std::fs::remove_file(&winmd);
-    let _ = std::fs::remove_file(&outpath);
-
-    assert!(result.is_ok(), "writer should succeed for a valid enum");
-}
-
-#[test]
-fn writer_succeeds_for_interface() {
-    let winmd = compile_rdl_to_winmd(
-        r#"
-#[win32]
-mod Test {
-    interface IFoo {
-        fn Method(&self) -> i32;
-    }
-}
-    "#,
-    );
-
-    let outpath = unique_path(".rdl");
-    let result = windows_rdl::writer()
-        .input(winmd.to_str().expect("temp_dir is valid UTF-8"))
-        .output(outpath.to_str().expect("temp_dir is valid UTF-8"))
-        .filter("Test")
-        .write();
-
-    let _ = std::fs::remove_file(&winmd);
-    let _ = std::fs::remove_file(&outpath);
-
-    assert!(
-        result.is_ok(),
-        "writer should succeed for a valid interface"
-    );
-}
+// ── Happy-path smoke tests ────────────────────────────────────────────────────
+//
+// Removed in phase 4 batch 3. See the file header for the rationale.
