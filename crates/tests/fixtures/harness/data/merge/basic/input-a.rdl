@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    interface IShape {
+        fn Area(&self) -> i32;
+    }
+    struct Point {
+        x: i32,
+        y: i32,
+    }
+}
