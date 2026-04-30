@@ -1,9 +1,8 @@
-#![cfg(windows)]
 // The stock `spawn` implementation hold a strong reference to the async object on the thread pool
 // so the caller can drop its reference if necessary.
 
 use std::sync::mpsc::channel;
-use windows::core::*;
+use windows_core::*;
 use windows_future::*;
 
 #[test]

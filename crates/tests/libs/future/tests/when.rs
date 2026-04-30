@@ -1,8 +1,8 @@
-#![cfg(windows)]
 use std::sync::mpsc::channel;
-use windows::Win32::Foundation::E_FAIL;
 use windows_future::*;
 use windows_result::*;
+
+const E_FAIL: HRESULT = HRESULT(0x80004005_u32 as _);
 
 #[test]
 fn ok() -> Result<()> {
@@ -74,6 +74,9 @@ fn ok() -> Result<()> {
 }
 
 #[test]
+#[cfg(windows)]
+// `Error::new(code, message)` only preserves the message text on Windows (via `IErrorInfo`),
+// so `err.message()` assertions can only be verified on that target.
 fn err() -> Result<()> {
     let a = IAsyncAction::ready(Err(Error::new(E_FAIL, "IAsyncAction-ready")));
 

@@ -2,9 +2,15 @@
 // Tests error propagation for all stock implementations. Here we're using `get` which calls `GetResults`
 // as that is the normal path for most callers. Older callers may also use `ErrorCode` so that is tested
 // as well.
+//
+// This file is Windows-only because `windows_core::Error::new(code, message)` only stores the
+// message text on Windows (via `IErrorInfo`/`OriginateError`); on other targets the message is
+// dropped and `.message()` falls back to the HRESULT description.
 
-use windows::{core::*, Win32::Foundation::*};
+use windows_core::*;
 use windows_future::*;
+
+const E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED: HRESULT = HRESULT(0x83760003_u32 as _);
 
 #[test]
 fn action_ready() -> Result<()> {
