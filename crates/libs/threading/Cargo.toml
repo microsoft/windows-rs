@@ -12,10 +12,6 @@ readme = "readme.md"
 [dependencies]
 windows-link = { workspace = true }
 
-[features]
-default = ["std"]
-std = []
-
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
