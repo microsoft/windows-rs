@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern fn GetValue() -> u32;
+    #[library("test.dll")]
+    extern fn SetValue(value: u32);
+}

@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    extern fn A();
+    extern fn B(a: bool, b: f32) -> i32;
+}

@@ -1,0 +1,3 @@
+
+error: class interface does not support attributes
+ --> input.rdl:6:9

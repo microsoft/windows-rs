@@ -126,6 +126,25 @@ D. **Keep as-is:**
 6. **Add the new coverage** from §6 once the harness is stable.
 7. **Document** the fixture format in a `crates/tests/fixtures/README.md` so contributors add data, not Rust.
 
+### Phase 1 status
+
+- [x] **Harness crate landed** at `crates/tests/fixtures/harness/` (crate name `test_fixtures`).
+  - `build.rs` walks `data/<group>/<name>/` and emits one `#[test]` per fixture (same codegen pattern as the existing `roundtrip/{rdl,clang,bindgen}/build.rs`, so per-fixture parallelism is preserved — Cargo runs each `#[test]` on its own thread by default).
+  - Each test scratch-writes under a unique `$OUT_DIR/scratch/<group>/<name>/` directory, so concurrent fixtures never share filesystem state. This was a deliberate change from the existing `roundtrip` crates, which overwrite their own `src/*.rdl`/`*.winmd` files in place; that scheme is parallel-safe only because every fixture's basename is unique. Routing scratch through `$OUT_DIR` removes that constraint and keeps the tree clean.
+  - `UPDATE_GOLDEN=1 cargo test -p test_fixtures` rewrites every `expected.*`, matching the `tool_bindgen` UX uniformly across all output kinds.
+  - Measured runtime on the demo fixtures: 0.46s wall for 21 tests, vs. 0.43s for 63 tests in the legacy `test_roundtrip_rdl`. Per-fixture cost is comparable; phase 5 should not regress overall wall-time.
+- [x] **Demo fixtures (5 each)** for `rdl`, `clang`, `bindgen`, `error`, plus 1 for `merge` (the existing suite only has two merge cases total). The `bindgen` and `error` flows had no equivalent in the legacy roundtrip crates and exercise new harness paths end-to-end.
+- [x] **Fixture format documented** at `crates/tests/fixtures/harness/data/README.md`.
+
+### Phase 1 design decisions / deltas from §4
+
+- **Fixture root is `crates/tests/fixtures/harness/data/<group>/<name>/`, not `crates/tests/fixtures/<group>/<name>/`** as originally sketched. Reason: the workspace `members` glob is `crates/tests/*/*`, so a sibling fixtures-only directory would either need a global `exclude` entry per group or would fail the workspace check. Co-locating the data inside the harness crate keeps the workspace declaration unchanged and means the harness can refer to fixtures via `CARGO_MANIFEST_DIR` without any extra path plumbing. The README in §4 still applies; only the on-disk root moved.
+- **`fixture.toml` is parsed by a tiny in-tree key/value parser** rather than pulling in a TOML crate. It only accepts a strict subset of TOML (`key = "string"`, `key = true|false`, `key = ["string", ...]`), so a fixture written today will keep parsing if we later swap in a real TOML dependency. Supported keys for phase 1: `filter`, `references`, `no_allow`, `no_comment`, `specific_deps`. Anything richer (`--sys`, `--no-deps`, `--flat`, `--split`, `argv.txt`, multi-arch bits, `requires_target_pointer_width`) is deferred until the corresponding migration phase needs it, to avoid speculatively designing knobs nobody consumes.
+- **`error` fixtures use `Result::Err` rather than `catch_unwind`.** `windows_rdl::reader().write()` already returns `Result<(), Error>`, so the harness asserts on the returned error directly. The error rendering substitutes the basename for the absolute input path so `expected.err` is portable across machines (the existing `panic.rs` tests embed `.rdl` in their messages because they use `input_str`; once we migrate them to fixtures the basename will be `input.rdl`, which is still diff-friendly).
+- **`merge` fixtures discover inputs by the `input-*.rdl` glob** rather than declaring them in `fixture.toml`. Lexical ordering is intuitive (`input-a.rdl`, `input-b.rdl`) and makes per-input arch tagging trivial to add later (`input-x86.rdl`, `input-x64.rdl` driving `arch_input` calls).
+- **`winmd_<name>` (structural dump) and `cli_<name>` checks from §4.2 are not yet implemented.** They aren't blocking for phase 1's "demonstrate it on 3–5 fixtures from each category" gate; we'll add them once a migration phase needs them so we can co-design the dump format with a real consumer.
+- **Phase 1 leaves the original tests in place.** The new harness runs alongside `roundtrip/{rdl,clang,bindgen}`, `libs/rdl/tests/panic.rs` and `libs/metadata/tests/merge.rs`. Phases 2–5 delete the originals as their fixtures land.
+
 ## 8. Outcome
 
 - ~200 hand-rolled test files / 180 imperative `test()` calls collapse to a single harness + ~250 fixture directories.
