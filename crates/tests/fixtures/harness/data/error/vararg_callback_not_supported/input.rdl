@@ -1,0 +1,6 @@
+
+#[win32]
+mod Test {
+    extern "C" fn Handler(a: i32, ...);
+}
+        

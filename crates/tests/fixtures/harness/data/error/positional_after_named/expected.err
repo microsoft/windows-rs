@@ -1,0 +1,3 @@
+
+error: positional attribute arguments must come before named arguments
+ --> input.rdl:6:27

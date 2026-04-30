@@ -1,0 +1,6 @@
+
+#[win32]
+mod Test {
+    const MY_GUID: GUID;
+}
+        

@@ -118,9 +118,9 @@ D. **Keep as-is:**
 
 ## 7. Phased rollout
 
-1. **Land the harness and fixture format** alongside the existing tests; demonstrate it on 3–5 fixtures from each category.
+1. **Land the harness and fixture format** alongside the existing tests; demonstrate it on 3–5 fixtures from each category. ✅ *Done — see "Phase 1 status" below.*
 2. **Migrate `tool_bindgen`** to the harness; delete `crates/tools/bindgen/src/main.rs` body.
-3. **Migrate panic/error tests** (mechanical translation; can be scripted).
+3. **Migrate panic/error tests** (mechanical translation; can be scripted). 🟢 *In progress — see "Phase 3 status" below; 53/54 tests migrated, only the writer-error case remains.*
 4. **Migrate bespoke `tests/libs/rdl/tests/*` files**, deleting each as its fixture lands.
 5. **Collapse `tests/roundtrip/{rdl,clang,bindgen}` crates** into the harness; delete them.
 6. **Add the new coverage** from §6 once the harness is stable.
@@ -144,6 +144,18 @@ D. **Keep as-is:**
 - **`merge` fixtures discover inputs by the `input-*.rdl` glob** rather than declaring them in `fixture.toml`. Lexical ordering is intuitive (`input-a.rdl`, `input-b.rdl`) and makes per-input arch tagging trivial to add later (`input-x86.rdl`, `input-x64.rdl` driving `arch_input` calls).
 - **`winmd_<name>` (structural dump) and `cli_<name>` checks from §4.2 are not yet implemented.** They aren't blocking for phase 1's "demonstrate it on 3–5 fixtures from each category" gate; we'll add them once a migration phase needs them so we can co-design the dump format with a real consumer.
 - **Phase 1 leaves the original tests in place.** The new harness runs alongside `roundtrip/{rdl,clang,bindgen}`, `libs/rdl/tests/panic.rs` and `libs/metadata/tests/merge.rs`. Phases 2–5 delete the originals as their fixtures land.
+
+### Phase 3 status — `panic.rs` migration
+
+- [x] **Migrated 48 of 49 reader-error `#[should_panic]` tests** from `crates/tests/libs/rdl/tests/panic.rs` to `error/<name>/` fixtures (5 reader-error fixtures already existed from phase 1, bringing the total to 53). Mechanical migration: extract the inline RDL string into `input.rdl`, run `UPDATE_GOLDEN=1 cargo test -p test_fixtures` to write `expected.err`, verify the generated golden contains the original `should_panic(expected = …)` substring (after substituting `.rdl` → `input.rdl`), then delete the old `#[should_panic]` block.
+- [x] **`panic.rs` shrunk from 875 lines / 54 tests to 58 lines / 1 test** (`writer_errors_on_missing_enum_type`, see below). The unused `should_panic` helper fn was deleted along with its callers.
+- [ ] **`writer_errors_on_missing_enum_type` cannot migrate yet.** It compiles two RDL strings into winmds via the *reader*, then asserts the *writer* fails when the second winmd is fed in without the first. The current `error_<name>` runner only captures `reader()` errors. Adding a writer-error path needs either (a) a `kind = "writer"` knob in `fixture.toml` or (b) a multi-input layout (`input.rdl` + `ref-defs.rdl`) where the harness compiles the refs to scratch winmds and feeds them to the writer. Option (b) composes better with the future "reference-winmd" coverage from §6.3, so leave this as the only remaining `#[should_panic]` test until that knob lands.
+
+### Phase 3 design decisions / deltas from §4
+
+- **Fixture directory names drop the `_errors` suffix.** Original tests use names like `unknown_attribute_errors`/`positional_after_named_errors`; the suffix is redundant once the test lives in the `error/` group, so fixtures are named `unknown_attribute`/`positional_after_named`. The remaining `_errors` cases keep their suffix only when stripping it would collide with another fixture (none today).
+- **`should_panic` substring matching is good enough as a verification gate.** Rust's `#[should_panic(expected = …)]` already does substring matching, so the migration verifies that the generated `expected.err` *contains* the original `expected = …` literal (after `.rdl` → `input.rdl` substitution). The new `expected.err` is more precise (full message + final source location) than the original substring, which is a deliberate strengthening: future regressions in the unmatched suffix will now fail tests instead of slipping through.
+- **The `should_panic` helper and the `should_panic` Rust attribute are unrelated.** The helper was a wrapper around `windows_rdl::reader().input_str(rdl).output(".winmd").write().unwrap()` whose name advertised intent rather than mechanism. After migration, only `compile_to_winmd` (which the writer-error test still uses) survives.
 
 ## 8. Outcome
 

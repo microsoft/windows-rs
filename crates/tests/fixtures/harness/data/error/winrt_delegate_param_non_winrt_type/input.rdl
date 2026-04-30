@@ -1,0 +1,9 @@
+
+#[winrt]
+mod Test {
+    delegate fn MyDelegate(value: Win32Type);
+}
+#[win32]
+mod Test {
+    struct Win32Type { x: i32, }
+}

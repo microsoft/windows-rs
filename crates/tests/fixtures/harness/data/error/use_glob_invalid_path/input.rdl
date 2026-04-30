@@ -1,0 +1,10 @@
+
+use NonExistent::*;
+
+#[winrt]
+mod Test {
+    struct Thing {
+        a: NoSuchType,
+    }
+}
+        

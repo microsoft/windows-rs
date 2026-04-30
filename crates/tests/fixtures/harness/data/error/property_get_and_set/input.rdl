@@ -1,0 +1,10 @@
+
+#[win32]
+mod Test {
+    interface IFoo {
+        #[get]
+        #[set]
+        Value: i32;
+    }
+}
+        

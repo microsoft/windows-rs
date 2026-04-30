@@ -1,0 +1,15 @@
+
+use Other::*;
+
+#[winrt]
+mod Test {
+    struct Thing {
+        a: NoSuchType,
+    }
+}
+
+#[winrt]
+mod Other {
+    struct ExistingThing {}
+}
+        

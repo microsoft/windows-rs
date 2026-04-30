@@ -1,0 +1,3 @@
+
+error: invalid u128 literal in `#[guid]`
+ --> input.rdl:4:5

@@ -1,0 +1,8 @@
+
+#[win32]
+mod Test {
+    interface IFoo {
+        fn Method(&self, #[out(42)] output: i32);
+    }
+}
+        

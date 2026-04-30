@@ -1,0 +1,6 @@
+
+#[win32]
+mod Test {
+    extern "D" fn Handler();
+}
+        

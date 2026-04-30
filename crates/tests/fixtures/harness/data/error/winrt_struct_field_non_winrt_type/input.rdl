@@ -1,0 +1,11 @@
+
+#[winrt]
+mod Test {
+    struct WinRtPoint {
+        a: Win32Rect,
+    }
+}
+#[win32]
+mod Test {
+    struct Win32Rect { x: i32, }
+}
