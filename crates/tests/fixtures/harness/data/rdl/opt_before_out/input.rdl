@@ -1,0 +1,6 @@
+#[winrt]
+mod Test {
+    interface ITest {
+        fn OutOptional(&self, #[opt] #[out] value: u32);
+    }
+}

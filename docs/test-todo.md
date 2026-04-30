@@ -121,7 +121,7 @@ D. **Keep as-is:**
 1. **Land the harness and fixture format** alongside the existing tests; demonstrate it on 3–5 fixtures from each category. ✅ *Done — see "Phase 1 status" below.*
 2. **Migrate `tool_bindgen`** to the harness; delete `crates/tools/bindgen/src/main.rs` body.
 3. **Migrate panic/error tests** (mechanical translation; can be scripted). ✅ *Done — all 54 `panic.rs` tests have moved to fixtures and `panic.rs` has been deleted; see "Phase 3 status" below.*
-4. **Migrate bespoke `tests/libs/rdl/tests/*` files**, deleting each as its fixture lands.
+4. **Migrate bespoke `tests/libs/rdl/tests/*` files**, deleting each as its fixture lands. 🚧 *In progress — see "Phase 4 status" below.*
 5. **Collapse `tests/roundtrip/{rdl,clang,bindgen}` crates** into the harness; delete them.
 6. **Add the new coverage** from §6 once the harness is stable.
 7. **Document** the fixture format in a `crates/tests/fixtures/README.md` so contributors add data, not Rust.
@@ -158,6 +158,31 @@ D. **Keep as-is:**
 - **The `should_panic` helper and the `should_panic` Rust attribute are unrelated.** The helper was a wrapper around `windows_rdl::reader().input_str(rdl).output(".winmd").write().unwrap()` whose name advertised intent rather than mechanism. The migration deleted it along with the last caller.
 - **Writer-error fixtures use a `kind = "writer"` knob plus a `defs-*.rdl` multi-input layout.** Implemented option (b) from the previous phase 3 status: `error/<name>/` may contain one or more `defs-*.rdl` files (lexical order) alongside `input.rdl`. The harness compiles each `defs-*.rdl` to a scratch winmd, then compiles `input.rdl` with those winmds as additional reader inputs (both reader steps must succeed), then runs the *writer* on `input.rdl`'s winmd alone (no def winmds) and asserts it fails. This composes with the future "reference-winmd" coverage from §6.3, which will reuse the same `defs-*.rdl` discovery pattern for the `bindgen` group. Only one writer-error fixture exists today (`error/writer_missing_enum_type/`) but the layout is the canonical shape future writer-error tests should follow.
 - **Writer errors render without a path/line prefix.** `windows_rdl::writer_err!` constructs an `Error` with `file_name=""`, `line=0`, `column=0`, so the `Display` impl emits `\nerror: <msg>` (no `--> path:line:col` suffix). The harness uses `format!("{err}")` directly for writer-error fixtures rather than going through the path-substitution helper used for reader errors.
+
+### Phase 4 status — bespoke `tests/libs/rdl/tests/*` migration
+
+Strategy: migrate in batches by *shape*, starting with files that fit the existing `rdl` group (RDL → winmd → RDL roundtrip). Files that need new harness features are deferred and listed below so a future phase 4 batch can co-design the knob with a real consumer.
+
+**Batch 1 (this commit) — pure-roundtrip with no harness changes:**
+
+- [x] `opt.rs::opt_before_out` → `rdl/opt_before_out`. Inline RDL string moved into `input.rdl`; the regenerated `expected.rdl` shows that the writer canonicalizes `#[opt] #[out]` to `#[out] #[opt]`. The original test only asserted `contains("#[opt]")`, so the golden RDL is a strictly stronger check (it now also catches drift in attribute ordering or surrounding output).
+- [x] `use-declarations.rs::parse` → `rdl/use_declarations`. The existing `use-declarations.rdl` / `use-declarations-out.rdl` files map directly to `input.rdl` / `expected.rdl` with no edits.
+- [x] `use-declarations.rs::parse_with_reference` → `rdl/use_declarations_ref`. Uses `references = ["../../../libs/bindgen/default/Windows.winmd"]` in `fixture.toml`. Note: the harness's `rdl` runner currently passes `references` to *both* the reader and the writer, while the original test passed the reference winmd to the reader only. The output is byte-identical (the writer's `filter("Test")` already excludes the referenced types from emission), so the existing golden file is reused unchanged.
+
+**Deferred — need a new harness check or knob; tracked here so the next batch can group them by feature:**
+
+| Test file | Why it doesn't fit the current `rdl` group | Harness work needed |
+|---|---|---|
+| `struct_fields.rs`, `struct_values.rs`, `fn_abi.rs` | Run `windows_bindgen` with `--sys` + `--no-comment`, write the `.rs` into `crates/tests/libs/rdl/src/` (committed, then `use`d from the test for runtime `size_of`/`align_of`/`Debug` asserts) | Extend the `bindgen` group (or add a new `bindgen_sys` group) to accept `sys = true`/`no_comment = true` knobs and to write `expected.rs` somewhere a downstream test crate can `mod` it. The runtime asserts themselves can stay in `tests/libs/rdl` as a thin "consume the generated bindings" crate (per §6 of this doc). |
+| `nested-arches.rs`, `nested-packing.rs`, `default-interface.rs` | `winmd → RDL` only (no roundtrip): consume a prebuilt `default/*.winmd`, write a single committed `.rdl` for human review. | Add a `winmd_to_rdl` group (or generalize `rdl` to allow omitting `input.rdl` and using a referenced winmd as the source) plus a `filter` knob in `fixture.toml`. The committed `.rdl` becomes `expected.rdl`. |
+| `mod-recursive.rs` | Single reader, then four writer invocations with different filters, each emitting a separate committed `.rdl` for diff review. | Either split into four fixtures (one per filter, each with its own `expected.rdl`) once the `winmd_to_rdl` shape exists, or add a `[[outputs]]`-style array to `fixture.toml`. The first option is mechanically simpler and fits the "one fixture, one assertion" principle. |
+| `directory.rs`, `split.rs` | Reader/writer take a *directory* path, not a single file. | Add a `directory_input = true` / `split = true` knob, and have the harness compare directory trees instead of single files. Best paired with the `tool_bindgen` migration in phase 2 since CLI cases hit the same code path. |
+| `assembly_name.rs` | No input file at all (asserts the reader's auto-derived assembly name from the output basename); also uses `windows_metadata::reader::File::read` directly. | Could be expressed as an `rdl` fixture with an empty `input.rdl` plus an `expected.winmd.txt` structural dump (the §4.2 `winmd_<name>` check that's still unimplemented). Until then, it can stay where it is. |
+| `invalid_output.rs` | Single `should_panic` for `reader().output(".").write()` (no input RDL). | Reuse the `error/<name>/` layout but allow `input.rdl` to be omitted when `kind = "reader_no_input"`. Low priority — one test. |
+| `filter.rs` | Three roundtrips that each `assert!(contents.contains("…"))` rather than diffing the whole RDL. | The full-file diff in the existing `rdl` group is strictly stronger; once the inline RDL becomes `input.rdl`, the three filters become three separate fixtures with their own `expected.rdl`. Pure mechanical translation, just three fixtures to author. Defer to batch 2. |
+| `exclusive-to.rs`, `guid-derive.rs`, `const-underlying*.rs` | Read back the produced winmd via `windows_metadata::reader` and assert on attribute *values* (e.g. derived GUIDs, `ExclusiveTo` targets, `const` underlying types). Roundtripping the RDL doesn't prove the attribute was encoded correctly. | Add the §4.2 `winmd_<name>` check (a textual structural dump of the winmd) so these become diffable goldens. This is the same gap §6.7 ("attribute encoding edge cases") calls out, so the dump format should be co-designed with that work. |
+| `error.rs::error_display` | Plain unit test for the `Error` `Display` impl — does not consume the fixture format. | Keep as-is per §5.D. |
+| `writer_errors.rs` | Mix of "writer succeeds for X" smoke tests and "writer returns Err for bad output path" — neither asserts on output content. | The "succeeds" cases should turn into ordinary `rdl` fixtures (their input RDL exists inline today). The two `Err` cases want a `kind = "writer"` fixture where the failure point is an output path / split mode rather than a missing reference, which the current `kind = "writer"` shape doesn't model. Defer to a later batch alongside the §6.4 CLI fixtures. |
 
 ## 8. Outcome
 
