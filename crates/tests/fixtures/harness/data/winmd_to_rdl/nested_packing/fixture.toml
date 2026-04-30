@@ -1,0 +1,5 @@
+# Verify that un-nested (anonymous) inner types inherit the `packed` attribute
+# from their enclosing struct or union.
+# Migrated from crates/tests/libs/rdl/tests/nested-packing.rs.
+winmd_input = "../../../../../../libs/bindgen/default/Windows.Win32.winmd"
+filter = "Windows.Win32.Devices.Bluetooth.BTH_INFO_RSP"

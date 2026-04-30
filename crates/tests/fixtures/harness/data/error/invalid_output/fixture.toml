@@ -1,0 +1,3 @@
+# Reader rejects an output path that is not a valid file path.
+# Migrated from crates/tests/libs/rdl/tests/invalid_output.rs.
+kind = "reader_no_input"

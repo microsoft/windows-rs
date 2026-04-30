@@ -36,6 +36,7 @@ preserved (this is what keeps the suite as fast as the existing
 | `bindgen` | `input.rdl` + `fixture.toml` | RDL → winmd → bindgen, diff vs. `expected.rs`        |
 | `error`   | `input.rdl` + `expected.err` (+ optional `defs-*.rdl` for `kind = "writer"`) | reader **or** writer fails with the expected message |
 | `merge`   | `input-*.rdl` (≥ 2)          | each → winmd → merge → RDL, diff vs. `expected.rdl`  |
+| `winmd_to_rdl` | `fixture.toml` only (`winmd_input` + `filter`) | writer reads a prebuilt winmd, diff vs. `expected.rdl` |
 
 ## `fixture.toml`
 
@@ -45,11 +46,12 @@ dependencies. Supported keys:
 | key              | type       | applies to | meaning                                   |
 |------------------|------------|------------|-------------------------------------------|
 | `filter`         | string     | all        | namespace filter (default: `"Test"`)      |
-| `references`     | string[]   | rdl/clang/bindgen/merge | extra reader/writer inputs   |
+| `references`     | string[]   | rdl/clang/bindgen/merge/winmd_to_rdl | extra reader/writer inputs (paths relative to the fixture dir for `winmd_to_rdl`) |
+| `winmd_input`    | string     | winmd_to_rdl | path (relative to the fixture dir) of the prebuilt winmd to filter |
 | `no_allow`       | bool       | bindgen    | pass `--no-allow` to bindgen              |
 | `no_comment`     | bool       | bindgen    | pass `--no-comment` to bindgen            |
 | `specific_deps`  | bool       | bindgen    | pass `--specific-deps` to bindgen         |
-| `kind`           | string     | error      | `"reader"` (default) or `"writer"` — which stage must fail |
+| `kind`           | string     | error      | `"reader"` (default), `"reader_no_input"`, or `"writer"` — which stage must fail |
 
 The format is a strict subset of real TOML so a fixture written today
 will keep parsing if the harness later swaps in a full TOML crate.

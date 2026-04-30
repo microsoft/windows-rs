@@ -16,6 +16,7 @@
 //! | `bindgen` | `input.rdl` (+ `fixture.toml`) | RDL → winmd → bindgen, diff vs. `expected.rs`     |
 //! | `error`   | `input.rdl` (+ `expected.err`) | reader fails with the expected error message      |
 //! | `merge`   | `input-*.rdl`                | RDL+RDL → winmd → merge → RDL, diff vs. `expected.rdl` |
+//! | `winmd_to_rdl` | `fixture.toml` only (`winmd_input`, `filter`) | writer reads a prebuilt winmd, diff vs. `expected.rdl` |
 //!
 //! Set `UPDATE_GOLDEN=1` (or `UPDATE_GOLDEN=true`) to overwrite `expected.*`
 //! with the actual output instead of asserting equality. This is the only
@@ -51,6 +52,7 @@ fn run_fixture(group: &str, name: &str) {
         "bindgen" => run_bindgen(&fixture),
         "error" => run_error(&fixture),
         "merge" => run_merge(&fixture),
+        "winmd_to_rdl" => run_winmd_to_rdl(&fixture),
         other => panic!("unknown fixture group {other:?}"),
     }
 }
@@ -132,11 +134,20 @@ struct FixtureConfig {
     no_comment: bool,
     specific_deps: bool,
     references: Vec<String>,
+    /// For the `winmd_to_rdl` group: the prebuilt winmd (or directory) the
+    /// writer should consume. There is no `input.rdl`; the fixture is a
+    /// pure "filter a winmd to RDL" check used today by the legacy
+    /// `nested-arches`, `nested-packing` and `default-interface` tests.
+    winmd_input: Option<String>,
     /// For `error` fixtures: which stage is expected to fail. Defaults to
     /// `"reader"` (the legacy behaviour). `"writer"` means the harness must
     /// successfully compile inputs to a winmd via the reader and then assert
     /// that the *writer* fails when fed that winmd back without the
     /// referenced `defs-*.rdl` winmds.
+    ///
+    /// `"reader_no_input"` runs the reader with no input file; it exists for
+    /// the single legacy `invalid_output` test which asserts the reader
+    /// rejects an output path of `.`.
     kind: Option<String>,
 }
 
@@ -159,6 +170,7 @@ impl FixtureConfig {
                 "no_comment" => cfg.no_comment = parse_bool(value),
                 "specific_deps" => cfg.specific_deps = parse_bool(value),
                 "references" => cfg.references = parse_string_list(value),
+                "winmd_input" => cfg.winmd_input = Some(parse_string(value)),
                 "kind" => cfg.kind = Some(parse_string(value)),
                 other => panic!("fixture.toml: unknown key {other:?}"),
             }
@@ -327,9 +339,10 @@ fn run_error(f: &Fixture) {
     let cfg = f.config();
     match cfg.kind.as_deref().unwrap_or("reader") {
         "reader" => run_error_reader(f),
+        "reader_no_input" => run_error_reader_no_input(f),
         "writer" => run_error_writer(f),
         other => panic!(
-            "[{}/{}] unknown error fixture kind {other:?}; expected \"reader\" or \"writer\"",
+            "[{}/{}] unknown error fixture kind {other:?}; expected \"reader\", \"reader_no_input\", or \"writer\"",
             f.group, f.name
         ),
     }
@@ -355,6 +368,37 @@ fn run_error_reader(f: &Fixture) {
     // varies per machine; use the raw `message`/`line`/`column` fields so
     // expected.err is portable.
     let actual = format_error(&err, &input);
+    diff_or_update_string(&actual, &f.input("expected.err"));
+}
+
+/// `kind = "reader_no_input"`: run the reader with *no* input file, asserting
+/// it fails. This is a niche shape used today by the single legacy
+/// `invalid_output` test which feeds an output path of `.` to the reader and
+/// expects "invalid output". The harness assumes the output target is `.`
+/// (the only construction the test actually exercises) — if a future fixture
+/// needs a different output, lift this to a `reader_output = "..."` knob.
+fn run_error_reader_no_input(f: &Fixture) {
+    let err = windows_rdl::reader()
+        .output(".")
+        .write()
+        .err()
+        .unwrap_or_else(|| {
+            panic!(
+                "[{}/{}] expected reader to fail but it succeeded",
+                f.group, f.name
+            )
+        });
+
+    // The Display impl includes ` --> <path>:<line>:<col>` whose `<path>` is
+    // the absolute output path, which differs across machines. The legacy
+    // test asserted only on the prefix `error: invalid output\n --> .`, so
+    // we drop the path/line suffix and render the message with the same
+    // leading-`\n` + trailing-`\n` framing that `windows_rdl::Error`'s
+    // `Display` impl uses for every other reader-error fixture, keeping
+    // expected.err visually consistent across the `error/` group. If this
+    // shape ever outgrows a single fixture we should reuse `format_error`
+    // instead.
+    let actual = format!("\nerror: {}\n", err.message);
     diff_or_update_string(&actual, &f.input("expected.err"));
 }
 
@@ -496,6 +540,59 @@ fn run_merge(f: &Fixture) {
     let filter = cfg.filter.as_deref().unwrap_or("Test");
     windows_rdl::writer()
         .input(merged.to_str().unwrap())
+        .output(actual_rdl.to_str().unwrap())
+        .filter(filter)
+        .write()
+        .unwrap_or_else(|e| panic!("[{}/{}] writer: {e}", f.group, f.name));
+
+    diff_or_update(&actual_rdl, &f.input("expected.rdl"));
+}
+
+/// Writer-only "filter a prebuilt winmd to RDL" fixture.
+///
+/// Layout:
+/// ```text
+/// data/winmd_to_rdl/<name>/
+///     fixture.toml   # winmd_input = "<path>"; filter = "<type>"; (references optional)
+///     expected.rdl
+/// ```
+///
+/// There is no `input.rdl` — this group exists for tests that consume a large
+/// prebuilt winmd (today: `crates/libs/bindgen/default/Windows*.winmd`) and
+/// want to diff a small filtered RDL slice. Replaces the bespoke
+/// `nested-arches.rs`, `nested-packing.rs` and `default-interface.rs` tests
+/// listed in `docs/test-todo.md` Phase 4 deferred table.
+///
+/// `winmd_input` is required; `filter` is required (a whole-winmd dump would
+/// produce an unwieldy golden file and is not the point of these tests).
+fn run_winmd_to_rdl(f: &Fixture) {
+    let cfg = f.config();
+    let winmd_input = cfg.winmd_input.as_deref().unwrap_or_else(|| {
+        panic!(
+            "[{}/{}] winmd_to_rdl fixture requires `winmd_input = \"...\"` in fixture.toml",
+            f.group, f.name
+        )
+    });
+    let filter = cfg.filter.as_deref().unwrap_or_else(|| {
+        panic!(
+            "[{}/{}] winmd_to_rdl fixture requires `filter = \"...\"` in fixture.toml",
+            f.group, f.name
+        )
+    });
+
+    // `winmd_input` and `references` paths are resolved relative to the
+    // fixture directory so authors can use `../../../...` the same way the
+    // legacy roundtrip crates do.
+    let resolved_input = f.dir.join(winmd_input);
+
+    let actual_rdl = f.scratch("out.rdl");
+    let mut writer = windows_rdl::writer();
+    writer.input(resolved_input.to_str().unwrap());
+    for r in &cfg.references {
+        let resolved = f.dir.join(r);
+        writer.input(resolved.to_str().unwrap());
+    }
+    writer
         .output(actual_rdl.to_str().unwrap())
         .filter(filter)
         .write()

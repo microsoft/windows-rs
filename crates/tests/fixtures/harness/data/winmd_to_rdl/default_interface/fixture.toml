@@ -1,0 +1,5 @@
+# Verify that the default interface (marked with `DefaultAttribute`) is listed
+# first when writing a class, regardless of how interfaces appear in the
+# metadata. Migrated from crates/tests/libs/rdl/tests/default-interface.rs.
+winmd_input = "../../../../../../libs/bindgen/default/Windows.winmd"
+filter = "Windows.ApplicationModel.Background.AppBroadcastTrigger"
