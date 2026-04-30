@@ -12,6 +12,13 @@ readme = "readme.md"
 [dependencies]
 windows-link = { workspace = true }
 
+[features]
+default = ["std"]
+# When enabled (and on a non-Windows target), `submit` falls back to
+# `std::thread::spawn`. On Windows the Win32 thread-pool fast path is used
+# regardless of this feature.
+std = []
+
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []

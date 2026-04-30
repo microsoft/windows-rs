@@ -120,19 +120,17 @@ Risk realised: low. `bindings.rs` is unchanged. No callers in `windows-core` wer
 
 ## Stage 4 — `windows-threading` and `windows-future` shapes
 
-**Status: 🚧 in progress — design question open, awaiting benchmark data.**
+**Status: ✅ done.**
 
-These are the pieces blocking `windows-collections` Linux tests today (tests fail because `windows_threading::submit` is not available without `#[cfg(windows)]`). There are two viable shapes for this stage and the choice between them depends on a measurement that has to run on Windows.
+These were the pieces blocking `windows-collections` Linux tests (tests fail because `windows_threading::submit` is not available without `#[cfg(windows)]`). The benchmark below decided which of two viable shapes to take.
 
 ### Open design question — keep `windows-threading`, or drop it from `windows-future`?
 
-`windows-future` only uses `windows-threading` for one thing: a fire-and-forget `submit(closure)` per `IAsyncAction::spawn` / `IAsyncOperation::spawn` (see `crates/libs/future/src/async_spawn.rs`). The waker integration in `future::AsyncFuture::poll` does *not* go through `windows-threading` — it's driven by the WinRT `Completed` handler. So the Stage-4 question reduces to: is `TrySubmitThreadpoolCallback` materially faster than `std::thread::spawn` for that one submit?
+`windows-future` only uses `windows-threading` for one thing: a fire-and-forget `submit(closure)` per `IAsyncAction::spawn` / `IAsyncOperation::spawn` (see `crates/libs/future/src/async_spawn.rs`). The waker integration in `future::AsyncFuture::poll` does *not* go through `windows-threading` — it's driven by the WinRT `Completed` handler. So the Stage-4 question reduced to: is `TrySubmitThreadpoolCallback` materially faster than `std::thread::spawn` for that one submit?
 
-If `std::thread::spawn` is "good enough" the cleanest outcome is for `windows-future` to drop the `windows-threading` dependency entirely (replacing each `windows_threading::submit(...)` with `std::thread::spawn(...)` inside the existing `#[cfg(feature = "std")]`-gated `async_spawn` module). `windows-threading` itself stays Windows-only (its `Pool` / `for_each` / `thread_id` / `sleep` surface area is its own product, not used by `windows-future`). That makes Stage 4 a no-op for `windows-threading` and a one-line change in `windows-future`, and Stage 5 (`windows-collections` on Linux) unblocks immediately.
+If `std::thread::spawn` were "good enough" the cleanest outcome would be for `windows-future` to drop the `windows-threading` dependency entirely. If the Win32 pool is materially faster, we keep the dependency and instead make `submit` cross-platform: leave the Win32 path as the Windows fast path, and add a `std::thread::spawn` fallback on non-Windows, gated behind a default-on `std` feature so the crate's `no_std` story is preserved (`unimplemented!()` body when `no_std` + non-Windows).
 
-If the Win32 pool is materially faster, we keep the dependency and instead make `submit` cross-platform: leave the Win32 path as the Windows fast path, and add a `std::thread::spawn` fallback on non-Windows, gated behind a default-on `std` feature so the crate's `no_std` story is preserved (`unimplemented!()` body when `no_std` + non-Windows).
-
-### Benchmark to make the call
+### Benchmark
 
 A self-contained, no-extra-deps Windows-only benchmark lives at [`crates/libs/threading/examples/threading_bench.rs`](../crates/libs/threading/examples/threading_bench.rs). It compares `windows_threading::submit` vs `std::thread::spawn` on three workloads representative of `windows-future`'s usage:
 
@@ -146,19 +144,33 @@ Each closure does a single atomic increment, so the dispatch path dominates the 
 cargo run --release --example threading_bench -p windows-threading
 ```
 
-Decision rule:
+### Result
 
-- If per-submit cost for `std::thread::spawn` is roughly comparable to the Win32 pool (say, within ~50µs in the `steady` workload), drop `windows-threading` from `windows-future`'s deps. This is the cleanest outcome and is the working assumption.
-- If the Win32 pool is materially faster (say, > 5–10× in `steady`, or `std::thread::spawn` blows past ~500µs/submit), keep the dependency and split `submit` per the alternative above.
+Measured on Windows (release):
 
-### Once the benchmark answer is in, the work in this stage is
+| Workload | win32-pool | std::spawn | Ratio (spawn / pool) |
+|---|---|---|---|
+| `single` | 15.67 µs/submit · 63 813/s | 67.20 µs/submit · 14 880/s | ~4.3× |
+| `burst`  |  0.46 µs/submit · 2 180 027/s | 41.16 µs/submit · 24 296/s | ~90× |
+| `steady` |  0.46 µs/submit · 2 162 686/s | 42.15 µs/submit · 23 724/s | ~91× |
 
-1. Apply the chosen shape from above to `windows-future` (and to `windows-threading` if needed).
-2. Mark the runtime async tests `#[cfg(windows)]` and add Linux-only build-only checks.
-3. Add both crates to the Linux build / doc matrix in `.github/workflows/linux.yml`.
-4. Update this section with the actual numbers and the decision taken.
+Two observations: per-submit cost on the Win32 pool drops from 15.67 µs (cold round trip) to 0.46 µs (warm queued), confirming worker-thread reuse; `std::thread::spawn` stays flat at ~42 µs because every submit pays a full `CreateThread` round trip. Throughput delta on burst/steady is two orders of magnitude.
 
-Risk: low–medium. The ambiguity is the design choice; both implementation paths are mechanically simple. `windows-future`'s waker integration is unaffected either way.
+### Decision
+
+The Win32 pool is materially faster — well past the "≥ 5–10× in `steady`" threshold from the original decision rule. Keep the `windows-threading` dependency in `windows-future`, and instead make `windows_threading::submit` itself cross-platform.
+
+### Implementation
+
+1. `windows-threading` gained a default-on `std` feature. `submit` now has three cfg-gated bodies:
+    - **Windows** (any feature config): unchanged Win32 fast path through `TrySubmitThreadpoolCallback`.
+    - **Non-Windows + `std`** (the default): `std::thread::spawn(f)`, fire-and-forget.
+    - **Non-Windows + `no_std`**: `unimplemented!()` so the crate still links but signals at runtime that no portable thread primitive is configured.
+2. The other surface (`Pool` / `for_each` / `thread_id` / `sleep`) stays Windows-only — it's an explicit Win32 product, not a portable threading API, and `windows-future` does not use it.
+3. `windows-future` is now buildable on Linux via this fallback. The runtime async tests in `crates/tests/libs/future/` remain Windows-only because they go through `RoInitialize`/COM, which is out of scope for Stage 4; only the build/doc paths are exercised on Linux.
+4. Both `windows-threading` and `windows-future` are now in the Linux build and doc matrix in `.github/workflows/linux.yml`. `windows-threading` is also in the `--no-default-features` matrix so the `no_std`-without-`std` path stays green.
+
+This unblocks Stage 5 (`windows-collections` on Linux).
 
 ## Stage 5 — `windows-collections` cross-platform
 
