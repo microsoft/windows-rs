@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::core::Result;
 use windows_strings::*;
 

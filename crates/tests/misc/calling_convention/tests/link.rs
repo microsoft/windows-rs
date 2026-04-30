@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows_sys::{
     core::{s, PCSTR, PSTR},
     Win32::Foundation::ERROR_BUSY,

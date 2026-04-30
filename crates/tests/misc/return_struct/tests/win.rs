@@ -1,3 +1,4 @@
+#![cfg(windows)]
 // This test validates that free functions are not affected by the Visual C++ quirk affecting member functions
 // returning structs where the return value is effectively a trailing out parameter.
 #[test]

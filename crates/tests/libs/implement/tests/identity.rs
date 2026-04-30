@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use std::sync::atomic::*;
 use windows::{core::*, Foundation::*};
 

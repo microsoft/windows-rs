@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows_sys::Win32::System::IO::{OVERLAPPED, OVERLAPPED_0_0};
 
 #[test]

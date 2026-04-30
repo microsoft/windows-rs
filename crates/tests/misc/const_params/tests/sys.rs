@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows_sys::{core::*, Win32::Foundation::*, Win32::UI::Shell::*};
 
 unsafe extern "C" {

@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use test_bindgen::bool_event::*;
 use windows::Win32::Foundation::{STATUS_SUCCESS, STATUS_TIMEOUT, WAIT_OBJECT_0, WAIT_TIMEOUT};
 

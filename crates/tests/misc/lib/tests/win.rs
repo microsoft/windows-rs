@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::{
     core::*, Win32::Graphics::Direct3D::Fxc::*, Win32::Graphics::Gdi::*,
     Win32::System::ClrHosting::*, Win32::System::Threading::*,

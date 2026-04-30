@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::{core::*, Foundation::*, Win32::Foundation::*};
 
 #[implement(IStringable)]

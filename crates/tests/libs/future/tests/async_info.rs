@@ -1,3 +1,4 @@
+#![cfg(windows)]
 // Tests `IAsyncInfo` for all stock implementations. The only one that really matters is `Status`
 // but the remaining methods are tested just to confirm stable behavior.
 

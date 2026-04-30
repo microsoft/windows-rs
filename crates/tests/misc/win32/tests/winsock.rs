@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::Win32::Networking::WinSock::*;
 
 const IPV4_ADDR: std::net::Ipv4Addr = std::net::Ipv4Addr::new(1, 2, 3, 4);

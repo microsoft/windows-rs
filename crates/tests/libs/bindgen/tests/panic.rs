@@ -1,3 +1,4 @@
+#![cfg(windows)]
 #[track_caller]
 fn bindgen(args: &str) -> windows_bindgen::Warnings {
     windows_bindgen::bindgen(args.split_whitespace())

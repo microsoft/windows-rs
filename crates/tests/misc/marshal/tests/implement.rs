@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::{core::*, Foundation::*, Win32::System::Com::Marshal::*, Win32::System::Com::*};
 
 #[implement(IClassFactory)]

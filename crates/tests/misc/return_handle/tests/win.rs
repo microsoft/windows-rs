@@ -1,3 +1,4 @@
+#![cfg(windows)]
 // This test validates the transformation of functions returning handles and are wrapped in a Result<Handle>,
 // returning the last Win32 error code on failure.
 #[test]

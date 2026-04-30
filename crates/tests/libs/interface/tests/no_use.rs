@@ -1,3 +1,4 @@
+#![cfg(windows)]
 #![expect(non_snake_case)]
 
 // This is a variant of the interface_core/no_use.rs test for use with more complex paths provided by the windows crate.

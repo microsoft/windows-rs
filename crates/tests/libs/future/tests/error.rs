@@ -1,3 +1,4 @@
+#![cfg(windows)]
 // Tests error propagation for all stock implementations. Here we're using `get` which calls `GetResults`
 // as that is the normal path for most callers. Older callers may also use `ErrorCode` so that is tested
 // as well.

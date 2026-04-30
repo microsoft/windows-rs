@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::{
     core::*, Win32::Foundation::*, Win32::Media::Audio::*, Win32::System::Com::*,
     Win32::System::Ole::*, Win32::System::WinRT::*,

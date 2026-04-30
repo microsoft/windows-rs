@@ -1,3 +1,4 @@
+#![cfg(windows)]
 #[test]
 fn join() {
     let pool = windows_threading::Pool::new();

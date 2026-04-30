@@ -1,3 +1,4 @@
+#![cfg(windows)]
 // The stock `spawn` implementations can receive the `Completed` handler while still in the `Started` state
 // and must hold on to the handler and call it when execution completes.
 

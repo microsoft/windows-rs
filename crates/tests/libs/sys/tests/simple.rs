@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows_sys::{
     core::*, Win32::Foundation::*, Win32::System::Threading::*, Win32::UI::WindowsAndMessaging::*,
 };

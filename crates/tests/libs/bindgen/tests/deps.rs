@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use test_bindgen::deps::*;
 
 #[test]

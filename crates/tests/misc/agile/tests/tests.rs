@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::{Foundation::*, Win32::System::WinRT::*};
 
 fn send<T: Send>(_: Option<T>) {}

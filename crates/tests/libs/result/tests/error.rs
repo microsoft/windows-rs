@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows_result::*;
 
 const S_OK: HRESULT = HRESULT(0);

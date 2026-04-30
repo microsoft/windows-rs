@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::Win32::Foundation::{STATUS_INVALID_ACL, STATUS_SUCCESS, S_OK};
 use windows_result::Result as WindowsResult;
 use windows_result::{HRESULT, NTSTATUS};

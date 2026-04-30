@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::Win32::System::Diagnostics::Debug::Extensions::*;
 
 #[test]

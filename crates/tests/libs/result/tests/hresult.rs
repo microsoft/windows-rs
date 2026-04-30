@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows_result::*;
 
 windows_link::link!("kernel32.dll" "system" fn SetLastError(code: WIN32_ERROR));

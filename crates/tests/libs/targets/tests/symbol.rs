@@ -1,3 +1,4 @@
+#![cfg(windows)]
 // Tests the generation of functions in the windows and windows-sys crates that use
 // alternate import symbol names.
 #![cfg(windows)]

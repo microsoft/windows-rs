@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::Win32::UI::WindowsAndMessaging::NCCALCSIZE_PARAMS;
 
 #[test]

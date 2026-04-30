@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::{core::w, Win32::System::Registry::*};
 use windows_registry::*;
 

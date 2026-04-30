@@ -1,3 +1,4 @@
+#![cfg(windows)]
 #[test]
 #[cfg(target_arch = "x86_64")]
 #[expect(clippy::unnecessary_literal_unwrap)] // callback type is intentionally being tested

@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::{
     Win32::Devices::Bluetooth::*, Win32::Foundation::*, Win32::Graphics::Gdi::*,
     Win32::Security::*, Win32::System::ApplicationInstallationAndServicing::*,

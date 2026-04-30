@@ -1,3 +1,4 @@
+#![cfg(windows)]
 #[test]
 fn collections() {
     _ = windows_collections::IIterable::<i32>::from(vec![1, 2, 3]);

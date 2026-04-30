@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::Win32::Devices::Properties::DEVPKEY_Device_BiosDeviceName;
 
 #[test]

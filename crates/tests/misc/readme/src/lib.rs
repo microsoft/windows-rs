@@ -1,3 +1,4 @@
+#![cfg(windows)]
 #![doc = include_str!("../../../../libs/bindgen/readme.md")]
 #![doc = include_str!("../../../../libs/core/readme.md")]
 #![doc = include_str!("../../../../libs/cppwinrt/readme.md")]

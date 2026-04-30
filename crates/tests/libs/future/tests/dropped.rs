@@ -1,3 +1,4 @@
+#![cfg(windows)]
 // The stock `spawn` implementation hold a strong reference to the async object on the thread pool
 // so the caller can drop its reference if necessary.
 

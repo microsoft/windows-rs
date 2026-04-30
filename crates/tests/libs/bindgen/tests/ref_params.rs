@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use test_bindgen::ref_params::*;
 use windows::core::*;
 

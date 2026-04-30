@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows_sys::{Win32::Foundation::*, Win32::Security::Cryptography::*};
 
 #[test]

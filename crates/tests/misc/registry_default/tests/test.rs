@@ -1,3 +1,4 @@
+#![cfg(windows)]
 // This just confirms that the default feature "std" for the `windows-registry` crate also enables the
 // default feature "std" for both the `windows-result` and `windows-strings` dependencies.
 //

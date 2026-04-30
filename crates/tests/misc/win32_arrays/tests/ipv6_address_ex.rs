@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::Win32::NetworkManagement::IpHelper::IPV6_ADDRESS_EX;
 
 #[test]
