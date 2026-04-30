@@ -569,7 +569,7 @@ impl<T: windows_core::RuntimeType> Iterator for IIterator<T> {
             None
         };
         if result.is_some() {
-            self.MoveNext().ok()?;
+            let _ = self.MoveNext();
         }
         result
     }

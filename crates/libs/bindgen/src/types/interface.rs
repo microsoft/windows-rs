@@ -472,7 +472,9 @@ impl Interface {
                             };
 
                             if result.is_some() {
-                                self.MoveNext().ok()?;
+                                // Ignore MoveNext errors; treat as end-of-stream on the next
+                                // iteration but still yield the value already fetched.
+                                let _ = self.MoveNext();
                             }
 
                             result
