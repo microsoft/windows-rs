@@ -44,6 +44,11 @@ jobs:
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
             runner: windows-11-arm
+          - name: stable linux
+            version: stable
+            host: x86_64-unknown-linux-gnu
+            target: x86_64-unknown-linux-gnu
+            runner: ubuntu-22.04
 
     runs-on: ${{ matrix.runner }}
 
@@ -60,15 +65,24 @@ jobs:
       - name: Install fmt
         run: rustup component add rustfmt
       - name: Fix environment
+        if: runner.os == 'Windows'
         uses: ./.github/actions/fix-environment
         with:
           target: ${{ matrix.target }}
+      - name: Install libtinfo5 (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get install -y libtinfo5
       - name: Install LLVM and Clang
         uses: KyleMayes/install-llvm-action@v2
         with:
           version: "18"
-      - name: Set LIBCLANG_PATH
+      - name: Set LIBCLANG_PATH (Windows)
+        if: runner.os == 'Windows'
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/bin" >> "$GITHUB_ENV"
+        shell: bash
+      - name: Set LIBCLANG_PATH (Linux)
+        if: runner.os == 'Linux'
+        run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/lib" >> "$GITHUB_ENV"
         shell: bash
       - name: Test
         run: cargo test --all --target ${{ matrix.target }} --exclude windows_aarch64_gnullvm --exclude windows_aarch64_msvc --exclude windows_i686_gnu --exclude windows_i686_gnullvm --exclude windows_i686_msvc --exclude windows_x86_64_gnu --exclude windows_x86_64_gnullvm --exclude windows_x86_64_msvc

@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::Win32::{
     Foundation::HANDLE,
     Graphics::Direct3D12::*,

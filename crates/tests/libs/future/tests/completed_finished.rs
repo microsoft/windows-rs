@@ -1,3 +1,4 @@
+#![cfg(windows)]
 // The stock `spawn` implementations can receive the `Completed` handler after execution has finished
 // and must call the handler immediately.
 

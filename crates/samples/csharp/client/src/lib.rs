@@ -1,3 +1,4 @@
+#![cfg(windows)]
 #[test]
 fn test() {
     let mut command = std::process::Command::new("dotnet.exe");

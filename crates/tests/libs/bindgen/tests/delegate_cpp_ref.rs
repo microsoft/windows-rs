@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use test_bindgen::delegate_cpp_ref::*;
 use windows_core::*;
 

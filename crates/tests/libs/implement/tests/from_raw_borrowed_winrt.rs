@@ -1,3 +1,4 @@
+#![cfg(windows)]
 #![expect(non_snake_case)]
 
 use std::sync::*;

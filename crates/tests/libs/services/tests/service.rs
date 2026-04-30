@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows_services::*;
 use windows_sys::Win32::System::Services::*;
 

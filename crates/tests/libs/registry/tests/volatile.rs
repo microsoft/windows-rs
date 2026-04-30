@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows_registry::*;
 
 #[test]

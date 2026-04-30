@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use std::rc::Rc;
 use windows::Foundation::Uri;
 use windows::Win32::Foundation::{E_INVALIDARG, TYPE_E_TYPEMISMATCH};

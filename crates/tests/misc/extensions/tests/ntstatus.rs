@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::{core::*, Win32::Foundation::*, Win32::Security::Cryptography::*};
 
 #[test]

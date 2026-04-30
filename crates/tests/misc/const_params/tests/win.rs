@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::{core::*, Win32::System::Com::*, Win32::System::WinRT::*, Win32::UI::Shell::*};
 
 #[test]

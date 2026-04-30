@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::core::{s, w};
 use windows::{
     Win32::Foundation::*, Win32::Storage::FileSystem::*, Win32::UI::Input::KeyboardAndMouse::*,

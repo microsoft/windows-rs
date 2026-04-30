@@ -18,7 +18,7 @@ version = "0.53"
 
 Use the `link` macro to define the external functions you wish to call:
 
-```rust
+```rust,ignore
 windows_targets::link!("kernel32.dll" "system" fn SetLastError(code: u32));
 windows_targets::link!("kernel32.dll" "system" fn GetLastError() -> u32);
 

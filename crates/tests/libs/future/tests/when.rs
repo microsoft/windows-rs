@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use std::sync::mpsc::channel;
 use windows::Win32::Foundation::E_FAIL;
 use windows_future::*;

@@ -1,8 +1,12 @@
 fn main() {
-    if !cfg!(target_env = "msvc") {
-        return;
-    }
+    msvc_main();
+}
 
+#[cfg(not(target_env = "msvc"))]
+fn msvc_main() {}
+
+#[cfg(target_env = "msvc")]
+fn msvc_main() {
     println!("cargo:rerun-if-changed=../composable/metadata.winmd");
     println!("cargo:rerun-if-changed=src/interop.cpp");
     println!("cargo:rustc-link-lib=onecoreuap");

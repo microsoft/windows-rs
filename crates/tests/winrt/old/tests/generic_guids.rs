@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::{core::*, Devices::Enumeration::*, Foundation::*};
 use windows_collections::*;
 use windows_future::*;

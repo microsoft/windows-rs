@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::{
     core::*, Win32::Data::Xml::XmlLite::*, Win32::System::Com::StructuredStorage::*,
     Win32::System::Com::*,

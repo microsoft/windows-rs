@@ -1,4 +1,8 @@
 fn main() {
+    if !cfg!(windows) {
+        return;
+    }
+
     let h = "src/WebView2.h";
     let library = "WebView2Loader.dll";
     let namespace = "WebView2";

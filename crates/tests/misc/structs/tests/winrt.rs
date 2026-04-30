@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::Storage::Search::*;
 
 #[test]

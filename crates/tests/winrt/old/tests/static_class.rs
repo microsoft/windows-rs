@@ -1,3 +1,4 @@
+#![cfg(windows)]
 // This tests uses PropertyValue to test static WinRT classes - those classes that lack a default interface
 // and thus only provide static methods.
 

@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::{core::*, Foundation::*};
 
 // Simple test for the OS-provided implementation of ELEMENT_TYPE_CMOD_REQD parameters.

@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::core::*;
 use windows::Foundation::*;
 use windows_collections::*;

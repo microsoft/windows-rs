@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows_sys::{
     Win32::Foundation::*, Win32::System::Com::*, Win32::UI::Controls::*,
     Win32::UI::WindowsAndMessaging::*,

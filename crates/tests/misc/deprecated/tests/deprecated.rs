@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::ApplicationModel::Contacts::KnownContactField;
 
 #[test]

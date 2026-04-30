@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::core::HSTRING;
 use windows::Data::Xml::Dom::XmlDocument;
 

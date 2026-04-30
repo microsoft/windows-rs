@@ -1,3 +1,4 @@
+#![cfg(windows)]
 #![allow(non_camel_case_types)]
 
 use windows::Win32::Foundation::E_POINTER;

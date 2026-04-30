@@ -1,13 +1,5 @@
-use windows::{
-    core::Owned,
-    Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
-};
+#[cfg(not(windows))]
+fn main() {}
 
-fn main() -> windows::core::Result<()> {
-    unsafe {
-        let event = Owned::new(CreateEventW(None, true, false, None)?);
-        SetEvent(*event)?;
-        WaitForSingleObject(*event, 0);
-    }
-    Ok(())
-}
+#[cfg(windows)]
+include!("windows_main.rs");

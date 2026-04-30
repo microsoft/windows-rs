@@ -1,3 +1,4 @@
+#![cfg(windows)]
 mod bindings;
 use std::sync::*;
 use windows::{core::*, Foundation::*, Win32::Foundation::*, Win32::System::WinRT::*};

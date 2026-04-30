@@ -15,7 +15,7 @@ version = "0.3"
 
 Use the Windows collection types as needed:
 
-```rust
+```rust,ignore
 use windows_collections::*;
 
 let numbers = IIterable::<i32>::from(vec![1, 2, 3]);
@@ -27,7 +27,7 @@ for value in numbers {
 
 Naturally, the Windows collection types work with other Windows crates:
 
-```rust
+```rust,ignore
 use windows_collections::*;
 use windows_strings::*;
 

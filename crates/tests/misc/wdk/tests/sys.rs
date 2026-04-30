@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows_sys::Wdk::System::OfflineRegistry::*;
 
 #[test]

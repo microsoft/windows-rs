@@ -1,3 +1,4 @@
+#![cfg(windows)]
 //! Test for `#![no_std]` crates.
 //!
 //! Compiling this crate verifies that the Windows crates can be compiled with their "std"

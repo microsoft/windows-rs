@@ -15,7 +15,7 @@ version = "0.5"
 
 Use the Windows string types as needed:
 
-```rust
+```rust,ignore
 use windows_strings::*;
 
 const A: PCSTR = s!("ansi");

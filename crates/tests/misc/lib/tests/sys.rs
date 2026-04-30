@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows_sys::{
     core::*, Win32::Graphics::Gdi::*, Win32::System::ProcessStatus::*, Win32::System::Threading::*,
     Win32::Web::InternetExplorer::*,

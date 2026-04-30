@@ -1,4 +1,8 @@
 fn main() {
+    if !cfg!(windows) {
+        return;
+    }
+
     println!("cargo:rerun-if-changed=src/metadata.idl");
 
     let mut command = std::process::Command::new("midlrt.exe");

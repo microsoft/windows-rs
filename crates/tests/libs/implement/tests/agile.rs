@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::core::*;
 use windows::Win32::System::Com::{Marshal::*, *};
 

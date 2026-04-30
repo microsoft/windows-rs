@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use std::borrow::Cow;
 use windows_registry::*;
 use windows_strings::*;

@@ -1,4 +1,4 @@
-#![cfg(test)]
+#![cfg(all(test, windows))]
 
 mod bindings;
 use bindings::*;

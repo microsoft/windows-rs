@@ -1,3 +1,4 @@
+#![cfg(windows)]
 use windows::{
     core::{Interface, Result, HSTRING},
     Foundation::Collections::StringMap,

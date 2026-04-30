@@ -1,8 +1,5 @@
-fn main() -> windows::core::Result<()> {
-    use windows::UI::Colors;
+#[cfg(not(windows))]
+fn main() {}
 
-    let red = Colors::Red()?;
-    println!("Red: {red:?}");
-
-    Ok(())
-}
+#[cfg(windows)]
+include!("windows_main.rs");

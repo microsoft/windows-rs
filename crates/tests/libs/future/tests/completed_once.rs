@@ -1,3 +1,4 @@
+#![cfg(windows)]
 // Implementations of `SetCompleted` must fail with `E_ILLEGAL_DELEGATE_ASSIGNMENT` if they are called twice.
 // Also tests that any error from the handler is ignored by the implementation.
 

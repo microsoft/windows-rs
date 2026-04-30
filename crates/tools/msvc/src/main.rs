@@ -337,6 +337,7 @@ fn make_reproducible(lib: &std::path::Path) {
 }
 
 #[test]
+#[cfg(windows)]
 fn test_make_reproducible() {
     for (machine, offset) in [("x86", 0), ("x64", 12), ("arm64", 12)] {
         let mut def = std::fs::File::create("test.def").unwrap();

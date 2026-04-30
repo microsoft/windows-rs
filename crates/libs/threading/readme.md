@@ -15,7 +15,7 @@ version = "0.2"
 
 Use the Windows threading support as needed. Here is how you might submit a closure to run on the default thread pool:
 
-```rust,no_run
+```rust,ignore
 windows_threading::submit(|| {
     println!("thread: {}", windows_threading::thread_id());
 
@@ -40,7 +40,7 @@ thread: 27292
 
 Here is how you might call a closure on each element of the iterator in parallel, waiting for all closures to finish:
 
-```rust,no_run
+```rust,ignore
 let counter = std::sync::RwLock::<usize>::new(0);
 
 windows_threading::for_each(0..10, |value| {
@@ -71,7 +71,7 @@ should be 45 = 45
 
 The `for_each` function uses a `Pool` object internally, which you can also use directly if you prefer:
 
-```rust,no_run
+```rust,ignore
 let set = std::sync::RwLock::<std::collections::HashMap<u32, usize>>::default();
 let pool = windows_threading::Pool::new();
 pool.set_thread_limits(2, 10);

@@ -217,6 +217,55 @@ Risk realised: low. No public API change in `windows-core`, `windows-result`, `w
 
 `windows-cppwinrt`, `windows-registry`, `windows-services`, `windows-version`, and the generated mega-crates (`windows-sys`, `windows`) are inherently Windows. They keep `#![cfg(windows)]`. The Stage-0 Linux build step uses `--workspace --exclude` for exactly these crates — that exclude list is the documented surface of "not portable" and should shrink to only this set by the end of Stage 5.
 
+## Stage 7 — Fold `linux.yml` into the matrix in `test.yml`
+
+**Status: ✅ implemented.** `test.yml` now has a `stable linux` row in its matrix that runs `cargo test --all --target x86_64-unknown-linux-gnu --exclude <8 arch crates>` — the same invocation the three Windows rows use. `linux.yml` shrank from ~134 lines to ~96 and now only carries the `--no-default-features` build matrix and the `cargo doc` matrix, both of which have intentionally narrower crate sets than "everything testable" and so keep explicit lists.
+
+### How the gate works
+
+Every Windows-only sample and test crate in the workspace now opts itself out on Linux at the source level, the same convention the Stage-6 libraries (`windows`, `windows-registry`, `windows-services`, `windows-version`, `cppwinrt`) already use. There is no longer a curated CI list of crates to test on Linux — that is now a `#[cfg]` in the crate itself.
+
+Patterns applied:
+
+- **Library crates** (`crates/tests/winrt/*`, `crates/tests/misc/*`, Windows-only entries under `crates/tests/libs/*`, and the lib-style sample crates under `crates/samples/json/*`, `crates/samples/robot/*`, `crates/samples/csharp/*`): `#![cfg(windows)]` at the top of `src/lib.rs` and at the top of every `tests/*.rs` integration test. Crates that previously used `#![cfg(test)]` were rewritten to `#![cfg(all(test, windows))]`. Crates that already used the stricter `#![cfg(target_env = "msvc")]` (because they invoke MSVC-only tooling like `cppwinrt`) were left alone — `target_env = "msvc"` already excludes Linux.
+- **Binary samples** (`crates/samples/windows/*` and `crates/samples/windows-sys/*`): the existing `src/main.rs` was renamed to `src/windows_main.rs` (which Cargo doesn't pick up by default), and a tiny new `src/main.rs` does:
+
+  ```rust
+  #[cfg(not(windows))]
+  fn main() {}
+
+  #[cfg(windows)]
+  include!("windows_main.rs");
+  ```
+
+  Zero edits to the existing sample bodies — the existing file is included verbatim on Windows and entirely ignored on Linux.
+- **`build.rs`** in 16 Windows-only test/sample crates was also gated. Two flavours:
+  - Where the body uses only Linux-friendly macros (`std::process::Command`, `windows_bindgen::*`), an early `if !cfg!(windows) { return; }` is enough.
+  - Where the body uses compile-time-resolved Windows-only items (`env!("windir")`, `cppwinrt::cppwinrt(...)` — `cppwinrt` is itself `#![cfg(windows)]` so the function literally doesn't exist on Linux), the body was moved into a `#[cfg(target_env = "msvc")] fn msvc_main()`, with a `#[cfg(not(target_env = "msvc"))] fn msvc_main() {}` stub. A runtime `if !cfg!(...)` check is *not* sufficient there — the compiler still has to type-check the unreachable branch, and `env!()` / missing functions fail at compile time.
+
+### Knock-on fixes
+
+A handful of test crates that the original `linux.yml` did not exercise turned out to be Linux-broken even though their `Cargo.toml` did not directly depend on `windows`/`windows-sys`/etc. They were gated by hand:
+
+- `test_just_core` and `test_no_core` — generated `bindings.rs` references Windows-only APIs.
+- `test_threading::tests::pool` — `windows_threading::Pool` is itself `#[cfg(windows)]`.
+
+These would have surfaced as failures the first time `cargo test --all` ran on Linux; they are listed here because they were not part of the predictable "depends on a Windows-only crate" inventory.
+
+### What the `--exclude` list still carries
+
+Only the 8 arch-specific target crates (`windows_aarch64_gnullvm`, `windows_aarch64_msvc`, `windows_i686_gnu`, `windows_i686_gnullvm`, `windows_i686_msvc`, `windows_x86_64_gnu`, `windows_x86_64_gnullvm`, `windows_x86_64_msvc`) — the same list every row of `test.yml` already uses. There is no Linux-specific exclude list.
+
+### Maintenance contract going forward
+
+A new Windows-only sample or test only has to pick the right convention:
+
+- A new lib or test crate: `#![cfg(windows)]` (or `#![cfg(all(test, windows))]`) at the top of `src/lib.rs` and each `tests/*.rs`.
+- A new binary sample: drop the existing `main.rs` content into `windows_main.rs` and use the four-line `main.rs` shown above.
+- A new `build.rs` that uses Windows-only tooling: early-return on `!cfg!(windows)` if everything inside is Linux-parseable; otherwise dispatch to a `#[cfg(target_env = "msvc")] fn msvc_main()` for anything that uses compile-time-resolved Windows items.
+
+A forgotten gate now produces a Linux CI failure on the first push, which is a tight, local feedback loop. The set of "what's Linux-portable?" is encoded in the crates themselves and no longer drifts away from a curated CI list.
+
 ## Cross-cutting items
 
 - **Documentation:** after each stage, update `docs/` (and the per-crate `readme.md`) to state which targets the crate supports. Add a top-level "Cross-platform support matrix" doc.
