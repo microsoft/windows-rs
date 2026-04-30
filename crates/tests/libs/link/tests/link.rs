@@ -1,3 +1,5 @@
+#![cfg(windows)]
+
 #[test]
 fn min() {
     windows_link::link!("kernel32.dll" "system" fn SetLastError(code: u32));
