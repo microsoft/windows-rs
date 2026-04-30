@@ -1,0 +1,3 @@
+
+error: property cannot have both `#[get]` and `#[set]` attributes
+ --> input.rdl:7:9

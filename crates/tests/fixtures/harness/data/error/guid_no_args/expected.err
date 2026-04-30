@@ -1,0 +1,3 @@
+
+error: `#[guid]` requires a single u128 literal
+ --> input.rdl:4:5
