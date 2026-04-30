@@ -1,0 +1,10 @@
+
+#[winrt]
+mod Test {
+    #[repr(u32)]
+    #[flags(something)]
+    enum VirtualKeyModifiers {
+        None = 0,
+    }
+}
+        

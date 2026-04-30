@@ -1,0 +1,7 @@
+
+#[win32]
+mod Test {
+    #[guid(0xffffffffffffffffffffffffffffffff0)]
+    interface IFoo {}
+}
+        

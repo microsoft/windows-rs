@@ -1,0 +1,11 @@
+
+#[winrt]
+mod Test {
+    interface IFoo {
+        fn DoThing(&self, value: Win32Type) -> i32;
+    }
+}
+#[win32]
+mod Test {
+    struct Win32Type { x: i32, }
+}

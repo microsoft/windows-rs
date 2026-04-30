@@ -1,0 +1,6 @@
+
+#[win32]
+mod Test {
+    extern fn Handler(#[opt(42)] value: i32);
+}
+        

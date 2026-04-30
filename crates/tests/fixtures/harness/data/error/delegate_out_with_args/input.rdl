@@ -1,0 +1,6 @@
+
+#[winrt]
+mod Test {
+    delegate fn Handler(#[out(42)] output: i32);
+}
+        

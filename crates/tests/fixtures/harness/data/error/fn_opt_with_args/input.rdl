@@ -1,0 +1,7 @@
+
+#[win32]
+mod Test {
+    #[library("lib")]
+    extern fn F(#[opt(42)] value: i32);
+}
+        

@@ -1,0 +1,9 @@
+
+#[winrt]
+mod Test {
+    attribute FooAttribute { fn(); version: u32, }
+
+    #[Foo(unknown = 42)]
+    class MyClass {}
+}
+        
