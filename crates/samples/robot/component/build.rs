@@ -10,16 +10,13 @@ fn main() {
         .write()
         .unwrap();
 
-    windows_bindgen::bindgen([
-        "--in",
-        "robot.winmd",
-        reference,
-        "--out",
-        "src/bindings.rs",
-        "--filter",
-        "Robotics",
-        "--flat",
-        "--implement",
-    ])
-    .unwrap();
+    windows_bindgen::builder()
+        .input("robot.winmd")
+        .input(reference)
+        .output("src/bindings.rs")
+        .filter("Robotics")
+        .flat()
+        .implement()
+        .write()
+        .unwrap();
 }

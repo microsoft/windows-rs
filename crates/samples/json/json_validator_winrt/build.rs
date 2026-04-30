@@ -13,16 +13,13 @@ fn main() {
         .write()
         .unwrap();
 
-    windows_bindgen::bindgen([
-        "--in",
-        "sample.winmd",
-        &windows_foundation,
-        "--out",
-        "src/bindings.rs",
-        "--filter",
-        "Sample",
-        "--flat",
-        "--implement",
-    ])
-    .unwrap();
+    windows_bindgen::builder()
+        .input("sample.winmd")
+        .input(&windows_foundation)
+        .output("src/bindings.rs")
+        .filter("Sample")
+        .flat()
+        .implement()
+        .write()
+        .unwrap();
 }
