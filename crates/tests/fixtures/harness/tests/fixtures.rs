@@ -157,7 +157,7 @@ fn parse_string(value: &str) -> String {
     let trimmed = value.trim();
     let bytes = trimmed.as_bytes();
     assert!(
-        bytes.len() >= 2 && bytes[0] == b'"' && bytes[bytes.len() - 1] == b'"',
+        bytes.len() >= 2 && bytes.first() == Some(&b'"') && bytes.last() == Some(&b'"'),
         "expected quoted string, got {value:?}"
     );
     trimmed[1..trimmed.len() - 1].to_string()
@@ -413,11 +413,9 @@ fn diff_or_update_string(actual: &str, expected_path: &Path) {
     });
     if actual != expected {
         panic!(
-            "golden mismatch for {expected}\n--- expected ---\n{}\n--- actual ---\n{}\n--- end ---\n\
+            "golden mismatch for {path}\n--- expected ---\n{expected}\n--- actual ---\n{actual}\n--- end ---\n\
              rerun with UPDATE_GOLDEN=1 to update.",
-            expected,
-            actual,
-            expected = expected_path.display()
+            path = expected_path.display(),
         );
     }
 }
