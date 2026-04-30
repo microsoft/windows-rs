@@ -537,6 +537,9 @@ impl Type {
                 let name = to_ident(name.name());
                 quote! { windows_core::AbiType<#name> }
             }
+            Self::Array(ty) | Self::ArrayRef(ty) if matches!(ty.as_ref(), Self::Generic(_)) => {
+                ty.write_abi(config)
+            }
             Self::Struct(ty) => {
                 let name = self.write_name(config);
                 if ty.is_copyable(config.reader) {

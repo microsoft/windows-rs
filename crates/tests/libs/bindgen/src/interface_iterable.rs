@@ -269,7 +269,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
         >(
             this: *mut core::ffi::c_void,
             items_array_size: u32,
-            items: *mut T,
+            items: *mut windows_core::AbiType<T>,
             result__: *mut u32,
         ) -> windows_core::HRESULT {
             unsafe {
@@ -321,7 +321,7 @@ where
     pub GetMany: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         u32,
-        *mut T,
+        *mut windows_core::AbiType<T>,
         *mut u32,
     ) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
@@ -712,7 +712,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             this: *mut core::ffi::c_void,
             startindex: u32,
             items_array_size: u32,
-            items: *mut T,
+            items: *mut windows_core::AbiType<T>,
             result__: *mut u32,
         ) -> windows_core::HRESULT {
             unsafe {
@@ -741,7 +741,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         >(
             this: *mut core::ffi::c_void,
             items_array_size: u32,
-            items: *const T,
+            items: *const windows_core::AbiType<T>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -818,10 +818,13 @@ where
         *mut core::ffi::c_void,
         u32,
         u32,
-        *mut T,
+        *mut windows_core::AbiType<T>,
         *mut u32,
     ) -> windows_core::HRESULT,
-    pub ReplaceAll:
-        unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const T) -> windows_core::HRESULT,
+    pub ReplaceAll: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        *const windows_core::AbiType<T>,
+    ) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
 }

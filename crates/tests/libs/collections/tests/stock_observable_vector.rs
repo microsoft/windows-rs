@@ -342,7 +342,21 @@ fn hstring() -> Result<()> {
     assert_eq!(&v.GetAt(0)?, h!("TWO"));
     assert_eq!(&v.GetAt(1)?, h!("three"));
 
-    v.Clear()?;
+    // GetMany on IObservableVector<HSTRING> exercises *mut AbiType<HSTRING> in the vtable.
+    let mut values = vec![HSTRING::new(); 5];
+    assert_eq!(v.GetMany(0, &mut values)?, 2);
+    assert_eq!(values[0], *h!("TWO"));
+    assert_eq!(values[1], *h!("three"));
+    assert_eq!(values[2], HSTRING::new());
+
+    // ReplaceAll on IObservableVector<HSTRING> exercises *const AbiType<HSTRING> in the vtable.
+    v.ReplaceAll(&[h!("a").clone(), h!("b").clone(), h!("c").clone()])?;
+    assert_eq!(v.Size()?, 3);
+    assert_eq!(&v.GetAt(0)?, h!("a"));
+    assert_eq!(&v.GetAt(1)?, h!("b"));
+    assert_eq!(&v.GetAt(2)?, h!("c"));
+
+    v.ReplaceAll(&[])?;
     assert_eq!(v.Size()?, 0);
 
     let able: IIterable<HSTRING> = v.cast()?;
