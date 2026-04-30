@@ -11,9 +11,8 @@
 mod bindings;
 pub use bindings::*;
 
-/// `E_BOUNDS` HRESULT used by collection bounds checks.
 #[cfg(feature = "std")]
-pub const E_BOUNDS: windows_core::HRESULT = windows_core::HRESULT(0x8000000B_u32 as _);
+pub(crate) const E_BOUNDS: windows_core::HRESULT = windows_core::HRESULT(0x8000000B_u32 as _);
 
 #[cfg(feature = "std")]
 mod iterable;

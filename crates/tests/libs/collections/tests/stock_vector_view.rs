@@ -1,5 +1,7 @@
-use windows_collections::{E_BOUNDS, *};
+use windows_collections::*;
 use windows_core::*;
+
+const E_BOUNDS: HRESULT = HRESULT(0x8000000B_u32 as _);
 
 #[test]
 fn primitive() -> Result<()> {
