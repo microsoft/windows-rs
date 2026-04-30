@@ -178,7 +178,13 @@ Strategy: migrate in batches by *shape*, starting with files that fit the existi
 
 **Batch 3 (this commit) — `writer_errors.rs` happy-path smoke tests (4 tests):**
 
-- [x] `writer_errors.rs::writer_succeeds_for_callback`, `writer_succeeds_for_delegate`, `writer_succeeds_for_enum`, `writer_succeeds_for_interface` — **deleted, not migrated.** The four inline RDL inputs (`extern fn Handler(value: i32)`, `delegate fn Handler(value: i32)`, `#[repr(u32)] enum Color { Red, Green, Blue }`, and a single-method `interface IFoo`) are strict subsets of existing legacy roundtrip fixtures `crates/tests/roundtrip/rdl/src/{fn,delegate,enum,class,event-interface}.rdl`, which already exercise the same writer code paths via byte-stable RDL diffs. A byte-diff is strictly stronger than `assert!(result.is_ok())`, so creating four new harness fixtures here would only add maintenance load and a second redundant set of files for phase 5 to delete. The file header in `writer_errors.rs` records this rationale so future readers can trace the deletion.
+- [x] `writer_errors.rs::writer_succeeds_for_callback`, `writer_succeeds_for_delegate`, `writer_succeeds_for_enum`, `writer_succeeds_for_interface` — **deleted, not migrated.** The four inline RDL inputs are:
+  - `extern fn Handler(value: i32)` — covered by `crates/tests/roundtrip/rdl/src/fn.rdl`,
+  - `delegate fn Handler(value: i32)` — covered by `delegate.rdl`,
+  - `#[repr(u32)] enum Color { Red, Green, Blue }` — covered by `enum.rdl`,
+  - a single-method `interface IFoo` — covered by `class.rdl` and `event-interface.rdl`.
+
+  Each is a strict subset of its existing legacy roundtrip fixture, which exercises the same writer code paths via a byte-stable RDL diff. A byte-diff is strictly stronger than `assert!(result.is_ok())`, so creating four new harness fixtures here would only add maintenance load and a second redundant set of files for phase 5 to delete. The file header in `writer_errors.rs` records this rationale so future readers can trace the deletion.
 - [x] `writer_errors.rs` shrunk from 195 lines / 6 tests to 107 lines / 2 tests. The `compile_rdl_to_winmd` helper is retained because `writer_split_returns_err_for_bad_output_dir` still needs it.
 - [ ] The two remaining `writer_returns_err_for_*` tests stay in place; they exercise filesystem-level I/O failures on the output path, which the harness does not yet model. They are tracked in the deferred table below.
 
