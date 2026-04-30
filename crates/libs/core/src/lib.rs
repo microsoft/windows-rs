@@ -22,8 +22,11 @@ use alloc::boxed::Box;
 #[doc(hidden)]
 pub mod imp;
 
+mod agile_reference;
 mod as_impl;
 mod com_object;
+#[cfg(feature = "std")]
+mod event;
 mod guid;
 mod in_ref;
 mod inspectable;
@@ -39,8 +42,11 @@ mod r#type;
 mod unknown;
 mod weak;
 
+pub use agile_reference::*;
 pub use as_impl::*;
 pub use com_object::*;
+#[cfg(feature = "std")]
+pub use event::*;
 pub use guid::*;
 pub use in_ref::*;
 pub use inspectable::*;
