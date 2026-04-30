@@ -2,7 +2,6 @@
 // Compilation is sufficient to test.
 // This verifies that it is possible to use #[interface]
 // and #[implement] in a crate that uses #![no_std].
-
 #![no_std]
 
 use windows::core::{implement, interface, IUnknown};
