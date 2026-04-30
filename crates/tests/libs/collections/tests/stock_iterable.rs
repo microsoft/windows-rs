@@ -13,7 +13,6 @@ const E_FAIL: HRESULT = HRESULT(0x80004005_u32 as _);
 #[cfg(windows)]
 #[test]
 fn calendar() -> Result<()> {
-    use windows::Foundation::*;
     use windows::Globalization::*;
 
     let languages = IIterable::from(vec![HSTRING::from("he-IL"), HSTRING::from("ja-JP")]);
