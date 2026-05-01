@@ -7,7 +7,7 @@ fn main() {
     // (those skipped methods are reported as warnings and printed via
     // `cargo:warning`); the sample itself never calls them, so the resulting
     // bindings still compile and exercise the round-trip we want.
-    let warnings = windows_bindgen::builder()
+    _ = windows_bindgen::builder()
         .input(reference)
         .output("src/bindings.rs")
         .filter("Windows.UI.Xaml.Application")
@@ -32,10 +32,4 @@ fn main() {
         .flat()
         .implement()
         .write();
-
-    for warning in warnings.iter() {
-        for line in warning.lines() {
-            println!("cargo:warning={line}");
-        }
-    }
 }
