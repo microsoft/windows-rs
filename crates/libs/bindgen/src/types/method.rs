@@ -629,27 +629,27 @@ impl Method {
                 // `_compose` variant that takes a `T: Compose` and threads the outer
                 // `IInspectable` and inner writeback slot into the vtable call.
                 //
-                // For the aggregating call, after a successful `CreateInstance` the factory
-                // has written a non-delegating inner `IInspectable` into `*base__` (held by
-                // the outer's `ComposeBase` slot) and AddRef'd a non-delegating instance
-                // pointer into `result__`. We cannot return that non-delegating pointer
-                // directly: doing so would leave the outer (and the user-implemented
-                // `_Impl` derived class) without any owning references, so the outer would
-                // be freed at end of scope and any subsequent overridable virtual call
-                // (e.g. `IApplicationOverrides::OnLaunched`) routed to the inner would
-                // dispatch into already-freed memory.
+                // After a successful `CreateInstance(outer, &inner_out, &result_out)`:
                 //
-                // Instead we drop the non-delegating instance pointer (releasing the
-                // factory's AddRef) and perform a delegating QueryInterface on the outer
-                // via `derived__.cast::<#return>()`. This mirrors the
-                // `inner.as<I>()` step in cppwinrt's `composable_factory::CreateInstance`
-                // (`strings/base_composable.h`): the QI travels through the outer's
-                // controlling unknown — which the implement-macro routes to the inner via
-                // the `ComposeBase` slot — yielding an interface whose vtable dispatches
-                // to the inner but whose AddRef/Release route through the outer, keeping
-                // both objects alive together.
+                // * `*inner_out` (here `*base__`) holds a strong ref to the **non-
+                //   delegating** inner `IInspectable`. We retain ownership of it through
+                //   the outer's `ComposeBase` slot — the outer drops the inner when the
+                //   outer itself is destroyed.
+                //
+                // * `*result_out` (here `result__`) holds a strong ref to the aggregated
+                //   default interface. Its IUnknown methods **delegate to the outer's
+                //   controlling IUnknown**, so AddRef/Release on the returned value keeps
+                //   the outer alive (which transitively keeps the inner alive). This is
+                //   exactly the value the user wants back.
+                //
+                // We must therefore return `result__` and drop the local `derived__`
+                // outer reference at end of scope. Returning `derived__.cast::<#return>()`
+                // would be wrong: the outer's `QueryInterface` for `#return` falls
+                // through to the non-delegating inner via the `ComposeBase` slot, giving
+                // back a non-delegating pointer whose `Release` does not keep the outer
+                // alive — once `derived__` drops, the outer is freed and the caller is
+                // left with a dangling reference into the inner's vtables.
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
-                let return_name = self.signature.return_type.write_name(config);
 
                 quote! {
                     pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
@@ -660,17 +660,13 @@ impl Method {
                             let (derived__, base__) = windows_core::Compose::compose(compose);
                             let mut result__ = core::mem::zeroed();
                             (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #compose_args).ok()?;
-                            // Release the factory's non-delegating instance pointer; the
-                            // owning reference to the inner lives in the outer's
-                            // `ComposeBase` slot (written via `base__`). The `Result`'s
-                            // `Drop` releases the wrapped `IInspectable` regardless of the
-                            // `Ok`/`Err` arm.
-                            let _ = <windows_core::IInspectable as windows_core::Type<windows_core::IInspectable>>::from_abi(result__);
-                            // Delegating QI through the outer: AddRefs `derived__`, then
-                            // `derived__` drops at scope end leaving the returned value
-                            // as the sole owner of the outer (which transitively owns the
-                            // inner).
-                            windows_core::Interface::cast::<#return_name>(&derived__)
+                            // Suppress unused-variable warning: `derived__` is held alive
+                            // for the duration of the factory call (so the factory can
+                            // store a back-pointer to the outer in the inner) and then
+                            // dropped at scope end — its sole owning ref is replaced by
+                            // the delegating ref baked into `result__`.
+                            let _ = &derived__;
+                            windows_core::Type::from_abi(result__)
                         })
                     }
                 }

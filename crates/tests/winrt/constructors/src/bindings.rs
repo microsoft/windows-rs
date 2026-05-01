@@ -117,10 +117,8 @@ impl Composable {
                 &mut result__,
             )
             .ok()?;
-            let _ = <windows_core::IInspectable as windows_core::Type<
-                windows_core::IInspectable,
-            >>::from_abi(result__);
-            windows_core::Interface::cast::<Composable>(&derived__)
+            let _ = &derived__;
+            windows_core::Type::from_abi(result__)
         })
     }
     pub fn WithValue(arg: i32) -> windows_core::Result<Composable> {
@@ -151,10 +149,8 @@ impl Composable {
                 &mut result__,
             )
             .ok()?;
-            let _ = <windows_core::IInspectable as windows_core::Type<
-                windows_core::IInspectable,
-            >>::from_abi(result__);
-            windows_core::Interface::cast::<Composable>(&derived__)
+            let _ = &derived__;
+            windows_core::Type::from_abi(result__)
         })
     }
     fn IComposableFactory<R, F: FnOnce(&IComposableFactory) -> windows_core::Result<R>>(
