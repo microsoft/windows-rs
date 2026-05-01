@@ -378,7 +378,6 @@ impl Interface {
                 if has_skipped_methods {
                     config.warnings.skip_implement(self.def);
                 } else {
-
                 let mut names = MethodNames::new();
 
                 let field_methods: Vec<_> = methods
