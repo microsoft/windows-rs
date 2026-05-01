@@ -308,80 +308,102 @@ impl Method {
             &self.signature.params
         };
 
-        let name = if kind == InterfaceKind::Composable && params.is_empty() {
-            quote!(new)
+        let (name, name_compose) = if kind == InterfaceKind::Composable && params.is_empty() {
+            // The default parameterless composable constructor maps to `new` for the
+            // non-aggregating entry and `compose` for the aggregating entry.
+            (quote!(new), quote!(compose))
+        } else if kind == InterfaceKind::Composable {
+            let name = method_names.add(self.def);
+            // Build `<name>_compose` by suffixing the existing name token. This works for
+            // both plain identifiers and overload-suffixed forms (e.g. `CreateInstance2`).
+            let compose = name.join("_compose");
+            (name, compose)
         } else {
-            method_names.add(self.def)
+            (method_names.add(self.def), TokenStream::new())
         };
 
-        let args = {
-            let args = params.iter().map(|param|{
-                let name = param.write_ident();
+        // Per-typed-parameter argument expressions (no outer/inner pair). Reused twice for
+        // composable factories (the non-aggregating and aggregating entries).
+        let typed_args: Vec<TokenStream> = params.iter().map(|param|{
+            let name = param.write_ident();
 
-                if param.is_input() {
-                    if param.is_winrt_array() {
-                        if param.is_copyable(config.reader) {
-                            quote! { #name.len().try_into().unwrap(), #name.as_ptr() }
-                        } else {
-                            quote! { #name.len().try_into().unwrap(), core::mem::transmute(#name.as_ptr()) }
-                        }
-                    } else if param.is_convertible() {
-                        quote! { #name.param().abi() }
-                    } else if param.is_copyable(config.reader) {
-                        if param.is_const_ref() {
-                            quote! { &#name }
-                        } else {
-                            quote! { #name }
-                        }
-                    } else {
-                        quote! { core::mem::transmute_copy(#name) }
-                    }
-                } else if param.is_winrt_array() {
+            if param.is_input() {
+                if param.is_winrt_array() {
                     if param.is_copyable(config.reader) {
-                        quote! { #name.len().try_into().unwrap(), #name.as_mut_ptr() }
+                        quote! { #name.len().try_into().unwrap(), #name.as_ptr() }
                     } else {
-                        quote! { #name.len().try_into().unwrap(), core::mem::transmute_copy(&#name) }
+                        quote! { #name.len().try_into().unwrap(), core::mem::transmute(#name.as_ptr()) }
                     }
-                } else if param.is_winrt_array_ref() {
-                    quote! { #name.set_abi_len(), #name as *mut _ as _ }
+                } else if param.is_convertible() {
+                    quote! { #name.param().abi() }
                 } else if param.is_copyable(config.reader) {
-                    quote! { #name }
-                } else {
-                    quote! { #name as *mut _ as _ }
-                }
-            });
-
-            let return_arg = match &self.signature.return_type {
-                Type::Void => quote! {},
-                ty => {
-                    if ty.is_winrt_array() {
-                        let ty = ty.write_name(config);
-                        quote! { windows_core::Array::<#ty>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
+                    if param.is_const_ref() {
+                        quote! { &#name }
                     } else {
-                        quote! { &mut result__ }
+                        quote! { #name }
                     }
+                } else {
+                    quote! { core::mem::transmute_copy(#name) }
                 }
-            };
-
-            if kind == InterfaceKind::Composable {
-                quote! {
-                    #(#args,)* core::ptr::null_mut(), &mut core::ptr::null_mut(), #return_arg
+            } else if param.is_winrt_array() {
+                if param.is_copyable(config.reader) {
+                    quote! { #name.len().try_into().unwrap(), #name.as_mut_ptr() }
+                } else {
+                    quote! { #name.len().try_into().unwrap(), core::mem::transmute_copy(&#name) }
                 }
+            } else if param.is_winrt_array_ref() {
+                quote! { #name.set_abi_len(), #name as *mut _ as _ }
+            } else if param.is_copyable(config.reader) {
+                quote! { #name }
             } else {
-                quote! {
-                    #(#args,)* #return_arg
+                quote! { #name as *mut _ as _ }
+            }
+        }).collect();
+
+        let return_arg = match &self.signature.return_type {
+            Type::Void => quote! {},
+            ty => {
+                if ty.is_winrt_array() {
+                    let ty = ty.write_name(config);
+                    quote! { windows_core::Array::<#ty>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
+                } else {
+                    quote! { &mut result__ }
                 }
             }
         };
 
-        let generics = params.iter().enumerate().filter_map(|(position, param)| {
+        let args = if kind == InterfaceKind::Composable {
+            // Composable factory methods take the `outer` controlling unknown and the
+            // out-pointer for the `inner` non-delegating object as their last two
+            // parameters before the result. The non-aggregating (`new`/named) entry passes
+            // nulls for both.
+            quote! {
+                #(#typed_args,)* core::ptr::null_mut(), &mut core::ptr::null_mut(), #return_arg
+            }
+        } else {
+            quote! {
+                #(#typed_args,)* #return_arg
+            }
+        };
+
+        // For composable factories the aggregating entry passes the outer `IInspectable`
+        // (assembled by `Compose::compose`) and the writeback slot for the inner.
+        let compose_args = if kind == InterfaceKind::Composable {
+            quote! {
+                #(#typed_args,)* core::mem::transmute_copy(&derived__), base__ as *mut _ as _, #return_arg
+            }
+        } else {
+            TokenStream::new()
+        };
+
+        let generics: Vec<TokenStream> = params.iter().enumerate().filter_map(|(position, param)| {
             if param.is_convertible() {
                 let name: TokenStream = format!("P{position}").into();
                 Some(name)
             } else {
                 None
             }
-        });
+        }).collect();
 
         let where_clause = {
             let constraints: Vec<_> = params
@@ -406,7 +428,28 @@ impl Method {
             }
         };
 
-        let params = params.iter().enumerate().map(|(position, param)| {
+        // For the aggregating composable variant we splice an extra `T: windows_core::Compose`
+        // bound onto the existing where clause (or introduce one if there isn't one).
+        let where_clause_compose = if kind == InterfaceKind::Composable {
+            let constraints: Vec<_> = params
+                .iter()
+                .enumerate()
+                .filter_map(|(position, param)| {
+                    if param.is_convertible() {
+                        let name: TokenStream = format!("P{position}").into();
+                        let ty = param.write_name(config);
+                        Some(quote! { #name: windows_core::Param<#ty>, })
+                    } else {
+                        None
+                    }
+                })
+                .collect();
+            quote! { where #(#constraints)* T: windows_core::Compose, }
+        } else {
+            TokenStream::new()
+        };
+
+        let params: Vec<TokenStream> = params.iter().enumerate().map(|(position, param)| {
             let name = param.write_ident();
             let kind = param.write_name(config);
             let default_type = param.write_default(config);
@@ -429,7 +472,7 @@ impl Method {
             } else {
                 quote! { #name: &mut #default_type, }
             }
-        });
+        }).collect();
 
         let return_type = match &self.signature.return_type {
             Type::Void => quote! { () },
@@ -468,64 +511,72 @@ impl Method {
             quote! { this }
         };
 
-        let vcall = quote! { (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #args) };
+        // Builds the full vtable call expression (including return-value handling) for the
+        // given `args` token stream. This is wrapped in a closure so we can build a parallel
+        // `_compose` variant for composable factory methods without duplicating the
+        // return-type plumbing below.
+        let build_vcall = |args: &TokenStream| -> TokenStream {
+            let vcall = quote! { (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #args) };
 
-        let vcall = match &self.signature.return_type {
-            Type::Void => {
-                if noexcept {
-                    quote! {
-                        let hresult__ = #vcall;
-                        debug_assert!(hresult__.0 == 0);
-                    }
-                } else {
-                    quote! {
-                        #vcall.ok()
-                    }
-                }
-            }
-            _ if self.signature.return_type.is_winrt_array() => {
-                if noexcept {
-                    quote! {
-                        let mut result__ = core::mem::MaybeUninit::zeroed();
-                        let hresult__ = #vcall;
-                        debug_assert!(hresult__.0 == 0);
-                        result__.assume_init()
-                    }
-                } else {
-                    quote! {
-                        let mut result__ = core::mem::MaybeUninit::zeroed();
-                        #vcall
-                            .map(|| result__.assume_init())
-                    }
-                }
-            }
-            _ => {
-                if noexcept {
-                    if self.signature.return_type.is_copyable(config.reader) {
+            match &self.signature.return_type {
+                Type::Void => {
+                    if noexcept {
                         quote! {
-                            let mut result__ = core::mem::zeroed();
                             let hresult__ = #vcall;
                             debug_assert!(hresult__.0 == 0);
-                            result__
                         }
                     } else {
                         quote! {
-                            let mut result__ = core::mem::zeroed();
-                            let hresult__ = #vcall;
-                            debug_assert!(hresult__.0 == 0);
-                            core::mem::transmute(result__)
+                            #vcall.ok()
                         }
                     }
-                } else {
-                    let map = self.signature.return_type.write_result_map(config.reader);
+                }
+                _ if self.signature.return_type.is_winrt_array() => {
+                    if noexcept {
+                        quote! {
+                            let mut result__ = core::mem::MaybeUninit::zeroed();
+                            let hresult__ = #vcall;
+                            debug_assert!(hresult__.0 == 0);
+                            result__.assume_init()
+                        }
+                    } else {
+                        quote! {
+                            let mut result__ = core::mem::MaybeUninit::zeroed();
+                            #vcall
+                                .map(|| result__.assume_init())
+                        }
+                    }
+                }
+                _ => {
+                    if noexcept {
+                        if self.signature.return_type.is_copyable(config.reader) {
+                            quote! {
+                                let mut result__ = core::mem::zeroed();
+                                let hresult__ = #vcall;
+                                debug_assert!(hresult__.0 == 0);
+                                result__
+                            }
+                        } else {
+                            quote! {
+                                let mut result__ = core::mem::zeroed();
+                                let hresult__ = #vcall;
+                                debug_assert!(hresult__.0 == 0);
+                                core::mem::transmute(result__)
+                            }
+                        }
+                    } else {
+                        let map = self.signature.return_type.write_result_map(config.reader);
 
-                    quote! {
-                        let mut result__ = core::mem::zeroed();
-                        #vcall.#map
+                        quote! {
+                            let mut result__ = core::mem::zeroed();
+                            #vcall.#map
+                        }
                     }
                 }
             }
         };
+
+        let vcall = build_vcall(&args);
 
         match kind {
             InterfaceKind::Default => quote! {
@@ -553,12 +604,32 @@ impl Method {
                     }
                 }
             }
-            InterfaceKind::Static | InterfaceKind::Composable => {
+            InterfaceKind::Static => {
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
 
                 quote! {
                     pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
                         Self::#interface_name(|this| unsafe { #vcall })
+                    }
+                }
+            }
+            InterfaceKind::Composable => {
+                // Composable factory methods get two entries: a non-aggregating one (the
+                // caller does not provide a derived implementation) and an aggregating
+                // `_compose` variant that takes a `T: Compose` and threads the outer
+                // `IInspectable` and inner writeback slot into the vtable call.
+                let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
+                let compose_vcall = build_vcall(&compose_args);
+
+                quote! {
+                    pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
+                        Self::#interface_name(|this| unsafe { #vcall })
+                    }
+                    pub fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
+                        Self::#interface_name(|this| unsafe {
+                            let (derived__, base__) = windows_core::Compose::compose(compose);
+                            #compose_vcall
+                        })
                     }
                 }
             }
