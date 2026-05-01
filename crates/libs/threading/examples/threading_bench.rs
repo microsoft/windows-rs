@@ -3,9 +3,10 @@
 //! workload that `windows-future` actually issues: one fire-and-forget
 //! submission per `IAsync*::spawn`, with a near-empty closure body.
 //!
-//! Goal: decide whether `windows-future` should keep its dependency on
-//! `windows-threading` or just call `std::thread::spawn` directly. See
-//! `docs/cross-todo.md`, Stage 4.
+//! This benchmark backed the decision to make `windows_threading::submit`
+//! itself cross-platform (Win32 fast path on Windows, `std::thread::spawn`
+//! fallback elsewhere) rather than have `windows-future` drop its dependency
+//! on `windows-threading` and call `std::thread::spawn` directly.
 //!
 //! Run on a Windows host (Release mode):
 //!
@@ -23,6 +24,20 @@
 //!
 //! Each closure does a single `fetch_add` on a shared counter so the
 //! per-submit dispatch path dominates the measurement.
+//!
+//! Representative results (Windows, release):
+//!
+//! | Workload | win32-pool                  | std::spawn                  | Ratio |
+//! |----------|-----------------------------|-----------------------------|-------|
+//! | single   | 15.67 µs/submit ·    63 813/s | 67.20 µs/submit ·    14 880/s | ~4.3× |
+//! | burst    |  0.46 µs/submit · 2 180 027/s | 41.16 µs/submit ·    24 296/s |  ~90× |
+//! | steady   |  0.46 µs/submit · 2 162 686/s | 42.15 µs/submit ·    23 724/s |  ~91× |
+//!
+//! Per-submit cost on the Win32 pool drops from 15.67 µs (cold round trip) to
+//! 0.46 µs (warm queued), confirming worker-thread reuse; `std::thread::spawn`
+//! stays flat at ~42 µs because every submit pays a full `CreateThread` round
+//! trip. Throughput delta on burst/steady is two orders of magnitude — well
+//! past the threshold for keeping the Win32 pool dependency.
 
 #[cfg(not(windows))]
 fn main() {
