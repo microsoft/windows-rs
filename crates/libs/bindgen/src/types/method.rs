@@ -662,8 +662,10 @@ impl Method {
                             (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #compose_args).ok()?;
                             // Release the factory's non-delegating instance pointer; the
                             // owning reference to the inner lives in the outer's
-                            // `ComposeBase` slot (written via `base__`).
-                            let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+                            // `ComposeBase` slot (written via `base__`). The `Result`'s
+                            // `Drop` releases the wrapped `IInspectable` regardless of the
+                            // `Ok`/`Err` arm.
+                            let _ = <windows_core::IInspectable as windows_core::Type<windows_core::IInspectable>>::from_abi(result__);
                             // Delegating QI through the outer: AddRefs `derived__`, then
                             // `derived__` drops at scope end leaving the returned value
                             // as the sole owner of the outer (which transitively owns the

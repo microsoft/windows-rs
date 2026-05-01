@@ -38,7 +38,9 @@ pub mod Test {
                     &mut result__,
                 )
                 .ok()?;
-                let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+                let _ = <windows_core::IInspectable as windows_core::Type<
+                    windows_core::IInspectable,
+                >>::from_abi(result__);
                 windows_core::Interface::cast::<Foo>(&derived__)
             })
         }
@@ -68,7 +70,9 @@ pub mod Test {
                     &mut result__,
                 )
                 .ok()?;
-                let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+                let _ = <windows_core::IInspectable as windows_core::Type<
+                    windows_core::IInspectable,
+                >>::from_abi(result__);
                 windows_core::Interface::cast::<Foo>(&derived__)
             })
         }

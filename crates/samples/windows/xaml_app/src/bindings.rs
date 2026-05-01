@@ -109,7 +109,9 @@ impl Application {
                 &mut result__,
             )
             .ok()?;
-            let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+            let _ = <windows_core::IInspectable as windows_core::Type<
+                windows_core::IInspectable,
+            >>::from_abi(result__);
             windows_core::Interface::cast::<Application>(&derived__)
         })
     }
@@ -883,7 +885,9 @@ impl Control {
                 &mut result__,
             )
             .ok()?;
-            let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+            let _ = <windows_core::IInspectable as windows_core::Type<
+                windows_core::IInspectable,
+            >>::from_abi(result__);
             windows_core::Interface::cast::<Control>(&derived__)
         })
     }
@@ -2788,7 +2792,9 @@ impl DependencyObject {
                 &mut result__,
             )
             .ok()?;
-            let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+            let _ = <windows_core::IInspectable as windows_core::Type<
+                windows_core::IInspectable,
+            >>::from_abi(result__);
             windows_core::Interface::cast::<DependencyObject>(&derived__)
         })
     }
@@ -3315,7 +3321,9 @@ impl FrameworkElement {
                 &mut result__,
             )
             .ok()?;
-            let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+            let _ = <windows_core::IInspectable as windows_core::Type<
+                windows_core::IInspectable,
+            >>::from_abi(result__);
             windows_core::Interface::cast::<FrameworkElement>(&derived__)
         })
     }
@@ -15729,7 +15737,9 @@ impl TextBox {
                 &mut result__,
             )
             .ok()?;
-            let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+            let _ = <windows_core::IInspectable as windows_core::Type<
+                windows_core::IInspectable,
+            >>::from_abi(result__);
             windows_core::Interface::cast::<TextBox>(&derived__)
         })
     }
