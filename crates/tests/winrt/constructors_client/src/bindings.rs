@@ -103,6 +103,24 @@ impl Composable {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
+    pub fn compose<T>(compose: T) -> windows_core::Result<Composable>
+    where
+        T: windows_core::Compose,
+    {
+        Self::IComposableFactory(|this| unsafe {
+            let (derived__, base__) = windows_core::Compose::compose(compose);
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::mem::transmute_copy(&derived__),
+                base__ as *mut _ as _,
+                &mut result__,
+            )
+            .ok()?;
+            let _ = &derived__;
+            windows_core::Type::from_abi(result__)
+        })
+    }
     pub fn WithValue(arg: i32) -> windows_core::Result<Composable> {
         Self::IComposableFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -114,6 +132,25 @@ impl Composable {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn WithValue_compose<T>(arg: i32, compose: T) -> windows_core::Result<Composable>
+    where
+        T: windows_core::Compose,
+    {
+        Self::IComposableFactory(|this| unsafe {
+            let (derived__, base__) = windows_core::Compose::compose(compose);
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WithValue)(
+                windows_core::Interface::as_raw(this),
+                arg,
+                core::mem::transmute_copy(&derived__),
+                base__ as *mut _ as _,
+                &mut result__,
+            )
+            .ok()?;
+            let _ = &derived__;
+            windows_core::Type::from_abi(result__)
         })
     }
     fn IComposableFactory<R, F: FnOnce(&IComposableFactory) -> windows_core::Result<R>>(
