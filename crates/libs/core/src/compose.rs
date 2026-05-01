@@ -32,6 +32,17 @@ impl ComposeBase {
     pub const fn new() -> Self {
         Self(None)
     }
+
+    /// Returns a shared reference to the underlying `Option<IInspectable>`.
+    ///
+    /// This is the safe accessor used by `QueryInterface` fall-through in code
+    /// emitted by the `windows-implement` macro. Sound because `ComposeBase`
+    /// is `#[repr(transparent)]` over `Option<IInspectable>`.
+    #[doc(hidden)]
+    #[inline]
+    pub fn as_option(&self) -> &Option<IInspectable> {
+        &self.0
+    }
 }
 
 /// A trait used to support aggregation (composition) of WinRT runtime classes.
@@ -56,8 +67,12 @@ pub trait Compose: Sized {
     /// The returned mutable reference points into the heap-allocated outer
     /// implementation object that backs the returned `IInspectable`. Callers
     /// must keep the `IInspectable` alive (so that the slot remains valid) for
-    /// the duration of the composable factory call that consumes it. The free
-    /// lifetime `'a` is chosen by the caller and must not outlive the returned
-    /// `IInspectable`.
+    /// the duration of the composable factory call that consumes it.
+    ///
+    /// The free lifetime `'a` is intentional and matches the historical
+    /// signature: this trait is `#[doc(hidden)]` and only invoked from generated
+    /// bindings, where the returned tuple's two values are immediately consumed
+    /// together at a single inline call site. Callers must therefore ensure
+    /// `'a` does not outlive the returned `IInspectable`.
     unsafe fn compose<'a>(implementation: Self) -> (IInspectable, &'a mut Option<IInspectable>);
 }

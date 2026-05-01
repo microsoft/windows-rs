@@ -315,7 +315,10 @@ fn gen_impl_compose(inputs: &ImplementInputs) -> syn::Item {
                 unsafe {
                     let inspectable: ::windows_core::IInspectable = implementation.into();
                     // The IInspectable points at the `identity` field of the heap-allocated
-                    // `Foo_Impl`. The `base` slot lives one pointer-sized unit before it.
+                    // `Foo_Impl`. The `base` slot lives at the previous pointer-sized slot
+                    // (i.e. `size_of::<*mut c_void>()` bytes earlier in memory) because
+                    // `ComposeBase` is `#[repr(transparent)]` over `Option<IInspectable>`,
+                    // which has the size of a single COM pointer.
                     let identity_ptr: *mut ::core::ffi::c_void = ::windows_core::Interface::as_raw(&inspectable);
                     let base_ptr = (identity_ptr as *mut *mut ::core::ffi::c_void).sub(1)
                         as *mut ::core::option::Option<::windows_core::IInspectable>;
@@ -399,12 +402,7 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
     // is responsible for any IIDs implemented by the runtime class that the Rust derived
     // type does not handle locally.
     let aggregation_query = quote! {
-        // SAFETY: `ComposeBase` is `#[repr(transparent)]` over `Option<IInspectable>`,
-        // so transmuting a shared reference is sound. The slot is only ever written
-        // before the object is shared, after which it is read-only.
-        let base: &::core::option::Option<::windows_core::IInspectable> =
-            unsafe { ::core::mem::transmute(&self.base) };
-        if let ::core::option::Option::Some(base) = base {
+        if let ::core::option::Option::Some(base) = self.base.as_option() {
             return ::windows_core::Interface::query(base, &iid as *const ::windows_core::GUID, interface);
         }
     };

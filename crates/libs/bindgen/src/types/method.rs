@@ -314,8 +314,10 @@ impl Method {
             (quote!(new), quote!(compose))
         } else if kind == InterfaceKind::Composable {
             let name = method_names.add(self.def);
-            // Build `<name>_compose` by suffixing the existing name token. This works for
-            // both plain identifiers and overload-suffixed forms (e.g. `CreateInstance2`).
+            // Build `<name>_compose` for the aggregating variant by string-concatenating
+            // `_compose` onto the existing name token. `TokenStream::join` here is the
+            // bindgen string-builder helper (defined in `tokens/token_stream.rs`), not
+            // a real proc-macro2 method — it appends the literal suffix.
             let compose = name.join("_compose");
             (name, compose)
         } else {
