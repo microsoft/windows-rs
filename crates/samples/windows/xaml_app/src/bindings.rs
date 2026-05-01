@@ -225,6 +225,19 @@ impl Application {
             .ok()
         }
     }
+    pub fn OnWindowCreated<P0>(&self, args: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<WindowCreatedEventArgs>,
+    {
+        let this = &windows_core::Interface::cast::<IApplicationOverrides>(self)?;
+        unsafe {
+            (windows_core::Interface::vtable(this).OnWindowCreated)(
+                windows_core::Interface::as_raw(this),
+                args.param().abi(),
+            )
+            .ok()
+        }
+    }
     pub fn OnBackgroundActivated<P0>(&self, args: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<
@@ -5040,6 +5053,10 @@ pub trait IApplicationOverrides_Impl: windows_core::IUnknownImpl {
             windows::ApplicationModel::Activation::CachedFileUpdaterActivatedEventArgs,
         >,
     ) -> windows_core::Result<()>;
+    fn OnWindowCreated(
+        &self,
+        args: windows_core::Ref<WindowCreatedEventArgs>,
+    ) -> windows_core::Result<()>;
 }
 impl IApplicationOverrides_Vtbl {
     pub const fn new<Identity: IApplicationOverrides_Impl, const OFFSET: isize>() -> Self {
@@ -5170,6 +5187,20 @@ impl IApplicationOverrides_Vtbl {
                 .into()
             }
         }
+        unsafe extern "system" fn OnWindowCreated<
+            Identity: IApplicationOverrides_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IApplicationOverrides_Impl::OnWindowCreated(this, core::mem::transmute_copy(&args))
+                    .into()
+            }
+        }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IApplicationOverrides, OFFSET>(
             ),
@@ -5181,7 +5212,7 @@ impl IApplicationOverrides_Vtbl {
             OnFileOpenPickerActivated: OnFileOpenPickerActivated::<Identity, OFFSET>,
             OnFileSavePickerActivated: OnFileSavePickerActivated::<Identity, OFFSET>,
             OnCachedFileUpdaterActivated: OnCachedFileUpdaterActivated::<Identity, OFFSET>,
-            OnWindowCreated: 0,
+            OnWindowCreated: OnWindowCreated::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -5224,7 +5255,10 @@ pub struct IApplicationOverrides_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    OnWindowCreated: usize,
+    pub OnWindowCreated: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IApplicationOverrides2,
@@ -14057,6 +14091,62 @@ pub struct IWindow4_Vtbl {
     UIContext: usize,
 }
 windows_core::imp::define_interface!(
+    IWindowCreatedEventArgs,
+    IWindowCreatedEventArgs_Vtbl,
+    0x31b71470_feff_4654_af48_9b398ab5772b
+);
+impl windows_core::RuntimeType for IWindowCreatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl windows_core::RuntimeName for IWindowCreatedEventArgs {
+    const NAME: &'static str = "Windows.UI.Xaml.IWindowCreatedEventArgs";
+}
+pub trait IWindowCreatedEventArgs_Impl: windows_core::IUnknownImpl {
+    fn Window(&self) -> windows_core::Result<Window>;
+}
+impl IWindowCreatedEventArgs_Vtbl {
+    pub const fn new<Identity: IWindowCreatedEventArgs_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Window<
+            Identity: IWindowCreatedEventArgs_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWindowCreatedEventArgs_Impl::Window(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWindowCreatedEventArgs, OFFSET>(
+            ),
+            Window: Window::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWindowCreatedEventArgs as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowCreatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Window: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IWindowStatics,
     IWindowStatics_Vtbl,
     0x93328409_4ea1_4afa_83dc_0c4e73e88bb1
@@ -18397,3 +18487,36 @@ impl windows_core::RuntimeName for Window {
 }
 unsafe impl Send for Window {}
 unsafe impl Sync for Window {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowCreatedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    WindowCreatedEventArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl WindowCreatedEventArgs {
+    pub fn Window(&self) -> windows_core::Result<Window> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Window)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for WindowCreatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IWindowCreatedEventArgs>();
+}
+unsafe impl windows_core::Interface for WindowCreatedEventArgs {
+    type Vtable = <IWindowCreatedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowCreatedEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowCreatedEventArgs {
+    const NAME: &'static str = "Windows.UI.Xaml.WindowCreatedEventArgs";
+}
+unsafe impl Send for WindowCreatedEventArgs {}
+unsafe impl Sync for WindowCreatedEventArgs {}

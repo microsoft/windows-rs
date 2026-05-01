@@ -15,6 +15,7 @@ fn main() {
         .filter("Windows.UI.Xaml.ApplicationInitializationCallback")
         .filter("Windows.UI.Xaml.Window")
         .filter("Windows.UI.Xaml.Controls.TextBox")
+        .filter("Windows.UI.Xaml.WindowCreatedEventArgs")
         // The Xaml namespaces are no longer in the `windows` crate (PR #1836),
         // so the transitive Xaml dependencies that are kept must be emitted
         // inline (default behaviour). The non-Xaml namespaces that Xaml types

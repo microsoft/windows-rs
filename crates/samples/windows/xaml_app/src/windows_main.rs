@@ -58,6 +58,9 @@ impl IApplicationOverrides_Impl for MyApp_Impl {
     ) -> Result<()> {
         Ok(())
     }
+    fn OnWindowCreated(&self, _: Ref<WindowCreatedEventArgs>) -> Result<()> {
+        Ok(())
+    }
 }
 
 fn main() -> Result<()> {
