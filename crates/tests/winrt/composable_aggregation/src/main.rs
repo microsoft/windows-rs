@@ -7,7 +7,7 @@
 //! `Compose::compose` path end-to-end on a non-Windows host.
 
 mod bindings;
-use bindings::{Foo, IFoo, IFoo_Impl, IFooFactory, IFooFactory_Impl};
+use bindings::{Foo, IFoo, IFooFactory, IFooFactory_Impl, IFoo_Impl};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use windows_core::{Compose, IInspectable, Interface, OutRef, Ref, Result};
 use windows_implement::implement;
@@ -66,11 +66,7 @@ impl Drop for Derived {
 struct MockFactory;
 
 impl IFooFactory_Impl for MockFactory_Impl {
-    fn CreateInstance(
-        &self,
-        outer: Ref<IInspectable>,
-        inner: OutRef<IInspectable>,
-    ) -> Result<Foo> {
+    fn CreateInstance(&self, outer: Ref<IInspectable>, inner: OutRef<IInspectable>) -> Result<Foo> {
         // Aggregation contract:
         //   * `outer` is the controlling-unknown supplied by the derived caller.
         //   * `inner` receives the freshly-allocated non-delegating IInspectable
@@ -101,7 +97,10 @@ fn main() -> Result<()> {
     let _ = &outer;
 
     // The base slot must now contain the inner produced by the factory.
-    assert!(base_slot.is_some(), "factory must have populated inner slot");
+    assert!(
+        base_slot.is_some(),
+        "factory must have populated inner slot"
+    );
 
     // 1. Hello() on the returned Foo (outer's IFoo) dispatches to the derived
     //    implementation, not the inner.
