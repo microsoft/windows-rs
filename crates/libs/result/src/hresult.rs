@@ -108,7 +108,7 @@ impl HRESULT {
 
         #[cfg(not(windows))]
         {
-            return alloc::format!("0x{:08x}", self.0 as u32);
+            alloc::format!("0x{:08x}", self.0 as u32)
         }
     }
 

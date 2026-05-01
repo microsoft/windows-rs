@@ -126,24 +126,9 @@ impl<T: Interface> Delegate<T> {
 
     /// Returns an encoded token to identify the delegate.
     fn to_token(&self) -> i64 {
-        // On Windows, `EncodePointer` obfuscates the pointer with a
-        // process-specific value so tokens can't be forged from raw pointers.
-        // On non-Windows targets there is no equivalent OS primitive; using the
-        // raw pointer value as the token is sufficient because the token is
-        // already opaque to callers and only meaningful within this process.
-        #[cfg(windows)]
-        unsafe {
-            match self {
-                Self::Direct(delegate) => imp::EncodePointer(delegate.as_raw()) as i64,
-                Self::Indirect(delegate) => imp::EncodePointer(delegate.as_raw()) as i64,
-            }
-        }
-        #[cfg(not(windows))]
-        {
-            match self {
-                Self::Direct(delegate) => delegate.as_raw() as i64,
-                Self::Indirect(delegate) => delegate.as_raw() as i64,
-            }
+        match self {
+            Self::Direct(delegate) => imp::encode_pointer(delegate.as_raw()),
+            Self::Indirect(delegate) => imp::encode_pointer(delegate.as_raw()),
         }
     }
 

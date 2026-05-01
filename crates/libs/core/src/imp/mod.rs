@@ -1,6 +1,7 @@
 #[cfg(windows)]
 include!("windows.rs");
 
+mod agile;
 mod bindings;
 mod can_into;
 mod com_bindings;
@@ -9,6 +10,7 @@ mod ref_count;
 mod sha1;
 mod weak_ref_count;
 
+pub use agile::*;
 pub(crate) use bindings::*;
 pub use can_into::*;
 pub use com_bindings::*;
@@ -16,6 +18,26 @@ pub use delegate_box::*;
 pub use ref_count::*;
 pub use sha1::*;
 pub use weak_ref_count::*;
+
+/// Returns an opaque, process-specific encoding of a pointer suitable for use
+/// as a delegate token. On Windows this calls `EncodePointer` so tokens cannot
+/// be forged from raw pointer values; on non-Windows targets the raw pointer
+/// value is returned as-is because there is no equivalent OS primitive and the
+/// token is already opaque to callers and only meaningful within this process.
+///
+/// The pointer is treated as an opaque value and is never dereferenced.
+#[inline]
+#[allow(clippy::not_unsafe_ptr_arg_deref)]
+pub fn encode_pointer(ptr: *const core::ffi::c_void) -> i64 {
+    #[cfg(windows)]
+    unsafe {
+        EncodePointer(ptr) as i64
+    }
+    #[cfg(not(windows))]
+    {
+        ptr as i64
+    }
+}
 
 #[doc(hidden)]
 #[macro_export]
