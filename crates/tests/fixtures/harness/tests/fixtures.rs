@@ -102,8 +102,8 @@ impl Fixture {
 }
 
 /// A deliberately tiny key=value parser for `fixture.toml`. We only need a
-/// handful of declarative knobs (filter, no_allow, no_comment, specific_deps,
-/// references); pulling in a full TOML dependency for that would be
+/// handful of declarative knobs (filter, no_allow, no_comment, noexcept,
+/// specific_deps, references); pulling in a full TOML dependency for that would be
 /// disproportionate. The format is a strict subset of TOML so authors can
 /// add real TOML structure later without breaking existing fixtures.
 ///
@@ -120,6 +120,7 @@ struct FixtureConfig {
     filter: Option<String>,
     no_allow: bool,
     no_comment: bool,
+    noexcept: bool,
     specific_deps: bool,
     references: Vec<String>,
     /// For the `winmd_to_rdl` group: the prebuilt winmd (or directory) the
@@ -170,6 +171,7 @@ impl FixtureConfig {
                 "filter" => cfg.filter = Some(parse_string(value)),
                 "no_allow" => cfg.no_allow = parse_bool(value),
                 "no_comment" => cfg.no_comment = parse_bool(value),
+                "noexcept" => cfg.noexcept = parse_bool(value),
                 "specific_deps" => cfg.specific_deps = parse_bool(value),
                 "references" => cfg.references = parse_string_list(value),
                 "winmd_input" => cfg.winmd_input = Some(parse_string(value)),
@@ -376,6 +378,9 @@ fn run_bindgen(f: &Fixture) {
     }
     if cfg.specific_deps {
         bindgen.specific_deps();
+    }
+    if cfg.noexcept {
+        bindgen.noexcept();
     }
     bindgen.write().unwrap();
 
