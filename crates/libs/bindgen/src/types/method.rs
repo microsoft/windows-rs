@@ -398,14 +398,18 @@ impl Method {
             TokenStream::new()
         };
 
-        let generics: Vec<TokenStream> = params.iter().enumerate().filter_map(|(position, param)| {
-            if param.is_convertible() {
-                let name: TokenStream = format!("P{position}").into();
-                Some(name)
-            } else {
-                None
-            }
-        }).collect();
+        let generics: Vec<TokenStream> = params
+            .iter()
+            .enumerate()
+            .filter_map(|(position, param)| {
+                if param.is_convertible() {
+                    let name: TokenStream = format!("P{position}").into();
+                    Some(name)
+                } else {
+                    None
+                }
+            })
+            .collect();
 
         let where_clause = {
             let constraints: Vec<_> = params
@@ -451,30 +455,34 @@ impl Method {
             TokenStream::new()
         };
 
-        let params: Vec<TokenStream> = params.iter().enumerate().map(|(position, param)| {
-            let name = param.write_ident();
-            let kind = param.write_name(config);
-            let default_type = param.write_default(config);
+        let params: Vec<TokenStream> = params
+            .iter()
+            .enumerate()
+            .map(|(position, param)| {
+                let name = param.write_ident();
+                let kind = param.write_name(config);
+                let default_type = param.write_default(config);
 
-            if param.is_input() {
-                if param.is_winrt_array() {
-                    quote! { #name: &[#default_type], }
-                } else if param.is_convertible() {
-                    let kind: TokenStream = format!("P{position}").into();
-                    quote! { #name: #kind, }
-                } else if param.is_copyable(config.reader) {
-                    quote! { #name: #kind, }
+                if param.is_input() {
+                    if param.is_winrt_array() {
+                        quote! { #name: &[#default_type], }
+                    } else if param.is_convertible() {
+                        let kind: TokenStream = format!("P{position}").into();
+                        quote! { #name: #kind, }
+                    } else if param.is_copyable(config.reader) {
+                        quote! { #name: #kind, }
+                    } else {
+                        quote! { #name: &#kind, }
+                    }
+                } else if param.is_winrt_array() {
+                    quote! { #name: &mut [#default_type], }
+                } else if param.is_winrt_array_ref() {
+                    quote! { #name: &mut windows_core::Array<#kind>, }
                 } else {
-                    quote! { #name: &#kind, }
+                    quote! { #name: &mut #default_type, }
                 }
-            } else if param.is_winrt_array() {
-                quote! { #name: &mut [#default_type], }
-            } else if param.is_winrt_array_ref() {
-                quote! { #name: &mut windows_core::Array<#kind>, }
-            } else {
-                quote! { #name: &mut #default_type, }
-            }
-        }).collect();
+            })
+            .collect();
 
         let return_type = match &self.signature.return_type {
             Type::Void => quote! { () },
