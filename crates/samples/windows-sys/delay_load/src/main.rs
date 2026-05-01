@@ -2,7 +2,7 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() {
     use windows_sys::{core::*, Win32::Foundation::*, Win32::System::LibraryLoader::*};
 
     /// # Safety
@@ -31,18 +31,6 @@ mod imp {
         }
     }
 
-    pub fn main() {
-        unsafe {
-            if let Some(api) =
-                delay_load::<ShellMessageBoxW>(s!("shlwapi.dll"), s!("ShellMessageBoxW"))
-            {
-                api(0, 0, w!("Message"), w!("Sample"), 1);
-            } else {
-                println!("Can't find API");
-            }
-        }
-    }
-
     type ShellMessageBoxW = unsafe extern "C" fn(
         happinst: usize,
         hwnd: usize,
@@ -51,9 +39,13 @@ mod imp {
         fustyle: u32,
         ...
     ) -> i32;
-}
 
-#[cfg(windows)]
-fn main() {
-    imp::main()
+    unsafe {
+        if let Some(api) = delay_load::<ShellMessageBoxW>(s!("shlwapi.dll"), s!("ShellMessageBoxW"))
+        {
+            api(0, 0, w!("Message"), w!("Sample"), 1);
+        } else {
+            println!("Can't find API");
+        }
+    }
 }

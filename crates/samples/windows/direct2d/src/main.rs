@@ -2,7 +2,7 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() -> windows::core::Result<()> {
     use windows::{
         core::*, Win32::Foundation::*, Win32::Graphics::Direct2D::Common::*,
         Win32::Graphics::Direct2D::*, Win32::Graphics::Direct3D::*, Win32::Graphics::Direct3D11::*,
@@ -13,14 +13,6 @@ mod imp {
     };
 
     use windows_numerics::*;
-
-    pub fn main() -> Result<()> {
-        unsafe {
-            CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
-        }
-        let mut window = Window::new()?;
-        window.run()
-    }
 
     struct Window {
         handle: HWND,
@@ -621,9 +613,10 @@ mod imp {
 
         unsafe { factory.CreateSwapChainForHwnd(device, window, &props, None, None) }
     }
-}
 
-#[cfg(windows)]
-fn main() -> impl std::process::Termination {
-    imp::main()
+    unsafe {
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
+    }
+    let mut window = Window::new()?;
+    window.run()
 }

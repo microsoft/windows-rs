@@ -2,23 +2,16 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() -> windows::core::Result<()> {
     use windows::{
         core::Owned,
         Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
     };
 
-    pub fn main() -> windows::core::Result<()> {
-        unsafe {
-            let event = Owned::new(CreateEventW(None, true, false, None)?);
-            SetEvent(*event)?;
-            WaitForSingleObject(*event, 0);
-        }
-        Ok(())
+    unsafe {
+        let event = Owned::new(CreateEventW(None, true, false, None)?);
+        SetEvent(*event)?;
+        WaitForSingleObject(*event, 0);
     }
-}
-
-#[cfg(windows)]
-fn main() -> impl std::process::Termination {
-    imp::main()
+    Ok(())
 }

@@ -2,39 +2,32 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() -> windows::core::Result<()> {
     use windows::{
         core::*, Win32::System::Com::*, Win32::UI::Accessibility::*,
         Win32::UI::WindowsAndMessaging::*, UI::UIAutomation::*,
     };
 
-    pub fn main() -> Result<()> {
-        unsafe {
-            CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
-            let window = FindWindowA(None, s!("Calculator"))?;
+    unsafe {
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
+        let window = FindWindowA(None, s!("Calculator"))?;
 
-            // Start with COM API
-            let automation: IUIAutomation = CoCreateInstance(&CUIAutomation, None, CLSCTX_ALL)?;
-            let element: IUIAutomationElement = automation.ElementFromHandle(window)?;
+        // Start with COM API
+        let automation: IUIAutomation = CoCreateInstance(&CUIAutomation, None, CLSCTX_ALL)?;
+        let element: IUIAutomationElement = automation.ElementFromHandle(window)?;
 
-            // Use COM API
-            let name = element.CurrentName()?;
-            println!("window name: {name:?}");
+        // Use COM API
+        let name = element.CurrentName()?;
+        println!("window name: {name:?}");
 
-            // Query for WinRT API (will fail on earlier versions of Windows)
-            let element: Result<AutomationElement> = element.cast();
+        // Query for WinRT API (will fail on earlier versions of Windows)
+        let element: Result<AutomationElement> = element.cast();
 
-            if let Ok(element) = element {
-                // Use WinRT API
-                println!("file name: {:?}", element.ExecutableFileName()?);
-            }
+        if let Ok(element) = element {
+            // Use WinRT API
+            println!("file name: {:?}", element.ExecutableFileName()?);
         }
-
-        Ok(())
     }
-}
 
-#[cfg(windows)]
-fn main() -> impl std::process::Termination {
-    imp::main()
+    Ok(())
 }

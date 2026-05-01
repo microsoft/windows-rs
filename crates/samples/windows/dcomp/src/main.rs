@@ -2,7 +2,7 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() -> windows::core::Result<()> {
     use windows::{
         core::*,
         Win32::{
@@ -32,15 +32,6 @@ mod imp {
     const CARD_HEIGHT: f32 = 210.0;
     const WINDOW_WIDTH: f32 = CARD_COLUMNS as f32 * (CARD_WIDTH + CARD_MARGIN) + CARD_MARGIN;
     const WINDOW_HEIGHT: f32 = CARD_ROWS as f32 * (CARD_HEIGHT + CARD_MARGIN) + CARD_MARGIN;
-
-    pub fn main() -> Result<()> {
-        unsafe {
-            CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
-            SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2)?;
-        }
-        let mut window = Window::new()?;
-        window.run()
-    }
 
     #[derive(PartialEq)]
     enum Status {
@@ -781,9 +772,11 @@ mod imp {
     fn logical_to_physical(pixel: f32, dpi: f32) -> f32 {
         pixel * dpi / 96.0
     }
-}
 
-#[cfg(windows)]
-fn main() -> impl std::process::Termination {
-    imp::main()
+    unsafe {
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
+        SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2)?;
+    }
+    let mut window = Window::new()?;
+    window.run()
 }

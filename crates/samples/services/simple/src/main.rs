@@ -2,47 +2,40 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() {
     use std::io::Write;
 
-    pub fn main() {
-        // Simple log file can be used to observe the service commands.
-        let mut log = std::fs::File::create("D:\\service.txt").unwrap();
+    // Simple log file can be used to observe the service commands.
+    let mut log = std::fs::File::create("D:\\service.txt").unwrap();
 
-        let result =
-            windows_services::Service::new()
-                .can_pause()
-                .can_stop()
-                .run(|_service, command| {
-                    writeln!(log, "Command: {command:?}").unwrap();
-                });
+    let result =
+        windows_services::Service::new()
+            .can_pause()
+            .can_stop()
+            .run(|_service, command| {
+                writeln!(log, "Command: {command:?}").unwrap();
+            });
 
-        if result.is_err() {
-            println!(
-                r#"Use service control manager to start service.
-    
-    Install:
-        > sc create ServiceName binPath= "{}"
+    if result.is_err() {
+        println!(
+            r#"Use service control manager to start service.
 
-    Start:
-        > sc start ServiceName
+Install:
+    > sc create ServiceName binPath= "{}"
 
-    Query status:
-        > sc query ServiceName
+Start:
+    > sc start ServiceName
 
-    Stop:
-        > sc stop ServiceName
+Query status:
+    > sc query ServiceName
 
-    Delete (uninstall):
-        > sc delete ServiceName
-    "#,
-                std::env::current_exe().unwrap().display()
-            );
-        }
+Stop:
+    > sc stop ServiceName
+
+Delete (uninstall):
+    > sc delete ServiceName
+"#,
+            std::env::current_exe().unwrap().display()
+        );
     }
-}
-
-#[cfg(windows)]
-fn main() {
-    imp::main()
 }

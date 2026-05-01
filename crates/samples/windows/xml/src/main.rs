@@ -2,23 +2,16 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() -> windows::core::Result<()> {
     use windows::core::*;
     use windows::Data::Xml::Dom::XmlDocument;
 
-    pub fn main() -> windows::core::Result<()> {
-        let doc = XmlDocument::new()?;
-        doc.LoadXml(h!("<html>hello world</html>"))?;
+    let doc = XmlDocument::new()?;
+    doc.LoadXml(h!("<html>hello world</html>"))?;
 
-        let root = doc.DocumentElement()?;
-        assert!(root.NodeName()? == "html");
-        println!("{:?}", root.InnerText()?);
+    let root = doc.DocumentElement()?;
+    assert!(root.NodeName()? == "html");
+    println!("{:?}", root.InnerText()?);
 
-        Ok(())
-    }
-}
-
-#[cfg(windows)]
-fn main() -> impl std::process::Termination {
-    imp::main()
+    Ok(())
 }

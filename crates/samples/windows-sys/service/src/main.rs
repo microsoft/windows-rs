@@ -2,7 +2,7 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() {
     use windows_sys::{
         core::*, Win32::Foundation::*, Win32::Storage::FileSystem::*, Win32::System::Services::*,
     };
@@ -60,43 +60,6 @@ mod imp {
     unsafe impl Sync for State {}
 
     static STATE: std::sync::RwLock<State> = std::sync::RwLock::new(State::new());
-
-    pub fn main() {
-        let table = [
-            SERVICE_TABLE_ENTRYW {
-                lpServiceName: &mut 0,
-                lpServiceProc: Some(service_main),
-            },
-            SERVICE_TABLE_ENTRYW::default(),
-        ];
-
-        unsafe {
-            if StartServiceCtrlDispatcherW(table.as_ptr()) == 0 {
-                println!(
-                    r#"Use Service Control Manager to start service.
-
-    Install:
-      > sc create rust binPath= "{}"
-
-    Start:
-      > sc start rust
-
-    Query status:
-      > sc query rust
-
-    Stop:
-      > sc stop rust
-
-    Delete (uninstall):
-      > sc delete rust
-    "#,
-                    std::env::current_exe().unwrap().display()
-                );
-            }
-        }
-
-        log("service exit\n");
-    }
 
     extern "system" fn service_main(_len: u32, _args: *mut PWSTR) {
         unsafe {
@@ -221,9 +184,39 @@ mod imp {
             CloseHandle(file);
         }
     }
-}
 
-#[cfg(windows)]
-fn main() {
-    imp::main()
+    let table = [
+        SERVICE_TABLE_ENTRYW {
+            lpServiceName: &mut 0,
+            lpServiceProc: Some(service_main),
+        },
+        SERVICE_TABLE_ENTRYW::default(),
+    ];
+
+    unsafe {
+        if StartServiceCtrlDispatcherW(table.as_ptr()) == 0 {
+            println!(
+                r#"Use Service Control Manager to start service.
+
+Install:
+  > sc create rust binPath= "{}"
+
+Start:
+  > sc start rust
+
+Query status:
+  > sc query rust
+
+Stop:
+  > sc stop rust
+
+Delete (uninstall):
+  > sc delete rust
+"#,
+                std::env::current_exe().unwrap().display()
+            );
+        }
+    }
+
+    log("service exit\n");
 }

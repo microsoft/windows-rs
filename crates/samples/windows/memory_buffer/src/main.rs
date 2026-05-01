@@ -2,7 +2,7 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() -> windows::core::Result<()> {
     use windows::{core::*, Foundation::*, Win32::System::WinRT::IMemoryBufferByteAccess};
 
     // This example illustrates how to use IMemoryBufferByteAccess to access the underlying buffer
@@ -22,28 +22,21 @@ mod imp {
         }
     }
 
-    pub fn main() -> Result<()> {
-        let buffer = MemoryBuffer::Create(11)?;
-        let reference = buffer.CreateReference()?;
-        assert_eq!(reference.Capacity()?, 11);
+    let buffer = MemoryBuffer::Create(11)?;
+    let reference = buffer.CreateReference()?;
+    assert_eq!(reference.Capacity()?, 11);
 
-        // Write to buffer...
-        {
-            let slice = unsafe { as_mut_slice(&reference)? };
-            slice.copy_from_slice(b"hello world");
-        }
-
-        // Read from buffer...
-        {
-            let slice = unsafe { as_mut_slice(&reference)? };
-            assert_eq!(slice, b"hello world");
-        }
-
-        Ok(())
+    // Write to buffer...
+    {
+        let slice = unsafe { as_mut_slice(&reference)? };
+        slice.copy_from_slice(b"hello world");
     }
-}
 
-#[cfg(windows)]
-fn main() -> impl std::process::Termination {
-    imp::main()
+    // Read from buffer...
+    {
+        let slice = unsafe { as_mut_slice(&reference)? };
+        assert_eq!(slice, b"hello world");
+    }
+
+    Ok(())
 }

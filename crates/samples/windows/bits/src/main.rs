@@ -2,43 +2,10 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() -> windows::core::Result<()> {
     use windows::{
         core::*, Win32::Networking::BackgroundIntelligentTransferService::*, Win32::System::Com::*,
     };
-
-    pub fn main() -> Result<()> {
-        unsafe {
-            CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
-
-            let manager: IBackgroundCopyManager =
-                CoCreateInstance(&BackgroundCopyManager, None, CLSCTX_LOCAL_SERVER)?;
-
-            let mut job = None;
-
-            manager.CreateJob(
-                w!("sample"),
-                BG_JOB_TYPE_DOWNLOAD,
-                &mut Default::default(),
-                &mut job,
-            )?;
-
-            let job = job.unwrap();
-            job.AddFile(w!("https://kennykerr.ca/favicon.svg"), w!("D:\\rust.svg"))?;
-
-            let callback: IBackgroundCopyCallback = Callback.into();
-            job.SetNotifyInterface(&callback)?;
-            job.SetNotifyFlags(BG_NOTIFY_JOB_TRANSFERRED | BG_NOTIFY_JOB_ERROR)?;
-
-            job.Resume()?;
-            println!("downloading...");
-
-            getchar();
-            job.Cancel()?;
-            println!("canceled");
-            Ok(())
-        }
-    }
 
     #[implement(IBackgroundCopyCallback)]
     struct Callback;
@@ -73,9 +40,35 @@ mod imp {
     unsafe extern "C" {
         pub fn getchar() -> i32;
     }
-}
 
-#[cfg(windows)]
-fn main() -> impl std::process::Termination {
-    imp::main()
+    unsafe {
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
+
+        let manager: IBackgroundCopyManager =
+            CoCreateInstance(&BackgroundCopyManager, None, CLSCTX_LOCAL_SERVER)?;
+
+        let mut job = None;
+
+        manager.CreateJob(
+            w!("sample"),
+            BG_JOB_TYPE_DOWNLOAD,
+            &mut Default::default(),
+            &mut job,
+        )?;
+
+        let job = job.unwrap();
+        job.AddFile(w!("https://kennykerr.ca/favicon.svg"), w!("D:\\rust.svg"))?;
+
+        let callback: IBackgroundCopyCallback = Callback.into();
+        job.SetNotifyInterface(&callback)?;
+        job.SetNotifyFlags(BG_NOTIFY_JOB_TRANSFERRED | BG_NOTIFY_JOB_ERROR)?;
+
+        job.Resume()?;
+        println!("downloading...");
+
+        getchar();
+        job.Cancel()?;
+        println!("canceled");
+        Ok(())
+    }
 }

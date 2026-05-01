@@ -4,7 +4,7 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() -> windows::core::Result<()> {
     use windows::{
         core::*,
         ApplicationModel::{Core::*, Package},
@@ -55,28 +55,21 @@ mod imp {
         }
     }
 
-    pub fn main() -> Result<()> {
-        unsafe {
-            CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
+    unsafe {
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
 
-            if let Err(result) = Package::Current() {
-                MessageBoxW(
-                    None,
-                    w!("This sample must be registered (via register.cmd) and launched from Start."),
-                    w!("Error"),
-                    MB_ICONSTOP | MB_OK,
-                );
-                return Err(result);
-            }
+        if let Err(result) = Package::Current() {
+            MessageBoxW(
+                None,
+                w!("This sample must be registered (via register.cmd) and launched from Start."),
+                w!("Error"),
+                MB_ICONSTOP | MB_OK,
+            );
+            return Err(result);
         }
-
-        let app: IFrameworkViewSource = CoreApp().into();
-        CoreApplication::Run(&app)?;
-        Ok(())
     }
-}
 
-#[cfg(windows)]
-fn main() -> impl std::process::Termination {
-    imp::main()
+    let app: IFrameworkViewSource = CoreApp().into();
+    CoreApplication::Run(&app)?;
+    Ok(())
 }

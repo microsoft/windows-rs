@@ -2,14 +2,8 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() {
     use windows_sys::{core::*, Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*};
-
-    pub fn main() {
-        unsafe {
-            EnumWindows(Some(enum_window), 0);
-        }
-    }
 
     extern "system" fn enum_window(window: HWND, _: LPARAM) -> BOOL {
         unsafe {
@@ -24,9 +18,8 @@ mod imp {
             1
         }
     }
-}
 
-#[cfg(windows)]
-fn main() {
-    imp::main()
+    unsafe {
+        EnumWindows(Some(enum_window), 0);
+    }
 }

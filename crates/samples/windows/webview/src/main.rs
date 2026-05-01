@@ -5,59 +5,13 @@ fn main() {}
 mod bindings;
 
 #[cfg(windows)]
-mod imp {
-    use super::bindings::*;
+fn main() -> windows::core::Result<()> {
+    use crate::bindings::*;
 
     use windows::{
         core::*, Win32::Foundation::*, Win32::System::Com::*, Win32::System::LibraryLoader::*,
         Win32::UI::HiDpi::*, Win32::UI::WindowsAndMessaging::*,
     };
-
-    pub fn main() -> Result<()> {
-        unsafe {
-            CoInitializeEx(None, COINIT_APARTMENTTHREADED).ok()?;
-            SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2)?;
-            let instance = GetModuleHandleA(None)?;
-
-            let wc = WNDCLASSA {
-                hCursor: LoadCursorW(None, IDC_ARROW)?,
-                hInstance: instance.into(),
-                lpszClassName: s!("webview"),
-                style: CS_HREDRAW | CS_VREDRAW,
-                lpfnWndProc: Some(wndproc),
-                ..Default::default()
-            };
-
-            RegisterClassA(&wc);
-
-            let hwnd = CreateWindowExA(
-                WINDOW_EX_STYLE::default(),
-                s!("webview"),
-                s!("hello world"),
-                WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-                CW_USEDEFAULT,
-                CW_USEDEFAULT,
-                CW_USEDEFAULT,
-                CW_USEDEFAULT,
-                None,
-                None,
-                None,
-                None,
-            )?;
-
-            let handler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler =
-                EnvironmentHandler(hwnd).into();
-
-            CreateCoreWebView2Environment(&handler)?;
-            let mut message = MSG::default();
-
-            while GetMessageA(&mut message, None, 0, 0).into() {
-                DispatchMessageA(&message);
-            }
-
-            Ok(())
-        }
-    }
 
     #[implement(ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler)]
     struct EnvironmentHandler(HWND);
@@ -122,9 +76,48 @@ mod imp {
             }
         }
     }
-}
 
-#[cfg(windows)]
-fn main() -> impl std::process::Termination {
-    imp::main()
+    unsafe {
+        CoInitializeEx(None, COINIT_APARTMENTTHREADED).ok()?;
+        SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2)?;
+        let instance = GetModuleHandleA(None)?;
+
+        let wc = WNDCLASSA {
+            hCursor: LoadCursorW(None, IDC_ARROW)?,
+            hInstance: instance.into(),
+            lpszClassName: s!("webview"),
+            style: CS_HREDRAW | CS_VREDRAW,
+            lpfnWndProc: Some(wndproc),
+            ..Default::default()
+        };
+
+        RegisterClassA(&wc);
+
+        let hwnd = CreateWindowExA(
+            WINDOW_EX_STYLE::default(),
+            s!("webview"),
+            s!("hello world"),
+            WS_OVERLAPPEDWINDOW | WS_VISIBLE,
+            CW_USEDEFAULT,
+            CW_USEDEFAULT,
+            CW_USEDEFAULT,
+            CW_USEDEFAULT,
+            None,
+            None,
+            None,
+            None,
+        )?;
+
+        let handler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler =
+            EnvironmentHandler(hwnd).into();
+
+        CreateCoreWebView2Environment(&handler)?;
+        let mut message = MSG::default();
+
+        while GetMessageA(&mut message, None, 0, 0).into() {
+            DispatchMessageA(&message);
+        }
+
+        Ok(())
+    }
 }

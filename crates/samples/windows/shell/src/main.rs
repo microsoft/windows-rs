@@ -2,23 +2,11 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() -> windows::core::Result<()> {
     use windows::{
         core::*, Win32::System::Com::*, Win32::System::Variant::*, Win32::UI::Shell::*,
         Win32::UI::WindowsAndMessaging::*,
     };
-
-    pub fn main() -> Result<()> {
-        unsafe { CoInitialize(None).ok()? };
-
-        shell_execute_from_explorer(
-            "https://github.com/microsoft/windows-rs",
-            "",
-            "",
-            "",
-            SW_SHOWNORMAL,
-        )
-    }
 
     // Ported from https://devblogs.microsoft.com/oldnewthing/20131118-00/?p=2643
     fn shell_execute_from_explorer(
@@ -64,9 +52,14 @@ mod imp {
             view.cast()
         }
     }
-}
 
-#[cfg(windows)]
-fn main() -> impl std::process::Termination {
-    imp::main()
+    unsafe { CoInitialize(None).ok()? };
+
+    shell_execute_from_explorer(
+        "https://github.com/microsoft/windows-rs",
+        "",
+        "",
+        "",
+        SW_SHOWNORMAL,
+    )
 }

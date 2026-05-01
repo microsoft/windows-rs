@@ -2,7 +2,7 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() -> windows::core::Result<()> {
     use windows::{core::*, Foundation::Uri, Web::Syndication::SyndicationClient};
 
     async fn main_async() -> Result<()> {
@@ -23,12 +23,5 @@ mod imp {
         Ok(())
     }
 
-    pub fn main() -> Result<()> {
-        futures::executor::block_on(main_async())
-    }
-}
-
-#[cfg(windows)]
-fn main() -> impl std::process::Termination {
-    imp::main()
+    futures::executor::block_on(main_async())
 }

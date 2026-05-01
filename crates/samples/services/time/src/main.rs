@@ -5,38 +5,11 @@ fn main() {}
 mod bindings;
 
 #[cfg(windows)]
-mod imp {
-    use super::bindings::*;
+fn main() {
+    use crate::bindings::*;
 
     use std::io::Write;
     use windows_services::*;
-
-    pub fn main() {
-        let mut log = std::fs::File::create("D:\\service.txt").unwrap();
-
-        Service::new()
-            .can_stop()
-            .can_accept(SERVICE_ACCEPT_TIMECHANGE)
-            .run(|_service, command| {
-                writeln!(log, "Command: {command:?}").unwrap();
-
-                if let Command::Extended(command) = command {
-                    if command.control == SERVICE_CONTROL_TIMECHANGE {
-                        unsafe {
-                            let data = &*(command.data as *const SERVICE_TIMECHANGE_INFO);
-
-                            writeln!(log, "{data:#?}").unwrap();
-
-                            let old = convert(data.liOldTime);
-                            let new = convert(data.liNewTime);
-
-                            writeln!(log, "{old:#?}\n{new:#?}").unwrap();
-                        }
-                    }
-                }
-            })
-            .unwrap();
-    }
 
     fn convert(time: i64) -> SYSTEMTIME {
         unsafe {
@@ -48,9 +21,29 @@ mod imp {
             time
         }
     }
-}
 
-#[cfg(windows)]
-fn main() {
-    imp::main()
+    let mut log = std::fs::File::create("D:\\service.txt").unwrap();
+
+    Service::new()
+        .can_stop()
+        .can_accept(SERVICE_ACCEPT_TIMECHANGE)
+        .run(|_service, command| {
+            writeln!(log, "Command: {command:?}").unwrap();
+
+            if let Command::Extended(command) = command {
+                if command.control == SERVICE_CONTROL_TIMECHANGE {
+                    unsafe {
+                        let data = &*(command.data as *const SERVICE_TIMECHANGE_INFO);
+
+                        writeln!(log, "{data:#?}").unwrap();
+
+                        let old = convert(data.liOldTime);
+                        let new = convert(data.liNewTime);
+
+                        writeln!(log, "{old:#?}\n{new:#?}").unwrap();
+                    }
+                }
+            }
+        })
+        .unwrap();
 }

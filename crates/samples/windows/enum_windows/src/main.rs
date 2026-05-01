@@ -2,12 +2,8 @@
 fn main() {}
 
 #[cfg(windows)]
-mod imp {
+fn main() -> windows::core::Result<()> {
     use windows::{core::*, Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*};
-
-    pub fn main() -> windows::core::Result<()> {
-        unsafe { EnumWindows(Some(enum_window), LPARAM(0)) }
-    }
 
     extern "system" fn enum_window(window: HWND, _: LPARAM) -> BOOL {
         unsafe {
@@ -28,9 +24,6 @@ mod imp {
             true.into()
         }
     }
-}
 
-#[cfg(windows)]
-fn main() -> impl std::process::Termination {
-    imp::main()
+    unsafe { EnumWindows(Some(enum_window), LPARAM(0)) }
 }
