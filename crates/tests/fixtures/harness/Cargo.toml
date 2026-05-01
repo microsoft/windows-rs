@@ -8,6 +8,13 @@ publish = false
 doc = false
 doctest = false
 
+# Goldens reference these crates; depending on them here lets `build.rs`
+# `include!` every `expected.rs` from `src/lib.rs` and have it really
+# compile, not just parse.
+[dependencies]
+windows-core = { workspace = true }
+windows-link = { workspace = true }
+
 [dev-dependencies]
 windows-rdl = { workspace = true }
 windows-bindgen = { workspace = true }
