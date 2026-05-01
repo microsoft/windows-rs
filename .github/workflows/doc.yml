@@ -62,3 +62,51 @@ jobs:
           -p windows-strings
           -p windows-targets
           -p windows-version
+
+  linux:
+    name: linux
+    # The publishable-docs surface for fully cross-platform crates must keep
+    # building on a non-Windows target. The list is intentionally narrower
+    # than `--workspace`.
+    runs-on: ubuntu-22.04
+    env:
+      RUSTFLAGS: -D warnings
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v2
+        with:
+          version: "18"
+      - name: Set LIBCLANG_PATH
+        run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/lib" >> "$GITHUB_ENV"
+      - name: Install libtinfo5
+        run: sudo apt-get install -y libtinfo5
+      - name: Doc
+        run: |
+          set -euxo pipefail
+          for crate in \
+              windows-numerics \
+              windows-link \
+              windows-targets \
+              windows-interface \
+              windows-implement \
+              windows-result \
+              windows-core \
+              windows-strings \
+              windows-threading \
+              windows-future \
+              windows-collections \
+              windows-metadata \
+              windows-rdl \
+              windows-bindgen \
+              riddle ; do
+            cargo doc --no-deps --target x86_64-unknown-linux-gnu -p "$crate"
+          done
+      - name: Check diff
+        shell: bash
+        run: |
+          git add -N .
+          git diff --exit-code || (echo 'Doc build changed code in the repo.'; exit 1)

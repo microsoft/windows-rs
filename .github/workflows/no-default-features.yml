@@ -24,6 +24,38 @@ concurrency:
   cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 jobs:
+  linux:
+    # Cross-platform crates that opt into `no_std` must keep building on a
+    # non-Windows target with default features off. The list is intentionally
+    # narrower than the Windows job's `--workspace`-style sweep below.
+    runs-on: ubuntu-22.04
+    env:
+      RUSTFLAGS: -D warnings
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+      - name: Build
+        run: |
+          set -euxo pipefail
+          for crate in \
+              windows-numerics \
+              windows-link \
+              windows-targets \
+              windows-result \
+              windows-core \
+              windows-strings \
+              windows-threading \
+              windows-collections ; do
+            cargo build --target x86_64-unknown-linux-gnu --no-default-features -p "$crate"
+          done
+      - name: Check diff
+        shell: bash
+        run: |
+          git add -N .
+          git diff --exit-code || (echo 'Build changed code in the repo.'; exit 1)
+
   no-default-features:
     runs-on: windows-2025
     steps:
