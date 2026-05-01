@@ -10,12 +10,14 @@
 
 mod r#async;
 mod bindings;
+#[cfg(windows)]
 mod bindings_impl;
 mod join;
 mod waiter;
 mod when;
 
 pub use bindings::*;
+#[cfg(windows)]
 use bindings_impl::*;
 use r#async::*;
 use waiter::*;

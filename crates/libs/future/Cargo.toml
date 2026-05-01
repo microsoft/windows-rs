@@ -16,11 +16,10 @@ windows-threading = { workspace = true }
 
 [features]
 default = ["std"]
-std = ["windows-core/std"]
+std = ["windows-core/std", "windows-threading/std"]
 
 [lints]
 workspace = true
 
 [package.metadata.docs.rs]
-default-target = "x86_64-pc-windows-msvc"
 targets = []

@@ -1,9 +1,14 @@
+#[cfg(windows)]
 use super::*;
 
+#[cfg(windows)]
 pub struct Waiter(HANDLE);
+#[cfg(windows)]
 pub struct WaiterSignaler(HANDLE);
+#[cfg(windows)]
 unsafe impl Send for WaiterSignaler {}
 
+#[cfg(windows)]
 impl Waiter {
     pub fn new() -> crate::Result<(Self, WaiterSignaler)> {
         unsafe {
@@ -24,6 +29,7 @@ impl Waiter {
     }
 }
 
+#[cfg(windows)]
 impl WaiterSignaler {
     /// # Safety
     /// Signals the `Waiter`. This is unsafe because the lifetime of `WaiterSignaler` is not tied
@@ -38,10 +44,49 @@ impl WaiterSignaler {
     }
 }
 
+#[cfg(windows)]
 impl Drop for Waiter {
     fn drop(&mut self) {
         unsafe {
             CloseHandle(self.0);
         }
+    }
+}
+
+// Non-Windows fallback using std primitives. Requires the `std` feature, which is the only
+// configuration in which `join` is reachable on non-Windows targets (the `spawn`/`ready`
+// implementations themselves are gated on `std`).
+#[cfg(all(not(windows), feature = "std"))]
+pub struct Waiter(std::sync::Arc<(std::sync::Mutex<bool>, std::sync::Condvar)>);
+
+#[cfg(all(not(windows), feature = "std"))]
+pub struct WaiterSignaler(std::sync::Arc<(std::sync::Mutex<bool>, std::sync::Condvar)>);
+
+#[cfg(all(not(windows), feature = "std"))]
+impl Waiter {
+    pub fn new() -> crate::Result<(Self, WaiterSignaler)> {
+        let state = std::sync::Arc::new((std::sync::Mutex::new(false), std::sync::Condvar::new()));
+        Ok((Self(state.clone()), WaiterSignaler(state)))
+    }
+
+    pub fn wait(self) {
+        let (lock, cvar) = &*self.0;
+        let mut signaled = lock.lock().unwrap();
+        while !*signaled {
+            signaled = cvar.wait(signaled).unwrap();
+        }
+    }
+}
+
+#[cfg(all(not(windows), feature = "std"))]
+impl WaiterSignaler {
+    /// # Safety
+    /// Matches the Windows signature. The non-Windows implementation is itself safe because the
+    /// state is reference counted, but the function is kept `unsafe` for API parity.
+    pub unsafe fn signal(&self) {
+        let (lock, cvar) = &*self.0;
+        let mut signaled = lock.lock().unwrap();
+        *signaled = true;
+        cvar.notify_all();
     }
 }

@@ -1,10 +1,11 @@
-#![cfg(windows)]
 // The stock `ready` implementations are never in the `Started` state as they're either `Completed` and `Error`.
 // This tests the `spawn` implementations to confirm that we can observe the `Started` state.
 // The `GetResults` method may not be called in this state.
 
-use windows::{core::*, Win32::Foundation::*};
+use windows_core::*;
 use windows_future::*;
+
+const E_ILLEGAL_METHOD_CALL: HRESULT = HRESULT(0x8000000E_u32 as _);
 
 #[test]
 fn action() -> Result<()> {

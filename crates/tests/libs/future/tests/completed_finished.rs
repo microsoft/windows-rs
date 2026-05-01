@@ -1,10 +1,9 @@
-#![cfg(windows)]
 // The stock `spawn` implementations can receive the `Completed` handler after execution has finished
 // and must call the handler immediately.
 
 use std::sync::mpsc::channel;
 use std::thread;
-use windows::core::*;
+use windows_core::*;
 use windows_future::*;
 
 #[test]

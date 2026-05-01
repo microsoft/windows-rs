@@ -20,6 +20,9 @@ features = [
 workspace = true
 features = ["std"]
 
+[dev-dependencies.windows-core]
+workspace = true
+
 [dev-dependencies.windows-result]
 workspace = true
 
