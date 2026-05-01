@@ -70,6 +70,17 @@ impl Interface {
             .collect()
     }
 
+    // Returns `true` if any of this interface's own methods would be skipped due to
+    // missing dependencies. Used (transitively across required interfaces) to decide
+    // whether to emit the `_Impl` trait, since a derived `_Impl` cannot reference a
+    // base `_Impl` that wasn't emitted.
+    pub fn has_skipped_methods(&self, config: &Config) -> bool {
+        self.def.methods().any(|def| {
+            let method = Method::new(def, &self.generics, config.reader);
+            !method.dependencies.included(config)
+        })
+    }
+
     fn write_cfg(&self, config: &Config) -> (Cfg, TokenStream) {
         write_full_cfg(self, config)
     }
@@ -370,10 +381,15 @@ impl Interface {
 
                 // If any methods were skipped due to missing dependencies, the interface cannot be
                 // fully described, so omit the ability to implement it rather than emitting a
-                // partial vtable with null function pointer slots.
+                // partial vtable with null function pointer slots. Also propagate the omission
+                // when any required (base) interface had its `_Impl` trait omitted, since a
+                // derived `_Impl` cannot reference a base `_Impl` that wasn't emitted.
                 let has_skipped_methods = methods
                     .iter()
-                    .any(|method| matches!(method, MethodOrName::Name(_)));
+                    .any(|method| matches!(method, MethodOrName::Name(_)))
+                    || required_interfaces
+                        .iter()
+                        .any(|ty| ty.has_skipped_methods(config));
 
                 if has_skipped_methods {
                     config.warnings.skip_implement(self.def);

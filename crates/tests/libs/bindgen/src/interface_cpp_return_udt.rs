@@ -84,18 +84,6 @@ pub struct ID2D1Image_Vtbl {
 }
 unsafe impl Send for ID2D1Image {}
 unsafe impl Sync for ID2D1Image {}
-pub trait ID2D1Image_Impl: ID2D1Resource_Impl {}
-impl ID2D1Image_Vtbl {
-    pub const fn new<Identity: ID2D1Image_Impl, const OFFSET: isize>() -> Self {
-        Self {
-            base__: ID2D1Resource_Vtbl::new::<Identity, OFFSET>(),
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID2D1Image as windows_core::Interface>::IID
-            || iid == &<ID2D1Resource as windows_core::Interface>::IID
-    }
-}
 impl windows_core::RuntimeName for ID2D1Image {}
 windows_core::imp::define_interface!(
     ID2D1Resource,
