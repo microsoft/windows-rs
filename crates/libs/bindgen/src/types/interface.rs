@@ -378,25 +378,25 @@ impl Interface {
                 if has_skipped_methods {
                     config.warnings.skip_implement(self.def);
                 } else {
-                let mut names = MethodNames::new();
+                    let mut names = MethodNames::new();
 
-                let field_methods: Vec<_> = methods
-                    .iter()
-                    .map(|method| match method {
-                        MethodOrName::Method(method) => {
-                            let name = names.add(method.def);
-                            quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
-                        }
-                        MethodOrName::Name(method) => {
-                            let name = names.add(*method);
-                            quote! { #name: 0, }
-                        }
-                    })
-                    .collect();
+                    let field_methods: Vec<_> = methods
+                        .iter()
+                        .map(|method| match method {
+                            MethodOrName::Method(method) => {
+                                let name = names.add(method.def);
+                                quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
+                            }
+                            MethodOrName::Name(method) => {
+                                let name = names.add(*method);
+                                quote! { #name: 0, }
+                            }
+                        })
+                        .collect();
 
-                let mut names = MethodNames::new();
+                    let mut names = MethodNames::new();
 
-                let impl_methods: Vec<_> = methods.iter().map(|method| match method {
+                    let impl_methods: Vec<_> = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
                     let name = names.add(method.def);
                     let signature = method.write_abi(config, true);
@@ -415,31 +415,31 @@ impl Interface {
                 _ => quote! {},
             }).collect();
 
-                let mut names = MethodNames::new();
+                    let mut names = MethodNames::new();
 
-                let trait_methods: Vec<_> = methods
-                    .iter()
-                    .map(|method| match method {
-                        MethodOrName::Method(method) => {
-                            let name = names.add(method.def);
-                            let signature = method.write_impl_signature(config, true, true);
-                            quote! { fn #name #signature; }
-                        }
-                        _ => quote! {},
-                    })
-                    .collect();
-
-                let requires = if required_interfaces.is_empty() {
-                    quote! { windows_core::IUnknownImpl }
-                } else {
-                    let interfaces = required_interfaces
+                    let trait_methods: Vec<_> = methods
                         .iter()
-                        .map(|ty| ty.write_impl_name(config));
+                        .map(|method| match method {
+                            MethodOrName::Method(method) => {
+                                let name = names.add(method.def);
+                                let signature = method.write_impl_signature(config, true, true);
+                                quote! { fn #name #signature; }
+                            }
+                            _ => quote! {},
+                        })
+                        .collect();
 
-                    quote! {  #(#interfaces)+* }
-                };
+                    let requires = if required_interfaces.is_empty() {
+                        quote! { windows_core::IUnknownImpl }
+                    } else {
+                        let interfaces = required_interfaces
+                            .iter()
+                            .map(|ty| ty.write_impl_name(config));
 
-                result.combine(quote! {
+                        quote! {  #(#interfaces)+* }
+                    };
+
+                    result.combine(quote! {
                 #cfg
                 pub trait #impl_name <#(#generics),*> : #requires where #constraints {
                     #(#trait_methods)*

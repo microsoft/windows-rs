@@ -348,7 +348,7 @@ impl CppInterface {
                     });
                 }
             } else {
-            result.combine( if has_unknown_base {
+                result.combine( if has_unknown_base {
                 let matches = base_interfaces.iter().filter_map(|ty|{
                     match ty {
                         Type::CppInterface(ty) => {
