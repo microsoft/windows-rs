@@ -628,8 +628,28 @@ impl Method {
                 // caller does not provide a derived implementation) and an aggregating
                 // `_compose` variant that takes a `T: Compose` and threads the outer
                 // `IInspectable` and inner writeback slot into the vtable call.
+                //
+                // For the aggregating call, after a successful `CreateInstance` the factory
+                // has written a non-delegating inner `IInspectable` into `*base__` (held by
+                // the outer's `ComposeBase` slot) and AddRef'd a non-delegating instance
+                // pointer into `result__`. We cannot return that non-delegating pointer
+                // directly: doing so would leave the outer (and the user-implemented
+                // `_Impl` derived class) without any owning references, so the outer would
+                // be freed at end of scope and any subsequent overridable virtual call
+                // (e.g. `IApplicationOverrides::OnLaunched`) routed to the inner would
+                // dispatch into already-freed memory.
+                //
+                // Instead we drop the non-delegating instance pointer (releasing the
+                // factory's AddRef) and perform a delegating QueryInterface on the outer
+                // via `derived__.cast::<#return>()`. This mirrors the
+                // `inner.as<I>()` step in cppwinrt's `composable_factory::CreateInstance`
+                // (`strings/base_composable.h`): the QI travels through the outer's
+                // controlling unknown — which the implement-macro routes to the inner via
+                // the `ComposeBase` slot — yielding an interface whose vtable dispatches
+                // to the inner but whose AddRef/Release route through the outer, keeping
+                // both objects alive together.
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
-                let compose_vcall = build_vcall(&compose_args);
+                let return_name = self.signature.return_type.write_name(config);
 
                 quote! {
                     pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
@@ -638,7 +658,17 @@ impl Method {
                     pub fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
                         Self::#interface_name(|this| unsafe {
                             let (derived__, base__) = windows_core::Compose::compose(compose);
-                            #compose_vcall
+                            let mut result__ = core::mem::zeroed();
+                            (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #compose_args).ok()?;
+                            // Release the factory's non-delegating instance pointer; the
+                            // owning reference to the inner lives in the outer's
+                            // `ComposeBase` slot (written via `base__`).
+                            let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+                            // Delegating QI through the outer: AddRefs `derived__`, then
+                            // `derived__` drops at scope end leaving the returned value
+                            // as the sole owner of the outer (which transitively owns the
+                            // inner).
+                            windows_core::Interface::cast::<#return_name>(&derived__)
                         })
                     }
                 }

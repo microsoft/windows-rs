@@ -37,7 +37,9 @@ pub mod Test {
                     base__ as *mut _ as _,
                     &mut result__,
                 )
-                .and_then(|| windows_core::Type::from_abi(result__))
+                .ok()?;
+                let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+                windows_core::Interface::cast::<Foo>(&derived__)
             })
         }
         pub fn new() -> windows_result::Result<Foo> {
@@ -65,7 +67,9 @@ pub mod Test {
                     base__ as *mut _ as _,
                     &mut result__,
                 )
-                .and_then(|| windows_core::Type::from_abi(result__))
+                .ok()?;
+                let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+                windows_core::Interface::cast::<Foo>(&derived__)
             })
         }
         fn IFooFactory<R, F: FnOnce(&IFooFactory) -> windows_result::Result<R>>(

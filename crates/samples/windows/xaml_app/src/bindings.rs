@@ -108,7 +108,9 @@ impl Application {
                 base__ as *mut _ as _,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .ok()?;
+            let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+            windows_core::Interface::cast::<Application>(&derived__)
         })
     }
     pub fn OnActivated<P0>(&self, args: P0) -> windows_core::Result<()>
@@ -880,7 +882,9 @@ impl Control {
                 base__ as *mut _ as _,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .ok()?;
+            let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+            windows_core::Interface::cast::<Control>(&derived__)
         })
     }
     pub fn DefaultStyleKey(&self) -> windows_core::Result<windows_core::IInspectable> {
@@ -2783,7 +2787,9 @@ impl DependencyObject {
                 base__ as *mut _ as _,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .ok()?;
+            let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+            windows_core::Interface::cast::<DependencyObject>(&derived__)
         })
     }
     fn IDependencyObjectFactory<
@@ -3308,7 +3314,9 @@ impl FrameworkElement {
                 base__ as *mut _ as _,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .ok()?;
+            let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+            windows_core::Interface::cast::<FrameworkElement>(&derived__)
         })
     }
     pub fn MeasureOverride(
@@ -15720,7 +15728,9 @@ impl TextBox {
                 base__ as *mut _ as _,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .ok()?;
+            let _: windows_core::IInspectable = windows_core::Type::from_abi(result__);
+            windows_core::Interface::cast::<TextBox>(&derived__)
         })
     }
     pub fn DesiredSize(&self) -> windows_core::Result<windows::Foundation::Size> {
