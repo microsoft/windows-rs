@@ -1,4 +1,3 @@
-#![cfg(windows)]
 use windows_future::*;
 
 fn send<T: Send>(_: Option<T>) {}
