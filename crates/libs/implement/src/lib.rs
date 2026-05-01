@@ -17,17 +17,23 @@
 //!
 //! `Foo_Impl` is a `#[repr(C)]` struct whose fields are laid out in this order:
 //!
-//! 1. `identity` — a `&'static IInspectable_Vtbl` pointer (offset 0).  This acts as the
-//!    IUnknown / IInspectable identity pointer.
-//! 2. One `&'static <IFoo as Interface>::Vtable` pointer per interface chain in declaration
-//!    order (offsets -1, -2, …).
-//! 3. `this` — the user's `Foo` value.
-//! 4. `count` — a `WeakRefCount` for reference counting.
+//! 1. `base` — an `Option<IInspectable>` slot used for COM aggregation (composition).
+//!    When `Foo` aggregates a composable WinRT class this slot holds the inner
+//!    non-delegating `IInspectable` written back by the composable factory; otherwise
+//!    it stays `None` and is effectively unused. It sits at offset 0 so the vtable
+//!    pointers below it occupy negative offsets relative to the COM pointer.
+//! 2. `identity` — a `&'static IInspectable_Vtbl` pointer (offset -1 in pointer-sized
+//!    units relative to the COM pointer). This acts as the IUnknown / IInspectable
+//!    identity pointer.
+//! 3. One `&'static <IFoo as Interface>::Vtable` pointer per interface chain in
+//!    declaration order (offsets -2, -3, …).
+//! 4. `this` — the user's `Foo` value.
+//! 5. `count` — a `WeakRefCount` for reference counting.
 //!
 //! The negative offset convention is important: when a COM caller holds an `IFoo*`, it points
 //! into the vtable-pointer field at offset -k.  To recover the `Foo_Impl` pointer the code in
-//! `gen_query_interface` and `gen_impl_as_impl` subtracts `1 + k` pointer-sized units from
-//! the raw COM pointer.
+//! `gen_query_interface` and `gen_impl_as_impl` subtracts `2 + k` pointer-sized units from
+//! the raw COM pointer (the `+ 2` accounts for the leading `base` and `identity` fields).
 //!
 //! ## Relationship to `windows-interface`
 //!

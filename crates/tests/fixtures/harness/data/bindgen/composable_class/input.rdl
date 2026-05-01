@@ -1,0 +1,22 @@
+// Exercises bindgen's composition (aggregation) factory generation. A class with a
+// `Composable` factory that has a parameterless composable constructor should produce a
+// `Foo::new()` (non-aggregating) and a `Foo::compose<T: Compose>(...)` (aggregating)
+// pair. A composable factory whose `CreateInstance` carries additional user-facing
+// parameters should produce `Foo::CreateInstance(...)` and `Foo::CreateInstance_compose(...)`.
+//
+// Composable factories pass two trailing parameters to the underlying ABI call: an outer
+// `IInspectable` controlling-unknown and an out-pointer for the inner non-delegating
+// `IInspectable`. Those two parameters are stripped from the user-facing signature.
+
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::Composable(IFooFactory, Public, 1)]
+    class Foo {
+        IFoo,
+    }
+    interface IFoo {}
+    interface IFooFactory {
+        fn CreateInstance(&self, name: i32, outer: Object, inner: &mut Object) -> Foo;
+        fn Default(&self, outer: Object, inner: &mut Object) -> Foo;
+    }
+}

@@ -1,0 +1,16 @@
+// Minimal composable (aggregation) class, modeled on
+// crates/tests/fixtures/harness/data/bindgen/composable_class/input.rdl.
+
+#[winrt]
+mod test_composable_aggregation {
+    #[Windows::Foundation::Metadata::Composable(IFooFactory, Public, 1)]
+    class Foo {
+        IFoo,
+    }
+    interface IFoo {
+        fn Hello(&self) -> i32;
+    }
+    interface IFooFactory {
+        fn CreateInstance(&self, outer: Object, inner: &mut Object) -> Foo;
+    }
+}

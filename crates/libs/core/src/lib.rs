@@ -25,6 +25,7 @@ pub mod imp;
 mod agile_reference;
 mod as_impl;
 mod com_object;
+mod compose;
 #[cfg(feature = "std")]
 mod event;
 mod guid;
@@ -45,6 +46,7 @@ mod weak;
 pub use agile_reference::*;
 pub use as_impl::*;
 pub use com_object::*;
+pub use compose::*;
 #[cfg(feature = "std")]
 pub use event::*;
 pub use guid::*;
