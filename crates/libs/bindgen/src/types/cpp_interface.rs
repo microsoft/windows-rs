@@ -331,6 +331,23 @@ impl CppInterface {
                 }
             });
 
+            // If any methods were skipped due to missing dependencies, the interface cannot be
+            // fully described, so omit the ability to implement it rather than emitting a
+            // partial vtable with null function pointer slots.
+            let has_skipped_methods = methods
+                .iter()
+                .any(|method| matches!(method, CppMethodOrName::Name(_)));
+
+            if has_skipped_methods {
+                config.warnings.skip_implement(self.def);
+
+                if has_unknown_base {
+                    result.combine(quote! {
+                        #cfg
+                        impl windows_core::RuntimeName for #name {}
+                    });
+                }
+            } else {
             result.combine( if has_unknown_base {
                 let matches = base_interfaces.iter().filter_map(|ty|{
                     match ty {
@@ -397,6 +414,7 @@ impl CppInterface {
                     }
                 }
             });
+            }
 
             result
         }

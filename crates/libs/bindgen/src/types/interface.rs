@@ -368,6 +368,17 @@ impl Interface {
                     }
                 });
 
+                // If any methods were skipped due to missing dependencies, the interface cannot be
+                // fully described, so omit the ability to implement it rather than emitting a
+                // partial vtable with null function pointer slots.
+                let has_skipped_methods = methods
+                    .iter()
+                    .any(|method| matches!(method, MethodOrName::Name(_)));
+
+                if has_skipped_methods {
+                    config.warnings.skip_implement(self.def);
+                } else {
+
                 let mut names = MethodNames::new();
 
                 let field_methods: Vec<_> = methods
@@ -449,6 +460,7 @@ impl Interface {
                     }
                 }
             });
+                }
             }
 
             result.combine(vtbl);
