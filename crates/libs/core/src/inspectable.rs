@@ -16,7 +16,6 @@ interface_hierarchy!(IInspectable, IUnknown);
 
 impl IInspectable {
     /// Returns the canonical type name for the underlying object.
-    #[cfg(windows)]
     pub fn GetRuntimeClassName(&self) -> Result<HSTRING> {
         unsafe {
             let mut abi = null_mut();
@@ -88,15 +87,7 @@ impl IInspectable_Vtbl {
                     return imp::E_POINTER;
                 }
 
-                #[cfg(windows)]
-                {
-                    *value = core::mem::transmute::<HSTRING, *mut c_void>(T::NAME.into());
-                }
-
-                #[cfg(not(windows))]
-                {
-                    *value = core::ptr::null_mut();
-                }
+                *value = core::mem::transmute::<HSTRING, *mut c_void>(T::NAME.into());
 
                 HRESULT(0)
             }

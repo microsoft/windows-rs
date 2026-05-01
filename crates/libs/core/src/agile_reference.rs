@@ -10,11 +10,7 @@ use core::marker::PhantomData;
 /// `resolve` round-trips it back to the requested interface via `QueryInterface`.
 #[repr(transparent)]
 #[derive(Clone, PartialEq, Eq)]
-pub struct AgileReference<T>(
-    #[cfg(windows)] imp::IAgileReference,
-    #[cfg(not(windows))] IUnknown,
-    PhantomData<T>,
-);
+pub struct AgileReference<T>(imp::AgileSlot, PhantomData<T>);
 
 impl<T: Interface> AgileReference<T> {
     /// Returns the raw COM pointer to the inner object.
@@ -25,35 +21,12 @@ impl<T: Interface> AgileReference<T> {
     /// Creates an agile reference to the object.
     pub fn new(object: &T) -> Result<Self> {
         const { assert!(T::UNKNOWN, "AgileReference requires a COM interface") };
-        #[cfg(windows)]
-        unsafe {
-            imp::RoGetAgileReference(
-                imp::AGILEREFERENCE_DEFAULT,
-                &T::IID,
-                core::mem::transmute::<&T, &IUnknown>(object),
-            )
-            .map(|reference| Self(reference, Default::default()))
-        }
-        #[cfg(not(windows))]
-        {
-            // On non-Windows there is no apartment model, so any interface
-            // pointer is already safe to use from any thread. Hold an
-            // `IUnknown` clone and recover `T` on `resolve` via QueryInterface.
-            let unknown: IUnknown = object.cast()?;
-            Ok(Self(unknown, PhantomData))
-        }
+        imp::AgileSlot::new(object).map(|slot| Self(slot, PhantomData))
     }
 
     /// Retrieves a proxy to the target of the `AgileReference` object that may safely be used within any thread context in which get is called.
     pub fn resolve(&self) -> Result<T> {
-        #[cfg(windows)]
-        unsafe {
-            self.0.Resolve()
-        }
-        #[cfg(not(windows))]
-        {
-            self.0.cast()
-        }
+        self.0.resolve()
     }
 }
 

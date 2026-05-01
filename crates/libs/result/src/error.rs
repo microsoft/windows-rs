@@ -89,20 +89,12 @@ impl Error {
     /// Creates a new error object, capturing the stack and other information about the
     /// point of failure.
     pub fn new<T: AsRef<str>>(code: HRESULT, message: T) -> Self {
-        #[cfg(windows)]
-        {
-            let message: &str = message.as_ref();
-            if message.is_empty() {
-                Self::from_hresult(code)
-            } else {
-                ErrorInfo::originate_error(code, message);
-                code.into()
-            }
-        }
-        #[cfg(not(windows))]
-        {
-            let _ = message;
+        let message: &str = message.as_ref();
+        if message.is_empty() {
             Self::from_hresult(code)
+        } else {
+            ErrorInfo::originate_error(code, message);
+            code.into()
         }
     }
 
@@ -371,7 +363,6 @@ mod error_info {
 
         pub(crate) fn into_thread(self) {}
 
-        #[cfg(windows)]
         pub(crate) fn originate_error(_code: HRESULT, _message: &str) {}
 
         pub(crate) fn message(&self) -> Option<String> {
