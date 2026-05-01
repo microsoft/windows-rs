@@ -84,7 +84,7 @@ impl Delegate {
             quote! { F: Fn #signature + Send + 'static }
         };
 
-        let invoke_upcall = method.write_upcall(quote! { (this.invoke) }, false, config.reader);
+        let invoke_upcall = method.write_upcall(quote! { (this.invoke) }, false, config);
 
         quote! {
             #definition

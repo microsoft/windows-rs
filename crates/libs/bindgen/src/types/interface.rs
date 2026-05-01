@@ -391,7 +391,7 @@ impl Interface {
                     let name = names.add(method.def);
                     let signature = method.write_abi(config, true);
                     let call = quote! { #impl_name::#name };
-                    let upcall = method.write_upcall(call, true, config.reader);
+                    let upcall = method.write_upcall(call, true, config);
 
                     quote! {
                         unsafe extern "system" fn #name<#constraints Identity: #impl_name <#(#generics,)*>, const OFFSET: isize> (#signature) -> windows_core::HRESULT {

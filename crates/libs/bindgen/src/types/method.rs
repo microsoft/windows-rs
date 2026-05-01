@@ -30,8 +30,9 @@ impl Method {
             .write(config, not)
     }
 
-    pub fn write_upcall(&self, inner: TokenStream, this: bool, reader: &Reader) -> TokenStream {
-        let noexcept = self.def.has_attribute("NoExceptionAttribute");
+    pub fn write_upcall(&self, inner: TokenStream, this: bool, config: &Config) -> TokenStream {
+        let reader = config.reader;
+        let noexcept = config.noexcept || self.def.has_attribute("NoExceptionAttribute");
 
         let invoke_args = self.signature
         .params
@@ -145,7 +146,7 @@ impl Method {
         named_params: bool,
         has_this: bool,
     ) -> TokenStream {
-        let noexcept = self.def.has_attribute("NoExceptionAttribute");
+        let noexcept = config.noexcept || self.def.has_attribute("NoExceptionAttribute");
 
         let params = self.signature.params.iter().map(|p| {
             let default_type = p.write_default(config);
@@ -443,7 +444,7 @@ impl Method {
             }
         };
 
-        let noexcept = self.def.has_attribute("NoExceptionAttribute");
+        let noexcept = config.noexcept || self.def.has_attribute("NoExceptionAttribute");
 
         let return_type = if noexcept {
             if self.signature.return_type.is_interface() {
