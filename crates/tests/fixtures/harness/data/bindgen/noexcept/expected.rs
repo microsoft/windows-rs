@@ -16,7 +16,7 @@ pub mod Test {
                     windows_core::Interface::as_raw(self),
                     value,
                 );
-                debug_assert!(hresult__.0 == 0);
+                assert!(hresult__.0 == 0);
             }
         }
         pub fn ReturnInt32(&self) -> i32 {
@@ -26,7 +26,7 @@ pub mod Test {
                     windows_core::Interface::as_raw(self),
                     &mut result__,
                 );
-                debug_assert!(hresult__.0 == 0);
+                assert!(hresult__.0 == 0);
                 result__
             }
         }

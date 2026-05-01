@@ -600,6 +600,12 @@ impl Bindgen {
     /// Assume that all WinRT methods do not raise exceptions, regardless of whether
     /// they have the `NoExceptionAttribute`. This causes bindgen to emit infallible
     /// signatures for HRESULT-returning WinRT methods, skipping `Result` propagation.
+    ///
+    /// Methods that genuinely carry `NoExceptionAttribute` use a `debug_assert!` to
+    /// validate the success contract, since the metadata guarantees they cannot
+    /// fail. Methods that are only assumed to be infallible because of this flag
+    /// instead use a real `assert!` so that an unexpected failure is caught even in
+    /// release builds rather than silently producing a zeroed result.
     pub fn noexcept(&mut self) -> &mut Self {
         self.noexcept = true;
         self

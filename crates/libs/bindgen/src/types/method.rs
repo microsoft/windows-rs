@@ -497,7 +497,18 @@ impl Method {
             }
         };
 
-        let noexcept = config.noexcept || self.def.has_attribute("NoExceptionAttribute");
+        let has_noexcept_attr = self.def.has_attribute("NoExceptionAttribute");
+        let noexcept = config.noexcept || has_noexcept_attr;
+        // When the method genuinely carries `NoExceptionAttribute` the metadata
+        // contract guarantees success, so `debug_assert!` is sufficient. When
+        // `noexcept` is only being assumed because of the `--noexcept` flag we
+        // have no such guarantee, so use a real `assert!` that survives release
+        // builds rather than silently returning a zeroed-out value.
+        let assert_success = if has_noexcept_attr {
+            quote! { debug_assert!(hresult__.0 == 0); }
+        } else {
+            quote! { assert!(hresult__.0 == 0); }
+        };
 
         let return_type = if noexcept {
             if self.signature.return_type.is_interface() {
@@ -534,7 +545,7 @@ impl Method {
                     if noexcept {
                         quote! {
                             let hresult__ = #vcall;
-                            debug_assert!(hresult__.0 == 0);
+                            #assert_success
                         }
                     } else {
                         quote! {
@@ -547,7 +558,7 @@ impl Method {
                         quote! {
                             let mut result__ = core::mem::MaybeUninit::zeroed();
                             let hresult__ = #vcall;
-                            debug_assert!(hresult__.0 == 0);
+                            #assert_success
                             result__.assume_init()
                         }
                     } else {
@@ -564,14 +575,14 @@ impl Method {
                             quote! {
                                 let mut result__ = core::mem::zeroed();
                                 let hresult__ = #vcall;
-                                debug_assert!(hresult__.0 == 0);
+                                #assert_success
                                 result__
                             }
                         } else {
                             quote! {
                                 let mut result__ = core::mem::zeroed();
                                 let hresult__ = #vcall;
-                                debug_assert!(hresult__.0 == 0);
+                                #assert_success
                                 core::mem::transmute(result__)
                             }
                         }
