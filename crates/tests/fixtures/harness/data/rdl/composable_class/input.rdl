@@ -1,0 +1,16 @@
+// Round-trips a class carrying `#[Windows::Foundation::Metadata::Composable(...)]` together
+// with its composable factory interface, exercising the RDL → winmd → RDL path for
+// composition (aggregation) metadata without depending on Xaml.
+
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::Composable(IFooFactory, Public, 1)]
+    class Foo {
+        IFoo,
+    }
+    interface IFoo {}
+    interface IFooFactory {
+        fn CreateInstance(&self, name: i32, outer: Object, inner: &mut Object) -> Foo;
+        fn Default(&self, outer: Object, inner: &mut Object) -> Foo;
+    }
+}
