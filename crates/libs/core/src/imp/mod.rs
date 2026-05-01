@@ -24,7 +24,10 @@ pub use weak_ref_count::*;
 /// be forged from raw pointer values; on non-Windows targets the raw pointer
 /// value is returned as-is because there is no equivalent OS primitive and the
 /// token is already opaque to callers and only meaningful within this process.
+///
+/// The pointer is treated as an opaque value and is never dereferenced.
 #[inline]
+#[allow(clippy::not_unsafe_ptr_arg_deref)]
 pub fn encode_pointer(ptr: *const core::ffi::c_void) -> i64 {
     #[cfg(windows)]
     unsafe {
