@@ -1,9 +1,11 @@
-#![cfg(windows)]
 // Implementations of `SetCompleted` must fail with `E_ILLEGAL_DELEGATE_ASSIGNMENT` if they are called twice.
 // Also tests that any error from the handler is ignored by the implementation.
 
-use windows::{core::*, Win32::Foundation::*};
+use windows_core::*;
 use windows_future::*;
+
+const E_ILLEGAL_DELEGATE_ASSIGNMENT: HRESULT = HRESULT(0x80000018_u32 as _);
+const E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED: HRESULT = HRESULT(0x83760003_u32 as _);
 
 #[test]
 fn action_ready() -> Result<()> {

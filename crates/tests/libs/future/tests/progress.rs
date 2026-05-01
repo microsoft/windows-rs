@@ -1,7 +1,6 @@
-#![cfg(windows)]
 // All stock implementations don't support progress notifications.
 
-use windows::core::*;
+use windows_core::*;
 use windows_future::*;
 
 #[test]

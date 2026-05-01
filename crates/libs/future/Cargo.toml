@@ -16,7 +16,7 @@ windows-threading = { workspace = true }
 
 [features]
 default = ["std"]
-std = ["windows-core/std"]
+std = ["windows-core/std", "windows-threading/std"]
 
 [lints]
 workspace = true
