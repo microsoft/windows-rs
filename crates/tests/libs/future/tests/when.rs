@@ -2,6 +2,7 @@ use std::sync::mpsc::channel;
 use windows_future::*;
 use windows_result::*;
 
+#[cfg(windows)]
 const E_FAIL: HRESULT = HRESULT(0x80004005_u32 as _);
 
 #[test]
