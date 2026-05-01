@@ -24,6 +24,7 @@ pub(crate) fn gen_all(inputs: &ImplementInputs) -> Vec<syn::Item> {
     items.push(gen_impl_impl(inputs));
     items.push(gen_iunknown_impl(inputs));
     items.push(gen_impl_com_object_inner(inputs));
+    items.push(gen_impl_compose(inputs));
     items.extend(gen_impl_from(inputs));
     items.extend(gen_impl_com_object_interfaces(inputs));
 
@@ -71,6 +72,16 @@ fn gen_impl_struct(inputs: &ImplementInputs) -> syn::Item {
     let vis = &inputs.original_type.vis;
 
     let mut impl_fields = quote! {
+        // The `base` field receives the inner non-delegating `IInspectable` when a Rust
+        // implementation type aggregates a composable WinRT runtime class. When `Foo` does
+        // not derive from any composable class this field stays empty and behaves as if
+        // it were absent. `QueryInterface` falls through to this `IInspectable` when the
+        // requested IID is not handled locally.
+        //
+        // Wrapped in `ComposeBase` (which is `repr(transparent)` over
+        // `Option<IInspectable>`) so that types embedding `Foo_Impl` in static storage
+        // remain `Sync`. See `windows_core::ComposeBase` for the safety contract.
+        base: ::windows_core::ComposeBase,
         identity: &'static ::windows_core::IInspectable_Vtbl,
     };
 
@@ -154,7 +165,7 @@ fn gen_impl_impl(inputs: &ImplementInputs) -> syn::Item {
             ::windows_core::IInspectable_Vtbl::new::<
                 #impl_ident::#generics_idents,
                 #identity_type,
-                0,
+                -1,
             >();
     });
 
@@ -162,7 +173,10 @@ fn gen_impl_impl(inputs: &ImplementInputs) -> syn::Item {
         let vtbl_ty = interface_chain.implement.to_vtbl_ident();
         let vtable_const_ident = &interface_chain.vtable_const_ident;
 
-        let chain_offset_in_pointers: isize = -1 - interface_index as isize;
+        // Account for the `base` field at offset 0 by shifting every vtable offset down by
+        // one pointer-sized unit relative to the impl struct. Identity now sits at -1 and
+        // each interface chain at -2, -3, ... in declaration order.
+        let chain_offset_in_pointers: isize = -2 - interface_index as isize;
         output.items.push(parse_quote! {
             const #vtable_const_ident: #vtbl_ty = #vtbl_ty::new::<
                 #impl_ident::#generics_idents,
@@ -280,6 +294,41 @@ fn gen_impl_com_object_inner(inputs: &ImplementInputs) -> syn::Item {
     }
 }
 
+/// Generates the `Compose` implementation that lets `Foo` be used as the Rust derived
+/// implementation in a composable WinRT runtime class.
+///
+/// The body assembles an `IInspectable` for the freshly constructed implementation and
+/// then computes a mutable reference into the `base` field of its `Foo_Impl` (the field
+/// at offset 0, immediately before `identity`). The composable factory writes the inner
+/// non-delegating `IInspectable` it produces back through that reference.
+fn gen_impl_compose(inputs: &ImplementInputs) -> syn::Item {
+    let original_ident = &inputs.original_type.ident;
+    let generics = &inputs.generics;
+    let generics_idents = &inputs.generics_idents;
+    let constraints = &inputs.constraints;
+
+    parse_quote! {
+        impl #generics ::windows_core::Compose for #original_ident::#generics_idents where #constraints {
+            unsafe fn compose<'a>(
+                implementation: Self,
+            ) -> (::windows_core::IInspectable, &'a mut ::core::option::Option<::windows_core::IInspectable>) {
+                unsafe {
+                    let inspectable: ::windows_core::IInspectable = implementation.into();
+                    // The IInspectable points at the `identity` field of the heap-allocated
+                    // `Foo_Impl`. The `base` slot lives at the previous pointer-sized slot
+                    // (i.e. `size_of::<*mut c_void>()` bytes earlier in memory) because
+                    // `ComposeBase` is `#[repr(transparent)]` over `Option<IInspectable>`,
+                    // which has the size of a single COM pointer.
+                    let identity_ptr: *mut ::core::ffi::c_void = ::windows_core::Interface::as_raw(&inspectable);
+                    let base_ptr = (identity_ptr as *mut *mut ::core::ffi::c_void).sub(1)
+                        as *mut ::core::option::Option<::windows_core::IInspectable>;
+                    (inspectable, &mut *base_ptr)
+                }
+            }
+        }
+    }
+}
+
 /// Generates the `query_interface` method.
 fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
     let queries = inputs.interface_chains.iter().map(|interface_chain| {
@@ -348,6 +397,16 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
         }
     };
 
+    // When this implementation aggregates a composable WinRT class, an unrecognized IID is
+    // forwarded to the inner non-delegating `IInspectable` stored in `self.base`. The inner
+    // is responsible for any IIDs implemented by the runtime class that the Rust derived
+    // type does not handle locally.
+    let aggregation_query = quote! {
+        if let ::core::option::Option::Some(base) = self.base.as_option() {
+            return ::windows_core::Interface::query(base, &iid as *const ::windows_core::GUID, interface);
+        }
+    };
+
     parse_quote! {
         unsafe fn QueryInterface(
             &self,
@@ -367,6 +426,7 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
                     #marshal_query
                     #dynamic_cast_query
                     #tear_off_query
+                    #aggregation_query
 
                     *interface = ::core::ptr::null_mut();
                     return ::windows_core::imp::E_NOINTERFACE;
@@ -388,6 +448,10 @@ fn gen_into_outer(inputs: &ImplementInputs) -> syn::ImplItem {
     let impl_ident = &inputs.impl_ident;
 
     let mut initializers = quote! {
+        // Aggregation slot. Set to empty initially; populated by composable factory
+        // calls via the `Compose` trait when this implementation derives from a
+        // composable WinRT runtime class.
+        base: ::windows_core::ComposeBase::new(),
         identity: &#impl_ident::#generics_idents::VTABLE_IDENTITY,
     };
 
@@ -598,9 +662,10 @@ fn gen_impl_as_impl(
             unsafe fn as_impl_ptr(&self) -> ::core::ptr::NonNull<#original_ident::#generics_idents> {
                 unsafe {
                     let this = ::windows_core::Interface::as_raw(self);
-                    // Subtract away the vtable offset plus 1, for the `identity` field, to get
-                    // to the impl struct which contains that original implementation type.
-                    let this = (this as *mut *mut ::core::ffi::c_void).sub(1 + #interface_chain_index) as *mut #impl_ident::#generics_idents;
+                    // Subtract away the vtable offset plus 2 (for the leading `base` and
+                    // `identity` fields) to get to the impl struct which contains the
+                    // original implementation type.
+                    let this = (this as *mut *mut ::core::ffi::c_void).sub(2 + #interface_chain_index) as *mut #impl_ident::#generics_idents;
                     ::core::ptr::NonNull::new_unchecked(::core::ptr::addr_of!((*this).this) as *const #original_ident::#generics_idents as *mut #original_ident::#generics_idents)
                 }
             }
