@@ -24,10 +24,9 @@ if errorlevel 1 (
     echo Re-run register.cmd from an elevated x64 Native Tools prompt to enable
     echo automatic crash dump capture for sample_xaml_app.exe.
 ) else (
-    set WERKEY=HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\sample_xaml_app.exe
-    reg add "%WERKEY%" /v DumpType   /t REG_DWORD    /d 2 /f >nul
-    reg add "%WERKEY%" /v DumpCount  /t REG_DWORD    /d 5 /f >nul
-    reg add "%WERKEY%" /v DumpFolder /t REG_EXPAND_SZ /d "%%LOCALAPPDATA%%\CrashDumps" /f >nul
+    reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\sample_xaml_app.exe" /v DumpType   /t REG_DWORD    /d 2 /f >nul
+    reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\sample_xaml_app.exe" /v DumpCount  /t REG_DWORD    /d 5 /f >nul
+    reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\sample_xaml_app.exe" /v DumpFolder /t REG_EXPAND_SZ /d "%%LOCALAPPDATA%%\CrashDumps" /f >nul
 )
 
 pushd "%TARGET%"
