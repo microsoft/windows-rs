@@ -7,6 +7,10 @@
 //! syntactically valid but also reference real items in the `windows-*`
 //! crates they depend on — so a stale golden breaks the build.
 //!
+//! Gated on `cfg(windows)` for now: some goldens reference items (e.g.
+//! `IMarshal`-related glue) that are not available on non-Windows targets.
+//!
 //! The fixture-execution test logic still lives in `tests/fixtures.rs`.
 
+#[cfg(windows)]
 include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));
