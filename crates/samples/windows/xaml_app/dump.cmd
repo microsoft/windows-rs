@@ -40,4 +40,9 @@ REM Windows.UI.Xaml frames in the dump.
 set SYMCACHE=%LOCALAPPDATA%\Symbols
 set SYMPATH=cache*%SYMCACHE%;%SYMDIR%;srv*%SYMCACHE%*https://msdl.microsoft.com/download/symbols
 
-"%CDB%" -z "%DUMP%" -y "%SYMPATH%" -c ".ecxr; !analyze -v; kpn 40; lmv; q"
+REM .symfix tops up the path with the default MS symbol server, .reload /f
+REM forces full symbol load so frames in combase / Windows.UI.Xaml resolve.
+REM ~* kpn 40 dumps every thread (the originating raise frame for shutdown
+REM AVs is rarely on the thread that .ecxr lands on); !analyze -v gives the
+REM bucket; lmv lists module versions so PDB mismatches are obvious.
+"%CDB%" -z "%DUMP%" -y "%SYMPATH%" -c ".symfix+ %SYMCACHE%; .reload /f; .ecxr; !analyze -v; kpn 40; ~* kpn 40; lmv; q"
