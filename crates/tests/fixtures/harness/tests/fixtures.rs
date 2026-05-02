@@ -1,36 +1,19 @@
-//! Unified test-fixture harness.
-//!
-//! Each fixture lives in `crates/tests/fixtures/harness/data/<group>/<name>/`
-//! and consists of a small set of input files plus golden output files.
-//! `build.rs` discovers every fixture and emits one `#[test]` per fixture;
-//! this file dispatches by `group` to perform the appropriate check. See
-//! `data/README.md` for the fixture format and the list of supported groups.
+//! Unified test-fixture harness. See `data/README.md` for the fixture format.
 
 use std::path::{Path, PathBuf};
 
 include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
-/// The legacy `tests/roundtrip/clang` and `tests/roundtrip/rdl` crates
-/// unconditionally passed this reference winmd directory to clang and to
-/// every reader/writer that needed Win32 types. The harness mirrors that
-/// for the `clang` group so individual clang fixtures don't have to declare
-/// it; the `rdl` group still requires the explicit `references = [...]`
-/// because most RDL inputs are self-contained `Test`-namespace fixtures and
-/// reading the full Windows winmd into every test would slow the suite down
-/// noticeably.
+// Reference winmd auto-passed to the `clang` group so individual fixtures
+// don't have to declare it (most C++ headers reference Win32 types).
 const DEFAULT_REFERENCE: &str = "../../../libs/bindgen/default";
 
-/// Entry point invoked by every generated `#[test]`.
 fn run_fixture(group: &str, name: &str) {
     let fixture = Fixture::new(group, name);
     match group {
         "rdl" => run_rdl(&fixture),
         "clang" => {
-            // libclang.dll on the Windows CI runner is 64-bit only; the legacy
-            // `tests/roundtrip/clang` crate skips the whole suite on 32-bit
-            // targets via `#![cfg(target_pointer_width = "64")]`. Mirror that
-            // here at runtime so 32-bit builds still discover/compile the
-            // generated tests but skip the clang group.
+            // libclang.dll on the Windows CI runner is 64-bit only.
             if cfg!(not(target_pointer_width = "64")) {
                 eprintln!("skipping clang/{name} on non-64-bit target");
                 return;
@@ -54,20 +37,15 @@ struct Fixture {
 
 impl Fixture {
     fn new(group: &str, name: &str) -> Self {
-        // CARGO_MANIFEST_DIR points at the harness crate root regardless of
-        // how cargo is invoked, so fixture lookup is location-independent.
         let manifest = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
         let dir = manifest.join("data").join(group).join(name);
         assert!(dir.is_dir(), "fixture directory missing: {}", dir.display());
 
-        // OUT_DIR is the build script's per-crate output directory. Test
-        // binaries can read it via env! at compile time.
         let scratch = PathBuf::from(env!("OUT_DIR"))
             .join("scratch")
             .join(group)
             .join(name);
-        // Wipe and recreate so a previous run's leftovers can never cause
-        // a stale-pass on a subsequent run.
+        // Wipe so a previous run's leftovers can't cause a stale-pass.
         if scratch.exists() {
             std::fs::remove_dir_all(&scratch).unwrap();
         }
@@ -90,9 +68,6 @@ impl Fixture {
     }
 
     /// Panic with the harness's standard `[group/name] stage: error` framing.
-    /// Used by every group runner so failure messages render uniformly across
-    /// the suite. `stage` accepts anything `Display`-able so callers can pass
-    /// `format_args!("reader({path})")` etc. without an extra allocation.
     fn fail(&self, stage: impl std::fmt::Display, error: impl std::fmt::Display) -> ! {
         panic!("[{}/{}] {stage}: {error}", self.group, self.name);
     }
@@ -109,11 +84,9 @@ impl Fixture {
     }
 }
 
-/// A deliberately tiny key=value parser for `fixture.toml`. We only need a
-/// handful of declarative knobs (filter, no_allow, no_comment, noexcept,
-/// specific_deps, references); pulling in a full TOML dependency for that would be
-/// disproportionate. The format is a strict subset of TOML so authors can
-/// add real TOML structure later without breaking existing fixtures.
+/// A tiny key=value parser for `fixture.toml`. The format is a strict subset
+/// of TOML so authors can add real TOML structure later without breaking
+/// existing fixtures.
 ///
 /// Supported lines:
 /// ```text
@@ -131,34 +104,18 @@ struct FixtureConfig {
     noexcept: bool,
     specific_deps: bool,
     references: Vec<String>,
-    /// For the `winmd_to_rdl` group: the prebuilt winmd (or directory) the
-    /// writer should consume. There is no `input.rdl`; the fixture is a
-    /// pure "filter a winmd to RDL" check used today by the legacy
-    /// `nested-arches`, `nested-packing` and `default-interface` tests.
+    /// `winmd_to_rdl` only: prebuilt winmd (or directory) to consume.
     winmd_input: Option<String>,
-    /// For `error` fixtures: which stage is expected to fail. Defaults to
-    /// `"reader"` (the legacy behaviour). `"writer"` means the harness must
-    /// successfully compile inputs to a winmd via the reader and then assert
-    /// that the *writer* fails when fed that winmd back without the
-    /// referenced `defs-*.rdl` winmds.
-    ///
-    /// `"reader_no_input"` runs the reader with no input file; it exists for
-    /// the single legacy `invalid_output` test which asserts the reader
-    /// rejects an output path of `.`.
+    /// `error` only: which stage must fail. `"reader"` (default),
+    /// `"reader_no_input"`, or `"writer"`.
     kind: Option<String>,
-    /// For `merge` fixtures: per-input architecture bits. Each entry is
-    /// `"input-<name>.rdl=<arch>"` where `<arch>` is one of `X86`, `X64`,
-    /// `Arm64`, or a `|`-joined combination (e.g. `"X86|X64"`). When set,
-    /// the harness uses `Merger::arch_input` instead of `Merger::input`,
-    /// so types present in only some arches are tagged with
-    /// `SupportedArchitecture` in the merged winmd.
+    /// `merge` only: per-input arch tagging, e.g. `"input-x86.rdl=X86"`.
+    /// Arches are `X86`/`X64`/`Arm64` or `|`-joined. When set, the harness
+    /// uses `Merger::arch_input` so types present in only some arches get
+    /// a `SupportedArchitecture` attribute.
     arch_inputs: Vec<String>,
-    /// For `rdl` fixtures: list of additional writer invocations after the
-    /// reader produces the winmd. Each entry is `"<expected>=<filter-spec>"`,
-    /// where `<filter-spec>` is one or more filter strings separated by `;`
-    /// (each becomes a `writer.filter(...)` call). When `outputs` is empty
-    /// the runner falls back to a single writer with `filter` (default
-    /// `"Test"`) and the `expected.rdl` golden.
+    /// `rdl` only: run the writer once per entry, each `"<expected>=<filter[;filter...]>"`.
+    /// `;` separates multiple `writer.filter(...)` calls in a single invocation.
     outputs: Vec<String>,
 }
 
@@ -244,12 +201,9 @@ fn run_rdl(f: &Fixture) {
         .write()
         .unwrap_or_else(|e| f.fail("reader", e));
 
-    // Build the (expected_filename, [filter, ...]) list. With no `outputs`
-    // declared this is a single (expected.rdl, [filter|"Test"]) entry, which
-    // matches the original single-writer behaviour. With `outputs` declared
-    // (today only the migrated `mod_recursive` fixture) we run the writer
-    // once per entry so a single fixture can assert several filtered slices
-    // of the same winmd against their own goldens.
+    // With no `outputs` declared, run a single writer with `filter` (default
+    // "Test") against `expected.rdl`. With `outputs` declared, run once per
+    // entry so a fixture can diff several filtered slices against own goldens.
     let invocations: Vec<(String, Vec<String>)> = if cfg.outputs.is_empty() {
         let filter = cfg.filter.as_deref().unwrap_or("Test");
         vec![("expected.rdl".to_string(), vec![filter.to_string()])]
@@ -258,8 +212,6 @@ fn run_rdl(f: &Fixture) {
     };
 
     for (i, (expected, filters)) in invocations.iter().enumerate() {
-        // Per-output scratch file so a failing fixture leaves all goldens'
-        // actuals on disk for inspection.
         let actual_rdl = f.scratch(&format!("out{i}.rdl"));
         let mut writer = windows_rdl::writer();
         writer.input(winmd.to_str().unwrap());
@@ -278,10 +230,7 @@ fn run_rdl(f: &Fixture) {
     }
 }
 
-/// Parse one `outputs = [...]` entry of the form `"<expected>=<filter-spec>"`,
-/// where `<filter-spec>` is one or more filter strings separated by `;`. Each
-/// filter becomes a `writer.filter(...)` call; the `;` separator (rather than
-/// `,`) keeps the spec readable inside the comma-separated TOML array.
+/// Parse one `outputs = [...]` entry of the form `"<expected>=<filter[;filter...]>"`.
 fn parse_output_spec(s: &str) -> (String, Vec<String>) {
     let (expected, filters) = s.split_once('=').unwrap_or_else(|| {
         panic!("`outputs` entry {s:?} must be of the form \"<expected>=<filter-spec>\"")
@@ -312,12 +261,6 @@ fn run_clang(f: &Fixture) {
             "-fms-extensions",
         ])
         .input(input.to_str().unwrap())
-        // The legacy `tests/roundtrip/clang` crate unconditionally passed
-        // `default/` to every clang run. Mirror that here so individual
-        // fixtures don't have to declare it: most C++ headers under test
-        // implicitly reference Win32 types (HRESULT, GUID, ...) and the
-        // overhead of registering an extra reference for fixtures that
-        // don't is negligible.
         .input(DEFAULT_REFERENCE);
     for r in &cfg.references {
         clang.input(r);
@@ -424,19 +367,14 @@ fn run_error_reader(f: &Fixture) {
             )
         });
 
-    // The Display impl rewrites paths relative to the input filename which
-    // varies per machine; use the raw `message`/`line`/`column` fields so
-    // expected.err is portable.
     let actual = format_error(&err, &input);
     diff_or_update_string(&actual, &f.input("expected.err"));
 }
 
-/// `kind = "reader_no_input"`: run the reader with *no* input file, asserting
-/// it fails. This is a niche shape used today by the single legacy
-/// `invalid_output` test which feeds an output path of `.` to the reader and
-/// expects "invalid output". The harness assumes the output target is `.`
-/// (the only construction the test actually exercises) — if a future fixture
-/// needs a different output, lift this to a `reader_output = "..."` knob.
+/// `kind = "reader_no_input"`: run the reader with no input file. Used today
+/// only by `invalid_output`, which feeds output `.` and expects "invalid
+/// output". If a future fixture needs a different output target, lift this
+/// to a `reader_output = "..."` knob.
 fn run_error_reader_no_input(f: &Fixture) {
     let err = windows_rdl::reader()
         .output(".")
@@ -449,39 +387,14 @@ fn run_error_reader_no_input(f: &Fixture) {
             )
         });
 
-    // The Display impl includes ` --> <path>:<line>:<col>` whose `<path>` is
-    // the absolute output path, which differs across machines. The legacy
-    // test asserted only on the prefix `error: invalid output\n --> .`, so
-    // we drop the path/line suffix and render the message with the same
-    // leading-`\n` + trailing-`\n` framing that `windows_rdl::Error`'s
-    // `Display` impl uses for every other reader-error fixture, keeping
-    // expected.err visually consistent across the `error/` group. If this
-    // shape ever outgrows a single fixture we should reuse `format_error`
-    // instead.
+    // Drop the path/line suffix (it's machine-dependent) and reframe the
+    // message with the same `\nerror: ...\n` shape used elsewhere.
     let actual = format!("\nerror: {}\n", err.message);
     diff_or_update_string(&actual, &f.input("expected.err"));
 }
 
-/// Writer-error layout (`kind = "writer"` in fixture.toml):
-///
-/// ```text
-/// data/error/<name>/
-///     defs-*.rdl     # one or more dependency RDLs (compiled to winmds)
-///     input.rdl      # uses types from the defs above
-///     fixture.toml   # kind = "writer"
-///     expected.err   # writer error (no path/line; Display = "\nerror: <msg>")
-/// ```
-///
-/// The harness:
-///   1. Compiles each `defs-*.rdl` to its own scratch winmd via the reader.
-///   2. Compiles `input.rdl` (with the def winmds as additional inputs) to a
-///      scratch winmd via the reader. Both reader steps must succeed.
-///   3. Runs the *writer* on `input.rdl`'s winmd alone (no def winmds) and
-///      asserts it fails. The error is matched against `expected.err`.
-///
-/// This composes with future "reference-winmd" coverage and replaces the
-/// bespoke `writer_errors_on_missing_enum_type` test from the now-removed
-/// `tests/libs/rdl/tests/panic.rs`.
+/// `kind = "writer"`: compile every `defs-*.rdl` and `input.rdl` to winmds,
+/// then run the writer on `input.winmd` *alone* and assert it fails.
 fn run_error_writer(f: &Fixture) {
     let mut defs: Vec<PathBuf> = std::fs::read_dir(&f.dir)
         .unwrap()
@@ -500,9 +413,6 @@ fn run_error_writer(f: &Fixture) {
         f.name
     );
 
-    // Step 1: compile each defs-*.rdl to its own winmd. Use the source file
-    // stem so scratch artifacts (e.g. `defs-platform.winmd`) are easy to map
-    // back to their inputs when debugging a failure.
     let mut def_winmds = Vec::with_capacity(defs.len());
     for def_rdl in &defs {
         let stem = def_rdl
@@ -518,7 +428,6 @@ fn run_error_writer(f: &Fixture) {
         def_winmds.push(winmd);
     }
 
-    // Step 2: compile input.rdl referencing the def winmds.
     let input = f.input("input.rdl");
     let input_winmd = f.scratch("input.winmd");
     let mut reader = windows_rdl::reader();
@@ -531,7 +440,6 @@ fn run_error_writer(f: &Fixture) {
         .write()
         .unwrap_or_else(|e| f.fail("reader(input)", e));
 
-    // Step 3: run the writer on input.winmd ALONE — must fail.
     let actual_rdl = f.scratch("out.rdl");
     let err = windows_rdl::writer()
         .input(input_winmd.to_str().unwrap())
@@ -545,8 +453,7 @@ fn run_error_writer(f: &Fixture) {
             )
         });
 
-    // Writer errors carry no file path or line info (writer_err! sets
-    // file_name="" and line=0), so the Display rendering is portable as-is.
+    // Writer errors carry no file path or line info, so Display is portable.
     let actual = format!("{err}");
     diff_or_update_string(&actual, &f.input("expected.err"));
 }
@@ -554,8 +461,7 @@ fn run_error_writer(f: &Fixture) {
 fn run_merge(f: &Fixture) {
     let cfg = f.config();
 
-    // Discover input-*.rdl files in lexical order so merge ordering is
-    // deterministic and matches authors' intuition (input-a.rdl, input-b.rdl).
+    // Lexical order so merge ordering is deterministic.
     let mut inputs: Vec<PathBuf> = std::fs::read_dir(&f.dir)
         .unwrap()
         .filter_map(|e| e.ok())
@@ -573,11 +479,6 @@ fn run_merge(f: &Fixture) {
         f.name
     );
 
-    // Optional per-input arch tagging. When `arch_inputs` is declared, every
-    // input-*.rdl must have an entry; the harness then uses
-    // `Merger::arch_input` so types present in only some arches are tagged
-    // with `SupportedArchitecture` in the merged winmd. Otherwise we use the
-    // plain `Merger::input` which yields no arch attributes.
     let arch_map = parse_arch_inputs(&cfg.arch_inputs);
 
     let mut merger = windows_metadata::merge();
@@ -619,10 +520,8 @@ fn run_merge(f: &Fixture) {
     diff_or_update(&actual_rdl, &f.input("expected.rdl"));
 }
 
-/// Parse `arch_inputs = ["input-x86.rdl=X86", "input-x64.rdl=X64", ...]`
-/// into `(filename, arch_bits)` pairs. Names map to the bitmask
-/// `windows_metadata::merge` documents (X86=1, X64=2, Arm64=4); multiple
-/// arches can be `|`-joined (e.g. `"input-32.rdl=X86|Arm64"`).
+/// Parse `arch_inputs = ["input-x86.rdl=X86", ...]` into `(filename, bits)`
+/// pairs (X86=1, X64=2, Arm64=4; `|`-joinable).
 fn parse_arch_inputs(entries: &[String]) -> Vec<(String, i32)> {
     entries
         .iter()
@@ -646,22 +545,8 @@ fn parse_arch_inputs(entries: &[String]) -> Vec<(String, i32)> {
         .collect()
 }
 
-/// Writer-only "filter a prebuilt winmd to RDL" fixture.
-///
-/// Layout:
-/// ```text
-/// data/winmd_to_rdl/<name>/
-///     fixture.toml   # winmd_input = "<path>"; filter = "<type>"; (references optional)
-///     expected.rdl
-/// ```
-///
-/// There is no `input.rdl` — this group exists for tests that consume a large
-/// prebuilt winmd (today: `crates/libs/bindgen/default/Windows*.winmd`) and
-/// want to diff a small filtered RDL slice. Replaces the bespoke
-/// `nested-arches.rs`, `nested-packing.rs` and `default-interface.rs` tests.
-///
-/// `winmd_input` is required; `filter` is required (a whole-winmd dump would
-/// produce an unwieldy golden file and is not the point of these tests).
+/// Writer-only: filter a prebuilt winmd to RDL. `winmd_input` and `filter`
+/// are required; paths resolve relative to the fixture directory.
 fn run_winmd_to_rdl(f: &Fixture) {
     let cfg = f.config();
     let winmd_input = cfg.winmd_input.as_deref().unwrap_or_else(|| {
@@ -677,9 +562,6 @@ fn run_winmd_to_rdl(f: &Fixture) {
         )
     });
 
-    // `winmd_input` and `references` paths are resolved relative to the
-    // fixture directory so authors can use `../../../...` the same way the
-    // legacy roundtrip crates do.
     let resolved_input = f.dir.join(winmd_input);
 
     let actual_rdl = f.scratch("out.rdl");
@@ -736,10 +618,8 @@ fn diff_or_update_string(actual: &str, expected_path: &Path) {
     }
 }
 
-/// Produce a portable rendering of a `windows_rdl::Error` for `expected.err`.
-/// The default `Display` impl embeds the absolute path of the input file
-/// which differs across machines; we replace that with the basename so
-/// goldens are reproducible.
+/// Render a `windows_rdl::Error` portably for `expected.err` by replacing the
+/// machine-dependent absolute path with the input basename.
 fn format_error(err: &windows_rdl::Error, input: &Path) -> String {
     let basename = input
         .file_name()

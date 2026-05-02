@@ -1,14 +1,6 @@
 // Tests that writer error conditions return Err instead of panicking.
-//
-// The four `writer_succeeds_for_*` happy-path smoke tests that previously
-// lived in this file (callback / delegate / enum / interface) were removed
-// during the test-fixture migration: their inline RDL inputs are strict
-// subsets of the existing
-// `crates/tests/fixtures/harness/data/rdl/{fn,delegate,enum,class}/` fixtures,
-// which already exercise the same writer code paths via byte-stable roundtrip
-// diffs (a strictly stronger check than `assert!(result.is_ok())`). The two
-// `writer_returns_err_for_*` tests below remain because the harness does not
-// model writer-side I/O failures (filesystem-level errors on the output path).
+// Limited to OS-level I/O failures on the output path; happy-path and
+// missing-dependency coverage lives in the test_fixtures harness.
 
 use std::sync::atomic::{AtomicU32, Ordering};
 
@@ -36,8 +28,6 @@ fn compile_rdl_to_winmd(rdl: &str) -> std::path::PathBuf {
     winmd
 }
 
-// ── I/O failure tests ────────────────────────────────────────────────────────
-
 #[test]
 fn writer_returns_err_for_bad_output_path() {
     // Use an existing regular file as a "blocker": create_dir_all cannot turn
@@ -63,9 +53,7 @@ fn writer_returns_err_for_bad_output_path() {
 
 #[test]
 fn writer_split_returns_err_for_bad_output_dir() {
-    // In split mode the writer creates <output>/<namespace>.rdl files; the
-    // parent of each such file is <output> itself.  Using an existing regular
-    // file as <output> makes create_dir_all fail on both Linux and Windows.
+    // Same idea as above, applied to split-mode output.
     let winmd = compile_rdl_to_winmd(
         r#"
 #[win32]
@@ -84,7 +72,6 @@ mod Test {
         .split(true)
         .write();
 
-    // Clean up before asserting so temp files are always removed.
     let _ = std::fs::remove_file(&winmd);
     let _ = std::fs::remove_file(&blocker);
 
@@ -98,7 +85,3 @@ mod Test {
         "error message should mention 'failed to'; got: {msg}"
     );
 }
-
-// ── Happy-path smoke tests ────────────────────────────────────────────────────
-//
-// Removed in phase 4 batch 3. See the file header for the rationale.
