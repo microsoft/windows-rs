@@ -89,6 +89,14 @@ impl Fixture {
         self.scratch.join(file)
     }
 
+    /// Panic with the harness's standard `[group/name] stage: error` framing.
+    /// Used by every group runner so failure messages render uniformly across
+    /// the suite. `stage` accepts anything `Display`-able so callers can pass
+    /// `format_args!("reader({path})")` etc. without an extra allocation.
+    fn fail(&self, stage: impl std::fmt::Display, error: impl std::fmt::Display) -> ! {
+        panic!("[{}/{}] {stage}: {error}", self.group, self.name);
+    }
+
     fn config(&self) -> FixtureConfig {
         let path = self.dir.join("fixture.toml");
         if path.is_file() {
@@ -234,7 +242,7 @@ fn run_rdl(f: &Fixture) {
     reader
         .output(winmd.to_str().unwrap())
         .write()
-        .unwrap_or_else(|e| panic!("[{}/{}] reader: {e}", f.group, f.name));
+        .unwrap_or_else(|e| f.fail("reader", e));
 
     // Build the (expected_filename, [filter, ...]) list. With no `outputs`
     // declared this is a single (expected.rdl, [filter|"Test"]) entry, which
@@ -264,7 +272,7 @@ fn run_rdl(f: &Fixture) {
         }
         writer
             .write()
-            .unwrap_or_else(|e| panic!("[{}/{}] writer({expected}): {e}", f.group, f.name));
+            .unwrap_or_else(|e| f.fail(format_args!("writer({expected})"), e));
 
         diff_or_update(&actual_rdl, &f.input(expected));
     }
@@ -319,7 +327,7 @@ fn run_clang(f: &Fixture) {
         .namespace("Test")
         .library("test.dll")
         .write()
-        .unwrap_or_else(|e| panic!("[{}/{}] clang: {e}", f.group, f.name));
+        .unwrap_or_else(|e| f.fail("clang", e));
 
     let mut reader = windows_rdl::reader();
     reader.input(rdl_intermediate.to_str().unwrap());
@@ -330,7 +338,7 @@ fn run_clang(f: &Fixture) {
     reader
         .output(winmd.to_str().unwrap())
         .write()
-        .unwrap_or_else(|e| panic!("[{}/{}] reader: {e}", f.group, f.name));
+        .unwrap_or_else(|e| f.fail("reader", e));
 
     let mut writer = windows_rdl::writer();
     writer.input(winmd.to_str().unwrap());
@@ -342,7 +350,7 @@ fn run_clang(f: &Fixture) {
         .output(actual_rdl.to_str().unwrap())
         .filter(filter)
         .write()
-        .unwrap_or_else(|e| panic!("[{}/{}] writer: {e}", f.group, f.name));
+        .unwrap_or_else(|e| f.fail("writer", e));
 
     diff_or_update(&actual_rdl, &f.input("expected.rdl"));
 }
@@ -363,7 +371,7 @@ fn run_bindgen(f: &Fixture) {
     reader
         .output(winmd.to_str().unwrap())
         .write()
-        .unwrap_or_else(|e| panic!("[{}/{}] reader: {e}", f.group, f.name));
+        .unwrap_or_else(|e| f.fail("reader", e));
 
     let mut bindgen = windows_bindgen::builder();
     bindgen
@@ -506,14 +514,7 @@ fn run_error_writer(f: &Fixture) {
             .input(def_rdl.to_str().unwrap())
             .output(winmd.to_str().unwrap())
             .write()
-            .unwrap_or_else(|e| {
-                panic!(
-                    "[{}/{}] reader({}): {e}",
-                    f.group,
-                    f.name,
-                    def_rdl.display()
-                )
-            });
+            .unwrap_or_else(|e| f.fail(format_args!("reader({})", def_rdl.display()), e));
         def_winmds.push(winmd);
     }
 
@@ -528,7 +529,7 @@ fn run_error_writer(f: &Fixture) {
     reader
         .output(input_winmd.to_str().unwrap())
         .write()
-        .unwrap_or_else(|e| panic!("[{}/{}] reader(input): {e}", f.group, f.name));
+        .unwrap_or_else(|e| f.fail("reader(input)", e));
 
     // Step 3: run the writer on input.winmd ALONE — must fail.
     let actual_rdl = f.scratch("out.rdl");
@@ -586,7 +587,7 @@ fn run_merge(f: &Fixture) {
             .input(rdl.to_str().unwrap())
             .output(winmd.to_str().unwrap())
             .write()
-            .unwrap_or_else(|e| panic!("[{}/{}] reader({}): {e}", f.group, f.name, rdl.display()));
+            .unwrap_or_else(|e| f.fail(format_args!("reader({})", rdl.display()), e));
         if arch_map.is_empty() {
             merger.input(winmd.to_str().unwrap());
         } else {
@@ -604,7 +605,7 @@ fn run_merge(f: &Fixture) {
     merger
         .output(merged.to_str().unwrap())
         .merge()
-        .unwrap_or_else(|e| panic!("[{}/{}] merge: {e}", f.group, f.name));
+        .unwrap_or_else(|e| f.fail("merge", e));
 
     let actual_rdl = f.scratch("out.rdl");
     let filter = cfg.filter.as_deref().unwrap_or("Test");
@@ -613,7 +614,7 @@ fn run_merge(f: &Fixture) {
         .output(actual_rdl.to_str().unwrap())
         .filter(filter)
         .write()
-        .unwrap_or_else(|e| panic!("[{}/{}] writer: {e}", f.group, f.name));
+        .unwrap_or_else(|e| f.fail("writer", e));
 
     diff_or_update(&actual_rdl, &f.input("expected.rdl"));
 }
@@ -692,7 +693,7 @@ fn run_winmd_to_rdl(f: &Fixture) {
         .output(actual_rdl.to_str().unwrap())
         .filter(filter)
         .write()
-        .unwrap_or_else(|e| panic!("[{}/{}] writer: {e}", f.group, f.name));
+        .unwrap_or_else(|e| f.fail("writer", e));
 
     diff_or_update(&actual_rdl, &f.input("expected.rdl"));
 }
