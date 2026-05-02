@@ -1177,96 +1177,6 @@ pub struct IDocObjectService_Vtbl {
     pub IsErrorUrl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IDocObjectService_Impl: windows_core::IUnknownImpl {
-    fn FireBeforeNavigate2(&self, pdispatch: windows_core::Ref<super::super::System::Com::IDispatch>, lpszurl: &windows_core::PCWSTR, dwflags: u32, lpszframename: &windows_core::PCWSTR, ppostdata: *const u8, cbpostdata: u32, lpszheaders: &windows_core::PCWSTR, fplaynavsound: windows_core::BOOL) -> windows_core::Result<windows_core::BOOL>;
-    fn FireDownloadBegin(&self) -> windows_core::Result<()>;
-    fn FireDownloadComplete(&self) -> windows_core::Result<()>;
-    fn GetPendingUrl(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetUrlSearchComponent(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn IsErrorUrl(&self, lpszurl: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl IDocObjectService_Vtbl {
-    pub const fn new<Identity: IDocObjectService_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn FireBeforeNavigate2<Identity: IDocObjectService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdispatch: *mut core::ffi::c_void, lpszurl: windows_core::PCWSTR, dwflags: u32, lpszframename: windows_core::PCWSTR, ppostdata: *const u8, cbpostdata: u32, lpszheaders: windows_core::PCWSTR, fplaynavsound: windows_core::BOOL, pfcancel: *mut windows_core::BOOL) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDocObjectService_Impl::FireBeforeNavigate2(this, core::mem::transmute_copy(&pdispatch), core::mem::transmute(&lpszurl), core::mem::transmute_copy(&dwflags), core::mem::transmute(&lpszframename), core::mem::transmute_copy(&ppostdata), core::mem::transmute_copy(&cbpostdata), core::mem::transmute(&lpszheaders), core::mem::transmute_copy(&fplaynavsound)) {
-                    Ok(ok__) => {
-                        pfcancel.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn FireDownloadBegin<Identity: IDocObjectService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDocObjectService_Impl::FireDownloadBegin(this).into()
-            }
-        }
-        unsafe extern "system" fn FireDownloadComplete<Identity: IDocObjectService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDocObjectService_Impl::FireDownloadComplete(this).into()
-            }
-        }
-        unsafe extern "system" fn GetPendingUrl<Identity: IDocObjectService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpendingurl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDocObjectService_Impl::GetPendingUrl(this) {
-                    Ok(ok__) => {
-                        pbstrpendingurl.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn GetUrlSearchComponent<Identity: IDocObjectService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsearch: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDocObjectService_Impl::GetUrlSearchComponent(this) {
-                    Ok(ok__) => {
-                        pbstrsearch.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn IsErrorUrl<Identity: IDocObjectService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszurl: windows_core::PCWSTR, pfiserror: *mut windows_core::BOOL) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDocObjectService_Impl::IsErrorUrl(this, core::mem::transmute(&lpszurl)) {
-                    Ok(ok__) => {
-                        pfiserror.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            FireBeforeNavigate2: FireBeforeNavigate2::<Identity, OFFSET>,
-            FireNavigateComplete2: 0,
-            FireDownloadBegin: FireDownloadBegin::<Identity, OFFSET>,
-            FireDownloadComplete: FireDownloadComplete::<Identity, OFFSET>,
-            FireDocumentComplete: 0,
-            UpdateDesktopComponent: 0,
-            GetPendingUrl: GetPendingUrl::<Identity, OFFSET>,
-            ActiveElementChanged: 0,
-            GetUrlSearchComponent: GetUrlSearchComponent::<Identity, OFFSET>,
-            IsErrorUrl: IsErrorUrl::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDocObjectService as windows_core::Interface>::IID
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IDocObjectService {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDownloadBehavior, IDownloadBehavior_Vtbl, 0x3050f5bd_98b5_11cf_bb82_00aa00bdce0b);
@@ -1764,29 +1674,6 @@ pub struct IExtensionValidation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     Validate: usize,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-}
-pub trait IExtensionValidation_Impl: windows_core::IUnknownImpl {
-    fn DisplayName(&self) -> windows_core::Result<windows_core::PWSTR>;
-}
-impl IExtensionValidation_Vtbl {
-    pub const fn new<Identity: IExtensionValidation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DisplayName<Identity: IExtensionValidation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IExtensionValidation_Impl::DisplayName(this) {
-                    Ok(ok__) => {
-                        displayname.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Validate: 0, DisplayName: DisplayName::<Identity, OFFSET> }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IExtensionValidation as windows_core::Interface>::IID
-    }
 }
 impl windows_core::RuntimeName for IExtensionValidation {}
 windows_core::imp::define_interface!(IHTMLPersistData, IHTMLPersistData_Vtbl, 0x3050f4c5_98b5_11cf_bb82_00aa00bdce0b);
@@ -6322,23 +6209,6 @@ pub struct ITridentTouchInputSite_Vtbl {
     SetManipulationMode: usize,
     pub ZoomToPoint: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
-pub trait ITridentTouchInputSite_Impl: windows_core::IUnknownImpl {
-    fn ZoomToPoint(&self, x: i32, y: i32) -> windows_core::Result<()>;
-}
-impl ITridentTouchInputSite_Vtbl {
-    pub const fn new<Identity: ITridentTouchInputSite_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ZoomToPoint<Identity: ITridentTouchInputSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: i32, y: i32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITridentTouchInputSite_Impl::ZoomToPoint(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
-            }
-        }
-        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetManipulationMode: 0, ZoomToPoint: ZoomToPoint::<Identity, OFFSET> }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITridentTouchInputSite as windows_core::Interface>::IID
-    }
-}
 impl windows_core::RuntimeName for ITridentTouchInputSite {}
 #[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::define_interface!(IUrlHistoryNotify, IUrlHistoryNotify_Vtbl, 0xbc40bec1_c493_11d0_831b_00c04fd5ae38);
@@ -6685,99 +6555,6 @@ pub struct IViewObjectPresentFlipSite_Vtbl {
     pub GetBoundingRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
     pub GetMetrics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::POINT, *mut super::super::Foundation::SIZE, *mut f32, *mut f32) -> windows_core::HRESULT,
     pub GetFullScreenSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SIZE) -> windows_core::HRESULT,
-}
-pub trait IViewObjectPresentFlipSite_Impl: windows_core::IUnknownImpl {
-    fn GetDeviceLuid(&self) -> windows_core::Result<super::super::Foundation::LUID>;
-    fn EnterFullScreen(&self) -> windows_core::Result<()>;
-    fn ExitFullScreen(&self) -> windows_core::Result<()>;
-    fn IsFullScreen(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn GetBoundingRect(&self) -> windows_core::Result<super::super::Foundation::RECT>;
-    fn GetMetrics(&self, ppos: *mut super::super::Foundation::POINT, psize: *mut super::super::Foundation::SIZE, pscalex: *mut f32, pscaley: *mut f32) -> windows_core::Result<()>;
-    fn GetFullScreenSize(&self) -> windows_core::Result<super::super::Foundation::SIZE>;
-}
-impl IViewObjectPresentFlipSite_Vtbl {
-    pub const fn new<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetDeviceLuid<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pluid: *mut super::super::Foundation::LUID) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IViewObjectPresentFlipSite_Impl::GetDeviceLuid(this) {
-                    Ok(ok__) => {
-                        pluid.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn EnterFullScreen<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewObjectPresentFlipSite_Impl::EnterFullScreen(this).into()
-            }
-        }
-        unsafe extern "system" fn ExitFullScreen<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewObjectPresentFlipSite_Impl::ExitFullScreen(this).into()
-            }
-        }
-        unsafe extern "system" fn IsFullScreen<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pffullscreen: *mut windows_core::BOOL) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IViewObjectPresentFlipSite_Impl::IsFullScreen(this) {
-                    Ok(ok__) => {
-                        pffullscreen.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn GetBoundingRect<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prect: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IViewObjectPresentFlipSite_Impl::GetBoundingRect(this) {
-                    Ok(ok__) => {
-                        prect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn GetMetrics<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppos: *mut super::super::Foundation::POINT, psize: *mut super::super::Foundation::SIZE, pscalex: *mut f32, pscaley: *mut f32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewObjectPresentFlipSite_Impl::GetMetrics(this, core::mem::transmute_copy(&ppos), core::mem::transmute_copy(&psize), core::mem::transmute_copy(&pscalex), core::mem::transmute_copy(&pscaley)).into()
-            }
-        }
-        unsafe extern "system" fn GetFullScreenSize<Identity: IViewObjectPresentFlipSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psize: *mut super::super::Foundation::SIZE) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IViewObjectPresentFlipSite_Impl::GetFullScreenSize(this) {
-                    Ok(ok__) => {
-                        psize.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            CreateSurfacePresenterFlip: 0,
-            GetDeviceLuid: GetDeviceLuid::<Identity, OFFSET>,
-            EnterFullScreen: EnterFullScreen::<Identity, OFFSET>,
-            ExitFullScreen: ExitFullScreen::<Identity, OFFSET>,
-            IsFullScreen: IsFullScreen::<Identity, OFFSET>,
-            GetBoundingRect: GetBoundingRect::<Identity, OFFSET>,
-            GetMetrics: GetMetrics::<Identity, OFFSET>,
-            GetFullScreenSize: GetFullScreenSize::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IViewObjectPresentFlipSite as windows_core::Interface>::IID
-    }
 }
 impl windows_core::RuntimeName for IViewObjectPresentFlipSite {}
 windows_core::imp::define_interface!(IViewObjectPresentFlipSite2, IViewObjectPresentFlipSite2_Vtbl, 0xaad0cbf1_e7fd_4f12_8902_c78132a8e01d);

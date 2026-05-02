@@ -169,11 +169,40 @@ fn skip_cpp_method() {
 
 #[test]
 #[should_panic(
+    expected = "omitting `impl` trait for `Windows.Win32.System.Com.IPersistFile` because one or more methods were skipped"
+)]
+fn skip_cpp_implement() {
+    let mut path = std::env::temp_dir();
+    path.push("skip_cpp_implement");
+
+    windows_bindgen::bindgen(["--out", &path.to_string_lossy(), "--filter", "IPersistFile"])
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
     expected = "skipping `Windows.Foundation.IMemoryBuffer.CreateReference` due to missing dependencies:\n  Windows.Foundation.IMemoryBufferReference"
 )]
 fn skip_method() {
     let mut path = std::env::temp_dir();
     path.push("skip_method");
+
+    windows_bindgen::bindgen([
+        "--out",
+        &path.to_string_lossy(),
+        "--filter",
+        "IMemoryBuffer",
+    ])
+    .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = "omitting `impl` trait for `Windows.Foundation.IMemoryBuffer` because one or more methods were skipped"
+)]
+fn skip_implement() {
+    let mut path = std::env::temp_dir();
+    path.push("skip_implement");
 
     windows_bindgen::bindgen([
         "--out",

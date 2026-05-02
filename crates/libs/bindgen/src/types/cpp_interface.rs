@@ -47,6 +47,18 @@ impl CppInterface {
             .collect()
     }
 
+    // Returns `true` if any of this interface's own methods would be skipped due to
+    // missing dependencies. Used (transitively across base interfaces) to decide
+    // whether to emit the `_Impl` trait, since a derived `_Impl` cannot reference a
+    // base `_Impl` that wasn't emitted.
+    pub fn has_skipped_methods(&self, config: &Config) -> bool {
+        let namespace = self.def.namespace();
+        self.def.methods().any(|def| {
+            let method = CppMethod::new(def, namespace, config.reader);
+            !method.dependencies.included(config)
+        })
+    }
+
     fn write_cfg(&self, config: &Config) -> (Cfg, TokenStream) {
         write_full_cfg(self, config)
     }
@@ -331,7 +343,30 @@ impl CppInterface {
                 }
             });
 
-            result.combine( if has_unknown_base {
+            // If any methods were skipped due to missing dependencies, the interface cannot be
+            // fully described, so omit the ability to implement it rather than emitting a
+            // partial vtable with null function pointer slots. Also propagate the omission
+            // when any base interface had its `_Impl` trait omitted, since a derived `_Impl`
+            // cannot reference a base `_Impl` that wasn't emitted.
+            let has_skipped_methods = methods
+                .iter()
+                .any(|method| matches!(method, CppMethodOrName::Name(_)))
+                || base_interfaces.iter().any(|ty| match ty {
+                    Type::CppInterface(ty) => ty.has_skipped_methods(config),
+                    _ => false,
+                });
+
+            if has_skipped_methods {
+                config.warnings.skip_implement(self.def);
+
+                if has_unknown_base {
+                    result.combine(quote! {
+                        #cfg
+                        impl windows_core::RuntimeName for #name {}
+                    });
+                }
+            } else {
+                result.combine( if has_unknown_base {
                 let matches = base_interfaces.iter().filter_map(|ty|{
                     match ty {
                         Type::CppInterface(ty) => {
@@ -397,6 +432,7 @@ impl CppInterface {
                     }
                 }
             });
+            }
 
             result
         }
