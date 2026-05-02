@@ -31,6 +31,13 @@ impl WarningBuilder {
 
         self.add(message);
     }
+
+    pub fn skip_implement(&self, def: TypeDef) {
+        self.add(format!(
+            "omitting `impl` trait for `{}` because one or more methods were skipped\n",
+            def.type_name()
+        ));
+    }
 }
 
 /// Contains warnings collected during code generation.

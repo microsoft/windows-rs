@@ -64,54 +64,6 @@ pub struct ID2D1Bitmap_Vtbl {
 }
 unsafe impl Send for ID2D1Bitmap {}
 unsafe impl Sync for ID2D1Bitmap {}
-pub trait ID2D1Bitmap_Impl: ID2D1Image_Impl {
-    fn GetSize(&self) -> D2D_SIZE_F;
-    fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32);
-}
-impl ID2D1Bitmap_Vtbl {
-    pub const fn new<Identity: ID2D1Bitmap_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetSize<Identity: ID2D1Bitmap_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            result__: *mut D2D_SIZE_F,
-        ) {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                *result__ = ID2D1Bitmap_Impl::GetSize(this)
-            }
-        }
-        unsafe extern "system" fn GetDpi<Identity: ID2D1Bitmap_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            dpix: *mut f32,
-            dpiy: *mut f32,
-        ) {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID2D1Bitmap_Impl::GetDpi(
-                    this,
-                    core::mem::transmute_copy(&dpix),
-                    core::mem::transmute_copy(&dpiy),
-                )
-            }
-        }
-        Self {
-            base__: ID2D1Image_Vtbl::new::<Identity, OFFSET>(),
-            GetSize: GetSize::<Identity, OFFSET>,
-            GetPixelSize: 0,
-            GetPixelFormat: 0,
-            GetDpi: GetDpi::<Identity, OFFSET>,
-            CopyFromBitmap: 0,
-            CopyFromRenderTarget: 0,
-            CopyFromMemory: 0,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID2D1Bitmap as windows_core::Interface>::IID
-            || iid == &<ID2D1Resource as windows_core::Interface>::IID
-            || iid == &<ID2D1Image as windows_core::Interface>::IID
-    }
-}
 impl windows_core::RuntimeName for ID2D1Bitmap {}
 windows_core::imp::define_interface!(
     ID2D1Image,
@@ -132,18 +84,6 @@ pub struct ID2D1Image_Vtbl {
 }
 unsafe impl Send for ID2D1Image {}
 unsafe impl Sync for ID2D1Image {}
-pub trait ID2D1Image_Impl: ID2D1Resource_Impl {}
-impl ID2D1Image_Vtbl {
-    pub const fn new<Identity: ID2D1Image_Impl, const OFFSET: isize>() -> Self {
-        Self {
-            base__: ID2D1Resource_Vtbl::new::<Identity, OFFSET>(),
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID2D1Image as windows_core::Interface>::IID
-            || iid == &<ID2D1Resource as windows_core::Interface>::IID
-    }
-}
 impl windows_core::RuntimeName for ID2D1Image {}
 windows_core::imp::define_interface!(
     ID2D1Resource,
@@ -159,16 +99,4 @@ pub struct ID2D1Resource_Vtbl {
 }
 unsafe impl Send for ID2D1Resource {}
 unsafe impl Sync for ID2D1Resource {}
-pub trait ID2D1Resource_Impl: windows_core::IUnknownImpl {}
-impl ID2D1Resource_Vtbl {
-    pub const fn new<Identity: ID2D1Resource_Impl, const OFFSET: isize>() -> Self {
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            GetFactory: 0,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID2D1Resource as windows_core::Interface>::IID
-    }
-}
 impl windows_core::RuntimeName for ID2D1Resource {}
