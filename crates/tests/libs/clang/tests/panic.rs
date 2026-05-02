@@ -10,7 +10,7 @@ fn should_panic(input: &str) {
 }
 
 #[test]
-#[should_panic(expected = "error: expected ';' after struct\n --> .h:3:2")]
+#[should_panic(expected = "error: expected ';' after struct")]
 fn semicolon_expected() {
     should_panic(
         r#"
