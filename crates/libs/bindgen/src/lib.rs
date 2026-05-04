@@ -311,14 +311,33 @@ pub fn builder() -> Bindgen {
 ///
 /// # `--middleware`
 ///
-/// The `--middleware` option emits compact `pub fn` bodies that tail-call into a small set of
-/// generic helpers in `windows_core::imp` (`call_in`, `call_in_out`) instead of expanding the
-/// full `unsafe { let mut result__ = zeroed(); (vtable(self).M)(...).and_then(...) }` shape
+/// The `--middleware` option emits compact `pub fn` bodies that tail-call into a small set
+/// of generic helpers in `windows_core::imp` (`call_in`, `call_in_out`, `call_compose`)
+/// instead of expanding the full
+/// `unsafe { let mut result__ = zeroed(); (vtable(self).M)(...).and_then(...) }` shape
 /// inline at every call site. Public signatures are byte-identical; only the body shape
-/// changes. Shapes that don't fit a helper (`noexcept`-style infallible returns, WinRT array
-/// returns, `CloneType` returns such as `HSTRING`, `Static`/`Composable`/cast-prelude factory
-/// methods, the C++/Win32 surface) fall back to today's inline expansion automatically, so
-/// the flag is always safe to enable.
+/// changes.
+///
+/// The helpers cover every WinRT receiver shape that `bindgen` produces for
+/// `Result<T>`-returning methods:
+///
+/// * `Default` arm — `&self` instance methods (`call_in` / `call_in_out`).
+/// * `None` / `Base` arm — instance methods reached via a `cast::<…>` prelude
+///   (`call_in` / `call_in_out`, with `this` as receiver).
+/// * `Static` arm — class statics dispatched through `Self::IFoo(|this| { … })`
+///   (`call_in` / `call_in_out`, with `this` as receiver).
+/// * `Composable` primary entry — non-aggregating constructors (`call_in_out`, with the
+///   two outer/inner null placeholder slots spliced into the helper's argument tail to
+///   keep the ABI byte-identical).
+/// * `Composable` `_compose` aggregating entry — `call_compose`, which performs the
+///   `Compose::compose` / vtable dispatch / `let _ = &derived__;` keep-alive /
+///   `T::from_abi` sequence in one place.
+///
+/// Shapes that don't fit a helper (`noexcept`-style infallible returns, WinRT array
+/// returns, `CloneType` returns such as `HSTRING`, bare `Type::Generic(_)` returns where
+/// the impl block does not bound `<T as Type<T>>::Abi: Default`, the C++/Win32 surface)
+/// fall back to today's inline expansion automatically, so the flag is always safe to
+/// enable.
 ///
 /// This is intended for "middleware" / "reactor" callers (such as `windows-reactor-rs`) that
 /// forward calls through curated WinRT surfaces and want to minimize `bindings.rs` byte size,

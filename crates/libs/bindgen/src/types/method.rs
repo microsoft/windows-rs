@@ -603,7 +603,9 @@ impl Method {
                     // which isn't implied by the typical `T: RuntimeType + 'static`
                     // bound the generated impl block carries. Fall back to inline.
                     Type::Generic(_) => {}
-                    rt if rt.is_convertible() || rt.is_copyable(config.reader) => {
+                    return_type
+                        if return_type.is_convertible() || return_type.is_copyable(config.reader) =>
+                    {
                         // `call_in_out` requires `<T as Type<T>>::Abi: Default`. This
                         // holds for interface (`Abi = *mut c_void`) and copyable
                         // (`Abi = T` for primitives/enums/BOOL/HANDLE) returns.
