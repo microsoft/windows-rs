@@ -103,6 +103,8 @@ struct FixtureConfig {
     no_comment: bool,
     noexcept: bool,
     specific_deps: bool,
+    implement: bool,
+    implements: Vec<String>,
     references: Vec<String>,
     /// `winmd_to_rdl` only: prebuilt winmd (or directory) to consume.
     winmd_input: Option<String>,
@@ -155,6 +157,8 @@ impl FixtureConfig {
                 "no_comment" => cfg.no_comment = parse_bool(value),
                 "noexcept" => cfg.noexcept = parse_bool(value),
                 "specific_deps" => cfg.specific_deps = parse_bool(value),
+                "implement" => cfg.implement = parse_bool(value),
+                "implements" => cfg.implements = parse_string_list(value),
                 "references" => cfg.references = parse_string_list(value),
                 "winmd_input" => cfg.winmd_input = Some(parse_string(value)),
                 "kind" => cfg.kind = Some(parse_string(value)),
@@ -374,6 +378,10 @@ fn run_bindgen(f: &Fixture) {
     if cfg.noexcept {
         bindgen.noexcept();
     }
+    if cfg.implement {
+        bindgen.implement();
+    }
+    bindgen.implements(&cfg.implements);
     bindgen.write().unwrap();
 
     diff_or_update(&actual_rs, &f.input("expected.rs"));

@@ -10,6 +10,7 @@ mod derive;
 mod derive_writer;
 mod filter;
 mod guid;
+mod implements;
 mod index;
 mod io;
 mod libraries;
@@ -31,6 +32,7 @@ use derive::*;
 use derive_writer::*;
 use filter::*;
 use guid::*;
+use implements::*;
 use io::*;
 pub use libraries::*;
 use param::*;
@@ -86,6 +88,7 @@ pub fn builder() -> Bindgen {
 /// | `--sys-fn-ptrs` | Additionally generates function pointers for sys-style Rust bindings. |
 /// | `--sys-fn-extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. |
+/// | `--implements` | Includes implementation traits for the listed types only. |
 /// | `--noexcept` | Assumes all WinRT methods do not raise exceptions. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
 ///
@@ -363,6 +366,7 @@ where
                 "--implement" => {
                     builder.implement();
                 }
+                "--implements" => kind = ArgKind::Implements,
                 "--noexcept" => {
                     builder.noexcept();
                 }
@@ -393,6 +397,9 @@ where
             }
             ArgKind::Derive => {
                 builder.derive(arg);
+            }
+            ArgKind::Implements => {
+                builder.implements([arg]);
             }
             ArgKind::Rustfmt => {
                 builder.rustfmt(arg);
@@ -434,6 +441,7 @@ pub struct Bindgen {
     output: String,
     references: Vec<String>,
     derive: Vec<String>,
+    implements: Vec<String>,
     rustfmt: String,
     link: String,
     flat: bool,
@@ -594,6 +602,28 @@ impl Bindgen {
     /// Include implementation traits for WinRT interfaces.
     pub fn implement(&mut self) -> &mut Self {
         self.implement = true;
+        self
+    }
+
+    /// Add types to the list of types for which implementation scaffolding
+    /// should be emitted.
+    ///
+    /// Each entry may be a fully-qualified type name (`Namespace.Name`) or a
+    /// namespace prefix that matches every type defined under it. When at
+    /// least one entry is provided and `--implement` is **not** set, the
+    /// `_Impl` scaffolding is generated only for types matching the list,
+    /// rather than for every interface/class in the filter set. This is a
+    /// finer-grained alternative to the broad `--implement` switch and can
+    /// significantly reduce build time when only a handful of interfaces
+    /// need to be implemented.
+    pub fn implements<I, S>(&mut self, names: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for name in names {
+            self.implements.push(name.as_ref().to_string());
+        }
         self
     }
 
@@ -765,11 +795,13 @@ impl Bindgen {
         }
 
         let derive_str: Vec<&str> = self.derive.iter().map(|s| s.as_str()).collect();
+        let implements_str: Vec<&str> = self.implements.iter().map(|s| s.as_str()).collect();
 
         let filter = Filter::new(&reader, &include, &exclude);
         let references = References::new(&reader, references);
         let types = TypeMap::filter(&reader, &filter, &references);
         let derive = Derive::new(&reader, &types, &derive_str);
+        let implements = Implements::new(&implements_str);
         let warnings = WarningBuilder::default();
 
         let config = Config {
@@ -790,6 +822,7 @@ impl Bindgen {
             sys_fn_ptrs: self.sys_fn_ptrs,
             sys_fn_extern: self.sys_fn_extern,
             implement: self.implement,
+            implements: &implements,
             noexcept: self.noexcept,
             specific_deps: self.specific_deps,
             link,
@@ -816,6 +849,7 @@ enum ArgKind {
     Rustfmt,
     Reference,
     Derive,
+    Implements,
     Link,
 }
 

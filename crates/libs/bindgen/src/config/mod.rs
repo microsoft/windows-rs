@@ -25,6 +25,7 @@ pub struct Config<'a> {
     pub sys_fn_ptrs: bool,
     pub sys_fn_extern: bool,
     pub implement: bool,
+    pub implements: &'a Implements,
     pub noexcept: bool,
     pub specific_deps: bool,
     pub derive: &'a Derive,
@@ -38,6 +39,23 @@ impl Config<'_> {
         let mut clone = self.clone();
         clone.namespace = namespace;
         clone
+    }
+
+    /// Returns `true` if the `_Impl` scaffolding for the given type should be
+    /// emitted, based on the `--implement` and `--implements` options.
+    ///
+    /// `default` is the behavior to fall back on when neither option restricts
+    /// emission: `true` for types that are emitted unconditionally today (such
+    /// as COM/Win32 interfaces) and `false` (or some other condition such as
+    /// `!is_exclusive`) for WinRT interfaces.
+    pub fn should_implement(&self, name: TypeName, default: bool) -> bool {
+        if self.implement {
+            true
+        } else if !self.implements.is_empty() {
+            self.implements.matches(name)
+        } else {
+            default
+        }
     }
 }
 
