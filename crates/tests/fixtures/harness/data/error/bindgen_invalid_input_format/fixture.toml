@@ -1,0 +1,2 @@
+kind = "bindgen"
+args = "--in ../../../libs/bindgen/default/readme.md --out out.txt --filter POINT"

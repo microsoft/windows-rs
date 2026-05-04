@@ -1,0 +1,1 @@
+args = "--rustfmt max_width=25,newline_style=Unix --filter POINT --flat --no-comment --no-allow"

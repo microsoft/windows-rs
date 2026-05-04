@@ -1,0 +1,1 @@
+args = "--no-comment --in default --flat --filter E_FAIL S_FALSE E_OUTOFMEMORY ERROR_OUTOFMEMORY Windows.Foundation.Rect RECT GetTickCount FatalExit --sys --no-deps"

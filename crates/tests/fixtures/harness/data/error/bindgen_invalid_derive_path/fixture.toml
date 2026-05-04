@@ -1,0 +1,2 @@
+kind = "bindgen"
+args = "--in default --out out.txt --filter POINT --derive POINTY=PartialOrd"

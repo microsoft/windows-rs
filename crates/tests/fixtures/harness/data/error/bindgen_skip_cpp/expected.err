@@ -1,0 +1,2 @@
+skipping `Windows.Win32.System.Com.IPersistFile.Load` due to missing dependencies:
+  Windows.Win32.System.Com.STGM

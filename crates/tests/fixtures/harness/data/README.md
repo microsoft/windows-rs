@@ -25,8 +25,8 @@ parallel `#[test]` execution is preserved.
 |-----------|------------------------------|------------------------------------------------------|
 | `rdl`     | `input.rdl`                  | RDL → winmd → RDL, diff vs. `expected.rdl`           |
 | `clang`   | `input.h`                    | Clang → RDL → winmd → RDL, diff vs. `expected.rdl`   |
-| `bindgen` | `input.rdl` + `fixture.toml` | RDL → winmd → bindgen, diff vs. `expected.rs`        |
-| `error`   | `input.rdl` + `expected.err` (+ optional `defs-*.rdl` for `kind = "writer"`) | reader **or** writer fails with the expected message |
+| `bindgen` | `input.rdl` + `fixture.toml` (or `fixture.toml` with `args`) | RDL → winmd → bindgen, diff vs. `expected.rs`. With `args`, skip the RDL stage and pass the args verbatim to `windows_bindgen::bindgen` (typically with `--in default`). |
+| `error`   | `input.rdl` + `expected.err` (+ optional `defs-*.rdl` for `kind = "writer"`) | reader/writer/bindgen fails with the expected message |
 | `merge`   | `input-*.rdl` (≥ 2)          | each → winmd → merge → RDL, diff vs. `expected.rdl`  |
 | `winmd_to_rdl` | `fixture.toml` only (`winmd_input` + `filter`) | writer reads a prebuilt winmd, diff vs. `expected.rdl` |
 
@@ -43,9 +43,12 @@ Supported keys:
 | `no_allow`       | bool       | bindgen    | pass `--no-allow` to bindgen              |
 | `no_comment`     | bool       | bindgen    | pass `--no-comment` to bindgen            |
 | `specific_deps`  | bool       | bindgen    | pass `--specific-deps` to bindgen         |
-| `kind`           | string     | error      | `"reader"` (default), `"reader_no_input"`, or `"writer"` — which stage must fail |
+| `kind`           | string     | error      | `"reader"` (default), `"reader_no_input"`, `"writer"`, or `"bindgen"` — which stage must fail |
 | `arch_inputs`    | string[]   | merge      | per-input arch tagging, e.g. `["input-x86.rdl=X86", "input-x64.rdl=X64"]`. Arches are `X86`/`X64`/`Arm64` or `\|`-joined. |
 | `outputs`        | string[]   | rdl        | run the writer multiple times. Each entry is `"<expected>=<filter[;filter...]>"`; `;` separates multiple `writer.filter(...)` calls. |
+| `args`           | string     | bindgen, error (`kind = "bindgen"`) | raw `windows_bindgen::bindgen` CLI args. For `bindgen`, the synthetic RDL → winmd step is skipped and these args are passed verbatim (with `--out <scratch>/out.rs` appended). For `error`, the call is run under `catch_unwind` and the panic message is diffed against `expected.err`. Supports `{scratch}` and `{setup}` placeholders. |
+| `setup`          | string     | error (`kind = "bindgen"`) | filesystem prep before invoking bindgen: `"create_dir"` (mkdir `{scratch}/setup`) or `"create_file"` (touch `{scratch}/setup`). Exposes the path as `{setup}` in `args`. |
+| `error_match`    | string     | error (`kind = "bindgen"`) | `"exact"` (default) or `"contains"` — for panic messages that embed machine-dependent paths. |
 
 ## Adding a fixture
 
@@ -78,7 +81,7 @@ API calls, OS-level I/O failures, structural attribute assertions):
 
 - `tests/libs/rdl/tests/{assembly_name, const-underlying, const-underlying-rdl, directory, error, exclusive-to, fn_abi, guid-derive, split, struct_fields, struct_values, writer_errors}.rs`
 - `tests/libs/metadata/tests/{empty, struct, attribute, class, interface, reader, load_library, assembly_name}.rs`
-- `tests/libs/bindgen/tests/{bool, deps, delegate_*, panic, ref_params}.rs`
+- `tests/libs/bindgen/tests/{bool, deps, delegate_cpp_ref, delegate_param, ref_params}.rs`
 - `tests/{misc,winrt}/**`
 
 Migrate them as future changes make them expressible as a roundtrip,

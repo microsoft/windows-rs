@@ -39,11 +39,12 @@ fn main() {
             .unwrap();
 
             let expected_rs = fixture_dir.join("expected.rs");
-            if expected_rs.is_file() {
+            let no_compile = fixture_dir.join("no-compile").is_file();
+            if expected_rs.is_file() && !no_compile {
                 let abs = std::fs::canonicalize(&expected_rs).unwrap_or(expected_rs);
                 writeln!(
                     compile,
-                    "#[allow(warnings, clippy::all)]\nmod {test_name} {{\n    include!({:?});\n}}",
+                    "#[allow(warnings, clippy::all)]\n#[path = {:?}]\nmod {test_name};",
                     abs.display().to_string(),
                 )
                 .unwrap();
