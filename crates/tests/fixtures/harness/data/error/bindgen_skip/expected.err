@@ -1,0 +1,2 @@
+skipping `Windows.Foundation.IMemoryBuffer.CreateReference` due to missing dependencies:
+  Windows.Foundation.IMemoryBufferReference

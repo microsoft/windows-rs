@@ -1,0 +1,1 @@
+args = "--no-comment --in default --flat --filter POINT SIZE --sys --derive POINT=Debug,Eq,PartialEq,PartialOrd,Ord, SIZE="

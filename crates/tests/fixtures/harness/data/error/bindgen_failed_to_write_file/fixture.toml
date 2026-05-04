@@ -1,0 +1,4 @@
+kind = "bindgen"
+args = "--out {setup} --in default --filter POINT"
+setup = "create_dir"
+error_match = "contains"

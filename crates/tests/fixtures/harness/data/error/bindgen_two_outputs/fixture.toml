@@ -1,0 +1,2 @@
+kind = "bindgen"
+args = "--in default --out a.txt b.txt"
