@@ -86,6 +86,11 @@ jobs:
         shell: bash
       - name: Test
         run: cargo test --all --target ${{ matrix.target }} --exclude windows_aarch64_gnullvm --exclude windows_aarch64_msvc --exclude windows_i686_gnu --exclude windows_i686_gnullvm --exclude windows_i686_msvc --exclude windows_x86_64_gnu --exclude windows_x86_64_gnullvm --exclude windows_x86_64_msvc
+        env:
+          # 32-bit targets have a 2 GB user-mode address space; running the
+          # full fixture test binary at default parallelism exhausts it
+          # because each bindgen fixture loads the large default winmd.
+          RUST_TEST_THREADS: ${{ matrix.target == 'i686-pc-windows-msvc' && '1' || '' }}
       - name: Check diff
         shell: bash
         run: |
