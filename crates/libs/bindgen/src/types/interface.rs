@@ -340,7 +340,7 @@ impl Interface {
                 }
             }
 
-            if config.implement || !is_exclusive {
+            if config.should_implement(type_name, !is_exclusive) {
                 let impl_name: TokenStream = format!("{}_Impl", trim_tick(self.def.name())).into();
 
                 let generics: Vec<_> = self

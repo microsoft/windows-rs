@@ -1,0 +1,41 @@
+use super::*;
+
+/// Matcher used by the `--implements` option to determine whether the `_Impl`
+/// scaffolding for a given type should be emitted.
+///
+/// Patterns may be a fully-qualified type name (`Namespace.Name`) or a
+/// namespace prefix (which matches every type under that namespace).
+#[derive(Debug, Default)]
+pub struct Implements(Vec<String>);
+
+impl Implements {
+    pub fn new(patterns: &[&str]) -> Self {
+        Self(patterns.iter().map(|s| s.to_string()).collect())
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.0.is_empty()
+    }
+
+    pub fn matches(&self, name: TypeName) -> bool {
+        self.0
+            .iter()
+            .any(|rule| match_type_name(rule, name.namespace(), name.name()))
+    }
+}
+
+fn match_type_name(rule: &str, namespace: &str, name: &str) -> bool {
+    if rule.len() <= namespace.len() {
+        return namespace_starts_with(namespace, rule);
+    }
+
+    if !rule.starts_with(namespace) {
+        return false;
+    }
+
+    if rule.as_bytes()[namespace.len()] != b'.' {
+        return false;
+    }
+
+    name == &rule[namespace.len() + 1..]
+}

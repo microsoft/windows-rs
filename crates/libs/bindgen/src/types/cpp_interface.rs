@@ -234,6 +234,7 @@ impl CppInterface {
                 });
             }
 
+            if config.should_implement(self.def.type_name(), true) {
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
             let cfg = if config.package {
@@ -432,6 +433,7 @@ impl CppInterface {
                     }
                 }
             });
+            }
             }
 
             result
