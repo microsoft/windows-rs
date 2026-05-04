@@ -24,6 +24,11 @@ impl Implements {
     }
 }
 
+/// Returns `true` if `rule` selects the type `namespace.name`. A `rule` whose
+/// length is less than or equal to `namespace.len()` is treated as a namespace
+/// prefix and matches every type whose namespace starts with `rule`. Otherwise
+/// `rule` must be a fully-qualified `Namespace.Name` whose namespace component
+/// equals `namespace` exactly and whose name component equals `name` exactly.
 fn match_type_name(rule: &str, namespace: &str, name: &str) -> bool {
     if rule.len() <= namespace.len() {
         return namespace_starts_with(namespace, rule);
