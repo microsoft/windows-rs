@@ -235,54 +235,58 @@ impl CppInterface {
             }
 
             if config.should_implement(self.def.type_name(), true) {
-            let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
+                let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
-            let cfg = if config.package {
-                fn combine(interface: &CppInterface, dependencies: &mut TypeMap, config: &Config) {
-                    for method in interface.get_methods(config).iter() {
-                        if let CppMethodOrName::Method(method) = method {
-                            dependencies.combine(&method.dependencies);
+                let cfg = if config.package {
+                    fn combine(
+                        interface: &CppInterface,
+                        dependencies: &mut TypeMap,
+                        config: &Config,
+                    ) {
+                        for method in interface.get_methods(config).iter() {
+                            if let CppMethodOrName::Method(method) = method {
+                                dependencies.combine(&method.dependencies);
+                            }
                         }
                     }
-                }
 
-                let mut dependencies = self.dependencies(config.reader);
-                combine(self, &mut dependencies, config);
+                    let mut dependencies = self.dependencies(config.reader);
+                    combine(self, &mut dependencies, config);
 
-                base_interfaces.iter().for_each(|interface| {
-                    if let Type::CppInterface(ty) = interface {
-                        combine(ty, &mut dependencies, config);
-                    }
-                });
-
-                Cfg::new(&dependencies, config).write(config, false)
-            } else {
-                quote! {}
-            };
-
-            let mut names = MethodNames::new();
-
-            let field_methods: Vec<_> = methods
-                .iter()
-                .map(|method| match method {
-                    CppMethodOrName::Method(method) => {
-                        let name = names.add(method.def);
-                        if has_unknown_base {
-                            quote! { #name: #name::<Identity, OFFSET>, }
-                        } else {
-                            quote! { #name: #name::<Identity>, }
+                    base_interfaces.iter().for_each(|interface| {
+                        if let Type::CppInterface(ty) = interface {
+                            combine(ty, &mut dependencies, config);
                         }
-                    }
-                    CppMethodOrName::Name(method) => {
-                        let name = names.add(*method);
-                        quote! { #name: 0, }
-                    }
-                })
-                .collect();
+                    });
 
-            let mut names = MethodNames::new();
+                    Cfg::new(&dependencies, config).write(config, false)
+                } else {
+                    quote! {}
+                };
 
-            let impl_methods: Vec<_> = methods.iter().map(|method| match method {
+                let mut names = MethodNames::new();
+
+                let field_methods: Vec<_> = methods
+                    .iter()
+                    .map(|method| match method {
+                        CppMethodOrName::Method(method) => {
+                            let name = names.add(method.def);
+                            if has_unknown_base {
+                                quote! { #name: #name::<Identity, OFFSET>, }
+                            } else {
+                                quote! { #name: #name::<Identity>, }
+                            }
+                        }
+                        CppMethodOrName::Name(method) => {
+                            let name = names.add(*method);
+                            quote! { #name: 0, }
+                        }
+                    })
+                    .collect();
+
+                let mut names = MethodNames::new();
+
+                let impl_methods: Vec<_> = methods.iter().map(|method| match method {
                 CppMethodOrName::Method(method) => {
                     let name = names.add(method.def);
                     let signature = method.write_abi(config, true);
@@ -312,23 +316,23 @@ impl CppInterface {
                 _ => quote! {},
             }).collect();
 
-            let mut names = MethodNames::new();
+                let mut names = MethodNames::new();
 
-            let trait_methods: Vec<_> = methods
-                .iter()
-                .map(|method| match method {
-                    CppMethodOrName::Method(method) => {
-                        let name = names.add(method.def);
-                        let signature = method.write_impl_signature(config, true);
-                        quote! { fn #name #signature; }
-                    }
-                    _ => quote! {},
-                })
-                .collect();
+                let trait_methods: Vec<_> = methods
+                    .iter()
+                    .map(|method| match method {
+                        CppMethodOrName::Method(method) => {
+                            let name = names.add(method.def);
+                            let signature = method.write_impl_signature(config, true);
+                            quote! { fn #name #signature; }
+                        }
+                        _ => quote! {},
+                    })
+                    .collect();
 
-            let impl_base = base_interfaces.last().map(|ty| ty.write_impl_name(config));
+                let impl_base = base_interfaces.last().map(|ty| ty.write_impl_name(config));
 
-            let field_base = base_interfaces.last().map(|ty|{
+                let field_base = base_interfaces.last().map(|ty|{
                 match ty {
                     Type::IUnknown => quote! { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), },
                     Type::Object => quote! { base__: windows_core::IInspectable_Vtbl::new::<Identity, #name, OFFSET>(), },
@@ -344,30 +348,30 @@ impl CppInterface {
                 }
             });
 
-            // If any methods were skipped due to missing dependencies, the interface cannot be
-            // fully described, so omit the ability to implement it rather than emitting a
-            // partial vtable with null function pointer slots. Also propagate the omission
-            // when any base interface had its `_Impl` trait omitted, since a derived `_Impl`
-            // cannot reference a base `_Impl` that wasn't emitted.
-            let has_skipped_methods = methods
-                .iter()
-                .any(|method| matches!(method, CppMethodOrName::Name(_)))
-                || base_interfaces.iter().any(|ty| match ty {
-                    Type::CppInterface(ty) => ty.has_skipped_methods(config),
-                    _ => false,
-                });
-
-            if has_skipped_methods {
-                config.warnings.skip_implement(self.def);
-
-                if has_unknown_base {
-                    result.combine(quote! {
-                        #cfg
-                        impl windows_core::RuntimeName for #name {}
+                // If any methods were skipped due to missing dependencies, the interface cannot be
+                // fully described, so omit the ability to implement it rather than emitting a
+                // partial vtable with null function pointer slots. Also propagate the omission
+                // when any base interface had its `_Impl` trait omitted, since a derived `_Impl`
+                // cannot reference a base `_Impl` that wasn't emitted.
+                let has_skipped_methods = methods
+                    .iter()
+                    .any(|method| matches!(method, CppMethodOrName::Name(_)))
+                    || base_interfaces.iter().any(|ty| match ty {
+                        Type::CppInterface(ty) => ty.has_skipped_methods(config),
+                        _ => false,
                     });
-                }
-            } else {
-                result.combine( if has_unknown_base {
+
+                if has_skipped_methods {
+                    config.warnings.skip_implement(self.def);
+
+                    if has_unknown_base {
+                        result.combine(quote! {
+                            #cfg
+                            impl windows_core::RuntimeName for #name {}
+                        });
+                    }
+                } else {
+                    result.combine( if has_unknown_base {
                 let matches = base_interfaces.iter().filter_map(|ty|{
                     match ty {
                         Type::CppInterface(ty) => {
@@ -433,7 +437,7 @@ impl CppInterface {
                     }
                 }
             });
-            }
+                }
             }
 
             result

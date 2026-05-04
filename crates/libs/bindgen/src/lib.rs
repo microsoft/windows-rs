@@ -399,7 +399,7 @@ where
                 builder.derive(arg);
             }
             ArgKind::Implements => {
-                builder.implements(arg);
+                builder.implements([arg]);
             }
             ArgKind::Rustfmt => {
                 builder.rustfmt(arg);
@@ -605,7 +605,7 @@ impl Bindgen {
         self
     }
 
-    /// Add a type to the list of types for which implementation scaffolding
+    /// Add types to the list of types for which implementation scaffolding
     /// should be emitted.
     ///
     /// Each entry may be a fully-qualified type name (`Namespace.Name`) or a
@@ -616,14 +616,7 @@ impl Bindgen {
     /// finer-grained alternative to the broad `--implement` switch and can
     /// significantly reduce build time when only a handful of interfaces
     /// need to be implemented.
-    pub fn implements(&mut self, name: &str) -> &mut Self {
-        self.implements.push(name.to_string());
-        self
-    }
-
-    /// Add multiple types to the list of types for which implementation
-    /// scaffolding should be emitted. See [`Bindgen::implements`].
-    pub fn implements_iter<I, S>(&mut self, names: I) -> &mut Self
+    pub fn implements<I, S>(&mut self, names: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,

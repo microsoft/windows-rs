@@ -340,9 +340,7 @@ fn run_bindgen(f: &Fixture) {
     if cfg.implement {
         bindgen.implement();
     }
-    for implements in &cfg.implements {
-        bindgen.implements(implements);
-    }
+    bindgen.implements(&cfg.implements);
     bindgen.write().unwrap();
 
     diff_or_update(&actual_rs, &f.input("expected.rs"));
