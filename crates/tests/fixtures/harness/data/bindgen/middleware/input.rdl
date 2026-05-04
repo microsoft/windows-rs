@@ -1,8 +1,36 @@
+// Exercises `--middleware` mode helper emission for the four call-site shapes:
+//
+//   * `Default` arm  — instance methods on `&self` (covered by `call_in` / `call_in_out`).
+//   * `Static` arm   — class statics dispatched through `Self::IFoo(|this| { … })`
+//                      (also covered by `call_in` / `call_in_out`, with `this` receiver).
+//   * `Composable` primary entry — non-aggregating constructor (still goes through
+//                      `call_in_out`; the two outer/inner null placeholders are spliced
+//                      into the helper's argument tail).
+//   * `Composable` `_compose` aggregating entry — covered by `call_compose`, which
+//                      runs the `Compose::compose` / vtable / `let _ = &derived__;` /
+//                      `from_abi` sequence in one place.
+//
+// The signatures of the generated `pub fn`s must remain byte-identical relative to the
+// default emitter; only the body shape collapses.
 #[winrt]
 mod Test {
     interface ITest {
         fn DoSomething(&self);
         fn GetValue(&self) -> i32;
         fn GetThing(&self) -> ITest;
+    }
+
+    #[Windows::Foundation::Metadata::Static(IFooStatics, 1)]
+    #[Windows::Foundation::Metadata::Composable(IFooFactory, Public, 1)]
+    class Foo {
+        IFoo,
+    }
+    interface IFoo {}
+    interface IFooStatics {
+        fn Reset(&self);
+        fn Current(&self) -> Foo;
+    }
+    interface IFooFactory {
+        fn CreateInstance(&self, name: i32, outer: Object, inner: &mut Object) -> Foo;
     }
 }

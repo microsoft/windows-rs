@@ -378,10 +378,12 @@ impl Method {
         // typed_args without the trailing return out-pointer; used by middleware-mode
         // helper emission where the helper supplies the out-pointer slot itself. The
         // trailing `,` is preserved when non-empty so it splices cleanly before the
-        // helper-supplied `result__` argument. Only meaningful when the method has a
-        // non-Void return — for Void methods this stream is the typed args followed
-        // by a trailing `,` that splices into `call_in`'s closure unchanged.
-        let typed_args_only: TokenStream = if typed_args.is_empty() {
+        // helper-supplied `result__` argument. For Composable's primary (non-aggregating)
+        // entry the two null placeholder slots (outer + inner) are spliced in here so
+        // the helper-emitted call site retains the same ABI.
+        let typed_args_only: TokenStream = if kind == InterfaceKind::Composable {
+            quote! { #(#typed_args,)* core::ptr::null_mut(), &mut core::ptr::null_mut(), }
+        } else if typed_args.is_empty() {
             TokenStream::new()
         } else {
             quote! { #(#typed_args,)* }
@@ -539,8 +541,7 @@ impl Method {
 
         // For Default methods the receiver is `self` directly; for all other kinds (None,
         // Base, Static, Composable) the caller binds a local `this` that the vcall uses.
-        let receiver_is_self = kind == InterfaceKind::Default;
-        let receiver: TokenStream = if receiver_is_self {
+        let receiver: TokenStream = if kind == InterfaceKind::Default {
             quote! { self }
         } else {
             quote! { this }
@@ -563,18 +564,29 @@ impl Method {
 
             // Middleware-mode helper emission. Only applies when:
             // * `--middleware` is set,
-            // * the receiver is `self` (Default-arm style — composable factories thread
-            //   `derived__`/`base__` through and don't fit the simple helper shape),
             // * the method does not use `noexcept`-style infallible return,
             // * the return is not a WinRT array.
             //
-            // The helper covers `Result<T>` interface returns (Abi = *mut c_void) and
+            // The helper covers all four `kind`s that go through `build_vcall`:
+            //
+            // * `Default` (`#receiver = self`),
+            // * `None` / `Base` (`#receiver = this`, after a `cast::<…>` prelude),
+            // * `Static` (`#receiver = this`, inside the `Self::IFoo(|this| { … })`
+            //   factory closure),
+            // * `Composable` primary (non-aggregating) entry (`#receiver = this`,
+            //   inside the factory closure; the two outer/inner null placeholder
+            //   slots are spliced into `typed_args_only` above).
+            //
+            // The `Composable` aggregating `_compose` variant goes through a
+            // dedicated `call_compose` helper emitted in the `InterfaceKind::Composable`
+            // arm below — it is *not* produced by this closure.
+            //
+            // It covers `Result<T>` interface returns (Abi = *mut c_void) and
             // `Result<T>` copyable returns (Abi = T) via the `Default`-bounded
             // `<T as Type<T>>::Abi` slot in `call_in_out`. The "transmute" branch
             // (CloneType such as HSTRING, where Abi = MaybeUninit<T>) is intentionally
             // not covered — it falls back to the inline expansion below.
             let middleware_eligible = config.middleware
-                && receiver_is_self
                 && !noexcept
                 && !self.signature.return_type.is_winrt_array();
 
@@ -582,8 +594,8 @@ impl Method {
                 match &self.signature.return_type {
                     Type::Void => {
                         return quote! {
-                            windows_core::imp::call_in(self, |this__|
-                                (windows_core::Interface::vtable(self).#vname)(this__, #typed_args_only))
+                            windows_core::imp::call_in(#receiver, |this__|
+                                (windows_core::Interface::vtable(#receiver).#vname)(this__, #typed_args_only))
                         };
                     }
                     // `Type::Generic(_)` (a bare generic parameter such as `TResult`)
@@ -596,8 +608,8 @@ impl Method {
                         // holds for interface (`Abi = *mut c_void`) and copyable
                         // (`Abi = T` for primitives/enums/BOOL/HANDLE) returns.
                         return quote! {
-                            windows_core::imp::call_in_out(self, |this__, result__|
-                                (windows_core::Interface::vtable(self).#vname)(this__, #typed_args_only result__))
+                            windows_core::imp::call_in_out(#receiver, |this__, result__|
+                                (windows_core::Interface::vtable(#receiver).#vname)(this__, #typed_args_only result__))
                         };
                     }
                     _ => {} // CloneType etc. — fall through to inline expansion.
@@ -727,22 +739,49 @@ impl Method {
                 // left with a dangling reference into the inner's vtables.
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
 
+                // `_compose` body. In `--middleware` mode and when the return shape
+                // fits (interface or copyable scalar — see same eligibility rules as
+                // the `Default` arm), we collapse the body into a single tail call
+                // through `windows_core::imp::call_compose`, which performs the
+                // `Compose::compose` / vtable dispatch / `let _ = &derived__;`
+                // keep-alive / `from_abi` sequence in one place.
+                //
+                // Otherwise (or when middleware mode is off), emit the original
+                // inline expansion below.
+                let compose_eligible = config.middleware
+                    && !noexcept
+                    && !self.signature.return_type.is_winrt_array()
+                    && !matches!(&self.signature.return_type, Type::Generic(_))
+                    && (self.signature.return_type.is_convertible()
+                        || self.signature.return_type.is_copyable(config.reader));
+
+                let compose_body = if compose_eligible {
+                    quote! {
+                        windows_core::imp::call_compose(this, compose, |this__, derived__, base__, result__|
+                            (windows_core::Interface::vtable(this).#vname)(this__, #(#typed_args,)* derived__, base__, result__))
+                    }
+                } else {
+                    quote! {
+                        let (derived__, base__) = windows_core::Compose::compose(compose);
+                        let mut result__ = core::mem::zeroed();
+                        (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #compose_args).ok()?;
+                        // Suppress unused-variable warning: `derived__` is held alive
+                        // for the duration of the factory call (so the factory can
+                        // store a back-pointer to the outer in the inner) and then
+                        // dropped at scope end — its sole owning ref is replaced by
+                        // the delegating ref baked into `result__`.
+                        let _ = &derived__;
+                        windows_core::Type::from_abi(result__)
+                    }
+                };
+
                 quote! {
                     pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
                         Self::#interface_name(|this| unsafe { #vcall })
                     }
                     pub fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
                         Self::#interface_name(|this| unsafe {
-                            let (derived__, base__) = windows_core::Compose::compose(compose);
-                            let mut result__ = core::mem::zeroed();
-                            (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #compose_args).ok()?;
-                            // Suppress unused-variable warning: `derived__` is held alive
-                            // for the duration of the factory call (so the factory can
-                            // store a back-pointer to the outer in the inner) and then
-                            // dropped at scope end — its sole owning ref is replaced by
-                            // the delegating ref baked into `result__`.
-                            let _ = &derived__;
-                            windows_core::Type::from_abi(result__)
+                            #compose_body
                         })
                     }
                 }

@@ -3,3 +3,4 @@ no_allow = true
 no_comment = true
 middleware = true
 specific_deps = true
+references = ["../../../libs/bindgen/default"]
