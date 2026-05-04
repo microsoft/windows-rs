@@ -26,7 +26,7 @@
 //! * For [`call_in_out`], the out-pointer is left in a state from which
 //!   `T::from_abi` can correctly reconstruct an owned `T` on success.
 
-use crate::{Compose, HRESULT, Interface, Result, Type};
+use crate::{Compose, Interface, Result, Type, HRESULT};
 use core::ffi::c_void;
 
 /// Helper for the canonical "one out-param, return `Result<T>`" call shape:
@@ -120,7 +120,7 @@ where
     T: Type<T>,
     <T as Type<T>>::Abi: Default,
     P: Compose,
-    F: FnOnce(*mut c_void, *mut c_void, *mut c_void, *mut <T as Type<T>>::Abi) -> HRESULT,
+    F: FnOnce(*mut c_void, *mut c_void, *mut *mut c_void, *mut <T as Type<T>>::Abi) -> HRESULT,
 {
     let (derived__, base__) = unsafe { Compose::compose(compose) };
     let mut result__ = <<T as Type<T>>::Abi as Default>::default();
@@ -145,7 +145,7 @@ where
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::{IUnknown, implement};
+    use crate::{implement, IUnknown};
 
     // A trivial implementer to exercise the helpers without depending on the
     // OS. The helpers themselves are agnostic to the underlying COM impl.
@@ -156,16 +156,14 @@ mod tests {
     fn call_in_returns_ok_on_success() {
         let object: IUnknown = Object.into();
         // Closure that returns S_OK and ignores the raw pointer.
-        let result =
-            unsafe { call_in(&object, |_| HRESULT(0)) };
+        let result = unsafe { call_in(&object, |_| HRESULT(0)) };
         assert!(result.is_ok());
     }
 
     #[test]
     fn call_in_propagates_failure() {
         let object: IUnknown = Object.into();
-        let result =
-            unsafe { call_in(&object, |_| HRESULT(0x80004005u32 as i32)) };
+        let result = unsafe { call_in(&object, |_| HRESULT(0x80004005u32 as i32)) };
         assert!(result.is_err());
     }
 
@@ -185,9 +183,8 @@ mod tests {
     #[test]
     fn call_in_out_propagates_failure() {
         let object: IUnknown = Object.into();
-        let result: Result<u32> = unsafe {
-            call_in_out(&object, |_, _| HRESULT(0x80004005u32 as i32))
-        };
+        let result: Result<u32> =
+            unsafe { call_in_out(&object, |_, _| HRESULT(0x80004005u32 as i32)) };
         assert!(result.is_err());
     }
 
@@ -232,10 +229,7 @@ mod tests {
         let before = ALIVE.load(core::sync::atomic::Ordering::SeqCst);
 
         let counted = CountedComposable::new();
-        assert_eq!(
-            ALIVE.load(core::sync::atomic::Ordering::SeqCst),
-            before + 1
-        );
+        assert_eq!(ALIVE.load(core::sync::atomic::Ordering::SeqCst), before + 1);
 
         let factory: IUnknown = Object.into();
         let result: Result<IUnknown> = unsafe {
@@ -249,10 +243,7 @@ mod tests {
                     // it via `transmute_copy`.
                     assert!(!derived__.is_null());
                     assert!(!base__.is_null());
-                    assert_eq!(
-                        ALIVE.load(core::sync::atomic::Ordering::SeqCst),
-                        before + 1
-                    );
+                    assert_eq!(ALIVE.load(core::sync::atomic::Ordering::SeqCst), before + 1);
                     // Leave result__ null so the helper's `from_abi` fails on
                     // the success path; we still want the keep-alive guard to
                     // hold derived__ across the call. Use a successful HRESULT

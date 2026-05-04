@@ -586,9 +586,8 @@ impl Method {
             // `<T as Type<T>>::Abi` slot in `call_in_out`. The "transmute" branch
             // (CloneType such as HSTRING, where Abi = MaybeUninit<T>) is intentionally
             // not covered — it falls back to the inline expansion below.
-            let middleware_eligible = config.middleware
-                && !noexcept
-                && !self.signature.return_type.is_winrt_array();
+            let middleware_eligible =
+                config.middleware && !noexcept && !self.signature.return_type.is_winrt_array();
 
             if middleware_eligible {
                 match &self.signature.return_type {
@@ -604,7 +603,8 @@ impl Method {
                     // bound the generated impl block carries. Fall back to inline.
                     Type::Generic(_) => {}
                     return_type
-                        if return_type.is_convertible() || return_type.is_copyable(config.reader) =>
+                        if return_type.is_convertible()
+                            || return_type.is_copyable(config.reader) =>
                     {
                         // `call_in_out` requires `<T as Type<T>>::Abi: Default`. This
                         // holds for interface (`Abi = *mut c_void`) and copyable
