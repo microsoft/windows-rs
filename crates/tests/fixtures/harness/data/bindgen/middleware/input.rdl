@@ -1,0 +1,8 @@
+#[winrt]
+mod Test {
+    interface ITest {
+        fn DoSomething(&self);
+        fn GetValue(&self) -> i32;
+        fn GetThing(&self) -> ITest;
+    }
+}

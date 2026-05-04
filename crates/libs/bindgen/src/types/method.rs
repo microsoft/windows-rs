@@ -375,6 +375,18 @@ impl Method {
             }
         };
 
+        // typed_args without the trailing return out-pointer; used by middleware-mode
+        // helper emission where the helper supplies the out-pointer slot itself. The
+        // trailing `,` is preserved when non-empty so it splices cleanly before the
+        // helper-supplied `result__` argument. Only meaningful when the method has a
+        // non-Void return — for Void methods this stream is the typed args followed
+        // by a trailing `,` that splices into `call_in`'s closure unchanged.
+        let typed_args_only: TokenStream = if typed_args.is_empty() {
+            TokenStream::new()
+        } else {
+            quote! { #(#typed_args,)* }
+        };
+
         let args = if kind == InterfaceKind::Composable {
             // Composable factory methods take the `outer` controlling unknown and the
             // out-pointer for the `inner` non-delegating object as their last two
@@ -537,8 +549,59 @@ impl Method {
         // given `args` token stream. This is wrapped in a closure so we can build a parallel
         // `_compose` variant for composable factory methods without duplicating the
         // return-type plumbing below.
-        let build_vcall = |args: &TokenStream| -> TokenStream {
+        //
+        // `typed_args_only` contains the in-parameter expressions without the trailing
+        // out-pointer (or `null_mut()` placeholders for composable factories). When
+        // middleware mode is enabled and the return shape fits one of the
+        // `windows_core::imp::call_*` helpers, we emit a tail call into the helper using
+        // `typed_args_only` so the helper supplies the `result__` slot itself. Otherwise
+        // we fall back to the existing inline expansion using `args` (which already
+        // splices in the trailing out-pointer).
+        let build_vcall = |args: &TokenStream, typed_args_only: &TokenStream| -> TokenStream {
             let vcall = quote! { (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #args) };
+
+            // Middleware-mode helper emission. Only applies when:
+            // * `--middleware` is set,
+            // * the receiver is `self` (Default-arm style — composable factories thread
+            //   `derived__`/`base__` through and don't fit the simple helper shape),
+            // * the method does not use `noexcept`-style infallible return,
+            // * the return is not a WinRT array.
+            //
+            // The helper covers `Result<T>` interface returns (Abi = *mut c_void) and
+            // `Result<T>` copyable returns (Abi = T) via the `Default`-bounded
+            // `<T as Type<T>>::Abi` slot in `call_in_out`. The "transmute" branch
+            // (CloneType such as HSTRING, where Abi = MaybeUninit<T>) is intentionally
+            // not covered — it falls back to the inline expansion below.
+            let middleware_eligible = config.middleware
+                && receiver.to_string() == "self"
+                && !noexcept
+                && !self.signature.return_type.is_winrt_array();
+
+            if middleware_eligible {
+                match &self.signature.return_type {
+                    Type::Void => {
+                        return quote! {
+                            windows_core::imp::call_in(self, |this__|
+                                (windows_core::Interface::vtable(self).#vname)(this__, #typed_args_only))
+                        };
+                    }
+                    // `Type::Generic(_)` (a bare generic parameter such as `TResult`)
+                    // is excluded: the helper requires `<T as Type<T>>::Abi: Default`,
+                    // which isn't implied by the typical `T: RuntimeType + 'static`
+                    // bound the generated impl block carries. Fall back to inline.
+                    Type::Generic(_) => {}
+                    rt if rt.is_convertible() || rt.is_copyable(config.reader) => {
+                        // `call_in_out` requires `<T as Type<T>>::Abi: Default`. This
+                        // holds for interface (`Abi = *mut c_void`) and copyable
+                        // (`Abi = T` for primitives/enums/BOOL/HANDLE) returns.
+                        return quote! {
+                            windows_core::imp::call_in_out(self, |this__, result__|
+                                (windows_core::Interface::vtable(self).#vname)(this__, #typed_args_only result__))
+                        };
+                    }
+                    _ => {} // CloneType etc. — fall through to inline expansion.
+                }
+            }
 
             match &self.signature.return_type {
                 Type::Void => {
@@ -598,7 +661,7 @@ impl Method {
             }
         };
 
-        let vcall = build_vcall(&args);
+        let vcall = build_vcall(&args, &typed_args_only);
 
         match kind {
             InterfaceKind::Default => quote! {

@@ -3,6 +3,7 @@ include!("windows.rs");
 
 mod agile;
 mod bindings;
+mod call;
 mod can_into;
 mod com_bindings;
 mod delegate_box;
@@ -12,6 +13,7 @@ mod weak_ref_count;
 
 pub use agile::*;
 pub(crate) use bindings::*;
+pub use call::*;
 pub use can_into::*;
 pub use com_bindings::*;
 pub use delegate_box::*;

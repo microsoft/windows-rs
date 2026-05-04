@@ -90,6 +90,7 @@ pub fn builder() -> Bindgen {
 /// | `--implement` | Includes implementation traits for WinRT interfaces. |
 /// | `--implements` | Includes implementation traits for the listed types only. |
 /// | `--noexcept` | Assumes all WinRT methods do not raise exceptions. |
+/// | `--middleware` | Emits compact bodies that tail-call into `windows_core::imp` helpers. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
 ///
 ///
@@ -308,6 +309,21 @@ pub fn builder() -> Bindgen {
 /// need fine-grained dependency management and want to minimize your dependency tree, this option
 /// provides that flexibility.
 ///
+/// # `--middleware`
+///
+/// The `--middleware` option emits compact `pub fn` bodies that tail-call into a small set of
+/// generic helpers in `windows_core::imp` (`call_in`, `call_in_out`) instead of expanding the
+/// full `unsafe { let mut result__ = zeroed(); (vtable(self).M)(...).and_then(...) }` shape
+/// inline at every call site. Public signatures are byte-identical; only the body shape
+/// changes. Shapes that don't fit a helper (`noexcept`-style infallible returns, WinRT array
+/// returns, `CloneType` returns such as `HSTRING`, `Static`/`Composable`/cast-prelude factory
+/// methods, the C++/Win32 surface) fall back to today's inline expansion automatically, so
+/// the flag is always safe to enable.
+///
+/// This is intended for "middleware" / "reactor" callers (such as `windows-reactor-rs`) that
+/// forward calls through curated WinRT surfaces and want to minimize `bindings.rs` byte size,
+/// LLVM IR size, and `MIR_borrow_checking` time. Default emission is unchanged.
+///
 #[track_caller]
 #[must_use]
 pub fn bindgen<I, S>(args: I) -> Warnings
@@ -369,6 +385,9 @@ where
                 "--implements" => kind = ArgKind::Implements,
                 "--noexcept" => {
                     builder.noexcept();
+                }
+                "--middleware" => {
+                    builder.middleware();
                 }
                 "--specific-deps" => {
                     builder.specific_deps();
@@ -452,6 +471,7 @@ pub struct Bindgen {
     package: bool,
     implement: bool,
     noexcept: bool,
+    middleware: bool,
     specific_deps: bool,
     sys: bool,
     typedef: bool,
@@ -641,6 +661,25 @@ impl Bindgen {
         self
     }
 
+    /// Emit compact, helper-based call-site bodies for the shapes that fit.
+    ///
+    /// When set, generated WinRT method bodies that match the canonical
+    /// shape (interface return or copyable scalar return, no winrt array,
+    /// `Result`-typed signature, `Default` interface kind) become a single
+    /// tail call into `windows_core::imp::call_in_out` / `call_in`. Public
+    /// signatures are byte-identical; only the body shape changes. Shapes
+    /// that don't fit a helper fall back to today's inline expansion, so
+    /// this flag is always safe to enable.
+    ///
+    /// Default emission (without this flag) is unchanged. This is intended
+    /// for "middleware" / "reactor" callers that need to minimize
+    /// `bindings.rs` size and codegen cost; see the project documentation
+    /// for guidance.
+    pub fn middleware(&mut self) -> &mut Self {
+        self.middleware = true;
+        self
+    }
+
     /// Use specific crate dependencies rather than `windows-core`.
     pub fn specific_deps(&mut self) -> &mut Self {
         self.specific_deps = true;
@@ -824,6 +863,7 @@ impl Bindgen {
             implement: self.implement,
             implements: &implements,
             noexcept: self.noexcept,
+            middleware: self.middleware,
             specific_deps: self.specific_deps,
             link,
             warnings: &warnings,

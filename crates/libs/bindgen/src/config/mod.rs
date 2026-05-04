@@ -27,6 +27,7 @@ pub struct Config<'a> {
     pub implement: bool,
     pub implements: &'a Implements,
     pub noexcept: bool,
+    pub middleware: bool,
     pub specific_deps: bool,
     pub derive: &'a Derive,
     pub link: &'a str,
