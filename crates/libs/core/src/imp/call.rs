@@ -204,7 +204,11 @@ mod tests {
     // Refcount-tracking implementation type used by the `call_compose` tests
     // below. `Drop` decrements `ALIVE` so we can assert on live-object counts
     // across the helper's `compose` → vtable-call → `from_abi` sequence.
+    //
+    // The tests share the `ALIVE` counter, so they must not run concurrently
+    // (cargo test runs tests in parallel by default). `LOCK` serializes them.
     static ALIVE: core::sync::atomic::AtomicUsize = core::sync::atomic::AtomicUsize::new(0);
+    static LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
 
     #[implement()]
     struct CountedComposable;
@@ -224,6 +228,7 @@ mod tests {
 
     #[test]
     fn call_compose_observes_derived_alive_in_closure_and_drops_after_return() {
+        let _guard = LOCK.lock().unwrap_or_else(|e| e.into_inner());
         // Reset; tests in `cargo test` may run in parallel but each test
         // creates its own `CountedComposable` and these atomics nest.
         let before = ALIVE.load(core::sync::atomic::Ordering::SeqCst);
@@ -264,6 +269,7 @@ mod tests {
 
     #[test]
     fn call_compose_propagates_factory_failure() {
+        let _guard = LOCK.lock().unwrap_or_else(|e| e.into_inner());
         let before = ALIVE.load(core::sync::atomic::Ordering::SeqCst);
         let counted = CountedComposable::new();
         let factory: IUnknown = Object.into();
