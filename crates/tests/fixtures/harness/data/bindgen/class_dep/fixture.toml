@@ -1,0 +1,1 @@
+args = "--no-comment --in default --flat --filter WwwFormUrlDecoder --no-deps"

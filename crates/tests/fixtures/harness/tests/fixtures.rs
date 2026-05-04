@@ -117,6 +117,23 @@ struct FixtureConfig {
     /// `rdl` only: run the writer once per entry, each `"<expected>=<filter[;filter...]>"`.
     /// `;` separates multiple `writer.filter(...)` calls in a single invocation.
     outputs: Vec<String>,
+    /// `bindgen` and `error` (kind = "bindgen") only: raw `windows_bindgen::bindgen`
+    /// CLI arguments. When set on a `bindgen` fixture, the synthetic
+    /// RDL → winmd step is skipped and these args are passed verbatim
+    /// (with `--out <scratch>/out.rs` appended). The token `{scratch}`
+    /// expands to the fixture's scratch directory.
+    args: Option<String>,
+    /// `error` (kind = "bindgen") only: filesystem prep before invoking
+    /// bindgen. Currently `"create_dir"` (mkdir `{scratch}/setup`) and
+    /// `"create_file"` (touch `{scratch}/setup`) are recognised. The
+    /// resulting path is exposed as `{setup}` in `args`.
+    setup: Option<String>,
+    /// `error` (kind = "bindgen") only: how to compare the panic message
+    /// against `expected.err`. `"exact"` (default) requires byte-for-byte
+    /// equality; `"contains"` only requires `expected.err` (as a substring)
+    /// to appear in the actual panic message — useful for messages that
+    /// embed machine-dependent paths.
+    error_match: Option<String>,
 }
 
 impl FixtureConfig {
@@ -143,6 +160,9 @@ impl FixtureConfig {
                 "kind" => cfg.kind = Some(parse_string(value)),
                 "arch_inputs" => cfg.arch_inputs = parse_string_list(value),
                 "outputs" => cfg.outputs = parse_string_list(value),
+                "args" => cfg.args = Some(parse_string(value)),
+                "setup" => cfg.setup = Some(parse_string(value)),
+                "error_match" => cfg.error_match = Some(parse_string(value)),
                 other => panic!("fixture.toml: unknown key {other:?}"),
             }
         }
@@ -299,11 +319,32 @@ fn run_clang(f: &Fixture) {
 }
 
 fn run_bindgen(f: &Fixture) {
-    let input = f.input("input.rdl");
-    let winmd = f.scratch("out.winmd");
+    let cfg = f.config();
     let actual_rs = f.scratch("out.rs");
 
-    let cfg = f.config();
+    if let Some(raw_args) = cfg.args.as_deref() {
+        // Raw-args mode: skip RDL → winmd, pass args verbatim to
+        // `windows_bindgen::bindgen`. Used for fixtures that consume
+        // `--in default` (the prebuilt winmd shipped with the
+        // `windows-bindgen` crate).
+        let mut args = expand_placeholders(raw_args, f, None)
+            .split_whitespace()
+            .map(|s| s.to_string())
+            .collect::<Vec<_>>();
+        args.push("--out".into());
+        args.push(actual_rs.to_string_lossy().into_owned());
+        // Discard warnings: tool_bindgen-style fixtures intentionally
+        // exercise filters that omit some dependencies, which the
+        // bindgen pipeline reports as warnings. The diff against
+        // `expected.rs` is what we actually care about.
+        let _ = windows_bindgen::bindgen(args);
+        diff_or_update(&actual_rs, &f.input("expected.rs"));
+        return;
+    }
+
+    let input = f.input("input.rdl");
+    let winmd = f.scratch("out.winmd");
+
     let filter = cfg.filter.as_deref().unwrap_or("Test");
 
     let mut reader = windows_rdl::reader();
@@ -344,8 +385,9 @@ fn run_error(f: &Fixture) {
         "reader" => run_error_reader(f),
         "reader_no_input" => run_error_reader_no_input(f),
         "writer" => run_error_writer(f),
+        "bindgen" => run_error_bindgen(f),
         other => panic!(
-            "[{}/{}] unknown error fixture kind {other:?}; expected \"reader\", \"reader_no_input\", or \"writer\"",
+            "[{}/{}] unknown error fixture kind {other:?}; expected \"reader\", \"reader_no_input\", \"writer\", or \"bindgen\"",
             f.group, f.name
         ),
     }
@@ -393,7 +435,91 @@ fn run_error_reader_no_input(f: &Fixture) {
     diff_or_update_string(&actual, &f.input("expected.err"));
 }
 
-/// `kind = "writer"`: compile every `defs-*.rdl` and `input.rdl` to winmds,
+/// `kind = "bindgen"`: invoke `windows_bindgen::bindgen` with the args from
+/// `fixture.toml` (under `catch_unwind`) and assert it panics. The panic
+/// message is reframed with the same `\nerror: ...\n` shape as reader/writer
+/// errors and diffed against `expected.err`. The optional `setup` knob preps
+/// `{setup}` in the fixture's scratch dir; `{scratch}` resolves to the scratch
+/// dir itself.
+fn run_error_bindgen(f: &Fixture) {
+    let cfg = f.config();
+    let raw_args = cfg.args.as_deref().unwrap_or_else(|| {
+        panic!(
+            "[{}/{}] error fixture with kind = \"bindgen\" requires `args = \"...\"`",
+            f.group, f.name
+        )
+    });
+
+    let setup_path = match cfg.setup.as_deref() {
+        None => None,
+        Some("create_dir") => {
+            let p = f.scratch("setup");
+            std::fs::create_dir_all(&p).unwrap();
+            Some(p)
+        }
+        Some("create_file") => {
+            let p = f.scratch("setup");
+            std::fs::write(&p, b"").unwrap();
+            Some(p)
+        }
+        Some(other) => panic!(
+            "[{}/{}] unknown setup {other:?}; expected \"create_dir\" or \"create_file\"",
+            f.group, f.name
+        ),
+    };
+
+    let args: Vec<String> = expand_placeholders(raw_args, f, setup_path.as_deref())
+        .split_whitespace()
+        .map(|s| s.to_string())
+        .collect();
+
+    // Suppress the default panic message printout so a passing fixture's
+    // expected panic doesn't pollute the test log.
+    let prev_hook = std::panic::take_hook();
+    std::panic::set_hook(Box::new(|_| {}));
+    let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+        // `.unwrap()` panics on warnings as well as hard errors, matching
+        // what the legacy `panic.rs` cases asserted.
+        windows_bindgen::bindgen(&args).unwrap();
+    }));
+    std::panic::set_hook(prev_hook);
+
+    let payload = match result {
+        Ok(_) => panic!(
+            "[{}/{}] expected `bindgen` to panic but it succeeded",
+            f.group, f.name
+        ),
+        Err(e) => e,
+    };
+
+    let message = if let Some(s) = payload.downcast_ref::<&'static str>() {
+        (*s).to_string()
+    } else if let Some(s) = payload.downcast_ref::<String>() {
+        s.clone()
+    } else {
+        f.fail("bindgen", "panic payload was neither &str nor String")
+    };
+
+    let actual = format!("\nerror: {message}\n");
+    match cfg.error_match.as_deref().unwrap_or("exact") {
+        "exact" => diff_or_update_string(&actual, &f.input("expected.err")),
+        "contains" => contains_or_update_string(&actual, &f.input("expected.err")),
+        other => panic!(
+            "[{}/{}] unknown error_match {other:?}; expected \"exact\" or \"contains\"",
+            f.group, f.name
+        ),
+    }
+}
+
+/// Expand `{scratch}` and `{setup}` placeholders in raw arg strings.
+fn expand_placeholders(s: &str, f: &Fixture, setup: Option<&Path>) -> String {
+    let mut out = s.replace("{scratch}", f.scratch.to_str().unwrap());
+    if let Some(p) = setup {
+        out = out.replace("{setup}", p.to_str().unwrap());
+    }
+    out
+}
+
 /// then run the writer on `input.winmd` *alone* and assert it fails.
 fn run_error_writer(f: &Fixture) {
     let mut defs: Vec<PathBuf> = std::fs::read_dir(&f.dir)
@@ -613,6 +739,35 @@ fn diff_or_update_string(actual: &str, expected_path: &Path) {
         panic!(
             "golden mismatch for {path}\n--- expected ---\n{expected}\n--- actual ---\n{actual}\n--- end ---\n\
              rerun with UPDATE_GOLDEN=1 to update.",
+            path = expected_path.display(),
+        );
+    }
+}
+
+/// Like `diff_or_update_string` but only requires the expected text to
+/// appear *somewhere* in the actual text. Used by `error_match = "contains"`
+/// fixtures whose panic message embeds a machine-dependent path.
+fn contains_or_update_string(actual: &str, expected_path: &Path) {
+    if update_mode() {
+        // In update mode there is no "canonical substring" to write; leave the
+        // existing `expected.err` untouched so the author can hand-curate it.
+        if !expected_path.is_file() {
+            panic!(
+                "{}: error_match = \"contains\" requires a hand-written expected.err",
+                expected_path.display()
+            );
+        }
+        return;
+    }
+    let expected = std::fs::read_to_string(expected_path).unwrap_or_else(|e| {
+        panic!(
+            "failed to read golden file {} (hand-write the substring to match): {e}",
+            expected_path.display()
+        )
+    });
+    if !actual.contains(expected.trim_end_matches('\n')) {
+        panic!(
+            "expected substring not found in panic for {path}\n--- expected substring ---\n{expected}\n--- actual ---\n{actual}\n--- end ---",
             path = expected_path.display(),
         );
     }

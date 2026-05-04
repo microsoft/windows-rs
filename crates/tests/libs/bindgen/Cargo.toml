@@ -8,19 +8,12 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows-bindgen]
-workspace = true
-
-[dependencies.windows-targets]
-workspace = true
-
 [dependencies.windows-link]
 workspace = true
 
 [dependencies.windows]
 workspace = true
 features = [
-    "Foundation_Collections",
     "Win32_Foundation",
     "Win32_Security",
 ]

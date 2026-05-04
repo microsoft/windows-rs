@@ -1,0 +1,1 @@
+args = "--no-comment --in default --flat --filter CreateEventW SetEvent NtWaitForSingleObject WaitForSingleObjectEx --reference windows,skip-root,Windows"

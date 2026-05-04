@@ -33,7 +33,7 @@ jobs:
 
     strategy:
       matrix:
-        tool: [bindgen, bindings, yml, license, workspace]
+        tool: [bindings, yml, license, workspace]
     steps:
       - name: Checkout
         uses: actions/checkout@v6

@@ -15,6 +15,25 @@ doctest = false
 windows-core = { workspace = true }
 windows-link = { workspace = true }
 windows-result = { workspace = true }
+windows-targets = { workspace = true }
+
+# The compiled goldens (under `cfg(windows)`) reference the umbrella
+# `windows` crate and the namespaced `windows-sys` crate. Gate those
+# deps to Windows so the harness still builds on non-Windows hosts
+# (where `cfg(windows)` skips the `include!`).
+[target.'cfg(windows)'.dependencies.windows]
+workspace = true
+features = [
+    "Foundation",
+    "Win32_Foundation",
+    "Win32_Security",
+]
+
+[target.'cfg(windows)'.dependencies.windows-sys]
+workspace = true
+features = [
+    "Win32_Gaming",
+]
 
 [dev-dependencies]
 windows-rdl = { workspace = true }

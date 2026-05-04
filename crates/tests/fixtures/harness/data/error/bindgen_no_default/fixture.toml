@@ -1,0 +1,2 @@
+kind = "bindgen"
+args = "--in ../../../libs/bindgen/default/Windows.winmd --out out.txt --filter POINT"
