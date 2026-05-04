@@ -539,7 +539,8 @@ impl Method {
 
         // For Default methods the receiver is `self` directly; for all other kinds (None,
         // Base, Static, Composable) the caller binds a local `this` that the vcall uses.
-        let receiver: TokenStream = if kind == InterfaceKind::Default {
+        let receiver_is_self = kind == InterfaceKind::Default;
+        let receiver: TokenStream = if receiver_is_self {
             quote! { self }
         } else {
             quote! { this }
@@ -573,7 +574,7 @@ impl Method {
             // (CloneType such as HSTRING, where Abi = MaybeUninit<T>) is intentionally
             // not covered — it falls back to the inline expansion below.
             let middleware_eligible = config.middleware
-                && receiver.to_string() == "self"
+                && receiver_is_self
                 && !noexcept
                 && !self.signature.return_type.is_winrt_array();
 

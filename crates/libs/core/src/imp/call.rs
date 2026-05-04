@@ -100,7 +100,7 @@ mod tests {
         let object: IUnknown = Object.into();
         // Closure that returns S_OK and ignores the raw pointer.
         let result =
-            unsafe { call_in(&object, |_this| HRESULT(0)) };
+            unsafe { call_in(&object, |_| HRESULT(0)) };
         assert!(result.is_ok());
     }
 
@@ -108,7 +108,7 @@ mod tests {
     fn call_in_propagates_failure() {
         let object: IUnknown = Object.into();
         let result =
-            unsafe { call_in(&object, |_this| HRESULT(0x80004005u32 as i32)) };
+            unsafe { call_in(&object, |_| HRESULT(0x80004005u32 as i32)) };
         assert!(result.is_err());
     }
 
@@ -117,7 +117,7 @@ mod tests {
         // u32 is CopyType; Abi = u32; Default = 0.
         let object: IUnknown = Object.into();
         let result: Result<u32> = unsafe {
-            call_in_out(&object, |_this, out| {
+            call_in_out(&object, |_, out| {
                 *out = 42;
                 HRESULT(0)
             })
@@ -129,7 +129,7 @@ mod tests {
     fn call_in_out_propagates_failure() {
         let object: IUnknown = Object.into();
         let result: Result<u32> = unsafe {
-            call_in_out(&object, |_this, _out| HRESULT(0x80004005u32 as i32))
+            call_in_out(&object, |_, _| HRESULT(0x80004005u32 as i32))
         };
         assert!(result.is_err());
     }
@@ -139,7 +139,7 @@ mod tests {
         // For interface returns, Abi = *mut c_void; from_abi returns Err on null.
         let object: IUnknown = Object.into();
         let result: Result<IUnknown> = unsafe {
-            call_in_out(&object, |_this, _out| {
+            call_in_out(&object, |_, _| {
                 // Leave out as null (Default for *mut c_void).
                 HRESULT(0)
             })
