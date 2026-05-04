@@ -520,7 +520,6 @@ fn expand_placeholders(s: &str, f: &Fixture, setup: Option<&Path>) -> String {
     out
 }
 
-
 /// then run the writer on `input.winmd` *alone* and assert it fails.
 fn run_error_writer(f: &Fixture) {
     let mut defs: Vec<PathBuf> = std::fs::read_dir(&f.dir)
