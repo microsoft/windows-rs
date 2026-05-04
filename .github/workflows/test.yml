@@ -84,15 +84,12 @@ jobs:
         if: runner.os == 'Linux'
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/lib" >> "$GITHUB_ENV"
         shell: bash
-      - name: Set RUST_TEST_THREADS (i686)
-        # 32-bit targets have a 2 GB user-mode address space; running the
-        # full fixture test binary at default parallelism exhausts it
-        # because each bindgen fixture loads the large default winmd.
-        if: matrix.target == 'i686-pc-windows-msvc'
-        run: echo "RUST_TEST_THREADS=1" >> "$GITHUB_ENV"
-        shell: bash
       - name: Test
-        run: cargo test --all --target ${{ matrix.target }} --exclude windows_aarch64_gnullvm --exclude windows_aarch64_msvc --exclude windows_i686_gnu --exclude windows_i686_gnullvm --exclude windows_i686_msvc --exclude windows_x86_64_gnu --exclude windows_x86_64_gnullvm --exclude windows_x86_64_msvc
+        # The 32-bit i686 test process has a 2 GB user-mode address space; the
+        # ~110 bindgen fixtures in test_fixtures each load the large default
+        # winmd and exhaust it at default parallelism, so test_fixtures is
+        # excluded on that target.
+        run: cargo test --all --target ${{ matrix.target }} --exclude windows_aarch64_gnullvm --exclude windows_aarch64_msvc --exclude windows_i686_gnu --exclude windows_i686_gnullvm --exclude windows_i686_msvc --exclude windows_x86_64_gnu --exclude windows_x86_64_gnullvm --exclude windows_x86_64_msvc ${{ matrix.target == 'i686-pc-windows-msvc' && '--exclude test_fixtures' || '' }}
       - name: Check diff
         shell: bash
         run: |
