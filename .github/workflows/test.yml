@@ -89,7 +89,7 @@ jobs:
         # ~110 bindgen fixtures in test_fixtures each load the large default
         # winmd and exhaust it at default parallelism, so test_fixtures is
         # excluded on that target.
-        run: cargo test --all --target ${{ matrix.target }} --exclude windows_aarch64_gnullvm --exclude windows_aarch64_msvc --exclude windows_i686_gnu --exclude windows_i686_gnullvm --exclude windows_i686_msvc --exclude windows_x86_64_gnu --exclude windows_x86_64_gnullvm --exclude windows_x86_64_msvc ${{ matrix.target == 'i686-pc-windows-msvc' && '--exclude test_fixtures' || '' }}
+        run: cargo test --all --target ${{ matrix.target }} --exclude windows_aarch64_gnullvm --exclude windows_aarch64_msvc --exclude windows_i686_gnu --exclude windows_i686_gnullvm --exclude windows_i686_msvc --exclude windows_x86_64_gnu --exclude windows_x86_64_gnullvm --exclude windows_x86_64_msvc ${{ matrix.target == 'i686-pc-windows-msvc' && '--exclude test_bindgen' || '' }}
       - name: Check diff
         shell: bash
         run: |
