@@ -87,6 +87,7 @@ pub fn builder() -> Bindgen {
 /// | `--sys` | Generates raw or sys-style Rust bindings. |
 /// | `--sys-fn-ptrs` | Additionally generates function pointers for sys-style Rust bindings. |
 /// | `--sys-fn-extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. |
+/// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods and inherited interface forwarders to reduce build time. Mutually exclusive with `--sys`. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. |
 /// | `--implements` | Includes implementation traits for the listed types only. |
 /// | `--noexcept` | Assumes all WinRT methods do not raise exceptions. |
@@ -354,6 +355,9 @@ where
                 "--sys" => {
                     builder.sys();
                 }
+                "--minimal" => {
+                    builder.minimal();
+                }
                 "--sys-fn-ptrs" => {
                     builder.sys_fn_ptrs();
                 }
@@ -414,6 +418,10 @@ where
         panic!("cannot combine `--package` and `--flat`");
     }
 
+    if builder.sys && builder.minimal {
+        panic!("cannot combine `--sys` and `--minimal`");
+    }
+
     if !has_output {
         panic!("exactly one `--out` is required");
     }
@@ -454,6 +462,7 @@ pub struct Bindgen {
     noexcept: bool,
     specific_deps: bool,
     sys: bool,
+    minimal: bool,
     typedef: bool,
     sys_fn_ptrs: bool,
     sys_fn_extern: bool,
@@ -653,6 +662,28 @@ impl Bindgen {
         self
     }
 
+    /// Generate minimal-mode Rust bindings.
+    ///
+    /// In `minimal` mode, the per-class wrapper methods on WinRT runtime
+    /// classes are omitted (only static/composable factory helpers and the
+    /// `new()` activation helper are kept), and inherited / forwarding wrapper
+    /// methods on interfaces are omitted (only methods that dispatch on the
+    /// interface's own vtable are kept). Callers must explicitly
+    /// `cast::<IFoo>()?` to the interface that owns a slot before invoking it.
+    ///
+    /// This is a build-time / disk / memory optimization: the generated source
+    /// is dramatically smaller and rustc does much less type-checking and
+    /// codegen work, at the cost of API ergonomics. Vtable layout, ABI, GUIDs,
+    /// `RuntimeType` signatures, and `interface_hierarchy!` invocations are
+    /// preserved bit-for-bit, so existing `windows-implement` consumers and
+    /// raw-vtable callers are unaffected.
+    ///
+    /// `--minimal` is mutually exclusive with `--sys`.
+    pub fn minimal(&mut self) -> &mut Self {
+        self.minimal = true;
+        self
+    }
+
     /// Generate raw or sys-style type aliases.
     pub fn typedef(&mut self) -> &mut Self {
         self.typedef = true;
@@ -719,6 +750,10 @@ impl Bindgen {
 
         if self.package && self.flat {
             panic!("cannot combine `--package` and `--flat`");
+        }
+
+        if self.sys && self.minimal {
+            panic!("cannot combine `--sys` and `--minimal`");
         }
 
         let reader = Reader::new(expand_input(&input));
@@ -818,6 +853,7 @@ impl Bindgen {
             rustfmt: &self.rustfmt,
             output: &self.output,
             sys: self.sys,
+            minimal: self.minimal,
             typedef: self.typedef,
             sys_fn_ptrs: self.sys_fn_ptrs,
             sys_fn_extern: self.sys_fn_extern,

@@ -234,7 +234,12 @@ impl Interface {
                 }
             }
 
-            if !is_exclusive {
+            // In `minimal` mode we still emit the own-vtable method block on
+            // exclusive interfaces — otherwise WinRT class default interfaces
+            // (IWindow, IFrameworkElement, IControl, ...) would have no
+            // callable wrappers anywhere, since `minimal` also drops the
+            // per-class instance wrappers that normally surface them.
+            if !is_exclusive || config.minimal {
                 let method_names = &mut MethodNames::new();
                 let virtual_names = &mut MethodNames::new();
                 let mut method_tokens = TokenStream::new();
@@ -260,6 +265,13 @@ impl Interface {
                 }
 
                 for interface in &required_interfaces {
+                    // In `minimal` mode, drop methods inherited from required
+                    // interfaces — their bodies emit `Interface::cast::<IBar>(self)?`
+                    // and forward to a different vtable. Callers must `cast`
+                    // explicitly to the owning interface first.
+                    if config.minimal {
+                        continue;
+                    }
                     let virtual_names = &mut MethodNames::new();
 
                     for method in
@@ -306,36 +318,41 @@ impl Interface {
                     });
                 }
 
-                if let Some(into_iterator) = required_interfaces
-                    .iter()
-                    .find(|interface| interface.type_name() == TypeName::IIterable)
-                    .map(|interface| {
-                        let ty = interface.generics[0].write_name(config);
-                        let namespace = config.write_namespace(TypeName::IIterator);
+                let into_iterator = if config.minimal {
+                    None
+                } else {
+                    required_interfaces
+                        .iter()
+                        .find(|interface| interface.type_name() == TypeName::IIterable)
+                        .map(|interface| {
+                            let ty = interface.generics[0].write_name(config);
+                            let namespace = config.write_namespace(TypeName::IIterator);
 
-                        quote! {
-                            #cfg
-                            impl<#constraints> IntoIterator for #name {
-                                type Item = #ty;
-                                type IntoIter = #namespace IIterator<Self::Item>;
+                            quote! {
+                                #cfg
+                                impl<#constraints> IntoIterator for #name {
+                                    type Item = #ty;
+                                    type IntoIter = #namespace IIterator<Self::Item>;
 
-                                fn into_iter(self) -> Self::IntoIter {
-                                    IntoIterator::into_iter(&self)
+                                    fn into_iter(self) -> Self::IntoIter {
+                                        IntoIterator::into_iter(&self)
+                                    }
                                 }
-                            }
-                            #cfg
-                            impl<#constraints> IntoIterator for &#name {
-                                type Item = #ty;
-                                type IntoIter = #namespace IIterator<Self::Item>;
+                                #cfg
+                                impl<#constraints> IntoIterator for &#name {
+                                    type Item = #ty;
+                                    type IntoIter = #namespace IIterator<Self::Item>;
 
-                                fn into_iter(self) -> Self::IntoIter {
-                                    self.First().unwrap()
+                                    fn into_iter(self) -> Self::IntoIter {
+                                        self.First().unwrap()
+                                    }
                                 }
-                            }
 
-                        }
-                    })
-                {
+                            }
+                        })
+                };
+
+                if let Some(into_iterator) = into_iterator {
                     result.combine(into_iterator);
                 }
             }
