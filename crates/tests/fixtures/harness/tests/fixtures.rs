@@ -102,7 +102,6 @@ struct FixtureConfig {
     no_allow: bool,
     no_comment: bool,
     minimal: bool,
-    noexcept: bool,
     specific_deps: bool,
     implement: bool,
     implements: Vec<String>,
@@ -157,7 +156,6 @@ impl FixtureConfig {
                 "no_allow" => cfg.no_allow = parse_bool(value),
                 "no_comment" => cfg.no_comment = parse_bool(value),
                 "minimal" => cfg.minimal = parse_bool(value),
-                "noexcept" => cfg.noexcept = parse_bool(value),
                 "specific_deps" => cfg.specific_deps = parse_bool(value),
                 "implement" => cfg.implement = parse_bool(value),
                 "implements" => cfg.implements = parse_string_list(value),
@@ -379,9 +377,6 @@ fn run_bindgen(f: &Fixture) {
     }
     if cfg.specific_deps {
         bindgen.specific_deps();
-    }
-    if cfg.noexcept {
-        bindgen.noexcept();
     }
     if cfg.implement {
         bindgen.implement();

@@ -27,7 +27,6 @@ pub struct Config<'a> {
     pub sys_fn_extern: bool,
     pub implement: bool,
     pub implements: &'a Implements,
-    pub noexcept: bool,
     pub specific_deps: bool,
     pub derive: &'a Derive,
     pub link: &'a str,

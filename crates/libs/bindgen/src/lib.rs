@@ -90,7 +90,6 @@ pub fn builder() -> Bindgen {
 /// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods and inherited interface forwarders to reduce build time. Mutually exclusive with `--sys`. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. |
 /// | `--implements` | Includes implementation traits for the listed types only. |
-/// | `--noexcept` | Assumes all WinRT methods do not raise exceptions. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
 ///
 ///
@@ -371,9 +370,6 @@ where
                     builder.implement();
                 }
                 "--implements" => kind = ArgKind::Implements,
-                "--noexcept" => {
-                    builder.noexcept();
-                }
                 "--specific-deps" => {
                     builder.specific_deps();
                 }
@@ -459,7 +455,6 @@ pub struct Bindgen {
     no_toml: bool,
     package: bool,
     implement: bool,
-    noexcept: bool,
     specific_deps: bool,
     sys: bool,
     minimal: bool,
@@ -633,20 +628,6 @@ impl Bindgen {
         for name in names {
             self.implements.push(name.as_ref().to_string());
         }
-        self
-    }
-
-    /// Assume that all WinRT methods do not raise exceptions, regardless of whether
-    /// they have the `NoExceptionAttribute`. This causes bindgen to emit infallible
-    /// signatures for HRESULT-returning WinRT methods, skipping `Result` propagation.
-    ///
-    /// Methods that genuinely carry `NoExceptionAttribute` use a `debug_assert!` to
-    /// validate the success contract, since the metadata guarantees they cannot
-    /// fail. Methods that are only assumed to be infallible because of this flag
-    /// instead use a real `assert!` so that an unexpected failure is caught even in
-    /// release builds rather than silently producing a zeroed result.
-    pub fn noexcept(&mut self) -> &mut Self {
-        self.noexcept = true;
         self
     }
 
@@ -859,7 +840,6 @@ impl Bindgen {
             sys_fn_extern: self.sys_fn_extern,
             implement: self.implement,
             implements: &implements,
-            noexcept: self.noexcept,
             specific_deps: self.specific_deps,
             link,
             warnings: &warnings,

@@ -32,7 +32,7 @@ impl Method {
 
     pub fn write_upcall(&self, inner: TokenStream, this: bool, config: &Config) -> TokenStream {
         let reader = config.reader;
-        let noexcept = config.noexcept || self.def.has_attribute("NoExceptionAttribute");
+        let noexcept = self.def.has_attribute("NoExceptionAttribute");
 
         let invoke_args = self.signature
         .params
@@ -146,7 +146,7 @@ impl Method {
         named_params: bool,
         has_this: bool,
     ) -> TokenStream {
-        let noexcept = config.noexcept || self.def.has_attribute("NoExceptionAttribute");
+        let noexcept = self.def.has_attribute("NoExceptionAttribute");
 
         let params = self.signature.params.iter().map(|p| {
             let default_type = p.write_default(config);
@@ -497,18 +497,11 @@ impl Method {
             }
         };
 
-        let has_noexcept_attr = self.def.has_attribute("NoExceptionAttribute");
-        let noexcept = config.noexcept || has_noexcept_attr;
-        // When the method genuinely carries `NoExceptionAttribute` the metadata
-        // contract guarantees success, so `debug_assert!` is sufficient. When
-        // `noexcept` is only being assumed because of the `--noexcept` flag we
-        // have no such guarantee, so use a real `assert!` that survives release
-        // builds rather than silently returning a zeroed-out value.
-        let assert_success = if has_noexcept_attr {
-            quote! { debug_assert!(hresult__.0 == 0); }
-        } else {
-            quote! { assert!(hresult__.0 == 0); }
-        };
+        let noexcept = self.def.has_attribute("NoExceptionAttribute");
+        // `NoExceptionAttribute` carries a metadata-level guarantee that the
+        // method cannot fail, so a `debug_assert!` is sufficient to validate
+        // the success contract in debug builds.
+        let assert_success = quote! { debug_assert!(hresult__.0 == 0); };
 
         let return_type = if noexcept {
             if self.signature.return_type.is_interface() {

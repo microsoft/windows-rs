@@ -1,5 +1,0 @@
-filter = "Test"
-no_allow = true
-no_comment = true
-noexcept = true
-specific_deps = true
