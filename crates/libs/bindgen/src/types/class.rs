@@ -32,18 +32,14 @@ impl Class {
         let mut method_names = MethodNames::new();
 
         for interface in &required_interfaces {
-            // In `minimal` mode, drop the per-class wrapper methods that
-            // delegate to instance interfaces (Default / None / Base). Keep
-            // only static and composable factory helpers so callers can still
-            // write `Class::Current()` / `Class::new()`. Callers that want to
-            // invoke an instance method must `cast::<IFoo>()?` to the owning
-            // interface first.
-            if config.minimal
-                && !matches!(
-                    interface.kind,
-                    InterfaceKind::Static | InterfaceKind::Composable
-                )
-            {
+            // In `minimal` mode, drop all per-class wrapper methods. Instance
+            // methods are reached by `cast::<IFoo>()?` to the owning interface;
+            // static and composable factory methods are reached via
+            // `windows_core::factory::<Class, IFooStatics>()?`. Both target
+            // interfaces emit their own vtable methods directly under
+            // `--minimal` (see method emission gate). Only `new()` for
+            // activatable classes remains as a convenience.
+            if config.minimal {
                 continue;
             }
 
@@ -93,7 +89,13 @@ impl Class {
 
         let factories = required_interfaces.iter().filter_map(|interface| match interface.kind {
             InterfaceKind::Static | InterfaceKind::Composable => {
-                if interface.def.methods().next().is_none() {
+                // In `minimal` mode the per-class forwarder methods that would
+                // call these typed factory caches are not emitted, so the
+                // caches would be unreachable. Callers reach factories via
+                // `windows_core::factory::<Class, IFooStatics>()` instead.
+                if config.minimal {
+                    None
+                } else if interface.def.methods().next().is_none() {
                     None
                 } else {
                         let method_name = to_ident(trim_tick(interface.def.name()));

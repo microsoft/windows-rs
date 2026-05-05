@@ -24,23 +24,6 @@ pub mod Test {
             > = windows_core::imp::FactoryCache::new();
             SHARED.call(callback)
         }
-        pub fn Stat() -> windows_result::Result<i32> {
-            Self::IFooStatics(|this| unsafe {
-                let mut result__ = core::mem::zeroed();
-                (windows_core::Interface::vtable(this).Stat)(
-                    windows_core::Interface::as_raw(this),
-                    &mut result__,
-                )
-                .map(|| result__)
-            })
-        }
-        fn IFooStatics<R, F: FnOnce(&IFooStatics) -> windows_result::Result<R>>(
-            callback: F,
-        ) -> windows_result::Result<R> {
-            static SHARED: windows_core::imp::FactoryCache<Foo, IFooStatics> =
-                windows_core::imp::FactoryCache::new();
-            SHARED.call(callback)
-        }
     }
     impl windows_core::RuntimeType for Foo {
         const SIGNATURE: windows_core::imp::ConstBuffer =
