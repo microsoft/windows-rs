@@ -250,7 +250,7 @@ fn run_rdl(f: &Fixture) {
             .write()
             .unwrap_or_else(|e| f.fail(format_args!("writer({expected})"), e));
 
-        diff_or_update(&actual_rdl, &f.input(expected));
+        write_golden(&actual_rdl, &f.input(expected));
     }
 }
 
@@ -319,7 +319,7 @@ fn run_clang(f: &Fixture) {
         .write()
         .unwrap_or_else(|e| f.fail("writer", e));
 
-    diff_or_update(&actual_rdl, &f.input("expected.rdl"));
+    write_golden(&actual_rdl, &f.input("expected.rdl"));
 }
 
 fn run_bindgen(f: &Fixture) {
@@ -342,7 +342,7 @@ fn run_bindgen(f: &Fixture) {
         // bindgen pipeline reports as warnings. The diff against
         // `expected.rs` is what we actually care about.
         let _ = windows_bindgen::bindgen(args);
-        diff_or_update(&actual_rs, &f.input("expected.rs"));
+        write_golden(&actual_rs, &f.input("expected.rs"));
         return;
     }
 
@@ -384,7 +384,7 @@ fn run_bindgen(f: &Fixture) {
     bindgen.implements(&cfg.implements);
     bindgen.write().unwrap();
 
-    diff_or_update(&actual_rs, &f.input("expected.rs"));
+    write_golden(&actual_rs, &f.input("expected.rs"));
 }
 
 fn run_error(f: &Fixture) {
@@ -418,7 +418,7 @@ fn run_error_reader(f: &Fixture) {
         });
 
     let actual = format_error(&err, &input);
-    diff_or_update_string(&actual, &f.input("expected.err"));
+    write_golden_string(&actual, &f.input("expected.err"));
 }
 
 /// `kind = "reader_no_input"`: run the reader with no input file. Used today
@@ -440,7 +440,7 @@ fn run_error_reader_no_input(f: &Fixture) {
     // Drop the path/line suffix (it's machine-dependent) and reframe the
     // message with the same `\nerror: ...\n` shape used elsewhere.
     let actual = format!("\nerror: {}\n", err.message);
-    diff_or_update_string(&actual, &f.input("expected.err"));
+    write_golden_string(&actual, &f.input("expected.err"));
 }
 
 /// `kind = "bindgen"`: invoke `windows_bindgen::bindgen` with the args from
@@ -510,8 +510,8 @@ fn run_error_bindgen(f: &Fixture) {
 
     let actual = format!("\nerror: {message}\n");
     match cfg.error_match.as_deref().unwrap_or("exact") {
-        "exact" => diff_or_update_string(&actual, &f.input("expected.err")),
-        "contains" => contains_or_update_string(&actual, &f.input("expected.err")),
+        "exact" => write_golden_string(&actual, &f.input("expected.err")),
+        "contains" => contains_string(&actual, &f.input("expected.err")),
         other => panic!(
             "[{}/{}] unknown error_match {other:?}; expected \"exact\" or \"contains\"",
             f.group, f.name
@@ -589,7 +589,7 @@ fn run_error_writer(f: &Fixture) {
 
     // Writer errors carry no file path or line info, so Display is portable.
     let actual = format!("{err}");
-    diff_or_update_string(&actual, &f.input("expected.err"));
+    write_golden_string(&actual, &f.input("expected.err"));
 }
 
 fn run_merge(f: &Fixture) {
@@ -651,7 +651,7 @@ fn run_merge(f: &Fixture) {
         .write()
         .unwrap_or_else(|e| f.fail("writer", e));
 
-    diff_or_update(&actual_rdl, &f.input("expected.rdl"));
+    write_golden(&actual_rdl, &f.input("expected.rdl"));
 }
 
 /// Parse `arch_inputs = ["input-x86.rdl=X86", ...]` into `(filename, bits)`
@@ -711,62 +711,32 @@ fn run_winmd_to_rdl(f: &Fixture) {
         .write()
         .unwrap_or_else(|e| f.fail("writer", e));
 
-    diff_or_update(&actual_rdl, &f.input("expected.rdl"));
+    write_golden(&actual_rdl, &f.input("expected.rdl"));
 }
 
 // ---------------------------------------------------------------------------
 // Diffing / golden-file helpers
 // ---------------------------------------------------------------------------
 
-fn update_mode() -> bool {
-    matches!(
-        std::env::var("UPDATE_GOLDEN").as_deref(),
-        Ok("1") | Ok("true")
-    )
-}
-
-fn diff_or_update(actual_path: &Path, expected_path: &Path) {
+fn write_golden(actual_path: &Path, expected_path: &Path) {
     let actual = std::fs::read_to_string(actual_path)
         .unwrap_or_else(|e| panic!("failed to read {}: {e}", actual_path.display()));
-    diff_or_update_string(&actual, expected_path);
+    write_golden_string(&actual, expected_path);
 }
 
-fn diff_or_update_string(actual: &str, expected_path: &Path) {
-    if update_mode() {
-        std::fs::write(expected_path, actual)
-            .unwrap_or_else(|e| panic!("failed to write {}: {e}", expected_path.display()));
-        return;
-    }
-    let expected = std::fs::read_to_string(expected_path).unwrap_or_else(|e| {
-        panic!(
-            "failed to read golden file {} (rerun with UPDATE_GOLDEN=1 to create it): {e}",
-            expected_path.display()
-        )
-    });
-    if actual != expected {
-        panic!(
-            "golden mismatch for {path}\n--- expected ---\n{expected}\n--- actual ---\n{actual}\n--- end ---\n\
-             rerun with UPDATE_GOLDEN=1 to update.",
-            path = expected_path.display(),
-        );
-    }
+/// Always overwrite the golden file with the actual output. CI runs `git
+/// diff --exit-code` after the test suite, so any unexpected change
+/// surfaces as a failed build with a clean diff to review.
+fn write_golden_string(actual: &str, expected_path: &Path) {
+    std::fs::write(expected_path, actual)
+        .unwrap_or_else(|e| panic!("failed to write {}: {e}", expected_path.display()));
 }
 
-/// Like `diff_or_update_string` but only requires the expected text to
-/// appear *somewhere* in the actual text. Used by `error_match = "contains"`
-/// fixtures whose panic message embeds a machine-dependent path.
-fn contains_or_update_string(actual: &str, expected_path: &Path) {
-    if update_mode() {
-        // In update mode there is no "canonical substring" to write; leave the
-        // existing `expected.err` untouched so the author can hand-curate it.
-        if !expected_path.is_file() {
-            panic!(
-                "{}: error_match = \"contains\" requires a hand-written expected.err",
-                expected_path.display()
-            );
-        }
-        return;
-    }
+/// Used by `error_match = "contains"` fixtures whose panic message embeds a
+/// machine-dependent path. The expected text is hand-written and must appear
+/// *somewhere* in the actual text; we can't simply overwrite it because
+/// there's no canonical substring to record.
+fn contains_string(actual: &str, expected_path: &Path) {
     let expected = std::fs::read_to_string(expected_path).unwrap_or_else(|e| {
         panic!(
             "failed to read golden file {} (hand-write the substring to match): {e}",
