@@ -55,12 +55,14 @@ Supported keys:
 1. Make a new directory under `data/<group>/<your-name>/`.
 2. Drop the `input.*` files in. For `bindgen`, also drop a
    `fixture.toml` that records the CLI options.
-3. Run `UPDATE_GOLDEN=1 cargo test -p test_fixtures` to regenerate
+3. Run `cargo test -p test_fixtures` to regenerate
    the `expected.*` files.
 4. Inspect the generated goldens, commit everything together.
 
-After the initial run, plain `cargo test -p test_fixtures` asserts
-that the actual output matches the committed golden.
+The harness always writes the actual output over the committed
+`expected.*` files. CI runs `git diff --exit-code` after the test
+suite, so any unexpected change surfaces as a failed build with a
+clean diff to review.
 
 ## Filtering
 
