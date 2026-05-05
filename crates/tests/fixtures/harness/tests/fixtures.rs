@@ -101,6 +101,7 @@ struct FixtureConfig {
     filter: Option<String>,
     no_allow: bool,
     no_comment: bool,
+    minimal: bool,
     noexcept: bool,
     specific_deps: bool,
     implement: bool,
@@ -155,6 +156,7 @@ impl FixtureConfig {
                 "filter" => cfg.filter = Some(parse_string(value)),
                 "no_allow" => cfg.no_allow = parse_bool(value),
                 "no_comment" => cfg.no_comment = parse_bool(value),
+                "minimal" => cfg.minimal = parse_bool(value),
                 "noexcept" => cfg.noexcept = parse_bool(value),
                 "specific_deps" => cfg.specific_deps = parse_bool(value),
                 "implement" => cfg.implement = parse_bool(value),
@@ -371,6 +373,9 @@ fn run_bindgen(f: &Fixture) {
     }
     if cfg.no_comment {
         bindgen.no_comment();
+    }
+    if cfg.minimal {
+        bindgen.minimal();
     }
     if cfg.specific_deps {
         bindgen.specific_deps();

@@ -1,0 +1,34 @@
+// Exercises bindgen's `--minimal` mode.
+//
+// `Foo` is an activatable WinRT class with both an instance interface (`IFoo`)
+// and a static factory (`IFooStatics`). `IFoo` requires `IFoo2`, which means
+// in default mode `impl IFoo` would carry a forwarding wrapper for
+// `IFoo2::Bar`.
+//
+// In minimal mode:
+//   * `impl Foo { ... }` should retain the `new()` activation helper, the
+//     `IFooStatics::Stat()` static-factory wrapper, and the `IFooStatics`
+//     factory-cache helper, but should drop the `IFoo::Direct()` instance
+//     forwarder.
+//   * `impl IFoo { ... }` should retain `Direct` (own vtable) and drop
+//     `Bar` (the inherited forwarder that calls `Interface::cast::<IFoo2>`).
+//   * `IFoo_Vtbl` must be byte-identical to default mode (slots intact).
+
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::Activatable(1)]
+    #[Windows::Foundation::Metadata::Static(IFooStatics, 1)]
+    class Foo {
+        IFoo,
+    }
+    interface IFoo: IFoo2 {
+        fn Direct(&self) -> i32;
+    }
+    interface IFoo2 {
+        fn Bar(&self) -> i32;
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Foo)]
+    interface IFooStatics {
+        fn Stat(&self) -> i32;
+    }
+}

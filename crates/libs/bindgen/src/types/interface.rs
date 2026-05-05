@@ -260,6 +260,13 @@ impl Interface {
                 }
 
                 for interface in &required_interfaces {
+                    // In `minimal` mode, drop methods inherited from required
+                    // interfaces — their bodies emit `Interface::cast::<IBar>(self)?`
+                    // and forward to a different vtable. Callers must `cast`
+                    // explicitly to the owning interface first.
+                    if config.minimal {
+                        continue;
+                    }
                     let virtual_names = &mut MethodNames::new();
 
                     for method in
@@ -306,9 +313,13 @@ impl Interface {
                     });
                 }
 
-                if let Some(into_iterator) = required_interfaces
-                    .iter()
-                    .find(|interface| interface.type_name() == TypeName::IIterable)
+                if let Some(into_iterator) = (!config.minimal)
+                    .then(|| {
+                        required_interfaces
+                            .iter()
+                            .find(|interface| interface.type_name() == TypeName::IIterable)
+                    })
+                    .flatten()
                     .map(|interface| {
                         let ty = interface.generics[0].write_name(config);
                         let namespace = config.write_namespace(TypeName::IIterator);

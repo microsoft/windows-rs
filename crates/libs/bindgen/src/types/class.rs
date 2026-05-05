@@ -32,6 +32,21 @@ impl Class {
         let mut method_names = MethodNames::new();
 
         for interface in &required_interfaces {
+            // In `minimal` mode, drop the per-class wrapper methods that
+            // delegate to instance interfaces (Default / None / Base). Keep
+            // only static and composable factory helpers so callers can still
+            // write `Class::Current()` / `Class::new()`. Callers that want to
+            // invoke an instance method must `cast::<IFoo>()?` to the owning
+            // interface first.
+            if config.minimal
+                && !matches!(
+                    interface.kind,
+                    InterfaceKind::Static | InterfaceKind::Composable
+                )
+            {
+                continue;
+            }
+
             let mut virtual_names = MethodNames::new();
 
             for method in interface
@@ -156,7 +171,10 @@ impl Class {
                 }
             });
 
-            let into_iterator = required_interfaces
+            let into_iterator = if config.minimal {
+                None
+            } else {
+                required_interfaces
                 .iter()
                 .find(|interface| interface.def.type_name() == TypeName::IIterable)
                 .map(|interface| {
@@ -184,7 +202,8 @@ impl Class {
                         }
 
                     }
-                });
+                })
+            };
 
             quote! {
                 #cfg
