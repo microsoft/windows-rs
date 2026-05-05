@@ -1,10 +1,7 @@
-#![cfg(windows)]
-//! Hand-curated subset of bindgen output that the runtime tests in
-//! `tests/` import. Regenerated occasionally with `windows-bindgen`;
-//! see the per-module doc comment for the source command.
+//! Compile every fixture's `expected.rs` so stale goldens break the build.
+//! `build.rs` emits the include file. Test-execution logic lives in
+//! `tests/fixtures.rs`. Gated on `cfg(windows)` because some goldens
+//! reference Windows-only items.
 
-pub mod bool_event;
-pub mod delegate_cpp_ref;
-pub mod delegate_param;
-pub mod deps;
-pub mod ref_params;
+#[cfg(windows)]
+include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));
