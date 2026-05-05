@@ -313,40 +313,41 @@ impl Interface {
                     });
                 }
 
-                if let Some(into_iterator) = (!config.minimal)
-                    .then(|| {
-                        required_interfaces
-                            .iter()
-                            .find(|interface| interface.type_name() == TypeName::IIterable)
-                    })
-                    .flatten()
-                    .map(|interface| {
-                        let ty = interface.generics[0].write_name(config);
-                        let namespace = config.write_namespace(TypeName::IIterator);
+                let into_iterator = if config.minimal {
+                    None
+                } else {
+                    required_interfaces
+                        .iter()
+                        .find(|interface| interface.type_name() == TypeName::IIterable)
+                        .map(|interface| {
+                            let ty = interface.generics[0].write_name(config);
+                            let namespace = config.write_namespace(TypeName::IIterator);
 
-                        quote! {
-                            #cfg
-                            impl<#constraints> IntoIterator for #name {
-                                type Item = #ty;
-                                type IntoIter = #namespace IIterator<Self::Item>;
+                            quote! {
+                                #cfg
+                                impl<#constraints> IntoIterator for #name {
+                                    type Item = #ty;
+                                    type IntoIter = #namespace IIterator<Self::Item>;
 
-                                fn into_iter(self) -> Self::IntoIter {
-                                    IntoIterator::into_iter(&self)
+                                    fn into_iter(self) -> Self::IntoIter {
+                                        IntoIterator::into_iter(&self)
+                                    }
                                 }
-                            }
-                            #cfg
-                            impl<#constraints> IntoIterator for &#name {
-                                type Item = #ty;
-                                type IntoIter = #namespace IIterator<Self::Item>;
+                                #cfg
+                                impl<#constraints> IntoIterator for &#name {
+                                    type Item = #ty;
+                                    type IntoIter = #namespace IIterator<Self::Item>;
 
-                                fn into_iter(self) -> Self::IntoIter {
-                                    self.First().unwrap()
+                                    fn into_iter(self) -> Self::IntoIter {
+                                        self.First().unwrap()
+                                    }
                                 }
-                            }
 
-                        }
-                    })
-                {
+                            }
+                        })
+                };
+
+                if let Some(into_iterator) = into_iterator {
                     result.combine(into_iterator);
                 }
             }
