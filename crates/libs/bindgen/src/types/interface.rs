@@ -234,7 +234,12 @@ impl Interface {
                 }
             }
 
-            if !is_exclusive {
+            // In `minimal` mode we still emit the own-vtable method block on
+            // exclusive interfaces — otherwise WinRT class default interfaces
+            // (IWindow, IFrameworkElement, IControl, ...) would have no
+            // callable wrappers anywhere, since `minimal` also drops the
+            // per-class instance wrappers that normally surface them.
+            if !is_exclusive || config.minimal {
                 let method_names = &mut MethodNames::new();
                 let virtual_names = &mut MethodNames::new();
                 let mut method_tokens = TokenStream::new();

@@ -12,6 +12,12 @@
 //     forwarder.
 //   * `impl IFoo { ... }` should retain `Direct` (own vtable) and drop
 //     `Bar` (the inherited forwarder that calls `Interface::cast::<IFoo2>`).
+//     This must hold even though `IFoo` is `[ExclusiveTo(Foo)]` — every
+//     WinRT class default interface is exclusive, so suppressing own-vtable
+//     methods on exclusive interfaces in minimal mode would leave callers
+//     with no wrappers anywhere.
+//   * `impl IFooStatics { ... }` should likewise emit `Stat` (own vtable)
+//     even though `IFooStatics` is `[ExclusiveTo(Foo)]`.
 //   * `IFoo_Vtbl` must be byte-identical to default mode (slots intact).
 
 #[winrt]
@@ -21,6 +27,7 @@ mod Test {
     class Foo {
         IFoo,
     }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Foo)]
     interface IFoo: IFoo2 {
         fn Direct(&self) -> i32;
     }
