@@ -175,34 +175,34 @@ impl Class {
                 None
             } else {
                 required_interfaces
-                .iter()
-                .find(|interface| interface.def.type_name() == TypeName::IIterable)
-                .map(|interface| {
-                    let ty = interface.generics[0].write_name(config);
-                    let namespace = config.write_namespace(TypeName::IIterator);
+                    .iter()
+                    .find(|interface| interface.def.type_name() == TypeName::IIterable)
+                    .map(|interface| {
+                        let ty = interface.generics[0].write_name(config);
+                        let namespace = config.write_namespace(TypeName::IIterator);
 
-                    quote! {
-                        #cfg
-                        impl IntoIterator for #name {
-                            type Item = #ty;
-                            type IntoIter = #namespace IIterator<Self::Item>;
+                        quote! {
+                            #cfg
+                            impl IntoIterator for #name {
+                                type Item = #ty;
+                                type IntoIter = #namespace IIterator<Self::Item>;
 
-                            fn into_iter(self) -> Self::IntoIter {
-                                IntoIterator::into_iter(&self)
+                                fn into_iter(self) -> Self::IntoIter {
+                                    IntoIterator::into_iter(&self)
+                                }
                             }
-                        }
-                        #cfg
-                        impl IntoIterator for &#name {
-                            type Item = #ty;
-                            type IntoIter = #namespace IIterator<Self::Item>;
+                            #cfg
+                            impl IntoIterator for &#name {
+                                type Item = #ty;
+                                type IntoIter = #namespace IIterator<Self::Item>;
 
-                            fn into_iter(self) -> Self::IntoIter {
-                                self.First().unwrap()
+                                fn into_iter(self) -> Self::IntoIter {
+                                    self.First().unwrap()
+                                }
                             }
-                        }
 
-                    }
-                })
+                        }
+                    })
             };
 
             quote! {
