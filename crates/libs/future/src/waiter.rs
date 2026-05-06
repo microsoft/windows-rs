@@ -49,9 +49,7 @@ mod imp {
     }
 }
 
-// Non-Windows fallback using std primitives. Requires the `std` feature, which is the only
-// configuration in which `join` is reachable on non-Windows targets (the `spawn`/`ready`
-// implementations themselves are gated on `std`).
+// Non-Windows fallback using std primitives.
 #[cfg(all(not(windows), feature = "std"))]
 mod imp {
     pub struct Waiter(std::sync::Arc<(std::sync::Mutex<bool>, std::sync::Condvar)>);
