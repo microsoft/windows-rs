@@ -49,11 +49,9 @@ impl Enum {
         let repr_str = self.repr;
         let variants = self.variants.iter().map(|(name, value)| {
             let name = write_ident(name);
-            // clang_getEnumConstantDeclValue always returns a signed i64 bit
-            // pattern regardless of the underlying type.  Re-interpret the bits
-            // into the appropriate Rust literal so unsigned enum variants whose
-            // values exceed i8::MAX / i16::MAX / i32::MAX are written correctly
-            // (e.g. 200 stored as -56 for u8, 60000 stored as -5536 for u16).
+            // clang_getEnumConstantDeclValue returns a signed i64 bit pattern. Re-interpret
+            // the bits into the appropriate Rust literal so unsigned variants are written
+            // correctly (e.g. 200 stored as -56 for u8).
             let value = match repr_str {
                 "u8" => Literal::u8_unsuffixed(*value as u8),
                 "u16" => Literal::u16_unsuffixed(*value as u16),

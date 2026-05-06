@@ -32,12 +32,8 @@ impl Class {
         let mut method_names = MethodNames::new();
 
         for interface in &required_interfaces {
-            // In `minimal` mode, drop the per-class wrapper methods that
-            // delegate to instance interfaces (Default / None / Base). Keep
-            // only static and composable factory helpers so callers can still
-            // write `Class::Current()` / `Class::new()`. Callers that want to
-            // invoke an instance method must `cast::<IFoo>()?` to the owning
-            // interface first.
+            // In `minimal` mode keep only static and composable factory helpers; callers
+            // invoke instance methods via `cast::<IFoo>()?`.
             if config.minimal
                 && !matches!(
                     interface.kind,

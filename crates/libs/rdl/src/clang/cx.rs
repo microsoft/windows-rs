@@ -413,16 +413,12 @@ impl Cursor {
     pub fn extract_uuid(&self, tu: &TranslationUnit) -> Option<String> {
         for child in self.children() {
             // __declspec(uuid("...")) with -fms-extensions.
+            //
             // When the attribute originates from a macro body (e.g. `MIDL_INTERFACE(x)`),
             // `child.extent()` spans from the macro body's spelling location all the way
-            // to the end of the expansion.  For the second and later macro invocations
-            // this covers the entire earlier content too, so `tokenize(child.extent())`
-            // finds the first interface's UUID for every subsequent interface.
-            //
-            // Fix: convert both endpoints of the child's extent to their *expansion*
-            // locations before tokenizing.  This produces a range that lives entirely at
-            // the specific call site in the source file (e.g. `MIDL_INTERFACE("…")`),
-            // so only the tokens for *this* invocation are returned.
+            // to the end of the expansion, which would cover earlier macro invocations
+            // too. Converting both endpoints to expansion locations restricts the range
+            // to the specific call site.
             if child.kind() == CXCursor_UnexposedAttr {
                 let expansion_range = tu.to_expansion_range(child.extent());
                 for (kind, spelling) in tu.tokenize(expansion_range) {

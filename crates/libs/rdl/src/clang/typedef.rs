@@ -11,13 +11,8 @@ impl Typedef {
         let name = cursor.name();
         let underlying = cursor.typedef_underlying_type();
 
-        // Skip typedefs that alias a struct, union, or enum directly.  In C
-        // it is idiomatic to write `typedef struct Foo Foo;` to allow the type
-        // to be used without the `struct` keyword.  Such a typedef has the same
-        // name as the underlying record and would produce a nonsensical
-        // `type Foo = Foo;` alias.  The actual struct/enum definition is
-        // emitted separately from the corresponding cursor, so these aliases
-        // carry no additional information and must be skipped.
+        // Skip idiomatic C `typedef struct Foo Foo;` aliases. They share a name with
+        // the underlying record and would produce a nonsensical `type Foo = Foo;`.
         match underlying.kind() {
             CXType_Record | CXType_Enum => return Ok(None),
             CXType_Elaborated => {

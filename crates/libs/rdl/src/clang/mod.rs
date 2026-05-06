@@ -154,14 +154,9 @@ impl<'a> Parser<'a> {
             CXCursor_EnumDecl if child.is_definition() => {
                 let mut e = Enum::parse(child)?;
                 if is_anonymous_name(&e.name) || is_midl_anonymous_enum_name(&e.name) {
-                    // Unnamed enums (e.g. `enum { ONE = 1, TWO };`) are
-                    // reported by libclang with a synthesised spelling like
-                    // "(unnamed enum at file.h:6:1)" which always starts
-                    // with '('.  MIDL also synthesises names of the form
-                    // `__MIDL___MIDL_itf_<...>` for originally anonymous
-                    // enumerations from IDL.  In both cases each variant is
-                    // emitted as a top-level RDL constant rather than a
-                    // named enum type.
+                    // Unnamed enums (libclang spelling like "(unnamed enum at file.h:6:1)")
+                    // and MIDL-synthesised names like `__MIDL___MIDL_itf_<...>` are emitted
+                    // as top-level RDL constants rather than a named enum type.
                     for (name, value) in e.variants {
                         let const_value = enum_variant_value(e.repr, value);
                         collector.insert(Item::Const(Const {
@@ -191,14 +186,9 @@ impl<'a> Parser<'a> {
             CXCursor_FunctionDecl if !child.is_definition() => {
                 collector.insert(Item::Fn(Fn::parse(child, self, extern_c)?));
             }
-            // An `extern "C" { }` or `extern "C++" { }` block — encountered
-            // either at the top level (e.g. MIDL-generated headers wrap all
-            // declarations in such a block) or nested inside another one
-            // (e.g. `#define EXTERN_C extern "C"` expanded inside an outer
-            // `extern "C" { }` block).  Recurse so that every declaration
-            // inside is processed with the correct linkage.
-            // NOTE: Items from transitively included headers that slip through
-            // will be filtered out by the ref_map check in the individual arms.
+            // An `extern "C"` / `extern "C++"` block. MIDL-generated headers wrap all
+            // declarations this way, and these blocks may be nested. Items from
+            // transitively included headers are filtered out by the ref_map check.
             CXCursor_LinkageSpec => {
                 for inner in child.children() {
                     let inner_extern_c = inner.language() == CXLanguage_C;
@@ -213,17 +203,10 @@ impl<'a> Parser<'a> {
                     && !child.name().is_empty()
                     && !child.name().starts_with('_')
                 {
-                    // Skip macros whose body contains keyword tokens.  Such
-                    // macros are language constructs (e.g.
-                    // `#define EXTERN_C extern "C"`) and cannot be integer
-                    // constant expressions; adding them to pending_macros
-                    // causes the evaluator to emit bogus zero constants.
-                    // Similarly, skip macros whose body contains string
-                    // literals (narrow or wide): those are not valid integer
-                    // constant expressions and evaluating them produces bogus
-                    // zero constants.
-                    // The first token is always the macro name itself; skip
-                    // it to examine only the replacement-list body tokens.
+                    // Skip macros whose body contains keyword or string-literal tokens.
+                    // Such macros (e.g. `#define EXTERN_C extern "C"`) are not integer
+                    // constant expressions and the evaluator would emit bogus zero
+                    // constants for them.
                     let tokens = self.tu.tokenize(child.extent());
                     let body_has_keyword = tokens
                         .iter()
@@ -529,21 +512,18 @@ impl Clang {
         let mut parser = Parser::new(&self.namespace, &self.library, ref_map, tag_rename, tu);
 
         for child in tu.cursor().children() {
-            // Only process cursors from the main input file or from headers
-            // that match the caller-supplied path-suffix filters.
+            // Only process cursors from the main input file or from headers matching the
+            // caller-supplied path-suffix filters.
             if !child.is_from_main_file() {
-                // Check whether this cursor's source file matches any filter.
                 let passes_filter = !self.filter.is_empty() && {
                     let file = child.file_name();
                     self.filter.iter().any(|f| matches_filter(&file, f))
                 };
                 if !passes_filter {
-                    // A CXCursor_LinkageSpec produced by a macro such as
-                    // `#define EXTERN_C extern "C"` (defined in an included
-                    // header) has its spelling location inside the macro body in
-                    // the included header, so is_from_main_file() returns false.
-                    // Accept it anyway when the *expansion* location (where the
-                    // macro was invoked) is in the main file.
+                    // A CXCursor_LinkageSpec produced by a macro like
+                    // `#define EXTERN_C extern "C"` reports its spelling location inside
+                    // the macro body. Accept it when the expansion location is in the
+                    // main file.
                     if child.kind() != CXCursor_LinkageSpec
                         || !child.is_expansion_from_main_file(tu)
                     {
@@ -555,10 +535,9 @@ impl Clang {
             parser.process_cursor(child, collector, false)?;
         }
 
-        // Emit typedef/callback items for any types that were referenced by
-        // main-file items but are defined only in included/system headers.
-        // The vec may grow during this loop as transitive typedef dependencies
-        // are discovered (e.g. `typedef BYTE MY_BYTE` pulls in `BYTE` too).
+        // Emit typedef/callback items for types referenced by main-file items but defined
+        // only in included headers. The vec may grow during this loop as transitive
+        // dependencies are discovered.
         let mut seen: HashSet<String> = HashSet::new();
         let mut i = 0;
         while i < parser.pending_typedefs.len() {

@@ -306,16 +306,12 @@ impl TearOff {
             this.strong_count
                 .0
                 .fetch_update(Ordering::Acquire, Ordering::Relaxed, |count| {
-                    // Attempt to acquire a strong reference count to stabilize the object for the duration
-                    // of the `QueryInterface` call.
+                    // Stabilize the object for the duration of the `QueryInterface` call.
                     bool::then_some(count != 0, count + 1)
                 })
                 .map(|_| {
-                    // Let the object respond to the upgrade query.
                     let result = this.query_interface(iid, interface);
-                    // Decrement the temporary reference account used to stabilize the object.
                     this.strong_count.0.fetch_sub(1, Ordering::Relaxed);
-                    // Return the result of the query.
                     result
                 })
                 .unwrap_or_else(|_| {

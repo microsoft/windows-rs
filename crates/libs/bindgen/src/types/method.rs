@@ -1,6 +1,6 @@
 use super::*;
 
-// This is WinRT methods only
+// WinRT methods only.
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Method {
     pub def: MethodDef,
@@ -93,7 +93,6 @@ impl Method {
                         match #inner(#this #(#invoke_args,)*) {
                             Ok(ok__) => {
                                 let (ok_data__, ok_data_len__) = ok__.into_abi();
-                                // use `ptr::write` since `result` could be uninitialized
                                 result__.write(core::mem::transmute(ok_data__));
                                 result_size__.write(ok_data_len__);
                                 windows_core::HRESULT(0)
@@ -104,10 +103,9 @@ impl Method {
                 }
             }
             _ => {
-                // For copyable types the Rust type and ABI type are identical, so write
-                // directly.  For non-copyable types (e.g. interfaces) the ABI type differs
-                // from the Rust type, so transmute_copy is required, and the value must be
-                // forgotten to prevent a double-drop.
+                // For copyable types the Rust and ABI types are identical. For non-copyable
+                // types the ABI type differs, requiring transmute_copy and forget to avoid
+                // a double-drop.
                 let write_result = if self.signature.return_type.is_copyable(reader) {
                     quote! { result__.write(ok__); }
                 } else {
@@ -120,7 +118,6 @@ impl Method {
                 if noexcept {
                     quote! {
                         let ok__ = #inner(#this #(#invoke_args,)*);
-                        // use `ptr::write` since `result` could be uninitialized
                         #write_result
                         windows_core::HRESULT(0)
                     }
@@ -128,7 +125,6 @@ impl Method {
                     quote! {
                         match #inner(#this #(#invoke_args,)*) {
                             Ok(ok__) => {
-                                // use `ptr::write` since `result` could be uninitialized
                                 #write_result
                                 windows_core::HRESULT(0)
                             }
@@ -310,23 +306,17 @@ impl Method {
         };
 
         let (name, name_compose) = if kind == InterfaceKind::Composable && params.is_empty() {
-            // The default parameterless composable constructor maps to `new` for the
-            // non-aggregating entry and `compose` for the aggregating entry.
+            // Default parameterless composable constructor: `new` for the non-aggregating
+            // entry, `compose` for the aggregating entry.
             (quote!(new), quote!(compose))
         } else if kind == InterfaceKind::Composable {
             let name = method_names.add(self.def);
-            // Build `<name>_compose` for the aggregating variant by string-concatenating
-            // `_compose` onto the existing name token. `TokenStream::join` here is the
-            // bindgen string-builder helper (defined in `tokens/token_stream.rs`), not
-            // a real proc-macro2 method — it appends the literal suffix.
             let compose = name.join("_compose");
             (name, compose)
         } else {
             (method_names.add(self.def), TokenStream::new())
         };
 
-        // Per-typed-parameter argument expressions (no outer/inner pair). Reused twice for
-        // composable factories (the non-aggregating and aggregating entries).
         let typed_args: Vec<TokenStream> = params.iter().map(|param|{
             let name = param.write_ident();
 
@@ -376,10 +366,8 @@ impl Method {
         };
 
         let args = if kind == InterfaceKind::Composable {
-            // Composable factory methods take the `outer` controlling unknown and the
-            // out-pointer for the `inner` non-delegating object as their last two
-            // parameters before the result. The non-aggregating (`new`/named) entry passes
-            // nulls for both.
+            // Composable factories take `outer` and an out-pointer for `inner` as the last
+            // two parameters before the result. The non-aggregating entry passes nulls.
             quote! {
                 #(#typed_args,)* core::ptr::null_mut(), &mut core::ptr::null_mut(), #return_arg
             }
@@ -389,8 +377,6 @@ impl Method {
             }
         };
 
-        // For composable factories the aggregating entry passes the outer `IInspectable`
-        // (assembled by `Compose::compose`) and the writeback slot for the inner.
         let compose_args = if kind == InterfaceKind::Composable {
             quote! {
                 #(#typed_args,)* core::mem::transmute_copy(&derived__), base__ as *mut _ as _, #return_arg
@@ -435,8 +421,6 @@ impl Method {
             }
         };
 
-        // For the aggregating composable variant we splice an extra `T: windows_core::Compose`
-        // bound onto the existing where clause (or introduce one if there isn't one).
         let where_clause_compose = if kind == InterfaceKind::Composable {
             let constraints: Vec<_> = params
                 .iter()
@@ -498,9 +482,6 @@ impl Method {
         };
 
         let noexcept = self.def.has_attribute("NoExceptionAttribute");
-        // `NoExceptionAttribute` carries a metadata-level guarantee that the
-        // method cannot fail, so a `debug_assert!` is sufficient to validate
-        // the success contract in debug builds.
         let assert_success = quote! { debug_assert!(hresult__.0 == 0); };
 
         let return_type = if noexcept {
@@ -518,18 +499,12 @@ impl Method {
 
         let vname = virtual_names.add(self.def);
 
-        // For Default methods the receiver is `self` directly; for all other kinds (None,
-        // Base, Static, Composable) the caller binds a local `this` that the vcall uses.
         let receiver: TokenStream = if kind == InterfaceKind::Default {
             quote! { self }
         } else {
             quote! { this }
         };
 
-        // Builds the full vtable call expression (including return-value handling) for the
-        // given `args` token stream. This is wrapped in a closure so we can build a parallel
-        // `_compose` variant for composable factory methods without duplicating the
-        // return-type plumbing below.
         let build_vcall = |args: &TokenStream| -> TokenStream {
             let vcall = quote! { (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #args) };
 
@@ -629,31 +604,10 @@ impl Method {
                 }
             }
             InterfaceKind::Composable => {
-                // Composable factory methods get two entries: a non-aggregating one (the
-                // caller does not provide a derived implementation) and an aggregating
-                // `_compose` variant that takes a `T: Compose` and threads the outer
-                // `IInspectable` and inner writeback slot into the vtable call.
-                //
-                // After a successful `CreateInstance(outer, &inner_out, &result_out)`:
-                //
-                // * `*inner_out` (here `*base__`) holds a strong ref to the **non-
-                //   delegating** inner `IInspectable`. We retain ownership of it through
-                //   the outer's `ComposeBase` slot — the outer drops the inner when the
-                //   outer itself is destroyed.
-                //
-                // * `*result_out` (here `result__`) holds a strong ref to the aggregated
-                //   default interface. Its IUnknown methods **delegate to the outer's
-                //   controlling IUnknown**, so AddRef/Release on the returned value keeps
-                //   the outer alive (which transitively keeps the inner alive). This is
-                //   exactly the value the user wants back.
-                //
-                // We must therefore return `result__` and drop the local `derived__`
-                // outer reference at end of scope. Returning `derived__.cast::<#return>()`
-                // would be wrong: the outer's `QueryInterface` for `#return` falls
-                // through to the non-delegating inner via the `ComposeBase` slot, giving
-                // back a non-delegating pointer whose `Release` does not keep the outer
-                // alive — once `derived__` drops, the outer is freed and the caller is
-                // left with a dangling reference into the inner's vtables.
+                // Composable factories emit two entries: a non-aggregating `name` and an
+                // aggregating `name_compose` that takes a `T: Compose`. We return `result__`
+                // (the delegating default interface) rather than `derived__` so that
+                // AddRef/Release on the returned value keeps the outer alive.
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
 
                 quote! {
@@ -665,11 +619,8 @@ impl Method {
                             let (derived__, base__) = windows_core::Compose::compose(compose);
                             let mut result__ = core::mem::zeroed();
                             (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #compose_args).ok()?;
-                            // Suppress unused-variable warning: `derived__` is held alive
-                            // for the duration of the factory call (so the factory can
-                            // store a back-pointer to the outer in the inner) and then
-                            // dropped at scope end — its sole owning ref is replaced by
-                            // the delegating ref baked into `result__`.
+                            // Keep `derived__` alive until the factory returns; its owning
+                            // ref is replaced by the delegating ref in `result__`.
                             let _ = &derived__;
                             windows_core::Type::from_abi(result__)
                         })

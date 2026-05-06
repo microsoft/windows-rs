@@ -79,11 +79,8 @@ impl HStringHeader {
     }
 }
 
-// HSTRING storage is allocated through the host platform's heap on Windows
-// (so values allocated here are compatible with native callers that free
-// them via `WindowsDeleteString` / `HeapFree`) and through the Rust global
-// allocator on other platforms. The two helpers below are the only place in
-// the crate that knows about either allocator.
+// HSTRING storage uses the host platform's heap on Windows (compatible with
+// `WindowsDeleteString` / `HeapFree`) and the Rust global allocator elsewhere.
 
 /// Allocates `bytes` bytes of memory suitable to back an `HStringHeader`.
 ///
@@ -98,11 +95,8 @@ unsafe fn heap_alloc(bytes: usize) -> *mut u8 {
     }
     #[cfg(not(windows))]
     {
-        // `Layout::from_size_align` only fails when `align` is not a power of
-        // two or the rounded-up size would exceed `isize::MAX`. `align_of::<T>`
-        // is a power of two by construction, and `bytes` is bounded by
-        // `size_of::<HStringHeader>() + 2 * u32::MAX`, well under `isize::MAX`
-        // on every supported target.
+        // `Layout::from_size_align` only fails when `align` isn't a power of two or the
+        // rounded-up size exceeds `isize::MAX`. Both invariants hold by construction.
         let layout = alloc::alloc::Layout::from_size_align(bytes, ALIGN).unwrap();
         unsafe { alloc::alloc::alloc(layout) }
     }

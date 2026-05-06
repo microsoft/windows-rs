@@ -234,11 +234,9 @@ impl Interface {
                 }
             }
 
-            // In `minimal` mode we still emit the own-vtable method block on
-            // exclusive interfaces — otherwise WinRT class default interfaces
-            // (IWindow, IFrameworkElement, IControl, ...) would have no
-            // callable wrappers anywhere, since `minimal` also drops the
-            // per-class instance wrappers that normally surface them.
+            // Even in `minimal` mode, exclusive interfaces still need their own-vtable
+            // method block; otherwise WinRT class default interfaces would lose their
+            // callable wrappers entirely.
             if !is_exclusive || config.minimal {
                 let method_names = &mut MethodNames::new();
                 let virtual_names = &mut MethodNames::new();
@@ -265,10 +263,7 @@ impl Interface {
                 }
 
                 for interface in &required_interfaces {
-                    // In `minimal` mode, drop methods inherited from required
-                    // interfaces — their bodies emit `Interface::cast::<IBar>(self)?`
-                    // and forward to a different vtable. Callers must `cast`
-                    // explicitly to the owning interface first.
+                    // In `minimal` mode callers `cast` to the owning interface explicitly.
                     if config.minimal {
                         continue;
                     }

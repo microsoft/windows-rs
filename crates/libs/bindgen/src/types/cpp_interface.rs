@@ -348,11 +348,9 @@ impl CppInterface {
                 }
             });
 
-                // If any methods were skipped due to missing dependencies, the interface cannot be
-                // fully described, so omit the ability to implement it rather than emitting a
-                // partial vtable with null function pointer slots. Also propagate the omission
-                // when any base interface had its `_Impl` trait omitted, since a derived `_Impl`
-                // cannot reference a base `_Impl` that wasn't emitted.
+                // If any methods were skipped due to missing dependencies, omit the
+                // `_Impl` trait rather than emitting a partial vtable. Propagate the
+                // omission across base interfaces.
                 let has_skipped_methods = methods
                     .iter()
                     .any(|method| matches!(method, CppMethodOrName::Name(_)))
