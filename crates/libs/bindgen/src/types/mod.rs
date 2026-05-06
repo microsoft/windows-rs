@@ -28,6 +28,7 @@ pub use method::*;
 pub use r#enum::*;
 pub use r#struct::*;
 
+#[allow(non_camel_case_types)]
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub enum Type {
     CppFn(CppFn),
@@ -76,6 +77,9 @@ pub enum Type {
     PCWSTR,
     GUID,
     HRESULT,
+    WIN32_ERROR,
+    NTSTATUS,
+    RPC_STATUS,
     IUnknown,
     BSTR,
     BOOL,
@@ -173,6 +177,10 @@ impl Type {
             ("Windows.Foundation", "HResult") | ("Windows.Win32.Foundation", "HRESULT") => {
                 Remap::Type(Self::HRESULT)
             }
+
+            ("Windows.Win32.Foundation", "WIN32_ERROR") => Remap::Type(Self::WIN32_ERROR),
+            ("Windows.Win32.Foundation", "NTSTATUS") => Remap::Type(Self::NTSTATUS),
+            ("Windows.Win32.System.Rpc", "RPC_STATUS") => Remap::Type(Self::RPC_STATUS),
 
             ("Windows.Foundation", "EventRegistrationToken")
             | ("Windows.Win32.System.WinRT", "EventRegistrationToken") => Remap::Type(Self::I64),
@@ -412,6 +420,18 @@ impl Type {
             Self::HRESULT => {
                 let result = config.write_result();
                 quote! { #result HRESULT }
+            }
+            Self::WIN32_ERROR => {
+                let result = config.write_result();
+                quote! { #result WIN32_ERROR }
+            }
+            Self::NTSTATUS => {
+                let result = config.write_result();
+                quote! { #result NTSTATUS }
+            }
+            Self::RPC_STATUS => {
+                let result = config.write_result();
+                quote! { #result RPC_STATUS }
             }
             Self::BOOL => {
                 let result = config.write_result();
@@ -708,6 +728,9 @@ impl Type {
             | Self::ISize
             | Self::USize
             | Self::HRESULT
+            | Self::WIN32_ERROR
+            | Self::NTSTATUS
+            | Self::RPC_STATUS
             | Self::BOOL
             | Self::PtrConst(_, _)
             | Self::PtrMut(_, _) => true,
@@ -777,6 +800,9 @@ impl Type {
             Self::Enum(ty) => ty.def.underlying_type_ext(reader),
             Self::CppStruct(ty) => ty.def.underlying_type_ext(reader),
             Self::HRESULT => Self::I32,
+            Self::WIN32_ERROR => Self::U32,
+            Self::NTSTATUS => Self::I32,
+            Self::RPC_STATUS => Self::I32,
             Self::BOOL => Self::I32,
             _ => self.clone(),
         }
@@ -789,6 +815,9 @@ impl Type {
 
         match self {
             Self::HRESULT => quote! { pub type HRESULT = i32; },
+            Self::WIN32_ERROR => quote! { pub type WIN32_ERROR = u32; },
+            Self::NTSTATUS => quote! { pub type NTSTATUS = i32; },
+            Self::RPC_STATUS => quote! { pub type RPC_STATUS = i32; },
             Self::BOOL => quote! { pub type BOOL = i32; },
 
             Self::PWSTR => quote! { pub type PWSTR = *mut u16; },
@@ -884,6 +913,9 @@ impl Type {
             Self::PCWSTR => TypeName("", "PCWSTR"),
             Self::GUID => TypeName("", "GUID"),
             Self::HRESULT => TypeName("", "HRESULT"),
+            Self::WIN32_ERROR => TypeName("", "WIN32_ERROR"),
+            Self::NTSTATUS => TypeName("", "NTSTATUS"),
+            Self::RPC_STATUS => TypeName("", "RPC_STATUS"),
             Self::BOOL => TypeName("", "BOOL"),
             Self::IUnknown => TypeName("", "IUnknown"),
             Self::BSTR => TypeName("", "BSTR"),
@@ -903,6 +935,9 @@ impl Type {
                 | Self::PCWSTR
                 | Self::GUID
                 | Self::HRESULT
+                | Self::WIN32_ERROR
+                | Self::NTSTATUS
+                | Self::RPC_STATUS
                 | Self::BOOL
                 | Self::IUnknown
                 | Self::Object

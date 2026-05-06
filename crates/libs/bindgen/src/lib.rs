@@ -766,48 +766,6 @@ impl Bindgen {
                     ReferenceStage::parse("windows_future,flat,Windows.Foundation.IAsync*"),
                 );
             }
-
-            if reader.contains_key("Windows.Win32.Foundation") {
-                if self.specific_deps {
-                    references.insert(
-                        0,
-                        ReferenceStage::parse(
-                            "windows_result,flat,Windows.Win32.Foundation.WIN32_ERROR",
-                        ),
-                    );
-                    references.insert(
-                        0,
-                        ReferenceStage::parse(
-                            "windows_result,flat,Windows.Win32.Foundation.NTSTATUS",
-                        ),
-                    );
-                    references.insert(
-                        0,
-                        ReferenceStage::parse(
-                            "windows_result,flat,Windows.Win32.System.Rpc.RPC_STATUS",
-                        ),
-                    );
-                } else {
-                    references.insert(
-                        0,
-                        ReferenceStage::parse(
-                            "windows_core,flat,Windows.Win32.Foundation.WIN32_ERROR",
-                        ),
-                    );
-                    references.insert(
-                        0,
-                        ReferenceStage::parse(
-                            "windows_core,flat,Windows.Win32.Foundation.NTSTATUS",
-                        ),
-                    );
-                    references.insert(
-                        0,
-                        ReferenceStage::parse(
-                            "windows_core,flat,Windows.Win32.System.Rpc.RPC_STATUS",
-                        ),
-                    );
-                }
-            }
         }
 
         let derive_str: Vec<&str> = self.derive.iter().map(|s| s.as_str()).collect();
