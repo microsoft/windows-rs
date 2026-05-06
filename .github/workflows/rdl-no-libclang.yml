@@ -69,6 +69,11 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
+          # PowerShell 7.3+ makes non-zero native exit codes terminating when
+          # $ErrorActionPreference is 'Stop'. `where.exe` exits 1 when nothing
+          # is found — which is exactly the success case for our sanity check —
+          # so opt out of that behaviour for native commands.
+          $PSNativeCommandUseErrorActionPreference = $false
           # Make sure LIBCLANG_PATH is empty for the rest of the job, so
           # clang-sys's runtime loader can't pick it up that way.
           "LIBCLANG_PATH=" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
