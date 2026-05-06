@@ -25,8 +25,12 @@ concurrency:
 
 jobs:
   test:
-    name: rdl without libclang
-    runs-on: ubuntu-22.04
+    name: rdl without libclang (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, windows-2022]
 
     env:
       RUSTFLAGS: -D warnings
@@ -44,7 +48,9 @@ jobs:
       # `windows-rdl`'s reader/writer surface works without libclang on the
       # machine, and that `clang_version()` returns a clean error rather than
       # panicking when libclang is missing.
-      - name: Remove libclang from runner
+      - name: Remove libclang from runner (Linux)
+        if: runner.os == 'Linux'
+        shell: bash
         run: |
           set -eux
           sudo apt-get remove --purge -y 'libclang-*-dev' 'libclang1-*' 'libclang-common-*-dev' 'clang-*' 'llvm-*' || true
@@ -57,6 +63,36 @@ jobs:
             echo "libclang is still present on the runner; the test would not be meaningful."
             exit 1
           fi
+
+      - name: Remove libclang from runner (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          # GitHub's windows-2022 image ships LLVM under C:\Program Files\LLVM.
+          # Wipe it so libclang.dll is unreachable through clang-sys's runtime
+          # loader (LIBCLANG_PATH → PATH → registry).
+          foreach ($dir in @('C:\Program Files\LLVM', 'C:\Program Files (x86)\LLVM', 'C:\hostedtoolcache\windows\llvm')) {
+            if (Test-Path $dir) {
+              Write-Host "Removing $dir"
+              Remove-Item -Recurse -Force $dir
+            }
+          }
+          # Sweep for any stray libclang.dll on common paths.
+          $hits = Get-ChildItem -Path 'C:\Program Files', 'C:\Program Files (x86)', 'C:\Windows\System32' `
+            -Recurse -Filter 'libclang*.dll' -ErrorAction SilentlyContinue
+          foreach ($f in $hits) {
+            Write-Host "Removing $($f.FullName)"
+            Remove-Item -Force $f.FullName -ErrorAction SilentlyContinue
+          }
+          # Make sure LIBCLANG_PATH is empty for the rest of the job.
+          "LIBCLANG_PATH=" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          # Sanity-check: no libclang.dll discoverable via PATH.
+          $found = (& where.exe libclang.dll 2>$null)
+          if ($LASTEXITCODE -eq 0 -and $found) {
+            Write-Error "libclang.dll is still discoverable on PATH:`n$found"
+            exit 1
+          }
 
       - name: Build windows-rdl (no libclang on machine)
         run: cargo build -p windows-rdl
