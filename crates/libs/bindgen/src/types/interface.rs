@@ -234,10 +234,13 @@ impl Interface {
                 }
             }
 
-            // Even in `minimal` mode, exclusive interfaces still need their own-vtable
-            // method block; otherwise WinRT class default interfaces would lose their
-            // callable wrappers entirely.
-            if !is_exclusive || config.minimal {
+            // Even in `minimal` mode, exclusive instance interfaces still need their own-vtable
+            // method block; otherwise WinRT class default interfaces would lose their callable
+            // wrappers entirely. Exclusive factory interfaces (those referenced from the class
+            // via Activatable/Static/Composable) are already exposed through the class, so we
+            // can suppress their methods here to keep call sites concise.
+            let is_factory = is_exclusive && config.minimal && self.is_factory(config.reader);
+            if !is_exclusive || (config.minimal && !is_factory) {
                 let method_names = &mut MethodNames::new();
                 let virtual_names = &mut MethodNames::new();
                 let mut method_tokens = TokenStream::new();
@@ -575,6 +578,48 @@ impl Interface {
 
     pub fn is_exclusive(&self) -> bool {
         self.def.has_attribute("ExclusiveToAttribute")
+    }
+
+    // An exclusive interface is a "factory" interface when its owning class references it via
+    // `Activatable`/`Static`/`Composable` rather than implementing it. Methods on such interfaces
+    // are reachable through the class, so in `minimal` mode we can avoid emitting them on the
+    // interface itself to keep call sites concise.
+    pub fn is_factory(&self, reader: &Reader) -> bool {
+        let Some(attribute) = self.def.find_attribute("ExclusiveToAttribute") else {
+            return false;
+        };
+        let value = attribute.value();
+        let Some((_, Value::TypeName(class_tn))) = value.first() else {
+            return false;
+        };
+        let Some(Type::Class(class)) = reader
+            .with_full_name(class_tn.namespace.as_str(), class_tn.name.as_str())
+            .next()
+        else {
+            return false;
+        };
+
+        let our_namespace = self.def.namespace();
+        let our_name = self.def.name();
+
+        for attribute in class.def.attributes() {
+            match attribute.name() {
+                "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
+                    for (_, arg) in attribute.value() {
+                        if let Value::TypeName(tn) = arg {
+                            if tn.namespace.as_str() == our_namespace
+                                && tn.name.as_str() == our_name
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+                _ => {}
+            }
+        }
+
+        false
     }
 
     pub fn runtime_signature(&self, reader: &Reader) -> String {

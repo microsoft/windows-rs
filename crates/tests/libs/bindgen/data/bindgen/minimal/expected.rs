@@ -148,18 +148,6 @@ pub mod Test {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
     }
-    impl IFooStatics {
-        pub fn Stat(&self) -> windows_result::Result<i32> {
-            unsafe {
-                let mut result__ = core::mem::zeroed();
-                (windows_core::Interface::vtable(self).Stat)(
-                    windows_core::Interface::as_raw(self),
-                    &mut result__,
-                )
-                .map(|| result__)
-            }
-        }
-    }
     #[repr(C)]
     #[doc(hidden)]
     pub struct IFooStatics_Vtbl {
