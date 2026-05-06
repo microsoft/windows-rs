@@ -89,13 +89,7 @@ impl Class {
 
         let factories = required_interfaces.iter().filter_map(|interface| match interface.kind {
             InterfaceKind::Static | InterfaceKind::Composable => {
-                // In `minimal` mode the per-class forwarder methods that would
-                // call these typed factory caches are not emitted, so the
-                // caches would be unreachable. Callers reach factories via
-                // `windows_core::factory::<Class, IFooStatics>()` instead.
-                if config.minimal {
-                    None
-                } else if interface.def.methods().next().is_none() {
+                if interface.def.methods().next().is_none() {
                     None
                 } else {
                         let method_name = to_ident(trim_tick(interface.def.name()));
@@ -107,9 +101,15 @@ impl Class {
                             quote! {}
                         };
 
+                        // In `minimal` mode the per-class forwarder methods
+                        // that would call these typed factory caches are not
+                        // emitted, so make the helper `pub` so callers can
+                        // invoke it directly: `Class::IFooStatics(|f| f.Stat())`.
+                        let visibility = if config.minimal { quote! { pub } } else { quote! {} };
+
                         Some(quote! {
                             #cfg
-                            fn #method_name<R, F: FnOnce(&#interface_type) -> #result Result<R>>(
+                            #visibility fn #method_name<R, F: FnOnce(&#interface_type) -> #result Result<R>>(
                                 callback: F,
                             ) -> #result Result<R> {
                                 static SHARED: windows_core::imp::FactoryCache<#name, #interface_type> =

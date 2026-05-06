@@ -24,6 +24,13 @@ pub mod Test {
             > = windows_core::imp::FactoryCache::new();
             SHARED.call(callback)
         }
+        pub fn IFooStatics<R, F: FnOnce(&IFooStatics) -> windows_result::Result<R>>(
+            callback: F,
+        ) -> windows_result::Result<R> {
+            static SHARED: windows_core::imp::FactoryCache<Foo, IFooStatics> =
+                windows_core::imp::FactoryCache::new();
+            SHARED.call(callback)
+        }
     }
     impl windows_core::RuntimeType for Foo {
         const SIGNATURE: windows_core::imp::ConstBuffer =
