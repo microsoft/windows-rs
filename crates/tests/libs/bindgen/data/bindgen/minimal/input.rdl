@@ -16,8 +16,10 @@
 //     WinRT class default interface is exclusive, so suppressing own-vtable
 //     methods on exclusive interfaces in minimal mode would leave callers
 //     with no wrappers anywhere.
-//   * `impl IFooStatics { ... }` should likewise emit `Stat` (own vtable)
-//     even though `IFooStatics` is `[ExclusiveTo(Foo)]`.
+//   * `impl IFooStatics { ... }` should be elided entirely: `IFooStatics` is
+//     `[ExclusiveTo(Foo)]` *and* is referenced from `Foo`'s `Static`
+//     attribute, so it's a factory interface and its method (`Stat`) is
+//     already exposed via `impl Foo`.
 //   * `IFoo_Vtbl` must be byte-identical to default mode (slots intact).
 
 #[winrt]
