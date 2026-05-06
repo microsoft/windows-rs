@@ -1,0 +1,67 @@
+name: rdl-no-libclang
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/workflows/web.yml'
+      - 'crates/libs/rdl/rdl.md'
+      - 'web/**'
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/workflows/web.yml'
+      - 'crates/libs/rdl/rdl.md'
+      - 'web/**'
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
+jobs:
+  test:
+    name: rdl without libclang
+    runs-on: ubuntu-22.04
+
+    env:
+      RUSTFLAGS: -D warnings
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+
+      # Deliberately do NOT install LLVM or set LIBCLANG_PATH. Instead, remove
+      # any libclang shared libraries that ship preinstalled on the runner so
+      # that `clang_sys::load()` is guaranteed to fail. This proves that
+      # `windows-rdl`'s reader/writer surface works without libclang on the
+      # machine, and that `clang_version()` returns a clean error rather than
+      # panicking when libclang is missing.
+      - name: Remove libclang from runner
+        run: |
+          set -eux
+          sudo apt-get remove --purge -y 'libclang-*-dev' 'libclang1-*' 'libclang-common-*-dev' 'clang-*' 'llvm-*' || true
+          sudo apt-get autoremove -y || true
+          # Defensively delete any stray libclang.so* left in standard locations.
+          sudo find /usr/lib /usr/local/lib /usr/lib/x86_64-linux-gnu -maxdepth 4 \
+            \( -name 'libclang.so*' -o -name 'libclang-*.so*' \) -print -delete || true
+          # Sanity-check: there should be no libclang on the default loader path.
+          if ldconfig -p | grep -i 'libclang'; then
+            echo "libclang is still present on the runner; the test would not be meaningful."
+            exit 1
+          fi
+
+      - name: Build windows-rdl (no libclang on machine)
+        run: cargo build -p windows-rdl
+
+      - name: Test test_rdl (reader/writer surface, no libclang on machine)
+        env:
+          WINDOWS_RDL_NO_LIBCLANG: '1'
+        run: cargo test -p test_rdl
