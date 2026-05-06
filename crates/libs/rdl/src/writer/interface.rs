@@ -95,13 +95,8 @@ fn write_members(
                 if let Some(j) = j {
                     let put_no_attrs = methods[j].attributes().next().is_none();
                     // Only combine get_/put_ into a single `X: type` entry when the
-                    // setter immediately follows the getter in vtable order (no
-                    // unconsumed methods between them).  Combining non-adjacent
-                    // getter/setter pairs reorders vtable slots on round-trip,
-                    // breaking the ABI contract.
-                    // Also only combine when the getter's return type matches the
-                    // setter's parameter type; otherwise the types must be preserved
-                    // separately using `#[get]`/`#[set]` shorthands.
+                    // setter immediately follows the getter in vtable order and their
+                    // types match. Otherwise preserve them with `#[get]`/`#[set]`.
                     let put_sig = methods[j].signature(generics);
                     let types_match = put_sig.types.first() == Some(&sig.return_type);
                     if no_attrs && put_no_attrs && types_match && (i + 1..j).all(|k| consumed[k]) {

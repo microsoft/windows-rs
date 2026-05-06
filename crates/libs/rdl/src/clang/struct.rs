@@ -30,12 +30,9 @@ impl Struct {
         };
         let mut fields = vec![];
 
-        // Determine packing by comparing the struct's actual alignment (in bytes)
-        // against the maximum natural alignment of its fields.  When `#pragma pack(N)`
-        // is in effect, `clang_Type_getAlignOf` reports `N` (bytes) for the struct while
-        // individual field types retain their natural alignments.  If the struct
-        // alignment is strictly less than the maximum field alignment the struct is
-        // packed, and the packing factor is the struct's alignment in bytes.
+        // The struct is packed when its alignment is strictly less than the maximum
+        // natural alignment of its fields; the packing factor is then the struct's own
+        // alignment in bytes (as reported under `#pragma pack(N)`).
         let struct_align_bytes = cursor.ty().align_of();
         let mut max_field_align_bytes: i64 = 0;
 
