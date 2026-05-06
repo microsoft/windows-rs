@@ -11,4 +11,4 @@
 pub struct WAIT_EVENT(pub u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WIN32_ERROR(pub u32);
+pub struct NTSTATUS_FACILITY_CODE(pub u32);
