@@ -69,26 +69,41 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          # GitHub's windows-2022 image ships LLVM under C:\Program Files\LLVM.
-          # Wipe it so libclang.dll is unreachable through clang-sys's runtime
-          # loader (LIBCLANG_PATH → PATH → registry).
-          foreach ($dir in @('C:\Program Files\LLVM', 'C:\Program Files (x86)\LLVM', 'C:\hostedtoolcache\windows\llvm')) {
+          # Make sure LIBCLANG_PATH is empty for the rest of the job, so
+          # clang-sys's runtime loader can't pick it up that way.
+          "LIBCLANG_PATH=" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          $env:LIBCLANG_PATH = ''
+
+          # Wipe LLVM install directories shipped on the windows-2022 image so
+          # libclang.dll is unreachable through DLL search paths.
+          foreach ($dir in @(
+            'C:\Program Files\LLVM',
+            'C:\Program Files (x86)\LLVM',
+            'C:\hostedtoolcache\windows\llvm'
+          )) {
             if (Test-Path $dir) {
               Write-Host "Removing $dir"
-              Remove-Item -Recurse -Force $dir
+              Remove-Item -Recurse -Force $dir -ErrorAction SilentlyContinue
             }
           }
-          # Sweep for any stray libclang.dll on common paths.
-          $hits = Get-ChildItem -Path 'C:\Program Files', 'C:\Program Files (x86)', 'C:\Windows\System32' `
-            -Recurse -Filter 'libclang*.dll' -ErrorAction SilentlyContinue
-          foreach ($f in $hits) {
-            Write-Host "Removing $($f.FullName)"
-            Remove-Item -Force $f.FullName -ErrorAction SilentlyContinue
+
+          # Iteratively delete every libclang.dll discoverable on PATH (this is
+          # exactly the lookup `clang-sys` does at runtime). Loop until
+          # `where.exe` reports nothing.
+          for ($i = 0; $i -lt 20; $i++) {
+            $found = & where.exe libclang.dll 2>$null
+            if ($LASTEXITCODE -ne 0 -or -not $found) { break }
+            foreach ($p in $found) {
+              $p = $p.Trim()
+              if ($p -and (Test-Path $p)) {
+                Write-Host "Removing $p"
+                Remove-Item -Force $p -ErrorAction SilentlyContinue
+              }
+            }
           }
-          # Make sure LIBCLANG_PATH is empty for the rest of the job.
-          "LIBCLANG_PATH=" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
-          # Sanity-check: no libclang.dll discoverable via PATH.
-          $found = (& where.exe libclang.dll 2>$null)
+
+          # Final sanity-check: no libclang.dll discoverable via PATH.
+          $found = & where.exe libclang.dll 2>$null
           if ($LASTEXITCODE -eq 0 -and $found) {
             Write-Error "libclang.dll is still discoverable on PATH:`n$found"
             exit 1
