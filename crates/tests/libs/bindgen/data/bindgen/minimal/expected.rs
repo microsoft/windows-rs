@@ -158,4 +158,5 @@ pub mod Test {
         pub Stat:
             unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
     }
+    pub const INVALID_HANDLE_VALUE: HANDLE = -1i32 as _;
 }

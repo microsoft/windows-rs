@@ -104,7 +104,15 @@ impl CppConst {
                     value = quote! { #value as _ };
                 }
 
-                if config.sys || field_ty == Type::Bool {
+                // In `--sys` mode, every wrapper struct/enum is emitted as a
+                // bare type alias, so constants must drop the `Self(value)`
+                // newtype constructor. In `--minimal` mode only handle
+                // structs become aliases, so we drop the wrapper for those
+                // too; non-handle wrapper types (e.g. enum newtypes) keep it.
+                let emit_alias_const = config.sys
+                    || (config.minimal
+                        && matches!(&field_ty, Type::CppStruct(ty) if ty.is_handle(config.reader)));
+                if emit_alias_const || field_ty == Type::Bool {
                     quote! {
                         #cfg
                         pub const #name: #ty = #value;
