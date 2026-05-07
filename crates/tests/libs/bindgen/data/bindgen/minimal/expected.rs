@@ -1,4 +1,6 @@
 pub mod Test {
+    windows_link::link!("test.dll" "system" fn GetValue() -> u32);
+    windows_link::link!("test.dll" "system" fn SetValue(value : u32));
     #[repr(transparent)]
     #[derive(Clone, Debug, Eq, PartialEq)]
     pub struct Foo(windows_core::IUnknown);
@@ -53,6 +55,7 @@ pub mod Test {
     impl windows_core::RuntimeName for Foo {
         const NAME: &'static str = "Test.Foo";
     }
+    pub type HANDLE = *mut core::ffi::c_void;
     windows_core::imp::define_interface!(IFoo, IFoo_Vtbl, 0xf05f601f_33d2_54fc_adca_2df8c56fe621);
     impl windows_core::RuntimeType for IFoo {
         const SIGNATURE: windows_core::imp::ConstBuffer =

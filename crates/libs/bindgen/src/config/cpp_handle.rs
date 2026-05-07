@@ -6,7 +6,7 @@ impl Config<'_> {
         let ty = def.underlying_type_ext(self.reader);
         let ty_name = ty.write_name(self);
 
-        if self.sys || self.typedef {
+        if self.sys || self.typedef || self.minimal {
             quote! {
                 pub type #name = #ty_name;
             }

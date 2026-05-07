@@ -87,7 +87,7 @@ pub fn builder() -> Bindgen {
 /// | `--sys` | Generates raw or sys-style Rust bindings. |
 /// | `--sys-fn-ptrs` | Additionally generates function pointers for sys-style Rust bindings. |
 /// | `--sys-fn-extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. |
-/// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods and inherited interface forwarders to reduce build time. Mutually exclusive with `--sys`. |
+/// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time. Mutually exclusive with `--sys`. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. |
 /// | `--implements` | Includes implementation traits for the listed types only. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
@@ -651,6 +651,13 @@ impl Bindgen {
     /// methods on interfaces are omitted (only methods that dispatch on the
     /// interface's own vtable are kept). Callers must explicitly
     /// `cast::<IFoo>()?` to the interface that owns a slot before invoking it.
+    ///
+    /// Handle types are emitted as bare `pub type` aliases over their
+    /// underlying primitive (matching `--sys` / `--typedef`), without the
+    /// `is_invalid`, `Free`, or `AlsoUsableFor` machinery. Free functions are
+    /// emitted as their `link!` (or extern) declaration only, without the
+    /// `Result<T>` / `from_thread` / `from_abi` ergonomic wrappers (also
+    /// matching `--sys`).
     ///
     /// This is a build-time / disk / memory optimization: the generated source
     /// is dramatically smaller and rustc does much less type-checking and

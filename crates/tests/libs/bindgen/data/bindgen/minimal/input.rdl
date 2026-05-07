@@ -21,6 +21,14 @@
 //     attribute, so it's a factory interface and its method (`Stat`) is
 //     already exposed via `impl Foo`.
 //   * `IFoo_Vtbl` must be byte-identical to default mode (slots intact).
+//
+// The `#[win32]` mod additionally exercises the sys-style drops that
+// minimal mode now performs:
+//   * `HANDLE` (a single-`Value`-field NativeTypedef-attributed struct) is
+//     emitted as a bare `pub type HANDLE = *mut core::ffi::c_void;` alias,
+//     not as a `#[repr(transparent)]` newtype with `is_invalid` / `Free`.
+//   * `GetValue` and `SetValue` are emitted as their `link!` declaration
+//     only, without the `pub unsafe fn`-style ergonomic wrapper.
 
 #[winrt]
 mod Test {
@@ -40,4 +48,12 @@ mod Test {
     interface IFooStatics {
         fn Stat(&self) -> i32;
     }
+}
+#[win32]
+mod Test {
+    type HANDLE = *mut void;
+    #[library("test.dll")]
+    extern fn GetValue() -> u32;
+    #[library("test.dll")]
+    extern fn SetValue(value: u32);
 }
