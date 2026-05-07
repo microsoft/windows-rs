@@ -30,6 +30,11 @@
 //   * Constants of a handle type (e.g. `INVALID_HANDLE_VALUE: HANDLE`) are
 //     emitted without the `HANDLE(value)` newtype constructor, since the
 //     handle type is now a bare alias rather than a tuple struct.
+//   * Unscoped Win32 enums (`Color`) are emitted as a bare
+//     `pub type Color = i32;` alias, with their variants flattened into
+//     top-level `pub const Red: Color = 0i32;` constants (no `Color(...)`
+//     newtype constructor). Scoped enums still emit as a transparent
+//     newtype wrapper.
 //   * `GetValue` and `SetValue` are emitted as their `link!` declaration
 //     only, without the `pub unsafe fn`-style ergonomic wrapper.
 
@@ -56,6 +61,12 @@ mod Test {
 mod Test {
     type HANDLE = *mut void;
     const INVALID_HANDLE_VALUE: HANDLE = -1;
+    #[repr(i32)]
+    enum Color {
+        Red = 0,
+        Green = 1,
+        Blue = 2,
+    }
     #[library("test.dll")]
     extern fn GetValue() -> u32;
     #[library("test.dll")]
