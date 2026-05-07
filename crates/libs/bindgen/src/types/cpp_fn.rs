@@ -103,8 +103,8 @@ impl CppFn {
         let cfg = quote! { #arches #cfg };
         let window_long = self.write_window_long();
 
-        if config.sys {
-            let fn_ptr = if config.sys_fn_ptrs {
+        if config.sys || config.minimal {
+            let fn_ptr = if config.sys && config.sys_fn_ptrs {
                 let fn_ptr = self.write_fn_ptr(config, false);
 
                 quote! {

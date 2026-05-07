@@ -30,7 +30,7 @@ impl CppEnum {
         let tn = self.def.type_name();
         let is_scoped = self.def.has_attribute("ScopedEnumAttribute");
 
-        if !is_scoped && config.sys {
+        if !is_scoped && (config.sys || config.minimal) {
             return config.write_cpp_handle(self.def);
         }
 
