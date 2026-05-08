@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --filter AsyncStatus CollectionChange --derive AsyncStatus=PartialOrd"
+args = "--no-comment --no-deps --in default --flat --filter AsyncStatus CollectionChange --derive AsyncStatus=PartialOrd"
