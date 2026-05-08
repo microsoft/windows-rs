@@ -5,33 +5,6 @@
 --filter
     Windows
 
-// windows-collections
-    !Windows.Foundation.Collections.CollectionChange
-    !Windows.Foundation.Collections.IIterable
-    !Windows.Foundation.Collections.IIterator
-    !Windows.Foundation.Collections.IKeyValuePair
-    !Windows.Foundation.Collections.IMap
-    !Windows.Foundation.Collections.IMapChangedEventArgs
-    !Windows.Foundation.Collections.IMapView
-    !Windows.Foundation.Collections.IObservableMap
-    !Windows.Foundation.Collections.IObservableVector
-    !Windows.Foundation.Collections.IVector
-    !Windows.Foundation.Collections.IVectorChangedEventArgs
-    !Windows.Foundation.Collections.IVectorView
-    !Windows.Foundation.Collections.MapChangedEventHandler
-    !Windows.Foundation.Collections.VectorChangedEventHandler
-
-// windows-numerics
-    !Windows.Foundation.Numerics.Matrix3x2
-    !Windows.Foundation.Numerics.Matrix4x4
-    !Windows.Foundation.Numerics.Vector2
-    !Windows.Foundation.Numerics.Vector3
-    !Windows.Foundation.Numerics.Vector4
-
-// windows-future
-    !Windows.Foundation.Async*
-    !Windows.Foundation.IAsync*
-
     !Windows.AI.MachineLearning.Preview
     !Windows.ApplicationModel.SocialInfo
     !Windows.ApplicationModel.Store
@@ -46,8 +19,3 @@
     !Windows.Win32.System.WinRT.Xaml
     !Windows.Win32.UI.Xaml
     !Windows.Win32.Web.MsHtml
-
-// windows-result
-    !Windows.Win32.Foundation.WIN32_ERROR
-    !Windows.Win32.Foundation.NTSTATUS
-    !Windows.Win32.System.Rpc.RPC_STATUS

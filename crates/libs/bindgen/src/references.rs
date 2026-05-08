@@ -40,6 +40,14 @@ impl ReferenceStage {
             path: arg[2].to_string(),
         }
     }
+
+    pub fn new(name: &str, style: ReferenceStyle, path: &str) -> Self {
+        Self {
+            name: name.to_string(),
+            style,
+            path: path.to_string(),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq)]
