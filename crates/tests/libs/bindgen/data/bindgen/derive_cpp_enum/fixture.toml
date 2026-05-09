@@ -1,1 +1,1 @@
-args = "--no-comment --no-deps --in default --flat --filter WAIT_EVENT WIN32_ERROR --derive WAIT_EVENT=PartialOrd"
+args = "--no-comment --in default --flat --filter WAIT_EVENT WIN32_ERROR --derive WAIT_EVENT=PartialOrd"
