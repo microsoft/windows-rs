@@ -38,7 +38,10 @@ impl TypeMap {
                         // if a reference is more specific than the filter, then we shouldn't include the matched type or its dependencies.
                         if !references
                             .matching_rule(TypeName(namespace, name))
-                            .map_or(false, |reference_rule| reference_rule.len() > filter_rule.len()) {
+                            .map_or(false, |reference_rule| {
+                                reference_rule.len() > filter_rule.len()
+                            })
+                        {
                             let mut item_dependencies = Self::new();
 
                             for ty in types {
