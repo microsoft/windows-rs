@@ -9,12 +9,15 @@
 //! ## Scope
 //!
 //! `interface_decl!` targets the dominant case: a COM interface whose direct parent is
-//! `IUnknown`, whose methods either return `windows_core::Result<T>`, return a value type,
-//! or return nothing. It does **not** support `Ref<T>` / `OutRef<T>` parameters with the
-//! implicit `Param` / `OutParam` bound generation that `#[interface]` provides — pass the
-//! underlying ABI types instead. It does not support scoped (non-`IUnknown`) interfaces
-//! or `IInspectable`-derived (WinRT) interfaces. The matching chain for derived custom
-//! interfaces is not traversed; use the proc-macro for those cases.
+//! `IUnknown`, whose methods either return `windows_core::Result<()>`, return a value
+//! type, or return nothing. It does **not** support `Result<T>` for non-unit `T` (the
+//! safe caller wrapper would discard the value); model that case with a `*mut T`
+//! out-parameter and `Result<()>`. It does **not** support `Ref<T>` / `OutRef<T>`
+//! parameters with the implicit `Param` / `OutParam` bound generation that `#[interface]`
+//! provides — pass the underlying ABI types instead. It does not support scoped
+//! (non-`IUnknown`) interfaces or `IInspectable`-derived (WinRT) interfaces. The matching
+//! chain for derived custom interfaces is not traversed; use the proc-macro for those
+//! cases.
 //!
 //! ## Syntax
 //!
@@ -40,8 +43,8 @@
 //!
 //! ## Semantics
 //!
-//! - `-> Result<T>` methods produce a safe caller-side wrapper that appends `.ok()` and a
-//!   vtable entry typed `-> HRESULT`. The thunk converts the implementer's `Result<T>`
+//! - `-> Result<()>` methods produce a safe caller-side wrapper that appends `.ok()` and a
+//!   vtable entry typed `-> HRESULT`. The thunk converts the implementer's `Result<()>`
 //!   back into an `HRESULT` via `Into`.
 //! - Any other return type is passed through unchanged.
 //! - A method with no return type produces a void-returning thunk.
@@ -113,12 +116,12 @@ macro_rules! __interface_decl_safe_wrappers {
     ($vis:vis,) => {};
     ($vis:vis,
         $(#[doc = $mdoc:expr])*
-        unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> Result < $res:ty > ;
+        unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> Result < () > ;
         $($rest:tt)*
     ) => {
         $(#[doc = $mdoc])*
         #[inline]
-        $vis unsafe fn $mname(&self $(, $aname: $aty)*) -> $crate::Result<$res> {
+        $vis unsafe fn $mname(&self $(, $aname: $aty)*) -> $crate::Result<()> {
             unsafe {
                 ($crate::Interface::vtable(self).$mname)($crate::Interface::as_raw(self) $(, $aname)*).ok()
             }
@@ -163,11 +166,11 @@ macro_rules! __interface_decl_trait_methods {
     () => {};
     (
         $(#[doc = $mdoc:expr])*
-        unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> Result < $res:ty > ;
+        unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> Result < () > ;
         $($rest:tt)*
     ) => {
         $(#[doc = $mdoc])*
-        unsafe fn $mname(&self $(, $aname: $aty)*) -> $crate::Result<$res>;
+        unsafe fn $mname(&self $(, $aname: $aty)*) -> $crate::Result<()>;
         $crate::__interface_decl_trait_methods!($($rest)*);
     };
     (
@@ -193,10 +196,8 @@ macro_rules! __interface_decl_trait_methods {
 // --- vtable struct + impl emission via TT-muncher accumulator ---
 //
 // We can't use helper macros in struct field lists or struct-expression initializers, so
-// this macro accumulates four token lists (vtbl fields, vtbl initializers, thunk fn defs,
-// and matches-arms for parent chain traversal — currently unused but reserved for a
-// future extension) and emits the whole `struct $vtbl { ... } impl $vtbl { ... }` block
-// at the end.
+// this macro accumulates three token lists (vtbl fields, vtbl initializers, thunk fn
+// defs) and emits the whole `struct $vtbl { ... } impl $vtbl { ... }` block at the end.
 
 #[doc(hidden)]
 #[macro_export]
@@ -224,7 +225,7 @@ macro_rules! __interface_decl_vtbl {
         }
     };
 
-    // Result-returning method.
+    // Result-returning method (only `Result<()>` is supported).
     (@walk
         vis: $vis:vis,
         name: $name:ident,
@@ -236,7 +237,7 @@ macro_rules! __interface_decl_vtbl {
         thunks: { $($thunks:tt)* },
         rest: {
             $(#[doc = $mdoc:expr])*
-            unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> Result < $res:ty > ;
+            unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> Result < () > ;
             $($more:tt)*
         }
     ) => {
