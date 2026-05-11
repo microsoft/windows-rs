@@ -10,6 +10,7 @@ doctest = false
 
 [dependencies.windows-core]
 workspace = true
+features = ["proc-macros"]
 
 [dependencies]
 static_assertions = "1.1"

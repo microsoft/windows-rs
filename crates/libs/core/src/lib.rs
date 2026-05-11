@@ -32,6 +32,7 @@ mod guid;
 mod in_ref;
 mod inspectable;
 mod interface;
+mod interface_macro;
 mod out_param;
 mod out_ref;
 mod param;

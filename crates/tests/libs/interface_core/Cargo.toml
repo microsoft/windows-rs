@@ -10,6 +10,7 @@ doctest = false
 
 [dependencies.windows-core]
 workspace = true
+features = ["proc-macros"]
 
 [lints]
 workspace = true
