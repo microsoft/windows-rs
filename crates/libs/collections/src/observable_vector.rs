@@ -193,10 +193,13 @@ where
     }
 }
 
-#[implement(IVectorChangedEventArgs)]
 struct StockVectorChangedEventArgs {
     change: CollectionChange,
     index: u32,
+}
+
+implement_decl! {
+    impl StockVectorChangedEventArgs as StockVectorChangedEventArgs_Impl: [IVectorChangedEventArgs]
 }
 
 impl IVectorChangedEventArgs_Impl for StockVectorChangedEventArgs_Impl {

@@ -97,8 +97,11 @@ impl<T: Async> SyncState<T> {
 
 unsafe impl<T: Async> Send for SyncState<T> {}
 
-#[implement(IAsyncAction, IAsyncInfo)]
 struct Action(SyncState<IAsyncAction>);
+
+implement_decl! {
+    impl Action as Action_Impl: [IAsyncAction, IAsyncInfo]
+}
 
 struct Operation<T>(SyncState<IAsyncOperation<T>>)
 where

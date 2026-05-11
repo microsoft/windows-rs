@@ -43,8 +43,11 @@ impl<T: Async> ReadyState<T> {
     }
 }
 
-#[implement(IAsyncAction, IAsyncInfo)]
 struct ReadyAction(ReadyState<IAsyncAction>);
+
+implement_decl! {
+    impl ReadyAction as ReadyAction_Impl: [IAsyncAction, IAsyncInfo]
+}
 
 struct ReadyOperation<T>(ReadyState<IAsyncOperation<T>>)
 where
