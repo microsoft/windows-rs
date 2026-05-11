@@ -454,25 +454,56 @@ macro_rules! __implement_decl_struct {
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __implement_decl_offset_negate {
-    (()) => { -1isize };
-    (() ()) => { -2isize };
-    (() () ()) => { -3isize };
-    (() () () ()) => { -4isize };
-    (() () () () ()) => { -5isize };
-    (() () () () () ()) => { -6isize };
-    (() () () () () () ()) => { -7isize };
-    (() () () () () () () ()) => { -8isize };
-    (() () () () () () () () ()) => { -9isize };
-    (() () () () () () () () () ()) => { -10isize };
-    (() () () () () () () () () () ()) => { -11isize };
-    (() () () () () () () () () () () ()) => { -12isize };
-    (() () () () () () () () () () () () ()) => { -13isize };
-    (() () () () () () () () () () () () () ()) => { -14isize };
-    (() () () () () () () () () () () () () () ()) => { -15isize };
-    (() () () () () () () () () () () () () () () ()) => { -16isize };
-    // Hand-written implementers rarely declare more than a handful of interfaces; the
-    // hard cap is more than the practical maximum.  If you hit this, split your
-    // implementation across multiple objects or use the proc-macro.
+    (()) => {
+        -1isize
+    };
+    (() ()) => {
+        -2isize
+    };
+    (() () ()) => {
+        -3isize
+    };
+    (() () () ()) => {
+        -4isize
+    };
+    (() () () () ()) => {
+        -5isize
+    };
+    (() () () () () ()) => {
+        -6isize
+    };
+    (() () () () () () ()) => {
+        -7isize
+    };
+    (() () () () () () () ()) => {
+        -8isize
+    };
+    (() () () () () () () () ()) => {
+        -9isize
+    };
+    (() () () () () () () () () ()) => {
+        -10isize
+    };
+    (() () () () () () () () () () ()) => {
+        -11isize
+    };
+    (() () () () () () () () () () () ()) => {
+        -12isize
+    };
+    (() () () () () () () () () () () () ()) => {
+        -13isize
+    };
+    (() () () () () () () () () () () () () ()) => {
+        -14isize
+    };
+    (() () () () () () () () () () () () () () ()) => {
+        -15isize
+    };
+    (() () () () () () () () () () () () () () () ()) => {
+        -16isize
+    }; // Hand-written implementers rarely declare more than a handful of interfaces; the
+       // hard cap is more than the practical maximum.  If you hit this, split your
+       // implementation across multiple objects or use the proc-macro.
 }
 
 // --- Per-interface impls ----------------------------------------------------------------
@@ -556,20 +587,52 @@ macro_rules! __implement_decl_per_iface_impls {
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __implement_decl_index_plus_two {
-    () => { 2usize };
-    (()) => { 3usize };
-    (() ()) => { 4usize };
-    (() () ()) => { 5usize };
-    (() () () ()) => { 6usize };
-    (() () () () ()) => { 7usize };
-    (() () () () () ()) => { 8usize };
-    (() () () () () () ()) => { 9usize };
-    (() () () () () () () ()) => { 10usize };
-    (() () () () () () () () ()) => { 11usize };
-    (() () () () () () () () () ()) => { 12usize };
-    (() () () () () () () () () () ()) => { 13usize };
-    (() () () () () () () () () () () ()) => { 14usize };
-    (() () () () () () () () () () () () ()) => { 15usize };
-    (() () () () () () () () () () () () () ()) => { 16usize };
-    (() () () () () () () () () () () () () () ()) => { 17usize };
+    () => {
+        2usize
+    };
+    (()) => {
+        3usize
+    };
+    (() ()) => {
+        4usize
+    };
+    (() () ()) => {
+        5usize
+    };
+    (() () () ()) => {
+        6usize
+    };
+    (() () () () ()) => {
+        7usize
+    };
+    (() () () () () ()) => {
+        8usize
+    };
+    (() () () () () () ()) => {
+        9usize
+    };
+    (() () () () () () () ()) => {
+        10usize
+    };
+    (() () () () () () () () ()) => {
+        11usize
+    };
+    (() () () () () () () () () ()) => {
+        12usize
+    };
+    (() () () () () () () () () () ()) => {
+        13usize
+    };
+    (() () () () () () () () () () () ()) => {
+        14usize
+    };
+    (() () () () () () () () () () () () ()) => {
+        15usize
+    };
+    (() () () () () () () () () () () () () ()) => {
+        16usize
+    };
+    (() () () () () () () () () () () () () () ()) => {
+        17usize
+    };
 }
