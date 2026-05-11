@@ -1,9 +1,9 @@
-//! Exercises the `interface_decl!` macro_rules! alternative to `#[interface]`.
+//! Exercises the `interface_decl!` and `implement_decl!` macro_rules! alternatives to
+//! `#[interface]` / `#[implement]`.
 //!
-//! The interface side is declared with the declarative macro, while the implementation
-//! side reuses the existing `#[implement]` proc-macro. This proves that
-//! `interface_decl!`-generated items (`ITest`, `ITest_Vtbl`, `ITest_Impl`) are layout- and
-//! API-compatible with what `#[interface]` would have emitted.
+//! Both sides — interface declaration and implementer wiring — are done with declarative
+//! macros, so this test doubles as proof that the fully proc-macro-free path produces an
+//! object that is layout- and ABI-compatible with what the proc-macros would have emitted.
 
 #![expect(non_snake_case)]
 
@@ -25,8 +25,19 @@ interface_decl! {
     }
 }
 
-#[implement(ITest)]
-struct Test;
+interface_decl! {
+    pub unsafe trait IOther(IOther_Vtbl, IOther_Impl) : IUnknown
+        = 0x1a2b3c4d_5e6f_7081_92a3_b4c5d6e7f809
+    {
+        unsafe fn Plus(&self, a: i32, b: i32) -> i32;
+    }
+}
+
+pub struct Test;
+
+implement_decl! {
+    impl Test as pub Test_Impl: [ITest: ITest_Vtbl, IOther: IOther_Vtbl]
+}
 
 impl ITest_Impl for Test_Impl {
     unsafe fn Void(&self) {}
@@ -38,8 +49,14 @@ impl ITest_Impl for Test_Impl {
     }
 }
 
+impl IOther_Impl for Test_Impl {
+    unsafe fn Plus(&self, a: i32, b: i32) -> i32 {
+        a + b
+    }
+}
+
 #[test]
-fn test() {
+fn test_itest() {
     unsafe {
         let test: ITest = Test.into();
 
@@ -56,6 +73,22 @@ fn test() {
 }
 
 #[test]
+fn test_iother() {
+    unsafe {
+        // Construct via the second interface to exercise its vtable slot.
+        let other: IOther = Test.into();
+        assert_eq!(other.Plus(2, 3), 5);
+        assert_eq!(other.Plus(-1, 1), 0);
+
+        // QueryInterface across to ITest and back to IOther.
+        let test: ITest = other.cast().unwrap();
+        test.Void();
+        let other2: IOther = test.cast().unwrap();
+        assert_eq!(other2.Plus(7, 8), 15);
+    }
+}
+
+#[test]
 fn iid_matches() {
     assert_eq!(
         ITest::IID,
@@ -64,3 +97,15 @@ fn iid_matches() {
     assert!(ITest_Vtbl::matches(&ITest::IID));
     assert!(!ITest_Vtbl::matches(&IUnknown::IID));
 }
+
+#[test]
+fn refcount_drops_to_zero() {
+    // Construct an object, take an extra reference via cast, then drop both. If the
+    // refcount math is wrong the boxed object would leak (caught by miri) or, if doubly
+    // freed, cause a crash. This test is mainly here so that the `Release` path runs.
+    let test: ITest = Test.into();
+    let other: IOther = unsafe { test.cast() }.unwrap();
+    drop(test);
+    drop(other);
+}
+
