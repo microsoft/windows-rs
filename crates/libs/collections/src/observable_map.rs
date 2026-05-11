@@ -1,7 +1,6 @@
 use super::*;
 use windows_core::*;
 
-#[implement(IObservableMap<K, V>, IMap<K, V>, IIterable<IKeyValuePair<K, V>>)]
 struct StockObservableMap<K, V>
 where
     K: RuntimeType + 'static,
@@ -11,6 +10,15 @@ where
 {
     map: std::sync::RwLock<std::collections::BTreeMap<K::Default, V::Default>>,
     handlers: Event<MapChangedEventHandler<K, V>>,
+}
+
+implement_decl_generic! {
+    impl<K, V> StockObservableMap as StockObservableMap_Impl: [
+        IObservableMap: IObservableMap<K, V>,
+        IMap: IMap<K, V>,
+        IIterable: IIterable<IKeyValuePair<K, V>>,
+    ]
+    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
 }
 
 impl<K, V> IObservableMap_Impl<K, V> for StockObservableMap_Impl<K, V>
@@ -132,7 +140,6 @@ where
     }
 }
 
-#[implement(IMapChangedEventArgs<K>)]
 struct StockMapChangedEventArgs<K>
 where
     K: RuntimeType + 'static,
@@ -140,6 +147,13 @@ where
 {
     change: CollectionChange,
     key: Option<K::Default>,
+}
+
+implement_decl_generic! {
+    impl<K> StockMapChangedEventArgs as StockMapChangedEventArgs_Impl: [
+        IMapChangedEventArgs: IMapChangedEventArgs<K>,
+    ]
+    where K: RuntimeType + 'static, K::Default: Clone
 }
 
 impl<K> IMapChangedEventArgs_Impl<K> for StockMapChangedEventArgs_Impl<K>
@@ -159,7 +173,6 @@ where
     }
 }
 
-#[implement(IIterator<IKeyValuePair<K, V>>)]
 struct StockObservableMapIterator<K, V>
 where
     K: RuntimeType + 'static,
@@ -169,6 +182,13 @@ where
 {
     owner: ComObject<StockObservableMap<K, V>>,
     current: std::sync::atomic::AtomicUsize,
+}
+
+implement_decl_generic! {
+    impl<K, V> StockObservableMapIterator as StockObservableMapIterator_Impl: [
+        IIterator: IIterator<IKeyValuePair<K, V>>,
+    ]
+    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
 }
 
 impl<K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockObservableMapIterator_Impl<K, V>

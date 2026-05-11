@@ -1,7 +1,6 @@
 use super::*;
 use windows_core::*;
 
-#[implement(IKeyValuePair<K, V>)]
 pub(super) struct StockKeyValuePair<K, V>
 where
     K: RuntimeType + 'static,
@@ -11,6 +10,13 @@ where
 {
     pub(super) key: K::Default,
     pub(super) value: V::Default,
+}
+
+implement_decl_generic! {
+    impl<K, V> StockKeyValuePair as pub(super) StockKeyValuePair_Impl: [
+        IKeyValuePair: IKeyValuePair<K, V>,
+    ]
+    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone, V::Default: Clone
 }
 
 impl<K, V> IKeyValuePair_Impl<K, V> for StockKeyValuePair_Impl<K, V>

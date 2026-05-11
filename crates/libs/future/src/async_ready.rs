@@ -46,21 +46,42 @@ impl<T: Async> ReadyState<T> {
 #[implement(IAsyncAction, IAsyncInfo)]
 struct ReadyAction(ReadyState<IAsyncAction>);
 
-#[implement(IAsyncOperation<T>, IAsyncInfo)]
 struct ReadyOperation<T>(ReadyState<IAsyncOperation<T>>)
 where
     T: RuntimeType + 'static;
 
-#[implement(IAsyncActionWithProgress<P>, IAsyncInfo)]
+implement_decl_generic! {
+    impl<T> ReadyOperation as ReadyOperation_Impl: [
+        IAsyncOperation: IAsyncOperation<T>,
+        IAsyncInfo: IAsyncInfo,
+    ]
+    where T: RuntimeType + 'static
+}
+
 struct ReadyActionWithProgress<P>(ReadyState<IAsyncActionWithProgress<P>>)
 where
     P: RuntimeType + 'static;
 
-#[implement(IAsyncOperationWithProgress<T, P>, IAsyncInfo)]
+implement_decl_generic! {
+    impl<P> ReadyActionWithProgress as ReadyActionWithProgress_Impl: [
+        IAsyncActionWithProgress: IAsyncActionWithProgress<P>,
+        IAsyncInfo: IAsyncInfo,
+    ]
+    where P: RuntimeType + 'static
+}
+
 struct ReadyOperationWithProgress<T, P>(ReadyState<IAsyncOperationWithProgress<T, P>>)
 where
     T: RuntimeType + 'static,
     P: RuntimeType + 'static;
+
+implement_decl_generic! {
+    impl<T, P> ReadyOperationWithProgress as ReadyOperationWithProgress_Impl: [
+        IAsyncOperationWithProgress: IAsyncOperationWithProgress<T, P>,
+        IAsyncInfo: IAsyncInfo,
+    ]
+    where T: RuntimeType + 'static, P: RuntimeType + 'static
+}
 
 impl IAsyncInfo_Impl for ReadyAction_Impl {
     fn Id(&self) -> Result<u32> {

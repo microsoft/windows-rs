@@ -1,13 +1,20 @@
 use super::*;
 use windows_core::*;
 
-#[implement(IVectorView<T>, IIterable<T>)]
 struct StockVectorView<T>
 where
     T: RuntimeType + 'static,
     T::Default: Clone + PartialEq,
 {
     values: Vec<T::Default>,
+}
+
+implement_decl_generic! {
+    impl<T> StockVectorView as StockVectorView_Impl: [
+        IVectorView: IVectorView<T>,
+        IIterable: IIterable<T>,
+    ]
+    where T: RuntimeType + 'static, T::Default: Clone + PartialEq
 }
 
 impl<T> IIterable_Impl<T> for StockVectorView_Impl<T>
@@ -73,7 +80,6 @@ where
     }
 }
 
-#[implement(IIterator<T>)]
 struct StockVectorViewIterator<T>
 where
     T: RuntimeType + 'static,
@@ -81,6 +87,13 @@ where
 {
     owner: ComObject<StockVectorView<T>>,
     current: std::sync::atomic::AtomicUsize,
+}
+
+implement_decl_generic! {
+    impl<T> StockVectorViewIterator as StockVectorViewIterator_Impl: [
+        IIterator: IIterator<T>,
+    ]
+    where T: RuntimeType + 'static, T::Default: Clone + PartialEq
 }
 
 impl<T> IIterator_Impl<T> for StockVectorViewIterator_Impl<T>

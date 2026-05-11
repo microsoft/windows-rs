@@ -1,7 +1,6 @@
 use super::*;
 use windows_core::*;
 
-#[implement(IObservableVector<T>, IVector<T>, IIterable<T>)]
 struct StockObservableVector<T>
 where
     T: RuntimeType + 'static,
@@ -9,6 +8,15 @@ where
 {
     values: std::sync::RwLock<Vec<T::Default>>,
     handlers: Event<VectorChangedEventHandler<T>>,
+}
+
+implement_decl_generic! {
+    impl<T> StockObservableVector as StockObservableVector_Impl: [
+        IObservableVector: IObservableVector<T>,
+        IVector: IVector<T>,
+        IIterable: IIterable<T>,
+    ]
+    where T: RuntimeType + 'static, T::Default: Clone + PartialEq
 }
 
 impl<T> IObservableVector_Impl<T> for StockObservableVector_Impl<T>
@@ -201,7 +209,6 @@ impl IVectorChangedEventArgs_Impl for StockVectorChangedEventArgs_Impl {
     }
 }
 
-#[implement(IIterator<T>)]
 struct StockObservableVectorIterator<T>
 where
     T: RuntimeType + 'static,
@@ -209,6 +216,13 @@ where
 {
     owner: ComObject<StockObservableVector<T>>,
     current: std::sync::atomic::AtomicUsize,
+}
+
+implement_decl_generic! {
+    impl<T> StockObservableVectorIterator as StockObservableVectorIterator_Impl: [
+        IIterator: IIterator<T>,
+    ]
+    where T: RuntimeType + 'static, T::Default: Clone + PartialEq
 }
 
 impl<T> IIterator_Impl<T> for StockObservableVectorIterator_Impl<T>
