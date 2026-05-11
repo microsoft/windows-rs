@@ -108,4 +108,3 @@ fn refcount_drops_to_zero() {
     drop(test);
     drop(other);
 }
-
