@@ -35,7 +35,7 @@
 //! pub struct Foo;
 //!
 //! implement_decl! {
-//!     impl Foo as pub Foo_Impl: [IFoo: IFoo_Vtbl]
+//!     impl Foo as pub Foo_Impl: [IFoo]
 //! }
 //!
 //! impl IFoo_Impl for Foo_Impl {
@@ -47,8 +47,9 @@
 //!   the macro.
 //! - `Foo_Impl` is the wrapper that the macro defines. Visibility (`pub`, `pub(crate)`, …)
 //!   may be supplied before the ident; it defaults to private.
-//! - Each list entry `IFace: IFace_Vtbl` pairs an interface ident with its vtable ident.
-//!   Both are required because `macro_rules!` cannot synthesize identifiers.
+//! - Each list entry is just the interface ident. The associated `_Vtbl` type is reached
+//!   through `<IFoo as Interface>::Vtable`, so it does not need to be spelled out, and
+//!   the `_Impl` trait is referenced only by user code outside the macro.
 //! - At least one interface must be supplied.
 //!
 //! ## Generated items
@@ -81,23 +82,33 @@
 macro_rules! implement_decl {
     (
         impl $name:ident as $impl_vis:vis $impl_name:ident : [
-            $( $iface:ident : $vtbl:ident ),+ $(,)?
+            $( $iface:ident ),+ $(,)?
         ] $(,)?
     ) => {
+        // The vtable type for each interface is resolved via the `Interface::Vtable`
+        // associated type (i.e. `<IFoo as Interface>::Vtable`), so the caller does not
+        // have to spell out `IFoo_Vtbl`. `macro_rules!` cannot synthesize identifiers,
+        // but every use of the vtable here is as a *type*, so the associated-type path
+        // is a drop-in substitute for the concrete `_Vtbl` ident. Inherent items on the
+        // concrete vtable (`new`, `matches`) remain reachable through the path.
+        //
+        // The `_Impl` trait is *only* referenced by user code (e.g. `impl IFoo_Impl for
+        // Foo_Impl { ... }`), never by this macro, so nothing needs to be inferred for it.
+
         // The first declared interface doubles as the `Name` type argument to
         // `IInspectable_Vtbl::new`, mirroring the proc-macro so that
         // `GetRuntimeClassName` works for runtime-class implementers.
         $crate::__implement_decl_first_iface! {
             @find
             args: [ vis: $impl_vis, name: $name, impl_name: $impl_name, ],
-            remaining: [ $( ($iface, $vtbl) )+ ]
+            remaining: [ $( ($iface) )+ ]
         }
 
         // Per-interface impls. Each of these is a sequence of `impl` items, which the
         // helper macro emits at item position by recursion.
         $crate::__implement_decl_per_iface_impls!(
             $name, $impl_name,
-            $( ($iface, $vtbl), )+
+            $( ($iface), )+
         );
     };
 }
@@ -113,7 +124,7 @@ macro_rules! implement_decl {
 macro_rules! __implement_decl_first_iface {
     (@find
         args: [ vis: $impl_vis:vis, name: $name:ident, impl_name: $impl_name:ident, ],
-        remaining: [ ($first_iface:ident, $first_vtbl:ident) $($rest:tt)* ]
+        remaining: [ ($first_iface:ident) $($rest:tt)* ]
     ) => {
         $crate::__implement_decl_struct! {
             @walk
@@ -125,7 +136,7 @@ macro_rules! __implement_decl_first_iface {
             inits:     { },
             qi_pairs:  [ ],
             offset:    [ () () ],  // 2 unary-counted placeholders for the -2 starting offset
-            remaining: [ ($first_iface, $first_vtbl) $($rest)* ]
+            remaining: [ ($first_iface) $($rest)* ]
         }
     };
 }
@@ -158,7 +169,7 @@ macro_rules! __implement_decl_struct {
         inits:     { $($inits:tt)* },
         qi_pairs:  [ $($qi_pairs:tt)* ],
         offset:    [ $($offset:tt)* ],
-        remaining: [ ($iface:ident, $vtbl:ident) $($rest:tt)* ]
+        remaining: [ ($iface:ident) $($rest:tt)* ]
     ) => {
         $crate::__implement_decl_struct! {
             @walk
@@ -169,13 +180,20 @@ macro_rules! __implement_decl_struct {
             fields: {
                 $($fields)*
                 #[allow(non_snake_case)]
-                pub $iface: &'static $vtbl,
+                pub $iface: &'static <$iface as $crate::Interface>::Vtable,
             },
             inits: {
                 $($inits)*
-                $iface: { const C: $vtbl = <$vtbl>::new::<$impl_name, { $crate::__implement_decl_offset_negate!($($offset)*) }>(); &C },
+                $iface: {
+                    const C: <$iface as $crate::Interface>::Vtable =
+                        <<$iface as $crate::Interface>::Vtable>::new::<
+                            $impl_name,
+                            { $crate::__implement_decl_offset_negate!($($offset)*) },
+                        >();
+                    &C
+                },
             },
-            qi_pairs: [ $($qi_pairs)* ($iface, $vtbl) ],
+            qi_pairs: [ $($qi_pairs)* ($iface) ],
             offset: [ $($offset)* () ],
             remaining: [ $($rest)* ]
         }
@@ -190,7 +208,7 @@ macro_rules! __implement_decl_struct {
         first_iface: $first_iface:ident,
         fields:    { $($fields:tt)* },
         inits:     { $($inits:tt)* },
-        qi_pairs:  [ $(($qi_iface:ident, $qi_vtbl:ident))* ],
+        qi_pairs:  [ $(($qi_iface:ident))* ],
         offset:    [ $($offset:tt)* ],
         remaining: [ ]
     ) => {
@@ -318,7 +336,7 @@ macro_rules! __implement_decl_struct {
                             break 'found &self.identity as *const _ as *const ::core::ffi::c_void;
                         }
                         $(
-                            if <$qi_vtbl>::matches(&iid) {
+                            if <<$qi_iface as $crate::Interface>::Vtable>::matches(&iid) {
                                 break 'found &self.$qi_iface as *const _ as *const ::core::ffi::c_void;
                             }
                         )*
@@ -471,20 +489,20 @@ macro_rules! __implement_decl_offset_negate {
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __implement_decl_per_iface_impls {
-    ($name:ident, $impl_name:ident, $(($iface:ident, $vtbl:ident),)+ ) => {
+    ($name:ident, $impl_name:ident, $(($iface:ident),)+ ) => {
         $crate::__implement_decl_per_iface_impls!(
             @walk
             name: $name,
             impl_name: $impl_name,
             index: [ ],
-            remaining: [ $( ($iface, $vtbl) )+ ]
+            remaining: [ $( ($iface) )+ ]
         );
     };
     (@walk
         name: $name:ident,
         impl_name: $impl_name:ident,
         index: [ $($index:tt)* ],
-        remaining: [ ($iface:ident, $vtbl:ident) $($rest:tt)* ]
+        remaining: [ ($iface:ident) $($rest:tt)* ]
     ) => {
         impl ::core::convert::From<$name> for $iface {
             #[inline(always)]

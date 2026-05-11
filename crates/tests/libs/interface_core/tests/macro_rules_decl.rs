@@ -36,7 +36,7 @@ interface_decl! {
 pub struct Test;
 
 implement_decl! {
-    impl Test as pub Test_Impl: [ITest: ITest_Vtbl, IOther: IOther_Vtbl]
+    impl Test as pub Test_Impl: [ITest, IOther]
 }
 
 impl ITest_Impl for Test_Impl {
@@ -104,7 +104,7 @@ fn refcount_drops_to_zero() {
     // refcount math is wrong the boxed object would leak (caught by miri) or, if doubly
     // freed, cause a crash. This test is mainly here so that the `Release` path runs.
     let test: ITest = Test.into();
-    let other: IOther = unsafe { test.cast() }.unwrap();
+    let other: IOther = test.cast().unwrap();
     drop(test);
     drop(other);
 }
