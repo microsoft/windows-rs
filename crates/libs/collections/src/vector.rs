@@ -11,8 +11,8 @@ where
 
 implement_decl_generic! {
     impl<T> StockVector as StockVector_Impl: [
-        IVector: IVector<T>,
-        IIterable: IIterable<T>,
+        IVector<T>,
+        IIterable<T>,
     ]
     where T: RuntimeType + 'static, T::Default: Clone + PartialEq
 }
@@ -153,7 +153,7 @@ where
 
 implement_decl_generic! {
     impl<T> StockVectorIterator as StockVectorIterator_Impl: [
-        IIterator: IIterator<T>,
+        IIterator<T>,
     ]
     where T: RuntimeType + 'static, T::Default: Clone + PartialEq
 }

@@ -14,9 +14,9 @@ where
 
 implement_decl_generic! {
     impl<K, V> StockObservableMap as StockObservableMap_Impl: [
-        IObservableMap: IObservableMap<K, V>,
-        IMap: IMap<K, V>,
-        IIterable: IIterable<IKeyValuePair<K, V>>,
+        IObservableMap<K, V>,
+        IMap<K, V>,
+        IIterable<IKeyValuePair<K, V>>,
     ]
     where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
 }
@@ -151,7 +151,7 @@ where
 
 implement_decl_generic! {
     impl<K> StockMapChangedEventArgs as StockMapChangedEventArgs_Impl: [
-        IMapChangedEventArgs: IMapChangedEventArgs<K>,
+        IMapChangedEventArgs<K>,
     ]
     where K: RuntimeType + 'static, K::Default: Clone
 }
@@ -186,7 +186,7 @@ where
 
 implement_decl_generic! {
     impl<K, V> StockObservableMapIterator as StockObservableMapIterator_Impl: [
-        IIterator: IIterator<IKeyValuePair<K, V>>,
+        IIterator<IKeyValuePair<K, V>>,
     ]
     where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
 }

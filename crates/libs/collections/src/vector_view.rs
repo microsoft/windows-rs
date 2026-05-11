@@ -11,8 +11,8 @@ where
 
 implement_decl_generic! {
     impl<T> StockVectorView as StockVectorView_Impl: [
-        IVectorView: IVectorView<T>,
-        IIterable: IIterable<T>,
+        IVectorView<T>,
+        IIterable<T>,
     ]
     where T: RuntimeType + 'static, T::Default: Clone + PartialEq
 }
@@ -91,7 +91,7 @@ where
 
 implement_decl_generic! {
     impl<T> StockVectorViewIterator as StockVectorViewIterator_Impl: [
-        IIterator: IIterator<T>,
+        IIterator<T>,
     ]
     where T: RuntimeType + 'static, T::Default: Clone + PartialEq
 }

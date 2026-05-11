@@ -109,8 +109,8 @@ where
 
 implement_decl_generic! {
     impl<T> Operation as Operation_Impl: [
-        IAsyncOperation: IAsyncOperation<T>,
-        IAsyncInfo: IAsyncInfo,
+        IAsyncOperation<T>,
+        IAsyncInfo,
     ]
     where T: RuntimeType + 'static
 }
@@ -121,8 +121,8 @@ where
 
 implement_decl_generic! {
     impl<P> ActionWithProgress as ActionWithProgress_Impl: [
-        IAsyncActionWithProgress: IAsyncActionWithProgress<P>,
-        IAsyncInfo: IAsyncInfo,
+        IAsyncActionWithProgress<P>,
+        IAsyncInfo,
     ]
     where P: RuntimeType + 'static
 }
@@ -134,8 +134,8 @@ where
 
 implement_decl_generic! {
     impl<T, P> OperationWithProgress as OperationWithProgress_Impl: [
-        IAsyncOperationWithProgress: IAsyncOperationWithProgress<T, P>,
-        IAsyncInfo: IAsyncInfo,
+        IAsyncOperationWithProgress<T, P>,
+        IAsyncInfo,
     ]
     where T: RuntimeType + 'static, P: RuntimeType + 'static
 }

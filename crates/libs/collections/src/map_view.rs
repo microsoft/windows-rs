@@ -13,8 +13,8 @@ where
 
 implement_decl_generic! {
     impl<K, V> StockMapView as StockMapView_Impl: [
-        IMapView: IMapView<K, V>,
-        IIterable: IIterable<IKeyValuePair<K, V>>,
+        IMapView<K, V>,
+        IIterable<IKeyValuePair<K, V>>,
     ]
     where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
 }
@@ -79,7 +79,7 @@ where
 
 implement_decl_generic! {
     impl<K, V> StockMapViewIterator as StockMapViewIterator_Impl: [
-        IIterator: IIterator<IKeyValuePair<K, V>>,
+        IIterator<IKeyValuePair<K, V>>,
     ]
     where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
 }

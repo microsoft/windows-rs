@@ -12,9 +12,9 @@ where
 
 implement_decl_generic! {
     impl<T> StockObservableVector as StockObservableVector_Impl: [
-        IObservableVector: IObservableVector<T>,
-        IVector: IVector<T>,
-        IIterable: IIterable<T>,
+        IObservableVector<T>,
+        IVector<T>,
+        IIterable<T>,
     ]
     where T: RuntimeType + 'static, T::Default: Clone + PartialEq
 }
@@ -223,7 +223,7 @@ where
 
 implement_decl_generic! {
     impl<T> StockObservableVectorIterator as StockObservableVectorIterator_Impl: [
-        IIterator: IIterator<T>,
+        IIterator<T>,
     ]
     where T: RuntimeType + 'static, T::Default: Clone + PartialEq
 }

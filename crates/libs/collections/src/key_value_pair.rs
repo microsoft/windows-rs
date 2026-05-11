@@ -14,7 +14,7 @@ where
 
 implement_decl_generic! {
     impl<K, V> StockKeyValuePair as pub(super) StockKeyValuePair_Impl: [
-        IKeyValuePair: IKeyValuePair<K, V>,
+        IKeyValuePair<K, V>,
     ]
     where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone, V::Default: Clone
 }
