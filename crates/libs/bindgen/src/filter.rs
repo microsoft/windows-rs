@@ -48,14 +48,14 @@ impl Filter {
         false
     }
 
-    pub fn includes_type_name(&self, name: TypeName) -> bool {
+    pub fn includes_type_name(&self, name: TypeName) -> Option<&str> {
         for rule in &self.0 {
             if match_type_name(&rule.0, name.namespace(), name.name()) {
-                return rule.1;
+                return if rule.1 { Some(&rule.0) } else { None };
             }
         }
 
-        false
+        None
     }
 
     pub fn excludes_type_name(&self, name: TypeName) -> bool {

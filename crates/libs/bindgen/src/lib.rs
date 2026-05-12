@@ -756,64 +756,211 @@ impl Bindgen {
             if reader.contains_key("Windows.Foundation") {
                 references.insert(
                     0,
-                    ReferenceStage::parse(
-                        "windows_collections,flat,Windows.Foundation.Collections",
+                    ReferenceStage::new(
+                        "windows_future",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Async*",
                     ),
                 );
                 references.insert(
                     0,
-                    ReferenceStage::parse("windows_numerics,flat,Windows.Foundation.Numerics"),
+                    ReferenceStage::new(
+                        "windows_future",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.IAsync*",
+                    ),
+                );
+            }
+
+            if reader.contains_key("Windows.Foundation.Collections") {
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_collections",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Collections.CollectionChange",
+                    ),
                 );
                 references.insert(
                     0,
-                    ReferenceStage::parse("windows_future,flat,Windows.Foundation.Async*"),
+                    ReferenceStage::new(
+                        "windows_collections",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Collections.IIterable",
+                    ),
                 );
                 references.insert(
                     0,
-                    ReferenceStage::parse("windows_future,flat,Windows.Foundation.IAsync*"),
+                    ReferenceStage::new(
+                        "windows_collections",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Collections.IIterator",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_collections",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Collections.IKeyValuePair",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_collections",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Collections.IMap",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_collections",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Collections.IMapChangedEventArgs",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_collections",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Collections.IMapView",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_collections",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Collections.IObservableMap",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_collections",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Collections.IObservableVector",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_collections",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Collections.IVector",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_collections",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Collections.IVectorChangedEventArgs",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_collections",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Collections.IVectorView",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_collections",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Collections.MapChangedEventHandler",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_collections",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Collections.VectorChangedEventHandler",
+                    ),
+                );
+            }
+
+            if reader.contains_key("Windows.Foundation.Numerics") {
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_numerics",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Numerics.Matrix3x2",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_numerics",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Numerics.Matrix4x4",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_numerics",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Numerics.Vector2",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_numerics",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Numerics.Vector3",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_numerics",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.Numerics.Vector4",
+                    ),
                 );
             }
 
             if reader.contains_key("Windows.Win32.Foundation") {
-                if self.specific_deps {
-                    references.insert(
-                        0,
-                        ReferenceStage::parse(
-                            "windows_result,flat,Windows.Win32.Foundation.WIN32_ERROR",
-                        ),
-                    );
-                    references.insert(
-                        0,
-                        ReferenceStage::parse(
-                            "windows_result,flat,Windows.Win32.Foundation.NTSTATUS",
-                        ),
-                    );
-                    references.insert(
-                        0,
-                        ReferenceStage::parse(
-                            "windows_result,flat,Windows.Win32.System.Rpc.RPC_STATUS",
-                        ),
-                    );
+                let name = if self.specific_deps {
+                    "windows_result"
                 } else {
-                    references.insert(
-                        0,
-                        ReferenceStage::parse(
-                            "windows_core,flat,Windows.Win32.Foundation.WIN32_ERROR",
-                        ),
-                    );
-                    references.insert(
-                        0,
-                        ReferenceStage::parse(
-                            "windows_core,flat,Windows.Win32.Foundation.NTSTATUS",
-                        ),
-                    );
-                    references.insert(
-                        0,
-                        ReferenceStage::parse(
-                            "windows_core,flat,Windows.Win32.System.Rpc.RPC_STATUS",
-                        ),
-                    );
-                }
+                    "windows_core"
+                };
+
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        name,
+                        ReferenceStyle::Flat,
+                        "Windows.Win32.Foundation.WIN32_ERROR",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        name,
+                        ReferenceStyle::Flat,
+                        "Windows.Win32.Foundation.NTSTATUS",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        name,
+                        ReferenceStyle::Flat,
+                        "Windows.Win32.System.Rpc.RPC_STATUS",
+                    ),
+                );
             }
         }
 

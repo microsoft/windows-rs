@@ -1,0 +1,125 @@
+#![allow(
+    non_snake_case,
+    non_upper_case_globals,
+    non_camel_case_types,
+    dead_code,
+    clippy::all
+)]
+
+pub mod Windows {
+    pub mod Foundation {
+        pub mod Numerics {
+            #[repr(C)]
+            #[derive(Clone, Copy, Debug, Default, PartialEq)]
+            pub struct Matrix3x2 {
+                pub M11: f32,
+                pub M12: f32,
+                pub M21: f32,
+                pub M22: f32,
+                pub M31: f32,
+                pub M32: f32,
+            }
+            impl windows_core::TypeKind for Matrix3x2 {
+                type TypeKind = windows_core::CopyType;
+            }
+            impl windows_core::RuntimeType for Matrix3x2 {
+                const SIGNATURE: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(
+                        b"struct(Windows.Foundation.Numerics.Matrix3x2;f4;f4;f4;f4;f4;f4)",
+                    );
+            }
+            #[repr(C)]
+            #[derive(Clone, Copy, Debug, Default, PartialEq)]
+            pub struct Plane {
+                pub Normal: Vector3,
+                pub D: f32,
+            }
+            impl windows_core::TypeKind for Plane {
+                type TypeKind = windows_core::CopyType;
+            }
+            impl windows_core::RuntimeType for Plane {
+                const SIGNATURE :windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice ( b"struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)" ) ;
+            }
+            #[repr(C)]
+            #[derive(Clone, Copy, Debug, Default, PartialEq)]
+            pub struct Quaternion {
+                pub X: f32,
+                pub Y: f32,
+                pub Z: f32,
+                pub W: f32,
+            }
+            impl windows_core::TypeKind for Quaternion {
+                type TypeKind = windows_core::CopyType;
+            }
+            impl windows_core::RuntimeType for Quaternion {
+                const SIGNATURE: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(
+                        b"struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4)",
+                    );
+            }
+            #[repr(C)]
+            #[derive(Clone, Copy, Debug, Default, PartialEq)]
+            pub struct Rational {
+                pub Numerator: u32,
+                pub Denominator: u32,
+            }
+            impl windows_core::TypeKind for Rational {
+                type TypeKind = windows_core::CopyType;
+            }
+            impl windows_core::RuntimeType for Rational {
+                const SIGNATURE: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(
+                        b"struct(Windows.Foundation.Numerics.Rational;u4;u4)",
+                    );
+            }
+            #[repr(C)]
+            #[derive(Clone, Copy, Debug, Default, PartialEq)]
+            pub struct Vector2 {
+                pub X: f32,
+                pub Y: f32,
+            }
+            impl windows_core::TypeKind for Vector2 {
+                type TypeKind = windows_core::CopyType;
+            }
+            impl windows_core::RuntimeType for Vector2 {
+                const SIGNATURE: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(
+                        b"struct(Windows.Foundation.Numerics.Vector2;f4;f4)",
+                    );
+            }
+            #[repr(C)]
+            #[derive(Clone, Copy, Debug, Default, PartialEq)]
+            pub struct Vector3 {
+                pub X: f32,
+                pub Y: f32,
+                pub Z: f32,
+            }
+            impl windows_core::TypeKind for Vector3 {
+                type TypeKind = windows_core::CopyType;
+            }
+            impl windows_core::RuntimeType for Vector3 {
+                const SIGNATURE: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(
+                        b"struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4)",
+                    );
+            }
+            #[repr(C)]
+            #[derive(Clone, Copy, Debug, Default, PartialEq)]
+            pub struct Vector4 {
+                pub X: f32,
+                pub Y: f32,
+                pub Z: f32,
+                pub W: f32,
+            }
+            impl windows_core::TypeKind for Vector4 {
+                type TypeKind = windows_core::CopyType;
+            }
+            impl windows_core::RuntimeType for Vector4 {
+                const SIGNATURE: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(
+                        b"struct(Windows.Foundation.Numerics.Vector4;f4;f4;f4;f4)",
+                    );
+            }
+        }
+    }
+}
