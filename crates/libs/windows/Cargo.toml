@@ -31,7 +31,7 @@ targets = []
 rustdoc-args = ["--cfg", "docsrs"]
 
 [features]
-default = ["std"]
+default = ["std", "windows-core/proc-macros"]
 docs = []
 std = ["windows-collections/std", "windows-core/std", "windows-future/std", "windows-numerics/std"]
 # generated features

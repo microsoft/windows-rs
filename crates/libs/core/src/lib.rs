@@ -29,9 +29,11 @@ mod compose;
 #[cfg(feature = "std")]
 mod event;
 mod guid;
+mod implement_macro;
 mod in_ref;
 mod inspectable;
 mod interface;
+mod interface_macro;
 mod out_param;
 mod out_ref;
 mod param;
@@ -63,7 +65,9 @@ pub use runtime_type::*;
 pub use scoped_interface::*;
 pub use unknown::*;
 pub use weak::*;
+#[cfg(feature = "proc-macros")]
 pub use windows_implement::implement;
+#[cfg(feature = "proc-macros")]
 pub use windows_interface::interface;
 pub use windows_link::link;
 pub use windows_result::*;
