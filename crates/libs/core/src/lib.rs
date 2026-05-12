@@ -29,7 +29,6 @@ mod compose;
 #[cfg(feature = "std")]
 mod event;
 mod guid;
-mod implement_generic_macro;
 mod implement_macro;
 mod in_ref;
 mod inspectable;
