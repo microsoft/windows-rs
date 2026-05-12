@@ -12,12 +12,23 @@ doctest = false
 # `crates/tests/*/*` glob in the workspace `Cargo.toml` picks it up. Verifies
 # that the proposed `Outer<T, L>` foundation:
 #   * compiles on stable Rust (no nightly features),
-#   * builds with default features and with `--no-default-features`,
 #   * yields a `repr(C)` layout byte-identical to today's `#[implement]`-emitted
-#     `Foo_Impl`.
+#     `Foo_Impl` (phase 1, `tests/layout.rs`),
+#   * runs correctly end-to-end — construct, AddRef/Release, QueryInterface
+#     for identity/declared/unknown IIDs, From-conversions (phase 2,
+#     `tests/runtime.rs`),
+#   * matches or beats today's macro on QI dispatch cost in a release build
+#     (phase 2, `tests/bench_qi.rs`, OQ-4 acceptance criterion).
+#
+# `windows-core` is pulled in with `features = ["proc-macros"]` so we can
+# declare `IValue` via `#[interface]` and have a parallel `#[implement(IValue)]`
+# `Foo` for layout / behaviour comparison. The *foundation itself* does not
+# require any proc-macro feature; that requirement is specific to the
+# comparison harness.
 
 [dependencies.windows-core]
 workspace = true
+features = ["proc-macros"]
 
 [dependencies]
 static_assertions = "1.1"

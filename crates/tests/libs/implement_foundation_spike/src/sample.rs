@@ -16,7 +16,7 @@
 //! comparison is apples-to-apples. See [`foundation_path::Foo`] and
 //! [`macro_path`] below.
 
-use windows_core::{interface, IUnknown};
+use windows_core::IUnknown;
 
 // ============================================================================
 // Hand-rolled fake IValue interface, shared by both paths.
@@ -29,9 +29,9 @@ use windows_core::{interface, IUnknown};
 // `VtableCtor<T, OFFSET>` opt-in (defined in `super::foundation::vtbl`) can
 // be added for `IValue_Vtbl` by hand without changing `windows-interface`.
 
-#[interface("01010101-0101-0101-0101-010101010101")]
+#[windows_core::interface("01010101-0101-0101-0101-010101010101")]
 pub unsafe trait IValue: IUnknown {
-    fn get(&self) -> u32;
+    pub fn get(&self) -> u32;
 }
 
 // One-line opt-in to `VtableCtor` for `IValue_Vtbl`. This is the line
@@ -58,8 +58,17 @@ where
 // ============================================================================
 
 pub mod foundation_path {
-    use super::IValue;
+    use super::{IValue, IValue_Impl, IValue_Vtbl};
+    use crate::foundation::list::Implements;
+    use crate::foundation::outer::Outer;
+    use crate::foundation::vtbl::VtableCtor;
     use crate::foundation::{Agile, Implemented};
+    use core::ffi::c_void;
+    use core::ptr::NonNull;
+    use windows_core::{
+        imp, ComObject, ComObjectInner, ComObjectInterface, IInspectable, IInspectable_Vtbl,
+        IUnknown, InterfaceRef,
+    };
 
     /// User-supplied state. The exact same struct is reused by `macro_path`
     /// below (see [`super::macro_path::Foo`]) so that any size/align
@@ -74,9 +83,83 @@ pub mod foundation_path {
         type Agility = Agile;
     }
 
-    // No `IValue_Impl for Outer<Foo, (IValue,)>` here yet — that's wired up
-    // in phase 2, when `Outer` learns `IUnknownImpl`. Phase 1 only proves
-    // the layout claim and the `Implemented` declaration itself compiles.
+    pub type Foo_Impl = Outer<Foo, (IValue,)>;
+
+    // ----------------------------------------------------------------------
+    // The user's interface-method body. Production: the user writes this
+    // verbatim — `Foo_Impl` is a type alias for `Outer<Foo, (IValue,)>`, so
+    // `impl IValue_Impl for Foo_Impl` resolves to an impl on the `Outer`.
+    // `Deref to Foo` (from runtime.rs's blanket) gives us `self.x`.
+    // ----------------------------------------------------------------------
+    impl IValue_Impl for Foo_Impl {
+        unsafe fn get(&self) -> u32 {
+            self.x
+        }
+    }
+
+    // ----------------------------------------------------------------------
+    // Per-type emissions of the blanket impls that live in `windows-core` in
+    // production but cannot be expressed in the spike crate because of
+    // orphan rules (E0210). See `runtime.rs` for the rationale.
+    //
+    // These are exactly what `windows-bindgen` / `windows-implement` /
+    // `implement_decl!` would emit per `#[implement(...)]` use site after
+    // Step 2 (other than the fact that in production the same code lives
+    // once, generically, in `windows-core`).
+    // ----------------------------------------------------------------------
+
+    impl ComObjectInner for Foo {
+        type Outer = Foo_Impl;
+        fn into_object(self) -> ComObject<Self> {
+            let boxed = imp::Box::<Foo_Impl>::new(Outer::new_generic(self));
+            unsafe {
+                let ptr = imp::Box::into_raw(boxed);
+                ComObject::from_raw(NonNull::new_unchecked(ptr))
+            }
+        }
+    }
+
+    // `ComObjectInterface<IValue>` for the declared interface (slot 1).
+    impl ComObjectInterface<IValue> for Foo_Impl {
+        #[inline(always)]
+        fn as_interface_ref(&self) -> InterfaceRef<'_, IValue> {
+            let base = &self.identity as *const _ as *const *const c_void;
+            let slot = <(IValue,) as Implements<IValue>>::SLOT;
+            unsafe { core::mem::transmute(base.add(slot)) }
+        }
+    }
+
+    // `From<Foo>` conversions: identity (IUnknown, IInspectable) plus the
+    // single declared interface.
+    impl From<Foo> for IUnknown {
+        #[inline(always)]
+        fn from(this: Foo) -> Self {
+            ComObject::new(this).into_interface()
+        }
+    }
+    impl From<Foo> for IInspectable {
+        #[inline(always)]
+        fn from(this: Foo) -> Self {
+            ComObject::new(this).into_interface()
+        }
+    }
+    impl From<Foo> for IValue {
+        #[inline(always)]
+        fn from(this: Foo) -> Self {
+            ComObject::new(this).into_interface()
+        }
+    }
+
+    // ----------------------------------------------------------------------
+    // Phase-2 sanity: silences the `unused_*` warnings while the spike is
+    // under review. Real coverage lives in `tests/runtime.rs` and
+    // `tests/bench_qi.rs`.
+    // ----------------------------------------------------------------------
+    #[doc(hidden)]
+    pub fn _force_monomorphisation() {
+        let _ = <IInspectable_Vtbl as VtableCtor<Foo_Impl, -1>>::NEW_REF;
+        let _ = <IValue_Vtbl as VtableCtor<Foo_Impl, -2>>::NEW_REF;
+    }
 }
 
 // ============================================================================

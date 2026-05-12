@@ -10,6 +10,9 @@
 //! * [`agility`] — sealed `Agility` marker + `Agile` / `NonAgile`.
 //! * [`vtbl`]    — `VtableCtor<T, OFFSET>` + the per-`_Vtbl` opt-in pattern.
 //! * [`outer`]   — `Outer<T, L>` and the `Implemented` user trait.
+//! * [`runtime`] — phase-2 blanket impls: `IUnknownImpl` for `Outer<T, L>`,
+//!                 the generic `QueryInterface`, `Outer::new_generic`,
+//!                 `Deref`, `ComObjectInterface<I>`, and `From<T> for I`.
 //!
 //! Sealing pattern (used throughout): a private module exports a `Sealed` marker
 //! trait; public traits inherit from it; downstream crates cannot extend them
@@ -18,12 +21,15 @@
 pub mod agility;
 pub mod list;
 pub mod outer;
+pub mod runtime;
 pub mod sealed;
 pub mod storage;
 pub mod vtbl;
 
 pub use agility::{Agile, Agility, NonAgile};
-pub use list::{Implements, InterfaceList};
+pub use list::{Implements, InterfaceList, ListVtables};
 pub use outer::{Implemented, Outer};
 pub use storage::{VCons, VNil};
 pub use vtbl::{HasVtblCtor, VtableCtor};
+
+// `runtime` module provides blanket impls; no public items to re-export.
