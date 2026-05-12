@@ -106,7 +106,10 @@ impl Filter {
     /// vtable slot (rather than demoted to an opaque `Slot: usize`).
     /// In the absence of a method filter for this type, all methods are kept.
     pub fn includes_method(&self, type_name: TypeName, method: &str) -> bool {
-        match self.methods.get(&(type_name.namespace().to_string(), type_name.name().to_string())) {
+        match self.methods.get(&(
+            type_name.namespace().to_string(),
+            type_name.name().to_string(),
+        )) {
             None => true,
             Some(MethodFilter::Keep(set)) => set.contains(method),
             Some(MethodFilter::Exclude(set)) => !set.contains(method),
