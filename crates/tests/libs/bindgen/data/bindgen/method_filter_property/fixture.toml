@@ -1,0 +1,6 @@
+filter = "Test"
+filters = ["!Test.IFoo::Value", "!Test.IFoo::Changed"]
+no_allow = true
+no_comment = true
+specific_deps = true
+references = ["../../../libs/bindgen/default"]

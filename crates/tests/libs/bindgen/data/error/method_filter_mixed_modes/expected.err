@@ -1,0 +1,2 @@
+
+error: cannot mix allow (`Ns.Type::Method`) and deny (`!Ns.Type::Method`) method filter entries on the same type `Windows.Foundation.IStringable` (in `Windows.Foundation.IStringable::ToString`)

@@ -1,0 +1,2 @@
+kind = "bindgen"
+args = "--in default --out out.txt --filter Windows.Foundation.IStringable --filter !Windows.Foundation.NoSuchType::Method"

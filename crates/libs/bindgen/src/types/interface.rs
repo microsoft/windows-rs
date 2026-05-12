@@ -54,17 +54,21 @@ impl Interface {
     }
 
     pub fn get_methods(&self, config: &Config) -> Vec<MethodOrName> {
+        let type_name = self.def.type_name();
         self.def
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics, config.reader);
-                if method.dependencies.included(config) {
-                    MethodOrName::Method(method)
-                } else {
+                if !method.dependencies.included(config) {
                     config
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
                     MethodOrName::Name(method.def)
+                } else if !config.filter.includes_method(type_name, def.name()) {
+                    // Method-level `--filter` demoted this slot to opaque.
+                    MethodOrName::Name(method.def)
+                } else {
+                    MethodOrName::Method(method)
                 }
             })
             .collect()
@@ -75,9 +79,11 @@ impl Interface {
     // whether to emit the `_Impl` trait, since a derived `_Impl` cannot reference a
     // base `_Impl` that wasn't emitted.
     pub fn has_skipped_methods(&self, config: &Config) -> bool {
+        let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = Method::new(def, &self.generics, config.reader);
             !method.dependencies.included(config)
+                || !config.filter.includes_method(type_name, def.name())
         })
     }
 
