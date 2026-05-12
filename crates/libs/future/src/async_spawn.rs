@@ -97,24 +97,48 @@ impl<T: Async> SyncState<T> {
 
 unsafe impl<T: Async> Send for SyncState<T> {}
 
-#[implement(IAsyncAction, IAsyncInfo)]
 struct Action(SyncState<IAsyncAction>);
 
-#[implement(IAsyncOperation<T>, IAsyncInfo)]
+implement_decl! {
+    impl Action as Action_Impl: [IAsyncAction, IAsyncInfo]
+}
+
 struct Operation<T>(SyncState<IAsyncOperation<T>>)
 where
     T: RuntimeType + 'static;
 
-#[implement(IAsyncActionWithProgress<P>, IAsyncInfo)]
+implement_decl! {
+    impl<T> Operation as Operation_Impl: [
+        IAsyncOperation<T>,
+        IAsyncInfo,
+    ]
+    where T: RuntimeType + 'static
+}
+
 struct ActionWithProgress<P>(SyncState<IAsyncActionWithProgress<P>>)
 where
     P: RuntimeType + 'static;
 
-#[implement(IAsyncOperationWithProgress<T, P>, IAsyncInfo)]
+implement_decl! {
+    impl<P> ActionWithProgress as ActionWithProgress_Impl: [
+        IAsyncActionWithProgress<P>,
+        IAsyncInfo,
+    ]
+    where P: RuntimeType + 'static
+}
+
 struct OperationWithProgress<T, P>(SyncState<IAsyncOperationWithProgress<T, P>>)
 where
     T: RuntimeType + 'static,
     P: RuntimeType + 'static;
+
+implement_decl! {
+    impl<T, P> OperationWithProgress as OperationWithProgress_Impl: [
+        IAsyncOperationWithProgress<T, P>,
+        IAsyncInfo,
+    ]
+    where T: RuntimeType + 'static, P: RuntimeType + 'static
+}
 
 impl IAsyncInfo_Impl for Action_Impl {
     fn Id(&self) -> Result<u32> {

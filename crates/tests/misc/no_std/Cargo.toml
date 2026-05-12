@@ -11,6 +11,7 @@ doctest = false
 [dependencies.windows-core]
 path = "../../../libs/core"
 default-features = false
+features = ["proc-macros"]
 
 [dependencies.windows-registry]
 path = "../../../libs/registry"

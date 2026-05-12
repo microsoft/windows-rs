@@ -1,13 +1,19 @@
 use super::*;
 use windows_core::*;
 
-#[implement(IIterable<T>)]
 struct StockIterable<T>
 where
     T: RuntimeType + 'static,
     T::Default: Clone,
 {
     values: Vec<T::Default>,
+}
+
+implement_decl! {
+    impl<T> StockIterable as StockIterable_Impl: [
+        IIterable<T>,
+    ]
+    where T: RuntimeType + 'static, T::Default: Clone
 }
 
 impl<T> IIterable_Impl<T> for StockIterable_Impl<T>
@@ -24,7 +30,6 @@ where
     }
 }
 
-#[implement(IIterator<T>)]
 struct StockIterator<T>
 where
     T: RuntimeType + 'static,
@@ -32,6 +37,13 @@ where
 {
     owner: ComObject<StockIterable<T>>,
     current: std::sync::atomic::AtomicUsize,
+}
+
+implement_decl! {
+    impl<T> StockIterator as StockIterator_Impl: [
+        IIterator<T>,
+    ]
+    where T: RuntimeType + 'static, T::Default: Clone
 }
 
 impl<T> IIterator_Impl<T> for StockIterator_Impl<T>
