@@ -30,34 +30,26 @@ extern crate std;
 /// * The closure must be `Send` as it will be sent to another thread for execution.
 ///
 /// On Windows this dispatches through the Win32 thread pool
-/// (`TrySubmitThreadpoolCallback`), which reuses worker threads and is
-/// dramatically cheaper than spawning a new OS thread per call. On non-Windows
-/// targets it falls back to `std::thread::spawn` when the `std` feature is
-/// enabled (the default); without `std` on a non-Windows target it panics, as
-/// no portable thread primitive is available.
+/// (`TrySubmitThreadpoolCallback`), which reuses worker threads and is dramatically cheaper
+/// than spawning a new OS thread per call. On non-Windows targets it falls back to
+/// `std::thread::spawn` when the `std` feature is enabled (the default); without `std` on a
+/// non-Windows target it panics, as no portable thread primitive is available.
 #[cfg(windows)]
 pub fn submit<F: FnOnce() + Send + 'static>(f: F) {
-    // This is safe because the closure has `'static` lifetime.
+    // SAFETY: the closure has `'static` lifetime.
     unsafe {
         try_submit(core::ptr::null(), f);
     }
 }
 
-/// Submit the closure to the default thread pool.
-///
-/// * The closure must have `'static` lifetime as the thread may outlive the lifetime in which `submit` is called.
-/// * The closure must be `Send` as it will be sent to another thread for execution.
+/// Submit the closure to the default thread pool. See the Windows-target variant for details.
 #[cfg(all(not(windows), feature = "std"))]
 pub fn submit<F: FnOnce() + Send + 'static>(f: F) {
-    // The handle is dropped immediately; matches the fire-and-forget
-    // semantics of the Windows path.
+    // The handle is dropped immediately, matching the fire-and-forget semantics of the Windows path.
     let _ = std::thread::spawn(f);
 }
 
-/// Submit the closure to the default thread pool.
-///
-/// * The closure must have `'static` lifetime as the thread may outlive the lifetime in which `submit` is called.
-/// * The closure must be `Send` as it will be sent to another thread for execution.
+/// Submit the closure to the default thread pool. See the Windows-target variant for details.
 #[cfg(all(not(windows), not(feature = "std")))]
 pub fn submit<F: FnOnce() + Send + 'static>(_f: F) {
     unimplemented!("windows_threading::submit requires the `std` feature on non-Windows targets");
