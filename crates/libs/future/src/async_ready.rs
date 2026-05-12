@@ -43,24 +43,48 @@ impl<T: Async> ReadyState<T> {
     }
 }
 
-#[implement(IAsyncAction, IAsyncInfo)]
 struct ReadyAction(ReadyState<IAsyncAction>);
 
-#[implement(IAsyncOperation<T>, IAsyncInfo)]
+implement_decl! {
+    impl ReadyAction as ReadyAction_Impl: [IAsyncAction, IAsyncInfo]
+}
+
 struct ReadyOperation<T>(ReadyState<IAsyncOperation<T>>)
 where
     T: RuntimeType + 'static;
 
-#[implement(IAsyncActionWithProgress<P>, IAsyncInfo)]
+implement_decl! {
+    impl<T> ReadyOperation as ReadyOperation_Impl: [
+        IAsyncOperation<T>,
+        IAsyncInfo,
+    ]
+    where T: RuntimeType + 'static
+}
+
 struct ReadyActionWithProgress<P>(ReadyState<IAsyncActionWithProgress<P>>)
 where
     P: RuntimeType + 'static;
 
-#[implement(IAsyncOperationWithProgress<T, P>, IAsyncInfo)]
+implement_decl! {
+    impl<P> ReadyActionWithProgress as ReadyActionWithProgress_Impl: [
+        IAsyncActionWithProgress<P>,
+        IAsyncInfo,
+    ]
+    where P: RuntimeType + 'static
+}
+
 struct ReadyOperationWithProgress<T, P>(ReadyState<IAsyncOperationWithProgress<T, P>>)
 where
     T: RuntimeType + 'static,
     P: RuntimeType + 'static;
+
+implement_decl! {
+    impl<T, P> ReadyOperationWithProgress as ReadyOperationWithProgress_Impl: [
+        IAsyncOperationWithProgress<T, P>,
+        IAsyncInfo,
+    ]
+    where T: RuntimeType + 'static, P: RuntimeType + 'static
+}
 
 impl IAsyncInfo_Impl for ReadyAction_Impl {
     fn Id(&self) -> Result<u32> {

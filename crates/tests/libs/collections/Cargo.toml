@@ -22,6 +22,7 @@ features = [
 
 [dependencies.windows-core]
 workspace = true
+features = ["proc-macros"]
 
 [dependencies.windows-strings]
 workspace = true

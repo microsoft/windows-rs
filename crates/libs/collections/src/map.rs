@@ -1,7 +1,6 @@
 use super::*;
 use windows_core::*;
 
-#[implement(IMap<K, V>, IIterable<IKeyValuePair<K, V>>)]
 struct StockMap<K, V>
 where
     K: RuntimeType + 'static,
@@ -10,6 +9,14 @@ where
     V::Default: Clone,
 {
     map: std::sync::RwLock<std::collections::BTreeMap<K::Default, V::Default>>,
+}
+
+implement_decl! {
+    impl<K, V> StockMap as StockMap_Impl: [
+        IMap<K, V>,
+        IIterable<IKeyValuePair<K, V>>,
+    ]
+    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
 }
 
 impl<K, V> IIterable_Impl<IKeyValuePair<K, V>> for StockMap_Impl<K, V>
@@ -84,7 +91,6 @@ where
     }
 }
 
-#[implement(IIterator<IKeyValuePair<K, V>>)]
 struct StockMapIterator<K, V>
 where
     K: RuntimeType + 'static,
@@ -94,6 +100,13 @@ where
 {
     owner: ComObject<StockMap<K, V>>,
     current: std::sync::atomic::AtomicUsize,
+}
+
+implement_decl! {
+    impl<K, V> StockMapIterator as StockMapIterator_Impl: [
+        IIterator<IKeyValuePair<K, V>>,
+    ]
+    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
 }
 
 impl<K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockMapIterator_Impl<K, V>

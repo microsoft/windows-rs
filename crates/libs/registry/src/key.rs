@@ -64,22 +64,22 @@ impl Key {
         ValueIterator::new(self)
     }
 
-    /// Sets the name and value in the registry key.
+    /// Sets a 32-bit unsigned integer value (`REG_DWORD`).
     pub fn set_u32<T: AsRef<str>>(&self, name: T, value: u32) -> Result<()> {
         self.set_bytes(name, Type::U32, &value.to_le_bytes())
     }
 
-    /// Sets the name and value in the registry key.
+    /// Sets a 64-bit unsigned integer value (`REG_QWORD`).
     pub fn set_u64<T: AsRef<str>>(&self, name: T, value: u64) -> Result<()> {
         self.set_bytes(name, Type::U64, &value.to_le_bytes())
     }
 
-    /// Sets the name and value in the registry key.
+    /// Sets a string value (`REG_SZ`).
     pub fn set_string<T: AsRef<str>, U: AsRef<str>>(&self, name: T, value: U) -> Result<()> {
         self.set_bytes(name, Type::String, pcwstr(value).as_bytes())
     }
 
-    /// Sets the name and value in the registry key.
+    /// Sets a string value (`REG_SZ`) from an `HSTRING`.
     pub fn set_hstring<T: AsRef<str>>(
         &self,
         name: T,
@@ -88,12 +88,12 @@ impl Key {
         self.set_bytes(name, Type::String, as_bytes(value))
     }
 
-    /// Sets the name and value in the registry key.
+    /// Sets an expandable string value (`REG_EXPAND_SZ`).
     pub fn set_expand_string<T: AsRef<str>, U: AsRef<str>>(&self, name: T, value: U) -> Result<()> {
         self.set_bytes(name, Type::ExpandString, pcwstr(value).as_bytes())
     }
 
-    /// Sets the name and value in the registry key.
+    /// Sets an expandable string value (`REG_EXPAND_SZ`) from an `HSTRING`.
     pub fn set_expand_hstring<T: AsRef<str>>(
         &self,
         name: T,
@@ -102,7 +102,7 @@ impl Key {
         self.set_bytes(name, Type::ExpandString, as_bytes(value))
     }
 
-    /// Sets the name and value in the registry key.
+    /// Sets a multi-string value (`REG_MULTI_SZ`).
     pub fn set_multi_string<T: AsRef<str>>(&self, name: T, value: &[T]) -> Result<()> {
         let value = multi_pcwstr(value);
         self.set_bytes(name, Type::MultiString, value.as_bytes())
@@ -113,7 +113,7 @@ impl Key {
         self.set_bytes(name, value.ty(), value)
     }
 
-    /// Sets the name and value in the registry key.
+    /// Sets a raw byte sequence for the given name and type.
     pub fn set_bytes<T: AsRef<str>>(&self, name: T, ty: Type, value: &[u8]) -> Result<()> {
         unsafe { self.raw_set_bytes(pcwstr(name).as_raw(), ty, value) }
     }
@@ -133,24 +133,26 @@ impl Key {
         Ok(Value { data, ty })
     }
 
-    /// Gets the value for the name in the registry key.
+    /// Gets an unsigned integer value as `u32`. Accepts `REG_DWORD` and `REG_QWORD`
+    /// (the latter must fit in `u32` or an out-of-range error is returned).
     pub fn get_u32<T: AsRef<str>>(&self, name: T) -> Result<u32> {
         Ok(self.get_u64(name)?.try_into()?)
     }
 
-    /// Gets the value for the name in the registry key.
+    /// Gets an unsigned integer value as `u64`. Accepts `REG_DWORD` (widened to `u64`) and
+    /// `REG_QWORD`.
     pub fn get_u64<T: AsRef<str>>(&self, name: T) -> Result<u64> {
         let value = &mut [0; 8];
         let (ty, value) = unsafe { self.raw_get_bytes(pcwstr(name).as_raw(), value)? };
         from_le_bytes(ty, value)
     }
 
-    /// Gets the value for the name in the registry key.
+    /// Gets a string value.
     pub fn get_string<T: AsRef<str>>(&self, name: T) -> Result<String> {
         self.get_value(name)?.try_into()
     }
 
-    /// Gets the value for the name in the registry key.
+    /// Gets a string value as an `HSTRING`.
     pub fn get_hstring<T: AsRef<str>>(&self, name: T) -> Result<HSTRING> {
         let name = pcwstr(name);
         let (ty, len) = unsafe { self.raw_get_info(name.as_raw())? };
@@ -165,14 +167,12 @@ impl Key {
         Ok(value.into())
     }
 
-    /// Gets the value for the name in the registry key.
+    /// Gets a multi-string value as a `Vec<String>`.
     pub fn get_multi_string<T: AsRef<str>>(&self, name: T) -> Result<Vec<String>> {
         self.get_value(name)?.try_into()
     }
 
-    /// Sets the name and value in the registry key.
-    ///
-    /// This method avoids any allocations.
+    /// Sets a raw byte sequence for the given name and type, without any allocations.
     ///
     /// # Safety
     ///
@@ -185,7 +185,7 @@ impl Key {
         value: &[u8],
     ) -> Result<()> {
         if cfg!(debug_assertions) {
-            // RegSetValueExW expects string data to be null terminated.
+            // `RegSetValueExW` expects string data to be null terminated.
             if matches!(ty, Type::String | Type::ExpandString | Type::MultiString) {
                 debug_assert!(
                     value.get(value.len() - 2) == Some(&0),
@@ -209,9 +209,7 @@ impl Key {
         win32_error(result)
     }
 
-    /// Gets the type and length for the name in the registry key.
-    ///
-    /// This method avoids any allocations.
+    /// Gets the type and length for the name in the registry key, without any allocations.
     ///
     /// # Safety
     ///
@@ -235,9 +233,7 @@ impl Key {
         Ok((ty.into(), len as usize))
     }
 
-    /// Gets the value for the name in the registry key.
-    ///
-    /// This method avoids any allocations.
+    /// Gets the value for the name in the registry key, without any allocations.
     ///
     /// # Safety
     ///
