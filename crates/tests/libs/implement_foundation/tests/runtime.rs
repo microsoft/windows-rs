@@ -1,16 +1,9 @@
-//! Phase 2 runtime proof.
-//!
-//! Phase 1 proved the foundation type-checks and matches today's `Foo_Impl`
-//! layout. Phase 2 proves it actually *runs*: AddRef/Release adjusts the
-//! count, QueryInterface dispatches correctly for the identity IIDs, the
-//! declared IID, and an unknown IID.
-//!
-//! All checks here are equivalent to what `crates/tests/libs/implement`
-//! verifies for `#[implement]`-generated code, except hand-rolled against
-//! `Outer<Foo, (IValue,)>`.
+//! Step 1 runtime proof: the foundation runs end-to-end against the *real*
+//! `windows_core::imp::implement` module. Mirrors the spike's `runtime.rs`
+//! but no longer redefines the foundation locally.
 
-use test_implement_foundation_spike::sample::foundation_path::{Foo, Foo_Impl};
-use test_implement_foundation_spike::sample::IValue;
+use test_implement_foundation::sample::foundation_path::{Foo, Foo_Impl};
+use test_implement_foundation::sample::IValue;
 use windows_core::{
     ComObject, ComObjectInner, IInspectable, IUnknown, IUnknownImpl, Interface, GUID,
 };
@@ -48,10 +41,8 @@ fn query_interface_identity_iunknown() {
     let hr = unsafe { outer.QueryInterface(&IUnknown::IID, &mut iface) };
     assert_eq!(hr.0, 0);
     assert!(!iface.is_null());
-    // Caller owns the AddRef; Release it.
     unsafe {
-        let unk = IUnknown::from_raw(iface);
-        drop(unk);
+        drop(IUnknown::from_raw(iface));
     }
 }
 
@@ -77,7 +68,6 @@ fn query_interface_declared_ivalue() {
     assert_eq!(hr.0, 0, "QI(IValue) hr = {:#x}", hr.0 as u32);
     assert!(!iface.is_null());
 
-    // Verify the returned pointer is actually a working IValue.
     let value = unsafe { IValue::from_raw(iface) };
     let got = unsafe { value.get() };
     assert_eq!(got, 99);

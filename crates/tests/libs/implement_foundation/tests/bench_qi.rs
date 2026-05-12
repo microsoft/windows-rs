@@ -10,7 +10,7 @@
 //! It produces an order-of-magnitude number sufficient to answer "do these
 //! produce comparable code?" — the OQ-4 acceptance bar.
 //!
-//! Run with: `cargo test -p test_implement_foundation_spike --test bench_qi
+//! Run with: `cargo test -p test_implement_foundation --test bench_qi
 //! --release -- --nocapture --ignored bench`.
 //!
 //! Both implementations share the *same* `IValue` trait and the *same*
@@ -19,7 +19,7 @@
 use core::ffi::c_void;
 use std::hint::black_box;
 use std::time::Instant;
-use test_implement_foundation_spike::sample::{foundation_path, macro_path, IValue};
+use test_implement_foundation::sample::{foundation_path, macro_path, IValue};
 use windows_core::{ComObject, ComObjectInner, IUnknown, IUnknownImpl, Interface, GUID};
 
 const ITERS: u64 = 5_000_000;

@@ -1,11 +1,9 @@
 //! Sealed `Agility` marker trait + the two implementors `Agile` / `NonAgile`.
 //!
-//! See `docs/option-d.md` (resolution of OQ-3 — sealed marker types over const
-//! generics). The macro layer (Step 2) translates the `Agile = true/false`
-//! attribute knob into `type Agility = Agile;` / `type Agility = NonAgile;` in
-//! the generated `impl Implemented` block.
+//! See `docs/option-d.md` (resolution of OQ-3 — sealed marker types over
+//! const generics).
 
-use crate::foundation::sealed::Sealed;
+use super::sealed::Sealed;
 
 /// Sealed marker that selects the agility axis on a `#[implement]` type.
 pub trait Agility: Sealed {
@@ -17,9 +15,7 @@ pub trait Agility: Sealed {
     const HAS_MARSHAL: bool;
 }
 
-/// Default agility: agile on Windows (with free-threaded marshaler), agile
-/// elsewhere without marshaler (since `IMarshal` is Windows-only — see
-/// `crates/libs/bindgen/src/types/delegate.rs:139`).
+/// Default agility: agile, with `IMarshal` exposed on Windows.
 pub struct Agile;
 impl Sealed for Agile {}
 impl Agility for Agile {

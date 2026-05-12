@@ -1,11 +1,15 @@
 # Option D — A library-based foundation for `#[implement]`
 
-> **Status:** design draft. All seven open questions are resolved (see
-> [Resolved decisions](#resolved-decisions)). The Step 0 spike lives at
-> [`crates/tests/libs/implement_foundation_spike`](../crates/tests/libs/implement_foundation_spike);
-> both phases have landed. Phase 2's OQ-4 microbenchmark shows the foundation
-> dispatching `QueryInterface` **faster** than today's macro on all three
-> paths (identity, declared, unknown) — well inside the ±1 ns/call bar.
+> **Status:** Steps 0 + 1 landed. The foundation lives at
+> [`crates/libs/core/src/imp/implement/`](../crates/libs/core/src/imp/implement)
+> and is exercised by integration tests at
+> [`crates/tests/libs/implement_foundation/`](../crates/tests/libs/implement_foundation).
+> All seven open questions are resolved (see
+> [Resolved decisions](#resolved-decisions)). The OQ-4 microbenchmark shows
+> the foundation matching or beating today's macro on `QueryInterface`
+> dispatch (identity / declared / unknown) — within the ±1 ns/call bar.
+> Steps 2–5 (reskin the proc macro, land `implement_decl!`, document the
+> foundation as public API, optional follow-ups) are still ahead.
 
 ## Summary
 
@@ -375,53 +379,69 @@ let v: IValue = Foo(42).into();
 
 ## Migration plan
 
-### Step 0 — Spike
+### Step 0 — Spike ✓
 
-Both phases have landed at
-[`crates/tests/libs/implement_foundation_spike`](../crates/tests/libs/implement_foundation_spike).
+Done in two phases, then collapsed into Step 1's permanent home. The spike
+crate itself was retired when Step 1 landed; what it proved (foundation
+type-checks on stable, layout matches today's `Foo_Impl`, runtime QI
+dispatches correctly, OQ-4 bench within ±1 ns/call) is now exercised by the
+permanent integration tests under
+[`crates/tests/libs/implement_foundation/`](../crates/tests/libs/implement_foundation).
 
-* **Phase 1** — defines `Outer`/`InterfaceList`/`Implemented`/`VtableCtor`/
-  HList cells with tuple impls 0..=4, adds opt-ins for `IUnknown_Vtbl`/
-  `IInspectable_Vtbl`/a fake `IValue_Vtbl`, and asserts byte-identical
-  layout (`size_of` + `align_of` + per-field `offset_of!`) between
-  `Outer<Foo, (IValue,)>` and the parallel `#[implement(IValue)] Foo`'s
-  `Foo_Impl`. Builds on stable Rust 1.82.
+OQ-4 microbenchmark on a release build (no LTO, Linux, 5M iters/path):
 
-* **Phase 2** — wires the `IUnknownImpl` blanket on `Outer<T, L>` with the
-  generic `QueryInterface` body, the `Outer::new_generic` ctor, identity
-  `ComObjectInterface<IUnknown/IInspectable>` impls, and `Deref` to `T`.
-  Per-type `ComObjectInner` / `From<Foo> for I` / `ComObjectInterface<IValue>`
-  impls live in `sample.rs` (orphan rules prevent the production blankets in
-  this crate; their shape is identical to what `windows-core` would emit).
-  Runtime tests cover construct, AddRef/Release, QI(IUnknown), QI(IInspectable),
-  QI(IValue) including a method-dispatch round-trip, QI(unknown) →
-  `E_NOINTERFACE`, and `Foo.into() → IUnknown → .cast::<IValue>()`.
+| path                         | foundation | macro    | delta    |
+|------------------------------|-----------:|---------:|---------:|
+| QI(IUnknown)  — identity     |  ~7.7 ns   |  ~8.5 ns | −0.8 ns  |
+| QI(IValue)    — declared     | ~14.4 ns   | ~14.4 ns | ±0.0 ns  |
+| QI(unknown)   — fall-through | ~10.6 ns   | ~12.1 ns | −1.5 ns  |
 
-* **OQ-4 microbenchmark** (`tests/bench_qi.rs`, 5M iters each) on a release
-  build, debug-instrumented release (no LTO):
+OQ-4 bet (don't pre-emptively unroll, benchmark first) is vindicated.
+A second pass with `lto = "thin"` on a quiet x86_64 box is the natural
+follow-up but not blocking.
 
-  | path                         | foundation | macro    | delta    |
-  |------------------------------|-----------:|---------:|---------:|
-  | QI(IUnknown)  — identity     |  7.11 ns   |  8.53 ns | −1.42 ns |
-  | QI(IValue)    — declared     | 10.47 ns   | 14.24 ns | −3.77 ns |
-  | QI(unknown)   — fall-through |  6.64 ns   | 12.01 ns | −5.36 ns |
+### Step 1 — Foundation in `windows-core` ✓
 
-  The foundation matches or beats the macro on all three paths. OQ-4 bet
-  (don't pre-emptively unroll, benchmark first) is vindicated — the
-  `IID_SLOTS` loop inlines well, and the macro's open-coded if-chain is
-  actually *worse* on the unknown-IID path because it falls through more
-  branches. A second pass with `lto = "thin"` is left for Step 1, when the
-  foundation lives in `windows-core` proper.
+* New `windows_core::imp::implement` module with the foundation
+  (`agility`, `list`, `outer`, `runtime`, `sealed`, `storage`, `vtbl`).
+  Tuple impls cover arity 0..=16 (per OQ-1's resolution).
+* `Outer`, `Implemented`, `Implements`, `InterfaceList`, `ListVtables`,
+  `Agile`, `NonAgile`, `Agility`, `VCons`, `VNil`, `VtableCtor` re-exported
+  through `windows_core::imp`. Re-exports stay `#[doc(hidden)]` until
+  Step 4.
+* `VtableCtor` opt-ins for `IUnknown_Vtbl` and `IInspectable_Vtbl` live in
+  `windows-core`. Per-`_Vtbl` opt-ins for downstream interfaces are
+  user-emitted today (three lines per `_Vtbl`); Step 1b will move that
+  emission into `windows-interface` / `windows-bindgen`.
+* `Outer<T, L>::as_declared_interface::<I>()` is the public slot-pointer
+  accessor that lets per-declared-interface `ComObjectInterface<I>`
+  emissions stay outside `windows-core` (orphan rules forbid a generic
+  blanket; see comments in `runtime.rs`).
+* Integration tests at `crates/tests/libs/implement_foundation` —
+  layout (`size_of` / `align_of` parity with today's `Foo_Impl`),
+  runtime (8 tests covering construct → QI → method dispatch → drop),
+  and the OQ-4 bench. All pass on stable Rust.
+* `crates/libs/implement` untouched; existing implement test suite passes
+  unchanged on Windows. The blanket impls in `runtime.rs`
+  (`ComObjectInner for T: Implemented`, `From<T> for IUnknown`,
+  `From<T> for IInspectable`) cannot collide with the macro's per-use-site
+  emissions because today's `#[implement]`-generated types do not
+  implement `Implemented`.
 
-### Step 1 — Foundation only, macro untouched
+### Step 1b — Emit `VtableCtor` per `_Vtbl` from `windows-interface` / `windows-bindgen`
 
-* New `windows_core::imp::implement` module with the foundation.
-* `Outer`/`Implemented`/`Implements`/`InterfaceList`/`Agile`/`NonAgile`
-  re-exported `#[doc(hidden)]` initially.
-* `VtableCtor` emitted by `windows-interface` (one impl per `_Vtbl`).
-* New `crates/tests/libs/implement_foundation` tests for hand-written use.
-* `crates/libs/implement` untouched; existing implement test suite still
-  passes unchanged.
+Three lines per generated `_Vtbl`:
+
+```rust
+impl<T: IUnknownImpl + IFoo_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<T, OFFSET> for IFoo_Vtbl
+{
+    const NEW: Self = <Self>::new::<T, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<T, OFFSET>>::NEW;
+}
+```
+
+Affects every codegen golden file. Standalone PR.
 
 ### Step 2 — Reskin `#[implement]` as a shim
 
@@ -444,9 +464,9 @@ hand" doc; mention in the `windows-core` readme.
 
 ### Step 5 — Optional follow-ups
 
-Specialise the per-arity tuple impl if Step 0 shows a regression. Evaluate
-whether `windows-implement` can collapse to a re-export plus the attribute
-parser.
+Specialise the per-arity tuple impl if benchmarks show a regression after
+Step 2. Evaluate whether `windows-implement` can collapse to a re-export
+plus the attribute parser.
 
 ## Compatibility
 

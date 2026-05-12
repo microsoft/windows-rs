@@ -1,0 +1,34 @@
+[package]
+name = "test_implement_foundation"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+# Step 1 integration tests for `docs/option-d.md`'s library-based foundation
+# for `#[implement]`. Exercises the real `windows_core::imp::implement` module
+# (re-exported `#[doc(hidden)]` from `windows_core`) by:
+#
+#   * Declaring a fake `IValue` interface via `#[interface]`,
+#   * Adding a per-type `VtableCtor` opt-in for its `_Vtbl` (the three-line
+#     impl that `windows-interface` will eventually emit for every interface),
+#   * Wiring `Foo` through the foundation by hand (`impl Implemented for Foo`
+#     plus per-declared-interface `From` / `ComObjectInterface` shims),
+#   * Asserting layout matches today's `#[implement(IValue)] Foo`'s `Foo_Impl`,
+#   * Asserting QueryInterface dispatches correctly for identity / declared /
+#     unknown IIDs,
+#   * Re-running the OQ-4 microbenchmark against today's macro-emitted
+#     equivalent.
+
+[dependencies.windows-core]
+workspace = true
+features = ["proc-macros"]
+
+[dependencies]
+static_assertions = "1.1"
+
+[lints]
+workspace = true
