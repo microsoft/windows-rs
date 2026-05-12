@@ -178,9 +178,7 @@ where
         // AddRef the box; reconstruct a ComObject pointing at the same
         // outer. Same shape as the default `to_object` implementation today.
         self.count.add_ref();
-        unsafe {
-            ComObject::from_raw(NonNull::new_unchecked(self as *const _ as *mut Self))
-        }
+        unsafe { ComObject::from_raw(NonNull::new_unchecked(self as *const _ as *mut Self)) }
     }
 
     unsafe fn QueryInterface(
@@ -203,8 +201,7 @@ where
             // Identity short-circuit. Three IIDs (or two when non-agile).
             if iid == IUnknown::IID
                 || iid == IInspectable::IID
-                || (<T::Agility as Agility>::IS_AGILE
-                    && iid == imp::IAgileObject::IID)
+                || (<T::Agility as Agility>::IS_AGILE && iid == imp::IAgileObject::IID)
             {
                 *interface = identity_ptr as *mut c_void;
                 self.count.add_ref();
@@ -233,16 +230,13 @@ where
 
             // IMarshal (windows + agile).
             #[cfg(windows)]
-            if <T::Agility as Agility>::HAS_MARSHAL
-                && iid == imp::IMarshal::IID
-            {
+            if <T::Agility as Agility>::HAS_MARSHAL && iid == imp::IMarshal::IID {
                 // The default agile marshaler. The macro's emission uses
                 // `self.to_interface()` which goes through `ComObjectInterface`.
                 // We do the same — `Outer<T, L>: ComObjectInterface<IUnknown>`
                 // is provided below.
                 return imp::marshaler(
-                    <Self as ComObjectInterface<IUnknown>>::as_interface_ref(self)
-                        .to_owned(),
+                    <Self as ComObjectInterface<IUnknown>>::as_interface_ref(self).to_owned(),
                     interface,
                 );
             }
@@ -256,10 +250,9 @@ where
             }
 
             // Tear-off (IWeakReferenceSource via WeakRefCount::query).
-            let tear_off = self.count.query(
-                &iid,
-                &self.identity as *const _ as *mut c_void,
-            );
+            let tear_off = self
+                .count
+                .query(&iid, &self.identity as *const _ as *mut c_void);
             if !tear_off.is_null() {
                 *interface = tear_off;
                 return HRESULT(0);

@@ -166,8 +166,7 @@ where
 {
     const LEN: usize = 3;
     type Storage = VCons<I0, VCons<I1, VCons<I2, VNil>>>;
-    const IID_SLOTS: &'static [(GUID, usize)] =
-        &[(I0::IID, 1), (I1::IID, 2), (I2::IID, 3)];
+    const IID_SLOTS: &'static [(GUID, usize)] = &[(I0::IID, 1), (I1::IID, 2), (I2::IID, 3)];
 }
 impl<T: 'static, I0, I1, I2> ListVtables<T> for (I0, I1, I2)
 where
@@ -209,12 +208,8 @@ where
 {
     const LEN: usize = 4;
     type Storage = VCons<I0, VCons<I1, VCons<I2, VCons<I3, VNil>>>>;
-    const IID_SLOTS: &'static [(GUID, usize)] = &[
-        (I0::IID, 1),
-        (I1::IID, 2),
-        (I2::IID, 3),
-        (I3::IID, 4),
-    ];
+    const IID_SLOTS: &'static [(GUID, usize)] =
+        &[(I0::IID, 1), (I1::IID, 2), (I2::IID, 3), (I3::IID, 4)];
 }
 impl<T: 'static, I0, I1, I2, I3> ListVtables<T> for (I0, I1, I2, I3)
 where

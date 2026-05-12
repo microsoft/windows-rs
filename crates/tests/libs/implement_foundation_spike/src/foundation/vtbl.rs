@@ -54,7 +54,7 @@
 //!
 //! Both findings have been folded back into `docs/option-d.md`.
 
-use windows_core::{IInspectable_Vtbl, IUnknown_Vtbl, IUnknownImpl};
+use windows_core::{IInspectable_Vtbl, IUnknownImpl, IUnknown_Vtbl};
 
 /// The opt-in trait that each interface `_Vtbl` implements (one impl per
 /// `_Vtbl`, emitted by `windows-interface` in Step 2).

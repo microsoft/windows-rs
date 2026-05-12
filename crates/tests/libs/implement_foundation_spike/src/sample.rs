@@ -49,8 +49,7 @@ where
     T: windows_core::IUnknownImpl + IValue_Impl + 'static,
 {
     const NEW: Self = <IValue_Vtbl>::new::<T, OFFSET>();
-    const NEW_REF: &'static Self =
-        &<Self as crate::foundation::VtableCtor<T, OFFSET>>::NEW;
+    const NEW_REF: &'static Self = &<Self as crate::foundation::VtableCtor<T, OFFSET>>::NEW;
 }
 
 // ============================================================================

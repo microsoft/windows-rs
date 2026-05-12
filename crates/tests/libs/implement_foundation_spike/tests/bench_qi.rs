@@ -19,9 +19,7 @@
 use core::ffi::c_void;
 use std::hint::black_box;
 use std::time::Instant;
-use test_implement_foundation_spike::sample::{
-    foundation_path, macro_path, IValue,
-};
+use test_implement_foundation_spike::sample::{foundation_path, macro_path, IValue};
 use windows_core::{ComObject, ComObjectInner, IUnknown, IUnknownImpl, Interface, GUID};
 
 const ITERS: u64 = 5_000_000;
@@ -35,7 +33,9 @@ fn bench_qi<T: IUnknownImpl>(label: &str, outer: &T, iid: &GUID, expect_ok: bool
         let _ = black_box(hr);
         if !iface.is_null() {
             // If we received a real interface, drop the AddRef the QI did.
-            unsafe { drop(IUnknown::from_raw(iface)); }
+            unsafe {
+                drop(IUnknown::from_raw(iface));
+            }
         }
     }
     let elapsed = start.elapsed();
@@ -60,8 +60,7 @@ fn bench() {
     // Build two ComObjects with identical user state.
     let foundation_obj: ComObject<foundation_path::Foo> =
         foundation_path::Foo { x: 0 }.into_object();
-    let macro_obj: ComObject<macro_path::Foo> =
-        macro_path::Foo { x: 0 }.into_object();
+    let macro_obj: ComObject<macro_path::Foo> = macro_path::Foo { x: 0 }.into_object();
 
     let foundation_outer: &foundation_path::Foo_Impl = &foundation_obj;
     let macro_outer: &macro_path::Foo_Impl = &macro_obj;
@@ -118,9 +117,21 @@ fn bench() {
     );
 
     println!();
-    println!("{:<48} {:>+7.2} ns", "delta identity (foundation − macro)", f_id - m_id);
-    println!("{:<48} {:>+7.2} ns", "delta last     (foundation − macro)", f_last - m_last);
-    println!("{:<48} {:>+7.2} ns", "delta unknown  (foundation − macro)", f_unk - m_unk);
+    println!(
+        "{:<48} {:>+7.2} ns",
+        "delta identity (foundation − macro)",
+        f_id - m_id
+    );
+    println!(
+        "{:<48} {:>+7.2} ns",
+        "delta last     (foundation − macro)",
+        f_last - m_last
+    );
+    println!(
+        "{:<48} {:>+7.2} ns",
+        "delta unknown  (foundation − macro)",
+        f_unk - m_unk
+    );
     println!();
     println!("OQ-4 acceptance bar: ±1.00 ns/call on x86_64 release + lto=thin.");
     println!("This run is a debug-mode sanity check; the absolute numbers are not");
