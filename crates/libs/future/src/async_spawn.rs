@@ -107,7 +107,7 @@ struct Operation<T>(SyncState<IAsyncOperation<T>>)
 where
     T: RuntimeType + 'static;
 
-implement_decl_generic! {
+implement_decl! {
     impl<T> Operation as Operation_Impl: [
         IAsyncOperation<T>,
         IAsyncInfo,
@@ -119,7 +119,7 @@ struct ActionWithProgress<P>(SyncState<IAsyncActionWithProgress<P>>)
 where
     P: RuntimeType + 'static;
 
-implement_decl_generic! {
+implement_decl! {
     impl<P> ActionWithProgress as ActionWithProgress_Impl: [
         IAsyncActionWithProgress<P>,
         IAsyncInfo,
@@ -132,7 +132,7 @@ where
     T: RuntimeType + 'static,
     P: RuntimeType + 'static;
 
-implement_decl_generic! {
+implement_decl! {
     impl<T, P> OperationWithProgress as OperationWithProgress_Impl: [
         IAsyncOperationWithProgress<T, P>,
         IAsyncInfo,

@@ -12,7 +12,7 @@ where
     pub(super) value: V::Default,
 }
 
-implement_decl_generic! {
+implement_decl! {
     impl<K, V> StockKeyValuePair as pub(super) StockKeyValuePair_Impl: [
         IKeyValuePair<K, V>,
     ]

@@ -7,11 +7,10 @@
 //!
 //! ## Scope
 //!
-//! `implement_decl!` targets the dominant hand-written case: a **non-generic, always-agile**
-//! Rust type that implements **one or more** COM interfaces (each declared either by
-//! [`crate::interface_decl!`] or by `#[interface]`). It does not support:
+//! `implement_decl!` targets the dominant hand-written case: an **always-agile** Rust type
+//! (generic or non-generic) that implements **one or more** COM interfaces (each declared
+//! either by [`crate::interface_decl!`] or by `#[interface]`). It does not support:
 //!
-//! - generic implementer types,
 //! - per-instance `trust_level` configuration (always `0` / Base),
 //! - per-instance opt-out of agility,
 //! - per-instance opt-out of dynamic casting.
@@ -52,6 +51,35 @@
 //!   the `_Impl` trait is referenced only by user code outside the macro.
 //! - At least one interface must be supplied.
 //!
+//! ## Generic implementer types
+//!
+//! For generic implementers like `StockIterable<T>` that implement generic interfaces such
+//! as `IIterable<T>`, the macro accepts a leading `<G…>` generic-parameter list and an
+//! optional trailing `where` clause. Each interface entry is then spelled out as a full
+//! type rather than a bare ident:
+//!
+//! ```rust,ignore
+//! implement_decl! {
+//!     impl<T> StockIterable as pub(crate) StockIterable_Impl: [
+//!         IIterable<T>,
+//!     ]
+//!     where T: RuntimeType + 'static, T::Default: Clone
+//! }
+//! ```
+//!
+//! The leading ident of every interface entry must be unique within a single invocation —
+//! it doubles as the per-chain struct field name and as the name of the per-chain
+//! associated constant on `Foo_Impl`.
+//!
+//! Generic invocations differ from non-generic ones in two emission details:
+//!
+//! - per-interface vtables are stored as **associated constants** on `impl<G…> Foo_Impl<G…>`
+//!   (an in-`fn` `const C: T = …;` cannot reference outer generic parameters; an associated
+//!   constant can),
+//! - `into_outer` is *not* `const fn` (a generic `fn` cannot be `const fn` while reading
+//!   associated constants whose values depend on `Self`'s type arguments), and there is no
+//!   `into_static` (a generic type has no fixed layout for static storage).
+//!
 //! ## Generated items
 //!
 //! - `struct Foo_Impl` — `#[repr(C)]` with leading `base: ComposeBase`, `identity:
@@ -80,6 +108,39 @@
 /// syntax and scope.
 #[macro_export]
 macro_rules! implement_decl {
+    // Generic form: `impl<G, …> Name as Vis Name_Impl : [Iface<…>, …] where …`.
+    //
+    // Listed before the non-generic arm so that a leading `<` reliably steers here.
+    // Delegates to the generic-emission pipeline (associated-const vtable storage).
+    (
+        impl < $($gp:ident),+ $(,)? >
+            $name:ident as $impl_vis:vis $impl_name:ident
+        : [
+            $( $ifty:ty ),+ $(,)?
+        ]
+        $( where $($wc:tt)+ )?
+    ) => {
+        $crate::__implement_decl_g_zip! {
+            @zip
+            ctx: {
+                generics:  [ $($gp),+ ],
+                wc:        { $( $($wc)+ )? },
+                vis:       $impl_vis,
+                name:      $name,
+                impl_name: $impl_name,
+            },
+            names: [
+                __iface0  __iface1  __iface2  __iface3
+                __iface4  __iface5  __iface6  __iface7
+                __iface8  __iface9  __iface10 __iface11
+                __iface12 __iface13 __iface14 __iface15
+            ],
+            tys: [ $($ifty),+ ],
+            acc: [ ]
+        }
+    };
+
+    // Non-generic form: `impl Name as Vis Name_Impl : [Iface, …]`.
     (
         impl $name:ident as $impl_vis:vis $impl_name:ident : [
             $( $iface:ident ),+ $(,)?

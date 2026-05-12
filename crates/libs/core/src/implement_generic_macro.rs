@@ -1,11 +1,11 @@
-//! Generic-aware `macro_rules!` declarative alternative to the `#[implement]` proc-macro.
+//! Generic-form internal helpers for [`crate::implement_decl!`].
 //!
-//! [`implement_decl!`] only handles non-generic implementer types. Crates like
-//! `windows-future` and `windows-collections` define types like `StockIterable<T>` that
-//! implement *generic* interfaces (`IIterable<T>`, `IMap<K, V>`, ...). This module
-//! provides [`implement_decl_generic!`] for that case.
+//! [`crate::implement_decl!`] dispatches to either the non-generic emission pipeline (in
+//! `implement_macro.rs`) or to the generic-aware pipeline whose helpers live here. The
+//! split is purely organisational — there is no separate user-facing macro.
 //!
-//! The macro mirrors what the `#[implement]` proc-macro emits for a generic implementer:
+//! The generic pipeline mirrors what the `#[implement]` proc-macro emits for a generic
+//! implementer:
 //!
 //! - per-interface vtables stored as **associated constants** on
 //!   `impl<G…> Foo_Impl<G…>` (regular `const` items inside a function can't reference
@@ -14,66 +14,7 @@
 //! - no `into_static` (a generic type has no fixed layout for static storage),
 //! - all generated impls carry the supplied `<G…>` parameters and `where` clauses.
 //!
-//! Compared with [`implement_decl!`] the call-site spells out each interface as its
-//! full type; the macro extracts the leading ident itself and uses it as both the
-//! per-chain field name and the associated-constant name:
-//!
-//! ```rust,ignore
-//! implement_decl_generic! {
-//!     impl<T> StockIterable as pub(crate) StockIterable_Impl: [
-//!         IIterable<T>,
-//!     ]
-//!     where T: RuntimeType + 'static, T::Default: Clone
-//! }
-//! ```
-//!
-//! The `<T>` after `impl` is the generic-parameter list; it is applied verbatim as both
-//! the parameters (`impl<T> ...`) and the type arguments (`Foo<T>`, `Foo_Impl<T>`) for
-//! every generated item. Trait bounds belong in the trailing `where` clause.
-//!
-//! The leading ident of every interface entry must be unique within a single invocation —
-//! it doubles as the per-chain struct field name and as the name of the per-chain
-//! associated constant on `Foo_Impl`. All existing call-sites in `windows-future` and
-//! `windows-collections` satisfy this naturally.
-
-/// Declares a generic Rust type as the COM implementer of one or more (possibly generic)
-/// interfaces. See the module-level documentation for the supported syntax and scope.
-#[macro_export]
-macro_rules! implement_decl_generic {
-    (
-        impl < $($gp:ident),+ $(,)? >
-            $name:ident as $impl_vis:vis $impl_name:ident
-        : [
-            $( $ifty:ty ),+ $(,)?
-        ]
-        $( where $($wc:tt)+ )?
-    ) => {
-        // Each interface needs an internal field/const name on the generated wrapper.
-        // These names land as `pub` fields on `$impl_name` (so the per-chain vtable can
-        // be reached via `&self.__ifaceN` from the generated `QueryInterface`), but they
-        // are an internal/unstable detail of this macro — user code should not depend on
-        // the specific names. We draw them from a fixed anonymous pool; the pool size
-        // matches the cap in `__implement_decl_offset_negate!`.
-        $crate::__implement_decl_g_zip! {
-            @zip
-            ctx: {
-                generics:  [ $($gp),+ ],
-                wc:        { $( $($wc)+ )? },
-                vis:       $impl_vis,
-                name:      $name,
-                impl_name: $impl_name,
-            },
-            names: [
-                __iface0  __iface1  __iface2  __iface3
-                __iface4  __iface5  __iface6  __iface7
-                __iface8  __iface9  __iface10 __iface11
-                __iface12 __iface13 __iface14 __iface15
-            ],
-            tys: [ $($ifty),+ ],
-            acc: [ ]
-        }
-    };
-}
+//! See the [`crate::implement_decl!`] module-level docs for the user-facing syntax.
 
 // --- Zip helper: pair each interface type with a fresh internal field name ---------------
 //

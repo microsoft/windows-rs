@@ -9,7 +9,7 @@ where
     values: std::sync::RwLock<Vec<T::Default>>,
 }
 
-implement_decl_generic! {
+implement_decl! {
     impl<T> StockVector as StockVector_Impl: [
         IVector<T>,
         IIterable<T>,
@@ -151,7 +151,7 @@ where
     current: std::sync::atomic::AtomicUsize,
 }
 
-implement_decl_generic! {
+implement_decl! {
     impl<T> StockVectorIterator as StockVectorIterator_Impl: [
         IIterator<T>,
     ]

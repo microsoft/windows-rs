@@ -11,7 +11,7 @@ where
     map: std::sync::RwLock<std::collections::BTreeMap<K::Default, V::Default>>,
 }
 
-implement_decl_generic! {
+implement_decl! {
     impl<K, V> StockMap as StockMap_Impl: [
         IMap<K, V>,
         IIterable<IKeyValuePair<K, V>>,
@@ -102,7 +102,7 @@ where
     current: std::sync::atomic::AtomicUsize,
 }
 
-implement_decl_generic! {
+implement_decl! {
     impl<K, V> StockMapIterator as StockMapIterator_Impl: [
         IIterator<IKeyValuePair<K, V>>,
     ]

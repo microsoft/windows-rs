@@ -53,7 +53,7 @@ struct ReadyOperation<T>(ReadyState<IAsyncOperation<T>>)
 where
     T: RuntimeType + 'static;
 
-implement_decl_generic! {
+implement_decl! {
     impl<T> ReadyOperation as ReadyOperation_Impl: [
         IAsyncOperation<T>,
         IAsyncInfo,
@@ -65,7 +65,7 @@ struct ReadyActionWithProgress<P>(ReadyState<IAsyncActionWithProgress<P>>)
 where
     P: RuntimeType + 'static;
 
-implement_decl_generic! {
+implement_decl! {
     impl<P> ReadyActionWithProgress as ReadyActionWithProgress_Impl: [
         IAsyncActionWithProgress<P>,
         IAsyncInfo,
@@ -78,7 +78,7 @@ where
     T: RuntimeType + 'static,
     P: RuntimeType + 'static;
 
-implement_decl_generic! {
+implement_decl! {
     impl<T, P> ReadyOperationWithProgress as ReadyOperationWithProgress_Impl: [
         IAsyncOperationWithProgress<T, P>,
         IAsyncInfo,

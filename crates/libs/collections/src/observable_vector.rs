@@ -10,7 +10,7 @@ where
     handlers: Event<VectorChangedEventHandler<T>>,
 }
 
-implement_decl_generic! {
+implement_decl! {
     impl<T> StockObservableVector as StockObservableVector_Impl: [
         IObservableVector<T>,
         IVector<T>,
@@ -221,7 +221,7 @@ where
     current: std::sync::atomic::AtomicUsize,
 }
 
-implement_decl_generic! {
+implement_decl! {
     impl<T> StockObservableVectorIterator as StockObservableVectorIterator_Impl: [
         IIterator<T>,
     ]

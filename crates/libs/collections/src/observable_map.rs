@@ -12,7 +12,7 @@ where
     handlers: Event<MapChangedEventHandler<K, V>>,
 }
 
-implement_decl_generic! {
+implement_decl! {
     impl<K, V> StockObservableMap as StockObservableMap_Impl: [
         IObservableMap<K, V>,
         IMap<K, V>,
@@ -149,7 +149,7 @@ where
     key: Option<K::Default>,
 }
 
-implement_decl_generic! {
+implement_decl! {
     impl<K> StockMapChangedEventArgs as StockMapChangedEventArgs_Impl: [
         IMapChangedEventArgs<K>,
     ]
@@ -184,7 +184,7 @@ where
     current: std::sync::atomic::AtomicUsize,
 }
 
-implement_decl_generic! {
+implement_decl! {
     impl<K, V> StockObservableMapIterator as StockObservableMapIterator_Impl: [
         IIterator<IKeyValuePair<K, V>>,
     ]

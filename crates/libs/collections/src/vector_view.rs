@@ -9,7 +9,7 @@ where
     values: Vec<T::Default>,
 }
 
-implement_decl_generic! {
+implement_decl! {
     impl<T> StockVectorView as StockVectorView_Impl: [
         IVectorView<T>,
         IIterable<T>,
@@ -89,7 +89,7 @@ where
     current: std::sync::atomic::AtomicUsize,
 }
 
-implement_decl_generic! {
+implement_decl! {
     impl<T> StockVectorViewIterator as StockVectorViewIterator_Impl: [
         IIterator<T>,
     ]
