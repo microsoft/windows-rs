@@ -48,7 +48,9 @@ impl Pool {
     /// * The closure must have `'static` lifetime as the thread may outlive the lifetime in which `submit` is called.
     /// * The closure must be `Send` as it will be sent to another thread for execution.
     pub fn submit<F: FnOnce() + Send + 'static>(&self, f: F) {
-        // SAFETY: the closure has `'static` lifetime.
+        // SAFETY: the closure has `'static` lifetime, and the boxed callback environment
+        // (`self.0`) is kept alive until `Pool::drop` calls `join` to ensure all callbacks
+        // have finished using it.
         unsafe {
             try_submit(&*self.0, f);
         }

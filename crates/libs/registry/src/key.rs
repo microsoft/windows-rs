@@ -133,12 +133,14 @@ impl Key {
         Ok(Value { data, ty })
     }
 
-    /// Gets a 32-bit unsigned integer value.
+    /// Gets an unsigned integer value as `u32`. Accepts `REG_DWORD` and `REG_QWORD`
+    /// (the latter must fit in `u32` or an out-of-range error is returned).
     pub fn get_u32<T: AsRef<str>>(&self, name: T) -> Result<u32> {
         Ok(self.get_u64(name)?.try_into()?)
     }
 
-    /// Gets a 64-bit unsigned integer value.
+    /// Gets an unsigned integer value as `u64`. Accepts `REG_DWORD` (widened to `u64`) and
+    /// `REG_QWORD`.
     pub fn get_u64<T: AsRef<str>>(&self, name: T) -> Result<u64> {
         let value = &mut [0; 8];
         let (ty, value) = unsafe { self.raw_get_bytes(pcwstr(name).as_raw(), value)? };

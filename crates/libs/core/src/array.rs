@@ -29,7 +29,7 @@ impl<T: Type<T>> Array<T> {
             .expect("Attempted to allocate too large an Array");
 
         // WinRT arrays must be allocated with `CoTaskMemAlloc`.
-        // SAFETY: `bytes_amount` is non-zero only when `len > 0`, and overflow was checked above.
+        // SAFETY: overflow was checked above; `CoTaskMemAlloc` accepts a zero size.
         let data = unsafe { imp::CoTaskMemAlloc(bytes_amount) as *mut T::Default };
 
         assert!(!data.is_null(), "Could not successfully allocate for Array");
