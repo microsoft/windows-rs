@@ -155,6 +155,13 @@ pub fn builder() -> Bindgen {
 /// | `Ns.Type::Property`           | Sugar for `Ns.Type::get_Property` + `Ns.Type::put_Property` (whichever exist).  |
 /// | `Ns.Type::Event`              | Sugar for `Ns.Type::add_Event` + `Ns.Type::remove_Event` (whichever exist).     |
 ///
+/// When `Ns.Type` is a runtime class, the entry resolves against the class's required interfaces
+/// (instance default, static factory, activation/composable factory, base interfaces) and registers
+/// the equivalent filter on every required interface that exposes the named method. This drops the
+/// matching forwarder on `impl Class { … }` (and demotes the underlying vtable slot) without
+/// requiring the caller to know which interface owns the method. If the method name is not found
+/// on any required interface, bindgen panics with a list of the interfaces searched.
+///
 /// Vtable layout is preserved: demoted methods become `Slot: usize` at their original offset using
 /// the same opaque-slot mechanism `--minimal` already uses for signature-pruned methods, so ABI is
 /// safe by construction. Mixing allow (`Ns.Type::Method`) and deny (`!Ns.Type::Method`) entries
