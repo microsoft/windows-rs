@@ -12,6 +12,7 @@ pub struct Config<'a> {
     pub reader: &'a Reader,
     pub types: &'a TypeMap,
     pub references: &'a References,
+    pub filter: &'a Filter,
     pub output: &'a str,
     pub flat: bool,
     pub no_allow: bool,

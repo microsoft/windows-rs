@@ -1,0 +1,17 @@
+// Exercises method-level `--filter` property/event sugar.
+//
+//   * `Test.IFoo::Value` (denylist) expands at parse time to
+//     `get_Value` + `put_Value` (the property accessors), demoting both
+//     vtable slots while keeping `add_Changed` / `remove_Changed` alive.
+//   * `Test.IFoo::Changed` (denylist) expands to `add_Changed` +
+//     `remove_Changed` (the event accessors), demoting both event slots.
+
+#[winrt]
+mod Test {
+    delegate fn Handler(sender: Object);
+    interface IFoo {
+        Value: i32;
+        event Changed: Handler;
+        fn Keep(&self) -> i32;
+    }
+}

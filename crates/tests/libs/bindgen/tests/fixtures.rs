@@ -99,6 +99,12 @@ impl Fixture {
 #[derive(Default)]
 struct FixtureConfig {
     filter: Option<String>,
+    /// Optional additional `--filter` entries appended after `filter` (in
+    /// order). Useful for exercising method-level `--filter` denylist /
+    /// allowlist syntax (`!Ns.Type::Method`, `Ns.Type::Method`) where the
+    /// fixture needs both a base type include and one or more method
+    /// includes/excludes.
+    filters: Vec<String>,
     no_allow: bool,
     no_comment: bool,
     minimal: bool,
@@ -153,6 +159,7 @@ impl FixtureConfig {
             let value = value.trim();
             match key {
                 "filter" => cfg.filter = Some(parse_string(value)),
+                "filters" => cfg.filters = parse_string_list(value),
                 "no_allow" => cfg.no_allow = parse_bool(value),
                 "no_comment" => cfg.no_comment = parse_bool(value),
                 "minimal" => cfg.minimal = parse_bool(value),
@@ -366,6 +373,9 @@ fn run_bindgen(f: &Fixture) {
         .input(winmd.to_str().unwrap())
         .output(actual_rs.to_str().unwrap())
         .filter(filter);
+    for f in &cfg.filters {
+        bindgen.filter(f);
+    }
     if cfg.no_allow {
         bindgen.no_allow();
     }
@@ -382,7 +392,11 @@ fn run_bindgen(f: &Fixture) {
         bindgen.implement();
     }
     bindgen.implements(&cfg.implements);
-    bindgen.write().unwrap();
+    // Discard warnings: fixtures may intentionally exercise filters
+    // (including method-level `--filter` denylist / allowlist entries)
+    // that demote slots and therefore omit `_Impl` traits, which surface
+    // as warnings. The diff against `expected.rs` is what we care about.
+    let _ = bindgen.write();
 
     write_golden(&actual_rs, &f.input("expected.rs"));
 }

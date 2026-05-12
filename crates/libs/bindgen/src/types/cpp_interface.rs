@@ -30,18 +30,22 @@ impl CppInterface {
 
     pub fn get_methods(&self, config: &Config) -> Vec<CppMethodOrName> {
         let namespace = self.def.namespace();
+        let type_name = self.def.type_name();
 
         self.def
             .methods()
             .map(|def| {
                 let method = CppMethod::new(def, namespace, config.reader);
-                if method.dependencies.included(config) {
-                    CppMethodOrName::Method(method)
-                } else {
+                if !method.dependencies.included(config) {
                     config
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
                     CppMethodOrName::Name(method.def)
+                } else if !config.filter.includes_method(type_name, def.name()) {
+                    // Method-level `--filter` demoted this slot to opaque.
+                    CppMethodOrName::Name(method.def)
+                } else {
+                    CppMethodOrName::Method(method)
                 }
             })
             .collect()
@@ -53,9 +57,11 @@ impl CppInterface {
     // base `_Impl` that wasn't emitted.
     pub fn has_skipped_methods(&self, config: &Config) -> bool {
         let namespace = self.def.namespace();
+        let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = CppMethod::new(def, namespace, config.reader);
             !method.dependencies.included(config)
+                || !config.filter.includes_method(type_name, def.name())
         })
     }
 
