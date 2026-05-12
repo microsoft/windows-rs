@@ -198,6 +198,10 @@ impl IProtectionPolicyManagerInterop_Vtbl {
         iid == &<IProtectionPolicyManagerInterop as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IProtectionPolicyManagerInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IProtectionPolicyManagerInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IProtectionPolicyManagerInterop {}
 windows_core::imp::define_interface!(IProtectionPolicyManagerInterop2, IProtectionPolicyManagerInterop2_Vtbl, 0x157cfbe4_a78d_4156_b384_61fdac41e686);
 windows_core::imp::interface_hierarchy!(IProtectionPolicyManagerInterop2, windows_core::IUnknown, windows_core::IInspectable);
@@ -303,6 +307,10 @@ impl IProtectionPolicyManagerInterop2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IProtectionPolicyManagerInterop2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IProtectionPolicyManagerInterop2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IProtectionPolicyManagerInterop2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IProtectionPolicyManagerInterop2 {}
 windows_core::imp::define_interface!(IProtectionPolicyManagerInterop3, IProtectionPolicyManagerInterop3_Vtbl, 0xc1c03933_b398_4d93_b0fd_2972adf802c2);
@@ -431,6 +439,10 @@ impl IProtectionPolicyManagerInterop3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IProtectionPolicyManagerInterop3 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IProtectionPolicyManagerInterop3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IProtectionPolicyManagerInterop3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IProtectionPolicyManagerInterop3 {}
 #[repr(transparent)]

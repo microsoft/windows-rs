@@ -107,6 +107,11 @@ impl ID3D11On12Device_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11On12Device_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11On12Device_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 impl windows_core::RuntimeName for ID3D11On12Device {}
 windows_core::imp::define_interface!(ID3D11On12Device1, ID3D11On12Device1_Vtbl, 0xbdb64df4_ea2f_4c70_b861_aaab1258bb5d);
 impl core::ops::Deref for ID3D11On12Device1 {
@@ -151,6 +156,11 @@ impl ID3D11On12Device1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11On12Device1 as windows_core::Interface>::IID || iid == &<ID3D11On12Device as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11On12Device1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11On12Device1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 impl windows_core::RuntimeName for ID3D11On12Device1 {}
@@ -225,6 +235,11 @@ impl ID3D11On12Device2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11On12Device2 as windows_core::Interface>::IID || iid == &<ID3D11On12Device as windows_core::Interface>::IID || iid == &<ID3D11On12Device1 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11On12Device2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11On12Device2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 impl windows_core::RuntimeName for ID3D11On12Device2 {}

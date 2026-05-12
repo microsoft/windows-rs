@@ -34,6 +34,10 @@ impl IAudioFrameNative_Vtbl {
         iid == &<IAudioFrameNative as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioFrameNative_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioFrameNative_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioFrameNative {}
 windows_core::imp::define_interface!(IAudioFrameNativeFactory, IAudioFrameNativeFactory_Vtbl, 0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110);
 windows_core::imp::interface_hierarchy!(IAudioFrameNativeFactory, windows_core::IUnknown, windows_core::IInspectable);
@@ -78,6 +82,11 @@ impl IAudioFrameNativeFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioFrameNativeFactory as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IAudioFrameNativeFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioFrameNativeFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IAudioFrameNativeFactory {}
@@ -134,6 +143,10 @@ impl IVideoFrameNative_Vtbl {
         iid == &<IVideoFrameNative as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVideoFrameNative_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVideoFrameNative_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVideoFrameNative {}
 windows_core::imp::define_interface!(IVideoFrameNativeFactory, IVideoFrameNativeFactory_Vtbl, 0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d);
 windows_core::imp::interface_hierarchy!(IVideoFrameNativeFactory, windows_core::IUnknown, windows_core::IInspectable);
@@ -179,6 +192,11 @@ impl IVideoFrameNativeFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVideoFrameNativeFactory as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IVideoFrameNativeFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVideoFrameNativeFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IVideoFrameNativeFactory {}

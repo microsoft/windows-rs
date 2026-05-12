@@ -4391,6 +4391,10 @@ impl IImageBytes_Vtbl {
         iid == &<IImageBytes as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IImageBytes_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IImageBytes_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IImageBytes {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]

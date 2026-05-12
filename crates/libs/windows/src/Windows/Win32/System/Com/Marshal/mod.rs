@@ -781,6 +781,10 @@ impl IMarshal_Vtbl {
         iid == &<IMarshal as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMarshal_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMarshal_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMarshal {}
 windows_core::imp::define_interface!(IMarshal2, IMarshal2_Vtbl, 0x000001cf_0000_0000_c000_000000000046);
 impl core::ops::Deref for IMarshal2 {
@@ -803,6 +807,10 @@ impl IMarshal2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMarshal2 as windows_core::Interface>::IID || iid == &<IMarshal as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMarshal2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMarshal2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMarshal2 {}
 windows_core::imp::define_interface!(IMarshalingStream, IMarshalingStream_Vtbl, 0xd8f2f5e6_6102_4863_9f26_389a4676efde);
@@ -849,6 +857,10 @@ impl IMarshalingStream_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMarshalingStream as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMarshalingStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMarshalingStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMarshalingStream {}
 pub const SMEXF_HANDLER: STDMSHLFLAGS = STDMSHLFLAGS(2i32);

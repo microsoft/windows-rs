@@ -69,6 +69,11 @@ impl IPrintDocumentPackageStatusEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IPrintDocumentPackageStatusEvent_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintDocumentPackageStatusEvent_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPrintDocumentPackageStatusEvent {}
 windows_core::imp::define_interface!(IPrintDocumentPackageTarget, IPrintDocumentPackageTarget_Vtbl, 0x1b8efec4_3019_4c27_964e_367202156906);
 windows_core::imp::interface_hierarchy!(IPrintDocumentPackageTarget, windows_core::IUnknown);
@@ -131,6 +136,10 @@ impl IPrintDocumentPackageTarget_Vtbl {
         iid == &<IPrintDocumentPackageTarget as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPrintDocumentPackageTarget_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintDocumentPackageTarget_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPrintDocumentPackageTarget {}
 windows_core::imp::define_interface!(IPrintDocumentPackageTarget2, IPrintDocumentPackageTarget2_Vtbl, 0xc560298a_535c_48f9_866a_632540660cb4);
 windows_core::imp::interface_hierarchy!(IPrintDocumentPackageTarget2, windows_core::IUnknown);
@@ -190,6 +199,10 @@ impl IPrintDocumentPackageTarget2_Vtbl {
         iid == &<IPrintDocumentPackageTarget2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPrintDocumentPackageTarget2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintDocumentPackageTarget2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPrintDocumentPackageTarget2 {}
 windows_core::imp::define_interface!(IPrintDocumentPackageTargetFactory, IPrintDocumentPackageTargetFactory_Vtbl, 0xd2959bf7_b31b_4a3d_9600_712eb1335ba4);
 windows_core::imp::interface_hierarchy!(IPrintDocumentPackageTargetFactory, windows_core::IUnknown);
@@ -246,6 +259,11 @@ impl IPrintDocumentPackageTargetFactory_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IPrintDocumentPackageTargetFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintDocumentPackageTargetFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IPrintDocumentPackageTargetFactory {}
 windows_core::imp::define_interface!(IXpsPrintJob, IXpsPrintJob_Vtbl, 0x5ab89b06_8194_425f_ab3b_d7a96e350161);
 windows_core::imp::interface_hierarchy!(IXpsPrintJob, windows_core::IUnknown);
@@ -292,6 +310,10 @@ impl IXpsPrintJob_Vtbl {
         iid == &<IXpsPrintJob as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsPrintJob_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsPrintJob_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsPrintJob {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXpsPrintJobStream, IXpsPrintJobStream_Vtbl, 0x7a77dc5f_45d6_4dff_9307_d8cb846347ca);
@@ -335,6 +357,11 @@ impl IXpsPrintJobStream_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsPrintJobStream as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::ISequentialStream as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IXpsPrintJobStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsPrintJobStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IXpsPrintJobStream {}

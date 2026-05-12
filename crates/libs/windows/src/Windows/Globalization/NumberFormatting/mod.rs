@@ -615,6 +615,10 @@ impl INumberFormatter_Vtbl {
         iid == &<INumberFormatter as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + INumberFormatter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INumberFormatter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumberFormatter_Vtbl {
@@ -707,6 +711,10 @@ impl INumberFormatter2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<INumberFormatter2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + INumberFormatter2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INumberFormatter2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -978,6 +986,10 @@ impl INumberFormatterOptions_Vtbl {
         iid == &<INumberFormatterOptions as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + INumberFormatterOptions_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INumberFormatterOptions_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumberFormatterOptions_Vtbl {
@@ -1081,6 +1093,10 @@ impl INumberParser_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<INumberParser as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + INumberParser_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INumberParser_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1232,6 +1248,10 @@ impl INumberRounder_Vtbl {
         iid == &<INumberRounder as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + INumberRounder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INumberRounder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumberRounder_Vtbl {
@@ -1299,6 +1319,10 @@ impl INumberRounderOption_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<INumberRounderOption as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + INumberRounderOption_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INumberRounderOption_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1404,6 +1428,10 @@ impl ISignedZeroOption_Vtbl {
         iid == &<ISignedZeroOption as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISignedZeroOption_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISignedZeroOption_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISignedZeroOption_Vtbl {
@@ -1476,6 +1504,10 @@ impl ISignificantDigitsOption_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISignificantDigitsOption as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISignificantDigitsOption_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISignificantDigitsOption_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

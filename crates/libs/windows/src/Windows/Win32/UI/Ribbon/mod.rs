@@ -70,6 +70,10 @@ impl IUIApplication_Vtbl {
         iid == &<IUIApplication as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IUIApplication_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUIApplication_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IUIApplication {}
 windows_core::imp::define_interface!(IUICollection, IUICollection_Vtbl, 0xdf4f45bf_6f9d_4dd7_9d68_d8f9cd18c4db);
 windows_core::imp::interface_hierarchy!(IUICollection, windows_core::IUnknown);
@@ -203,6 +207,10 @@ impl IUICollection_Vtbl {
         iid == &<IUICollection as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IUICollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUICollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IUICollection {}
 windows_core::imp::define_interface!(IUICollectionChangedEvent, IUICollectionChangedEvent_Vtbl, 0x6502ae91_a14d_44b5_bbd0_62aacc581d52);
 windows_core::imp::interface_hierarchy!(IUICollectionChangedEvent, windows_core::IUnknown);
@@ -237,6 +245,10 @@ impl IUICollectionChangedEvent_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUICollectionChangedEvent as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IUICollectionChangedEvent_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUICollectionChangedEvent_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IUICollectionChangedEvent {}
 windows_core::imp::define_interface!(IUICommandHandler, IUICommandHandler_Vtbl, 0x75ae0a2d_dc03_4c9f_8883_069660d0beb6);
@@ -307,6 +319,11 @@ impl IUICommandHandler_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IUICommandHandler_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUICommandHandler_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUICommandHandler {}
 windows_core::imp::define_interface!(IUIContextualUI, IUIContextualUI_Vtbl, 0xeea11f37_7c46_437c_8e55_b52122b29293);
 windows_core::imp::interface_hierarchy!(IUIContextualUI, windows_core::IUnknown);
@@ -338,6 +355,10 @@ impl IUIContextualUI_Vtbl {
         iid == &<IUIContextualUI as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IUIContextualUI_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUIContextualUI_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IUIContextualUI {}
 windows_core::imp::define_interface!(IUIEventLogger, IUIEventLogger_Vtbl, 0xec3e1034_dbf4_41a1_95d5_03e0f1026e05);
 windows_core::imp::interface_hierarchy!(IUIEventLogger, windows_core::IUnknown);
@@ -368,6 +389,10 @@ impl IUIEventLogger_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUIEventLogger as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IUIEventLogger_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUIEventLogger_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IUIEventLogger {}
 windows_core::imp::define_interface!(IUIEventingManager, IUIEventingManager_Vtbl, 0x3be6ea7f_9a9b_4198_9368_9b0f923bd534);
@@ -402,6 +427,10 @@ impl IUIEventingManager_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUIEventingManager as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IUIEventingManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUIEventingManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IUIEventingManager {}
 windows_core::imp::define_interface!(IUIFramework, IUIFramework_Vtbl, 0xf4f0385d_6872_43a8_ad09_4c339cb3f5c5);
@@ -559,6 +588,11 @@ impl IUIFramework_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IUIFramework_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUIFramework_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIFramework {}
 windows_core::imp::define_interface!(IUIImage, IUIImage_Vtbl, 0x23c8c838_4de6_436b_ab01_5554bb7c30dd);
 windows_core::imp::interface_hierarchy!(IUIImage, windows_core::IUnknown);
@@ -606,6 +640,11 @@ impl IUIImage_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IUIImage_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUIImage_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IUIImage {}
 windows_core::imp::define_interface!(IUIImageFromBitmap, IUIImageFromBitmap_Vtbl, 0x18aba7f3_4c1c_4ba2_bf6c_f5c3326fa816);
 windows_core::imp::interface_hierarchy!(IUIImageFromBitmap, windows_core::IUnknown);
@@ -651,6 +690,11 @@ impl IUIImageFromBitmap_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUIImageFromBitmap as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IUIImageFromBitmap_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUIImageFromBitmap_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IUIImageFromBitmap {}
@@ -737,6 +781,11 @@ impl IUIRibbon_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IUIRibbon_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUIRibbon_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IUIRibbon {}
 windows_core::imp::define_interface!(IUISimplePropertySet, IUISimplePropertySet_Vtbl, 0xc205bb48_5b1c_4219_a106_15bd0a5f24e2);
 windows_core::imp::interface_hierarchy!(IUISimplePropertySet, windows_core::IUnknown);
@@ -782,6 +831,11 @@ impl IUISimplePropertySet_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUISimplePropertySet as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IUISimplePropertySet_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUISimplePropertySet_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUISimplePropertySet {}

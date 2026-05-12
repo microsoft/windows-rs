@@ -1103,6 +1103,11 @@ impl IGameController_Vtbl {
         iid == &<IGameController as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "System")]
+impl<Identity: windows_core::IUnknownImpl + IGameController_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGameController_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameController_Vtbl {
@@ -1169,6 +1174,11 @@ impl IGameControllerBatteryInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGameControllerBatteryInfo as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Devices_Power")]
+impl<Identity: windows_core::IUnknownImpl + IGameControllerBatteryInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGameControllerBatteryInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

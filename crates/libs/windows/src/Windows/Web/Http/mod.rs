@@ -2180,6 +2180,11 @@ impl IHttpContent_Vtbl {
         iid == &<IHttpContent as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Storage_Streams", feature = "Web_Http_Headers"))]
+impl<Identity: windows_core::IUnknownImpl + IHttpContent_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IHttpContent_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpContent_Vtbl {

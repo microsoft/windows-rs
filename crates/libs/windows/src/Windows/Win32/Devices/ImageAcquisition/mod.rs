@@ -249,6 +249,10 @@ impl IEnumWIA_DEV_CAPS_Vtbl {
         iid == &<IEnumWIA_DEV_CAPS as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumWIA_DEV_CAPS_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumWIA_DEV_CAPS_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumWIA_DEV_CAPS {}
 windows_core::imp::define_interface!(IEnumWIA_DEV_INFO, IEnumWIA_DEV_INFO_Vtbl, 0x5e38b83c_8cf1_11d1_bf92_0060081ed811);
 windows_core::imp::interface_hierarchy!(IEnumWIA_DEV_INFO, windows_core::IUnknown);
@@ -348,6 +352,10 @@ impl IEnumWIA_DEV_INFO_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumWIA_DEV_INFO as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumWIA_DEV_INFO_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumWIA_DEV_INFO_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumWIA_DEV_INFO {}
 windows_core::imp::define_interface!(IEnumWIA_FORMAT_INFO, IEnumWIA_FORMAT_INFO_Vtbl, 0x81befc5b_656d_44f1_b24c_d41d51b4dc81);
@@ -449,6 +457,10 @@ impl IEnumWIA_FORMAT_INFO_Vtbl {
         iid == &<IEnumWIA_FORMAT_INFO as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumWIA_FORMAT_INFO_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumWIA_FORMAT_INFO_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumWIA_FORMAT_INFO {}
 windows_core::imp::define_interface!(IEnumWiaItem, IEnumWiaItem_Vtbl, 0x5e8383fc_3391_11d2_9a33_00c04fa36145);
 windows_core::imp::interface_hierarchy!(IEnumWiaItem, windows_core::IUnknown);
@@ -548,6 +560,10 @@ impl IEnumWiaItem_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumWiaItem as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumWiaItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumWiaItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumWiaItem {}
 windows_core::imp::define_interface!(IEnumWiaItem2, IEnumWiaItem2_Vtbl, 0x59970af4_cd0d_44d9_ab24_52295630e582);
@@ -649,6 +665,10 @@ impl IEnumWiaItem2_Vtbl {
         iid == &<IEnumWiaItem2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumWiaItem2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumWiaItem2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumWiaItem2 {}
 pub const IMPRINTER: u32 = 65536u32;
 pub const IMPRINTER_READY: u32 = 4096u32;
@@ -720,6 +740,10 @@ impl IWiaAppErrorHandler_Vtbl {
         iid == &<IWiaAppErrorHandler as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IWiaAppErrorHandler_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaAppErrorHandler_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IWiaAppErrorHandler {}
 windows_core::imp::define_interface!(IWiaDataCallback, IWiaDataCallback_Vtbl, 0xa558a866_a5b0_11d2_a08f_00c04f72dc3c);
 windows_core::imp::interface_hierarchy!(IWiaDataCallback, windows_core::IUnknown);
@@ -750,6 +774,10 @@ impl IWiaDataCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaDataCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWiaDataCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaDataCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWiaDataCallback {}
 windows_core::imp::define_interface!(IWiaDataTransfer, IWiaDataTransfer_Vtbl, 0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c);
@@ -853,6 +881,11 @@ impl IWiaDataTransfer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaDataTransfer as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl<Identity: windows_core::IUnknownImpl + IWiaDataTransfer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaDataTransfer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl windows_core::RuntimeName for IWiaDataTransfer {}
@@ -1018,6 +1051,10 @@ impl IWiaDevMgr_Vtbl {
         iid == &<IWiaDevMgr as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IWiaDevMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaDevMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IWiaDevMgr {}
 windows_core::imp::define_interface!(IWiaDevMgr2, IWiaDevMgr2_Vtbl, 0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a);
 windows_core::imp::interface_hierarchy!(IWiaDevMgr2, windows_core::IUnknown);
@@ -1165,6 +1202,10 @@ impl IWiaDevMgr2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaDevMgr2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWiaDevMgr2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaDevMgr2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWiaDevMgr2 {}
 windows_core::imp::define_interface!(IWiaDrvItem, IWiaDrvItem_Vtbl, 0x1f02b5c5_b00c_11d2_a094_00c04f72dc3c);
@@ -1437,6 +1478,10 @@ impl IWiaDrvItem_Vtbl {
         iid == &<IWiaDrvItem as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IWiaDrvItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaDrvItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IWiaDrvItem {}
 windows_core::imp::define_interface!(IWiaErrorHandler, IWiaErrorHandler_Vtbl, 0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
 windows_core::imp::interface_hierarchy!(IWiaErrorHandler, windows_core::IUnknown);
@@ -1498,6 +1543,10 @@ impl IWiaErrorHandler_Vtbl {
         iid == &<IWiaErrorHandler as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IWiaErrorHandler_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaErrorHandler_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IWiaErrorHandler {}
 windows_core::imp::define_interface!(IWiaEventCallback, IWiaEventCallback_Vtbl, 0xae6287b0_0084_11d2_973b_00a0c9068f2e);
 windows_core::imp::interface_hierarchy!(IWiaEventCallback, windows_core::IUnknown);
@@ -1528,6 +1577,10 @@ impl IWiaEventCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaEventCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWiaEventCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaEventCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWiaEventCallback {}
 windows_core::imp::define_interface!(IWiaImageFilter, IWiaImageFilter_Vtbl, 0xa8a79ffa_450b_41f1_8f87_849ccd94ebf6);
@@ -1618,6 +1671,11 @@ impl IWiaImageFilter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaImageFilter as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IWiaImageFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaImageFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IWiaImageFilter {}
@@ -1911,6 +1969,10 @@ impl IWiaItem_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaItem as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWiaItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWiaItem {}
 windows_core::imp::define_interface!(IWiaItem2, IWiaItem2_Vtbl, 0x6cba0075_1287_407d_9b77_cf0e030435cc);
@@ -2216,6 +2278,10 @@ impl IWiaItem2_Vtbl {
         iid == &<IWiaItem2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IWiaItem2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaItem2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IWiaItem2 {}
 windows_core::imp::define_interface!(IWiaItemExtras, IWiaItemExtras_Vtbl, 0x6291ef2c_36ef_4532_876a_8e132593778d);
 windows_core::imp::interface_hierarchy!(IWiaItemExtras, windows_core::IUnknown);
@@ -2283,6 +2349,10 @@ impl IWiaItemExtras_Vtbl {
         iid == &<IWiaItemExtras as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IWiaItemExtras_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaItemExtras_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IWiaItemExtras {}
 windows_core::imp::define_interface!(IWiaLog, IWiaLog_Vtbl, 0xa00c10b6_82a1_452f_8b6c_86062aad6890);
 windows_core::imp::interface_hierarchy!(IWiaLog, windows_core::IUnknown);
@@ -2340,6 +2410,10 @@ impl IWiaLog_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaLog as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWiaLog_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaLog_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWiaLog {}
 windows_core::imp::define_interface!(IWiaLogEx, IWiaLogEx_Vtbl, 0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b);
@@ -2422,6 +2496,10 @@ impl IWiaLogEx_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaLogEx as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWiaLogEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaLogEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWiaLogEx {}
 windows_core::imp::define_interface!(IWiaMiniDrv, IWiaMiniDrv_Vtbl, 0xd8cdee14_3c6c_11d2_9a35_00c04fa36145);
@@ -2736,6 +2814,11 @@ impl IWiaMiniDrv_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl<Identity: windows_core::IUnknownImpl + IWiaMiniDrv_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaMiniDrv_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl windows_core::RuntimeName for IWiaMiniDrv {}
 windows_core::imp::define_interface!(IWiaMiniDrvCallBack, IWiaMiniDrvCallBack_Vtbl, 0x33a57d5a_3de8_11d2_9a36_00c04fa36145);
 windows_core::imp::interface_hierarchy!(IWiaMiniDrvCallBack, windows_core::IUnknown);
@@ -2766,6 +2849,10 @@ impl IWiaMiniDrvCallBack_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaMiniDrvCallBack as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWiaMiniDrvCallBack_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaMiniDrvCallBack_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWiaMiniDrvCallBack {}
 windows_core::imp::define_interface!(IWiaMiniDrvTransferCallback, IWiaMiniDrvTransferCallback_Vtbl, 0xa9d2ee89_2ce5_4ff0_8adb_c961d1d774ca);
@@ -2829,6 +2916,11 @@ impl IWiaMiniDrvTransferCallback_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IWiaMiniDrvTransferCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaMiniDrvTransferCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IWiaMiniDrvTransferCallback {}
 windows_core::imp::define_interface!(IWiaNotifyDevMgr, IWiaNotifyDevMgr_Vtbl, 0x70681ea0_e7bf_4291_9fb1_4e8813a3f78e);
 windows_core::imp::interface_hierarchy!(IWiaNotifyDevMgr, windows_core::IUnknown);
@@ -2859,6 +2951,10 @@ impl IWiaNotifyDevMgr_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaNotifyDevMgr as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWiaNotifyDevMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaNotifyDevMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWiaNotifyDevMgr {}
 windows_core::imp::define_interface!(IWiaPreview, IWiaPreview_Vtbl, 0x95c2b4fd_33f2_4d86_ad40_9431f0df08f7);
@@ -2937,6 +3033,10 @@ impl IWiaPreview_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaPreview as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWiaPreview_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaPreview_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWiaPreview {}
 windows_core::imp::define_interface!(IWiaPropertyStorage, IWiaPropertyStorage_Vtbl, 0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6);
@@ -3208,6 +3308,11 @@ impl IWiaPropertyStorage_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IWiaPropertyStorage_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaPropertyStorage_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWiaPropertyStorage {}
 windows_core::imp::define_interface!(IWiaSegmentationFilter, IWiaSegmentationFilter_Vtbl, 0xec46a697_ac04_4447_8f65_ff63d5154b21);
 windows_core::imp::interface_hierarchy!(IWiaSegmentationFilter, windows_core::IUnknown);
@@ -3248,6 +3353,11 @@ impl IWiaSegmentationFilter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaSegmentationFilter as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IWiaSegmentationFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaSegmentationFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IWiaSegmentationFilter {}
@@ -3343,6 +3453,11 @@ impl IWiaTransfer_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IWiaTransfer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaTransfer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IWiaTransfer {}
 windows_core::imp::define_interface!(IWiaTransferCallback, IWiaTransferCallback_Vtbl, 0x27d4eaaf_28a6_4ca5_9aab_e678168b9527);
 windows_core::imp::interface_hierarchy!(IWiaTransferCallback, windows_core::IUnknown);
@@ -3403,6 +3518,11 @@ impl IWiaTransferCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaTransferCallback as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IWiaTransferCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaTransferCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IWiaTransferCallback {}
@@ -3474,6 +3594,11 @@ impl IWiaUIExtension_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl<Identity: windows_core::IUnknownImpl + IWiaUIExtension_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaUIExtension_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for IWiaUIExtension {}
 windows_core::imp::define_interface!(IWiaUIExtension2, IWiaUIExtension2_Vtbl, 0x305600d7_5088_46d7_9a15_b77b09cdba7a);
 windows_core::imp::interface_hierarchy!(IWiaUIExtension2, windows_core::IUnknown);
@@ -3525,6 +3650,11 @@ impl IWiaUIExtension2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaUIExtension2 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl<Identity: windows_core::IUnknownImpl + IWiaUIExtension2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaUIExtension2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::RuntimeName for IWiaUIExtension2 {}
@@ -3740,6 +3870,10 @@ impl IWiaVideo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWiaVideo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWiaVideo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWiaVideo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWiaVideo {}
 pub const LAMP_ERR: u32 = 2048u32;

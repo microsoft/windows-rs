@@ -494,6 +494,10 @@ impl IStorageProviderItemPropertySource_Vtbl {
         iid == &<IStorageProviderItemPropertySource as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IStorageProviderItemPropertySource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageProviderItemPropertySource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderItemPropertySource_Vtbl {
@@ -604,6 +608,10 @@ impl IStorageProviderKnownFolderSyncInfoSource_Vtbl {
         iid == &<IStorageProviderKnownFolderSyncInfoSource as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IStorageProviderKnownFolderSyncInfoSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageProviderKnownFolderSyncInfoSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderKnownFolderSyncInfoSource_Vtbl {
@@ -654,6 +662,10 @@ impl IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageProviderKnownFolderSyncInfoSourceFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IStorageProviderKnownFolderSyncInfoSourceFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -729,6 +741,10 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageProviderPropertyCapabilities as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IStorageProviderPropertyCapabilities_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageProviderPropertyCapabilities_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -910,6 +926,11 @@ impl IStorageProviderQueryResult_Vtbl {
         iid == &<IStorageProviderQueryResult as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+impl<Identity: windows_core::IUnknownImpl + IStorageProviderQueryResult_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageProviderQueryResult_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderQueryResult_Vtbl {
@@ -1031,6 +1052,10 @@ impl IStorageProviderSearchHandler_Vtbl {
         iid == &<IStorageProviderSearchHandler as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IStorageProviderSearchHandler_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageProviderSearchHandler_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderSearchHandler_Vtbl {
@@ -1080,6 +1105,10 @@ impl IStorageProviderSearchHandlerFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageProviderSearchHandlerFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IStorageProviderSearchHandlerFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageProviderSearchHandlerFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1216,6 +1245,10 @@ impl IStorageProviderShareLinkSource_Vtbl {
         iid == &<IStorageProviderShareLinkSource as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IStorageProviderShareLinkSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageProviderShareLinkSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderShareLinkSource_Vtbl {
@@ -1326,6 +1359,10 @@ impl IStorageProviderStatusUISource_Vtbl {
         iid == &<IStorageProviderStatusUISource as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IStorageProviderStatusUISource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageProviderStatusUISource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderStatusUISource_Vtbl {
@@ -1376,6 +1413,10 @@ impl IStorageProviderStatusUISourceFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageProviderStatusUISourceFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IStorageProviderStatusUISourceFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageProviderStatusUISourceFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1483,6 +1524,10 @@ impl IStorageProviderSuggestionsHandler_Vtbl {
         iid == &<IStorageProviderSuggestionsHandler as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IStorageProviderSuggestionsHandler_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageProviderSuggestionsHandler_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderSuggestionsHandler_Vtbl {
@@ -1535,6 +1580,10 @@ impl IStorageProviderSuggestionsHandlerFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageProviderSuggestionsHandlerFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IStorageProviderSuggestionsHandlerFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageProviderSuggestionsHandlerFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1763,6 +1812,10 @@ impl IStorageProviderUICommand_Vtbl {
         iid == &<IStorageProviderUICommand as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IStorageProviderUICommand_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageProviderUICommand_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageProviderUICommand_Vtbl {
@@ -1822,6 +1875,10 @@ impl IStorageProviderUriSource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageProviderUriSource as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IStorageProviderUriSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageProviderUriSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

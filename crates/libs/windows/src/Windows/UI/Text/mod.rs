@@ -1170,6 +1170,10 @@ impl ITextCharacterFormat_Vtbl {
         iid == &<ITextCharacterFormat as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITextCharacterFormat_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextCharacterFormat_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextCharacterFormat_Vtbl {
@@ -1708,6 +1712,11 @@ impl ITextDocument_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITextDocument as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + ITextDocument_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextDocument_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2554,6 +2563,10 @@ impl ITextParagraphFormat_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITextParagraphFormat as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITextParagraphFormat_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextParagraphFormat_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3466,6 +3479,11 @@ impl ITextRange_Vtbl {
         iid == &<ITextRange as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + ITextRange_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextRange_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextRange_Vtbl {
@@ -4052,6 +4070,11 @@ impl ITextSelection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITextSelection as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + ITextSelection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextSelection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -128,6 +128,10 @@ impl IDirect3DDevice_Vtbl {
         iid == &<IDirect3DDevice as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDirect3DDevice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirect3DDevice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DDevice_Vtbl {
@@ -177,6 +181,10 @@ impl IDirect3DSurface_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirect3DSurface as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDirect3DSurface_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirect3DSurface_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

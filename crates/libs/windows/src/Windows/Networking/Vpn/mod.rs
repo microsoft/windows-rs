@@ -193,6 +193,10 @@ impl IVpnChannelStatics_Vtbl {
         iid == &<IVpnChannelStatics as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVpnChannelStatics_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVpnChannelStatics_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnChannelStatics_Vtbl {
@@ -310,6 +314,11 @@ impl IVpnCredential_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVpnCredential as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
+impl<Identity: windows_core::IUnknownImpl + IVpnCredential_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVpnCredential_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -492,6 +501,10 @@ impl IVpnCustomPrompt_Vtbl {
         iid == &<IVpnCustomPrompt as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVpnCustomPrompt_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVpnCustomPrompt_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnCustomPrompt_Vtbl {
@@ -630,6 +643,10 @@ impl IVpnCustomPromptElement_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVpnCustomPromptElement as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVpnCustomPromptElement_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVpnCustomPromptElement_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -773,6 +790,10 @@ impl IVpnDomainNameInfoFactory_Vtbl {
         iid == &<IVpnDomainNameInfoFactory as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVpnDomainNameInfoFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVpnDomainNameInfoFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnDomainNameInfoFactory_Vtbl {
@@ -859,6 +880,10 @@ impl IVpnInterfaceIdFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVpnInterfaceIdFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVpnInterfaceIdFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVpnInterfaceIdFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -961,6 +986,10 @@ impl IVpnNamespaceInfoFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVpnNamespaceInfoFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVpnNamespaceInfoFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVpnNamespaceInfoFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1083,6 +1112,10 @@ impl IVpnPacketBufferFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVpnPacketBufferFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVpnPacketBufferFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVpnPacketBufferFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1235,6 +1268,10 @@ impl IVpnPlugIn_Vtbl {
         iid == &<IVpnPlugIn as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVpnPlugIn_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVpnPlugIn_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnPlugIn_Vtbl {
@@ -1307,6 +1344,10 @@ impl IVpnPlugInReconnectTransport_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVpnPlugInReconnectTransport as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVpnPlugInReconnectTransport_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVpnPlugInReconnectTransport_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1514,6 +1555,10 @@ impl IVpnProfile_Vtbl {
         iid == &<IVpnProfile as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVpnProfile_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVpnProfile_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnProfile_Vtbl {
@@ -1603,6 +1648,10 @@ impl IVpnRouteFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVpnRouteFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVpnRouteFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVpnRouteFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -190,6 +190,10 @@ impl ISpiDeviceStatics_Vtbl {
         iid == &<ISpiDeviceStatics as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISpiDeviceStatics_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpiDeviceStatics_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpiDeviceStatics_Vtbl {

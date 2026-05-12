@@ -31,6 +31,11 @@ impl DRendezvousSessionEvents_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + DRendezvousSessionEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for DRendezvousSessionEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for DRendezvousSessionEvents {}
 windows_core::imp::define_interface!(IRendezvousApplication, IRendezvousApplication_Vtbl, 0x4f4d070b_a275_49fb_b10d_8ec26387b50d);
 windows_core::imp::interface_hierarchy!(IRendezvousApplication, windows_core::IUnknown);
@@ -64,6 +69,10 @@ impl IRendezvousApplication_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRendezvousApplication as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRendezvousApplication_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRendezvousApplication_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRendezvousApplication {}
 windows_core::imp::define_interface!(IRendezvousSession, IRendezvousSession_Vtbl, 0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);
@@ -173,6 +182,10 @@ impl IRendezvousSession_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRendezvousSession as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRendezvousSession_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRendezvousSession_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRendezvousSession {}
 #[repr(transparent)]

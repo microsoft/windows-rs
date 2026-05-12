@@ -3936,6 +3936,10 @@ impl IAMAnalogVideoDecoder_Vtbl {
         iid == &<IAMAnalogVideoDecoder as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMAnalogVideoDecoder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMAnalogVideoDecoder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMAnalogVideoDecoder {}
 windows_core::imp::define_interface!(IAMAnalogVideoEncoder, IAMAnalogVideoEncoder_Vtbl, 0xc6e133b0_30ac_11d0_a18c_00a0c9118956);
 windows_core::imp::interface_hierarchy!(IAMAnalogVideoEncoder, windows_core::IUnknown);
@@ -4078,6 +4082,10 @@ impl IAMAnalogVideoEncoder_Vtbl {
         iid == &<IAMAnalogVideoEncoder as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMAnalogVideoEncoder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMAnalogVideoEncoder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMAnalogVideoEncoder {}
 windows_core::imp::define_interface!(IAMAsyncReaderTimestampScaling, IAMAsyncReaderTimestampScaling_Vtbl, 0xcf7b26fc_9a00_485b_8147_3e789d5e8f67);
 windows_core::imp::interface_hierarchy!(IAMAsyncReaderTimestampScaling, windows_core::IUnknown);
@@ -4132,6 +4140,10 @@ impl IAMAsyncReaderTimestampScaling_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMAsyncReaderTimestampScaling as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMAsyncReaderTimestampScaling_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMAsyncReaderTimestampScaling_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMAsyncReaderTimestampScaling {}
 windows_core::imp::define_interface!(IAMAudioInputMixer, IAMAudioInputMixer_Vtbl, 0x54c39221_8380_11d0_b3f0_00aa003761c5);
@@ -4428,6 +4440,10 @@ impl IAMAudioInputMixer_Vtbl {
         iid == &<IAMAudioInputMixer as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMAudioInputMixer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMAudioInputMixer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMAudioInputMixer {}
 windows_core::imp::define_interface!(IAMAudioRendererStats, IAMAudioRendererStats_Vtbl, 0x22320cb2_d41a_11d2_bf7c_d7cb9df0bf93);
 windows_core::imp::interface_hierarchy!(IAMAudioRendererStats, windows_core::IUnknown);
@@ -4458,6 +4474,10 @@ impl IAMAudioRendererStats_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMAudioRendererStats as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMAudioRendererStats_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMAudioRendererStats_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMAudioRendererStats {}
 windows_core::imp::define_interface!(IAMBufferNegotiation, IAMBufferNegotiation_Vtbl, 0x56ed71a0_af5f_11d0_b3f0_00aa003761c5);
@@ -4513,6 +4533,10 @@ impl IAMBufferNegotiation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMBufferNegotiation as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMBufferNegotiation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMBufferNegotiation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMBufferNegotiation {}
 windows_core::imp::define_interface!(IAMCameraControl, IAMCameraControl_Vtbl, 0xc6e13370_30ac_11d0_a18c_00a0c9118956);
@@ -4571,6 +4595,10 @@ impl IAMCameraControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMCameraControl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMCameraControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMCameraControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMCameraControl {}
 windows_core::imp::define_interface!(IAMCertifiedOutputProtection, IAMCertifiedOutputProtection_Vtbl, 0x6feded3e_0ff1_4901_a2f1_43f7012c8515);
@@ -4641,6 +4669,10 @@ impl IAMCertifiedOutputProtection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMCertifiedOutputProtection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMCertifiedOutputProtection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMCertifiedOutputProtection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMCertifiedOutputProtection {}
 #[cfg(feature = "Win32_System_Com")]
@@ -4750,6 +4782,11 @@ impl IAMChannelInfo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IAMChannelInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMChannelInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAMChannelInfo {}
 windows_core::imp::define_interface!(IAMClockAdjust, IAMClockAdjust_Vtbl, 0x4d5466b0_a49c_11d1_abe8_00a0c905f375);
 windows_core::imp::interface_hierarchy!(IAMClockAdjust, windows_core::IUnknown);
@@ -4780,6 +4817,10 @@ impl IAMClockAdjust_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMClockAdjust as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMClockAdjust_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMClockAdjust_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMClockAdjust {}
 windows_core::imp::define_interface!(IAMClockSlave, IAMClockSlave_Vtbl, 0x9fd52741_176d_4b36_8f51_ca8f933223be);
@@ -4835,6 +4876,10 @@ impl IAMClockSlave_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMClockSlave as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMClockSlave_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMClockSlave_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMClockSlave {}
 #[cfg(feature = "Win32_System_Com")]
@@ -4935,6 +4980,11 @@ impl IAMCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IAMCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAMCollection {}
 windows_core::imp::define_interface!(IAMCopyCaptureFileProgress, IAMCopyCaptureFileProgress_Vtbl, 0x670d1d20_a068_11d0_b3f0_00aa003761c5);
 windows_core::imp::interface_hierarchy!(IAMCopyCaptureFileProgress, windows_core::IUnknown);
@@ -4965,6 +5015,10 @@ impl IAMCopyCaptureFileProgress_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMCopyCaptureFileProgress as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMCopyCaptureFileProgress_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMCopyCaptureFileProgress_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMCopyCaptureFileProgress {}
 windows_core::imp::define_interface!(IAMCrossbar, IAMCrossbar_Vtbl, 0xc6e13380_30ac_11d0_a18c_00a0c9118956);
@@ -5057,6 +5111,10 @@ impl IAMCrossbar_Vtbl {
         iid == &<IAMCrossbar as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMCrossbar_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMCrossbar_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMCrossbar {}
 windows_core::imp::define_interface!(IAMDecoderCaps, IAMDecoderCaps_Vtbl, 0xc0dff467_d499_4986_972b_e1d9090fa941);
 windows_core::imp::interface_hierarchy!(IAMDecoderCaps, windows_core::IUnknown);
@@ -5096,6 +5154,10 @@ impl IAMDecoderCaps_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMDecoderCaps as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMDecoderCaps_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMDecoderCaps_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMDecoderCaps {}
 windows_core::imp::define_interface!(IAMDevMemoryAllocator, IAMDevMemoryAllocator_Vtbl, 0xc6545bf0_e76b_11d0_bd52_00a0c911ce86);
@@ -5182,6 +5244,10 @@ impl IAMDevMemoryAllocator_Vtbl {
         iid == &<IAMDevMemoryAllocator as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMDevMemoryAllocator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMDevMemoryAllocator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMDevMemoryAllocator {}
 windows_core::imp::define_interface!(IAMDevMemoryControl, IAMDevMemoryControl_Vtbl, 0xc6545bf1_e76b_11d0_bd52_00a0c911ce86);
 windows_core::imp::interface_hierarchy!(IAMDevMemoryControl, windows_core::IUnknown);
@@ -5249,6 +5315,10 @@ impl IAMDevMemoryControl_Vtbl {
         iid == &<IAMDevMemoryControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMDevMemoryControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMDevMemoryControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMDevMemoryControl {}
 windows_core::imp::define_interface!(IAMDeviceRemoval, IAMDeviceRemoval_Vtbl, 0xf90a6130_b658_11d2_ae49_0000f8754b99);
 windows_core::imp::interface_hierarchy!(IAMDeviceRemoval, windows_core::IUnknown);
@@ -5306,6 +5376,10 @@ impl IAMDeviceRemoval_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMDeviceRemoval as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMDeviceRemoval_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMDeviceRemoval_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMDeviceRemoval {}
 windows_core::imp::define_interface!(IAMDirectSound, IAMDirectSound_Vtbl, 0x546f4260_d53e_11cf_b3f0_00aa003761c5);
@@ -5488,6 +5562,11 @@ impl IAMDirectSound_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
+impl<Identity: windows_core::IUnknownImpl + IAMDirectSound_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMDirectSound_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_Audio_DirectSound")]
 impl windows_core::RuntimeName for IAMDirectSound {}
 windows_core::imp::define_interface!(IAMDroppedFrames, IAMDroppedFrames_Vtbl, 0xc6e13344_30ac_11d0_a18c_00a0c9118956);
 windows_core::imp::interface_hierarchy!(IAMDroppedFrames, windows_core::IUnknown);
@@ -5584,6 +5663,10 @@ impl IAMDroppedFrames_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMDroppedFrames as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMDroppedFrames_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMDroppedFrames_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMDroppedFrames {}
 windows_core::imp::define_interface!(IAMExtDevice, IAMExtDevice_Vtbl, 0xb5730a90_1a2c_11cf_8c23_00aa006b6814);
@@ -5747,6 +5830,10 @@ impl IAMExtDevice_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMExtDevice as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMExtDevice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMExtDevice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMExtDevice {}
 windows_core::imp::define_interface!(IAMExtTransport, IAMExtTransport_Vtbl, 0xa03cd5f0_3045_11cf_8c44_00aa006b6814);
@@ -6208,6 +6295,10 @@ impl IAMExtTransport_Vtbl {
         iid == &<IAMExtTransport as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMExtTransport_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMExtTransport_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMExtTransport {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAMExtendedErrorInfo, IAMExtendedErrorInfo_Vtbl, 0xfa2aa8f6_8b62_11d0_a520_000000000000);
@@ -6278,6 +6369,11 @@ impl IAMExtendedErrorInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMExtendedErrorInfo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IAMExtendedErrorInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMExtendedErrorInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAMExtendedErrorInfo {}
@@ -6400,6 +6496,11 @@ impl IAMExtendedSeeking_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IAMExtendedSeeking_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMExtendedSeeking_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAMExtendedSeeking {}
 windows_core::imp::define_interface!(IAMFilterGraphCallback, IAMFilterGraphCallback_Vtbl, 0x56a868fd_0ad4_11ce_b0a3_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IAMFilterGraphCallback, windows_core::IUnknown);
@@ -6434,6 +6535,10 @@ impl IAMFilterGraphCallback_Vtbl {
         iid == &<IAMFilterGraphCallback as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMFilterGraphCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMFilterGraphCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMFilterGraphCallback {}
 windows_core::imp::define_interface!(IAMFilterMiscFlags, IAMFilterMiscFlags_Vtbl, 0x2dd74950_a890_11d1_abe8_00a0c905f375);
 windows_core::imp::interface_hierarchy!(IAMFilterMiscFlags, windows_core::IUnknown);
@@ -6464,6 +6569,10 @@ impl IAMFilterMiscFlags_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMFilterMiscFlags as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMFilterMiscFlags_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMFilterMiscFlags_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMFilterMiscFlags {}
 windows_core::imp::define_interface!(IAMGraphBuilderCallback, IAMGraphBuilderCallback_Vtbl, 0x4995f511_9ddb_4f12_bd3b_f04611807b79);
@@ -6528,6 +6637,11 @@ impl IAMGraphBuilderCallback_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IAMGraphBuilderCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMGraphBuilderCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAMGraphBuilderCallback {}
 windows_core::imp::define_interface!(IAMGraphStreams, IAMGraphStreams_Vtbl, 0x632105fa_072e_11d3_8af9_00c04fb6bd3d);
 windows_core::imp::interface_hierarchy!(IAMGraphStreams, windows_core::IUnknown);
@@ -6589,6 +6703,10 @@ impl IAMGraphStreams_Vtbl {
         iid == &<IAMGraphStreams as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMGraphStreams_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMGraphStreams_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMGraphStreams {}
 windows_core::imp::define_interface!(IAMLatency, IAMLatency_Vtbl, 0x62ea93ba_ec62_11d2_b770_00c04fb6bd3d);
 windows_core::imp::interface_hierarchy!(IAMLatency, windows_core::IUnknown);
@@ -6628,6 +6746,10 @@ impl IAMLatency_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMLatency as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMLatency_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMLatency_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMLatency {}
 windows_core::imp::define_interface!(IAMLine21Decoder, IAMLine21Decoder_Vtbl, 0x6e8d4a21_310c_11d0_b79a_00aa003767a7);
@@ -6816,6 +6938,11 @@ impl IAMLine21Decoder_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMLine21Decoder as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IAMLine21Decoder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMLine21Decoder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IAMLine21Decoder {}
@@ -7010,6 +7137,11 @@ impl IAMMediaContent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IAMMediaContent_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMMediaContent_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAMMediaContent {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAMMediaContent2, IAMMediaContent2_Vtbl, 0xce8f78c1_74d9_11d2_b09d_00a0c9a81117);
@@ -7080,6 +7212,11 @@ impl IAMMediaContent2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMMediaContent2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IAMMediaContent2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMMediaContent2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAMMediaContent2 {}
@@ -7187,6 +7324,11 @@ impl IAMMediaStream_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMMediaStream as windows_core::Interface>::IID || iid == &<IMediaStream as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IAMMediaStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMMediaStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAMMediaStream {}
@@ -7450,6 +7592,11 @@ impl IAMMediaTypeSample_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IAMMediaTypeSample_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMMediaTypeSample_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IAMMediaTypeSample {}
 windows_core::imp::define_interface!(IAMMediaTypeStream, IAMMediaTypeStream_Vtbl, 0xab6b4afa_f6e4_11d0_900d_00c04fd9189d);
 impl core::ops::Deref for IAMMediaTypeStream {
@@ -7568,6 +7715,11 @@ impl IAMMediaTypeStream_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMMediaTypeStream as windows_core::Interface>::IID || iid == &<IMediaStream as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IAMMediaTypeStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMMediaTypeStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IAMMediaTypeStream {}
@@ -7731,6 +7883,11 @@ impl IAMMultiMediaStream_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMMultiMediaStream as windows_core::Interface>::IID || iid == &<IMultiMediaStream as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IAMMultiMediaStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMMultiMediaStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAMMultiMediaStream {}
@@ -8033,6 +8190,11 @@ impl IAMNetShowConfig_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IAMNetShowConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMNetShowConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAMNetShowConfig {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAMNetShowExProps, IAMNetShowExProps_Vtbl, 0xfa2aa8f5_8b62_11d0_a520_000000000000);
@@ -8177,6 +8339,11 @@ impl IAMNetShowExProps_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IAMNetShowExProps_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMNetShowExProps_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAMNetShowExProps {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAMNetShowPreroll, IAMNetShowPreroll_Vtbl, 0xaae7e4e2_6388_11d1_8d93_006097c9a2b2);
@@ -8235,6 +8402,11 @@ impl IAMNetShowPreroll_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMNetShowPreroll as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IAMNetShowPreroll_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMNetShowPreroll_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAMNetShowPreroll {}
@@ -8357,6 +8529,11 @@ impl IAMNetworkStatus_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IAMNetworkStatus_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMNetworkStatus_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAMNetworkStatus {}
 windows_core::imp::define_interface!(IAMOpenProgress, IAMOpenProgress_Vtbl, 0x8e1c39a1_de53_11cf_aa63_0080c744528d);
 windows_core::imp::interface_hierarchy!(IAMOpenProgress, windows_core::IUnknown);
@@ -8402,6 +8579,10 @@ impl IAMOpenProgress_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMOpenProgress as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMOpenProgress_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMOpenProgress_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMOpenProgress {}
 windows_core::imp::define_interface!(IAMOverlayFX, IAMOverlayFX_Vtbl, 0x62fae250_7e65_4460_bfc9_6398b322073c);
@@ -8479,6 +8660,10 @@ impl IAMOverlayFX_Vtbl {
         iid == &<IAMOverlayFX as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMOverlayFX_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMOverlayFX_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMOverlayFX {}
 windows_core::imp::define_interface!(IAMParse, IAMParse_Vtbl, 0xc47a3420_005c_11d2_9038_00a0c9697298);
 windows_core::imp::interface_hierarchy!(IAMParse, windows_core::IUnknown);
@@ -8546,6 +8731,10 @@ impl IAMParse_Vtbl {
         iid == &<IAMParse as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMParse_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMParse_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMParse {}
 windows_core::imp::define_interface!(IAMPhysicalPinInfo, IAMPhysicalPinInfo_Vtbl, 0xf938c991_3029_11cf_8c44_00aa006b6814);
 windows_core::imp::interface_hierarchy!(IAMPhysicalPinInfo, windows_core::IUnknown);
@@ -8576,6 +8765,10 @@ impl IAMPhysicalPinInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMPhysicalPinInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMPhysicalPinInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMPhysicalPinInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMPhysicalPinInfo {}
 windows_core::imp::define_interface!(IAMPlayList, IAMPlayList_Vtbl, 0x56a868fe_0ad4_11ce_b03a_0020af0ba770);
@@ -8688,6 +8881,10 @@ impl IAMPlayList_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMPlayList as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMPlayList_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMPlayList_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMPlayList {}
 windows_core::imp::define_interface!(IAMPlayListItem, IAMPlayListItem_Vtbl, 0x56a868ff_0ad4_11ce_b03a_0020af0ba770);
@@ -8942,6 +9139,10 @@ impl IAMPlayListItem_Vtbl {
         iid == &<IAMPlayListItem as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMPlayListItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMPlayListItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMPlayListItem {}
 windows_core::imp::define_interface!(IAMPluginControl, IAMPluginControl_Vtbl, 0x0e26a181_f40c_4635_8786_976284b52981);
 windows_core::imp::interface_hierarchy!(IAMPluginControl, windows_core::IUnknown);
@@ -9068,6 +9269,10 @@ impl IAMPluginControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMPluginControl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMPluginControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMPluginControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMPluginControl {}
 windows_core::imp::define_interface!(IAMPushSource, IAMPushSource_Vtbl, 0xf185fe76_e64e_11d2_b76e_00c04fb6bd3d);
@@ -9196,6 +9401,10 @@ impl IAMPushSource_Vtbl {
         iid == &<IAMPushSource as windows_core::Interface>::IID || iid == &<IAMLatency as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMPushSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMPushSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMPushSource {}
 windows_core::imp::define_interface!(IAMRebuild, IAMRebuild_Vtbl, 0x02ef04dd_7580_11d1_bece_00c04fb6e937);
 windows_core::imp::interface_hierarchy!(IAMRebuild, windows_core::IUnknown);
@@ -9227,6 +9436,10 @@ impl IAMRebuild_Vtbl {
         iid == &<IAMRebuild as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMRebuild_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMRebuild_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMRebuild {}
 windows_core::imp::define_interface!(IAMResourceControl, IAMResourceControl_Vtbl, 0x8389d2d0_77d7_11d1_abe6_00a0c905f375);
 windows_core::imp::interface_hierarchy!(IAMResourceControl, windows_core::IUnknown);
@@ -9257,6 +9470,10 @@ impl IAMResourceControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMResourceControl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMResourceControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMResourceControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMResourceControl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -9384,6 +9601,11 @@ impl IAMStats_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IAMStats_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMStats_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAMStats {}
 windows_core::imp::define_interface!(IAMStreamConfig, IAMStreamConfig_Vtbl, 0xc6e13340_30ac_11d0_a18c_00a0c9118956);
 windows_core::imp::interface_hierarchy!(IAMStreamConfig, windows_core::IUnknown);
@@ -9478,6 +9700,11 @@ impl IAMStreamConfig_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IAMStreamConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMStreamConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IAMStreamConfig {}
 windows_core::imp::define_interface!(IAMStreamControl, IAMStreamControl_Vtbl, 0x36b73881_c2c8_11cf_8b46_00805f6cef60);
 windows_core::imp::interface_hierarchy!(IAMStreamControl, windows_core::IUnknown);
@@ -9535,6 +9762,10 @@ impl IAMStreamControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMStreamControl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMStreamControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMStreamControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMStreamControl {}
 windows_core::imp::define_interface!(IAMStreamSelect, IAMStreamSelect_Vtbl, 0xc1960960_17f5_11d1_abe1_00a0c905f375);
@@ -9608,6 +9839,11 @@ impl IAMStreamSelect_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMStreamSelect as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IAMStreamSelect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMStreamSelect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IAMStreamSelect {}
@@ -9737,6 +9973,10 @@ impl IAMTVAudio_Vtbl {
         iid == &<IAMTVAudio as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMTVAudio_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMTVAudio_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMTVAudio {}
 windows_core::imp::define_interface!(IAMTVAudioNotification, IAMTVAudioNotification_Vtbl, 0x83ec1c33_23d1_11d1_99e6_00a0c9560266);
 windows_core::imp::interface_hierarchy!(IAMTVAudioNotification, windows_core::IUnknown);
@@ -9767,6 +10007,10 @@ impl IAMTVAudioNotification_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMTVAudioNotification as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMTVAudioNotification_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMTVAudioNotification_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMTVAudioNotification {}
 windows_core::imp::define_interface!(IAMTVTuner, IAMTVTuner_Vtbl, 0x211a8766_03ac_11d1_8d13_00aa00bd8339);
@@ -10000,6 +10244,10 @@ impl IAMTVTuner_Vtbl {
         iid == &<IAMTVTuner as windows_core::Interface>::IID || iid == &<IAMTuner as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMTVTuner_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMTVTuner_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMTVTuner {}
 windows_core::imp::define_interface!(IAMTimecodeDisplay, IAMTimecodeDisplay_Vtbl, 0x9b496ce2_811b_11cf_8c77_00aa006b6814);
 windows_core::imp::interface_hierarchy!(IAMTimecodeDisplay, windows_core::IUnknown);
@@ -10087,6 +10335,10 @@ impl IAMTimecodeDisplay_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMTimecodeDisplay as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMTimecodeDisplay_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMTimecodeDisplay_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMTimecodeDisplay {}
 windows_core::imp::define_interface!(IAMTimecodeGenerator, IAMTimecodeGenerator_Vtbl, 0x9b496ce0_811b_11cf_8c77_00aa006b6814);
@@ -10200,6 +10452,10 @@ impl IAMTimecodeGenerator_Vtbl {
         iid == &<IAMTimecodeGenerator as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMTimecodeGenerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMTimecodeGenerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMTimecodeGenerator {}
 windows_core::imp::define_interface!(IAMTimecodeReader, IAMTimecodeReader_Vtbl, 0x9b496ce1_811b_11cf_8c77_00aa006b6814);
 windows_core::imp::interface_hierarchy!(IAMTimecodeReader, windows_core::IUnknown);
@@ -10299,6 +10555,10 @@ impl IAMTimecodeReader_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMTimecodeReader as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMTimecodeReader_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMTimecodeReader_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMTimecodeReader {}
 windows_core::imp::define_interface!(IAMTuner, IAMTuner_Vtbl, 0x211a8761_03ac_11d1_8d13_00aa00bd8339);
@@ -10553,6 +10813,10 @@ impl IAMTuner_Vtbl {
         iid == &<IAMTuner as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMTuner_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMTuner_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMTuner {}
 windows_core::imp::define_interface!(IAMTunerNotification, IAMTunerNotification_Vtbl, 0x211a8760_03ac_11d1_8d13_00aa00bd8339);
 windows_core::imp::interface_hierarchy!(IAMTunerNotification, windows_core::IUnknown);
@@ -10583,6 +10847,10 @@ impl IAMTunerNotification_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMTunerNotification as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMTunerNotification_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMTunerNotification_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMTunerNotification {}
 windows_core::imp::define_interface!(IAMVfwCaptureDialogs, IAMVfwCaptureDialogs_Vtbl, 0xd8d715a0_6e5e_11d0_b3f0_00aa003761c5);
@@ -10641,6 +10909,10 @@ impl IAMVfwCaptureDialogs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMVfwCaptureDialogs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMVfwCaptureDialogs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMVfwCaptureDialogs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMVfwCaptureDialogs {}
 windows_core::imp::define_interface!(IAMVfwCompressDialogs, IAMVfwCompressDialogs_Vtbl, 0xd8d715a3_6e5e_11d0_b3f0_00aa003761c5);
@@ -10711,6 +10983,10 @@ impl IAMVfwCompressDialogs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMVfwCompressDialogs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMVfwCompressDialogs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMVfwCompressDialogs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMVfwCompressDialogs {}
 windows_core::imp::define_interface!(IAMVideoAccelerator, IAMVideoAccelerator_Vtbl, 0x256a6a22_fbad_11d1_82bf_00a0c9696c8f);
@@ -10900,6 +11176,11 @@ impl IAMVideoAccelerator_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IAMVideoAccelerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMVideoAccelerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IAMVideoAccelerator {}
 windows_core::imp::define_interface!(IAMVideoAcceleratorNotify, IAMVideoAcceleratorNotify_Vtbl, 0x256a6a21_fbad_11d1_82bf_00a0c9696c8f);
 windows_core::imp::interface_hierarchy!(IAMVideoAcceleratorNotify, windows_core::IUnknown);
@@ -10963,6 +11244,11 @@ impl IAMVideoAcceleratorNotify_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMVideoAcceleratorNotify as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IAMVideoAcceleratorNotify_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMVideoAcceleratorNotify_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IAMVideoAcceleratorNotify {}
@@ -11155,6 +11441,10 @@ impl IAMVideoCompression_Vtbl {
         iid == &<IAMVideoCompression as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMVideoCompression_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMVideoCompression_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMVideoCompression {}
 windows_core::imp::define_interface!(IAMVideoControl, IAMVideoControl_Vtbl, 0x6a2e0670_28e4_11d0_a18c_00a0c9118956);
 windows_core::imp::interface_hierarchy!(IAMVideoControl, windows_core::IUnknown);
@@ -11303,6 +11593,10 @@ impl IAMVideoControl_Vtbl {
         iid == &<IAMVideoControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMVideoControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMVideoControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMVideoControl {}
 windows_core::imp::define_interface!(IAMVideoDecimationProperties, IAMVideoDecimationProperties_Vtbl, 0x60d32930_13da_11d3_9ec6_c4fcaef5c7be);
 windows_core::imp::interface_hierarchy!(IAMVideoDecimationProperties, windows_core::IUnknown);
@@ -11357,6 +11651,10 @@ impl IAMVideoDecimationProperties_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMVideoDecimationProperties as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMVideoDecimationProperties_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMVideoDecimationProperties_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMVideoDecimationProperties {}
 windows_core::imp::define_interface!(IAMVideoProcAmp, IAMVideoProcAmp_Vtbl, 0xc6e13360_30ac_11d0_a18c_00a0c9118956);
@@ -11416,6 +11714,10 @@ impl IAMVideoProcAmp_Vtbl {
         iid == &<IAMVideoProcAmp as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAMVideoProcAmp_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMVideoProcAmp_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAMVideoProcAmp {}
 windows_core::imp::define_interface!(IAMWMBufferPass, IAMWMBufferPass_Vtbl, 0x6dd816d7_e740_4123_9e24_2444412644d8);
 windows_core::imp::interface_hierarchy!(IAMWMBufferPass, windows_core::IUnknown);
@@ -11449,6 +11751,10 @@ impl IAMWMBufferPass_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMWMBufferPass as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMWMBufferPass_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMWMBufferPass_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMWMBufferPass {}
 windows_core::imp::define_interface!(IAMWMBufferPassCallback, IAMWMBufferPassCallback_Vtbl, 0xb25b8372_d2d2_44b2_8653_1b8dae332489);
@@ -11490,6 +11796,11 @@ impl IAMWMBufferPassCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMWMBufferPassCallback as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Media_WindowsMediaFormat")]
+impl<Identity: windows_core::IUnknownImpl + IAMWMBufferPassCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMWMBufferPassCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
 impl windows_core::RuntimeName for IAMWMBufferPassCallback {}
@@ -11741,6 +12052,11 @@ impl IAMWstDecoder_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IAMWstDecoder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMWstDecoder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IAMWstDecoder {}
 windows_core::imp::define_interface!(IAMovieSetup, IAMovieSetup_Vtbl, 0xa3d8cec0_7e5a_11cf_bbc5_00805f6cef20);
 windows_core::imp::interface_hierarchy!(IAMovieSetup, windows_core::IUnknown);
@@ -11786,6 +12102,10 @@ impl IAMovieSetup_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMovieSetup as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAMovieSetup_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAMovieSetup_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAMovieSetup {}
 windows_core::imp::define_interface!(IAsyncReader, IAsyncReader_Vtbl, 0x56a868aa_0ad4_11ce_b03a_0020af0ba770);
@@ -11923,6 +12243,10 @@ impl IAsyncReader_Vtbl {
         iid == &<IAsyncReader as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAsyncReader_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAsyncReader_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAsyncReader {}
 windows_core::imp::define_interface!(IAudioData, IAudioData_Vtbl, 0x54c719c0_af60_11d0_8212_00c04fc32c45);
 impl core::ops::Deref for IAudioData {
@@ -11980,6 +12304,11 @@ impl IAudioData_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioData as windows_core::Interface>::IID || iid == &<IMemoryData as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl<Identity: windows_core::IUnknownImpl + IAudioData_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioData_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl windows_core::RuntimeName for IAudioData {}
@@ -12069,6 +12398,11 @@ impl IAudioMediaStream_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl<Identity: windows_core::IUnknownImpl + IAudioMediaStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioMediaStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl windows_core::RuntimeName for IAudioMediaStream {}
 windows_core::imp::define_interface!(IAudioStreamSample, IAudioStreamSample_Vtbl, 0x345fee00_aba5_11d0_8212_00c04fc32c45);
 impl core::ops::Deref for IAudioStreamSample {
@@ -12114,6 +12448,10 @@ impl IAudioStreamSample_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioStreamSample as windows_core::Interface>::IID || iid == &<IStreamSample as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioStreamSample_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioStreamSample_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioStreamSample {}
 windows_core::imp::define_interface!(IBDA_AUX, IBDA_AUX_Vtbl, 0x7def4c09_6e66_4567_a819_f0e17f4a81ab);
@@ -12170,6 +12508,10 @@ impl IBDA_AUX_Vtbl {
         iid == &<IBDA_AUX as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_AUX_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_AUX_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_AUX {}
 windows_core::imp::define_interface!(IBDA_AutoDemodulate, IBDA_AutoDemodulate_Vtbl, 0xddf15b12_bd25_11d2_9ca0_00c04f7971e0);
 windows_core::imp::interface_hierarchy!(IBDA_AutoDemodulate, windows_core::IUnknown);
@@ -12200,6 +12542,10 @@ impl IBDA_AutoDemodulate_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_AutoDemodulate as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_AutoDemodulate_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_AutoDemodulate_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_AutoDemodulate {}
 windows_core::imp::define_interface!(IBDA_AutoDemodulateEx, IBDA_AutoDemodulateEx_Vtbl, 0x34518d13_1182_48e6_b28f_b24987787326);
@@ -12264,6 +12610,10 @@ impl IBDA_AutoDemodulateEx_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_AutoDemodulateEx as windows_core::Interface>::IID || iid == &<IBDA_AutoDemodulate as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_AutoDemodulateEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_AutoDemodulateEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_AutoDemodulateEx {}
 windows_core::imp::define_interface!(IBDA_ConditionalAccess, IBDA_ConditionalAccess_Vtbl, 0xcd51f1e0_7be9_4123_8482_a2a796c0a6b0);
@@ -12425,6 +12775,10 @@ impl IBDA_ConditionalAccess_Vtbl {
         iid == &<IBDA_ConditionalAccess as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_ConditionalAccess_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_ConditionalAccess_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_ConditionalAccess {}
 windows_core::imp::define_interface!(IBDA_ConditionalAccessEx, IBDA_ConditionalAccessEx_Vtbl, 0x497c3418_23cb_44ba_bb62_769f506fcea7);
 windows_core::imp::interface_hierarchy!(IBDA_ConditionalAccessEx, windows_core::IUnknown);
@@ -12534,6 +12888,10 @@ impl IBDA_ConditionalAccessEx_Vtbl {
         iid == &<IBDA_ConditionalAccessEx as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_ConditionalAccessEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_ConditionalAccessEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_ConditionalAccessEx {}
 windows_core::imp::define_interface!(IBDA_DRIDRMService, IBDA_DRIDRMService_Vtbl, 0x1f9bc2a5_44a3_4c52_aab1_0bbce5a1381d);
 windows_core::imp::interface_hierarchy!(IBDA_DRIDRMService, windows_core::IUnknown);
@@ -12591,6 +12949,10 @@ impl IBDA_DRIDRMService_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_DRIDRMService as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_DRIDRMService_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_DRIDRMService_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_DRIDRMService {}
 windows_core::imp::define_interface!(IBDA_DRIWMDRMSession, IBDA_DRIWMDRMSession_Vtbl, 0x05c690f8_56db_4bb2_b053_79c12098bb26);
@@ -12698,6 +13060,10 @@ impl IBDA_DRIWMDRMSession_Vtbl {
         iid == &<IBDA_DRIWMDRMSession as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_DRIWMDRMSession_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_DRIWMDRMSession_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_DRIWMDRMSession {}
 windows_core::imp::define_interface!(IBDA_DRM, IBDA_DRM_Vtbl, 0xf98d88b0_1992_4cd6_a6d9_b9afab99330d);
 windows_core::imp::interface_hierarchy!(IBDA_DRM, windows_core::IUnknown);
@@ -12744,6 +13110,10 @@ impl IBDA_DRM_Vtbl {
         iid == &<IBDA_DRM as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_DRM_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_DRM_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_DRM {}
 windows_core::imp::define_interface!(IBDA_DRMService, IBDA_DRMService_Vtbl, 0xbff6b5bb_b0ae_484c_9dca_73528fb0b46e);
 windows_core::imp::interface_hierarchy!(IBDA_DRMService, windows_core::IUnknown);
@@ -12789,6 +13159,10 @@ impl IBDA_DRMService_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_DRMService as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_DRMService_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_DRMService_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_DRMService {}
 windows_core::imp::define_interface!(IBDA_DeviceControl, IBDA_DeviceControl_Vtbl, 0xfd0a5af3_b41d_11d2_9c95_00c04f7971e0);
@@ -12860,6 +13234,10 @@ impl IBDA_DeviceControl_Vtbl {
         iid == &<IBDA_DeviceControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_DeviceControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_DeviceControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_DeviceControl {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_core::imp::define_interface!(IBDA_DiagnosticProperties, IBDA_DiagnosticProperties_Vtbl, 0x20e80cb5_c543_4c1b_8eb3_49e719eee7d4);
@@ -12888,6 +13266,11 @@ impl IBDA_DiagnosticProperties_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_DiagnosticProperties as windows_core::Interface>::IID || iid == &<super::super::System::Com::StructuredStorage::IPropertyBag as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IBDA_DiagnosticProperties_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_DiagnosticProperties_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBDA_DiagnosticProperties {}
@@ -13080,6 +13463,10 @@ impl IBDA_DigitalDemodulator_Vtbl {
         iid == &<IBDA_DigitalDemodulator as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_DigitalDemodulator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_DigitalDemodulator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_DigitalDemodulator {}
 windows_core::imp::define_interface!(IBDA_DigitalDemodulator2, IBDA_DigitalDemodulator2_Vtbl, 0x525ed3ee_5cf3_4e1e_9a06_5368a84f9a6e);
 impl core::ops::Deref for IBDA_DigitalDemodulator2 {
@@ -13204,6 +13591,10 @@ impl IBDA_DigitalDemodulator2_Vtbl {
         iid == &<IBDA_DigitalDemodulator2 as windows_core::Interface>::IID || iid == &<IBDA_DigitalDemodulator as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_DigitalDemodulator2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_DigitalDemodulator2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_DigitalDemodulator2 {}
 windows_core::imp::define_interface!(IBDA_DigitalDemodulator3, IBDA_DigitalDemodulator3_Vtbl, 0x13f19604_7d32_4359_93a2_a05205d90ac9);
 impl core::ops::Deref for IBDA_DigitalDemodulator3 {
@@ -13279,6 +13670,10 @@ impl IBDA_DigitalDemodulator3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_DigitalDemodulator3 as windows_core::Interface>::IID || iid == &<IBDA_DigitalDemodulator as windows_core::Interface>::IID || iid == &<IBDA_DigitalDemodulator2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_DigitalDemodulator3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_DigitalDemodulator3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_DigitalDemodulator3 {}
 windows_core::imp::define_interface!(IBDA_DiseqCommand, IBDA_DiseqCommand_Vtbl, 0xf84e2ab0_3c6b_45e3_a0fc_8669d4b81f11);
@@ -13374,6 +13769,10 @@ impl IBDA_DiseqCommand_Vtbl {
         iid == &<IBDA_DiseqCommand as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_DiseqCommand_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_DiseqCommand_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_DiseqCommand {}
 windows_core::imp::define_interface!(IBDA_EasMessage, IBDA_EasMessage_Vtbl, 0xd806973d_3ebe_46de_8fbb_6358fe784208);
 windows_core::imp::interface_hierarchy!(IBDA_EasMessage, windows_core::IUnknown);
@@ -13404,6 +13803,10 @@ impl IBDA_EasMessage_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_EasMessage as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_EasMessage_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_EasMessage_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_EasMessage {}
 windows_core::imp::define_interface!(IBDA_Encoder, IBDA_Encoder_Vtbl, 0x3a8bad59_59fe_4559_a0ba_396cfaa98ae3);
@@ -13509,6 +13912,10 @@ impl IBDA_Encoder_Vtbl {
         iid == &<IBDA_Encoder as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_Encoder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_Encoder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_Encoder {}
 windows_core::imp::define_interface!(IBDA_EthernetFilter, IBDA_EthernetFilter_Vtbl, 0x71985f43_1ca1_11d3_9cc8_00c04f7971e0);
 windows_core::imp::interface_hierarchy!(IBDA_EthernetFilter, windows_core::IUnknown);
@@ -13600,6 +14007,10 @@ impl IBDA_EthernetFilter_Vtbl {
         iid == &<IBDA_EthernetFilter as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_EthernetFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_EthernetFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_EthernetFilter {}
 windows_core::imp::define_interface!(IBDA_EventingService, IBDA_EventingService_Vtbl, 0x207c413f_00dc_4c61_bad6_6fee1ff07064);
 windows_core::imp::interface_hierarchy!(IBDA_EventingService, windows_core::IUnknown);
@@ -13630,6 +14041,10 @@ impl IBDA_EventingService_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_EventingService as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_EventingService_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_EventingService_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_EventingService {}
 windows_core::imp::define_interface!(IBDA_FDC, IBDA_FDC_Vtbl, 0x138adc7e_58ae_437f_b0b4_c9fe19d5b4ac);
@@ -13754,6 +14169,10 @@ impl IBDA_FDC_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_FDC as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_FDC_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_FDC_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_FDC {}
 windows_core::imp::define_interface!(IBDA_FrequencyFilter, IBDA_FrequencyFilter_Vtbl, 0x71985f47_1ca1_11d3_9cc8_00c04f7971e0);
@@ -13921,6 +14340,10 @@ impl IBDA_FrequencyFilter_Vtbl {
         iid == &<IBDA_FrequencyFilter as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_FrequencyFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_FrequencyFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_FrequencyFilter {}
 windows_core::imp::define_interface!(IBDA_GuideDataDeliveryService, IBDA_GuideDataDeliveryService_Vtbl, 0xc0afcb73_23e7_4bc6_bafa_fdc167b4719f);
 windows_core::imp::interface_hierarchy!(IBDA_GuideDataDeliveryService, windows_core::IUnknown);
@@ -14042,6 +14465,10 @@ impl IBDA_GuideDataDeliveryService_Vtbl {
         iid == &<IBDA_GuideDataDeliveryService as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_GuideDataDeliveryService_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_GuideDataDeliveryService_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_GuideDataDeliveryService {}
 windows_core::imp::define_interface!(IBDA_IPSinkControl, IBDA_IPSinkControl_Vtbl, 0x3f4dc8e2_4050_11d3_8f4b_00c04f7971e2);
 windows_core::imp::interface_hierarchy!(IBDA_IPSinkControl, windows_core::IUnknown);
@@ -14087,6 +14514,10 @@ impl IBDA_IPSinkControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_IPSinkControl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_IPSinkControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_IPSinkControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_IPSinkControl {}
 windows_core::imp::define_interface!(IBDA_IPSinkInfo, IBDA_IPSinkInfo_Vtbl, 0xa750108f_492e_4d51_95f7_649b23ff7ad7);
@@ -14163,6 +14594,10 @@ impl IBDA_IPSinkInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_IPSinkInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_IPSinkInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_IPSinkInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_IPSinkInfo {}
 windows_core::imp::define_interface!(IBDA_IPV4Filter, IBDA_IPV4Filter_Vtbl, 0x71985f44_1ca1_11d3_9cc8_00c04f7971e0);
@@ -14255,6 +14690,10 @@ impl IBDA_IPV4Filter_Vtbl {
         iid == &<IBDA_IPV4Filter as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_IPV4Filter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_IPV4Filter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_IPV4Filter {}
 windows_core::imp::define_interface!(IBDA_IPV6Filter, IBDA_IPV6Filter_Vtbl, 0xe1785a74_2a23_4fb3_9245_a8f88017ef33);
 windows_core::imp::interface_hierarchy!(IBDA_IPV6Filter, windows_core::IUnknown);
@@ -14346,6 +14785,10 @@ impl IBDA_IPV6Filter_Vtbl {
         iid == &<IBDA_IPV6Filter as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_IPV6Filter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_IPV6Filter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_IPV6Filter {}
 windows_core::imp::define_interface!(IBDA_ISDBConditionalAccess, IBDA_ISDBConditionalAccess_Vtbl, 0x5e68c627_16c2_4e6c_b1e2_d00170cdaa0f);
 windows_core::imp::interface_hierarchy!(IBDA_ISDBConditionalAccess, windows_core::IUnknown);
@@ -14376,6 +14819,10 @@ impl IBDA_ISDBConditionalAccess_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_ISDBConditionalAccess as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_ISDBConditionalAccess_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_ISDBConditionalAccess_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_ISDBConditionalAccess {}
 windows_core::imp::define_interface!(IBDA_LNBInfo, IBDA_LNBInfo_Vtbl, 0x992cf102_49f9_4719_a664_c4f23e2408f4);
@@ -14471,6 +14918,10 @@ impl IBDA_LNBInfo_Vtbl {
         iid == &<IBDA_LNBInfo as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_LNBInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_LNBInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_LNBInfo {}
 windows_core::imp::define_interface!(IBDA_MUX, IBDA_MUX_Vtbl, 0x942aafec_4c05_4c74_b8eb_8706c2a4943f);
 windows_core::imp::interface_hierarchy!(IBDA_MUX, windows_core::IUnknown);
@@ -14516,6 +14967,10 @@ impl IBDA_MUX_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_MUX as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_MUX_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_MUX_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_MUX {}
 windows_core::imp::define_interface!(IBDA_NameValueService, IBDA_NameValueService_Vtbl, 0x7f0b3150_7b81_4ad4_98e3_7e9097094301);
@@ -14592,6 +15047,10 @@ impl IBDA_NameValueService_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_NameValueService as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_NameValueService_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_NameValueService_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_NameValueService {}
 windows_core::imp::define_interface!(IBDA_NetworkProvider, IBDA_NetworkProvider_Vtbl, 0xfd501041_8ebe_11ce_8183_00aa00577da2);
@@ -14702,6 +15161,10 @@ impl IBDA_NetworkProvider_Vtbl {
         iid == &<IBDA_NetworkProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_NetworkProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_NetworkProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_NetworkProvider {}
 windows_core::imp::define_interface!(IBDA_NullTransform, IBDA_NullTransform_Vtbl, 0xddf15b0d_bd25_11d2_9ca0_00c04f7971e0);
 windows_core::imp::interface_hierarchy!(IBDA_NullTransform, windows_core::IUnknown);
@@ -14743,6 +15206,10 @@ impl IBDA_NullTransform_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_NullTransform as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_NullTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_NullTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_NullTransform {}
 windows_core::imp::define_interface!(IBDA_PinControl, IBDA_PinControl_Vtbl, 0x0ded49d5_a8b7_4d5d_97a1_12b0c195874d);
@@ -14801,6 +15268,10 @@ impl IBDA_PinControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_PinControl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_PinControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_PinControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_PinControl {}
 windows_core::imp::define_interface!(IBDA_SignalProperties, IBDA_SignalProperties_Vtbl, 0xd2f1644b_b409_11d2_bc69_00a0c9ee9e16);
@@ -14895,6 +15366,10 @@ impl IBDA_SignalProperties_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_SignalProperties as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_SignalProperties_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_SignalProperties_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_SignalProperties {}
 windows_core::imp::define_interface!(IBDA_SignalStatistics, IBDA_SignalStatistics_Vtbl, 0x1347d106_cf3a_428a_a5cb_ac0d9a2a4338);
@@ -15037,6 +15512,10 @@ impl IBDA_SignalStatistics_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_SignalStatistics as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_SignalStatistics_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_SignalStatistics_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_SignalStatistics {}
 windows_core::imp::define_interface!(IBDA_Topology, IBDA_Topology_Vtbl, 0x79b56888_7fea_4690_b45d_38fd3c7849be);
@@ -15199,6 +15678,11 @@ impl IBDA_Topology_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IBDA_Topology_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_Topology_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IBDA_Topology {}
 windows_core::imp::define_interface!(IBDA_TransportStreamInfo, IBDA_TransportStreamInfo_Vtbl, 0x8e882535_5f86_47ab_86cf_c281a72a0549);
 windows_core::imp::interface_hierarchy!(IBDA_TransportStreamInfo, windows_core::IUnknown);
@@ -15238,6 +15722,10 @@ impl IBDA_TransportStreamInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_TransportStreamInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_TransportStreamInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_TransportStreamInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_TransportStreamInfo {}
 windows_core::imp::define_interface!(IBDA_TransportStreamSelector, IBDA_TransportStreamSelector_Vtbl, 0x1dcfafe9_b45e_41b3_bb2a_561eb129ae98);
@@ -15284,6 +15772,10 @@ impl IBDA_TransportStreamSelector_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_TransportStreamSelector as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_TransportStreamSelector_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_TransportStreamSelector_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_TransportStreamSelector {}
 windows_core::imp::define_interface!(IBDA_UserActivityService, IBDA_UserActivityService_Vtbl, 0x53b14189_e478_4b7a_a1ff_506db4b99dfe);
@@ -15352,6 +15844,10 @@ impl IBDA_UserActivityService_Vtbl {
         iid == &<IBDA_UserActivityService as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_UserActivityService_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_UserActivityService_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_UserActivityService {}
 windows_core::imp::define_interface!(IBDA_VoidTransform, IBDA_VoidTransform_Vtbl, 0x71985f46_1ca1_11d3_9cc8_00c04f7971e0);
 windows_core::imp::interface_hierarchy!(IBDA_VoidTransform, windows_core::IUnknown);
@@ -15393,6 +15889,10 @@ impl IBDA_VoidTransform_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBDA_VoidTransform as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBDA_VoidTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_VoidTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBDA_VoidTransform {}
 windows_core::imp::define_interface!(IBDA_WMDRMSession, IBDA_WMDRMSession_Vtbl, 0x4be6fa3d_07cd_4139_8b80_8c18ba3aec88);
@@ -15512,6 +16012,10 @@ impl IBDA_WMDRMSession_Vtbl {
         iid == &<IBDA_WMDRMSession as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_WMDRMSession_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_WMDRMSession_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_WMDRMSession {}
 windows_core::imp::define_interface!(IBDA_WMDRMTuner, IBDA_WMDRMTuner_Vtbl, 0x86d979cf_a8a7_4f94_b5fb_14c0aca68fe6);
 windows_core::imp::interface_hierarchy!(IBDA_WMDRMTuner, windows_core::IUnknown);
@@ -15615,6 +16119,10 @@ impl IBDA_WMDRMTuner_Vtbl {
         iid == &<IBDA_WMDRMTuner as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBDA_WMDRMTuner_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBDA_WMDRMTuner_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBDA_WMDRMTuner {}
 windows_core::imp::define_interface!(IBPCSatelliteTuner, IBPCSatelliteTuner_Vtbl, 0x211a8765_03ac_11d1_8d13_00aa00bd8339);
 impl core::ops::Deref for IBPCSatelliteTuner {
@@ -15678,6 +16186,10 @@ impl IBPCSatelliteTuner_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBPCSatelliteTuner as windows_core::Interface>::IID || iid == &<IAMTuner as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBPCSatelliteTuner_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBPCSatelliteTuner_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBPCSatelliteTuner {}
 #[cfg(feature = "Win32_System_Com")]
@@ -15807,6 +16319,11 @@ impl IBaseFilter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBaseFilter as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as windows_core::Interface>::IID || iid == &<IMediaFilter as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IBaseFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBaseFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IBaseFilter {}
@@ -15951,6 +16468,10 @@ impl IBaseVideoMixer_Vtbl {
         iid == &<IBaseVideoMixer as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBaseVideoMixer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBaseVideoMixer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBaseVideoMixer {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IBasicAudio, IBasicAudio_Vtbl, 0x56a868b3_0ad4_11ce_b03a_0020af0ba770);
@@ -16051,6 +16572,11 @@ impl IBasicAudio_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBasicAudio as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IBasicAudio_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBasicAudio_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBasicAudio {}
@@ -16590,6 +17116,11 @@ impl IBasicVideo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IBasicVideo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBasicVideo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBasicVideo {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IBasicVideo2, IBasicVideo2_Vtbl, 0x329bb360_f6ea_11d1_9038_00a0c9697298);
@@ -16635,6 +17166,11 @@ impl IBasicVideo2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IBasicVideo2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBasicVideo2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBasicVideo2 {}
 windows_core::imp::define_interface!(IBroadcastEvent, IBroadcastEvent_Vtbl, 0x3b21263f_26e8_489d_aac4_924f7efd9511);
 windows_core::imp::interface_hierarchy!(IBroadcastEvent, windows_core::IUnknown);
@@ -16665,6 +17201,10 @@ impl IBroadcastEvent_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBroadcastEvent as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBroadcastEvent_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBroadcastEvent_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBroadcastEvent {}
 windows_core::imp::define_interface!(IBroadcastEventEx, IBroadcastEventEx_Vtbl, 0x3d9e3887_1929_423f_8021_43682de95448);
@@ -16702,6 +17242,10 @@ impl IBroadcastEventEx_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBroadcastEventEx as windows_core::Interface>::IID || iid == &<IBroadcastEvent as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBroadcastEventEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBroadcastEventEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBroadcastEventEx {}
 windows_core::imp::define_interface!(IBufferingTime, IBufferingTime_Vtbl, 0x1e00486a_78dd_11d2_8dd3_006097c9a2b2);
@@ -16748,6 +17292,10 @@ impl IBufferingTime_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBufferingTime as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBufferingTime_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBufferingTime_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBufferingTime {}
 windows_core::imp::define_interface!(ICCSubStreamFiltering, ICCSubStreamFiltering_Vtbl, 0x4b2bd7ea_8347_467b_8dbf_62f784929cc3);
@@ -16803,6 +17351,10 @@ impl ICCSubStreamFiltering_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICCSubStreamFiltering as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICCSubStreamFiltering_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICCSubStreamFiltering_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ICCSubStreamFiltering {}
 windows_core::imp::define_interface!(ICameraControl, ICameraControl_Vtbl, 0x2ba1785d_4d1b_44ef_85e8_c7f1d3f20184);
@@ -17438,6 +17990,10 @@ impl ICameraControl_Vtbl {
         iid == &<ICameraControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICameraControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICameraControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICameraControl {}
 windows_core::imp::define_interface!(ICaptureGraphBuilder, ICaptureGraphBuilder_Vtbl, 0xbf87b6e0_8c27_11d0_b3f0_00aa003761c5);
 windows_core::imp::interface_hierarchy!(ICaptureGraphBuilder, windows_core::IUnknown);
@@ -17607,6 +18163,11 @@ impl ICaptureGraphBuilder_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICaptureGraphBuilder as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ICaptureGraphBuilder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICaptureGraphBuilder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ICaptureGraphBuilder {}
@@ -17804,6 +18365,11 @@ impl ICaptureGraphBuilder2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ICaptureGraphBuilder2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICaptureGraphBuilder2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ICaptureGraphBuilder2 {}
 windows_core::imp::define_interface!(IConfigAsfWriter, IConfigAsfWriter_Vtbl, 0x45086030_f7e4_486a_b504_826bb5792a3b);
 windows_core::imp::interface_hierarchy!(IConfigAsfWriter, windows_core::IUnknown);
@@ -17972,6 +18538,11 @@ impl IConfigAsfWriter_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
+impl<Identity: windows_core::IUnknownImpl + IConfigAsfWriter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IConfigAsfWriter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_WindowsMediaFormat")]
 impl windows_core::RuntimeName for IConfigAsfWriter {}
 windows_core::imp::define_interface!(IConfigAsfWriter2, IConfigAsfWriter2_Vtbl, 0x7989ccaa_53f0_44f0_884a_f3b03f6ae066);
 impl core::ops::Deref for IConfigAsfWriter2 {
@@ -18063,6 +18634,11 @@ impl IConfigAsfWriter2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
+impl<Identity: windows_core::IUnknownImpl + IConfigAsfWriter2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IConfigAsfWriter2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_WindowsMediaFormat")]
 impl windows_core::RuntimeName for IConfigAsfWriter2 {}
 windows_core::imp::define_interface!(IConfigAviMux, IConfigAviMux_Vtbl, 0x5acd6aa0_f482_11ce_8b67_00aa00a3f1a6);
 windows_core::imp::interface_hierarchy!(IConfigAviMux, windows_core::IUnknown);
@@ -18151,6 +18727,10 @@ impl IConfigAviMux_Vtbl {
         iid == &<IConfigAviMux as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IConfigAviMux_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IConfigAviMux_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IConfigAviMux {}
 windows_core::imp::define_interface!(IConfigInterleaving, IConfigInterleaving_Vtbl, 0xbee3d220_157b_11d0_bd23_00a0c911ce86);
 windows_core::imp::interface_hierarchy!(IConfigInterleaving, windows_core::IUnknown);
@@ -18230,6 +18810,10 @@ impl IConfigInterleaving_Vtbl {
         iid == &<IConfigInterleaving as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IConfigInterleaving_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IConfigInterleaving_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IConfigInterleaving {}
 windows_core::imp::define_interface!(ICreateDevEnum, ICreateDevEnum_Vtbl, 0x29840822_5b84_11d0_bd3b_00a0c911ce86);
 windows_core::imp::interface_hierarchy!(ICreateDevEnum, windows_core::IUnknown);
@@ -18266,6 +18850,11 @@ impl ICreateDevEnum_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICreateDevEnum as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ICreateDevEnum_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICreateDevEnum_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ICreateDevEnum {}
@@ -18402,6 +18991,11 @@ impl IDDrawExclModeVideo_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IDDrawExclModeVideo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDDrawExclModeVideo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IDDrawExclModeVideo {}
 windows_core::imp::define_interface!(IDDrawExclModeVideoCallback, IDDrawExclModeVideoCallback_Vtbl, 0x913c24a0_20ab_11d2_9038_00a0c9697298);
 windows_core::imp::interface_hierarchy!(IDDrawExclModeVideoCallback, windows_core::IUnknown);
@@ -18460,6 +19054,10 @@ impl IDDrawExclModeVideoCallback_Vtbl {
         iid == &<IDDrawExclModeVideoCallback as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDDrawExclModeVideoCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDDrawExclModeVideoCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDDrawExclModeVideoCallback {}
 windows_core::imp::define_interface!(IDMOWrapperFilter, IDMOWrapperFilter_Vtbl, 0x52d6f586_9f0f_4824_8fc8_e32ca04930c2);
 windows_core::imp::interface_hierarchy!(IDMOWrapperFilter, windows_core::IUnknown);
@@ -18490,6 +19088,10 @@ impl IDMOWrapperFilter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDMOWrapperFilter as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDMOWrapperFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDMOWrapperFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDMOWrapperFilter {}
 windows_core::imp::define_interface!(IDShowPlugin, IDShowPlugin_Vtbl, 0x4746b7c8_700e_11d1_becc_00c04fb6e937);
@@ -18532,6 +19134,10 @@ impl IDShowPlugin_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDShowPlugin as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDShowPlugin_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDShowPlugin_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDShowPlugin {}
 windows_core::imp::define_interface!(IDVEnc, IDVEnc_Vtbl, 0xd18e17a0_aacb_11d0_afb0_00aa00b67a42);
@@ -18579,6 +19185,10 @@ impl IDVEnc_Vtbl {
         iid == &<IDVEnc as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDVEnc_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDVEnc_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDVEnc {}
 windows_core::imp::define_interface!(IDVRGB219, IDVRGB219_Vtbl, 0x58473a19_2bc8_4663_8012_25f81babddd1);
 windows_core::imp::interface_hierarchy!(IDVRGB219, windows_core::IUnknown);
@@ -18610,6 +19220,10 @@ impl IDVRGB219_Vtbl {
         iid == &<IDVRGB219 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDVRGB219_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDVRGB219_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDVRGB219 {}
 windows_core::imp::define_interface!(IDVSplitter, IDVSplitter_Vtbl, 0x92a3a302_da7c_4a1f_ba7e_1802bb5d2d02);
 windows_core::imp::interface_hierarchy!(IDVSplitter, windows_core::IUnknown);
@@ -18640,6 +19254,10 @@ impl IDVSplitter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDVSplitter as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDVSplitter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDVSplitter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDVSplitter {}
 windows_core::imp::define_interface!(IDecimateVideoImage, IDecimateVideoImage_Vtbl, 0x2e5ea3e0_e924_11d2_b6da_00a0c995e8df);
@@ -18686,6 +19304,10 @@ impl IDecimateVideoImage_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDecimateVideoImage as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDecimateVideoImage_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDecimateVideoImage_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDecimateVideoImage {}
 windows_core::imp::define_interface!(IDeferredCommand, IDeferredCommand_Vtbl, 0x56a868b8_0ad4_11ce_b03a_0020af0ba770);
@@ -18775,6 +19397,10 @@ impl IDeferredCommand_Vtbl {
         iid == &<IDeferredCommand as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDeferredCommand_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDeferredCommand_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDeferredCommand {}
 windows_core::imp::define_interface!(IDirectDrawMediaSample, IDirectDrawMediaSample_Vtbl, 0xab6b4afe_f6e4_11d0_900d_00c04fd9189d);
 windows_core::imp::interface_hierarchy!(IDirectDrawMediaSample, windows_core::IUnknown);
@@ -18828,6 +19454,11 @@ impl IDirectDrawMediaSample_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IDirectDrawMediaSample_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectDrawMediaSample_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IDirectDrawMediaSample {}
 windows_core::imp::define_interface!(IDirectDrawMediaSampleAllocator, IDirectDrawMediaSampleAllocator_Vtbl, 0xab6b4afc_f6e4_11d0_900d_00c04fd9189d);
 windows_core::imp::interface_hierarchy!(IDirectDrawMediaSampleAllocator, windows_core::IUnknown);
@@ -18873,6 +19504,11 @@ impl IDirectDrawMediaSampleAllocator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirectDrawMediaSampleAllocator as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IDirectDrawMediaSampleAllocator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectDrawMediaSampleAllocator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IDirectDrawMediaSampleAllocator {}
@@ -19034,6 +19670,11 @@ impl IDirectDrawMediaStream_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IDirectDrawMediaStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectDrawMediaStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IDirectDrawMediaStream {}
 windows_core::imp::define_interface!(IDirectDrawStreamSample, IDirectDrawStreamSample_Vtbl, 0xf4104fcf_9a70_11d0_8fde_00c04fd9189d);
 impl core::ops::Deref for IDirectDrawStreamSample {
@@ -19087,6 +19728,11 @@ impl IDirectDrawStreamSample_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirectDrawStreamSample as windows_core::Interface>::IID || iid == &<IStreamSample as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IDirectDrawStreamSample_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectDrawStreamSample_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IDirectDrawStreamSample {}
@@ -19383,6 +20029,11 @@ impl IDirectDrawVideo_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IDirectDrawVideo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectDrawVideo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IDirectDrawVideo {}
 windows_core::imp::define_interface!(IDistributorNotify, IDistributorNotify_Vtbl, 0x56a868af_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IDistributorNotify, windows_core::IUnknown);
@@ -19468,6 +20119,10 @@ impl IDistributorNotify_Vtbl {
         iid == &<IDistributorNotify as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDistributorNotify_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDistributorNotify_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDistributorNotify {}
 windows_core::imp::define_interface!(IDrawVideoImage, IDrawVideoImage_Vtbl, 0x48efb120_ab49_11d2_aed2_00a0c995e8d5);
 windows_core::imp::interface_hierarchy!(IDrawVideoImage, windows_core::IUnknown);
@@ -19533,6 +20188,11 @@ impl IDrawVideoImage_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IDrawVideoImage_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDrawVideoImage_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDrawVideoImage {}
 windows_core::imp::define_interface!(IDvdCmd, IDvdCmd_Vtbl, 0x5a4a97e4_94ee_4a55_9751_74b5643aa27d);
 windows_core::imp::interface_hierarchy!(IDvdCmd, windows_core::IUnknown);
@@ -19578,6 +20238,10 @@ impl IDvdCmd_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDvdCmd as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDvdCmd_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDvdCmd_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDvdCmd {}
 windows_core::imp::define_interface!(IDvdControl, IDvdControl_Vtbl, 0xa70efe61_e2a3_11d0_a9be_00aa0061be93);
@@ -20023,6 +20687,10 @@ impl IDvdControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDvdControl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDvdControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDvdControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDvdControl {}
 windows_core::imp::define_interface!(IDvdControl2, IDvdControl2_Vtbl, 0x33bc7430_eec0_11d2_8201_00a0c9d74842);
@@ -20721,6 +21389,10 @@ impl IDvdControl2_Vtbl {
         iid == &<IDvdControl2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDvdControl2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDvdControl2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDvdControl2 {}
 windows_core::imp::define_interface!(IDvdGraphBuilder, IDvdGraphBuilder_Vtbl, 0xfcc152b6_f372_11d0_8e00_00c04fd7c08b);
 windows_core::imp::interface_hierarchy!(IDvdGraphBuilder, windows_core::IUnknown);
@@ -20790,6 +21462,10 @@ impl IDvdGraphBuilder_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDvdGraphBuilder as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDvdGraphBuilder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDvdGraphBuilder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDvdGraphBuilder {}
 windows_core::imp::define_interface!(IDvdInfo, IDvdInfo_Vtbl, 0xa70efe60_e2a3_11d0_a9be_00aa0061be93);
@@ -21205,6 +21881,10 @@ impl IDvdInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDvdInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDvdInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDvdInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDvdInfo {}
 windows_core::imp::define_interface!(IDvdInfo2, IDvdInfo2_Vtbl, 0x34151510_eec0_11d2_8201_00a0c9d74842);
@@ -21870,6 +22550,10 @@ impl IDvdInfo2_Vtbl {
         iid == &<IDvdInfo2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDvdInfo2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDvdInfo2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDvdInfo2 {}
 windows_core::imp::define_interface!(IDvdState, IDvdState_Vtbl, 0x86303d6d_1c4a_4087_ab42_f711167048ef);
 windows_core::imp::interface_hierarchy!(IDvdState, windows_core::IUnknown);
@@ -21933,6 +22617,10 @@ impl IDvdState_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDvdState as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDvdState_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDvdState_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDvdState {}
 windows_core::imp::define_interface!(IESEvent, IESEvent_Vtbl, 0x1f0e5357_af43_44e6_8547_654c645145d2);
@@ -22059,6 +22747,11 @@ impl IESEvent_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IESEvent_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IESEvent_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IESEvent {}
 windows_core::imp::define_interface!(IESEvents, IESEvents_Vtbl, 0xabd414bf_cfe5_4e5e_af5b_4b4e49c5bfeb);
 windows_core::imp::interface_hierarchy!(IESEvents, windows_core::IUnknown);
@@ -22092,6 +22785,10 @@ impl IESEvents_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IESEvents as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IESEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IESEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IESEvents {}
 windows_core::imp::define_interface!(IEncoderAPI, IEncoderAPI_Vtbl, 0x70423839_6acc_4b23_b079_21dbf08156a5);
@@ -22240,6 +22937,11 @@ impl IEncoderAPI_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IEncoderAPI_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEncoderAPI_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEncoderAPI {}
 windows_core::imp::define_interface!(IEnumFilters, IEnumFilters_Vtbl, 0x56a86893_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IEnumFilters, windows_core::IUnknown);
@@ -22324,6 +23026,11 @@ impl IEnumFilters_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumFilters as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IEnumFilters_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumFilters_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumFilters {}
@@ -22412,6 +23119,11 @@ impl IEnumMediaTypes_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IEnumMediaTypes_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumMediaTypes_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IEnumMediaTypes {}
 windows_core::imp::define_interface!(IEnumPIDMap, IEnumPIDMap_Vtbl, 0xafb6c2a2_2c41_11d3_8a60_0000f81e0e4a);
 windows_core::imp::interface_hierarchy!(IEnumPIDMap, windows_core::IUnknown);
@@ -22490,6 +23202,10 @@ impl IEnumPIDMap_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumPIDMap as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumPIDMap_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumPIDMap_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumPIDMap {}
 windows_core::imp::define_interface!(IEnumPins, IEnumPins_Vtbl, 0x56a86892_0ad4_11ce_b03a_0020af0ba770);
@@ -22570,6 +23286,10 @@ impl IEnumPins_Vtbl {
         iid == &<IEnumPins as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumPins_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumPins_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumPins {}
 windows_core::imp::define_interface!(IEnumRegFilters, IEnumRegFilters_Vtbl, 0x56a868a4_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IEnumRegFilters, windows_core::IUnknown);
@@ -22648,6 +23368,10 @@ impl IEnumRegFilters_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumRegFilters as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumRegFilters_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumRegFilters_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumRegFilters {}
 windows_core::imp::define_interface!(IEnumStreamIdMap, IEnumStreamIdMap_Vtbl, 0x945c1566_6202_46fc_96c7_d87f289c6534);
@@ -22728,6 +23452,10 @@ impl IEnumStreamIdMap_Vtbl {
         iid == &<IEnumStreamIdMap as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumStreamIdMap_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumStreamIdMap_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumStreamIdMap {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -22791,6 +23519,11 @@ impl IFileSinkFilter_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IFileSinkFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFileSinkFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IFileSinkFilter {}
 windows_core::imp::define_interface!(IFileSinkFilter2, IFileSinkFilter2_Vtbl, 0x00855b90_ce1b_11d0_bd4f_00a0c911ce86);
 impl core::ops::Deref for IFileSinkFilter2 {
@@ -22851,6 +23584,11 @@ impl IFileSinkFilter2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IFileSinkFilter2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFileSinkFilter2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IFileSinkFilter2 {}
 windows_core::imp::define_interface!(IFileSourceFilter, IFileSourceFilter_Vtbl, 0x56a868a6_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IFileSourceFilter, windows_core::IUnknown);
@@ -22905,6 +23643,11 @@ impl IFileSourceFilter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileSourceFilter as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IFileSourceFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFileSourceFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IFileSourceFilter {}
@@ -23010,6 +23753,11 @@ impl IFilterChain_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFilterChain as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IFilterChain_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFilterChain_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IFilterChain {}
@@ -23187,6 +23935,11 @@ impl IFilterGraph_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IFilterGraph_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFilterGraph_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IFilterGraph {}
 windows_core::imp::define_interface!(IFilterGraph2, IFilterGraph2_Vtbl, 0x36b73882_c2c8_11cf_8b46_00805f6cef60);
 impl core::ops::Deref for IFilterGraph2 {
@@ -23282,6 +24035,11 @@ impl IFilterGraph2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IFilterGraph2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFilterGraph2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IFilterGraph2 {}
 windows_core::imp::define_interface!(IFilterGraph3, IFilterGraph3_Vtbl, 0xaaf38154_b80b_422f_91e6_b66467509a07);
 impl core::ops::Deref for IFilterGraph3 {
@@ -23329,6 +24087,11 @@ impl IFilterGraph3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFilterGraph3 as windows_core::Interface>::IID || iid == &<IFilterGraph as windows_core::Interface>::IID || iid == &<IGraphBuilder as windows_core::Interface>::IID || iid == &<IFilterGraph2 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IFilterGraph3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFilterGraph3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IFilterGraph3 {}
@@ -23526,6 +24289,11 @@ impl IFilterInfo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IFilterInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFilterInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFilterInfo {}
 windows_core::imp::define_interface!(IFilterMapper, IFilterMapper_Vtbl, 0x56a868a3_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IFilterMapper, windows_core::IUnknown);
@@ -23669,6 +24437,10 @@ impl IFilterMapper_Vtbl {
         iid == &<IFilterMapper as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IFilterMapper_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFilterMapper_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IFilterMapper {}
 windows_core::imp::define_interface!(IFilterMapper2, IFilterMapper2_Vtbl, 0xb79bb0b0_33c1_11d1_abe1_00a0c905f375);
 windows_core::imp::interface_hierarchy!(IFilterMapper2, windows_core::IUnknown);
@@ -23798,6 +24570,11 @@ impl IFilterMapper2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IFilterMapper2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFilterMapper2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IFilterMapper2 {}
 windows_core::imp::define_interface!(IFilterMapper3, IFilterMapper3_Vtbl, 0xb79bb0b1_33c1_11d1_abe1_00a0c905f375);
 impl core::ops::Deref for IFilterMapper3 {
@@ -23845,6 +24622,11 @@ impl IFilterMapper3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFilterMapper3 as windows_core::Interface>::IID || iid == &<IFilterMapper2 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IFilterMapper3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFilterMapper3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IFilterMapper3 {}
@@ -23949,6 +24731,10 @@ impl IFrequencyMap_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFrequencyMap as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IFrequencyMap_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFrequencyMap_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IFrequencyMap {}
 windows_core::imp::define_interface!(IFullScreenVideo, IFullScreenVideo_Vtbl, 0xdd1d7110_7836_11cf_bf47_00aa0055595a);
@@ -24230,6 +25016,10 @@ impl IFullScreenVideo_Vtbl {
         iid == &<IFullScreenVideo as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IFullScreenVideo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFullScreenVideo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IFullScreenVideo {}
 windows_core::imp::define_interface!(IFullScreenVideoEx, IFullScreenVideoEx_Vtbl, 0x53479470_f1dd_11cf_bc42_00aa00ac74f6);
 impl core::ops::Deref for IFullScreenVideoEx {
@@ -24326,6 +25116,11 @@ impl IFullScreenVideoEx_Vtbl {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl<Identity: windows_core::IUnknownImpl + IFullScreenVideoEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFullScreenVideoEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::RuntimeName for IFullScreenVideoEx {}
 windows_core::imp::define_interface!(IGetCapabilitiesKey, IGetCapabilitiesKey_Vtbl, 0xa8809222_07bb_48ea_951c_33158100625b);
 windows_core::imp::interface_hierarchy!(IGetCapabilitiesKey, windows_core::IUnknown);
@@ -24371,6 +25166,11 @@ impl IGetCapabilitiesKey_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGetCapabilitiesKey as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Registry")]
+impl<Identity: windows_core::IUnknownImpl + IGetCapabilitiesKey_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGetCapabilitiesKey_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl windows_core::RuntimeName for IGetCapabilitiesKey {}
@@ -24514,6 +25314,11 @@ impl IGraphBuilder_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGraphBuilder as windows_core::Interface>::IID || iid == &<IFilterGraph as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IGraphBuilder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGraphBuilder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IGraphBuilder {}
@@ -24739,6 +25544,11 @@ impl IGraphConfig_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IGraphConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGraphConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IGraphConfig {}
 windows_core::imp::define_interface!(IGraphConfigCallback, IGraphConfigCallback_Vtbl, 0xade0fd60_d19d_11d2_abf6_00a0c905f375);
 windows_core::imp::interface_hierarchy!(IGraphConfigCallback, windows_core::IUnknown);
@@ -24769,6 +25579,10 @@ impl IGraphConfigCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGraphConfigCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IGraphConfigCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGraphConfigCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IGraphConfigCallback {}
 windows_core::imp::define_interface!(IGraphVersion, IGraphVersion_Vtbl, 0x56a868ab_0ad4_11ce_b03a_0020af0ba770);
@@ -24809,6 +25623,10 @@ impl IGraphVersion_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGraphVersion as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IGraphVersion_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGraphVersion_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IGraphVersion {}
 windows_core::imp::define_interface!(IIPDVDec, IIPDVDec_Vtbl, 0xb8e8bd60_0bfe_11d0_af91_00aa00b67a42);
@@ -24864,6 +25682,10 @@ impl IIPDVDec_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IIPDVDec as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IIPDVDec_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IIPDVDec_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IIPDVDec {}
 windows_core::imp::define_interface!(IMPEG2PIDMap, IMPEG2PIDMap_Vtbl, 0xafb6c2a1_2c41_11d3_8a60_0000f81e0e4a);
@@ -24932,6 +25754,10 @@ impl IMPEG2PIDMap_Vtbl {
         iid == &<IMPEG2PIDMap as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMPEG2PIDMap_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMPEG2PIDMap_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMPEG2PIDMap {}
 windows_core::imp::define_interface!(IMPEG2StreamIdMap, IMPEG2StreamIdMap_Vtbl, 0xd0e04c47_25b8_4369_925a_362a01d95444);
 windows_core::imp::interface_hierarchy!(IMPEG2StreamIdMap, windows_core::IUnknown);
@@ -24998,6 +25824,10 @@ impl IMPEG2StreamIdMap_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMPEG2StreamIdMap as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMPEG2StreamIdMap_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMPEG2StreamIdMap_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMPEG2StreamIdMap {}
 #[cfg(feature = "Win32_System_Com")]
@@ -25179,6 +26009,11 @@ impl IMediaControl_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IMediaControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMediaControl {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMediaEvent, IMediaEvent_Vtbl, 0x56a868b6_0ad4_11ce_b03a_0020af0ba770);
@@ -25305,6 +26140,11 @@ impl IMediaEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IMediaEvent_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaEvent_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMediaEvent {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMediaEventEx, IMediaEventEx_Vtbl, 0x56a868c0_0ad4_11ce_b03a_0020af0ba770);
@@ -25386,6 +26226,11 @@ impl IMediaEventEx_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IMediaEventEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaEventEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMediaEventEx {}
 windows_core::imp::define_interface!(IMediaEventSink, IMediaEventSink_Vtbl, 0x56a868a2_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IMediaEventSink, windows_core::IUnknown);
@@ -25416,6 +26261,10 @@ impl IMediaEventSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaEventSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMediaEventSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaEventSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMediaEventSink {}
 #[cfg(feature = "Win32_System_Com")]
@@ -25544,6 +26393,11 @@ impl IMediaFilter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaFilter as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IMediaFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IMediaFilter {}
@@ -25676,6 +26530,10 @@ impl IMediaParamInfo_Vtbl {
         iid == &<IMediaParamInfo as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMediaParamInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaParamInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMediaParamInfo {}
 windows_core::imp::define_interface!(IMediaParams, IMediaParams_Vtbl, 0x6d6cbb61_a223_44aa_842f_a2f06750be6e);
 windows_core::imp::interface_hierarchy!(IMediaParams, windows_core::IUnknown);
@@ -25766,6 +26624,10 @@ impl IMediaParams_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaParams as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMediaParams_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaParams_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMediaParams {}
 #[cfg(feature = "Win32_System_Com")]
@@ -25998,6 +26860,11 @@ impl IMediaPosition_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IMediaPosition_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaPosition_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMediaPosition {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_core::imp::define_interface!(IMediaPropertyBag, IMediaPropertyBag_Vtbl, 0x6025a880_c0d5_11d0_bd4e_00a0c911ce86);
@@ -26048,6 +26915,11 @@ impl IMediaPropertyBag_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaPropertyBag as windows_core::Interface>::IID || iid == &<super::super::System::Com::StructuredStorage::IPropertyBag as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IMediaPropertyBag_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaPropertyBag_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMediaPropertyBag {}
@@ -26293,6 +27165,11 @@ impl IMediaSample_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IMediaSample_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaSample_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IMediaSample {}
 windows_core::imp::define_interface!(IMediaSample2, IMediaSample2_Vtbl, 0x36b73884_c2c8_11cf_8b46_00805f6cef60);
 impl core::ops::Deref for IMediaSample2 {
@@ -26348,6 +27225,11 @@ impl IMediaSample2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IMediaSample2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaSample2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IMediaSample2 {}
 windows_core::imp::define_interface!(IMediaSample2Config, IMediaSample2Config_Vtbl, 0x68961e68_832b_41ea_bc91_63593f3e70e3);
 windows_core::imp::interface_hierarchy!(IMediaSample2Config, windows_core::IUnknown);
@@ -26387,6 +27269,10 @@ impl IMediaSample2Config_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaSample2Config as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMediaSample2Config_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaSample2Config_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMediaSample2Config {}
 windows_core::imp::define_interface!(IMediaSeeking, IMediaSeeking_Vtbl, 0x36b73880_c2c8_11cf_8b46_00805f6cef60);
@@ -26686,6 +27572,10 @@ impl IMediaSeeking_Vtbl {
         iid == &<IMediaSeeking as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMediaSeeking_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaSeeking_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMediaSeeking {}
 windows_core::imp::define_interface!(IMediaStream, IMediaStream_Vtbl, 0xb502d1bd_9a57_11d0_8fde_00c04fd9189d);
 windows_core::imp::interface_hierarchy!(IMediaStream, windows_core::IUnknown);
@@ -26812,6 +27702,10 @@ impl IMediaStream_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaStream as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMediaStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMediaStream {}
 #[cfg(feature = "Win32_System_Com")]
@@ -26987,6 +27881,11 @@ impl IMediaStreamFilter_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IMediaStreamFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaStreamFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IMediaStreamFilter {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMediaTypeInfo, IMediaTypeInfo_Vtbl, 0x56a868bc_0ad4_11ce_b03a_0020af0ba770);
@@ -27063,6 +27962,11 @@ impl IMediaTypeInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaTypeInfo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IMediaTypeInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaTypeInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMediaTypeInfo {}
@@ -27180,6 +28084,10 @@ impl IMemAllocator_Vtbl {
         iid == &<IMemAllocator as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMemAllocator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMemAllocator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMemAllocator {}
 windows_core::imp::define_interface!(IMemAllocatorCallbackTemp, IMemAllocatorCallbackTemp_Vtbl, 0x379a0cf0_c1de_11d2_abf5_00a0c905f375);
 impl core::ops::Deref for IMemAllocatorCallbackTemp {
@@ -27240,6 +28148,10 @@ impl IMemAllocatorCallbackTemp_Vtbl {
         iid == &<IMemAllocatorCallbackTemp as windows_core::Interface>::IID || iid == &<IMemAllocator as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMemAllocatorCallbackTemp_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMemAllocatorCallbackTemp_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMemAllocatorCallbackTemp {}
 windows_core::imp::define_interface!(IMemAllocatorNotifyCallbackTemp, IMemAllocatorNotifyCallbackTemp_Vtbl, 0x92980b30_c1de_11d2_abf5_00a0c905f375);
 windows_core::imp::interface_hierarchy!(IMemAllocatorNotifyCallbackTemp, windows_core::IUnknown);
@@ -27270,6 +28182,10 @@ impl IMemAllocatorNotifyCallbackTemp_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMemAllocatorNotifyCallbackTemp as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMemAllocatorNotifyCallbackTemp_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMemAllocatorNotifyCallbackTemp_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMemAllocatorNotifyCallbackTemp {}
 windows_core::imp::define_interface!(IMemInputPin, IMemInputPin_Vtbl, 0x56a8689d_0ad4_11ce_b03a_0020af0ba770);
@@ -27398,6 +28314,10 @@ impl IMemInputPin_Vtbl {
         iid == &<IMemInputPin as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMemInputPin_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMemInputPin_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMemInputPin {}
 windows_core::imp::define_interface!(IMemoryData, IMemoryData_Vtbl, 0x327fc560_af60_11d0_8212_00c04fc32c45);
 windows_core::imp::interface_hierarchy!(IMemoryData, windows_core::IUnknown);
@@ -27455,6 +28375,10 @@ impl IMemoryData_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMemoryData as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMemoryData_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMemoryData_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMemoryData {}
 windows_core::imp::define_interface!(IMixerOCX, IMixerOCX_Vtbl, 0x81a3bd32_dee1_11d1_8508_00a0c91f9ca0);
@@ -27593,6 +28517,11 @@ impl IMixerOCX_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IMixerOCX_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMixerOCX_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IMixerOCX {}
 windows_core::imp::define_interface!(IMixerOCXNotify, IMixerOCXNotify_Vtbl, 0x81a3bd31_dee1_11d1_8508_00a0c91f9ca0);
 windows_core::imp::interface_hierarchy!(IMixerOCXNotify, windows_core::IUnknown);
@@ -27650,6 +28579,10 @@ impl IMixerOCXNotify_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMixerOCXNotify as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMixerOCXNotify_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMixerOCXNotify_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMixerOCXNotify {}
 windows_core::imp::define_interface!(IMixerPinConfig, IMixerPinConfig_Vtbl, 0x593cdde1_0759_11d1_9e69_00c04fd7c15b);
@@ -27817,6 +28750,10 @@ impl IMixerPinConfig_Vtbl {
         iid == &<IMixerPinConfig as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMixerPinConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMixerPinConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMixerPinConfig {}
 windows_core::imp::define_interface!(IMixerPinConfig2, IMixerPinConfig2_Vtbl, 0xebf47182_8764_11d1_9e69_00c04fd7c15b);
 impl core::ops::Deref for IMixerPinConfig2 {
@@ -27878,6 +28815,11 @@ impl IMixerPinConfig2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMixerPinConfig2 as windows_core::Interface>::IID || iid == &<IMixerPinConfig as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IMixerPinConfig2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMixerPinConfig2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IMixerPinConfig2 {}
@@ -27965,6 +28907,11 @@ impl IMpeg2Demultiplexer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMpeg2Demultiplexer as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IMpeg2Demultiplexer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMpeg2Demultiplexer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IMpeg2Demultiplexer {}
@@ -28197,6 +29144,11 @@ impl IMpegAudioDecoder_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl<Identity: windows_core::IUnknownImpl + IMpegAudioDecoder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMpegAudioDecoder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl windows_core::RuntimeName for IMpegAudioDecoder {}
 windows_core::imp::define_interface!(IMultiMediaStream, IMultiMediaStream_Vtbl, 0xb502d1bc_9a57_11d0_8fde_00c04fd9189d);
 windows_core::imp::interface_hierarchy!(IMultiMediaStream, windows_core::IUnknown);
@@ -28380,6 +29332,10 @@ impl IMultiMediaStream_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMultiMediaStream as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMultiMediaStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMultiMediaStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMultiMediaStream {}
 pub const INTERLEAVE_CAPTURE: InterleavingMode = InterleavingMode(1i32);
@@ -28572,6 +29528,11 @@ impl IOverlay_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IOverlay_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOverlay_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IOverlay {}
 windows_core::imp::define_interface!(IOverlayNotify, IOverlayNotify_Vtbl, 0x56a868a0_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IOverlayNotify, windows_core::IUnknown);
@@ -28653,6 +29614,11 @@ impl IOverlayNotify_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IOverlayNotify_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOverlayNotify_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IOverlayNotify {}
 windows_core::imp::define_interface!(IOverlayNotify2, IOverlayNotify2_Vtbl, 0x680efa10_d535_11d1_87c8_00a0c9223196);
 impl core::ops::Deref for IOverlayNotify2 {
@@ -28695,6 +29661,11 @@ impl IOverlayNotify2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOverlayNotify2 as windows_core::Interface>::IID || iid == &<IOverlayNotify as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IOverlayNotify2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOverlayNotify2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IOverlayNotify2 {}
@@ -28782,6 +29753,11 @@ impl IPersistMediaPropertyBag_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPersistMediaPropertyBag as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl<Identity: windows_core::IUnknownImpl + IPersistMediaPropertyBag_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPersistMediaPropertyBag_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl windows_core::RuntimeName for IPersistMediaPropertyBag {}
@@ -29051,6 +30027,11 @@ impl IPin_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IPin_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPin_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IPin {}
 windows_core::imp::define_interface!(IPinConnection, IPinConnection_Vtbl, 0x4a9a62d3_27d4_403d_91e9_89f540e55534);
 windows_core::imp::interface_hierarchy!(IPinConnection, windows_core::IUnknown);
@@ -29128,6 +30109,11 @@ impl IPinConnection_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IPinConnection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPinConnection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IPinConnection {}
 windows_core::imp::define_interface!(IPinFlowControl, IPinFlowControl_Vtbl, 0xc56e9858_dbf3_4f6b_8119_384af2060deb);
 windows_core::imp::interface_hierarchy!(IPinFlowControl, windows_core::IUnknown);
@@ -29158,6 +30144,10 @@ impl IPinFlowControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPinFlowControl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPinFlowControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPinFlowControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPinFlowControl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -29433,6 +30423,11 @@ impl IPinInfo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IPinInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPinInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPinInfo {}
 windows_core::imp::define_interface!(IQualProp, IQualProp_Vtbl, 0x1bd0ecb0_f8e2_11ce_aac6_0020af0b99a3);
 windows_core::imp::interface_hierarchy!(IQualProp, windows_core::IUnknown);
@@ -29581,6 +30576,10 @@ impl IQualProp_Vtbl {
         iid == &<IQualProp as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IQualProp_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IQualProp_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IQualProp {}
 windows_core::imp::define_interface!(IQualityControl, IQualityControl_Vtbl, 0x56a868a5_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IQualityControl, windows_core::IUnknown);
@@ -29634,6 +30633,11 @@ impl IQualityControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IQualityControl as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IQualityControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IQualityControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IQualityControl {}
@@ -29691,6 +30695,11 @@ impl IQueueCommand_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IQueueCommand as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IQueueCommand_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IQueueCommand_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IQueueCommand {}
@@ -29768,6 +30777,11 @@ impl IRegFilterInfo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRegFilterInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRegFilterInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRegFilterInfo {}
 windows_core::imp::define_interface!(IRegisterServiceProvider, IRegisterServiceProvider_Vtbl, 0x7b3a2f01_0751_48dd_b556_004785171c54);
 windows_core::imp::interface_hierarchy!(IRegisterServiceProvider, windows_core::IUnknown);
@@ -29801,6 +30815,10 @@ impl IRegisterServiceProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRegisterServiceProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRegisterServiceProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRegisterServiceProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRegisterServiceProvider {}
 windows_core::imp::define_interface!(IResourceConsumer, IResourceConsumer_Vtbl, 0x56a868ad_0ad4_11ce_b03a_0020af0ba770);
@@ -29847,6 +30865,10 @@ impl IResourceConsumer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IResourceConsumer as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IResourceConsumer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IResourceConsumer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IResourceConsumer {}
 windows_core::imp::define_interface!(IResourceManager, IResourceManager_Vtbl, 0x56a868ac_0ad4_11ce_b03a_0020af0ba770);
@@ -30009,6 +31031,10 @@ impl IResourceManager_Vtbl {
         iid == &<IResourceManager as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IResourceManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IResourceManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IResourceManager {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -30069,6 +31095,10 @@ impl ISeekingPassThru_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISeekingPassThru as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISeekingPassThru_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISeekingPassThru_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISeekingPassThru {}
 windows_core::imp::define_interface!(ISelector, ISelector_Vtbl, 0x1abdaeca_68b6_4f83_9371_b413907c7b9f);
@@ -30146,6 +31176,10 @@ impl ISelector_Vtbl {
         iid == &<ISelector as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISelector_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISelector_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISelector {}
 windows_core::imp::define_interface!(ISpecifyParticularPages, ISpecifyParticularPages_Vtbl, 0x4c437b91_6e9e_11d1_a704_006097c4e476);
 windows_core::imp::interface_hierarchy!(ISpecifyParticularPages, windows_core::IUnknown);
@@ -30191,6 +31225,11 @@ impl ISpecifyParticularPages_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpecifyParticularPages as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl<Identity: windows_core::IUnknownImpl + ISpecifyParticularPages_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpecifyParticularPages_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Ole")]
 impl windows_core::RuntimeName for ISpecifyParticularPages {}
@@ -30242,6 +31281,10 @@ impl IStreamBuilder_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStreamBuilder as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IStreamBuilder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStreamBuilder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IStreamBuilder {}
 windows_core::imp::define_interface!(IStreamSample, IStreamSample_Vtbl, 0xb502d1be_9a57_11d0_8fde_00c04fd9189d);
@@ -30325,6 +31368,10 @@ impl IStreamSample_Vtbl {
         iid == &<IStreamSample as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IStreamSample_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStreamSample_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IStreamSample {}
 pub const ITU_T_H264: MPEG2StreamType = MPEG2StreamType(27i32);
 pub const ITU_T_REC_H_222_1: MPEG2StreamType = MPEG2StreamType(9i32);
@@ -30382,6 +31429,10 @@ impl IVMRAspectRatioControl_Vtbl {
         iid == &<IVMRAspectRatioControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVMRAspectRatioControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRAspectRatioControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVMRAspectRatioControl {}
 windows_core::imp::define_interface!(IVMRAspectRatioControl9, IVMRAspectRatioControl9_Vtbl, 0x00d96c29_bbde_4efc_9901_bb5036392146);
 windows_core::imp::interface_hierarchy!(IVMRAspectRatioControl9, windows_core::IUnknown);
@@ -30436,6 +31487,10 @@ impl IVMRAspectRatioControl9_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVMRAspectRatioControl9 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVMRAspectRatioControl9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRAspectRatioControl9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVMRAspectRatioControl9 {}
 windows_core::imp::define_interface!(IVMRDeinterlaceControl, IVMRDeinterlaceControl_Vtbl, 0xbb057577_0db8_4e6a_87a7_1a8c9a505a0f);
@@ -30570,6 +31625,10 @@ impl IVMRDeinterlaceControl_Vtbl {
         iid == &<IVMRDeinterlaceControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVMRDeinterlaceControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRDeinterlaceControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVMRDeinterlaceControl {}
 windows_core::imp::define_interface!(IVMRDeinterlaceControl9, IVMRDeinterlaceControl9_Vtbl, 0xa215fb8d_13c2_4f7f_993c_003d6271a459);
 windows_core::imp::interface_hierarchy!(IVMRDeinterlaceControl9, windows_core::IUnknown);
@@ -30702,6 +31761,10 @@ impl IVMRDeinterlaceControl9_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVMRDeinterlaceControl9 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVMRDeinterlaceControl9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRDeinterlaceControl9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVMRDeinterlaceControl9 {}
 windows_core::imp::define_interface!(IVMRFilterConfig, IVMRFilterConfig_Vtbl, 0x9e5530c5_7034_48b4_bb46_0b8a6efc8e36);
@@ -30839,6 +31902,10 @@ impl IVMRFilterConfig_Vtbl {
         iid == &<IVMRFilterConfig as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVMRFilterConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRFilterConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVMRFilterConfig {}
 windows_core::imp::define_interface!(IVMRFilterConfig9, IVMRFilterConfig9_Vtbl, 0x5a804648_4f66_4867_9c43_4f5c822cf1b8);
 windows_core::imp::interface_hierarchy!(IVMRFilterConfig9, windows_core::IUnknown);
@@ -30975,6 +32042,10 @@ impl IVMRFilterConfig9_Vtbl {
         iid == &<IVMRFilterConfig9 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVMRFilterConfig9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRFilterConfig9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVMRFilterConfig9 {}
 windows_core::imp::define_interface!(IVMRImageCompositor, IVMRImageCompositor_Vtbl, 0x7a4fb5af_479f_4074_bb40_ce6722e43c82);
 windows_core::imp::interface_hierarchy!(IVMRImageCompositor, windows_core::IUnknown);
@@ -31076,6 +32147,11 @@ impl IVMRImageCompositor_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Media_MediaFoundation"))]
+impl<Identity: windows_core::IUnknownImpl + IVMRImageCompositor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRImageCompositor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Media_MediaFoundation"))]
 impl windows_core::RuntimeName for IVMRImageCompositor {}
 windows_core::imp::define_interface!(IVMRImageCompositor9, IVMRImageCompositor9_Vtbl, 0x4a5c89eb_df51_4654_ac2a_e48e02bbabf6);
 windows_core::imp::interface_hierarchy!(IVMRImageCompositor9, windows_core::IUnknown);
@@ -31167,6 +32243,11 @@ impl IVMRImageCompositor9_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
+impl<Identity: windows_core::IUnknownImpl + IVMRImageCompositor9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRImageCompositor9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 impl windows_core::RuntimeName for IVMRImageCompositor9 {}
 windows_core::imp::define_interface!(IVMRImagePresenter, IVMRImagePresenter_Vtbl, 0xce704fe7_e71e_41fb_baa2_c4403e1182f5);
 windows_core::imp::interface_hierarchy!(IVMRImagePresenter, windows_core::IUnknown);
@@ -31230,6 +32311,11 @@ impl IVMRImagePresenter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVMRImagePresenter as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IVMRImagePresenter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRImagePresenter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IVMRImagePresenter {}
@@ -31297,6 +32383,11 @@ impl IVMRImagePresenter9_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl<Identity: windows_core::IUnknownImpl + IVMRImagePresenter9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRImagePresenter9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::RuntimeName for IVMRImagePresenter9 {}
 windows_core::imp::define_interface!(IVMRImagePresenterConfig, IVMRImagePresenterConfig_Vtbl, 0x9f3a1c85_8555_49ba_935f_be5b5b29d178);
 windows_core::imp::interface_hierarchy!(IVMRImagePresenterConfig, windows_core::IUnknown);
@@ -31352,6 +32443,10 @@ impl IVMRImagePresenterConfig_Vtbl {
         iid == &<IVMRImagePresenterConfig as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVMRImagePresenterConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRImagePresenterConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVMRImagePresenterConfig {}
 windows_core::imp::define_interface!(IVMRImagePresenterConfig9, IVMRImagePresenterConfig9_Vtbl, 0x45c15cab_6e22_420a_8043_ae1f0ac02c7d);
 windows_core::imp::interface_hierarchy!(IVMRImagePresenterConfig9, windows_core::IUnknown);
@@ -31406,6 +32501,10 @@ impl IVMRImagePresenterConfig9_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVMRImagePresenterConfig9 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVMRImagePresenterConfig9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRImagePresenterConfig9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVMRImagePresenterConfig9 {}
 windows_core::imp::define_interface!(IVMRImagePresenterExclModeConfig, IVMRImagePresenterExclModeConfig_Vtbl, 0xe6f7ce40_4673_44f1_8f77_5499d68cb4ea);
@@ -31472,6 +32571,11 @@ impl IVMRImagePresenterExclModeConfig_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVMRImagePresenterExclModeConfig as windows_core::Interface>::IID || iid == &<IVMRImagePresenterConfig as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IVMRImagePresenterExclModeConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRImagePresenterExclModeConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IVMRImagePresenterExclModeConfig {}
@@ -31547,6 +32651,11 @@ impl IVMRMixerBitmap_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl<Identity: windows_core::IUnknownImpl + IVMRMixerBitmap_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRMixerBitmap_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IVMRMixerBitmap {}
 windows_core::imp::define_interface!(IVMRMixerBitmap9, IVMRMixerBitmap9_Vtbl, 0xced175e5_1935_4820_81bd_ff6ad00c9108);
 windows_core::imp::interface_hierarchy!(IVMRMixerBitmap9, windows_core::IUnknown);
@@ -31618,6 +32727,11 @@ impl IVMRMixerBitmap9_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVMRMixerBitmap9 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+impl<Identity: windows_core::IUnknownImpl + IVMRMixerBitmap9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRMixerBitmap9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IVMRMixerBitmap9 {}
@@ -31797,6 +32911,10 @@ impl IVMRMixerControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVMRMixerControl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVMRMixerControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRMixerControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVMRMixerControl {}
 windows_core::imp::define_interface!(IVMRMixerControl9, IVMRMixerControl9_Vtbl, 0x1a777eaa_47c8_4930_b2c9_8fee1c1b0f3b);
@@ -32012,6 +33130,10 @@ impl IVMRMixerControl9_Vtbl {
         iid == &<IVMRMixerControl9 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVMRMixerControl9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRMixerControl9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVMRMixerControl9 {}
 windows_core::imp::define_interface!(IVMRMonitorConfig, IVMRMonitorConfig_Vtbl, 0x9cf0b1b6_fbaa_4b7f_88cf_cf1f130a0dce);
 windows_core::imp::interface_hierarchy!(IVMRMonitorConfig, windows_core::IUnknown);
@@ -32099,6 +33221,11 @@ impl IVMRMonitorConfig_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVMRMonitorConfig as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IVMRMonitorConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRMonitorConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IVMRMonitorConfig {}
@@ -32208,6 +33335,11 @@ impl IVMRMonitorConfig9_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IVMRMonitorConfig9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRMonitorConfig9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IVMRMonitorConfig9 {}
 windows_core::imp::define_interface!(IVMRSurface, IVMRSurface_Vtbl, 0xa9849bbe_9ec8_4263_b764_62730f0d15d0);
 windows_core::imp::interface_hierarchy!(IVMRSurface, windows_core::IUnknown);
@@ -32301,6 +33433,11 @@ impl IVMRSurface_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVMRSurface as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IVMRSurface_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRSurface_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IVMRSurface {}
@@ -32398,6 +33535,11 @@ impl IVMRSurface9_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl<Identity: windows_core::IUnknownImpl + IVMRSurface9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRSurface9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::RuntimeName for IVMRSurface9 {}
 windows_core::imp::define_interface!(IVMRSurfaceAllocator, IVMRSurfaceAllocator_Vtbl, 0x31ce832e_4484_458b_8cca_f4d7e3db0b52);
 windows_core::imp::interface_hierarchy!(IVMRSurfaceAllocator, windows_core::IUnknown);
@@ -32483,6 +33625,11 @@ impl IVMRSurfaceAllocator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVMRSurfaceAllocator as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl<Identity: windows_core::IUnknownImpl + IVMRSurfaceAllocator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRSurfaceAllocator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IVMRSurfaceAllocator {}
@@ -32578,6 +33725,11 @@ impl IVMRSurfaceAllocator9_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl<Identity: windows_core::IUnknownImpl + IVMRSurfaceAllocator9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRSurfaceAllocator9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::RuntimeName for IVMRSurfaceAllocator9 {}
 windows_core::imp::define_interface!(IVMRSurfaceAllocatorEx9, IVMRSurfaceAllocatorEx9_Vtbl, 0x6de9a68a_a928_4522_bf57_655ae3866456);
 impl core::ops::Deref for IVMRSurfaceAllocatorEx9 {
@@ -32620,6 +33772,11 @@ impl IVMRSurfaceAllocatorEx9_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVMRSurfaceAllocatorEx9 as windows_core::Interface>::IID || iid == &<IVMRSurfaceAllocator9 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl<Identity: windows_core::IUnknownImpl + IVMRSurfaceAllocatorEx9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRSurfaceAllocatorEx9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl windows_core::RuntimeName for IVMRSurfaceAllocatorEx9 {}
@@ -32736,6 +33893,11 @@ impl IVMRSurfaceAllocatorNotify_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl<Identity: windows_core::IUnknownImpl + IVMRSurfaceAllocatorNotify_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRSurfaceAllocatorNotify_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IVMRSurfaceAllocatorNotify {}
 windows_core::imp::define_interface!(IVMRSurfaceAllocatorNotify9, IVMRSurfaceAllocatorNotify9_Vtbl, 0xdca3f5df_bb3a_4d03_bd81_84614bfbfa0c);
 windows_core::imp::interface_hierarchy!(IVMRSurfaceAllocatorNotify9, windows_core::IUnknown);
@@ -32842,6 +34004,11 @@ impl IVMRSurfaceAllocatorNotify9_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+impl<Identity: windows_core::IUnknownImpl + IVMRSurfaceAllocatorNotify9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRSurfaceAllocatorNotify9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IVMRSurfaceAllocatorNotify9 {}
 windows_core::imp::define_interface!(IVMRVideoStreamControl, IVMRVideoStreamControl_Vtbl, 0x058d1f11_2a54_4bef_bd54_df706626b727);
 windows_core::imp::interface_hierarchy!(IVMRVideoStreamControl, windows_core::IUnknown);
@@ -32941,6 +34108,11 @@ impl IVMRVideoStreamControl_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IVMRVideoStreamControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRVideoStreamControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IVMRVideoStreamControl {}
 windows_core::imp::define_interface!(IVMRVideoStreamControl9, IVMRVideoStreamControl9_Vtbl, 0xd0cfe38b_93e7_4772_8957_0400c49a4485);
 windows_core::imp::interface_hierarchy!(IVMRVideoStreamControl9, windows_core::IUnknown);
@@ -32995,6 +34167,10 @@ impl IVMRVideoStreamControl9_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVMRVideoStreamControl9 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVMRVideoStreamControl9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRVideoStreamControl9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVMRVideoStreamControl9 {}
 windows_core::imp::define_interface!(IVMRWindowlessControl, IVMRWindowlessControl_Vtbl, 0x0eb1088c_4dcd_46f0_878f_39dae86a51b7);
@@ -33241,6 +34417,11 @@ impl IVMRWindowlessControl_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IVMRWindowlessControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRWindowlessControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IVMRWindowlessControl {}
 windows_core::imp::define_interface!(IVMRWindowlessControl9, IVMRWindowlessControl9_Vtbl, 0x8f537d09_f85e_4414_b23b_502e54c79927);
 windows_core::imp::interface_hierarchy!(IVMRWindowlessControl9, windows_core::IUnknown);
@@ -33453,6 +34634,11 @@ impl IVMRWindowlessControl9_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IVMRWindowlessControl9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVMRWindowlessControl9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IVMRWindowlessControl9 {}
 windows_core::imp::define_interface!(IVPBaseConfig, IVPBaseConfig_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(IVPBaseConfig, windows_core::IUnknown);
@@ -33659,6 +34845,11 @@ impl IVPBaseConfig_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IVPBaseConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVPBaseConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IVPBaseConfig {}
 windows_core::imp::define_interface!(IVPBaseNotify, IVPBaseNotify_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(IVPBaseNotify, windows_core::IUnknown);
@@ -33689,6 +34880,10 @@ impl IVPBaseNotify_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVPBaseNotify as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVPBaseNotify_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVPBaseNotify_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVPBaseNotify {}
 windows_core::imp::define_interface!(IVPConfig, IVPConfig_Vtbl, 0xbc29a660_30e3_11d0_9e69_00c04fd7c15b);
@@ -33743,6 +34938,11 @@ impl IVPConfig_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVPConfig as windows_core::Interface>::IID || iid == &<IVPBaseConfig as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IVPConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVPConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IVPConfig {}
@@ -33800,6 +35000,10 @@ impl IVPManager_Vtbl {
         iid == &<IVPManager as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVPManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVPManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVPManager {}
 windows_core::imp::define_interface!(IVPNotify, IVPNotify_Vtbl, 0xc76794a1_d6c5_11d0_9e69_00c04fd7c15b);
 impl core::ops::Deref for IVPNotify {
@@ -33851,6 +35055,10 @@ impl IVPNotify_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVPNotify as windows_core::Interface>::IID || iid == &<IVPBaseNotify as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVPNotify_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVPNotify_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVPNotify {}
 windows_core::imp::define_interface!(IVPNotify2, IVPNotify2_Vtbl, 0xebf47183_8764_11d1_9e69_00c04fd7c15b);
@@ -33904,6 +35112,10 @@ impl IVPNotify2_Vtbl {
         iid == &<IVPNotify2 as windows_core::Interface>::IID || iid == &<IVPBaseNotify as windows_core::Interface>::IID || iid == &<IVPNotify as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVPNotify2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVPNotify2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVPNotify2 {}
 windows_core::imp::define_interface!(IVPVBIConfig, IVPVBIConfig_Vtbl, 0xec529b00_1a1f_11d1_bad9_00609744111a);
 impl core::ops::Deref for IVPVBIConfig {
@@ -33930,6 +35142,11 @@ impl IVPVBIConfig_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl<Identity: windows_core::IUnknownImpl + IVPVBIConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVPVBIConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl windows_core::RuntimeName for IVPVBIConfig {}
 windows_core::imp::define_interface!(IVPVBINotify, IVPVBINotify_Vtbl, 0xec529b01_1a1f_11d1_bad9_00609744111a);
 impl core::ops::Deref for IVPVBINotify {
@@ -33952,6 +35169,10 @@ impl IVPVBINotify_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVPVBINotify as windows_core::Interface>::IID || iid == &<IVPBaseNotify as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVPVBINotify_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVPVBINotify_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVPVBINotify {}
 windows_core::imp::define_interface!(IVideoEncoder, IVideoEncoder_Vtbl, 0x02997c3b_8e1b_460e_9270_545e0de9563e);
@@ -33977,6 +35198,11 @@ impl IVideoEncoder_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVideoEncoder as windows_core::Interface>::IID || iid == &<IEncoderAPI as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IVideoEncoder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVideoEncoder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IVideoEncoder {}
@@ -34042,6 +35268,10 @@ impl IVideoFrameStep_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVideoFrameStep as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVideoFrameStep_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVideoFrameStep_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVideoFrameStep {}
 windows_core::imp::define_interface!(IVideoProcAmp, IVideoProcAmp_Vtbl, 0x4050560e_42a7_413a_85c2_09269a2d0f44);
@@ -34532,6 +35762,10 @@ impl IVideoProcAmp_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVideoProcAmp as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVideoProcAmp_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVideoProcAmp_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVideoProcAmp {}
 #[cfg(feature = "Win32_System_Com")]
@@ -35185,6 +36419,11 @@ impl IVideoWindow_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
+impl<Identity: windows_core::IUnknownImpl + IVideoWindow_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVideoWindow_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for IVideoWindow {}
 windows_core::imp::define_interface!(IWMCodecAMVideoAccelerator, IWMCodecAMVideoAccelerator_Vtbl, 0xd98ee251_34e0_4a2d_9312_9b4c788d9fa1);
 windows_core::imp::interface_hierarchy!(IWMCodecAMVideoAccelerator, windows_core::IUnknown);
@@ -35260,6 +36499,11 @@ impl IWMCodecAMVideoAccelerator_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_Media_WindowsMediaFormat"))]
+impl<Identity: windows_core::IUnknownImpl + IWMCodecAMVideoAccelerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWMCodecAMVideoAccelerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_Media_WindowsMediaFormat"))]
 impl windows_core::RuntimeName for IWMCodecAMVideoAccelerator {}
 windows_core::imp::define_interface!(IWMCodecVideoAccelerator, IWMCodecVideoAccelerator_Vtbl, 0x990641b0_739f_4e94_a808_9888da8f75af);
 windows_core::imp::interface_hierarchy!(IWMCodecVideoAccelerator, windows_core::IUnknown);
@@ -35321,6 +36565,11 @@ impl IWMCodecVideoAccelerator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWMCodecVideoAccelerator as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_Media_WindowsMediaFormat"))]
+impl<Identity: windows_core::IUnknownImpl + IWMCodecVideoAccelerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWMCodecVideoAccelerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_Media_WindowsMediaFormat"))]
 impl windows_core::RuntimeName for IWMCodecVideoAccelerator {}

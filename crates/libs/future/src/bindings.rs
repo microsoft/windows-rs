@@ -907,6 +907,12 @@ impl IAsyncAction_Vtbl {
         iid == &<IAsyncAction as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAsyncAction_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IAsyncAction_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsyncAction_Vtbl {
@@ -1203,6 +1209,15 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress_Vt
         iid == &<IAsyncActionWithProgress<TProgress> as windows_core::Interface>::IID
     }
 }
+impl<
+        TProgress: windows_core::RuntimeType + 'static,
+        Identity: windows_core::IUnknownImpl + IAsyncActionWithProgress_Impl<TProgress> + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IAsyncActionWithProgress_Vtbl<TProgress>
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsyncActionWithProgress_Vtbl<TProgress>
@@ -1377,6 +1392,12 @@ impl IAsyncInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAsyncInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAsyncInfo_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IAsyncInfo_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1600,6 +1621,15 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResult>
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAsyncOperation<TResult> as windows_core::Interface>::IID
     }
+}
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        Identity: windows_core::IUnknownImpl + IAsyncOperation_Impl<TResult> + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IAsyncOperation_Vtbl<TResult>
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1955,6 +1985,17 @@ impl<
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAsyncOperationWithProgress<TResult, TProgress> as windows_core::Interface>::IID
     }
+}
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+        Identity: windows_core::IUnknownImpl + IAsyncOperationWithProgress_Impl<TResult, TProgress> + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for IAsyncOperationWithProgress_Vtbl<TResult, TProgress>
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

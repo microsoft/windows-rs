@@ -35,6 +35,10 @@ impl IRadialControllerConfigurationInterop_Vtbl {
         iid == &<IRadialControllerConfigurationInterop as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRadialControllerConfigurationInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRadialControllerConfigurationInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IRadialControllerConfigurationInterop {}
 windows_core::imp::define_interface!(IRadialControllerIndependentInputSourceInterop, IRadialControllerIndependentInputSourceInterop_Vtbl, 0x3d577eff_4cee_11e6_b535_001bdc06ab3b);
 windows_core::imp::interface_hierarchy!(IRadialControllerIndependentInputSourceInterop, windows_core::IUnknown, windows_core::IInspectable);
@@ -73,6 +77,10 @@ impl IRadialControllerIndependentInputSourceInterop_Vtbl {
         iid == &<IRadialControllerIndependentInputSourceInterop as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRadialControllerIndependentInputSourceInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRadialControllerIndependentInputSourceInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IRadialControllerIndependentInputSourceInterop {}
 windows_core::imp::define_interface!(IRadialControllerInterop, IRadialControllerInterop_Vtbl, 0x1b0535c9_57ad_45c1_9d79_ad5c34360513);
 windows_core::imp::interface_hierarchy!(IRadialControllerInterop, windows_core::IUnknown, windows_core::IInspectable);
@@ -110,5 +118,9 @@ impl IRadialControllerInterop_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRadialControllerInterop as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRadialControllerInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRadialControllerInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRadialControllerInterop {}

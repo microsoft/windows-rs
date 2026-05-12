@@ -124,6 +124,10 @@ impl IConnectionRequestCallback_Vtbl {
         iid == &<IConnectionRequestCallback as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IConnectionRequestCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IConnectionRequestCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IConnectionRequestCallback {}
 windows_core::imp::define_interface!(IEnumPortableDeviceConnectors, IEnumPortableDeviceConnectors_Vtbl, 0xbfdef549_9247_454f_bd82_06fe80853faa);
 windows_core::imp::interface_hierarchy!(IEnumPortableDeviceConnectors, windows_core::IUnknown);
@@ -202,6 +206,10 @@ impl IEnumPortableDeviceConnectors_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumPortableDeviceConnectors as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumPortableDeviceConnectors_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumPortableDeviceConnectors_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumPortableDeviceConnectors {}
 windows_core::imp::define_interface!(IEnumPortableDeviceObjectIDs, IEnumPortableDeviceObjectIDs_Vtbl, 0x10ece955_cf41_4728_bfa0_41eedf1bbf19);
@@ -294,6 +302,10 @@ impl IEnumPortableDeviceObjectIDs_Vtbl {
         iid == &<IEnumPortableDeviceObjectIDs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumPortableDeviceObjectIDs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumPortableDeviceObjectIDs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumPortableDeviceObjectIDs {}
 windows_core::imp::define_interface!(IMediaRadioManager, IMediaRadioManager_Vtbl, 0x6cfdcab5_fc47_42a5_9241_074b58830e73);
 windows_core::imp::interface_hierarchy!(IMediaRadioManager, windows_core::IUnknown);
@@ -348,6 +360,10 @@ impl IMediaRadioManager_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaRadioManager as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMediaRadioManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaRadioManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMediaRadioManager {}
 windows_core::imp::define_interface!(IMediaRadioManagerNotifySink, IMediaRadioManagerNotifySink_Vtbl, 0x89d81f5f_c147_49ed_a11c_77b20c31e7c9);
@@ -409,6 +425,10 @@ impl IMediaRadioManagerNotifySink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaRadioManagerNotifySink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMediaRadioManagerNotifySink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaRadioManagerNotifySink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMediaRadioManagerNotifySink {}
 pub const IOCTL_WPD_MESSAGE_READWRITE_ACCESS: u32 = 4243720u32;
@@ -600,6 +620,10 @@ impl IPortableDevice_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPortableDevice as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPortableDevice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDevice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPortableDevice {}
 windows_core::imp::define_interface!(IPortableDeviceCapabilities, IPortableDeviceCapabilities_Vtbl, 0x2c8c6dbf_e3dc_4061_becc_8542e810d126);
@@ -845,6 +869,10 @@ impl IPortableDeviceCapabilities_Vtbl {
         iid == &<IPortableDeviceCapabilities as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceCapabilities_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceCapabilities_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPortableDeviceCapabilities {}
 windows_core::imp::define_interface!(IPortableDeviceConnector, IPortableDeviceConnector_Vtbl, 0x625e2df8_6392_4cf0_9ad1_3cfa5f17775c);
 windows_core::imp::interface_hierarchy!(IPortableDeviceConnector, windows_core::IUnknown);
@@ -966,6 +994,11 @@ impl IPortableDeviceConnector_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPortableDeviceConnector as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Devices_Properties")]
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceConnector_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceConnector_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 impl windows_core::RuntimeName for IPortableDeviceConnector {}
@@ -1177,6 +1210,11 @@ impl IPortableDeviceContent_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceContent_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceContent_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IPortableDeviceContent {}
 windows_core::imp::define_interface!(IPortableDeviceContent2, IPortableDeviceContent2_Vtbl, 0x9b4add96_f6bf_4034_8708_eca72bf10554);
 impl core::ops::Deref for IPortableDeviceContent2 {
@@ -1226,6 +1264,11 @@ impl IPortableDeviceContent2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPortableDeviceContent2 as windows_core::Interface>::IID || iid == &<IPortableDeviceContent as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceContent2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceContent2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IPortableDeviceContent2 {}
@@ -1297,6 +1340,11 @@ impl IPortableDeviceDataStream_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceDataStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceDataStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IPortableDeviceDataStream {}
 windows_core::imp::define_interface!(IPortableDeviceDispatchFactory, IPortableDeviceDispatchFactory_Vtbl, 0x5e1eafc3_e3d7_4132_96fa_759c0f9d1e0f);
 windows_core::imp::interface_hierarchy!(IPortableDeviceDispatchFactory, windows_core::IUnknown);
@@ -1347,6 +1395,11 @@ impl IPortableDeviceDispatchFactory_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceDispatchFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceDispatchFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IPortableDeviceDispatchFactory {}
 windows_core::imp::define_interface!(IPortableDeviceEventCallback, IPortableDeviceEventCallback_Vtbl, 0xa8792a31_f385_493c_a893_40f64eb45f6e);
 windows_core::imp::interface_hierarchy!(IPortableDeviceEventCallback, windows_core::IUnknown);
@@ -1380,6 +1433,10 @@ impl IPortableDeviceEventCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPortableDeviceEventCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceEventCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceEventCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPortableDeviceEventCallback {}
 windows_core::imp::define_interface!(IPortableDeviceKeyCollection, IPortableDeviceKeyCollection_Vtbl, 0xdada2357_e0ad_492e_98db_dd61c53ba353);
@@ -1462,6 +1519,10 @@ impl IPortableDeviceKeyCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPortableDeviceKeyCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceKeyCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceKeyCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPortableDeviceKeyCollection {}
 windows_core::imp::define_interface!(IPortableDeviceManager, IPortableDeviceManager_Vtbl, 0xa1567595_4c2f_4574_a6fa_ecef917b9a40);
@@ -1581,6 +1642,10 @@ impl IPortableDeviceManager_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPortableDeviceManager as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPortableDeviceManager {}
 windows_core::imp::define_interface!(IPortableDevicePropVariantCollection, IPortableDevicePropVariantCollection_Vtbl, 0x89b2e422_4f1b_4316_bcef_a44afea83eb3);
@@ -1706,6 +1771,11 @@ impl IPortableDevicePropVariantCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPortableDevicePropVariantCollection as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IPortableDevicePropVariantCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDevicePropVariantCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPortableDevicePropVariantCollection {}
@@ -1856,6 +1926,10 @@ impl IPortableDeviceProperties_Vtbl {
         iid == &<IPortableDeviceProperties as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceProperties_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceProperties_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPortableDeviceProperties {}
 windows_core::imp::define_interface!(IPortableDevicePropertiesBulk, IPortableDevicePropertiesBulk_Vtbl, 0x482b05c0_4056_44ed_9e0f_5e23b009da93);
 windows_core::imp::interface_hierarchy!(IPortableDevicePropertiesBulk, windows_core::IUnknown);
@@ -1979,6 +2053,10 @@ impl IPortableDevicePropertiesBulk_Vtbl {
         iid == &<IPortableDevicePropertiesBulk as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPortableDevicePropertiesBulk_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDevicePropertiesBulk_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPortableDevicePropertiesBulk {}
 windows_core::imp::define_interface!(IPortableDevicePropertiesBulkCallback, IPortableDevicePropertiesBulkCallback_Vtbl, 0x9deacb80_11e8_40e3_a9f3_f557986a7845);
 windows_core::imp::interface_hierarchy!(IPortableDevicePropertiesBulkCallback, windows_core::IUnknown);
@@ -2039,6 +2117,10 @@ impl IPortableDevicePropertiesBulkCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPortableDevicePropertiesBulkCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPortableDevicePropertiesBulkCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDevicePropertiesBulkCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPortableDevicePropertiesBulkCallback {}
 windows_core::imp::define_interface!(IPortableDeviceResources, IPortableDeviceResources_Vtbl, 0xfd8878ac_d841_4d17_891c_e6829cdb6934);
@@ -2177,6 +2259,11 @@ impl IPortableDeviceResources_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPortableDeviceResources as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceResources_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceResources_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IPortableDeviceResources {}
@@ -2410,6 +2497,10 @@ impl IPortableDeviceService_Vtbl {
         iid == &<IPortableDeviceService as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceService_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceService_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPortableDeviceService {}
 windows_core::imp::define_interface!(IPortableDeviceServiceActivation, IPortableDeviceServiceActivation_Vtbl, 0xe56b0534_d9b9_425c_9b99_75f97cb3d7c8);
 windows_core::imp::interface_hierarchy!(IPortableDeviceServiceActivation, windows_core::IUnknown);
@@ -2460,6 +2551,10 @@ impl IPortableDeviceServiceActivation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPortableDeviceServiceActivation as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceServiceActivation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceServiceActivation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPortableDeviceServiceActivation {}
 windows_core::imp::define_interface!(IPortableDeviceServiceCapabilities, IPortableDeviceServiceCapabilities_Vtbl, 0x24dbd89d_413e_43e0_bd5b_197f3c56c886);
@@ -2810,6 +2905,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         iid == &<IPortableDeviceServiceCapabilities as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceServiceCapabilities_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceServiceCapabilities_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPortableDeviceServiceCapabilities {}
 windows_core::imp::define_interface!(IPortableDeviceServiceManager, IPortableDeviceServiceManager_Vtbl, 0xa8abc4e9_a84a_47a9_80b3_c5d9b172a961);
 windows_core::imp::interface_hierarchy!(IPortableDeviceServiceManager, windows_core::IUnknown);
@@ -2871,6 +2970,10 @@ impl IPortableDeviceServiceManager_Vtbl {
         iid == &<IPortableDeviceServiceManager as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceServiceManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceServiceManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPortableDeviceServiceManager {}
 windows_core::imp::define_interface!(IPortableDeviceServiceMethodCallback, IPortableDeviceServiceMethodCallback_Vtbl, 0xc424233c_afce_4828_a756_7ed7a2350083);
 windows_core::imp::interface_hierarchy!(IPortableDeviceServiceMethodCallback, windows_core::IUnknown);
@@ -2904,6 +3007,10 @@ impl IPortableDeviceServiceMethodCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPortableDeviceServiceMethodCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceServiceMethodCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceServiceMethodCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPortableDeviceServiceMethodCallback {}
 windows_core::imp::define_interface!(IPortableDeviceServiceMethods, IPortableDeviceServiceMethods_Vtbl, 0xe20333c9_fd34_412d_a381_cc6f2d820df7);
@@ -2973,6 +3080,10 @@ impl IPortableDeviceServiceMethods_Vtbl {
         iid == &<IPortableDeviceServiceMethods as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceServiceMethods_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceServiceMethods_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPortableDeviceServiceMethods {}
 windows_core::imp::define_interface!(IPortableDeviceServiceOpenCallback, IPortableDeviceServiceOpenCallback_Vtbl, 0xbced49c8_8efe_41ed_960b_61313abd47a9);
 windows_core::imp::interface_hierarchy!(IPortableDeviceServiceOpenCallback, windows_core::IUnknown);
@@ -3003,6 +3114,10 @@ impl IPortableDeviceServiceOpenCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPortableDeviceServiceOpenCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceServiceOpenCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceServiceOpenCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPortableDeviceServiceOpenCallback {}
 windows_core::imp::define_interface!(IPortableDeviceUnitsStream, IPortableDeviceUnitsStream_Vtbl, 0x5e98025f_bfc4_47a2_9a5f_bc900a507c67);
@@ -3045,6 +3160,10 @@ impl IPortableDeviceUnitsStream_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPortableDeviceUnitsStream as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceUnitsStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceUnitsStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPortableDeviceUnitsStream {}
 windows_core::imp::define_interface!(IPortableDeviceValues, IPortableDeviceValues_Vtbl, 0x6848f6f2_3155_4f86_b6f5_263eeeab3143);
@@ -3730,6 +3849,11 @@ impl IPortableDeviceValues_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceValues_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceValues_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl windows_core::RuntimeName for IPortableDeviceValues {}
 windows_core::imp::define_interface!(IPortableDeviceValuesCollection, IPortableDeviceValuesCollection_Vtbl, 0x6e3f2d79_4e07_48c4_8208_d8c2e5af4a99);
 windows_core::imp::interface_hierarchy!(IPortableDeviceValuesCollection, windows_core::IUnknown);
@@ -3824,6 +3948,10 @@ impl IPortableDeviceValuesCollection_Vtbl {
         iid == &<IPortableDeviceValuesCollection as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceValuesCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceValuesCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPortableDeviceValuesCollection {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPortableDeviceWebControl, IPortableDeviceWebControl_Vtbl, 0x94fc7953_5ca1_483a_8aee_df52e7747d00);
@@ -3895,6 +4023,11 @@ impl IPortableDeviceWebControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPortableDeviceWebControl as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IPortableDeviceWebControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPortableDeviceWebControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPortableDeviceWebControl {}
@@ -4039,6 +4172,10 @@ impl IRadioInstance_Vtbl {
         iid == &<IRadioInstance as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRadioInstance_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRadioInstance_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IRadioInstance {}
 windows_core::imp::define_interface!(IRadioInstanceCollection, IRadioInstanceCollection_Vtbl, 0xe5791fae_5665_4e0c_95be_5fde31644185);
 windows_core::imp::interface_hierarchy!(IRadioInstanceCollection, windows_core::IUnknown);
@@ -4098,6 +4235,10 @@ impl IRadioInstanceCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRadioInstanceCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRadioInstanceCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRadioInstanceCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRadioInstanceCollection {}
 windows_core::imp::define_interface!(IWpdSerializer, IWpdSerializer_Vtbl, 0xb32f4002_bb27_45ff_af4f_06631c1e8dad);
@@ -4195,6 +4336,10 @@ impl IWpdSerializer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWpdSerializer as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWpdSerializer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWpdSerializer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWpdSerializer {}
 pub const NAME_3GPP2File: windows_core::PCWSTR = windows_core::w!("3GPP2File");

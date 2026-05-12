@@ -76,6 +76,10 @@ impl IEffectivePermission_Vtbl {
         iid == &<IEffectivePermission as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEffectivePermission_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEffectivePermission_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEffectivePermission {}
 windows_core::imp::define_interface!(IEffectivePermission2, IEffectivePermission2_Vtbl, 0x941fabca_dd47_4fca_90bb_b0e10255f20d);
 windows_core::imp::interface_hierarchy!(IEffectivePermission2, windows_core::IUnknown);
@@ -197,6 +201,10 @@ impl IEffectivePermission2_Vtbl {
         iid == &<IEffectivePermission2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEffectivePermission2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEffectivePermission2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEffectivePermission2 {}
 windows_core::imp::define_interface!(ISecurityInformation, ISecurityInformation_Vtbl, 0x965fc360_16ff_11d0_91cb_00aa00bbb723);
 windows_core::imp::interface_hierarchy!(ISecurityInformation, windows_core::IUnknown);
@@ -310,6 +318,11 @@ impl ISecurityInformation_Vtbl {
     }
 }
 #[cfg(feature = "Win32_UI_Controls")]
+impl<Identity: windows_core::IUnknownImpl + ISecurityInformation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISecurityInformation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_UI_Controls")]
 impl windows_core::RuntimeName for ISecurityInformation {}
 windows_core::imp::define_interface!(ISecurityInformation2, ISecurityInformation2_Vtbl, 0xc3ccfdb4_6f88_11d2_a3ce_00c04fb1782a);
 windows_core::imp::interface_hierarchy!(ISecurityInformation2, windows_core::IUnknown);
@@ -372,6 +385,11 @@ impl ISecurityInformation2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ISecurityInformation2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISecurityInformation2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ISecurityInformation2 {}
 windows_core::imp::define_interface!(ISecurityInformation3, ISecurityInformation3_Vtbl, 0xe2cdc9cc_31bd_4f8f_8c8b_b641af516a1a);
 windows_core::imp::interface_hierarchy!(ISecurityInformation3, windows_core::IUnknown);
@@ -427,6 +445,10 @@ impl ISecurityInformation3_Vtbl {
         iid == &<ISecurityInformation3 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISecurityInformation3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISecurityInformation3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISecurityInformation3 {}
 windows_core::imp::define_interface!(ISecurityInformation4, ISecurityInformation4_Vtbl, 0xea961070_cd14_4621_ace4_f63c03e583e4);
 windows_core::imp::interface_hierarchy!(ISecurityInformation4, windows_core::IUnknown);
@@ -458,6 +480,10 @@ impl ISecurityInformation4_Vtbl {
         iid == &<ISecurityInformation4 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISecurityInformation4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISecurityInformation4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISecurityInformation4 {}
 windows_core::imp::define_interface!(ISecurityObjectTypeInfo, ISecurityObjectTypeInfo_Vtbl, 0xfc3066eb_79ef_444b_9111_d18a75ebf2fa);
 windows_core::imp::interface_hierarchy!(ISecurityObjectTypeInfo, windows_core::IUnknown);
@@ -488,6 +514,10 @@ impl ISecurityObjectTypeInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISecurityObjectTypeInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISecurityObjectTypeInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISecurityObjectTypeInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISecurityObjectTypeInfo {}
 #[repr(transparent)]

@@ -56,6 +56,11 @@ impl IAccessibleWinSAT_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Accessibility"))]
+impl<Identity: windows_core::IUnknownImpl + IAccessibleWinSAT_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAccessibleWinSAT_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Accessibility"))]
 impl windows_core::RuntimeName for IAccessibleWinSAT {}
 windows_core::imp::define_interface!(IInitiateWinSATAssessment, IInitiateWinSATAssessment_Vtbl, 0xd983fc50_f5bf_49d5_b5ed_cccb18aa7fc1);
 windows_core::imp::interface_hierarchy!(IInitiateWinSATAssessment, windows_core::IUnknown);
@@ -120,6 +125,10 @@ impl IInitiateWinSATAssessment_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInitiateWinSATAssessment as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IInitiateWinSATAssessment_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInitiateWinSATAssessment_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IInitiateWinSATAssessment {}
 #[cfg(feature = "Win32_System_Com")]
@@ -218,6 +227,11 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IProvideWinSATAssessmentInfo as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IProvideWinSATAssessmentInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IProvideWinSATAssessmentInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IProvideWinSATAssessmentInfo {}
@@ -365,6 +379,11 @@ impl IProvideWinSATResultsInfo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IProvideWinSATResultsInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IProvideWinSATResultsInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IProvideWinSATResultsInfo {}
 windows_core::imp::define_interface!(IProvideWinSATVisuals, IProvideWinSATVisuals_Vtbl, 0xa9f4ade0_871a_42a3_b813_3078d25162c9);
 windows_core::imp::interface_hierarchy!(IProvideWinSATVisuals, windows_core::IUnknown);
@@ -410,6 +429,11 @@ impl IProvideWinSATVisuals_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IProvideWinSATVisuals as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IProvideWinSATVisuals_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IProvideWinSATVisuals_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IProvideWinSATVisuals {}
@@ -470,6 +494,11 @@ impl IQueryAllWinSATAssessments_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IQueryAllWinSATAssessments_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IQueryAllWinSATAssessments_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IQueryAllWinSATAssessments {}
 windows_core::imp::define_interface!(IQueryOEMWinSATCustomization, IQueryOEMWinSATCustomization_Vtbl, 0xbc9a6a9f_ad4e_420e_9953_b34671e9df22);
 windows_core::imp::interface_hierarchy!(IQueryOEMWinSATCustomization, windows_core::IUnknown);
@@ -509,6 +538,10 @@ impl IQueryOEMWinSATCustomization_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IQueryOEMWinSATCustomization as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IQueryOEMWinSATCustomization_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IQueryOEMWinSATCustomization_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IQueryOEMWinSATCustomization {}
 #[cfg(feature = "Win32_System_Com")]
@@ -588,6 +621,11 @@ impl IQueryRecentWinSATAssessment_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IQueryRecentWinSATAssessment_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IQueryRecentWinSATAssessment_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IQueryRecentWinSATAssessment {}
 windows_core::imp::define_interface!(IWinSATInitiateEvents, IWinSATInitiateEvents_Vtbl, 0x262a1918_ba0d_41d5_92c2_fab4633ee74f);
 windows_core::imp::interface_hierarchy!(IWinSATInitiateEvents, windows_core::IUnknown);
@@ -639,6 +677,10 @@ impl IWinSATInitiateEvents_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWinSATInitiateEvents as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWinSATInitiateEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWinSATInitiateEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWinSATInitiateEvents {}
 pub const WINSAT_ASSESSMENT_CPU: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(1i32);

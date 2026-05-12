@@ -54,6 +54,10 @@ impl IGeometrySource2D_Vtbl {
         iid == &<IGeometrySource2D as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IGeometrySource2D_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGeometrySource2D_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeometrySource2D_Vtbl {

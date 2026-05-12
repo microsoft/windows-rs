@@ -1,15 +1,17 @@
 # Option D — A library-based foundation for `#[implement]`
 
-> **Status:** Steps 0 + 1 landed. The foundation lives at
+> **Status:** Steps 0, 1, and 1b landed. The foundation lives at
 > [`crates/libs/core/src/imp/implement/`](../crates/libs/core/src/imp/implement)
 > and is exercised by integration tests at
 > [`crates/tests/libs/implement_foundation/`](../crates/tests/libs/implement_foundation).
-> All seven open questions are resolved (see
-> [Resolved decisions](#resolved-decisions)). The OQ-4 microbenchmark shows
-> the foundation matching or beating today's macro on `QueryInterface`
-> dispatch (identity / declared / unknown) — within the ±1 ns/call bar.
-> Steps 2–5 (reskin the proc macro, land `implement_decl!`, document the
-> foundation as public API, optional follow-ups) are still ahead.
+> `windows-interface` and `windows-bindgen` emit a `VtableCtor` opt-in
+> alongside every generated `_Vtbl`. All seven open questions are resolved
+> (see [Resolved decisions](#resolved-decisions)). The OQ-4 microbenchmark
+> shows the foundation matching or beating today's macro on
+> `QueryInterface` dispatch (identity / declared / unknown) — within the
+> ±1 ns/call bar. Steps 2–5 (reskin the proc macro, land
+> `implement_decl!`, document the foundation as public API, optional
+> follow-ups) are still ahead.
 
 ## Summary
 
@@ -411,8 +413,9 @@ follow-up but not blocking.
   Step 4.
 * `VtableCtor` opt-ins for `IUnknown_Vtbl` and `IInspectable_Vtbl` live in
   `windows-core`. Per-`_Vtbl` opt-ins for downstream interfaces are
-  user-emitted today (three lines per `_Vtbl`); Step 1b will move that
-  emission into `windows-interface` / `windows-bindgen`.
+  emitted automatically by `windows-interface` / `windows-bindgen` as of
+  Step 1b (three-line impl alongside the existing inherent
+  `#vtbl::new::<T, OFFSET>()`).
 * `Outer<T, L>::as_declared_interface::<I>()` is the public slot-pointer
   accessor that lets per-declared-interface `ComObjectInterface<I>`
   emissions stay outside `windows-core` (orphan rules forbid a generic
@@ -428,20 +431,36 @@ follow-up but not blocking.
   emissions because today's `#[implement]`-generated types do not
   implement `Implemented`.
 
-### Step 1b — Emit `VtableCtor` per `_Vtbl` from `windows-interface` / `windows-bindgen`
+### Step 1b — Emit `VtableCtor` per `_Vtbl` from `windows-interface` / `windows-bindgen` ✓
 
-Three lines per generated `_Vtbl`:
+Three emission sites updated, all adjacent to the existing inherent
+`impl #vtbl_name { pub const fn new::<Identity, OFFSET>() }` block:
+
+* `crates/libs/interface/src/gen.rs` — `#[interface]` proc macro,
+  COM-with-parent path. Scoped (non-COM) `#[interface]` types do **not**
+  get the impl — they don't go through `Outer`.
+* `crates/libs/bindgen/src/types/cpp_interface.rs` — C++ COM interfaces
+  with an `IUnknown`/`IInspectable` base.
+* `crates/libs/bindgen/src/types/interface.rs` — WinRT interfaces; threads
+  `#constraints` and `#generics` through the impl head the same way the
+  existing `_Vtbl::new` constructor does.
+
+Shape (one impl per `_Vtbl`):
 
 ```rust
-impl<T: IUnknownImpl + IFoo_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<T, OFFSET> for IFoo_Vtbl
+impl<Identity: IUnknownImpl + #impl_name + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for #vtbl_name
 {
-    const NEW: Self = <Self>::new::<T, OFFSET>();
-    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<T, OFFSET>>::NEW;
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self =
+        &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 ```
 
-Affects every codegen golden file. Standalone PR.
+`tool_bindings` regenerated every `bindings.rs` in the workspace. The
+foundation's hand-written `IValue_Vtbl: VtableCtor` shim in
+`crates/tests/libs/implement_foundation/src/sample.rs` was removed —
+`#[interface]` now emits it.
 
 ### Step 2 — Reskin `#[implement]` as a shim
 

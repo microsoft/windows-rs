@@ -2348,6 +2348,10 @@ impl ID2D1AnalysisTransform_Vtbl {
         iid == &<ID2D1AnalysisTransform as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1AnalysisTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1AnalysisTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1AnalysisTransform {}
 windows_core::imp::define_interface!(ID2D1Bitmap, ID2D1Bitmap_Vtbl, 0xa2296057_ea42_4099_983b_539fb6505426);
 impl core::ops::Deref for ID2D1Bitmap {
@@ -2507,6 +2511,11 @@ impl ID2D1Bitmap_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Bitmap_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Bitmap_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID2D1Bitmap {}
 windows_core::imp::define_interface!(ID2D1Bitmap1, ID2D1Bitmap1_Vtbl, 0xa898a84c_3873_4588_b08b_ebbf978df041);
 impl core::ops::Deref for ID2D1Bitmap1 {
@@ -2624,6 +2633,11 @@ impl ID2D1Bitmap1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Bitmap1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Image as windows_core::Interface>::IID || iid == &<ID2D1Bitmap as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Bitmap1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Bitmap1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID2D1Bitmap1 {}
@@ -2759,6 +2773,10 @@ impl ID2D1BitmapBrush_Vtbl {
         iid == &<ID2D1BitmapBrush as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Brush as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1BitmapBrush_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1BitmapBrush_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1BitmapBrush {}
 windows_core::imp::define_interface!(ID2D1BitmapBrush1, ID2D1BitmapBrush1_Vtbl, 0x41343a53_e41a_49a2_91cd_21793bbb62e5);
 impl core::ops::Deref for ID2D1BitmapBrush1 {
@@ -2813,6 +2831,10 @@ impl ID2D1BitmapBrush1_Vtbl {
         iid == &<ID2D1BitmapBrush1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Brush as windows_core::Interface>::IID || iid == &<ID2D1BitmapBrush as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1BitmapBrush1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1BitmapBrush1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1BitmapBrush1 {}
 windows_core::imp::define_interface!(ID2D1BitmapRenderTarget, ID2D1BitmapRenderTarget_Vtbl, 0x2cd90695_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1BitmapRenderTarget {
@@ -2862,6 +2884,11 @@ impl ID2D1BitmapRenderTarget_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1BitmapRenderTarget as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1BitmapRenderTarget_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1BitmapRenderTarget_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1BitmapRenderTarget {}
@@ -2917,6 +2944,10 @@ impl ID2D1BlendTransform_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1BlendTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID || iid == &<ID2D1ConcreteTransform as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1BlendTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1BlendTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1BlendTransform {}
 windows_core::imp::define_interface!(ID2D1BorderTransform, ID2D1BorderTransform_Vtbl, 0x4998735c_3a19_473c_9781_656847e3a347);
@@ -2996,6 +3027,10 @@ impl ID2D1BorderTransform_Vtbl {
         iid == &<ID2D1BorderTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID || iid == &<ID2D1ConcreteTransform as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1BorderTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1BorderTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1BorderTransform {}
 windows_core::imp::define_interface!(ID2D1BoundsAdjustmentTransform, ID2D1BoundsAdjustmentTransform_Vtbl, 0x90f732e2_5092_4606_a819_8651970baccd);
 impl core::ops::Deref for ID2D1BoundsAdjustmentTransform {
@@ -3053,6 +3088,10 @@ impl ID2D1BoundsAdjustmentTransform_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1BoundsAdjustmentTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1BoundsAdjustmentTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1BoundsAdjustmentTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1BoundsAdjustmentTransform {}
 windows_core::imp::define_interface!(ID2D1Brush, ID2D1Brush_Vtbl, 0x2cd906a8_12e2_11dc_9fed_001143a055f9);
@@ -3132,6 +3171,10 @@ impl ID2D1Brush_Vtbl {
         iid == &<ID2D1Brush as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1Brush_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Brush_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1Brush {}
 windows_core::imp::define_interface!(ID2D1ColorContext, ID2D1ColorContext_Vtbl, 0x1c4820bb_5771_4518_a581_2fe4dd0ec657);
 impl core::ops::Deref for ID2D1ColorContext {
@@ -3197,6 +3240,10 @@ impl ID2D1ColorContext_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1ColorContext as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1ColorContext_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1ColorContext_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1ColorContext {}
 windows_core::imp::define_interface!(ID2D1ColorContext1, ID2D1ColorContext1_Vtbl, 0x1ab42875_c57f_4be9_bd85_9cd78d6f55ee);
@@ -3271,6 +3318,11 @@ impl ID2D1ColorContext1_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1ColorContext1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1ColorContext1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID2D1ColorContext1 {}
 windows_core::imp::define_interface!(ID2D1CommandList, ID2D1CommandList_Vtbl, 0xb4f34a19_2383_4d76_94f6_ec343657c3dc);
 impl core::ops::Deref for ID2D1CommandList {
@@ -3323,6 +3375,10 @@ impl ID2D1CommandList_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1CommandList as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Image as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1CommandList_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1CommandList_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1CommandList {}
 windows_core::imp::define_interface!(ID2D1CommandSink, ID2D1CommandSink_Vtbl, 0x54d7898a_a061_40a7_bec7_e465bcba2c4f);
@@ -3738,6 +3794,11 @@ impl ID2D1CommandSink_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1CommandSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1CommandSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1CommandSink {}
 windows_core::imp::define_interface!(ID2D1CommandSink1, ID2D1CommandSink1_Vtbl, 0x9eb767fd_4269_4467_b8c2_eb30cb305743);
 impl core::ops::Deref for ID2D1CommandSink1 {
@@ -3778,6 +3839,11 @@ impl ID2D1CommandSink1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1CommandSink1 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1CommandSink1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1CommandSink1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1CommandSink1 {}
@@ -3864,6 +3930,11 @@ impl ID2D1CommandSink2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1CommandSink2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1CommandSink2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1CommandSink2 {}
 windows_core::imp::define_interface!(ID2D1CommandSink3, ID2D1CommandSink3_Vtbl, 0x18079135_4cf3_4868_bc8e_06067e6d242d);
 impl core::ops::Deref for ID2D1CommandSink3 {
@@ -3910,6 +3981,11 @@ impl ID2D1CommandSink3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1CommandSink3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1CommandSink3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1CommandSink3 {}
 windows_core::imp::define_interface!(ID2D1CommandSink4, ID2D1CommandSink4_Vtbl, 0xc78a6519_40d6_4218_b2de_beeeb744bb3e);
 impl core::ops::Deref for ID2D1CommandSink4 {
@@ -3950,6 +4026,11 @@ impl ID2D1CommandSink4_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1CommandSink4 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink as windows_core::Interface>::IID || iid == &<ID2D1CommandSink1 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink2 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink3 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1CommandSink4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1CommandSink4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1CommandSink4 {}
@@ -3999,6 +4080,11 @@ impl ID2D1CommandSink5_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1CommandSink5 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink as windows_core::Interface>::IID || iid == &<ID2D1CommandSink1 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink2 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink3 as windows_core::Interface>::IID || iid == &<ID2D1CommandSink4 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1CommandSink5_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1CommandSink5_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1CommandSink5 {}
@@ -4070,6 +4156,10 @@ impl ID2D1ComputeInfo_Vtbl {
         iid == &<ID2D1ComputeInfo as windows_core::Interface>::IID || iid == &<ID2D1RenderInfo as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1ComputeInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1ComputeInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1ComputeInfo {}
 windows_core::imp::define_interface!(ID2D1ComputeTransform, ID2D1ComputeTransform_Vtbl, 0x0d85573c_01e3_4f7d_bfd9_0d60608bf3c3);
 impl core::ops::Deref for ID2D1ComputeTransform {
@@ -4127,6 +4217,10 @@ impl ID2D1ComputeTransform_Vtbl {
         iid == &<ID2D1ComputeTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID || iid == &<ID2D1Transform as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1ComputeTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1ComputeTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1ComputeTransform {}
 windows_core::imp::define_interface!(ID2D1ConcreteTransform, ID2D1ConcreteTransform_Vtbl, 0x1a799d8a_69f7_4e4c_9fed_437ccc6684cc);
 impl core::ops::Deref for ID2D1ConcreteTransform {
@@ -4181,6 +4275,10 @@ impl ID2D1ConcreteTransform_Vtbl {
         iid == &<ID2D1ConcreteTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1ConcreteTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1ConcreteTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1ConcreteTransform {}
 windows_core::imp::define_interface!(ID2D1DCRenderTarget, ID2D1DCRenderTarget_Vtbl, 0x1c51bc64_de61_46fd_9899_63a5d8f03950);
 impl core::ops::Deref for ID2D1DCRenderTarget {
@@ -4225,6 +4323,11 @@ impl ID2D1DCRenderTarget_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1DCRenderTarget as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1DCRenderTarget_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1DCRenderTarget_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1DCRenderTarget {}
@@ -4346,6 +4449,11 @@ impl ID2D1Device_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Device_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Device_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device {}
 windows_core::imp::define_interface!(ID2D1Device1, ID2D1Device1_Vtbl, 0xd21768e1_23a4_4823_a14b_7c3eba85d658);
 impl core::ops::Deref for ID2D1Device1 {
@@ -4422,6 +4530,11 @@ impl ID2D1Device1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Device1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Device1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Device1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device1 {}
@@ -4518,6 +4631,11 @@ impl ID2D1Device2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Device2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Device2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device2 {}
 windows_core::imp::define_interface!(ID2D1Device3, ID2D1Device3_Vtbl, 0x852f2087_802c_4037_ab60_ff2e7ee6fc01);
 impl core::ops::Deref for ID2D1Device3 {
@@ -4567,6 +4685,11 @@ impl ID2D1Device3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Device3 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID || iid == &<ID2D1Device1 as windows_core::Interface>::IID || iid == &<ID2D1Device2 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Device3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Device3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device3 {}
@@ -4647,6 +4770,11 @@ impl ID2D1Device4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Device4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Device4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device4 {}
 windows_core::imp::define_interface!(ID2D1Device5, ID2D1Device5_Vtbl, 0xd55ba0a4_6405_4694_aef5_08ee1a4358b4);
 impl core::ops::Deref for ID2D1Device5 {
@@ -4696,6 +4824,11 @@ impl ID2D1Device5_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Device5 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID || iid == &<ID2D1Device1 as windows_core::Interface>::IID || iid == &<ID2D1Device2 as windows_core::Interface>::IID || iid == &<ID2D1Device3 as windows_core::Interface>::IID || iid == &<ID2D1Device4 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Device5_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Device5_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device5 {}
@@ -4749,6 +4882,11 @@ impl ID2D1Device6_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Device6_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Device6_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device6 {}
 windows_core::imp::define_interface!(ID2D1Device7, ID2D1Device7_Vtbl, 0xf07c8968_dd4e_4ba6_9cbd_eb6d3752dcbb);
 impl core::ops::Deref for ID2D1Device7 {
@@ -4798,6 +4936,11 @@ impl ID2D1Device7_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Device7 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID || iid == &<ID2D1Device1 as windows_core::Interface>::IID || iid == &<ID2D1Device2 as windows_core::Interface>::IID || iid == &<ID2D1Device3 as windows_core::Interface>::IID || iid == &<ID2D1Device4 as windows_core::Interface>::IID || iid == &<ID2D1Device5 as windows_core::Interface>::IID || iid == &<ID2D1Device6 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Device7_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Device7_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device7 {}
@@ -5538,6 +5681,11 @@ impl ID2D1DeviceContext_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1DeviceContext_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1DeviceContext_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext {}
 windows_core::imp::define_interface!(ID2D1DeviceContext1, ID2D1DeviceContext1_Vtbl, 0xd37f57e4_6908_459f_a199_e72f24f79987);
 impl core::ops::Deref for ID2D1DeviceContext1 {
@@ -5634,6 +5782,11 @@ impl ID2D1DeviceContext1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1DeviceContext1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1DeviceContext1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1DeviceContext1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext1 {}
@@ -5913,6 +6066,11 @@ impl ID2D1DeviceContext2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1DeviceContext2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1DeviceContext2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext2 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext3, ID2D1DeviceContext3_Vtbl, 0x235a7496_8351_414c_bcd4_6672ab2d8e00);
 impl core::ops::Deref for ID2D1DeviceContext3 {
@@ -5981,6 +6139,11 @@ impl ID2D1DeviceContext3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1DeviceContext3 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext1 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext2 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1DeviceContext3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1DeviceContext3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext3 {}
@@ -6155,6 +6318,11 @@ impl ID2D1DeviceContext4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1DeviceContext4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1DeviceContext4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext4 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext5, ID2D1DeviceContext5_Vtbl, 0x7836d248_68cc_4df6_b9e8_de991bf62eb7);
 impl core::ops::Deref for ID2D1DeviceContext5 {
@@ -6277,6 +6445,11 @@ impl ID2D1DeviceContext5_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1DeviceContext5_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1DeviceContext5_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext5 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext6, ID2D1DeviceContext6_Vtbl, 0x985f7e37_4ed0_4a19_98a3_15b0edfde306);
 impl core::ops::Deref for ID2D1DeviceContext6 {
@@ -6324,6 +6497,11 @@ impl ID2D1DeviceContext6_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1DeviceContext6 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext1 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext2 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext3 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext4 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext5 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1DeviceContext6_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1DeviceContext6_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext6 {}
@@ -6412,6 +6590,11 @@ impl ID2D1DeviceContext7_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1DeviceContext7 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext1 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext2 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext3 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext4 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext5 as windows_core::Interface>::IID || iid == &<ID2D1DeviceContext6 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1DeviceContext7_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1DeviceContext7_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext7 {}
@@ -6510,6 +6693,10 @@ impl ID2D1DrawInfo_Vtbl {
         iid == &<ID2D1DrawInfo as windows_core::Interface>::IID || iid == &<ID2D1RenderInfo as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1DrawInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1DrawInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1DrawInfo {}
 windows_core::imp::define_interface!(ID2D1DrawTransform, ID2D1DrawTransform_Vtbl, 0x36bfdcb6_9739_435d_a30d_a653beff6a6f);
 impl core::ops::Deref for ID2D1DrawTransform {
@@ -6551,6 +6738,10 @@ impl ID2D1DrawTransform_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1DrawTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID || iid == &<ID2D1Transform as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1DrawTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1DrawTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1DrawTransform {}
 windows_core::imp::define_interface!(ID2D1DrawingStateBlock, ID2D1DrawingStateBlock_Vtbl, 0x28506e39_ebf6_46a1_bb47_fd85565ab957);
@@ -6648,6 +6839,11 @@ impl ID2D1DrawingStateBlock_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectWrite")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1DrawingStateBlock_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1DrawingStateBlock_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_DirectWrite")]
 impl windows_core::RuntimeName for ID2D1DrawingStateBlock {}
 windows_core::imp::define_interface!(ID2D1DrawingStateBlock1, ID2D1DrawingStateBlock1_Vtbl, 0x689f1f85_c72e_4e33_8f19_85754efd5ace);
 impl core::ops::Deref for ID2D1DrawingStateBlock1 {
@@ -6703,6 +6899,11 @@ impl ID2D1DrawingStateBlock1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1DrawingStateBlock1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1DrawingStateBlock as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_DirectWrite")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1DrawingStateBlock1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1DrawingStateBlock1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_DirectWrite")]
 impl windows_core::RuntimeName for ID2D1DrawingStateBlock1 {}
@@ -6805,6 +7006,10 @@ impl ID2D1Effect_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Effect as windows_core::Interface>::IID || iid == &<ID2D1Properties as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1Effect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Effect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1Effect {}
 windows_core::imp::define_interface!(ID2D1EffectContext, ID2D1EffectContext_Vtbl, 0x3d9f916b_27dc_4ad7_b4f1_64945340f563);
@@ -7232,6 +7437,11 @@ impl ID2D1EffectContext_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1EffectContext_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1EffectContext_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1EffectContext {}
 windows_core::imp::define_interface!(ID2D1EffectContext1, ID2D1EffectContext1_Vtbl, 0x84ab595a_fc81_4546_bacd_e8ef4d8abe7a);
 impl core::ops::Deref for ID2D1EffectContext1 {
@@ -7281,6 +7491,11 @@ impl ID2D1EffectContext1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1EffectContext1 as windows_core::Interface>::IID || iid == &<ID2D1EffectContext as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1EffectContext1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1EffectContext1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1EffectContext1 {}
@@ -7362,6 +7577,11 @@ impl ID2D1EffectContext2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1EffectContext2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1EffectContext2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1EffectContext2 {}
 windows_core::imp::define_interface!(ID2D1EffectImpl, ID2D1EffectImpl_Vtbl, 0xa248fd3f_3e6c_4e63_9f03_7f68ecc91db9);
 windows_core::imp::interface_hierarchy!(ID2D1EffectImpl, windows_core::IUnknown);
@@ -7429,6 +7649,10 @@ impl ID2D1EffectImpl_Vtbl {
         iid == &<ID2D1EffectImpl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1EffectImpl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1EffectImpl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1EffectImpl {}
 windows_core::imp::define_interface!(ID2D1EllipseGeometry, ID2D1EllipseGeometry_Vtbl, 0x2cd906a4_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1EllipseGeometry {
@@ -7473,6 +7697,11 @@ impl ID2D1EllipseGeometry_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1EllipseGeometry as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Geometry as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1EllipseGeometry_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1EllipseGeometry_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1EllipseGeometry {}
@@ -7822,6 +8051,11 @@ impl ID2D1Factory_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Factory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Factory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1Factory {}
 windows_core::imp::define_interface!(ID2D1Factory1, ID2D1Factory1_Vtbl, 0xbb12d362_daee_4b9a_aa1d_14ba401cfa1f);
 impl core::ops::Deref for ID2D1Factory1 {
@@ -8060,6 +8294,11 @@ impl ID2D1Factory1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Factory1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Factory1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory1 {}
 windows_core::imp::define_interface!(ID2D1Factory2, ID2D1Factory2_Vtbl, 0x94f81a73_9212_4376_9c58_b16a3a0d3992);
 impl core::ops::Deref for ID2D1Factory2 {
@@ -8116,6 +8355,11 @@ impl ID2D1Factory2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Factory2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Factory2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory2 {}
@@ -8176,6 +8420,11 @@ impl ID2D1Factory3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Factory3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Factory3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory3 {}
 windows_core::imp::define_interface!(ID2D1Factory4, ID2D1Factory4_Vtbl, 0xbd4ec2d2_0662_4bee_ba8e_6f29f032e096);
 impl core::ops::Deref for ID2D1Factory4 {
@@ -8232,6 +8481,11 @@ impl ID2D1Factory4_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Factory4 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory3 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Factory4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Factory4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory4 {}
@@ -8292,6 +8546,11 @@ impl ID2D1Factory5_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Factory5_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Factory5_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory5 {}
 windows_core::imp::define_interface!(ID2D1Factory6, ID2D1Factory6_Vtbl, 0xf9976f46_f642_44c1_97ca_da32ea2a2635);
 impl core::ops::Deref for ID2D1Factory6 {
@@ -8348,6 +8607,11 @@ impl ID2D1Factory6_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Factory6 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory3 as windows_core::Interface>::IID || iid == &<ID2D1Factory4 as windows_core::Interface>::IID || iid == &<ID2D1Factory5 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Factory6_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Factory6_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory6 {}
@@ -8408,6 +8672,11 @@ impl ID2D1Factory7_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Factory7_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Factory7_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory7 {}
 windows_core::imp::define_interface!(ID2D1Factory8, ID2D1Factory8_Vtbl, 0x677c9311_f36d_4b1f_ae86_86d1223ffd3a);
 impl core::ops::Deref for ID2D1Factory8 {
@@ -8464,6 +8733,11 @@ impl ID2D1Factory8_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Factory8 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory3 as windows_core::Interface>::IID || iid == &<ID2D1Factory4 as windows_core::Interface>::IID || iid == &<ID2D1Factory5 as windows_core::Interface>::IID || iid == &<ID2D1Factory6 as windows_core::Interface>::IID || iid == &<ID2D1Factory7 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Factory8_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Factory8_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory8 {}
@@ -8524,6 +8798,11 @@ impl ID2D1GdiInteropRenderTarget_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1GdiInteropRenderTarget as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1GdiInteropRenderTarget_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1GdiInteropRenderTarget_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for ID2D1GdiInteropRenderTarget {}
@@ -8593,6 +8872,11 @@ impl ID2D1GdiMetafile_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1GdiMetafile as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1GdiMetafile_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1GdiMetafile_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1GdiMetafile {}
@@ -8665,6 +8949,11 @@ impl ID2D1GdiMetafile1_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1GdiMetafile1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1GdiMetafile1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1GdiMetafile1 {}
 windows_core::imp::define_interface!(ID2D1GdiMetafileSink, ID2D1GdiMetafileSink_Vtbl, 0x82237326_8111_4f7c_bcf4_b5c1175564fe);
 windows_core::imp::interface_hierarchy!(ID2D1GdiMetafileSink, windows_core::IUnknown);
@@ -8697,6 +8986,10 @@ impl ID2D1GdiMetafileSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1GdiMetafileSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1GdiMetafileSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1GdiMetafileSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1GdiMetafileSink {}
 windows_core::imp::define_interface!(ID2D1GdiMetafileSink1, ID2D1GdiMetafileSink1_Vtbl, 0xfd0ecb6b_91e6_411e_8655_395e760f91b4);
@@ -8736,6 +9029,10 @@ impl ID2D1GdiMetafileSink1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1GdiMetafileSink1 as windows_core::Interface>::IID || iid == &<ID2D1GdiMetafileSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1GdiMetafileSink1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1GdiMetafileSink1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1GdiMetafileSink1 {}
 windows_core::imp::define_interface!(ID2D1Geometry, ID2D1Geometry_Vtbl, 0x2cd906a1_12e2_11dc_9fed_001143a055f9);
@@ -9039,6 +9336,11 @@ impl ID2D1Geometry_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Geometry_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Geometry_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1Geometry {}
 windows_core::imp::define_interface!(ID2D1GeometryGroup, ID2D1GeometryGroup_Vtbl, 0x2cd906a6_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1GeometryGroup {
@@ -9112,6 +9414,11 @@ impl ID2D1GeometryGroup_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1GeometryGroup_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1GeometryGroup_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1GeometryGroup {}
 windows_core::imp::define_interface!(ID2D1GeometryRealization, ID2D1GeometryRealization_Vtbl, 0xa16907d7_bc02_4801_99e8_8cf7f485f774);
 impl core::ops::Deref for ID2D1GeometryRealization {
@@ -9136,6 +9443,10 @@ impl ID2D1GeometryRealization_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1GeometryRealization as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1GeometryRealization_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1GeometryRealization_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1GeometryRealization {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -9237,6 +9548,11 @@ impl ID2D1GeometrySink_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1GeometrySink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1GeometrySink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1GeometrySink {}
 windows_core::imp::define_interface!(ID2D1GradientMesh, ID2D1GradientMesh_Vtbl, 0xf292e401_c050_4cde_83d7_04962d3b23c2);
 impl core::ops::Deref for ID2D1GradientMesh {
@@ -9296,6 +9612,11 @@ impl ID2D1GradientMesh_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1GradientMesh as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1GradientMesh_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1GradientMesh_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1GradientMesh {}
@@ -9381,6 +9702,11 @@ impl ID2D1GradientStopCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1GradientStopCollection as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1GradientStopCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1GradientStopCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1GradientStopCollection {}
@@ -9480,6 +9806,11 @@ impl ID2D1GradientStopCollection1_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1GradientStopCollection1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1GradientStopCollection1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1GradientStopCollection1 {}
 windows_core::imp::define_interface!(ID2D1HwndRenderTarget, ID2D1HwndRenderTarget_Vtbl, 0x2cd90698_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1HwndRenderTarget {
@@ -9553,6 +9884,11 @@ impl ID2D1HwndRenderTarget_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1HwndRenderTarget_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1HwndRenderTarget_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1HwndRenderTarget {}
 windows_core::imp::define_interface!(ID2D1Image, ID2D1Image_Vtbl, 0x65019f75_8da2_497c_b32c_dfa34e48ede6);
 impl core::ops::Deref for ID2D1Image {
@@ -9577,6 +9913,10 @@ impl ID2D1Image_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Image as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1Image_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Image_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1Image {}
 windows_core::imp::define_interface!(ID2D1ImageBrush, ID2D1ImageBrush_Vtbl, 0xfe9e984d_3f95_407c_b5db_cb94d4e8f87c);
@@ -9750,6 +10090,11 @@ impl ID2D1ImageBrush_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1ImageBrush_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1ImageBrush_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1ImageBrush {}
 windows_core::imp::define_interface!(ID2D1ImageSource, ID2D1ImageSource_Vtbl, 0xc9b664e5_74a1_4378_9ac2_eefc37a3f4d8);
 impl core::ops::Deref for ID2D1ImageSource {
@@ -9812,6 +10157,10 @@ impl ID2D1ImageSource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1ImageSource as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Image as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1ImageSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1ImageSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1ImageSource {}
 windows_core::imp::define_interface!(ID2D1ImageSourceFromWic, ID2D1ImageSourceFromWic_Vtbl, 0x77395441_1c8f_4555_8683_f50dab0fe792);
@@ -9896,6 +10245,11 @@ impl ID2D1ImageSourceFromWic_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1ImageSourceFromWic as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Image as windows_core::Interface>::IID || iid == &<ID2D1ImageSource as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1ImageSourceFromWic_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1ImageSourceFromWic_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1ImageSourceFromWic {}
@@ -10079,6 +10433,11 @@ impl ID2D1Ink_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Ink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Ink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1Ink {}
 windows_core::imp::define_interface!(ID2D1InkStyle, ID2D1InkStyle_Vtbl, 0xbae8b344_23fc_4071_8cb5_d05d6f073848);
 impl core::ops::Deref for ID2D1InkStyle {
@@ -10157,6 +10516,10 @@ impl ID2D1InkStyle_Vtbl {
         iid == &<ID2D1InkStyle as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1InkStyle_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1InkStyle_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1InkStyle {}
 windows_core::imp::define_interface!(ID2D1Layer, ID2D1Layer_Vtbl, 0x2cd9069b_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1Layer {
@@ -10205,6 +10568,11 @@ impl ID2D1Layer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Layer as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1Layer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Layer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1Layer {}
@@ -10301,6 +10669,10 @@ impl ID2D1LinearGradientBrush_Vtbl {
         iid == &<ID2D1LinearGradientBrush as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Brush as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1LinearGradientBrush_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1LinearGradientBrush_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1LinearGradientBrush {}
 windows_core::imp::define_interface!(ID2D1LookupTable3D, ID2D1LookupTable3D_Vtbl, 0x53dd9855_a3b0_4d5b_82e1_26e25c5e5797);
 impl core::ops::Deref for ID2D1LookupTable3D {
@@ -10325,6 +10697,10 @@ impl ID2D1LookupTable3D_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1LookupTable3D as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1LookupTable3D_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1LookupTable3D_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1LookupTable3D {}
 windows_core::imp::define_interface!(ID2D1Mesh, ID2D1Mesh_Vtbl, 0x2cd906c2_12e2_11dc_9fed_001143a055f9);
@@ -10373,6 +10749,10 @@ impl ID2D1Mesh_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Mesh as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1Mesh_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Mesh_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1Mesh {}
 windows_core::imp::define_interface!(ID2D1Multithread, ID2D1Multithread_Vtbl, 0x31e6e7bc_e0ff_4d46_8c64_a0a8c41c15d3);
@@ -10434,6 +10814,10 @@ impl ID2D1Multithread_Vtbl {
         iid == &<ID2D1Multithread as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1Multithread_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Multithread_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1Multithread {}
 windows_core::imp::define_interface!(ID2D1OffsetTransform, ID2D1OffsetTransform_Vtbl, 0x3fe6adea_7643_4f53_bd14_a0ce63f24042);
 impl core::ops::Deref for ID2D1OffsetTransform {
@@ -10487,6 +10871,10 @@ impl ID2D1OffsetTransform_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1OffsetTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1OffsetTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1OffsetTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1OffsetTransform {}
 windows_core::imp::define_interface!(ID2D1PathGeometry, ID2D1PathGeometry_Vtbl, 0x2cd906a5_12e2_11dc_9fed_001143a055f9);
@@ -10607,6 +10995,11 @@ impl ID2D1PathGeometry_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1PathGeometry_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1PathGeometry_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1PathGeometry {}
 windows_core::imp::define_interface!(ID2D1PathGeometry1, ID2D1PathGeometry1_Vtbl, 0x62baa2d2_ab54_41b7_b872_787e0106a421);
 impl core::ops::Deref for ID2D1PathGeometry1 {
@@ -10647,6 +11040,11 @@ impl ID2D1PathGeometry1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1PathGeometry1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Geometry as windows_core::Interface>::IID || iid == &<ID2D1PathGeometry as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1PathGeometry1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1PathGeometry1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1PathGeometry1 {}
@@ -10702,6 +11100,11 @@ impl ID2D1PrintControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1PrintControl as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1PrintControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1PrintControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1PrintControl {}
@@ -10878,6 +11281,10 @@ impl ID2D1Properties_Vtbl {
         iid == &<ID2D1Properties as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1Properties_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Properties_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1Properties {}
 windows_core::imp::define_interface!(ID2D1RadialGradientBrush, ID2D1RadialGradientBrush_Vtbl, 0x2cd906ac_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1RadialGradientBrush {
@@ -11020,6 +11427,10 @@ impl ID2D1RadialGradientBrush_Vtbl {
         iid == &<ID2D1RadialGradientBrush as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Brush as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1RadialGradientBrush_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1RadialGradientBrush_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1RadialGradientBrush {}
 windows_core::imp::define_interface!(ID2D1RectangleGeometry, ID2D1RectangleGeometry_Vtbl, 0x2cd906a2_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1RectangleGeometry {
@@ -11068,6 +11479,11 @@ impl ID2D1RectangleGeometry_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1RectangleGeometry as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Geometry as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1RectangleGeometry_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1RectangleGeometry_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1RectangleGeometry {}
@@ -11141,6 +11557,10 @@ impl ID2D1RenderInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1RenderInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1RenderInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1RenderInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1RenderInfo {}
 windows_core::imp::define_interface!(ID2D1RenderTarget, ID2D1RenderTarget_Vtbl, 0x2cd90694_12e2_11dc_9fed_001143a055f9);
@@ -12098,6 +12518,11 @@ impl ID2D1RenderTarget_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1RenderTarget_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1RenderTarget_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1RenderTarget {}
 windows_core::imp::define_interface!(ID2D1Resource, ID2D1Resource_Vtbl, 0x2cd90691_12e2_11dc_9fed_001143a055f9);
 windows_core::imp::interface_hierarchy!(ID2D1Resource, windows_core::IUnknown);
@@ -12135,6 +12560,10 @@ impl ID2D1Resource_Vtbl {
         iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1Resource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Resource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1Resource {}
 windows_core::imp::define_interface!(ID2D1ResourceTexture, ID2D1ResourceTexture_Vtbl, 0x688d15c3_02b0_438d_b13a_d1b44c32c39a);
 windows_core::imp::interface_hierarchy!(ID2D1ResourceTexture, windows_core::IUnknown);
@@ -12167,6 +12596,10 @@ impl ID2D1ResourceTexture_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1ResourceTexture as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1ResourceTexture_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1ResourceTexture_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1ResourceTexture {}
 windows_core::imp::define_interface!(ID2D1RoundedRectangleGeometry, ID2D1RoundedRectangleGeometry_Vtbl, 0x2cd906a3_12e2_11dc_9fed_001143a055f9);
@@ -12212,6 +12645,11 @@ impl ID2D1RoundedRectangleGeometry_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1RoundedRectangleGeometry as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Geometry as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1RoundedRectangleGeometry_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1RoundedRectangleGeometry_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1RoundedRectangleGeometry {}
@@ -12279,6 +12717,11 @@ impl ID2D1SolidColorBrush_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1SolidColorBrush_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1SolidColorBrush_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1SolidColorBrush {}
 windows_core::imp::define_interface!(ID2D1SourceTransform, ID2D1SourceTransform_Vtbl, 0xdb1800dd_0c34_4cf9_be90_31cc0a5653e1);
 impl core::ops::Deref for ID2D1SourceTransform {
@@ -12340,6 +12783,11 @@ impl ID2D1SourceTransform_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1SourceTransform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID || iid == &<ID2D1Transform as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1SourceTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1SourceTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1SourceTransform {}
@@ -12445,6 +12893,11 @@ impl ID2D1SpriteBatch_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1SpriteBatch as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1SpriteBatch_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1SpriteBatch_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1SpriteBatch {}
@@ -12585,6 +13038,10 @@ impl ID2D1StrokeStyle_Vtbl {
         iid == &<ID2D1StrokeStyle as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1StrokeStyle_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1StrokeStyle_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1StrokeStyle {}
 windows_core::imp::define_interface!(ID2D1StrokeStyle1, ID2D1StrokeStyle1_Vtbl, 0x10a72a66_e91c_43f4_993f_ddf4b82b0b4a);
 impl core::ops::Deref for ID2D1StrokeStyle1 {
@@ -12623,6 +13080,10 @@ impl ID2D1StrokeStyle1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1StrokeStyle1 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1StrokeStyle as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1StrokeStyle1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1StrokeStyle1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1StrokeStyle1 {}
 windows_core::imp::define_interface!(ID2D1SvgAttribute, ID2D1SvgAttribute_Vtbl, 0xc9cdb0dd_f8c9_4e70_b7c2_301c80292c5e);
@@ -12686,6 +13147,10 @@ impl ID2D1SvgAttribute_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1SvgAttribute as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1SvgAttribute_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1SvgAttribute_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1SvgAttribute {}
 windows_core::imp::define_interface!(ID2D1SvgDocument, ID2D1SvgDocument_Vtbl, 0x86b88e4d_afa4_4d7b_88e4_68a51c4a0aec);
@@ -12948,6 +13413,11 @@ impl ID2D1SvgDocument_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1SvgDocument as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + ID2D1SvgDocument_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1SvgDocument_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1SvgDocument {}
@@ -13446,6 +13916,10 @@ impl ID2D1SvgElement_Vtbl {
         iid == &<ID2D1SvgElement as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1SvgElement_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1SvgElement_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1SvgElement {}
 windows_core::imp::define_interface!(ID2D1SvgGlyphStyle, ID2D1SvgGlyphStyle_Vtbl, 0xaf671749_d241_4db8_8e41_dcc2e5c1a438);
 impl core::ops::Deref for ID2D1SvgGlyphStyle {
@@ -13545,6 +14019,10 @@ impl ID2D1SvgGlyphStyle_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1SvgGlyphStyle as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1SvgGlyphStyle_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1SvgGlyphStyle_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1SvgGlyphStyle {}
 windows_core::imp::define_interface!(ID2D1SvgPaint, ID2D1SvgPaint_Vtbl, 0xd59bab0a_68a2_455b_a5dc_9eb2854e2490);
@@ -13676,6 +14154,11 @@ impl ID2D1SvgPaint_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1SvgPaint as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1SvgAttribute as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1SvgPaint_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1SvgPaint_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1SvgPaint {}
@@ -13832,6 +14315,11 @@ impl ID2D1SvgPathData_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1SvgPathData_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1SvgPathData_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1SvgPathData {}
 windows_core::imp::define_interface!(ID2D1SvgPointCollection, ID2D1SvgPointCollection_Vtbl, 0x9dbe4c0d_3572_4dd9_9825_5530813bb712);
 impl core::ops::Deref for ID2D1SvgPointCollection {
@@ -13909,6 +14397,10 @@ impl ID2D1SvgPointCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1SvgPointCollection as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1SvgAttribute as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1SvgPointCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1SvgPointCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1SvgPointCollection {}
 windows_core::imp::define_interface!(ID2D1SvgStrokeDashArray, ID2D1SvgStrokeDashArray_Vtbl, 0xf1c0ca52_92a3_4f00_b4ce_f35691efd9d9);
@@ -14012,6 +14504,10 @@ impl ID2D1SvgStrokeDashArray_Vtbl {
         iid == &<ID2D1SvgStrokeDashArray as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1SvgAttribute as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1SvgStrokeDashArray_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1SvgStrokeDashArray_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1SvgStrokeDashArray {}
 windows_core::imp::define_interface!(ID2D1TessellationSink, ID2D1TessellationSink_Vtbl, 0x2cd906c1_12e2_11dc_9fed_001143a055f9);
 windows_core::imp::interface_hierarchy!(ID2D1TessellationSink, windows_core::IUnknown);
@@ -14055,6 +14551,10 @@ impl ID2D1TessellationSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1TessellationSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1TessellationSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1TessellationSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1TessellationSink {}
 windows_core::imp::define_interface!(ID2D1Transform, ID2D1Transform_Vtbl, 0xef1a287d_342a_4f76_8fdb_da0d6ea9f92b);
@@ -14130,6 +14630,10 @@ impl ID2D1Transform_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Transform as windows_core::Interface>::IID || iid == &<ID2D1TransformNode as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1Transform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1Transform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1Transform {}
 windows_core::imp::define_interface!(ID2D1TransformGraph, ID2D1TransformGraph_Vtbl, 0x13d29038_c3e6_4034_9081_13b53a417992);
@@ -14282,6 +14786,10 @@ impl ID2D1TransformGraph_Vtbl {
         iid == &<ID2D1TransformGraph as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1TransformGraph_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1TransformGraph_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1TransformGraph {}
 windows_core::imp::define_interface!(ID2D1TransformNode, ID2D1TransformNode_Vtbl, 0xb2efe1e7_729f_4102_949f_505fa21bf666);
 windows_core::imp::interface_hierarchy!(ID2D1TransformNode, windows_core::IUnknown);
@@ -14314,6 +14822,10 @@ impl ID2D1TransformNode_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1TransformNode as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1TransformNode_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1TransformNode_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1TransformNode {}
 windows_core::imp::define_interface!(ID2D1TransformedGeometry, ID2D1TransformedGeometry_Vtbl, 0x2cd906bb_12e2_11dc_9fed_001143a055f9);
@@ -14376,6 +14888,11 @@ impl ID2D1TransformedGeometry_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID2D1TransformedGeometry_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1TransformedGeometry_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1TransformedGeometry {}
 windows_core::imp::define_interface!(ID2D1TransformedImageSource, ID2D1TransformedImageSource_Vtbl, 0x7f1f79e5_2796_416c_8f55_700f911445e5);
 impl core::ops::Deref for ID2D1TransformedImageSource {
@@ -14430,6 +14947,10 @@ impl ID2D1TransformedImageSource_Vtbl {
         iid == &<ID2D1TransformedImageSource as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Image as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID2D1TransformedImageSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1TransformedImageSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID2D1TransformedImageSource {}
 windows_core::imp::define_interface!(ID2D1VertexBuffer, ID2D1VertexBuffer_Vtbl, 0x9b8b1336_00a5_4668_92b7_ced5d8bf9b7b);
 windows_core::imp::interface_hierarchy!(ID2D1VertexBuffer, windows_core::IUnknown);
@@ -14473,6 +14994,10 @@ impl ID2D1VertexBuffer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1VertexBuffer as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2D1VertexBuffer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID2D1VertexBuffer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID2D1VertexBuffer {}
 pub type PD2D1_EFFECT_FACTORY = Option<unsafe extern "system" fn(effectimpl: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT>;

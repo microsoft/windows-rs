@@ -28,6 +28,10 @@ impl IInkCommitRequestHandler_Vtbl {
         iid == &<IInkCommitRequestHandler as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IInkCommitRequestHandler_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInkCommitRequestHandler_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IInkCommitRequestHandler {}
 windows_core::imp::define_interface!(IInkD2DRenderer, IInkD2DRenderer_Vtbl, 0x407fb1de_f85a_4150_97cf_b7fb274fb4f8);
 windows_core::imp::interface_hierarchy!(IInkD2DRenderer, windows_core::IUnknown);
@@ -63,6 +67,10 @@ impl IInkD2DRenderer_Vtbl {
         iid == &<IInkD2DRenderer as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IInkD2DRenderer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInkD2DRenderer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IInkD2DRenderer {}
 windows_core::imp::define_interface!(IInkD2DRenderer2, IInkD2DRenderer2_Vtbl, 0x0a95dcd9_4578_4b71_b20b_bf664d4bfeee);
 windows_core::imp::interface_hierarchy!(IInkD2DRenderer2, windows_core::IUnknown);
@@ -97,6 +105,10 @@ impl IInkD2DRenderer2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkD2DRenderer2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IInkD2DRenderer2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInkD2DRenderer2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IInkD2DRenderer2 {}
 windows_core::imp::define_interface!(IInkDesktopHost, IInkDesktopHost_Vtbl, 0x4ce7d875_a981_4140_a1ff_ad93258e8d59);
@@ -168,6 +180,10 @@ impl IInkDesktopHost_Vtbl {
         iid == &<IInkDesktopHost as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IInkDesktopHost_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInkDesktopHost_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IInkDesktopHost {}
 windows_core::imp::define_interface!(IInkHostWorkItem, IInkHostWorkItem_Vtbl, 0xccda0a9a_1b78_4632_bb96_97800662e26c);
 windows_core::imp::interface_hierarchy!(IInkHostWorkItem, windows_core::IUnknown);
@@ -198,6 +214,10 @@ impl IInkHostWorkItem_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkHostWorkItem as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IInkHostWorkItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInkHostWorkItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IInkHostWorkItem {}
 windows_core::imp::define_interface!(IInkPresenterDesktop, IInkPresenterDesktop_Vtbl, 0x73f3c0d9_2e8b_48f3_895e_20cbd27b723b);
@@ -287,6 +307,10 @@ impl IInkPresenterDesktop_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkPresenterDesktop as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IInkPresenterDesktop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInkPresenterDesktop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IInkPresenterDesktop {}
 #[repr(transparent)]

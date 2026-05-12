@@ -95,6 +95,10 @@ impl IGpioControllerProvider_Vtbl {
         iid == &<IGpioControllerProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IGpioControllerProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGpioControllerProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioControllerProvider_Vtbl {
@@ -311,6 +315,10 @@ impl IGpioPinProvider_Vtbl {
         iid == &<IGpioPinProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IGpioPinProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGpioPinProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioPinProvider_Vtbl {
@@ -386,6 +394,10 @@ impl IGpioProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGpioProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IGpioProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGpioProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

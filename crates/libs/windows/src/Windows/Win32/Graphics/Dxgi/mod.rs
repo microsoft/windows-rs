@@ -1717,6 +1717,10 @@ impl IDXGIAdapter_Vtbl {
         iid == &<IDXGIAdapter as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDXGIAdapter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIAdapter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDXGIAdapter {}
 windows_core::imp::define_interface!(IDXGIAdapter1, IDXGIAdapter1_Vtbl, 0x29038f61_3839_4626_91fd_086879011a05);
 impl core::ops::Deref for IDXGIAdapter1 {
@@ -1765,6 +1769,10 @@ impl IDXGIAdapter1_Vtbl {
         iid == &<IDXGIAdapter1 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIAdapter as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDXGIAdapter1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIAdapter1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDXGIAdapter1 {}
 windows_core::imp::define_interface!(IDXGIAdapter2, IDXGIAdapter2_Vtbl, 0x0aa1ae0a_fa0e_4b84_8644_e05ff8e5acb5);
 impl core::ops::Deref for IDXGIAdapter2 {
@@ -1812,6 +1820,10 @@ impl IDXGIAdapter2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIAdapter2 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIAdapter as windows_core::Interface>::IID || iid == &<IDXGIAdapter1 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDXGIAdapter2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIAdapter2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDXGIAdapter2 {}
 windows_core::imp::define_interface!(IDXGIAdapter3, IDXGIAdapter3_Vtbl, 0x645967a4_1392_4310_a798_8053ce3e93fd);
@@ -1933,6 +1945,10 @@ impl IDXGIAdapter3_Vtbl {
         iid == &<IDXGIAdapter3 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIAdapter as windows_core::Interface>::IID || iid == &<IDXGIAdapter1 as windows_core::Interface>::IID || iid == &<IDXGIAdapter2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDXGIAdapter3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIAdapter3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDXGIAdapter3 {}
 windows_core::imp::define_interface!(IDXGIAdapter4, IDXGIAdapter4_Vtbl, 0x3c8d99d1_4fbf_4181_a82c_af66bf7bd24e);
 impl core::ops::Deref for IDXGIAdapter4 {
@@ -1981,6 +1997,10 @@ impl IDXGIAdapter4_Vtbl {
         iid == &<IDXGIAdapter4 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIAdapter as windows_core::Interface>::IID || iid == &<IDXGIAdapter1 as windows_core::Interface>::IID || iid == &<IDXGIAdapter2 as windows_core::Interface>::IID || iid == &<IDXGIAdapter3 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDXGIAdapter4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIAdapter4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDXGIAdapter4 {}
 windows_core::imp::define_interface!(IDXGIDebug, IDXGIDebug_Vtbl, 0x119e7452_de9e_40fe_8806_88f90c12b441);
 windows_core::imp::interface_hierarchy!(IDXGIDebug, windows_core::IUnknown);
@@ -2013,6 +2033,10 @@ impl IDXGIDebug_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIDebug as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDXGIDebug_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIDebug_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDXGIDebug {}
 windows_core::imp::define_interface!(IDXGIDebug1, IDXGIDebug1_Vtbl, 0xc5a05f0c_16f2_4adf_9f4d_a8c4d58ac550);
@@ -2079,6 +2103,10 @@ impl IDXGIDebug1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIDebug1 as windows_core::Interface>::IID || iid == &<IDXGIDebug as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDXGIDebug1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIDebug1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDXGIDebug1 {}
 windows_core::imp::define_interface!(IDXGIDecodeSwapChain, IDXGIDecodeSwapChain_Vtbl, 0x2633066b_4514_4c7a_8fd8_12ea98059d18);
@@ -2230,6 +2258,10 @@ impl IDXGIDecodeSwapChain_Vtbl {
         iid == &<IDXGIDecodeSwapChain as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDXGIDecodeSwapChain_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIDecodeSwapChain_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDXGIDecodeSwapChain {}
 windows_core::imp::define_interface!(IDXGIDevice, IDXGIDevice_Vtbl, 0x54ec77fa_1377_44e6_8c32_88fd5f44c84c);
 impl core::ops::Deref for IDXGIDevice {
@@ -2345,6 +2377,11 @@ impl IDXGIDevice_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIDevice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIDevice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice {}
 windows_core::imp::define_interface!(IDXGIDevice1, IDXGIDevice1_Vtbl, 0x77db970f_6276_48ba_ba28_070143b4392c);
 impl core::ops::Deref for IDXGIDevice1 {
@@ -2409,6 +2446,11 @@ impl IDXGIDevice1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIDevice1 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDevice as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIDevice1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIDevice1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice1 {}
@@ -2480,6 +2522,11 @@ impl IDXGIDevice2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIDevice2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIDevice2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice2 {}
 windows_core::imp::define_interface!(IDXGIDevice3, IDXGIDevice3_Vtbl, 0x6007896c_3244_4afd_bf18_a6d3beda5023);
 impl core::ops::Deref for IDXGIDevice3 {
@@ -2520,6 +2567,11 @@ impl IDXGIDevice3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIDevice3 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDevice as windows_core::Interface>::IID || iid == &<IDXGIDevice1 as windows_core::Interface>::IID || iid == &<IDXGIDevice2 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIDevice3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIDevice3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice3 {}
@@ -2579,6 +2631,11 @@ impl IDXGIDevice4_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIDevice4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIDevice4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice4 {}
 windows_core::imp::define_interface!(IDXGIDeviceSubObject, IDXGIDeviceSubObject_Vtbl, 0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6);
 impl core::ops::Deref for IDXGIDeviceSubObject {
@@ -2621,6 +2678,10 @@ impl IDXGIDeviceSubObject_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDXGIDeviceSubObject_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIDeviceSubObject_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDXGIDeviceSubObject {}
 windows_core::imp::define_interface!(IDXGIDisplayControl, IDXGIDisplayControl_Vtbl, 0xea9dbf1a_c88e_4486_854a_98aa0138f30c);
@@ -2669,6 +2730,10 @@ impl IDXGIDisplayControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIDisplayControl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDXGIDisplayControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIDisplayControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDXGIDisplayControl {}
 windows_core::imp::define_interface!(IDXGIFactory, IDXGIFactory_Vtbl, 0x7b7166ec_21c7_44ae_b21a_c9ae321ae369);
@@ -2797,6 +2862,11 @@ impl IDXGIFactory_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory {}
 windows_core::imp::define_interface!(IDXGIFactory1, IDXGIFactory1_Vtbl, 0x770aae78_f26f_4dba_a829_253c83d1b387);
 impl core::ops::Deref for IDXGIFactory1 {
@@ -2857,6 +2927,11 @@ impl IDXGIFactory1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIFactory1 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIFactory as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIFactory1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIFactory1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory1 {}
@@ -3121,6 +3196,11 @@ impl IDXGIFactory2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIFactory2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIFactory2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory2 {}
 windows_core::imp::define_interface!(IDXGIFactory3, IDXGIFactory3_Vtbl, 0x25483823_cd46_4c7d_86ca_47aa95b837bd);
 impl core::ops::Deref for IDXGIFactory3 {
@@ -3161,6 +3241,11 @@ impl IDXGIFactory3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIFactory3 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIFactory as windows_core::Interface>::IID || iid == &<IDXGIFactory1 as windows_core::Interface>::IID || iid == &<IDXGIFactory2 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIFactory3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIFactory3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory3 {}
@@ -3228,6 +3313,11 @@ impl IDXGIFactory4_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIFactory4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIFactory4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory4 {}
 windows_core::imp::define_interface!(IDXGIFactory5, IDXGIFactory5_Vtbl, 0x7632e1f5_ee65_4dca_87fd_84cd75f8838d);
 impl core::ops::Deref for IDXGIFactory5 {
@@ -3268,6 +3358,11 @@ impl IDXGIFactory5_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIFactory5 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIFactory as windows_core::Interface>::IID || iid == &<IDXGIFactory1 as windows_core::Interface>::IID || iid == &<IDXGIFactory2 as windows_core::Interface>::IID || iid == &<IDXGIFactory3 as windows_core::Interface>::IID || iid == &<IDXGIFactory4 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIFactory5_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIFactory5_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory5 {}
@@ -3314,6 +3409,11 @@ impl IDXGIFactory6_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIFactory6 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIFactory as windows_core::Interface>::IID || iid == &<IDXGIFactory1 as windows_core::Interface>::IID || iid == &<IDXGIFactory2 as windows_core::Interface>::IID || iid == &<IDXGIFactory3 as windows_core::Interface>::IID || iid == &<IDXGIFactory4 as windows_core::Interface>::IID || iid == &<IDXGIFactory5 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIFactory6_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIFactory6_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory6 {}
@@ -3380,6 +3480,11 @@ impl IDXGIFactory7_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIFactory7 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIFactory as windows_core::Interface>::IID || iid == &<IDXGIFactory1 as windows_core::Interface>::IID || iid == &<IDXGIFactory2 as windows_core::Interface>::IID || iid == &<IDXGIFactory3 as windows_core::Interface>::IID || iid == &<IDXGIFactory4 as windows_core::Interface>::IID || iid == &<IDXGIFactory5 as windows_core::Interface>::IID || iid == &<IDXGIFactory6 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIFactory7_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIFactory7_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory7 {}
@@ -3462,6 +3567,11 @@ impl IDXGIFactoryMedia_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIFactoryMedia as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIFactoryMedia_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIFactoryMedia_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactoryMedia {}
@@ -3938,6 +4048,10 @@ impl IDXGIInfoQueue_Vtbl {
         iid == &<IDXGIInfoQueue as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDXGIInfoQueue_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIInfoQueue_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDXGIInfoQueue {}
 windows_core::imp::define_interface!(IDXGIKeyedMutex, IDXGIKeyedMutex_Vtbl, 0x9d8e1289_d7b3_465f_8126_250e349af85d);
 impl core::ops::Deref for IDXGIKeyedMutex {
@@ -3991,6 +4105,10 @@ impl IDXGIKeyedMutex_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIKeyedMutex as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDXGIKeyedMutex_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIKeyedMutex_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDXGIKeyedMutex {}
 windows_core::imp::define_interface!(IDXGIObject, IDXGIObject_Vtbl, 0xaec22fb8_76f3_4639_9be0_28eb43a67a2e);
@@ -4070,6 +4188,10 @@ impl IDXGIObject_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIObject as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDXGIObject_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIObject_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDXGIObject {}
 windows_core::imp::define_interface!(IDXGIOutput, IDXGIOutput_Vtbl, 0xae02eedb_c735_4690_8d52_5a8dc20213aa);
@@ -4293,6 +4415,11 @@ impl IDXGIOutput_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl<Identity: windows_core::IUnknownImpl + IDXGIOutput_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIOutput_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput {}
 windows_core::imp::define_interface!(IDXGIOutput1, IDXGIOutput1_Vtbl, 0x00cddea8_939b_4b83_a340_a685226666cc);
 impl core::ops::Deref for IDXGIOutput1 {
@@ -4400,6 +4527,11 @@ impl IDXGIOutput1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl<Identity: windows_core::IUnknownImpl + IDXGIOutput1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIOutput1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput1 {}
 windows_core::imp::define_interface!(IDXGIOutput2, IDXGIOutput2_Vtbl, 0x595e39d1_2724_4663_99b1_da969de28364);
 impl core::ops::Deref for IDXGIOutput2 {
@@ -4440,6 +4572,11 @@ impl IDXGIOutput2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIOutput2 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIOutput as windows_core::Interface>::IID || iid == &<IDXGIOutput1 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl<Identity: windows_core::IUnknownImpl + IDXGIOutput2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIOutput2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput2 {}
@@ -4500,6 +4637,11 @@ impl IDXGIOutput3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl<Identity: windows_core::IUnknownImpl + IDXGIOutput3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIOutput3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput3 {}
 windows_core::imp::define_interface!(IDXGIOutput4, IDXGIOutput4_Vtbl, 0xdc7dca35_2196_414d_9f53_617884032a60);
 impl core::ops::Deref for IDXGIOutput4 {
@@ -4558,6 +4700,11 @@ impl IDXGIOutput4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl<Identity: windows_core::IUnknownImpl + IDXGIOutput4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIOutput4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput4 {}
 windows_core::imp::define_interface!(IDXGIOutput5, IDXGIOutput5_Vtbl, 0x80a07424_ab52_42eb_833c_0c42fd282d98);
 impl core::ops::Deref for IDXGIOutput5 {
@@ -4614,6 +4761,11 @@ impl IDXGIOutput5_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIOutput5 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIOutput as windows_core::Interface>::IID || iid == &<IDXGIOutput1 as windows_core::Interface>::IID || iid == &<IDXGIOutput2 as windows_core::Interface>::IID || iid == &<IDXGIOutput3 as windows_core::Interface>::IID || iid == &<IDXGIOutput4 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl<Identity: windows_core::IUnknownImpl + IDXGIOutput5_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIOutput5_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput5 {}
@@ -4693,6 +4845,11 @@ impl IDXGIOutput6_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIOutput6 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIOutput as windows_core::Interface>::IID || iid == &<IDXGIOutput1 as windows_core::Interface>::IID || iid == &<IDXGIOutput2 as windows_core::Interface>::IID || iid == &<IDXGIOutput3 as windows_core::Interface>::IID || iid == &<IDXGIOutput4 as windows_core::Interface>::IID || iid == &<IDXGIOutput5 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl<Identity: windows_core::IUnknownImpl + IDXGIOutput6_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIOutput6_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput6 {}
@@ -4841,6 +4998,11 @@ impl IDXGIOutputDuplication_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIOutputDuplication_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIOutputDuplication_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIOutputDuplication {}
 windows_core::imp::define_interface!(IDXGIResource, IDXGIResource_Vtbl, 0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b);
 impl core::ops::Deref for IDXGIResource {
@@ -4946,6 +5108,10 @@ impl IDXGIResource_Vtbl {
         iid == &<IDXGIResource as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDXGIResource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIResource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDXGIResource {}
 windows_core::imp::define_interface!(IDXGIResource1, IDXGIResource1_Vtbl, 0x30961379_4609_4a41_998e_54fe567ee0c1);
 impl core::ops::Deref for IDXGIResource1 {
@@ -5026,6 +5192,11 @@ impl IDXGIResource1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGIResource1 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID || iid == &<IDXGIResource as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Security")]
+impl<Identity: windows_core::IUnknownImpl + IDXGIResource1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGIResource1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Security")]
 impl windows_core::RuntimeName for IDXGIResource1 {}
@@ -5110,6 +5281,11 @@ impl IDXGISurface_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGISurface_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGISurface_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISurface {}
 windows_core::imp::define_interface!(IDXGISurface1, IDXGISurface1_Vtbl, 0x4ae63092_6327_4c1b_80ae_bfe12ea32b86);
 impl core::ops::Deref for IDXGISurface1 {
@@ -5176,6 +5352,11 @@ impl IDXGISurface1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl<Identity: windows_core::IUnknownImpl + IDXGISurface1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGISurface1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGISurface1 {}
 windows_core::imp::define_interface!(IDXGISurface2, IDXGISurface2_Vtbl, 0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2);
 impl core::ops::Deref for IDXGISurface2 {
@@ -5220,6 +5401,11 @@ impl IDXGISurface2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGISurface2 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID || iid == &<IDXGISurface as windows_core::Interface>::IID || iid == &<IDXGISurface1 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl<Identity: windows_core::IUnknownImpl + IDXGISurface2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGISurface2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGISurface2 {}
@@ -5419,6 +5605,11 @@ impl IDXGISwapChain_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGISwapChain as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGISwapChain_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGISwapChain_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain {}
@@ -5660,6 +5851,11 @@ impl IDXGISwapChain1_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGISwapChain1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGISwapChain1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain1 {}
 windows_core::imp::define_interface!(IDXGISwapChain2, IDXGISwapChain2_Vtbl, 0xa8be2ac4_199f_4946_b331_79599fb98de7);
 impl core::ops::Deref for IDXGISwapChain2 {
@@ -5786,6 +5982,11 @@ impl IDXGISwapChain2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGISwapChain2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGISwapChain2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain2 {}
 windows_core::imp::define_interface!(IDXGISwapChain3, IDXGISwapChain3_Vtbl, 0x94d99bdb_f1f8_4ab0_b236_7da0170edab1);
 impl core::ops::Deref for IDXGISwapChain3 {
@@ -5888,6 +6089,11 @@ impl IDXGISwapChain3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGISwapChain3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGISwapChain3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain3 {}
 windows_core::imp::define_interface!(IDXGISwapChain4, IDXGISwapChain4_Vtbl, 0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb);
 impl core::ops::Deref for IDXGISwapChain4 {
@@ -5928,6 +6134,11 @@ impl IDXGISwapChain4_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGISwapChain4 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID || iid == &<IDXGISwapChain as windows_core::Interface>::IID || iid == &<IDXGISwapChain1 as windows_core::Interface>::IID || iid == &<IDXGISwapChain2 as windows_core::Interface>::IID || iid == &<IDXGISwapChain3 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDXGISwapChain4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGISwapChain4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain4 {}
@@ -5990,6 +6201,10 @@ impl IDXGISwapChainMedia_Vtbl {
         iid == &<IDXGISwapChainMedia as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDXGISwapChainMedia_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGISwapChainMedia_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDXGISwapChainMedia {}
 windows_core::imp::define_interface!(IDXGraphicsAnalysis, IDXGraphicsAnalysis_Vtbl, 0x9f251514_9d4d_4902_9d60_18988ab7d4b5);
 windows_core::imp::interface_hierarchy!(IDXGraphicsAnalysis, windows_core::IUnknown);
@@ -6035,5 +6250,9 @@ impl IDXGraphicsAnalysis_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXGraphicsAnalysis as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDXGraphicsAnalysis_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXGraphicsAnalysis_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDXGraphicsAnalysis {}

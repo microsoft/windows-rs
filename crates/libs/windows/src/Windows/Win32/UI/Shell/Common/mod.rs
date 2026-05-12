@@ -62,6 +62,10 @@ impl IObjectArray_Vtbl {
         iid == &<IObjectArray as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IObjectArray_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IObjectArray_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IObjectArray {}
 windows_core::imp::define_interface!(IObjectCollection, IObjectCollection_Vtbl, 0x5632b1a4_e38a_400a_928a_d4cd63230295);
 impl core::ops::Deref for IObjectCollection {
@@ -143,6 +147,10 @@ impl IObjectCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IObjectCollection as windows_core::Interface>::IID || iid == &<IObjectArray as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IObjectCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IObjectCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IObjectCollection {}
 #[repr(C, packed(1))]

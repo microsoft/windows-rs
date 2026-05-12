@@ -233,6 +233,11 @@ impl IXpsDocumentPackageTarget_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsDocumentPackageTarget_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsDocumentPackageTarget_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsDocumentPackageTarget {}
 windows_core::imp::define_interface!(IXpsDocumentPackageTarget3D, IXpsDocumentPackageTarget3D_Vtbl, 0x60ba71b8_3101_4984_9199_f4ea775ff01d);
 windows_core::imp::interface_hierarchy!(IXpsDocumentPackageTarget3D, windows_core::IUnknown);
@@ -310,6 +315,11 @@ impl IXpsDocumentPackageTarget3D_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsDocumentPackageTarget3D_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsDocumentPackageTarget3D_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsDocumentPackageTarget3D {}
 windows_core::imp::define_interface!(IXpsOMBrush, IXpsOMBrush_Vtbl, 0x56a3f80c_ea4c_4187_a57b_a2a473b2b42b);
 impl core::ops::Deref for IXpsOMBrush {
@@ -366,6 +376,10 @@ impl IXpsOMBrush_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXpsOMBrush_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMBrush_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXpsOMBrush {}
 windows_core::imp::define_interface!(IXpsOMCanvas, IXpsOMCanvas_Vtbl, 0x221d1452_331e_47c6_87e9_6ccefb9b5ba3);
@@ -638,6 +652,11 @@ impl IXpsOMCanvas_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMCanvas_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMCanvas_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IXpsOMCanvas {}
 windows_core::imp::define_interface!(IXpsOMColorProfileResource, IXpsOMColorProfileResource_Vtbl, 0x67bd7d69_1eef_4bb1_b5e7_6f4f87be8abe);
 impl core::ops::Deref for IXpsOMColorProfileResource {
@@ -708,6 +727,11 @@ impl IXpsOMColorProfileResource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMColorProfileResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMColorProfileResource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMColorProfileResource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMColorProfileResource {}
@@ -860,6 +884,11 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMColorProfileResourceCollection as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMColorProfileResourceCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMColorProfileResourceCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMColorProfileResourceCollection {}
@@ -1502,6 +1531,11 @@ impl IXpsOMCoreProperties_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMCoreProperties_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMCoreProperties_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMCoreProperties {}
 windows_core::imp::define_interface!(IXpsOMDashCollection, IXpsOMDashCollection_Vtbl, 0x081613f4_74eb_48f2_83b3_37a9ce2d7dc6);
 windows_core::imp::interface_hierarchy!(IXpsOMDashCollection, windows_core::IUnknown);
@@ -1613,6 +1647,10 @@ impl IXpsOMDashCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMDashCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXpsOMDashCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMDashCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXpsOMDashCollection {}
 windows_core::imp::define_interface!(IXpsOMDictionary, IXpsOMDictionary_Vtbl, 0x897c86b8_8eaf_4ae3_bdde_56419fcf4236);
@@ -1829,6 +1867,10 @@ impl IXpsOMDictionary_Vtbl {
         iid == &<IXpsOMDictionary as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsOMDictionary_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMDictionary_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsOMDictionary {}
 windows_core::imp::define_interface!(IXpsOMDocument, IXpsOMDocument_Vtbl, 0x2c2c94cb_ac5f_4254_8ee9_23948309d9f0);
 impl core::ops::Deref for IXpsOMDocument {
@@ -2016,6 +2058,11 @@ impl IXpsOMDocument_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMDocument_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMDocument_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMDocument {}
 windows_core::imp::define_interface!(IXpsOMDocumentCollection, IXpsOMDocumentCollection_Vtbl, 0xd1c87f0d_e947_4754_8a25_971478f7e83e);
 windows_core::imp::interface_hierarchy!(IXpsOMDocumentCollection, windows_core::IUnknown);
@@ -2137,6 +2184,10 @@ impl IXpsOMDocumentCollection_Vtbl {
         iid == &<IXpsOMDocumentCollection as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsOMDocumentCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMDocumentCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsOMDocumentCollection {}
 windows_core::imp::define_interface!(IXpsOMDocumentSequence, IXpsOMDocumentSequence_Vtbl, 0x56492eb4_d8d5_425e_8256_4c2b64ad0264);
 impl core::ops::Deref for IXpsOMDocumentSequence {
@@ -2246,6 +2297,11 @@ impl IXpsOMDocumentSequence_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMDocumentSequence_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMDocumentSequence_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMDocumentSequence {}
 windows_core::imp::define_interface!(IXpsOMDocumentStructureResource, IXpsOMDocumentStructureResource_Vtbl, 0x85febc8a_6b63_48a9_af07_7064e4ecff30);
 impl core::ops::Deref for IXpsOMDocumentStructureResource {
@@ -2343,6 +2399,11 @@ impl IXpsOMDocumentStructureResource_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMDocumentStructureResource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMDocumentStructureResource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMDocumentStructureResource {}
 windows_core::imp::define_interface!(IXpsOMFontResource, IXpsOMFontResource_Vtbl, 0xa8c45708_47d9_4af4_8d20_33b48c9b8485);
 impl core::ops::Deref for IXpsOMFontResource {
@@ -2438,6 +2499,11 @@ impl IXpsOMFontResource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMFontResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMFontResource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMFontResource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMFontResource {}
@@ -2590,6 +2656,11 @@ impl IXpsOMFontResourceCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMFontResourceCollection as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMFontResourceCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMFontResourceCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMFontResourceCollection {}
@@ -2787,6 +2858,10 @@ impl IXpsOMGeometry_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMGeometry as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXpsOMGeometry_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMGeometry_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXpsOMGeometry {}
 windows_core::imp::define_interface!(IXpsOMGeometryFigure, IXpsOMGeometryFigure_Vtbl, 0xd410dc83_908c_443e_8947_b1795d3c165a);
@@ -3062,6 +3137,10 @@ impl IXpsOMGeometryFigure_Vtbl {
         iid == &<IXpsOMGeometryFigure as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsOMGeometryFigure_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMGeometryFigure_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsOMGeometryFigure {}
 windows_core::imp::define_interface!(IXpsOMGeometryFigureCollection, IXpsOMGeometryFigureCollection_Vtbl, 0xfd48c3f3_a58e_4b5a_8826_1de54abe72b2);
 windows_core::imp::interface_hierarchy!(IXpsOMGeometryFigureCollection, windows_core::IUnknown);
@@ -3182,6 +3261,10 @@ impl IXpsOMGeometryFigureCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMGeometryFigureCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXpsOMGeometryFigureCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMGeometryFigureCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXpsOMGeometryFigureCollection {}
 windows_core::imp::define_interface!(IXpsOMGlyphs, IXpsOMGlyphs_Vtbl, 0x819b3199_0a5a_4b64_bec7_a9e17e780de2);
@@ -3700,6 +3783,11 @@ impl IXpsOMGlyphs_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMGlyphs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMGlyphs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IXpsOMGlyphs {}
 windows_core::imp::define_interface!(IXpsOMGlyphsEditor, IXpsOMGlyphsEditor_Vtbl, 0xa5ab8616_5b16_4b9f_9629_89b323ed7909);
 windows_core::imp::interface_hierarchy!(IXpsOMGlyphsEditor, windows_core::IUnknown);
@@ -4007,6 +4095,10 @@ impl IXpsOMGlyphsEditor_Vtbl {
         iid == &<IXpsOMGlyphsEditor as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsOMGlyphsEditor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMGlyphsEditor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsOMGlyphsEditor {}
 windows_core::imp::define_interface!(IXpsOMGradientBrush, IXpsOMGradientBrush_Vtbl, 0xedb59622_61a2_42c3_bace_acf2286c06bf);
 impl core::ops::Deref for IXpsOMGradientBrush {
@@ -4215,6 +4307,10 @@ impl IXpsOMGradientBrush_Vtbl {
         iid == &<IXpsOMGradientBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsOMGradientBrush_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMGradientBrush_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsOMGradientBrush {}
 windows_core::imp::define_interface!(IXpsOMGradientStop, IXpsOMGradientStop_Vtbl, 0x5cf4f5cc_3969_49b5_a70a_5550b618fe49);
 windows_core::imp::interface_hierarchy!(IXpsOMGradientStop, windows_core::IUnknown);
@@ -4348,6 +4444,10 @@ impl IXpsOMGradientStop_Vtbl {
         iid == &<IXpsOMGradientStop as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsOMGradientStop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMGradientStop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsOMGradientStop {}
 windows_core::imp::define_interface!(IXpsOMGradientStopCollection, IXpsOMGradientStopCollection_Vtbl, 0xc9174c3a_3cd3_4319_bda4_11a39392ceef);
 windows_core::imp::interface_hierarchy!(IXpsOMGradientStopCollection, windows_core::IUnknown);
@@ -4468,6 +4568,10 @@ impl IXpsOMGradientStopCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMGradientStopCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXpsOMGradientStopCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMGradientStopCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXpsOMGradientStopCollection {}
 windows_core::imp::define_interface!(IXpsOMImageBrush, IXpsOMImageBrush_Vtbl, 0x3df0b466_d382_49ef_8550_dd94c80242e4);
@@ -4590,6 +4694,10 @@ impl IXpsOMImageBrush_Vtbl {
         iid == &<IXpsOMImageBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMTileBrush as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsOMImageBrush_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMImageBrush_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsOMImageBrush {}
 windows_core::imp::define_interface!(IXpsOMImageResource, IXpsOMImageResource_Vtbl, 0x3db8417d_ae50_485e_9a44_d7758f78a23f);
 impl core::ops::Deref for IXpsOMImageResource {
@@ -4685,6 +4793,11 @@ impl IXpsOMImageResource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMImageResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMImageResource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMImageResource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMImageResource {}
@@ -4839,6 +4952,11 @@ impl IXpsOMImageResourceCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMImageResourceCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMImageResourceCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMImageResourceCollection {}
 windows_core::imp::define_interface!(IXpsOMLinearGradientBrush, IXpsOMLinearGradientBrush_Vtbl, 0x005e279f_c30d_40ff_93ec_1950d3c528db);
 impl core::ops::Deref for IXpsOMLinearGradientBrush {
@@ -4954,6 +5072,10 @@ impl IXpsOMLinearGradientBrush_Vtbl {
         iid == &<IXpsOMLinearGradientBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMGradientBrush as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsOMLinearGradientBrush_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMLinearGradientBrush_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsOMLinearGradientBrush {}
 windows_core::imp::define_interface!(IXpsOMMatrixTransform, IXpsOMMatrixTransform_Vtbl, 0xb77330ff_bb37_4501_a93e_f1b1e50bfc46);
 impl core::ops::Deref for IXpsOMMatrixTransform {
@@ -5036,6 +5158,10 @@ impl IXpsOMMatrixTransform_Vtbl {
         iid == &<IXpsOMMatrixTransform as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsOMMatrixTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMMatrixTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsOMMatrixTransform {}
 windows_core::imp::define_interface!(IXpsOMNameCollection, IXpsOMNameCollection_Vtbl, 0x4bddf8ec_c915_421b_a166_d173d25653d2);
 windows_core::imp::interface_hierarchy!(IXpsOMNameCollection, windows_core::IUnknown);
@@ -5095,6 +5221,10 @@ impl IXpsOMNameCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMNameCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXpsOMNameCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMNameCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXpsOMNameCollection {}
 windows_core::imp::define_interface!(IXpsOMObjectFactory, IXpsOMObjectFactory_Vtbl, 0xf9b2a685_a50d_4fc2_b764_b56e093ea0ca);
@@ -6077,6 +6207,11 @@ impl IXpsOMObjectFactory_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMObjectFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMObjectFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMObjectFactory {}
 windows_core::imp::define_interface!(IXpsOMObjectFactory1, IXpsOMObjectFactory1_Vtbl, 0x0a91b617_d612_4181_bf7c_be5824e9cc8f);
 impl core::ops::Deref for IXpsOMObjectFactory1 {
@@ -6431,6 +6566,11 @@ impl IXpsOMObjectFactory1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMObjectFactory1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMObjectFactory1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMObjectFactory1 {}
 windows_core::imp::define_interface!(IXpsOMPackage, IXpsOMPackage_Vtbl, 0x18c3df65_81e1_4674_91dc_fc452f5a416f);
 windows_core::imp::interface_hierarchy!(IXpsOMPackage, windows_core::IUnknown);
@@ -6646,6 +6786,11 @@ impl IXpsOMPackage_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMPackage_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMPackage_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMPackage {}
 windows_core::imp::define_interface!(IXpsOMPackage1, IXpsOMPackage1_Vtbl, 0x95a9435e_12bb_461b_8e7f_c6adb04cd96a);
 impl core::ops::Deref for IXpsOMPackage1 {
@@ -6736,6 +6881,11 @@ impl IXpsOMPackage1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMPackage1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMPackage1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMPackage1 {}
 windows_core::imp::define_interface!(IXpsOMPackageTarget, IXpsOMPackageTarget_Vtbl, 0x219a9db0_4959_47d0_8034_b1ce84f41a4d);
 windows_core::imp::interface_hierarchy!(IXpsOMPackageTarget, windows_core::IUnknown);
@@ -6786,6 +6936,11 @@ impl IXpsOMPackageTarget_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMPackageTarget as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMPackageTarget_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMPackageTarget_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMPackageTarget {}
@@ -6903,6 +7058,11 @@ impl IXpsOMPackageWriter_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMPackageWriter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMPackageWriter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMPackageWriter {}
 windows_core::imp::define_interface!(IXpsOMPackageWriter3D, IXpsOMPackageWriter3D_Vtbl, 0xe8a45033_640e_43fa_9bdf_fddeaa31c6a0);
 impl core::ops::Deref for IXpsOMPackageWriter3D {
@@ -6972,6 +7132,11 @@ impl IXpsOMPackageWriter3D_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMPackageWriter3D as windows_core::Interface>::IID || iid == &<IXpsOMPackageWriter as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMPackageWriter3D_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMPackageWriter3D_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMPackageWriter3D {}
@@ -7405,6 +7570,11 @@ impl IXpsOMPage_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMPage_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMPage_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMPage {}
 windows_core::imp::define_interface!(IXpsOMPage1, IXpsOMPage1_Vtbl, 0x305b60ef_6892_4dda_9cbb_3aa65974508a);
 impl core::ops::Deref for IXpsOMPage1 {
@@ -7470,6 +7640,11 @@ impl IXpsOMPage1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMPage1 as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMPage as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMPage1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMPage1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMPage1 {}
@@ -7809,6 +7984,10 @@ impl IXpsOMPageReference_Vtbl {
         iid == &<IXpsOMPageReference as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsOMPageReference_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMPageReference_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsOMPageReference {}
 windows_core::imp::define_interface!(IXpsOMPageReferenceCollection, IXpsOMPageReferenceCollection_Vtbl, 0xca16ba4d_e7b9_45c5_958b_f98022473745);
 windows_core::imp::interface_hierarchy!(IXpsOMPageReferenceCollection, windows_core::IUnknown);
@@ -7930,6 +8109,10 @@ impl IXpsOMPageReferenceCollection_Vtbl {
         iid == &<IXpsOMPageReferenceCollection as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsOMPageReferenceCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMPageReferenceCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsOMPageReferenceCollection {}
 windows_core::imp::define_interface!(IXpsOMPart, IXpsOMPart_Vtbl, 0x74eb2f0b_a91e_4486_afac_0fabeca3dfc6);
 windows_core::imp::interface_hierarchy!(IXpsOMPart, windows_core::IUnknown);
@@ -7997,6 +8180,11 @@ impl IXpsOMPart_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMPart_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMPart_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMPart {}
@@ -8104,6 +8292,10 @@ impl IXpsOMPartResources_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMPartResources as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXpsOMPartResources_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMPartResources_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXpsOMPartResources {}
 windows_core::imp::define_interface!(IXpsOMPartUriCollection, IXpsOMPartUriCollection_Vtbl, 0x57c650d4_067c_4893_8c33_f62a0633730f);
@@ -8243,6 +8435,11 @@ impl IXpsOMPartUriCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMPartUriCollection as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMPartUriCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMPartUriCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMPartUriCollection {}
@@ -8933,6 +9130,11 @@ impl IXpsOMPath_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMPath_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMPath_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IXpsOMPath {}
 windows_core::imp::define_interface!(IXpsOMPrintTicketResource, IXpsOMPrintTicketResource_Vtbl, 0xe7ff32d2_34aa_499b_bbe9_9cd4ee6c59f7);
 impl core::ops::Deref for IXpsOMPrintTicketResource {
@@ -9003,6 +9205,11 @@ impl IXpsOMPrintTicketResource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMPrintTicketResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMPrintTicketResource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMPrintTicketResource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMPrintTicketResource {}
@@ -9153,6 +9360,10 @@ impl IXpsOMRadialGradientBrush_Vtbl {
         iid == &<IXpsOMRadialGradientBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMGradientBrush as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsOMRadialGradientBrush_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMRadialGradientBrush_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsOMRadialGradientBrush {}
 windows_core::imp::define_interface!(IXpsOMRemoteDictionaryResource, IXpsOMRemoteDictionaryResource_Vtbl, 0xc9bd7cd4_e16a_4bf8_8c84_c950af7a3061);
 impl core::ops::Deref for IXpsOMRemoteDictionaryResource {
@@ -9218,6 +9429,11 @@ impl IXpsOMRemoteDictionaryResource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMRemoteDictionaryResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMRemoteDictionaryResource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMRemoteDictionaryResource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMRemoteDictionaryResource {}
@@ -9289,6 +9505,11 @@ impl IXpsOMRemoteDictionaryResource1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMRemoteDictionaryResource1 as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID || iid == &<IXpsOMRemoteDictionaryResource as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMRemoteDictionaryResource1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMRemoteDictionaryResource1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMRemoteDictionaryResource1 {}
@@ -9443,6 +9664,11 @@ impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMRemoteDictionaryResourceCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMRemoteDictionaryResourceCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMRemoteDictionaryResourceCollection {}
 windows_core::imp::define_interface!(IXpsOMResource, IXpsOMResource_Vtbl, 0xda2ac0a2_73a2_4975_ad14_74097c3ff3a5);
 impl core::ops::Deref for IXpsOMResource {
@@ -9467,6 +9693,11 @@ impl IXpsOMResource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMResource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMResource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMResource {}
@@ -9528,6 +9759,10 @@ impl IXpsOMShareable_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMShareable as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXpsOMShareable_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMShareable_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXpsOMShareable {}
 windows_core::imp::define_interface!(IXpsOMSignatureBlockResource, IXpsOMSignatureBlockResource_Vtbl, 0x4776ad35_2e04_4357_8743_ebf6c171a905);
@@ -9624,6 +9859,11 @@ impl IXpsOMSignatureBlockResource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMSignatureBlockResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMSignatureBlockResource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMSignatureBlockResource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMSignatureBlockResource {}
@@ -9778,6 +10018,11 @@ impl IXpsOMSignatureBlockResourceCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMSignatureBlockResourceCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMSignatureBlockResourceCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMSignatureBlockResourceCollection {}
 windows_core::imp::define_interface!(IXpsOMSolidColorBrush, IXpsOMSolidColorBrush_Vtbl, 0xa06f9f05_3be9_4763_98a8_094fc672e488);
 impl core::ops::Deref for IXpsOMSolidColorBrush {
@@ -9862,6 +10107,10 @@ impl IXpsOMSolidColorBrush_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMSolidColorBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXpsOMSolidColorBrush_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMSolidColorBrush_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXpsOMSolidColorBrush {}
 windows_core::imp::define_interface!(IXpsOMStoryFragmentsResource, IXpsOMStoryFragmentsResource_Vtbl, 0xc2b3ca09_0473_4282_87ae_1780863223f0);
@@ -9960,6 +10209,11 @@ impl IXpsOMStoryFragmentsResource_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMStoryFragmentsResource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMStoryFragmentsResource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMStoryFragmentsResource {}
 windows_core::imp::define_interface!(IXpsOMThumbnailGenerator, IXpsOMThumbnailGenerator_Vtbl, 0x15b873d5_1971_41e8_83a3_6578403064c7);
 windows_core::imp::interface_hierarchy!(IXpsOMThumbnailGenerator, windows_core::IUnknown);
@@ -10009,6 +10263,11 @@ impl IXpsOMThumbnailGenerator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMThumbnailGenerator as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMThumbnailGenerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMThumbnailGenerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsOMThumbnailGenerator {}
@@ -10230,6 +10489,10 @@ impl IXpsOMTileBrush_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMTileBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXpsOMTileBrush_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMTileBrush_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXpsOMTileBrush {}
 windows_core::imp::define_interface!(IXpsOMVisual, IXpsOMVisual_Vtbl, 0xbc3e7333_fb0b_4af3_a819_0b4eaad0d2fd);
@@ -10723,6 +10986,11 @@ impl IXpsOMVisual_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IXpsOMVisual_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMVisual_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IXpsOMVisual {}
 windows_core::imp::define_interface!(IXpsOMVisualBrush, IXpsOMVisualBrush_Vtbl, 0x97e294af_5b37_46b4_8057_874d2f64119b);
 impl core::ops::Deref for IXpsOMVisualBrush {
@@ -10865,6 +11133,10 @@ impl IXpsOMVisualBrush_Vtbl {
         iid == &<IXpsOMVisualBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMTileBrush as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsOMVisualBrush_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMVisualBrush_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsOMVisualBrush {}
 windows_core::imp::define_interface!(IXpsOMVisualCollection, IXpsOMVisualCollection_Vtbl, 0x94d8abde_ab91_46a8_82b7_f5b05ef01a96);
 windows_core::imp::interface_hierarchy!(IXpsOMVisualCollection, windows_core::IUnknown);
@@ -10985,6 +11257,10 @@ impl IXpsOMVisualCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsOMVisualCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXpsOMVisualCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsOMVisualCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXpsOMVisualCollection {}
 windows_core::imp::define_interface!(IXpsSignature, IXpsSignature_Vtbl, 0x6ae4c93e_1ade_42fb_898b_3a5658284857);
@@ -11260,6 +11536,11 @@ impl IXpsSignature_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsSignature_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsSignature_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsSignature {}
 windows_core::imp::define_interface!(IXpsSignatureBlock, IXpsSignatureBlock_Vtbl, 0x151fac09_0b97_4ac6_a323_5e4297d4322b);
 windows_core::imp::interface_hierarchy!(IXpsSignatureBlock, windows_core::IUnknown);
@@ -11401,6 +11682,11 @@ impl IXpsSignatureBlock_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsSignatureBlock_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsSignatureBlock_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsSignatureBlock {}
 windows_core::imp::define_interface!(IXpsSignatureBlockCollection, IXpsSignatureBlockCollection_Vtbl, 0x23397050_fe99_467a_8dce_9237f074ffe4);
 windows_core::imp::interface_hierarchy!(IXpsSignatureBlockCollection, windows_core::IUnknown);
@@ -11477,6 +11763,10 @@ impl IXpsSignatureBlockCollection_Vtbl {
         iid == &<IXpsSignatureBlockCollection as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXpsSignatureBlockCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsSignatureBlockCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXpsSignatureBlockCollection {}
 windows_core::imp::define_interface!(IXpsSignatureCollection, IXpsSignatureCollection_Vtbl, 0xa2d1d95d_add2_4dff_ab27_6b9c645ff322);
 windows_core::imp::interface_hierarchy!(IXpsSignatureCollection, windows_core::IUnknown);
@@ -11552,6 +11842,10 @@ impl IXpsSignatureCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsSignatureCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXpsSignatureCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsSignatureCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXpsSignatureCollection {}
 windows_core::imp::define_interface!(IXpsSignatureManager, IXpsSignatureManager_Vtbl, 0xd3e8d338_fdc4_4afc_80b5_d532a1782ee1);
@@ -11813,6 +12107,11 @@ impl IXpsSignatureManager_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsSignatureManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsSignatureManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsSignatureManager {}
 windows_core::imp::define_interface!(IXpsSignatureRequest, IXpsSignatureRequest_Vtbl, 0xac58950b_7208_4b2d_b2c4_951083d3b8eb);
 windows_core::imp::interface_hierarchy!(IXpsSignatureRequest, windows_core::IUnknown);
@@ -12052,6 +12351,11 @@ impl IXpsSignatureRequest_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsSignatureRequest_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsSignatureRequest_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsSignatureRequest {}
 windows_core::imp::define_interface!(IXpsSignatureRequestCollection, IXpsSignatureRequestCollection_Vtbl, 0xf0253e68_9f19_412e_9b4f_54d3b0ac6cd9);
 windows_core::imp::interface_hierarchy!(IXpsSignatureRequestCollection, windows_core::IUnknown);
@@ -12127,6 +12431,10 @@ impl IXpsSignatureRequestCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsSignatureRequestCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXpsSignatureRequestCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsSignatureRequestCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXpsSignatureRequestCollection {}
 windows_core::imp::define_interface!(IXpsSigningOptions, IXpsSigningOptions_Vtbl, 0x7718eae4_3215_49be_af5b_594fef7fcfa6);
@@ -12485,6 +12793,11 @@ impl IXpsSigningOptions_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXpsSigningOptions as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXpsSigningOptions_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXpsSigningOptions_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXpsSigningOptions {}

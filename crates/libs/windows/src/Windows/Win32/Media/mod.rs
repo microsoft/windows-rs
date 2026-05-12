@@ -158,6 +158,10 @@ impl IReferenceClock_Vtbl {
         iid == &<IReferenceClock as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IReferenceClock_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IReferenceClock_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IReferenceClock {}
 windows_core::imp::define_interface!(IReferenceClock2, IReferenceClock2_Vtbl, 0x36b73885_c2c8_11cf_8b46_00805f6cef60);
 impl core::ops::Deref for IReferenceClock2 {
@@ -180,6 +184,10 @@ impl IReferenceClock2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IReferenceClock2 as windows_core::Interface>::IID || iid == &<IReferenceClock as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IReferenceClock2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IReferenceClock2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IReferenceClock2 {}
 windows_core::imp::define_interface!(IReferenceClockTimerControl, IReferenceClockTimerControl_Vtbl, 0xebec459c_2eca_4d42_a8af_30df557614b8);
@@ -235,6 +243,10 @@ impl IReferenceClockTimerControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IReferenceClockTimerControl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IReferenceClockTimerControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IReferenceClockTimerControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IReferenceClockTimerControl {}
 pub const JOYERR_BASE: u32 = 160u32;

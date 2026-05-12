@@ -1501,6 +1501,11 @@ impl IBitmapFrame_Vtbl {
         iid == &<IBitmapFrame as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + IBitmapFrame_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBitmapFrame_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapFrame_Vtbl {
@@ -1701,6 +1706,11 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
         iid == &<IBitmapFrameWithSoftwareBitmap as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + IBitmapFrameWithSoftwareBitmap_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBitmapFrameWithSoftwareBitmap_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapFrameWithSoftwareBitmap_Vtbl {
@@ -1764,6 +1774,10 @@ impl IBitmapPropertiesView_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBitmapPropertiesView as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBitmapPropertiesView_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBitmapPropertiesView_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

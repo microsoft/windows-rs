@@ -1764,6 +1764,10 @@ impl IMediaCue_Vtbl {
         iid == &<IMediaCue as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMediaCue_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaCue_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCue_Vtbl {
@@ -1801,6 +1805,10 @@ impl IMediaSource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaSource as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMediaSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2120,6 +2128,10 @@ impl IMediaStreamDescriptor_Vtbl {
         iid == &<IMediaStreamDescriptor as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMediaStreamDescriptor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaStreamDescriptor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamDescriptor_Vtbl {
@@ -2213,6 +2225,10 @@ impl IMediaStreamDescriptor2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaStreamDescriptor2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMediaStreamDescriptor2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaStreamDescriptor2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2646,6 +2662,10 @@ impl IMediaTrack_Vtbl {
         iid == &<IMediaTrack as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMediaTrack_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaTrack_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTrack_Vtbl {
@@ -2892,6 +2912,10 @@ impl ISingleSelectMediaTrackList_Vtbl {
         iid == &<ISingleSelectMediaTrackList as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISingleSelectMediaTrackList_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISingleSelectMediaTrackList_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISingleSelectMediaTrackList_Vtbl {
@@ -3051,6 +3075,10 @@ impl ITimedMetadataTrackProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITimedMetadataTrackProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITimedMetadataTrackProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITimedMetadataTrackProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

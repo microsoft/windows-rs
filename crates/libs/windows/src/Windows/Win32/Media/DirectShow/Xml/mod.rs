@@ -75,4 +75,9 @@ impl IXMLGraphBuilder_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IXMLGraphBuilder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXMLGraphBuilder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXMLGraphBuilder {}

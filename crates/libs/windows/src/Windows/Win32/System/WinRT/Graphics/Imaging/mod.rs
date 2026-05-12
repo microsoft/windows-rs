@@ -33,6 +33,10 @@ impl ISoftwareBitmapNative_Vtbl {
         iid == &<ISoftwareBitmapNative as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISoftwareBitmapNative_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISoftwareBitmapNative_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISoftwareBitmapNative {}
 windows_core::imp::define_interface!(ISoftwareBitmapNativeFactory, ISoftwareBitmapNativeFactory_Vtbl, 0xc3c181ec_2914_4791_af02_02d224a10b43);
 windows_core::imp::interface_hierarchy!(ISoftwareBitmapNativeFactory, windows_core::IUnknown, windows_core::IInspectable);
@@ -98,6 +102,11 @@ impl ISoftwareBitmapNativeFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISoftwareBitmapNativeFactory as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Media_MediaFoundation"))]
+impl<Identity: windows_core::IUnknownImpl + ISoftwareBitmapNativeFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISoftwareBitmapNativeFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Media_MediaFoundation"))]
 impl windows_core::RuntimeName for ISoftwareBitmapNativeFactory {}

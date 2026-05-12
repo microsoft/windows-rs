@@ -138,6 +138,11 @@ impl IHolographicCameraInterop_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + IHolographicCameraInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IHolographicCameraInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for IHolographicCameraInterop {}
 windows_core::imp::define_interface!(IHolographicCameraRenderingParametersInterop, IHolographicCameraRenderingParametersInterop_Vtbl, 0xf75b68d6_d1fd_4707_aafd_fa6f4c0e3bf4);
 windows_core::imp::interface_hierarchy!(IHolographicCameraRenderingParametersInterop, windows_core::IUnknown, windows_core::IInspectable);
@@ -203,6 +208,11 @@ impl IHolographicCameraRenderingParametersInterop_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IHolographicCameraRenderingParametersInterop as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl<Identity: windows_core::IUnknownImpl + IHolographicCameraRenderingParametersInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IHolographicCameraRenderingParametersInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for IHolographicCameraRenderingParametersInterop {}
@@ -346,6 +356,11 @@ impl IHolographicQuadLayerInterop_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + IHolographicQuadLayerInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IHolographicQuadLayerInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for IHolographicQuadLayerInterop {}
 windows_core::imp::define_interface!(IHolographicQuadLayerUpdateParametersInterop, IHolographicQuadLayerUpdateParametersInterop_Vtbl, 0xe5f549cd_c909_444f_8809_7cc18a9c8920);
 windows_core::imp::interface_hierarchy!(IHolographicQuadLayerUpdateParametersInterop, windows_core::IUnknown, windows_core::IInspectable);
@@ -389,6 +404,11 @@ impl IHolographicQuadLayerUpdateParametersInterop_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IHolographicQuadLayerUpdateParametersInterop as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl<Identity: windows_core::IUnknownImpl + IHolographicQuadLayerUpdateParametersInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IHolographicQuadLayerUpdateParametersInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for IHolographicQuadLayerUpdateParametersInterop {}

@@ -3814,6 +3814,11 @@ impl IDebugExtendedProperty_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IDebugExtendedProperty_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDebugExtendedProperty_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDebugExtendedProperty {}
 windows_core::imp::define_interface!(IDebugProperty, IDebugProperty_Vtbl, 0x51973c50_cb0c_11d0_b5c9_00a0244a0e7a);
 windows_core::imp::interface_hierarchy!(IDebugProperty, windows_core::IUnknown);
@@ -3924,6 +3929,11 @@ impl IDebugProperty_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IDebugProperty_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDebugProperty_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDebugProperty {}
 windows_core::imp::define_interface!(IDebugPropertyEnumType_All, IDebugPropertyEnumType_All_Vtbl, 0x51973c55_cb0c_11d0_b5c9_00a0244a0e7a);
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_All, windows_core::IUnknown);
@@ -3964,6 +3974,10 @@ impl IDebugPropertyEnumType_All_Vtbl {
         iid == &<IDebugPropertyEnumType_All as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDebugPropertyEnumType_All_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDebugPropertyEnumType_All_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDebugPropertyEnumType_All {}
 windows_core::imp::define_interface!(IDebugPropertyEnumType_Arguments, IDebugPropertyEnumType_Arguments_Vtbl, 0x51973c57_cb0c_11d0_b5c9_00a0244a0e7a);
 impl core::ops::Deref for IDebugPropertyEnumType_Arguments {
@@ -3986,6 +4000,10 @@ impl IDebugPropertyEnumType_Arguments_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDebugPropertyEnumType_Arguments as windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDebugPropertyEnumType_Arguments_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDebugPropertyEnumType_Arguments_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDebugPropertyEnumType_Arguments {}
 windows_core::imp::define_interface!(IDebugPropertyEnumType_Locals, IDebugPropertyEnumType_Locals_Vtbl, 0x51973c56_cb0c_11d0_b5c9_00a0244a0e7a);
@@ -4010,6 +4028,10 @@ impl IDebugPropertyEnumType_Locals_Vtbl {
         iid == &<IDebugPropertyEnumType_Locals as windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDebugPropertyEnumType_Locals_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDebugPropertyEnumType_Locals_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDebugPropertyEnumType_Locals {}
 windows_core::imp::define_interface!(IDebugPropertyEnumType_LocalsPlusArgs, IDebugPropertyEnumType_LocalsPlusArgs_Vtbl, 0x51973c58_cb0c_11d0_b5c9_00a0244a0e7a);
 impl core::ops::Deref for IDebugPropertyEnumType_LocalsPlusArgs {
@@ -4033,6 +4055,10 @@ impl IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
         iid == &<IDebugPropertyEnumType_LocalsPlusArgs as windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDebugPropertyEnumType_LocalsPlusArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDebugPropertyEnumType_LocalsPlusArgs {}
 windows_core::imp::define_interface!(IDebugPropertyEnumType_Registers, IDebugPropertyEnumType_Registers_Vtbl, 0x51973c59_cb0c_11d0_b5c9_00a0244a0e7a);
 impl core::ops::Deref for IDebugPropertyEnumType_Registers {
@@ -4055,6 +4081,10 @@ impl IDebugPropertyEnumType_Registers_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDebugPropertyEnumType_Registers as windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDebugPropertyEnumType_Registers_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDebugPropertyEnumType_Registers_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDebugPropertyEnumType_Registers {}
 windows_core::imp::define_interface!(IEnumDebugExtendedPropertyInfo, IEnumDebugExtendedPropertyInfo_Vtbl, 0x51973c53_cb0c_11d0_b5c9_00a0244a0e7a);
@@ -4163,6 +4193,11 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IEnumDebugExtendedPropertyInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumDebugExtendedPropertyInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumDebugExtendedPropertyInfo {}
 windows_core::imp::define_interface!(IEnumDebugPropertyInfo, IEnumDebugPropertyInfo_Vtbl, 0x51973c51_cb0c_11d0_b5c9_00a0244a0e7a);
 windows_core::imp::interface_hierarchy!(IEnumDebugPropertyInfo, windows_core::IUnknown);
@@ -4262,6 +4297,10 @@ impl IEnumDebugPropertyInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumDebugPropertyInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumDebugPropertyInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumDebugPropertyInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumDebugPropertyInfo {}
 pub const ILLEGAL_ATS_INITIALIZATION: BUGCHECK_ERROR = BUGCHECK_ERROR(489u32);
@@ -5637,6 +5676,10 @@ impl IObjectSafety_Vtbl {
         iid == &<IObjectSafety as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IObjectSafety_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IObjectSafety_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IObjectSafety {}
 pub const IPI_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(475u32);
 pub const IPMI_IOCTL_INDEX: u32 = 1024u32;
@@ -5753,6 +5796,11 @@ impl IPerPropertyBrowsing2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPerPropertyBrowsing2 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl<Identity: windows_core::IUnknownImpl + IPerPropertyBrowsing2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPerPropertyBrowsing2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Ole")]
 impl windows_core::RuntimeName for IPerPropertyBrowsing2 {}

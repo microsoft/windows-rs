@@ -89,6 +89,11 @@ impl IGeometrySource2DInterop_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D")]
+impl<Identity: windows_core::IUnknownImpl + IGeometrySource2DInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGeometrySource2DInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D")]
 impl windows_core::RuntimeName for IGeometrySource2DInterop {}
 windows_core::imp::define_interface!(IGraphicsEffectD2D1Interop, IGraphicsEffectD2D1Interop_Vtbl, 0x2fc57384_a068_44d7_a331_30982fcf7177);
 windows_core::imp::interface_hierarchy!(IGraphicsEffectD2D1Interop, windows_core::IUnknown);
@@ -236,6 +241,11 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGraphicsEffectD2D1Interop as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Graphics_Effects")]
+impl<Identity: windows_core::IUnknownImpl + IGraphicsEffectD2D1Interop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGraphicsEffectD2D1Interop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Graphics_Effects")]
 impl windows_core::RuntimeName for IGraphicsEffectD2D1Interop {}

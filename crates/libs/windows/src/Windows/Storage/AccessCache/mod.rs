@@ -496,6 +496,11 @@ impl IStorageItemAccessList_Vtbl {
         iid == &<IStorageItemAccessList as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Storage_Search", feature = "Storage_Streams"))]
+impl<Identity: windows_core::IUnknownImpl + IStorageItemAccessList_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageItemAccessList_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemAccessList_Vtbl {

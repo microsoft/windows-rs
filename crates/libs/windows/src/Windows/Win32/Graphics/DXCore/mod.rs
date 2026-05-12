@@ -440,6 +440,10 @@ impl IDXCoreAdapter_Vtbl {
         iid == &<IDXCoreAdapter as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDXCoreAdapter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXCoreAdapter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDXCoreAdapter {}
 windows_core::imp::define_interface!(IDXCoreAdapter1, IDXCoreAdapter1_Vtbl, 0xa0783366_cfa3_43be_9d79_55b2da97c63c);
 impl core::ops::Deref for IDXCoreAdapter1 {
@@ -476,6 +480,10 @@ impl IDXCoreAdapter1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXCoreAdapter1 as windows_core::Interface>::IID || iid == &<IDXCoreAdapter as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDXCoreAdapter1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXCoreAdapter1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDXCoreAdapter1 {}
 windows_core::imp::define_interface!(IDXCoreAdapterFactory, IDXCoreAdapterFactory_Vtbl, 0x78ee5945_c36e_4b13_a669_005dd11c0f06);
@@ -579,6 +587,10 @@ impl IDXCoreAdapterFactory_Vtbl {
         iid == &<IDXCoreAdapterFactory as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDXCoreAdapterFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXCoreAdapterFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDXCoreAdapterFactory {}
 windows_core::imp::define_interface!(IDXCoreAdapterFactory1, IDXCoreAdapterFactory1_Vtbl, 0xd5682e19_6d21_401c_827a_9a51a4ea35d7);
 impl core::ops::Deref for IDXCoreAdapterFactory1 {
@@ -619,6 +631,10 @@ impl IDXCoreAdapterFactory1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXCoreAdapterFactory1 as windows_core::Interface>::IID || iid == &<IDXCoreAdapterFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDXCoreAdapterFactory1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXCoreAdapterFactory1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDXCoreAdapterFactory1 {}
 windows_core::imp::define_interface!(IDXCoreAdapterList, IDXCoreAdapterList_Vtbl, 0x526c7776_40e9_459b_b711_f32ad76dfc28);
@@ -721,6 +737,10 @@ impl IDXCoreAdapterList_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDXCoreAdapterList as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDXCoreAdapterList_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDXCoreAdapterList_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDXCoreAdapterList {}
 pub const IsDriverUpdateInProgress: DXCoreAdapterState = DXCoreAdapterState(0u32);

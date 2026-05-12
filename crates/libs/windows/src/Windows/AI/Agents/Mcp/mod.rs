@@ -45,6 +45,10 @@ impl IMcpMessageFilterExperimental_Vtbl {
         iid == &<IMcpMessageFilterExperimental as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMcpMessageFilterExperimental_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMcpMessageFilterExperimental_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMcpMessageFilterExperimental_Vtbl {
@@ -146,6 +150,10 @@ impl IMcpMessageFilterResponseExperimental_Vtbl {
         iid == &<IMcpMessageFilterResponseExperimental as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMcpMessageFilterResponseExperimental_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMcpMessageFilterResponseExperimental_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMcpMessageFilterResponseExperimental_Vtbl {
@@ -198,6 +206,10 @@ impl IMcpMessageFilterResponseExperimental2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMcpMessageFilterResponseExperimental2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMcpMessageFilterResponseExperimental2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMcpMessageFilterResponseExperimental2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

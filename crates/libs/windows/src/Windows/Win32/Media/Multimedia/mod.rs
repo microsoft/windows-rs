@@ -1902,6 +1902,10 @@ impl IAVIEditStream_Vtbl {
         iid == &<IAVIEditStream as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAVIEditStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAVIEditStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAVIEditStream {}
 windows_core::imp::define_interface!(IAVIFile, IAVIFile_Vtbl, 0x00020020_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IAVIFile, windows_core::IUnknown);
@@ -2008,6 +2012,10 @@ impl IAVIFile_Vtbl {
         iid == &<IAVIFile as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAVIFile_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAVIFile_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAVIFile {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAVIPersistFile, IAVIPersistFile_Vtbl, 0x00020025_0000_0000_c000_000000000046);
@@ -2051,6 +2059,11 @@ impl IAVIPersistFile_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAVIPersistFile as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersistFile as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IAVIPersistFile_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAVIPersistFile_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAVIPersistFile {}
@@ -2207,6 +2220,10 @@ impl IAVIStream_Vtbl {
         iid == &<IAVIStream as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAVIStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAVIStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAVIStream {}
 windows_core::imp::define_interface!(IAVIStreaming, IAVIStreaming_Vtbl, 0x00020022_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IAVIStreaming, windows_core::IUnknown);
@@ -2248,6 +2265,10 @@ impl IAVIStreaming_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAVIStreaming as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAVIStreaming_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAVIStreaming_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAVIStreaming {}
 #[repr(C)]
@@ -2729,6 +2750,11 @@ impl IGetFrame_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGetFrame as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IGetFrame_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGetFrame_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IGetFrame {}

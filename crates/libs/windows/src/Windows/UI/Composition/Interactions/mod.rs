@@ -367,6 +367,10 @@ impl ICompositionInteractionSource_Vtbl {
         iid == &<ICompositionInteractionSource as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICompositionInteractionSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositionInteractionSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionInteractionSource_Vtbl {
@@ -779,6 +783,10 @@ impl IInteractionTrackerOwner_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInteractionTrackerOwner as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IInteractionTrackerOwner_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInteractionTrackerOwner_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -2582,6 +2582,10 @@ impl IAppointmentParticipant_Vtbl {
         iid == &<IAppointmentParticipant as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAppointmentParticipant_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAppointmentParticipant_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentParticipant_Vtbl {

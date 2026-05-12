@@ -155,6 +155,10 @@ impl ISmsBinaryMessage_Vtbl {
         iid == &<ISmsBinaryMessage as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISmsBinaryMessage_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISmsBinaryMessage_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsBinaryMessage_Vtbl {
@@ -402,6 +406,10 @@ impl ISmsDevice_Vtbl {
         iid == &<ISmsDevice as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISmsDevice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISmsDevice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsDevice_Vtbl {
@@ -602,6 +610,10 @@ impl ISmsMessage_Vtbl {
         iid == &<ISmsMessage as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISmsMessage_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISmsMessage_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsMessage_Vtbl {
@@ -732,6 +744,10 @@ impl ISmsMessageBase_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISmsMessageBase as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISmsMessageBase_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISmsMessageBase_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1114,6 +1130,10 @@ impl ISmsTextMessage_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISmsTextMessage as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISmsTextMessage_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISmsTextMessage_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

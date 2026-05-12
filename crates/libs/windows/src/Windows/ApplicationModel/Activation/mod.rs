@@ -1822,6 +1822,10 @@ impl IActivatedEventArgs_Vtbl {
         iid == &<IActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivatedEventArgs_Vtbl {
@@ -1896,6 +1900,11 @@ impl IActivatedEventArgsWithUser_Vtbl {
         iid == &<IActivatedEventArgsWithUser as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "System")]
+impl<Identity: windows_core::IUnknownImpl + IActivatedEventArgsWithUser_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IActivatedEventArgsWithUser_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivatedEventArgsWithUser_Vtbl {
@@ -1969,6 +1978,10 @@ impl IApplicationViewActivatedEventArgs_Vtbl {
         iid == &<IApplicationViewActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IApplicationViewActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IApplicationViewActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewActivatedEventArgs_Vtbl {
@@ -2036,6 +2049,10 @@ impl IAppointmentsProviderActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAppointmentsProviderActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAppointmentsProviderActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAppointmentsProviderActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2118,6 +2135,11 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAppointmentsProviderAddAppointmentActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
+impl<Identity: windows_core::IUnknownImpl + IAppointmentsProviderAddAppointmentActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2204,6 +2226,11 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
         iid == &<IAppointmentsProviderRemoveAppointmentActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
+impl<Identity: windows_core::IUnknownImpl + IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
@@ -2288,6 +2315,11 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAppointmentsProviderReplaceAppointmentActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
+impl<Identity: windows_core::IUnknownImpl + IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2412,6 +2444,10 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
         iid == &<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
@@ -2511,6 +2547,10 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
         iid == &<IAppointmentsProviderShowTimeFrameActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
@@ -2564,6 +2604,11 @@ impl IBackgroundActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "ApplicationModel_Background")]
+impl<Identity: windows_core::IUnknownImpl + IBackgroundActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2639,6 +2684,10 @@ impl IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
         iid == &<IBarcodeScannerPreviewActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBarcodeScannerPreviewActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
@@ -2713,6 +2762,11 @@ impl ICachedFileUpdaterActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICachedFileUpdaterActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Storage_Provider")]
+impl<Identity: windows_core::IUnknownImpl + ICachedFileUpdaterActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICachedFileUpdaterActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2809,6 +2863,10 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
         iid == &<ICameraSettingsActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICameraSettingsActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICameraSettingsActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraSettingsActivatedEventArgs_Vtbl {
@@ -2877,6 +2935,10 @@ impl ICommandLineActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICommandLineActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICommandLineActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICommandLineActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2959,6 +3021,10 @@ impl IContactActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IContactActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3084,6 +3150,11 @@ impl IContactCallActivatedEventArgs_Vtbl {
         iid == &<IContactCallActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "ApplicationModel_Contacts")]
+impl<Identity: windows_core::IUnknownImpl + IContactCallActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactCallActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactCallActivatedEventArgs_Vtbl {
@@ -3192,6 +3263,11 @@ impl IContactMapActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactMapActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "ApplicationModel_Contacts")]
+impl<Identity: windows_core::IUnknownImpl + IContactMapActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactMapActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3324,6 +3400,11 @@ impl IContactMessageActivatedEventArgs_Vtbl {
         iid == &<IContactMessageActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "ApplicationModel_Contacts")]
+impl<Identity: windows_core::IUnknownImpl + IContactMessageActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactMessageActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactMessageActivatedEventArgs_Vtbl {
@@ -3403,6 +3484,11 @@ impl IContactPanelActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactPanelActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "ApplicationModel_Contacts")]
+impl<Identity: windows_core::IUnknownImpl + IContactPanelActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactPanelActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3485,6 +3571,11 @@ impl IContactPickerActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactPickerActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "ApplicationModel_Contacts_Provider")]
+impl<Identity: windows_core::IUnknownImpl + IContactPickerActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactPickerActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3612,6 +3703,11 @@ impl IContactPostActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactPostActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "ApplicationModel_Contacts")]
+impl<Identity: windows_core::IUnknownImpl + IContactPostActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactPostActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3742,6 +3838,11 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
         iid == &<IContactVideoCallActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "ApplicationModel_Contacts")]
+impl<Identity: windows_core::IUnknownImpl + IContactVideoCallActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactVideoCallActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactVideoCallActivatedEventArgs_Vtbl {
@@ -3814,6 +3915,10 @@ impl IContactsProviderActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactsProviderActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IContactsProviderActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactsProviderActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3889,6 +3994,11 @@ impl IContinuationActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContinuationActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<Identity: windows_core::IUnknownImpl + IContinuationActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContinuationActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3985,6 +4095,10 @@ impl IDeviceActivatedEventArgs_Vtbl {
         iid == &<IDeviceActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDeviceActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDeviceActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceActivatedEventArgs_Vtbl {
@@ -4060,6 +4174,11 @@ impl IDevicePairingActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDevicePairingActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Devices_Enumeration")]
+impl<Identity: windows_core::IUnknownImpl + IDevicePairingActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDevicePairingActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4145,6 +4264,10 @@ impl IDialReceiverActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDialReceiverActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDialReceiverActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDialReceiverActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4242,6 +4365,11 @@ impl IFileActivatedEventArgs_Vtbl {
         iid == &<IFileActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage")]
+impl<Identity: windows_core::IUnknownImpl + IFileActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFileActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileActivatedEventArgs_Vtbl {
@@ -4316,6 +4444,10 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileActivatedEventArgsWithCallerPackageFamilyName as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IFileActivatedEventArgsWithCallerPackageFamilyName_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4407,6 +4539,11 @@ impl IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
         iid == &<IFileActivatedEventArgsWithNeighboringFiles as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_Search")]
+impl<Identity: windows_core::IUnknownImpl + IFileActivatedEventArgsWithNeighboringFiles_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
@@ -4485,6 +4622,11 @@ impl IFileOpenPickerActivatedEventArgs_Vtbl {
         iid == &<IFileOpenPickerActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_Pickers_Provider")]
+impl<Identity: windows_core::IUnknownImpl + IFileOpenPickerActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFileOpenPickerActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileOpenPickerActivatedEventArgs_Vtbl {
@@ -4536,6 +4678,10 @@ impl IFileOpenPickerActivatedEventArgs2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileOpenPickerActivatedEventArgs2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IFileOpenPickerActivatedEventArgs2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFileOpenPickerActivatedEventArgs2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4617,6 +4763,11 @@ impl IFileOpenPickerContinuationEventArgs_Vtbl {
         iid == &<IFileOpenPickerContinuationEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+impl<Identity: windows_core::IUnknownImpl + IFileOpenPickerContinuationEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFileOpenPickerContinuationEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileOpenPickerContinuationEventArgs_Vtbl {
@@ -4695,6 +4846,11 @@ impl IFileSavePickerActivatedEventArgs_Vtbl {
         iid == &<IFileSavePickerActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_Pickers_Provider")]
+impl<Identity: windows_core::IUnknownImpl + IFileSavePickerActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFileSavePickerActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSavePickerActivatedEventArgs_Vtbl {
@@ -4767,6 +4923,10 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileSavePickerActivatedEventArgs2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IFileSavePickerActivatedEventArgs2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFileSavePickerActivatedEventArgs2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4848,6 +5008,11 @@ impl IFileSavePickerContinuationEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileSavePickerContinuationEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+impl<Identity: windows_core::IUnknownImpl + IFileSavePickerContinuationEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFileSavePickerContinuationEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4931,6 +5096,11 @@ impl IFolderPickerContinuationEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFolderPickerContinuationEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
+impl<Identity: windows_core::IUnknownImpl + IFolderPickerContinuationEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFolderPickerContinuationEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5027,6 +5197,10 @@ impl ILaunchActivatedEventArgs_Vtbl {
         iid == &<ILaunchActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ILaunchActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILaunchActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILaunchActivatedEventArgs_Vtbl {
@@ -5113,6 +5287,10 @@ impl ILaunchActivatedEventArgs2_Vtbl {
         iid == &<ILaunchActivatedEventArgs2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ILaunchActivatedEventArgs2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILaunchActivatedEventArgs2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILaunchActivatedEventArgs2_Vtbl {
@@ -5180,6 +5358,10 @@ impl ILockScreenActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILockScreenActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ILockScreenActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILockScreenActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5267,6 +5449,11 @@ impl ILockScreenCallActivatedEventArgs_Vtbl {
         iid == &<ILockScreenCallActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "ApplicationModel_Calls")]
+impl<Identity: windows_core::IUnknownImpl + ILockScreenCallActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILockScreenCallActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILockScreenCallActivatedEventArgs_Vtbl {
@@ -5336,6 +5523,10 @@ impl IPhoneCallActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPhoneCallActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPhoneCallActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPhoneCallActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5408,6 +5599,10 @@ impl IPickerReturnedActivatedEventArgs_Vtbl {
         iid == &<IPickerReturnedActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPickerReturnedActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPickerReturnedActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerReturnedActivatedEventArgs_Vtbl {
@@ -5477,6 +5672,10 @@ impl IPrelaunchActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrelaunchActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPrelaunchActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrelaunchActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5549,6 +5748,11 @@ impl IPrint3DWorkflowActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrint3DWorkflowActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Devices_Printers_Extensions")]
+impl<Identity: windows_core::IUnknownImpl + IPrint3DWorkflowActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrint3DWorkflowActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5628,6 +5832,11 @@ impl IPrintTaskSettingsActivatedEventArgs_Vtbl {
         iid == &<IPrintTaskSettingsActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Devices_Printers_Extensions")]
+impl<Identity: windows_core::IUnknownImpl + IPrintTaskSettingsActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintTaskSettingsActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskSettingsActivatedEventArgs_Vtbl {
@@ -5698,6 +5907,10 @@ impl IProtocolActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IProtocolActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IProtocolActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IProtocolActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5795,6 +6008,11 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
         iid == &<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+impl<Identity: windows_core::IUnknownImpl + IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
@@ -5874,6 +6092,11 @@ impl IProtocolForResultsActivatedEventArgs_Vtbl {
         iid == &<IProtocolForResultsActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "System")]
+impl<Identity: windows_core::IUnknownImpl + IProtocolForResultsActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IProtocolForResultsActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtocolForResultsActivatedEventArgs_Vtbl {
@@ -5947,6 +6170,10 @@ impl IRestrictedLaunchActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRestrictedLaunchActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRestrictedLaunchActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRestrictedLaunchActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6040,6 +6267,10 @@ impl ISearchActivatedEventArgs_Vtbl {
         iid == &<ISearchActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISearchActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISearchActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchActivatedEventArgs_Vtbl {
@@ -6093,6 +6324,11 @@ impl ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISearchActivatedEventArgsWithLinguisticDetails as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "ApplicationModel_Search")]
+impl<Identity: windows_core::IUnknownImpl + ISearchActivatedEventArgsWithLinguisticDetails_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6171,6 +6407,11 @@ impl IShareTargetActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IShareTargetActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
+impl<Identity: windows_core::IUnknownImpl + IShareTargetActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IShareTargetActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6254,6 +6495,10 @@ impl IStartupTaskActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStartupTaskActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IStartupTaskActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStartupTaskActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6364,6 +6609,11 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
         iid == &<IToastNotificationActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+impl<Identity: windows_core::IUnknownImpl + IToastNotificationActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IToastNotificationActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotificationActivatedEventArgs_Vtbl {
@@ -6443,6 +6693,11 @@ impl IUserDataAccountProviderActivatedEventArgs_Vtbl {
         iid == &<IUserDataAccountProviderActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
+impl<Identity: windows_core::IUnknownImpl + IUserDataAccountProviderActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUserDataAccountProviderActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountProviderActivatedEventArgs_Vtbl {
@@ -6518,6 +6773,11 @@ impl IViewSwitcherProvider_Vtbl {
         iid == &<IViewSwitcherProvider as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "UI_ViewManagement")]
+impl<Identity: windows_core::IUnknownImpl + IViewSwitcherProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IViewSwitcherProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IViewSwitcherProvider_Vtbl {
@@ -6592,6 +6852,11 @@ impl IVoiceCommandActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVoiceCommandActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Media_SpeechRecognition")]
+impl<Identity: windows_core::IUnknownImpl + IVoiceCommandActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVoiceCommandActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6712,6 +6977,11 @@ impl IWalletActionActivatedEventArgs_Vtbl {
         iid == &<IWalletActionActivatedEventArgs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "ApplicationModel_Wallet")]
+impl<Identity: windows_core::IUnknownImpl + IWalletActionActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWalletActionActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletActionActivatedEventArgs_Vtbl {
@@ -6791,6 +7061,11 @@ impl IWebAccountProviderActivatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAccountProviderActivatedEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Security_Authentication_Web_Provider")]
+impl<Identity: windows_core::IUnknownImpl + IWebAccountProviderActivatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebAccountProviderActivatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6877,6 +7152,11 @@ impl IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAuthenticationBrokerContinuationEventArgs as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "Security_Authentication_Web"))]
+impl<Identity: windows_core::IUnknownImpl + IWebAuthenticationBrokerContinuationEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

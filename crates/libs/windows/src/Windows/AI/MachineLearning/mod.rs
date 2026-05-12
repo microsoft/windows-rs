@@ -252,6 +252,10 @@ impl ILearningModelFeatureDescriptor_Vtbl {
         iid == &<ILearningModelFeatureDescriptor as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ILearningModelFeatureDescriptor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILearningModelFeatureDescriptor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelFeatureDescriptor_Vtbl {
@@ -300,6 +304,10 @@ impl ILearningModelFeatureValue_Vtbl {
         iid == &<ILearningModelFeatureValue as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ILearningModelFeatureValue_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILearningModelFeatureValue_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelFeatureValue_Vtbl {
@@ -322,6 +330,10 @@ impl ILearningModelOperatorProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILearningModelOperatorProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ILearningModelOperatorProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILearningModelOperatorProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -526,6 +538,10 @@ impl ITensor_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITensor as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITensor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITensor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -211,6 +211,11 @@ impl IDODownload_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IDODownload_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDODownload_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDODownload {}
 windows_core::imp::define_interface!(IDODownloadStatusCallback, IDODownloadStatusCallback_Vtbl, 0xd166e8e3_a90e_4392_8e87_05e996d3747d);
 windows_core::imp::interface_hierarchy!(IDODownloadStatusCallback, windows_core::IUnknown);
@@ -244,6 +249,10 @@ impl IDODownloadStatusCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDODownloadStatusCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDODownloadStatusCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDODownloadStatusCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDODownloadStatusCallback {}
 windows_core::imp::define_interface!(IDOManager, IDOManager_Vtbl, 0x400e2d4a_1431_4c1a_a748_39ca472cfdb1);
@@ -314,6 +323,11 @@ impl IDOManager_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDOManager as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IDOManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDOManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IDOManager {}

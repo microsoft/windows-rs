@@ -96,6 +96,10 @@ impl IEnumOfflineFilesItems_Vtbl {
         iid == &<IEnumOfflineFilesItems as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumOfflineFilesItems_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumOfflineFilesItems_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumOfflineFilesItems {}
 windows_core::imp::define_interface!(IEnumOfflineFilesSettings, IEnumOfflineFilesSettings_Vtbl, 0x729680c4_1a38_47bc_9e5c_02c51562ac30);
 windows_core::imp::interface_hierarchy!(IEnumOfflineFilesSettings, windows_core::IUnknown);
@@ -174,6 +178,10 @@ impl IEnumOfflineFilesSettings_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumOfflineFilesSettings as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumOfflineFilesSettings_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumOfflineFilesSettings_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumOfflineFilesSettings {}
 windows_core::imp::define_interface!(IOfflineFilesCache, IOfflineFilesCache_Vtbl, 0x855d6203_7914_48b9_8d40_4c56f5acffc5);
@@ -490,6 +498,10 @@ impl IOfflineFilesCache_Vtbl {
         iid == &<IOfflineFilesCache as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesCache_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesCache_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesCache {}
 windows_core::imp::define_interface!(IOfflineFilesCache2, IOfflineFilesCache2_Vtbl, 0x8c075039_1551_4ed9_8781_56705c04d3c0);
 impl core::ops::Deref for IOfflineFilesCache2 {
@@ -530,6 +542,10 @@ impl IOfflineFilesCache2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesCache2 as windows_core::Interface>::IID || iid == &<IOfflineFilesCache as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesCache2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesCache2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesCache2 {}
 windows_core::imp::define_interface!(IOfflineFilesChangeInfo, IOfflineFilesChangeInfo_Vtbl, 0xa96e6fa4_e0d1_4c29_960b_ee508fe68c72);
@@ -670,6 +686,10 @@ impl IOfflineFilesChangeInfo_Vtbl {
         iid == &<IOfflineFilesChangeInfo as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesChangeInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesChangeInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesChangeInfo {}
 windows_core::imp::define_interface!(IOfflineFilesConnectionInfo, IOfflineFilesConnectionInfo_Vtbl, 0xefb23a09_a867_4be8_83a6_86969a7d0856);
 windows_core::imp::interface_hierarchy!(IOfflineFilesConnectionInfo, windows_core::IUnknown);
@@ -749,6 +769,10 @@ impl IOfflineFilesConnectionInfo_Vtbl {
         iid == &<IOfflineFilesConnectionInfo as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesConnectionInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesConnectionInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesConnectionInfo {}
 windows_core::imp::define_interface!(IOfflineFilesDirectoryItem, IOfflineFilesDirectoryItem_Vtbl, 0x2273597a_a08c_4a00_a37a_c1ae4e9a1cfd);
 impl core::ops::Deref for IOfflineFilesDirectoryItem {
@@ -771,6 +795,10 @@ impl IOfflineFilesDirectoryItem_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesDirectoryItem as windows_core::Interface>::IID || iid == &<IOfflineFilesItem as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesDirectoryItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesDirectoryItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesDirectoryItem {}
 windows_core::imp::define_interface!(IOfflineFilesDirtyInfo, IOfflineFilesDirtyInfo_Vtbl, 0x0f50ce33_bac9_4eaa_a11d_da0e527d047d);
@@ -835,6 +863,10 @@ impl IOfflineFilesDirtyInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesDirtyInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesDirtyInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesDirtyInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesDirtyInfo {}
 windows_core::imp::define_interface!(IOfflineFilesErrorInfo, IOfflineFilesErrorInfo_Vtbl, 0x7112fa5f_7571_435a_8eb7_195c7c1429bc);
@@ -905,6 +937,11 @@ impl IOfflineFilesErrorInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesErrorInfo as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesErrorInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesErrorInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOfflineFilesErrorInfo {}
@@ -1276,6 +1313,10 @@ impl IOfflineFilesEvents_Vtbl {
         iid == &<IOfflineFilesEvents as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesEvents {}
 windows_core::imp::define_interface!(IOfflineFilesEvents2, IOfflineFilesEvents2_Vtbl, 0x1ead8f56_ff76_4faa_a795_6f6ef792498b);
 impl core::ops::Deref for IOfflineFilesEvents2 {
@@ -1412,6 +1453,10 @@ impl IOfflineFilesEvents2_Vtbl {
         iid == &<IOfflineFilesEvents2 as windows_core::Interface>::IID || iid == &<IOfflineFilesEvents as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesEvents2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesEvents2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesEvents2 {}
 windows_core::imp::define_interface!(IOfflineFilesEvents3, IOfflineFilesEvents3_Vtbl, 0x9ba04a45_ee69_42f0_9ab1_7db5c8805808);
 impl core::ops::Deref for IOfflineFilesEvents3 {
@@ -1486,6 +1531,10 @@ impl IOfflineFilesEvents3_Vtbl {
         iid == &<IOfflineFilesEvents3 as windows_core::Interface>::IID || iid == &<IOfflineFilesEvents as windows_core::Interface>::IID || iid == &<IOfflineFilesEvents2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesEvents3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesEvents3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesEvents3 {}
 windows_core::imp::define_interface!(IOfflineFilesEvents4, IOfflineFilesEvents4_Vtbl, 0xdbd69b1e_c7d2_473e_b35f_9d8c24c0c484);
 impl core::ops::Deref for IOfflineFilesEvents4 {
@@ -1537,6 +1586,10 @@ impl IOfflineFilesEvents4_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesEvents4 as windows_core::Interface>::IID || iid == &<IOfflineFilesEvents as windows_core::Interface>::IID || iid == &<IOfflineFilesEvents2 as windows_core::Interface>::IID || iid == &<IOfflineFilesEvents3 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesEvents4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesEvents4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesEvents4 {}
 windows_core::imp::define_interface!(IOfflineFilesEventsFilter, IOfflineFilesEventsFilter_Vtbl, 0x33fc4e1b_0716_40fa_ba65_6e62a84a846f);
@@ -1595,6 +1648,10 @@ impl IOfflineFilesEventsFilter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesEventsFilter as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesEventsFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesEventsFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesEventsFilter {}
 windows_core::imp::define_interface!(IOfflineFilesFileItem, IOfflineFilesFileItem_Vtbl, 0x8dfadead_26c2_4eff_8a72_6b50723d9a00);
@@ -1661,6 +1718,10 @@ impl IOfflineFilesFileItem_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesFileItem as windows_core::Interface>::IID || iid == &<IOfflineFilesItem as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesFileItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesFileItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesFileItem {}
 windows_core::imp::define_interface!(IOfflineFilesFileSysInfo, IOfflineFilesFileSysInfo_Vtbl, 0xbc1a163f_7bfd_4d88_9c66_96ea9a6a3d6b);
@@ -1738,6 +1799,10 @@ impl IOfflineFilesFileSysInfo_Vtbl {
         iid == &<IOfflineFilesFileSysInfo as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesFileSysInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesFileSysInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesFileSysInfo {}
 windows_core::imp::define_interface!(IOfflineFilesGhostInfo, IOfflineFilesGhostInfo_Vtbl, 0x2b09d48c_8ab5_464f_a755_a59d92f99429);
 windows_core::imp::interface_hierarchy!(IOfflineFilesGhostInfo, windows_core::IUnknown);
@@ -1777,6 +1842,10 @@ impl IOfflineFilesGhostInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesGhostInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesGhostInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesGhostInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesGhostInfo {}
 windows_core::imp::define_interface!(IOfflineFilesItem, IOfflineFilesItem_Vtbl, 0x4a753da6_e044_4f12_a718_5d14d079a906);
@@ -1896,6 +1965,10 @@ impl IOfflineFilesItem_Vtbl {
         iid == &<IOfflineFilesItem as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesItem {}
 windows_core::imp::define_interface!(IOfflineFilesItemContainer, IOfflineFilesItemContainer_Vtbl, 0x3836f049_9413_45dd_bf46_b5aaa82dc310);
 windows_core::imp::interface_hierarchy!(IOfflineFilesItemContainer, windows_core::IUnknown);
@@ -1966,6 +2039,10 @@ impl IOfflineFilesItemContainer_Vtbl {
         iid == &<IOfflineFilesItemContainer as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesItemContainer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesItemContainer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesItemContainer {}
 windows_core::imp::define_interface!(IOfflineFilesItemFilter, IOfflineFilesItemFilter_Vtbl, 0xf4b5a26c_dc05_4f20_ada4_551f1077be5c);
 windows_core::imp::interface_hierarchy!(IOfflineFilesItemFilter, windows_core::IUnknown);
@@ -2023,6 +2100,10 @@ impl IOfflineFilesItemFilter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesItemFilter as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesItemFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesItemFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesItemFilter {}
 windows_core::imp::define_interface!(IOfflineFilesPinInfo, IOfflineFilesPinInfo_Vtbl, 0x5b2b0655_b3fd_497d_adeb_bd156bc8355b);
@@ -2115,6 +2196,10 @@ impl IOfflineFilesPinInfo_Vtbl {
         iid == &<IOfflineFilesPinInfo as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesPinInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesPinInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesPinInfo {}
 windows_core::imp::define_interface!(IOfflineFilesPinInfo2, IOfflineFilesPinInfo2_Vtbl, 0x623c58a2_42ed_4ad7_b69a_0f1b30a72d0d);
 impl core::ops::Deref for IOfflineFilesPinInfo2 {
@@ -2160,6 +2245,10 @@ impl IOfflineFilesPinInfo2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesPinInfo2 as windows_core::Interface>::IID || iid == &<IOfflineFilesPinInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesPinInfo2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesPinInfo2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesPinInfo2 {}
 windows_core::imp::define_interface!(IOfflineFilesProgress, IOfflineFilesProgress_Vtbl, 0xfad63237_c55b_4911_9850_bcf96d4c979e);
@@ -2237,6 +2326,10 @@ impl IOfflineFilesProgress_Vtbl {
         iid == &<IOfflineFilesProgress as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesProgress_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesProgress_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesProgress {}
 windows_core::imp::define_interface!(IOfflineFilesServerItem, IOfflineFilesServerItem_Vtbl, 0x9b1c9576_a92b_4151_8e9e_7c7b3ec2e016);
 impl core::ops::Deref for IOfflineFilesServerItem {
@@ -2259,6 +2352,10 @@ impl IOfflineFilesServerItem_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesServerItem as windows_core::Interface>::IID || iid == &<IOfflineFilesItem as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesServerItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesServerItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesServerItem {}
 windows_core::imp::define_interface!(IOfflineFilesSetting, IOfflineFilesSetting_Vtbl, 0xd871d3f7_f613_48a1_827e_7a34e560fff6);
@@ -2445,6 +2542,11 @@ impl IOfflineFilesSetting_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesSetting_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesSetting_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IOfflineFilesSetting {}
 windows_core::imp::define_interface!(IOfflineFilesShareInfo, IOfflineFilesShareInfo_Vtbl, 0x7bcc43e7_31ce_4ca4_8ccd_1cff2dc494da);
 windows_core::imp::interface_hierarchy!(IOfflineFilesShareInfo, windows_core::IUnknown);
@@ -2530,6 +2632,10 @@ impl IOfflineFilesShareInfo_Vtbl {
         iid == &<IOfflineFilesShareInfo as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesShareInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesShareInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesShareInfo {}
 windows_core::imp::define_interface!(IOfflineFilesShareItem, IOfflineFilesShareItem_Vtbl, 0xbab7e48d_4804_41b5_a44d_0f199b06b145);
 impl core::ops::Deref for IOfflineFilesShareItem {
@@ -2552,6 +2658,10 @@ impl IOfflineFilesShareItem_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesShareItem as windows_core::Interface>::IID || iid == &<IOfflineFilesItem as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesShareItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesShareItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesShareItem {}
 windows_core::imp::define_interface!(IOfflineFilesSimpleProgress, IOfflineFilesSimpleProgress_Vtbl, 0xc34f7f9b_c43d_4f9d_a776_c0eb6de5d401);
@@ -2629,6 +2739,10 @@ impl IOfflineFilesSimpleProgress_Vtbl {
         iid == &<IOfflineFilesSimpleProgress as windows_core::Interface>::IID || iid == &<IOfflineFilesProgress as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesSimpleProgress_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesSimpleProgress_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesSimpleProgress {}
 windows_core::imp::define_interface!(IOfflineFilesSuspend, IOfflineFilesSuspend_Vtbl, 0x62c4560f_bc0b_48ca_ad9d_34cb528d99a9);
 windows_core::imp::interface_hierarchy!(IOfflineFilesSuspend, windows_core::IUnknown);
@@ -2660,6 +2774,10 @@ impl IOfflineFilesSuspend_Vtbl {
         iid == &<IOfflineFilesSuspend as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesSuspend_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesSuspend_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesSuspend {}
 windows_core::imp::define_interface!(IOfflineFilesSuspendInfo, IOfflineFilesSuspendInfo_Vtbl, 0xa457c25b_4e9c_4b04_85af_8932ccd97889);
 windows_core::imp::interface_hierarchy!(IOfflineFilesSuspendInfo, windows_core::IUnknown);
@@ -2690,6 +2808,10 @@ impl IOfflineFilesSuspendInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesSuspendInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesSuspendInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesSuspendInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesSuspendInfo {}
 windows_core::imp::define_interface!(IOfflineFilesSyncConflictHandler, IOfflineFilesSyncConflictHandler_Vtbl, 0xb6dd5092_c65c_46b6_97b8_fadd08e7e1be);
@@ -2724,6 +2846,10 @@ impl IOfflineFilesSyncConflictHandler_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesSyncConflictHandler as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesSyncConflictHandler_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesSyncConflictHandler_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesSyncConflictHandler {}
 windows_core::imp::define_interface!(IOfflineFilesSyncErrorInfo, IOfflineFilesSyncErrorInfo_Vtbl, 0x59f95e46_eb54_49d1_be76_de95458d01b0);
@@ -2885,6 +3011,11 @@ impl IOfflineFilesSyncErrorInfo_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesSyncErrorInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesSyncErrorInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOfflineFilesSyncErrorInfo {}
 windows_core::imp::define_interface!(IOfflineFilesSyncErrorItemInfo, IOfflineFilesSyncErrorItemInfo_Vtbl, 0xecdbaf0d_6a18_4d55_8017_108f7660ba44);
 windows_core::imp::interface_hierarchy!(IOfflineFilesSyncErrorItemInfo, windows_core::IUnknown);
@@ -2960,6 +3091,10 @@ impl IOfflineFilesSyncErrorItemInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesSyncErrorItemInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesSyncErrorItemInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesSyncErrorItemInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesSyncErrorItemInfo {}
 windows_core::imp::define_interface!(IOfflineFilesSyncProgress, IOfflineFilesSyncProgress_Vtbl, 0x6931f49a_6fc7_4c1b_b265_56793fc451b7);
@@ -3038,6 +3173,10 @@ impl IOfflineFilesSyncProgress_Vtbl {
         iid == &<IOfflineFilesSyncProgress as windows_core::Interface>::IID || iid == &<IOfflineFilesProgress as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesSyncProgress_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesSyncProgress_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOfflineFilesSyncProgress {}
 windows_core::imp::define_interface!(IOfflineFilesTransparentCacheInfo, IOfflineFilesTransparentCacheInfo_Vtbl, 0xbcaf4a01_5b68_4b56_a6a1_8d2786ede8e3);
 windows_core::imp::interface_hierarchy!(IOfflineFilesTransparentCacheInfo, windows_core::IUnknown);
@@ -3077,6 +3216,10 @@ impl IOfflineFilesTransparentCacheInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOfflineFilesTransparentCacheInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOfflineFilesTransparentCacheInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOfflineFilesTransparentCacheInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOfflineFilesTransparentCacheInfo {}
 #[repr(transparent)]

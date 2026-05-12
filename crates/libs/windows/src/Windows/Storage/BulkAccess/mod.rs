@@ -1232,6 +1232,11 @@ impl IStorageItemInformation_Vtbl {
         iid == &<IStorageItemInformation as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+impl<Identity: windows_core::IUnknownImpl + IStorageItemInformation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageItemInformation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemInformation_Vtbl {

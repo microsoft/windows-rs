@@ -369,6 +369,10 @@ impl ILocationPermissions_Vtbl {
         iid == &<ILocationPermissions as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ILocationPermissions_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILocationPermissions_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ILocationPermissions {}
 windows_core::imp::define_interface!(ISensor, ISensor_Vtbl, 0x5fa08f80_2657_458e_af75_46f73fa6ac5c);
 windows_core::imp::interface_hierarchy!(ISensor, windows_core::IUnknown);
@@ -707,6 +711,11 @@ impl ISensor_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ISensor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISensor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISensor {}
 windows_core::imp::define_interface!(ISensorCollection, ISensorCollection_Vtbl, 0x23571e11_e545_4dd8_a337_b89bf44b10df);
 windows_core::imp::interface_hierarchy!(ISensorCollection, windows_core::IUnknown);
@@ -825,6 +834,10 @@ impl ISensorCollection_Vtbl {
         iid == &<ISensorCollection as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISensorCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISensorCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISensorCollection {}
 windows_core::imp::define_interface!(ISensorDataReport, ISensorDataReport_Vtbl, 0x0ab9df9b_c4b5_4796_8898_0470706a2e1d);
 windows_core::imp::interface_hierarchy!(ISensorDataReport, windows_core::IUnknown);
@@ -924,6 +937,11 @@ impl ISensorDataReport_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ISensorDataReport_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISensorDataReport_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISensorDataReport {}
 windows_core::imp::define_interface!(ISensorEvents, ISensorEvents_Vtbl, 0x5d8dcc91_4641_47e7_b7c3_b74f48a6c391);
 windows_core::imp::interface_hierarchy!(ISensorEvents, windows_core::IUnknown);
@@ -1010,6 +1028,11 @@ impl ISensorEvents_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISensorEvents as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Devices_PortableDevices")]
+impl<Identity: windows_core::IUnknownImpl + ISensorEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISensorEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Devices_PortableDevices")]
 impl windows_core::RuntimeName for ISensorEvents {}
@@ -1127,6 +1150,10 @@ impl ISensorManager_Vtbl {
         iid == &<ISensorManager as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISensorManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISensorManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISensorManager {}
 windows_core::imp::define_interface!(ISensorManagerEvents, ISensorManagerEvents_Vtbl, 0x9b3b0b86_266a_4aad_b21f_fde5501001b7);
 windows_core::imp::interface_hierarchy!(ISensorManagerEvents, windows_core::IUnknown);
@@ -1160,6 +1187,10 @@ impl ISensorManagerEvents_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISensorManagerEvents as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISensorManagerEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISensorManagerEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISensorManagerEvents {}
 #[repr(transparent)]

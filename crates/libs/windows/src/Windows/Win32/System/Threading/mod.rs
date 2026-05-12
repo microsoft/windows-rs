@@ -2276,6 +2276,10 @@ impl IRtwqAsyncCallback_Vtbl {
         iid == &<IRtwqAsyncCallback as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRtwqAsyncCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRtwqAsyncCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IRtwqAsyncCallback {}
 windows_core::imp::define_interface!(IRtwqAsyncResult, IRtwqAsyncResult_Vtbl, 0xac6b7889_0740_4d51_8619_905994a55cc6);
 windows_core::imp::interface_hierarchy!(IRtwqAsyncResult, windows_core::IUnknown);
@@ -2376,6 +2380,10 @@ impl IRtwqAsyncResult_Vtbl {
         iid == &<IRtwqAsyncResult as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRtwqAsyncResult_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRtwqAsyncResult_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IRtwqAsyncResult {}
 windows_core::imp::define_interface!(IRtwqPlatformEvents, IRtwqPlatformEvents_Vtbl, 0x63d9255a_7ff1_4b61_8faf_ed6460dacf2b);
 windows_core::imp::interface_hierarchy!(IRtwqPlatformEvents, windows_core::IUnknown);
@@ -2433,6 +2441,10 @@ impl IRtwqPlatformEvents_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRtwqPlatformEvents as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRtwqPlatformEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRtwqPlatformEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRtwqPlatformEvents {}
 pub const KernelEnabled: MACHINE_ATTRIBUTES = MACHINE_ATTRIBUTES(2i32);
@@ -3409,6 +3421,10 @@ impl RTWQASYNCRESULT_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<RTWQASYNCRESULT as windows_core::Interface>::IID || iid == &<IRtwqAsyncResult as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + RTWQASYNCRESULT_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for RTWQASYNCRESULT_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for RTWQASYNCRESULT {}
 pub type RTWQPERIODICCALLBACK = Option<unsafe extern "system" fn(context: windows_core::Ref<windows_core::IUnknown>)>;

@@ -62,6 +62,10 @@ impl IFindSimilarResults_Vtbl {
         iid == &<IFindSimilarResults as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IFindSimilarResults_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFindSimilarResults_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IFindSimilarResults {}
 windows_core::imp::define_interface!(IRdcComparator, IRdcComparator_Vtbl, 0x96236a77_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(IRdcComparator, windows_core::IUnknown);
@@ -92,6 +96,10 @@ impl IRdcComparator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRdcComparator as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRdcComparator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRdcComparator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRdcComparator {}
 windows_core::imp::define_interface!(IRdcFileReader, IRdcFileReader_Vtbl, 0x96236a74_9dbc_11da_9e3f_0011114ae311);
@@ -169,6 +177,10 @@ impl IRdcFileReader_Vtbl {
         iid == &<IRdcFileReader as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRdcFileReader_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRdcFileReader_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IRdcFileReader {}
 windows_core::imp::define_interface!(IRdcFileWriter, IRdcFileWriter_Vtbl, 0x96236a75_9dbc_11da_9e3f_0011114ae311);
 impl core::ops::Deref for IRdcFileWriter {
@@ -242,6 +254,10 @@ impl IRdcFileWriter_Vtbl {
         iid == &<IRdcFileWriter as windows_core::Interface>::IID || iid == &<IRdcFileReader as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRdcFileWriter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRdcFileWriter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IRdcFileWriter {}
 windows_core::imp::define_interface!(IRdcGenerator, IRdcGenerator_Vtbl, 0x96236a73_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(IRdcGenerator, windows_core::IUnknown);
@@ -296,6 +312,10 @@ impl IRdcGenerator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRdcGenerator as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRdcGenerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRdcGenerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRdcGenerator {}
 windows_core::imp::define_interface!(IRdcGeneratorFilterMaxParameters, IRdcGeneratorFilterMaxParameters_Vtbl, 0x96236a72_9dbc_11da_9e3f_0011114ae311);
@@ -385,6 +405,10 @@ impl IRdcGeneratorFilterMaxParameters_Vtbl {
         iid == &<IRdcGeneratorFilterMaxParameters as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRdcGeneratorFilterMaxParameters_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRdcGeneratorFilterMaxParameters_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IRdcGeneratorFilterMaxParameters {}
 windows_core::imp::define_interface!(IRdcGeneratorParameters, IRdcGeneratorParameters_Vtbl, 0x96236a71_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(IRdcGeneratorParameters, windows_core::IUnknown);
@@ -472,6 +496,10 @@ impl IRdcGeneratorParameters_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRdcGeneratorParameters as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRdcGeneratorParameters_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRdcGeneratorParameters_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRdcGeneratorParameters {}
 windows_core::imp::define_interface!(IRdcLibrary, IRdcLibrary_Vtbl, 0x96236a78_9dbc_11da_9e3f_0011114ae311);
@@ -639,6 +667,10 @@ impl IRdcLibrary_Vtbl {
         iid == &<IRdcLibrary as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRdcLibrary_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRdcLibrary_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IRdcLibrary {}
 windows_core::imp::define_interface!(IRdcSignatureReader, IRdcSignatureReader_Vtbl, 0x96236a76_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(IRdcSignatureReader, windows_core::IUnknown);
@@ -694,6 +726,10 @@ impl IRdcSignatureReader_Vtbl {
         iid == &<IRdcSignatureReader as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRdcSignatureReader_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRdcSignatureReader_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IRdcSignatureReader {}
 windows_core::imp::define_interface!(IRdcSimilarityGenerator, IRdcSimilarityGenerator_Vtbl, 0x96236a80_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(IRdcSimilarityGenerator, windows_core::IUnknown);
@@ -748,6 +784,10 @@ impl IRdcSimilarityGenerator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRdcSimilarityGenerator as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRdcSimilarityGenerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRdcSimilarityGenerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRdcSimilarityGenerator {}
 windows_core::imp::define_interface!(ISimilarity, ISimilarity_Vtbl, 0x96236a83_9dbc_11da_9e3f_0011114ae311);
@@ -902,6 +942,10 @@ impl ISimilarity_Vtbl {
         iid == &<ISimilarity as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISimilarity_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISimilarity_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISimilarity {}
 windows_core::imp::define_interface!(ISimilarityFileIdTable, ISimilarityFileIdTable_Vtbl, 0x96236a7f_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(ISimilarityFileIdTable, windows_core::IUnknown);
@@ -1050,6 +1094,10 @@ impl ISimilarityFileIdTable_Vtbl {
         iid == &<ISimilarityFileIdTable as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISimilarityFileIdTable_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISimilarityFileIdTable_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISimilarityFileIdTable {}
 windows_core::imp::define_interface!(ISimilarityReportProgress, ISimilarityReportProgress_Vtbl, 0x96236a7a_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(ISimilarityReportProgress, windows_core::IUnknown);
@@ -1081,6 +1129,10 @@ impl ISimilarityReportProgress_Vtbl {
         iid == &<ISimilarityReportProgress as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISimilarityReportProgress_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISimilarityReportProgress_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISimilarityReportProgress {}
 windows_core::imp::define_interface!(ISimilarityTableDumpState, ISimilarityTableDumpState_Vtbl, 0x96236a7b_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(ISimilarityTableDumpState, windows_core::IUnknown);
@@ -1111,6 +1163,10 @@ impl ISimilarityTableDumpState_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISimilarityTableDumpState as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISimilarityTableDumpState_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISimilarityTableDumpState_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISimilarityTableDumpState {}
 windows_core::imp::define_interface!(ISimilarityTraitsMappedView, ISimilarityTraitsMappedView_Vtbl, 0x96236a7c_9dbc_11da_9e3f_0011114ae311);
@@ -1190,6 +1246,10 @@ impl ISimilarityTraitsMappedView_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISimilarityTraitsMappedView as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISimilarityTraitsMappedView_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISimilarityTraitsMappedView_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISimilarityTraitsMappedView {}
 windows_core::imp::define_interface!(ISimilarityTraitsMapping, ISimilarityTraitsMapping_Vtbl, 0x96236a7d_9dbc_11da_9e3f_0011114ae311);
@@ -1336,6 +1396,10 @@ impl ISimilarityTraitsMapping_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISimilarityTraitsMapping as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISimilarityTraitsMapping_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISimilarityTraitsMapping_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISimilarityTraitsMapping {}
 windows_core::imp::define_interface!(ISimilarityTraitsTable, ISimilarityTraitsTable_Vtbl, 0x96236a7e_9dbc_11da_9e3f_0011114ae311);
@@ -1484,6 +1548,10 @@ impl ISimilarityTraitsTable_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISimilarityTraitsTable as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISimilarityTraitsTable_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISimilarityTraitsTable_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISimilarityTraitsTable {}
 pub const MSRDC_DEFAULT_COMPAREBUFFER: u32 = 3200000u32;

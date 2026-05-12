@@ -591,6 +591,10 @@ impl IControlChannelTriggerEventDetails_Vtbl {
         iid == &<IControlChannelTriggerEventDetails as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IControlChannelTriggerEventDetails_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IControlChannelTriggerEventDetails_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IControlChannelTriggerEventDetails_Vtbl {
@@ -689,6 +693,10 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IControlChannelTriggerResetEventDetails as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IControlChannelTriggerResetEventDetails_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IControlChannelTriggerResetEventDetails_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1539,6 +1547,11 @@ impl IWebSocket_Vtbl {
         iid == &<IWebSocket as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + IWebSocket_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebSocket_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebSocket_Vtbl {
@@ -1715,6 +1728,11 @@ impl IWebSocketControl_Vtbl {
         iid == &<IWebSocketControl as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Security_Credentials")]
+impl<Identity: windows_core::IUnknownImpl + IWebSocketControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebSocketControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebSocketControl_Vtbl {
@@ -1837,6 +1855,11 @@ impl IWebSocketControl2_Vtbl {
         iid == &<IWebSocketControl2 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
+impl<Identity: windows_core::IUnknownImpl + IWebSocketControl2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebSocketControl2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebSocketControl2_Vtbl {
@@ -1942,6 +1965,10 @@ impl IWebSocketInformation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebSocketInformation as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWebSocketInformation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebSocketInformation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2083,6 +2110,11 @@ impl IWebSocketInformation2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebSocketInformation2 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Security_Cryptography_Certificates")]
+impl<Identity: windows_core::IUnknownImpl + IWebSocketInformation2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebSocketInformation2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

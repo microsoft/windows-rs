@@ -255,6 +255,20 @@ impl Interface {
                         #or_parent_matches
                     }
                 }
+                // Opt-in to the library-based `#[implement]` foundation
+                // (`docs/option-d.md`). Generic call sites read `NEW_REF`;
+                // each per-`_Vtbl` impl writes it as
+                // `&<Self as VtableCtor<T, OFFSET>>::NEW` so the borrow
+                // promotes to `&'static Self` (interior-mutability check
+                // succeeds because `Self` is concrete here).
+                impl<
+                    Identity: ::windows_core::IUnknownImpl + #trait_name + 'static,
+                    const OFFSET: isize,
+                > ::windows_core::imp::VtableCtor<Identity, OFFSET> for #vtable_name {
+                    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+                    const NEW_REF: &'static Self =
+                        &<Self as ::windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+                }
             }
         } else {
             let entries = self

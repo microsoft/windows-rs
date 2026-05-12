@@ -964,6 +964,10 @@ impl IAccountingProviderConfig_Vtbl {
         iid == &<IAccountingProviderConfig as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAccountingProviderConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAccountingProviderConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAccountingProviderConfig {}
 windows_core::imp::define_interface!(IAuthenticationProviderConfig, IAuthenticationProviderConfig_Vtbl, 0x66a2db17_d706_11d0_a37b_00c04fc9da04);
 windows_core::imp::interface_hierarchy!(IAuthenticationProviderConfig, windows_core::IUnknown);
@@ -1057,6 +1061,10 @@ impl IAuthenticationProviderConfig_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAuthenticationProviderConfig as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAuthenticationProviderConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAuthenticationProviderConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAuthenticationProviderConfig {}
 windows_core::imp::define_interface!(IEAPProviderConfig, IEAPProviderConfig_Vtbl, 0x66a2db19_d706_11d0_a37b_00c04fc9da04);
@@ -1152,6 +1160,10 @@ impl IEAPProviderConfig_Vtbl {
         iid == &<IEAPProviderConfig as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEAPProviderConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEAPProviderConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEAPProviderConfig {}
 windows_core::imp::define_interface!(IEAPProviderConfig2, IEAPProviderConfig2_Vtbl, 0xd565917a_85c4_4466_856e_671c3742ea9a);
 impl core::ops::Deref for IEAPProviderConfig2 {
@@ -1204,6 +1216,10 @@ impl IEAPProviderConfig2_Vtbl {
         iid == &<IEAPProviderConfig2 as windows_core::Interface>::IID || iid == &<IEAPProviderConfig as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEAPProviderConfig2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEAPProviderConfig2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEAPProviderConfig2 {}
 windows_core::imp::define_interface!(IEAPProviderConfig3, IEAPProviderConfig3_Vtbl, 0xb78ecd12_68bb_4f86_9bf0_8438dd3be982);
 impl core::ops::Deref for IEAPProviderConfig3 {
@@ -1243,6 +1259,10 @@ impl IEAPProviderConfig3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEAPProviderConfig3 as windows_core::Interface>::IID || iid == &<IEAPProviderConfig as windows_core::Interface>::IID || iid == &<IEAPProviderConfig2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEAPProviderConfig3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEAPProviderConfig3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEAPProviderConfig3 {}
 windows_core::imp::define_interface!(IRouterProtocolConfig, IRouterProtocolConfig_Vtbl, 0x66a2db16_d706_11d0_a37b_00c04fc9da04);
@@ -1297,6 +1317,10 @@ impl IRouterProtocolConfig_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRouterProtocolConfig as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRouterProtocolConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRouterProtocolConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRouterProtocolConfig {}
 #[repr(transparent)]

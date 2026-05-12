@@ -4378,6 +4378,10 @@ impl IDot11AdHocInterface_Vtbl {
         iid == &<IDot11AdHocInterface as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDot11AdHocInterface_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDot11AdHocInterface_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDot11AdHocInterface {}
 windows_core::imp::define_interface!(IDot11AdHocInterfaceNotificationSink, IDot11AdHocInterfaceNotificationSink_Vtbl, 0x8f10cc2f_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IDot11AdHocInterfaceNotificationSink, windows_core::IUnknown);
@@ -4408,6 +4412,10 @@ impl IDot11AdHocInterfaceNotificationSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDot11AdHocInterfaceNotificationSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDot11AdHocInterfaceNotificationSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDot11AdHocInterfaceNotificationSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDot11AdHocInterfaceNotificationSink {}
 windows_core::imp::define_interface!(IDot11AdHocManager, IDot11AdHocManager_Vtbl, 0x8f10cc26_cf0d_42a0_acbe_e2de7007384d);
@@ -4536,6 +4544,10 @@ impl IDot11AdHocManager_Vtbl {
         iid == &<IDot11AdHocManager as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDot11AdHocManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDot11AdHocManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDot11AdHocManager {}
 windows_core::imp::define_interface!(IDot11AdHocManagerNotificationSink, IDot11AdHocManagerNotificationSink_Vtbl, 0x8f10cc27_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IDot11AdHocManagerNotificationSink, windows_core::IUnknown);
@@ -4611,6 +4623,10 @@ impl IDot11AdHocManagerNotificationSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDot11AdHocManagerNotificationSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDot11AdHocManagerNotificationSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDot11AdHocManagerNotificationSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDot11AdHocManagerNotificationSink {}
 windows_core::imp::define_interface!(IDot11AdHocNetwork, IDot11AdHocNetwork_Vtbl, 0x8f10cc29_cf0d_42a0_acbe_e2de7007384d);
@@ -4817,6 +4833,10 @@ impl IDot11AdHocNetwork_Vtbl {
         iid == &<IDot11AdHocNetwork as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDot11AdHocNetwork_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDot11AdHocNetwork_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDot11AdHocNetwork {}
 windows_core::imp::define_interface!(IDot11AdHocNetworkNotificationSink, IDot11AdHocNetworkNotificationSink_Vtbl, 0x8f10cc2a_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IDot11AdHocNetworkNotificationSink, windows_core::IUnknown);
@@ -4863,6 +4883,10 @@ impl IDot11AdHocNetworkNotificationSink_Vtbl {
         iid == &<IDot11AdHocNetworkNotificationSink as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDot11AdHocNetworkNotificationSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDot11AdHocNetworkNotificationSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDot11AdHocNetworkNotificationSink {}
 windows_core::imp::define_interface!(IDot11AdHocSecuritySettings, IDot11AdHocSecuritySettings_Vtbl, 0x8f10cc2e_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IDot11AdHocSecuritySettings, windows_core::IUnknown);
@@ -4908,6 +4932,10 @@ impl IDot11AdHocSecuritySettings_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDot11AdHocSecuritySettings as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDot11AdHocSecuritySettings_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDot11AdHocSecuritySettings_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDot11AdHocSecuritySettings {}
 windows_core::imp::define_interface!(IEnumDot11AdHocInterfaces, IEnumDot11AdHocInterfaces_Vtbl, 0x8f10cc2c_cf0d_42a0_acbe_e2de7007384d);
@@ -4988,6 +5016,10 @@ impl IEnumDot11AdHocInterfaces_Vtbl {
         iid == &<IEnumDot11AdHocInterfaces as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumDot11AdHocInterfaces_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumDot11AdHocInterfaces_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumDot11AdHocInterfaces {}
 windows_core::imp::define_interface!(IEnumDot11AdHocNetworks, IEnumDot11AdHocNetworks_Vtbl, 0x8f10cc28_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IEnumDot11AdHocNetworks, windows_core::IUnknown);
@@ -5067,6 +5099,10 @@ impl IEnumDot11AdHocNetworks_Vtbl {
         iid == &<IEnumDot11AdHocNetworks as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumDot11AdHocNetworks_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumDot11AdHocNetworks_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumDot11AdHocNetworks {}
 windows_core::imp::define_interface!(IEnumDot11AdHocSecuritySettings, IEnumDot11AdHocSecuritySettings_Vtbl, 0x8f10cc2d_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IEnumDot11AdHocSecuritySettings, windows_core::IUnknown);
@@ -5145,6 +5181,10 @@ impl IEnumDot11AdHocSecuritySettings_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumDot11AdHocSecuritySettings as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumDot11AdHocSecuritySettings_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumDot11AdHocSecuritySettings_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumDot11AdHocSecuritySettings {}
 pub const IHV_INIT_FUNCTION_NAME: windows_core::PCSTR = windows_core::s!("Dot11ExtIhvInitService");

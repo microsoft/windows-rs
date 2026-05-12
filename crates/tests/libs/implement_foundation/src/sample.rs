@@ -21,20 +21,10 @@ pub unsafe trait IValue: IUnknown {
     pub fn get(&self) -> u32;
 }
 
-// One-line opt-in to `VtableCtor` for `IValue_Vtbl`. This is the line
-// `windows-interface` / `windows-bindgen` will emit alongside each
-// generated `_Vtbl` in Step 1b — for now, the user (or this test crate)
-// emits it by hand.
-//
-// `IValue_Vtbl::new::<T, OFFSET>()` requires `T: IUnknownImpl + IValue_Impl`
-// (see `crates/libs/interface/src/gen.rs`). We mirror that here.
-impl<T, const OFFSET: isize> windows_core::imp::VtableCtor<T, OFFSET> for IValue_Vtbl
-where
-    T: windows_core::IUnknownImpl + IValue_Impl + 'static,
-{
-    const NEW: Self = <IValue_Vtbl>::new::<T, OFFSET>();
-    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<T, OFFSET>>::NEW;
-}
+// `windows-interface` now emits the `VtableCtor` opt-in alongside every
+// generated `_Vtbl` (Step 1b in `docs/option-d.md`). Hand-written users
+// of `#[interface]` no longer need to write the three-line impl
+// themselves — it's emitted by the proc macro.
 
 // ============================================================================
 // Path A — `Foo` via the real `windows_core::imp::implement` foundation.

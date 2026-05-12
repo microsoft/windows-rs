@@ -296,6 +296,11 @@ impl IAccClientDocMgr_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IAccClientDocMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAccClientDocMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAccClientDocMgr {}
 windows_core::imp::define_interface!(IAccDictionary, IAccDictionary_Vtbl, 0x1dc4cb5f_d737_474d_ade9_5ccfc9bc1cc9);
 windows_core::imp::interface_hierarchy!(IAccDictionary, windows_core::IUnknown);
@@ -412,6 +417,11 @@ impl IAccDictionary_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IAccDictionary_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAccDictionary_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAccDictionary {}
 windows_core::imp::define_interface!(IAccServerDocMgr, IAccServerDocMgr_Vtbl, 0xad7c73cf_6dd5_4855_abc2_b04bad5b9153);
 windows_core::imp::interface_hierarchy!(IAccServerDocMgr, windows_core::IUnknown);
@@ -478,6 +488,10 @@ impl IAccServerDocMgr_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAccServerDocMgr as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAccServerDocMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAccServerDocMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAccServerDocMgr {}
 windows_core::imp::define_interface!(IAccStore, IAccStore_Vtbl, 0xe2cd4a63_2b72_4d48_b739_95e4765195ba);
@@ -635,6 +649,11 @@ impl IAccStore_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAccStore as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IAccStore_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAccStore_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAccStore {}
@@ -857,6 +876,10 @@ impl IAnchor_Vtbl {
         iid == &<IAnchor as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAnchor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAnchor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAnchor {}
 windows_core::imp::define_interface!(IClonableWrapper, IClonableWrapper_Vtbl, 0xb33e75ff_e84c_4dca_a25c_33b8dc003374);
 windows_core::imp::interface_hierarchy!(IClonableWrapper, windows_core::IUnknown);
@@ -891,6 +914,10 @@ impl IClonableWrapper_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IClonableWrapper as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IClonableWrapper_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IClonableWrapper_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IClonableWrapper {}
 windows_core::imp::define_interface!(ICoCreateLocally, ICoCreateLocally_Vtbl, 0x03de00aa_f272_41e3_99cb_03c5e8114ea0);
@@ -933,6 +960,11 @@ impl ICoCreateLocally_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ICoCreateLocally_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICoCreateLocally_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICoCreateLocally {}
 windows_core::imp::define_interface!(ICoCreatedLocally, ICoCreatedLocally_Vtbl, 0x0a53eb6c_1908_4742_8cff_2cee2e93f94c);
 windows_core::imp::interface_hierarchy!(ICoCreatedLocally, windows_core::IUnknown);
@@ -973,6 +1005,11 @@ impl ICoCreatedLocally_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoCreatedLocally as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ICoCreatedLocally_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICoCreatedLocally_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICoCreatedLocally {}
@@ -1032,6 +1069,10 @@ impl IDocWrap_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDocWrap as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDocWrap_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDocWrap_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDocWrap {}
 windows_core::imp::define_interface!(IEnumITfCompositionView, IEnumITfCompositionView_Vtbl, 0x5efd22ba_7838_46cb_88e2_cadb14124f8f);
@@ -1112,6 +1153,10 @@ impl IEnumITfCompositionView_Vtbl {
         iid == &<IEnumITfCompositionView as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumITfCompositionView_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumITfCompositionView_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumITfCompositionView {}
 windows_core::imp::define_interface!(IEnumSpeechCommands, IEnumSpeechCommands_Vtbl, 0x8c5dac4f_083c_4b85_a4c9_71746048adca);
 windows_core::imp::interface_hierarchy!(IEnumSpeechCommands, windows_core::IUnknown);
@@ -1190,6 +1235,10 @@ impl IEnumSpeechCommands_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumSpeechCommands as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumSpeechCommands_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumSpeechCommands_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumSpeechCommands {}
 windows_core::imp::define_interface!(IEnumTfCandidates, IEnumTfCandidates_Vtbl, 0xdefb1926_6c80_4ce8_87d4_d6b72b812bde);
@@ -1270,6 +1319,10 @@ impl IEnumTfCandidates_Vtbl {
         iid == &<IEnumTfCandidates as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumTfCandidates_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumTfCandidates_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumTfCandidates {}
 windows_core::imp::define_interface!(IEnumTfContextViews, IEnumTfContextViews_Vtbl, 0xf0c0f8dd_cf38_44e1_bb0f_68cf0d551c78);
 windows_core::imp::interface_hierarchy!(IEnumTfContextViews, windows_core::IUnknown);
@@ -1348,6 +1401,10 @@ impl IEnumTfContextViews_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumTfContextViews as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumTfContextViews_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumTfContextViews_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumTfContextViews {}
 windows_core::imp::define_interface!(IEnumTfContexts, IEnumTfContexts_Vtbl, 0x8f1a7ea6_1654_4502_a86e_b2902344d507);
@@ -1428,6 +1485,10 @@ impl IEnumTfContexts_Vtbl {
         iid == &<IEnumTfContexts as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumTfContexts_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumTfContexts_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumTfContexts {}
 windows_core::imp::define_interface!(IEnumTfDisplayAttributeInfo, IEnumTfDisplayAttributeInfo_Vtbl, 0x7cef04d7_cb75_4e80_a7ab_5f5bc7d332de);
 windows_core::imp::interface_hierarchy!(IEnumTfDisplayAttributeInfo, windows_core::IUnknown);
@@ -1506,6 +1567,10 @@ impl IEnumTfDisplayAttributeInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumTfDisplayAttributeInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumTfDisplayAttributeInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumTfDisplayAttributeInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumTfDisplayAttributeInfo {}
 windows_core::imp::define_interface!(IEnumTfDocumentMgrs, IEnumTfDocumentMgrs_Vtbl, 0xaa80e808_2021_11d2_93e0_0060b067b86e);
@@ -1586,6 +1651,10 @@ impl IEnumTfDocumentMgrs_Vtbl {
         iid == &<IEnumTfDocumentMgrs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumTfDocumentMgrs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumTfDocumentMgrs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumTfDocumentMgrs {}
 windows_core::imp::define_interface!(IEnumTfFunctionProviders, IEnumTfFunctionProviders_Vtbl, 0xe4b24db0_0990_11d3_8df0_00105a2799b5);
 windows_core::imp::interface_hierarchy!(IEnumTfFunctionProviders, windows_core::IUnknown);
@@ -1664,6 +1733,10 @@ impl IEnumTfFunctionProviders_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumTfFunctionProviders as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumTfFunctionProviders_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumTfFunctionProviders_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumTfFunctionProviders {}
 windows_core::imp::define_interface!(IEnumTfInputProcessorProfiles, IEnumTfInputProcessorProfiles_Vtbl, 0x71c6e74d_0f28_11d8_a82a_00065b84435c);
@@ -1751,6 +1824,11 @@ impl IEnumTfInputProcessorProfiles_Vtbl {
     }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+impl<Identity: windows_core::IUnknownImpl + IEnumTfInputProcessorProfiles_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumTfInputProcessorProfiles_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 impl windows_core::RuntimeName for IEnumTfInputProcessorProfiles {}
 windows_core::imp::define_interface!(IEnumTfLangBarItems, IEnumTfLangBarItems_Vtbl, 0x583f34d0_de25_11d2_afdd_00105a2799b5);
 windows_core::imp::interface_hierarchy!(IEnumTfLangBarItems, windows_core::IUnknown);
@@ -1829,6 +1907,10 @@ impl IEnumTfLangBarItems_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumTfLangBarItems as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumTfLangBarItems_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumTfLangBarItems_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumTfLangBarItems {}
 windows_core::imp::define_interface!(IEnumTfLanguageProfiles, IEnumTfLanguageProfiles_Vtbl, 0x3d61bf11_ac5f_42c8_a4cb_931bcc28c744);
@@ -1909,6 +1991,10 @@ impl IEnumTfLanguageProfiles_Vtbl {
         iid == &<IEnumTfLanguageProfiles as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumTfLanguageProfiles_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumTfLanguageProfiles_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumTfLanguageProfiles {}
 windows_core::imp::define_interface!(IEnumTfLatticeElements, IEnumTfLatticeElements_Vtbl, 0x56988052_47da_4a05_911a_e3d941f17145);
 windows_core::imp::interface_hierarchy!(IEnumTfLatticeElements, windows_core::IUnknown);
@@ -1988,6 +2074,10 @@ impl IEnumTfLatticeElements_Vtbl {
         iid == &<IEnumTfLatticeElements as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumTfLatticeElements_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumTfLatticeElements_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumTfLatticeElements {}
 windows_core::imp::define_interface!(IEnumTfProperties, IEnumTfProperties_Vtbl, 0x19188cb0_aca9_11d2_afc5_00105a2799b5);
 windows_core::imp::interface_hierarchy!(IEnumTfProperties, windows_core::IUnknown);
@@ -2066,6 +2156,10 @@ impl IEnumTfProperties_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumTfProperties as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumTfProperties_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumTfProperties_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumTfProperties {}
 windows_core::imp::define_interface!(IEnumTfPropertyValue, IEnumTfPropertyValue_Vtbl, 0x8ed8981b_7c10_4d7d_9fb3_ab72e9c75f72);
@@ -2153,6 +2247,11 @@ impl IEnumTfPropertyValue_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IEnumTfPropertyValue_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumTfPropertyValue_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumTfPropertyValue {}
 windows_core::imp::define_interface!(IEnumTfRanges, IEnumTfRanges_Vtbl, 0xf99d3f40_8e32_11d2_bf46_00105a2799b5);
 windows_core::imp::interface_hierarchy!(IEnumTfRanges, windows_core::IUnknown);
@@ -2231,6 +2330,10 @@ impl IEnumTfRanges_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumTfRanges as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumTfRanges_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumTfRanges_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumTfRanges {}
 windows_core::imp::define_interface!(IEnumTfUIElements, IEnumTfUIElements_Vtbl, 0x887aa91e_acba_4931_84da_3c5208cf543f);
@@ -2311,6 +2414,10 @@ impl IEnumTfUIElements_Vtbl {
         iid == &<IEnumTfUIElements as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumTfUIElements_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumTfUIElements_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumTfUIElements {}
 windows_core::imp::define_interface!(IInternalDocWrap, IInternalDocWrap_Vtbl, 0xe1aa6466_9db4_40ba_be03_77c38e8e60b2);
 windows_core::imp::interface_hierarchy!(IInternalDocWrap, windows_core::IUnknown);
@@ -2341,6 +2448,10 @@ impl IInternalDocWrap_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInternalDocWrap as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IInternalDocWrap_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInternalDocWrap_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IInternalDocWrap {}
 pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
@@ -2475,6 +2586,10 @@ impl ISpeechCommandProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpeechCommandProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISpeechCommandProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpeechCommandProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISpeechCommandProvider {}
 windows_core::imp::define_interface!(ITextStoreACP, ITextStoreACP_Vtbl, 0x28888fe3_c2a0_483a_a3ea_8cb1ce51ff3d);
@@ -2953,6 +3068,11 @@ impl ITextStoreACP_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ITextStoreACP_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextStoreACP_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITextStoreACP {}
 windows_core::imp::define_interface!(ITextStoreACP2, ITextStoreACP2_Vtbl, 0xf86ad89f_5fe4_4b8d_bb9f_ef3797a84f1f);
 windows_core::imp::interface_hierarchy!(ITextStoreACP2, windows_core::IUnknown);
@@ -3409,6 +3529,11 @@ impl ITextStoreACP2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ITextStoreACP2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextStoreACP2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITextStoreACP2 {}
 windows_core::imp::define_interface!(ITextStoreACPEx, ITextStoreACPEx_Vtbl, 0xa2de3bc2_3d8e_11d3_81a9_f753fbe61a00);
 windows_core::imp::interface_hierarchy!(ITextStoreACPEx, windows_core::IUnknown);
@@ -3439,6 +3564,10 @@ impl ITextStoreACPEx_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITextStoreACPEx as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITextStoreACPEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextStoreACPEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITextStoreACPEx {}
 windows_core::imp::define_interface!(ITextStoreACPServices, ITextStoreACPServices_Vtbl, 0xaa80e901_2021_11d2_93e0_0060b067b86e);
@@ -3541,6 +3670,11 @@ impl ITextStoreACPServices_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITextStoreACPServices as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ITextStoreACPServices_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextStoreACPServices_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ITextStoreACPServices {}
@@ -3661,6 +3795,10 @@ impl ITextStoreACPSink_Vtbl {
         iid == &<ITextStoreACPSink as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITextStoreACPSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextStoreACPSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITextStoreACPSink {}
 windows_core::imp::define_interface!(ITextStoreACPSinkEx, ITextStoreACPSinkEx_Vtbl, 0x2bdf9464_41e2_43e3_950c_a6865ba25cd4);
 impl core::ops::Deref for ITextStoreACPSinkEx {
@@ -3697,6 +3835,10 @@ impl ITextStoreACPSinkEx_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITextStoreACPSinkEx as windows_core::Interface>::IID || iid == &<ITextStoreACPSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITextStoreACPSinkEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextStoreACPSinkEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITextStoreACPSinkEx {}
 windows_core::imp::define_interface!(ITextStoreAnchor, ITextStoreAnchor_Vtbl, 0x9b2077b0_5f18_4dec_bee9_3cc722f5dfe0);
@@ -4213,6 +4355,11 @@ impl ITextStoreAnchor_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ITextStoreAnchor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextStoreAnchor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITextStoreAnchor {}
 windows_core::imp::define_interface!(ITextStoreAnchorEx, ITextStoreAnchorEx_Vtbl, 0xa2de3bc1_3d8e_11d3_81a9_f753fbe61a00);
 windows_core::imp::interface_hierarchy!(ITextStoreAnchorEx, windows_core::IUnknown);
@@ -4247,6 +4394,10 @@ impl ITextStoreAnchorEx_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITextStoreAnchorEx as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITextStoreAnchorEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextStoreAnchorEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITextStoreAnchorEx {}
 windows_core::imp::define_interface!(ITextStoreAnchorSink, ITextStoreAnchorSink_Vtbl, 0xaa80e905_2021_11d2_93e0_0060b067b86e);
@@ -4374,6 +4525,10 @@ impl ITextStoreAnchorSink_Vtbl {
         iid == &<ITextStoreAnchorSink as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITextStoreAnchorSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextStoreAnchorSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITextStoreAnchorSink {}
 windows_core::imp::define_interface!(ITextStoreSinkAnchorEx, ITextStoreSinkAnchorEx_Vtbl, 0x25642426_028d_4474_977b_111bb114fe3e);
 impl core::ops::Deref for ITextStoreSinkAnchorEx {
@@ -4411,6 +4566,10 @@ impl ITextStoreSinkAnchorEx_Vtbl {
         iid == &<ITextStoreSinkAnchorEx as windows_core::Interface>::IID || iid == &<ITextStoreAnchorSink as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITextStoreSinkAnchorEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITextStoreSinkAnchorEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITextStoreSinkAnchorEx {}
 windows_core::imp::define_interface!(ITfActiveLanguageProfileNotifySink, ITfActiveLanguageProfileNotifySink_Vtbl, 0xb246cb75_a93e_4652_bf8c_b3fe0cfd7e57);
 windows_core::imp::interface_hierarchy!(ITfActiveLanguageProfileNotifySink, windows_core::IUnknown);
@@ -4441,6 +4600,10 @@ impl ITfActiveLanguageProfileNotifySink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfActiveLanguageProfileNotifySink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfActiveLanguageProfileNotifySink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfActiveLanguageProfileNotifySink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfActiveLanguageProfileNotifySink {}
 windows_core::imp::define_interface!(ITfCandidateList, ITfCandidateList_Vtbl, 0xa3ad50fb_9bdb_49e3_a843_6c76520fbf5d);
@@ -4538,6 +4701,10 @@ impl ITfCandidateList_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfCandidateList as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfCandidateList_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfCandidateList_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfCandidateList {}
 windows_core::imp::define_interface!(ITfCandidateListUIElement, ITfCandidateListUIElement_Vtbl, 0xea1ea138_19df_11d7_a6d2_00065b84435c);
@@ -4717,6 +4884,10 @@ impl ITfCandidateListUIElement_Vtbl {
         iid == &<ITfCandidateListUIElement as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfCandidateListUIElement_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfCandidateListUIElement_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfCandidateListUIElement {}
 windows_core::imp::define_interface!(ITfCandidateListUIElementBehavior, ITfCandidateListUIElementBehavior_Vtbl, 0x85fad185_58ce_497a_9460_355366b64b9a);
 impl core::ops::Deref for ITfCandidateListUIElementBehavior {
@@ -4781,6 +4952,10 @@ impl ITfCandidateListUIElementBehavior_Vtbl {
         iid == &<ITfCandidateListUIElementBehavior as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID || iid == &<ITfCandidateListUIElement as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfCandidateListUIElementBehavior_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfCandidateListUIElementBehavior_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfCandidateListUIElementBehavior {}
 windows_core::imp::define_interface!(ITfCandidateString, ITfCandidateString_Vtbl, 0x581f317e_fd9d_443f_b972_ed00467c5d40);
 windows_core::imp::interface_hierarchy!(ITfCandidateString, windows_core::IUnknown);
@@ -4840,6 +5015,10 @@ impl ITfCandidateString_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfCandidateString as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfCandidateString_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfCandidateString_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfCandidateString {}
 windows_core::imp::define_interface!(ITfCategoryMgr, ITfCategoryMgr_Vtbl, 0xc3acefb5_f69d_4905_938f_fcadcf4be830);
@@ -5105,6 +5284,11 @@ impl ITfCategoryMgr_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ITfCategoryMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfCategoryMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ITfCategoryMgr {}
 windows_core::imp::define_interface!(ITfCleanupContextDurationSink, ITfCleanupContextDurationSink_Vtbl, 0x45c35144_154e_4797_bed8_d33ae7bf8794);
 windows_core::imp::interface_hierarchy!(ITfCleanupContextDurationSink, windows_core::IUnknown);
@@ -5151,6 +5335,10 @@ impl ITfCleanupContextDurationSink_Vtbl {
         iid == &<ITfCleanupContextDurationSink as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfCleanupContextDurationSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfCleanupContextDurationSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfCleanupContextDurationSink {}
 windows_core::imp::define_interface!(ITfCleanupContextSink, ITfCleanupContextSink_Vtbl, 0x01689689_7acb_4e9b_ab7c_7ea46b12b522);
 windows_core::imp::interface_hierarchy!(ITfCleanupContextSink, windows_core::IUnknown);
@@ -5184,6 +5372,10 @@ impl ITfCleanupContextSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfCleanupContextSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfCleanupContextSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfCleanupContextSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfCleanupContextSink {}
 windows_core::imp::define_interface!(ITfClientId, ITfClientId_Vtbl, 0xd60a7b49_1b9f_4be2_b702_47e9dc05dec3);
@@ -5224,6 +5416,10 @@ impl ITfClientId_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfClientId as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfClientId_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfClientId_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfClientId {}
 windows_core::imp::define_interface!(ITfCompartment, ITfCompartment_Vtbl, 0xbb08f7a9_607a_4384_8623_056892b64371);
@@ -5287,6 +5483,11 @@ impl ITfCompartment_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ITfCompartment_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfCompartment_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITfCompartment {}
 windows_core::imp::define_interface!(ITfCompartmentEventSink, ITfCompartmentEventSink_Vtbl, 0x743abd5f_f26d_48df_8cc5_238492419b64);
 windows_core::imp::interface_hierarchy!(ITfCompartmentEventSink, windows_core::IUnknown);
@@ -5317,6 +5518,10 @@ impl ITfCompartmentEventSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfCompartmentEventSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfCompartmentEventSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfCompartmentEventSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfCompartmentEventSink {}
 windows_core::imp::define_interface!(ITfCompartmentMgr, ITfCompartmentMgr_Vtbl, 0x7dcf57ac_18ad_438b_824d_979bffb74b7c);
@@ -5399,6 +5604,11 @@ impl ITfCompartmentMgr_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfCompartmentMgr as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ITfCompartmentMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfCompartmentMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ITfCompartmentMgr {}
@@ -5486,6 +5696,10 @@ impl ITfComposition_Vtbl {
         iid == &<ITfComposition as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfComposition_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfComposition_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfComposition {}
 windows_core::imp::define_interface!(ITfCompositionSink, ITfCompositionSink_Vtbl, 0xa781718c_579a_4b15_a280_32b8577acc5e);
 windows_core::imp::interface_hierarchy!(ITfCompositionSink, windows_core::IUnknown);
@@ -5519,6 +5733,10 @@ impl ITfCompositionSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfCompositionSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfCompositionSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfCompositionSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfCompositionSink {}
 windows_core::imp::define_interface!(ITfCompositionView, ITfCompositionView_Vtbl, 0xd7540241_f9a1_4364_befc_dbcd2c4395b7);
@@ -5584,6 +5802,10 @@ impl ITfCompositionView_Vtbl {
         iid == &<ITfCompositionView as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfCompositionView_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfCompositionView_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfCompositionView {}
 windows_core::imp::define_interface!(ITfConfigureSystemKeystrokeFeed, ITfConfigureSystemKeystrokeFeed_Vtbl, 0x0d2c969a_bc9c_437c_84ee_951c49b1a764);
 windows_core::imp::interface_hierarchy!(ITfConfigureSystemKeystrokeFeed, windows_core::IUnknown);
@@ -5629,6 +5851,10 @@ impl ITfConfigureSystemKeystrokeFeed_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfConfigureSystemKeystrokeFeed as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfConfigureSystemKeystrokeFeed_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfConfigureSystemKeystrokeFeed_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfConfigureSystemKeystrokeFeed {}
 windows_core::imp::define_interface!(ITfContext, ITfContext_Vtbl, 0xaa80e7fd_2021_11d2_93e0_0060b067b86e);
@@ -5955,6 +6181,10 @@ impl ITfContext_Vtbl {
         iid == &<ITfContext as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfContext_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfContext_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfContext {}
 windows_core::imp::define_interface!(ITfContextComposition, ITfContextComposition_Vtbl, 0xd40c8aae_ac92_4fc7_9a11_0ee0e23aa39b);
 windows_core::imp::interface_hierarchy!(ITfContextComposition, windows_core::IUnknown);
@@ -6072,6 +6302,10 @@ impl ITfContextComposition_Vtbl {
         iid == &<ITfContextComposition as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfContextComposition_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfContextComposition_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfContextComposition {}
 windows_core::imp::define_interface!(ITfContextKeyEventSink, ITfContextKeyEventSink_Vtbl, 0x0552ba5d_c835_4934_bf50_846aaa67432f);
 windows_core::imp::interface_hierarchy!(ITfContextKeyEventSink, windows_core::IUnknown);
@@ -6177,6 +6411,10 @@ impl ITfContextKeyEventSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfContextKeyEventSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfContextKeyEventSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfContextKeyEventSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfContextKeyEventSink {}
 windows_core::imp::define_interface!(ITfContextOwner, ITfContextOwner_Vtbl, 0xaa80e80c_2021_11d2_93e0_0060b067b86e);
@@ -6324,6 +6562,11 @@ impl ITfContextOwner_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ITfContextOwner_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfContextOwner_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITfContextOwner {}
 windows_core::imp::define_interface!(ITfContextOwnerCompositionServices, ITfContextOwnerCompositionServices_Vtbl, 0x86462810_593b_4916_9764_19c08e9ce110);
 impl core::ops::Deref for ITfContextOwnerCompositionServices {
@@ -6363,6 +6606,10 @@ impl ITfContextOwnerCompositionServices_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfContextOwnerCompositionServices as windows_core::Interface>::IID || iid == &<ITfContextComposition as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfContextOwnerCompositionServices_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfContextOwnerCompositionServices_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfContextOwnerCompositionServices {}
 windows_core::imp::define_interface!(ITfContextOwnerCompositionSink, ITfContextOwnerCompositionSink_Vtbl, 0x5f20aa40_b57a_4f34_96ab_3576f377cc79);
@@ -6440,6 +6687,10 @@ impl ITfContextOwnerCompositionSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfContextOwnerCompositionSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfContextOwnerCompositionSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfContextOwnerCompositionSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfContextOwnerCompositionSink {}
 windows_core::imp::define_interface!(ITfContextOwnerServices, ITfContextOwnerServices_Vtbl, 0xb23eb630_3e1c_11d3_a745_0050040ab407);
@@ -6580,6 +6831,11 @@ impl ITfContextOwnerServices_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ITfContextOwnerServices_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfContextOwnerServices_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ITfContextOwnerServices {}
 windows_core::imp::define_interface!(ITfContextView, ITfContextView_Vtbl, 0x2433bf8e_0f9b_435c_ba2c_180611978c30);
 windows_core::imp::interface_hierarchy!(ITfContextView, windows_core::IUnknown);
@@ -6680,6 +6936,10 @@ impl ITfContextView_Vtbl {
         iid == &<ITfContextView as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfContextView_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfContextView_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfContextView {}
 windows_core::imp::define_interface!(ITfCreatePropertyStore, ITfCreatePropertyStore_Vtbl, 0x2463fbf0_b0af_11d2_afc5_00105a2799b5);
 windows_core::imp::interface_hierarchy!(ITfCreatePropertyStore, windows_core::IUnknown);
@@ -6757,6 +7017,11 @@ impl ITfCreatePropertyStore_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfCreatePropertyStore as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ITfCreatePropertyStore_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfCreatePropertyStore_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ITfCreatePropertyStore {}
@@ -6859,6 +7124,10 @@ impl ITfDisplayAttributeInfo_Vtbl {
         iid == &<ITfDisplayAttributeInfo as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfDisplayAttributeInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfDisplayAttributeInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfDisplayAttributeInfo {}
 windows_core::imp::define_interface!(ITfDisplayAttributeMgr, ITfDisplayAttributeMgr_Vtbl, 0x8ded7393_5db1_475c_9e71_a39111b0ff67);
 windows_core::imp::interface_hierarchy!(ITfDisplayAttributeMgr, windows_core::IUnknown);
@@ -6926,6 +7195,10 @@ impl ITfDisplayAttributeMgr_Vtbl {
         iid == &<ITfDisplayAttributeMgr as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfDisplayAttributeMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfDisplayAttributeMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfDisplayAttributeMgr {}
 windows_core::imp::define_interface!(ITfDisplayAttributeNotifySink, ITfDisplayAttributeNotifySink_Vtbl, 0xad56f402_e162_4f25_908f_7d577cf9bda9);
 windows_core::imp::interface_hierarchy!(ITfDisplayAttributeNotifySink, windows_core::IUnknown);
@@ -6956,6 +7229,10 @@ impl ITfDisplayAttributeNotifySink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfDisplayAttributeNotifySink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfDisplayAttributeNotifySink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfDisplayAttributeNotifySink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfDisplayAttributeNotifySink {}
 windows_core::imp::define_interface!(ITfDisplayAttributeProvider, ITfDisplayAttributeProvider_Vtbl, 0xfee47777_163c_4769_996a_6e9c50ad8f54);
@@ -7020,6 +7297,10 @@ impl ITfDisplayAttributeProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfDisplayAttributeProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfDisplayAttributeProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfDisplayAttributeProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfDisplayAttributeProvider {}
 windows_core::imp::define_interface!(ITfDocumentMgr, ITfDocumentMgr_Vtbl, 0xaa80e7f4_2021_11d2_93e0_0060b067b86e);
@@ -7148,6 +7429,10 @@ impl ITfDocumentMgr_Vtbl {
         iid == &<ITfDocumentMgr as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfDocumentMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfDocumentMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfDocumentMgr {}
 windows_core::imp::define_interface!(ITfEditRecord, ITfEditRecord_Vtbl, 0x42d4d099_7c1a_4a89_b836_6c6f22160df0);
 windows_core::imp::interface_hierarchy!(ITfEditRecord, windows_core::IUnknown);
@@ -7212,6 +7497,10 @@ impl ITfEditRecord_Vtbl {
         iid == &<ITfEditRecord as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfEditRecord_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfEditRecord_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfEditRecord {}
 windows_core::imp::define_interface!(ITfEditSession, ITfEditSession_Vtbl, 0xaa80e803_2021_11d2_93e0_0060b067b86e);
 windows_core::imp::interface_hierarchy!(ITfEditSession, windows_core::IUnknown);
@@ -7242,6 +7531,10 @@ impl ITfEditSession_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfEditSession as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfEditSession_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfEditSession_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfEditSession {}
 windows_core::imp::define_interface!(ITfEditTransactionSink, ITfEditTransactionSink_Vtbl, 0x708fbf70_b520_416b_b06c_2c41ab44f8ba);
@@ -7294,6 +7587,10 @@ impl ITfEditTransactionSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfEditTransactionSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfEditTransactionSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfEditTransactionSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfEditTransactionSink {}
 windows_core::imp::define_interface!(ITfFnAdviseText, ITfFnAdviseText_Vtbl, 0x3527268b_7d53_4dd9_92b7_7296ae461249);
@@ -7354,6 +7651,10 @@ impl ITfFnAdviseText_Vtbl {
         iid == &<ITfFnAdviseText as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfFnAdviseText_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnAdviseText_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfFnAdviseText {}
 windows_core::imp::define_interface!(ITfFnBalloon, ITfFnBalloon_Vtbl, 0x3bab89e4_5fbe_45f4_a5bc_dca36ad225a8);
 windows_core::imp::interface_hierarchy!(ITfFnBalloon, windows_core::IUnknown);
@@ -7384,6 +7685,10 @@ impl ITfFnBalloon_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfFnBalloon as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfFnBalloon_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnBalloon_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfFnBalloon {}
 windows_core::imp::define_interface!(ITfFnConfigure, ITfFnConfigure_Vtbl, 0x88f567c6_1757_49f8_a1b2_89234c1eeff9);
@@ -7422,6 +7727,10 @@ impl ITfFnConfigure_Vtbl {
         iid == &<ITfFnConfigure as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfFnConfigure_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnConfigure_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfFnConfigure {}
 windows_core::imp::define_interface!(ITfFnConfigureRegisterEudc, ITfFnConfigureRegisterEudc_Vtbl, 0xb5e26ff5_d7ad_4304_913f_21a2ed95a1b0);
 impl core::ops::Deref for ITfFnConfigureRegisterEudc {
@@ -7459,6 +7768,10 @@ impl ITfFnConfigureRegisterEudc_Vtbl {
         iid == &<ITfFnConfigureRegisterEudc as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfFnConfigureRegisterEudc_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnConfigureRegisterEudc_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfFnConfigureRegisterEudc {}
 windows_core::imp::define_interface!(ITfFnConfigureRegisterWord, ITfFnConfigureRegisterWord_Vtbl, 0xbb95808a_6d8f_4bca_8400_5390b586aedf);
 impl core::ops::Deref for ITfFnConfigureRegisterWord {
@@ -7495,6 +7808,10 @@ impl ITfFnConfigureRegisterWord_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfFnConfigureRegisterWord as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfFnConfigureRegisterWord_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnConfigureRegisterWord_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfFnConfigureRegisterWord {}
 windows_core::imp::define_interface!(ITfFnCustomSpeechCommand, ITfFnCustomSpeechCommand_Vtbl, 0xfca6c349_a12f_43a3_8dd6_5a5a4282577b);
@@ -7535,6 +7852,10 @@ impl ITfFnCustomSpeechCommand_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfFnCustomSpeechCommand as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfFnCustomSpeechCommand_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnCustomSpeechCommand_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfFnCustomSpeechCommand {}
 windows_core::imp::define_interface!(ITfFnGetLinguisticAlternates, ITfFnGetLinguisticAlternates_Vtbl, 0xea163ce2_7a65_4506_82a3_c528215da64e);
@@ -7585,6 +7906,10 @@ impl ITfFnGetLinguisticAlternates_Vtbl {
         iid == &<ITfFnGetLinguisticAlternates as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfFnGetLinguisticAlternates_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnGetLinguisticAlternates_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfFnGetLinguisticAlternates {}
 windows_core::imp::define_interface!(ITfFnGetPreferredTouchKeyboardLayout, ITfFnGetPreferredTouchKeyboardLayout_Vtbl, 0x5f309a41_590a_4acc_a97f_d8efff13fdfc);
 impl core::ops::Deref for ITfFnGetPreferredTouchKeyboardLayout {
@@ -7621,6 +7946,10 @@ impl ITfFnGetPreferredTouchKeyboardLayout_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfFnGetPreferredTouchKeyboardLayout as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfFnGetPreferredTouchKeyboardLayout_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnGetPreferredTouchKeyboardLayout_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfFnGetPreferredTouchKeyboardLayout {}
 windows_core::imp::define_interface!(ITfFnGetSAPIObject, ITfFnGetSAPIObject_Vtbl, 0x5c0ab7ea_167d_4f59_bfb5_4693755e90ca);
@@ -7668,6 +7997,10 @@ impl ITfFnGetSAPIObject_Vtbl {
         iid == &<ITfFnGetSAPIObject as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfFnGetSAPIObject_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnGetSAPIObject_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfFnGetSAPIObject {}
 windows_core::imp::define_interface!(ITfFnLMInternal, ITfFnLMInternal_Vtbl, 0x04b825b1_ac9a_4f7b_b5ad_c7168f1ee445);
 impl core::ops::Deref for ITfFnLMInternal {
@@ -7707,6 +8040,10 @@ impl ITfFnLMInternal_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfFnLMInternal as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID || iid == &<ITfFnLMProcessor as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfFnLMInternal_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnLMInternal_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfFnLMInternal {}
 windows_core::imp::define_interface!(ITfFnLMProcessor, ITfFnLMProcessor_Vtbl, 0x7afbf8e7_ac4b_4082_b058_890899d3a010);
@@ -7859,6 +8196,10 @@ impl ITfFnLMProcessor_Vtbl {
         iid == &<ITfFnLMProcessor as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfFnLMProcessor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnLMProcessor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfFnLMProcessor {}
 windows_core::imp::define_interface!(ITfFnLangProfileUtil, ITfFnLangProfileUtil_Vtbl, 0xa87a8574_a6c1_4e15_99f0_3d3965f548eb);
 impl core::ops::Deref for ITfFnLangProfileUtil {
@@ -7920,6 +8261,10 @@ impl ITfFnLangProfileUtil_Vtbl {
         iid == &<ITfFnLangProfileUtil as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfFnLangProfileUtil_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnLangProfileUtil_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfFnLangProfileUtil {}
 windows_core::imp::define_interface!(ITfFnPlayBack, ITfFnPlayBack_Vtbl, 0xa3a416a4_0f64_11d3_b5b7_00c04fc324a1);
 impl core::ops::Deref for ITfFnPlayBack {
@@ -7973,6 +8318,10 @@ impl ITfFnPlayBack_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfFnPlayBack as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfFnPlayBack_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnPlayBack_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfFnPlayBack {}
 windows_core::imp::define_interface!(ITfFnPropertyUIStatus, ITfFnPropertyUIStatus_Vtbl, 0x2338ac6e_2b9d_44c0_a75e_ee64f256b3bd);
@@ -8030,6 +8379,10 @@ impl ITfFnPropertyUIStatus_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfFnPropertyUIStatus as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfFnPropertyUIStatus_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnPropertyUIStatus_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfFnPropertyUIStatus {}
 windows_core::imp::define_interface!(ITfFnReconversion, ITfFnReconversion_Vtbl, 0x4cea93c0_0a58_11d3_8df0_00105a2799b5);
@@ -8113,6 +8466,10 @@ impl ITfFnReconversion_Vtbl {
         iid == &<ITfFnReconversion as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfFnReconversion_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnReconversion_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfFnReconversion {}
 windows_core::imp::define_interface!(ITfFnSearchCandidateProvider, ITfFnSearchCandidateProvider_Vtbl, 0x87a2ad8f_f27b_4920_8501_67602280175d);
 impl core::ops::Deref for ITfFnSearchCandidateProvider {
@@ -8174,6 +8531,10 @@ impl ITfFnSearchCandidateProvider_Vtbl {
         iid == &<ITfFnSearchCandidateProvider as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfFnSearchCandidateProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnSearchCandidateProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfFnSearchCandidateProvider {}
 windows_core::imp::define_interface!(ITfFnShowHelp, ITfFnShowHelp_Vtbl, 0x5ab1d30c_094d_4c29_8ea5_0bf59be87bf3);
 impl core::ops::Deref for ITfFnShowHelp {
@@ -8210,6 +8571,10 @@ impl ITfFnShowHelp_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfFnShowHelp as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfFnShowHelp_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFnShowHelp_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfFnShowHelp {}
 windows_core::imp::define_interface!(ITfFunction, ITfFunction_Vtbl, 0xdb593490_098f_11d3_8df0_00105a2799b5);
@@ -8250,6 +8615,10 @@ impl ITfFunction_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfFunction as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfFunction_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFunction_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfFunction {}
 windows_core::imp::define_interface!(ITfFunctionProvider, ITfFunctionProvider_Vtbl, 0x101d6610_0990_11d3_8df0_00105a2799b5);
@@ -8336,6 +8705,10 @@ impl ITfFunctionProvider_Vtbl {
         iid == &<ITfFunctionProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfFunctionProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfFunctionProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfFunctionProvider {}
 windows_core::imp::define_interface!(ITfInputProcessorProfileActivationSink, ITfInputProcessorProfileActivationSink_Vtbl, 0x71c6e74e_0f28_11d8_a82a_00065b84435c);
 windows_core::imp::interface_hierarchy!(ITfInputProcessorProfileActivationSink, windows_core::IUnknown);
@@ -8372,6 +8745,11 @@ impl ITfInputProcessorProfileActivationSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfInputProcessorProfileActivationSink as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+impl<Identity: windows_core::IUnknownImpl + ITfInputProcessorProfileActivationSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfInputProcessorProfileActivationSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 impl windows_core::RuntimeName for ITfInputProcessorProfileActivationSink {}
@@ -8524,6 +8902,11 @@ impl ITfInputProcessorProfileMgr_Vtbl {
     }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+impl<Identity: windows_core::IUnknownImpl + ITfInputProcessorProfileMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfInputProcessorProfileMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 impl windows_core::RuntimeName for ITfInputProcessorProfileMgr {}
 windows_core::imp::define_interface!(ITfInputProcessorProfileSubstituteLayout, ITfInputProcessorProfileSubstituteLayout_Vtbl, 0x4fd67194_1002_4513_bff2_c0ddf6258552);
 windows_core::imp::interface_hierarchy!(ITfInputProcessorProfileSubstituteLayout, windows_core::IUnknown);
@@ -8569,6 +8952,11 @@ impl ITfInputProcessorProfileSubstituteLayout_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfInputProcessorProfileSubstituteLayout as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+impl<Identity: windows_core::IUnknownImpl + ITfInputProcessorProfileSubstituteLayout_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfInputProcessorProfileSubstituteLayout_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 impl windows_core::RuntimeName for ITfInputProcessorProfileSubstituteLayout {}
@@ -8865,6 +9253,11 @@ impl ITfInputProcessorProfiles_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Input_KeyboardAndMouse"))]
+impl<Identity: windows_core::IUnknownImpl + ITfInputProcessorProfiles_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfInputProcessorProfiles_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Input_KeyboardAndMouse"))]
 impl windows_core::RuntimeName for ITfInputProcessorProfiles {}
 windows_core::imp::define_interface!(ITfInputProcessorProfilesEx, ITfInputProcessorProfilesEx_Vtbl, 0x892f230f_fe00_4a41_a98e_fcd6de0d35ef);
 impl core::ops::Deref for ITfInputProcessorProfilesEx {
@@ -8906,6 +9299,11 @@ impl ITfInputProcessorProfilesEx_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfInputProcessorProfilesEx as windows_core::Interface>::IID || iid == &<ITfInputProcessorProfiles as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Input_KeyboardAndMouse"))]
+impl<Identity: windows_core::IUnknownImpl + ITfInputProcessorProfilesEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfInputProcessorProfilesEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Input_KeyboardAndMouse"))]
 impl windows_core::RuntimeName for ITfInputProcessorProfilesEx {}
@@ -9017,6 +9415,10 @@ impl ITfInputScope_Vtbl {
         iid == &<ITfInputScope as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfInputScope_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfInputScope_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfInputScope {}
 windows_core::imp::define_interface!(ITfInputScope2, ITfInputScope2_Vtbl, 0x5731eaa0_6bc2_4681_a532_92fbb74d7c41);
 impl core::ops::Deref for ITfInputScope2 {
@@ -9068,6 +9470,11 @@ impl ITfInputScope2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfInputScope2 as windows_core::Interface>::IID || iid == &<ITfInputScope as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ITfInputScope2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfInputScope2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ITfInputScope2 {}
@@ -9142,6 +9549,11 @@ impl ITfInsertAtSelection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfInsertAtSelection as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ITfInsertAtSelection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfInsertAtSelection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ITfInsertAtSelection {}
@@ -9252,6 +9664,10 @@ impl ITfIntegratableCandidateListUIElement_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfIntegratableCandidateListUIElement as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfIntegratableCandidateListUIElement_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfIntegratableCandidateListUIElement_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfIntegratableCandidateListUIElement {}
 windows_core::imp::define_interface!(ITfKeyEventSink, ITfKeyEventSink_Vtbl, 0xaa80e7f5_2021_11d2_93e0_0060b067b86e);
@@ -9407,6 +9823,10 @@ impl ITfKeyEventSink_Vtbl {
         iid == &<ITfKeyEventSink as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfKeyEventSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfKeyEventSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfKeyEventSink {}
 windows_core::imp::define_interface!(ITfKeyTraceEventSink, ITfKeyTraceEventSink_Vtbl, 0x1cd4c13b_1c36_4191_a70a_7f3e611f367d);
 windows_core::imp::interface_hierarchy!(ITfKeyTraceEventSink, windows_core::IUnknown);
@@ -9452,6 +9872,10 @@ impl ITfKeyTraceEventSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfKeyTraceEventSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfKeyTraceEventSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfKeyTraceEventSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfKeyTraceEventSink {}
 windows_core::imp::define_interface!(ITfKeystrokeMgr, ITfKeystrokeMgr_Vtbl, 0xaa80e7f0_2021_11d2_93e0_0060b067b86e);
@@ -9733,6 +10157,10 @@ impl ITfKeystrokeMgr_Vtbl {
         iid == &<ITfKeystrokeMgr as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfKeystrokeMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfKeystrokeMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfKeystrokeMgr {}
 windows_core::imp::define_interface!(ITfLMLattice, ITfLMLattice_Vtbl, 0xd4236675_a5bf_4570_9d42_5d6d7b02d59b);
 windows_core::imp::interface_hierarchy!(ITfLMLattice, windows_core::IUnknown);
@@ -9796,6 +10224,10 @@ impl ITfLMLattice_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfLMLattice as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfLMLattice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfLMLattice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfLMLattice {}
 windows_core::imp::define_interface!(ITfLangBarEventSink, ITfLangBarEventSink_Vtbl, 0x18a4e900_e0ae_11d2_afdd_00105a2799b5);
@@ -9900,6 +10332,10 @@ impl ITfLangBarEventSink_Vtbl {
         iid == &<ITfLangBarEventSink as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfLangBarEventSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfLangBarEventSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfLangBarEventSink {}
 windows_core::imp::define_interface!(ITfLangBarItem, ITfLangBarItem_Vtbl, 0x73540d69_edeb_4ee9_96c9_23aa30b25916);
 windows_core::imp::interface_hierarchy!(ITfLangBarItem, windows_core::IUnknown);
@@ -9988,6 +10424,10 @@ impl ITfLangBarItem_Vtbl {
         iid == &<ITfLangBarItem as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfLangBarItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfLangBarItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfLangBarItem {}
 windows_core::imp::define_interface!(ITfLangBarItemBalloon, ITfLangBarItemBalloon_Vtbl, 0x01c2d285_d3c7_4b7b_b5b5_d97411d0c283);
 impl core::ops::Deref for ITfLangBarItemBalloon {
@@ -10070,6 +10510,10 @@ impl ITfLangBarItemBalloon_Vtbl {
         iid == &<ITfLangBarItemBalloon as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfLangBarItemBalloon_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfLangBarItemBalloon_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfLangBarItemBalloon {}
 windows_core::imp::define_interface!(ITfLangBarItemBitmap, ITfLangBarItemBitmap_Vtbl, 0x73830352_d722_4179_ada5_f045c98df355);
 impl core::ops::Deref for ITfLangBarItemBitmap {
@@ -10148,6 +10592,11 @@ impl ITfLangBarItemBitmap_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfLangBarItemBitmap as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + ITfLangBarItemBitmap_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfLangBarItemBitmap_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for ITfLangBarItemBitmap {}
@@ -10278,6 +10727,11 @@ impl ITfLangBarItemBitmapButton_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + ITfLangBarItemBitmapButton_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfLangBarItemBitmapButton_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for ITfLangBarItemBitmapButton {}
 windows_core::imp::define_interface!(ITfLangBarItemButton, ITfLangBarItemButton_Vtbl, 0x28c7f1d0_de25_11d2_afdd_00105a2799b5);
 impl core::ops::Deref for ITfLangBarItemButton {
@@ -10392,6 +10846,11 @@ impl ITfLangBarItemButton_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfLangBarItemButton as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl<Identity: windows_core::IUnknownImpl + ITfLangBarItemButton_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfLangBarItemButton_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::RuntimeName for ITfLangBarItemButton {}
@@ -10605,6 +11064,10 @@ impl ITfLangBarItemMgr_Vtbl {
         iid == &<ITfLangBarItemMgr as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfLangBarItemMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfLangBarItemMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfLangBarItemMgr {}
 windows_core::imp::define_interface!(ITfLangBarItemSink, ITfLangBarItemSink_Vtbl, 0x57dbe1a0_de25_11d2_afdd_00105a2799b5);
 windows_core::imp::interface_hierarchy!(ITfLangBarItemSink, windows_core::IUnknown);
@@ -10635,6 +11098,10 @@ impl ITfLangBarItemSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfLangBarItemSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfLangBarItemSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfLangBarItemSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfLangBarItemSink {}
 windows_core::imp::define_interface!(ITfLangBarMgr, ITfLangBarMgr_Vtbl, 0x87955690_e627_11d2_8ddb_00105a2799b5);
@@ -10790,6 +11257,10 @@ impl ITfLangBarMgr_Vtbl {
         iid == &<ITfLangBarMgr as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfLangBarMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfLangBarMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfLangBarMgr {}
 windows_core::imp::define_interface!(ITfLanguageProfileNotifySink, ITfLanguageProfileNotifySink_Vtbl, 0x43c9fe15_f494_4c17_9de2_b8a4ac350aa8);
 windows_core::imp::interface_hierarchy!(ITfLanguageProfileNotifySink, windows_core::IUnknown);
@@ -10845,6 +11316,10 @@ impl ITfLanguageProfileNotifySink_Vtbl {
         iid == &<ITfLanguageProfileNotifySink as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfLanguageProfileNotifySink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfLanguageProfileNotifySink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfLanguageProfileNotifySink {}
 windows_core::imp::define_interface!(ITfMSAAControl, ITfMSAAControl_Vtbl, 0xb5f8fb3b_393f_4f7c_84cb_504924c2705a);
 windows_core::imp::interface_hierarchy!(ITfMSAAControl, windows_core::IUnknown);
@@ -10891,6 +11366,10 @@ impl ITfMSAAControl_Vtbl {
         iid == &<ITfMSAAControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfMSAAControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfMSAAControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfMSAAControl {}
 windows_core::imp::define_interface!(ITfMenu, ITfMenu_Vtbl, 0x6f8a98e4_aaa0_4f15_8c5b_07e0df0a3dd8);
 windows_core::imp::interface_hierarchy!(ITfMenu, windows_core::IUnknown);
@@ -10927,6 +11406,11 @@ impl ITfMenu_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfMenu as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + ITfMenu_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfMenu_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for ITfMenu {}
@@ -11018,6 +11502,11 @@ impl ITfMessagePump_Vtbl {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl<Identity: windows_core::IUnknownImpl + ITfMessagePump_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfMessagePump_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::RuntimeName for ITfMessagePump {}
 windows_core::imp::define_interface!(ITfMouseSink, ITfMouseSink_Vtbl, 0xa1adaaa2_3a24_449d_ac96_5183e7f5c217);
 windows_core::imp::interface_hierarchy!(ITfMouseSink, windows_core::IUnknown);
@@ -11057,6 +11546,10 @@ impl ITfMouseSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfMouseSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfMouseSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfMouseSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfMouseSink {}
 windows_core::imp::define_interface!(ITfMouseTracker, ITfMouseTracker_Vtbl, 0x09d146cd_a544_4132_925b_7afa8ef322d0);
@@ -11117,6 +11610,10 @@ impl ITfMouseTracker_Vtbl {
         iid == &<ITfMouseTracker as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfMouseTracker_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfMouseTracker_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfMouseTracker {}
 windows_core::imp::define_interface!(ITfMouseTrackerACP, ITfMouseTrackerACP_Vtbl, 0x3bdd78e2_c16e_47fd_b883_ce6facc1a208);
 windows_core::imp::interface_hierarchy!(ITfMouseTrackerACP, windows_core::IUnknown);
@@ -11176,6 +11673,10 @@ impl ITfMouseTrackerACP_Vtbl {
         iid == &<ITfMouseTrackerACP as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfMouseTrackerACP_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfMouseTrackerACP_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfMouseTrackerACP {}
 windows_core::imp::define_interface!(ITfPersistentPropertyLoaderACP, ITfPersistentPropertyLoaderACP_Vtbl, 0x4ef89150_0807_11d3_8df0_00105a2799b5);
 windows_core::imp::interface_hierarchy!(ITfPersistentPropertyLoaderACP, windows_core::IUnknown);
@@ -11223,6 +11724,11 @@ impl ITfPersistentPropertyLoaderACP_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ITfPersistentPropertyLoaderACP_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfPersistentPropertyLoaderACP_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ITfPersistentPropertyLoaderACP {}
 windows_core::imp::define_interface!(ITfPreservedKeyNotifySink, ITfPreservedKeyNotifySink_Vtbl, 0x6f77c993_d2b1_446e_853e_5912efc8a286);
 windows_core::imp::interface_hierarchy!(ITfPreservedKeyNotifySink, windows_core::IUnknown);
@@ -11253,6 +11759,10 @@ impl ITfPreservedKeyNotifySink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfPreservedKeyNotifySink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfPreservedKeyNotifySink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfPreservedKeyNotifySink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfPreservedKeyNotifySink {}
 windows_core::imp::define_interface!(ITfProperty, ITfProperty_Vtbl, 0xe2449660_9542_11d2_bf46_00105a2799b5);
@@ -11348,6 +11858,11 @@ impl ITfProperty_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfProperty as windows_core::Interface>::IID || iid == &<ITfReadOnlyProperty as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ITfProperty_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfProperty_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITfProperty {}
@@ -11585,6 +12100,11 @@ impl ITfPropertyStore_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ITfPropertyStore_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfPropertyStore_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITfPropertyStore {}
 windows_core::imp::define_interface!(ITfQueryEmbedded, ITfQueryEmbedded_Vtbl, 0x0fab9bdb_d250_4169_84e5_6be118fdd7a8);
 windows_core::imp::interface_hierarchy!(ITfQueryEmbedded, windows_core::IUnknown);
@@ -11630,6 +12150,11 @@ impl ITfQueryEmbedded_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfQueryEmbedded as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ITfQueryEmbedded_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfQueryEmbedded_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ITfQueryEmbedded {}
@@ -12058,6 +12583,11 @@ impl ITfRange_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ITfRange_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfRange_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ITfRange {}
 windows_core::imp::define_interface!(ITfRangeACP, ITfRangeACP_Vtbl, 0x057a6296_029b_4154_b79a_0d461d4ea94c);
 impl core::ops::Deref for ITfRangeACP {
@@ -12109,6 +12639,11 @@ impl ITfRangeACP_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ITfRangeACP_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfRangeACP_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ITfRangeACP {}
 windows_core::imp::define_interface!(ITfRangeBackup, ITfRangeBackup_Vtbl, 0x463a506d_6992_49d2_9b88_93d55e70bb16);
 windows_core::imp::interface_hierarchy!(ITfRangeBackup, windows_core::IUnknown);
@@ -12142,6 +12677,10 @@ impl ITfRangeBackup_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfRangeBackup as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfRangeBackup_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfRangeBackup_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfRangeBackup {}
 windows_core::imp::define_interface!(ITfReadOnlyProperty, ITfReadOnlyProperty_Vtbl, 0x17d49a3d_f8b8_4b2f_b254_52319dd64c53);
@@ -12251,6 +12790,11 @@ impl ITfReadOnlyProperty_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfReadOnlyProperty as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ITfReadOnlyProperty_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfReadOnlyProperty_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITfReadOnlyProperty {}
@@ -12407,6 +12951,10 @@ impl ITfReadingInformationUIElement_Vtbl {
         iid == &<ITfReadingInformationUIElement as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfReadingInformationUIElement_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfReadingInformationUIElement_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfReadingInformationUIElement {}
 windows_core::imp::define_interface!(ITfReverseConversion, ITfReverseConversion_Vtbl, 0xa415e162_157d_417d_8a8c_0ab26c7d2781);
 windows_core::imp::interface_hierarchy!(ITfReverseConversion, windows_core::IUnknown);
@@ -12449,6 +12997,10 @@ impl ITfReverseConversion_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfReverseConversion as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfReverseConversion_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfReverseConversion_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfReverseConversion {}
 windows_core::imp::define_interface!(ITfReverseConversionList, ITfReverseConversionList_Vtbl, 0x151d69f0_86f4_4674_b721_56911e797f47);
@@ -12514,6 +13066,10 @@ impl ITfReverseConversionList_Vtbl {
         iid == &<ITfReverseConversionList as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfReverseConversionList_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfReverseConversionList_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfReverseConversionList {}
 windows_core::imp::define_interface!(ITfReverseConversionMgr, ITfReverseConversionMgr_Vtbl, 0xb643c236_c493_41b6_abb3_692412775cc4);
 windows_core::imp::interface_hierarchy!(ITfReverseConversionMgr, windows_core::IUnknown);
@@ -12553,6 +13109,10 @@ impl ITfReverseConversionMgr_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfReverseConversionMgr as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfReverseConversionMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfReverseConversionMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfReverseConversionMgr {}
 windows_core::imp::define_interface!(ITfSource, ITfSource_Vtbl, 0x4ea48a35_60ae_446f_8fd6_e6a8d82459f7);
@@ -12612,6 +13172,10 @@ impl ITfSource_Vtbl {
         iid == &<ITfSource as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfSource {}
 windows_core::imp::define_interface!(ITfSourceSingle, ITfSourceSingle_Vtbl, 0x73131f9c_56a9_49dd_b0ee_d046633f7528);
 windows_core::imp::interface_hierarchy!(ITfSourceSingle, windows_core::IUnknown);
@@ -12660,6 +13224,10 @@ impl ITfSourceSingle_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfSourceSingle as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfSourceSingle_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfSourceSingle_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfSourceSingle {}
 windows_core::imp::define_interface!(ITfSpeechUIServer, ITfSpeechUIServer_Vtbl, 0x90e9a944_9244_489f_a78f_de67afc013a7);
@@ -12719,6 +13287,10 @@ impl ITfSpeechUIServer_Vtbl {
         iid == &<ITfSpeechUIServer as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfSpeechUIServer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfSpeechUIServer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfSpeechUIServer {}
 windows_core::imp::define_interface!(ITfStatusSink, ITfStatusSink_Vtbl, 0x6b7d8d73_b267_4f69_b32e_1ca321ce4f45);
 windows_core::imp::interface_hierarchy!(ITfStatusSink, windows_core::IUnknown);
@@ -12752,6 +13324,10 @@ impl ITfStatusSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfStatusSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfStatusSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfStatusSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfStatusSink {}
 windows_core::imp::define_interface!(ITfSystemDeviceTypeLangBarItem, ITfSystemDeviceTypeLangBarItem_Vtbl, 0x45672eb9_9059_46a2_838d_4530355f6a77);
@@ -12808,6 +13384,10 @@ impl ITfSystemDeviceTypeLangBarItem_Vtbl {
         iid == &<ITfSystemDeviceTypeLangBarItem as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfSystemDeviceTypeLangBarItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfSystemDeviceTypeLangBarItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfSystemDeviceTypeLangBarItem {}
 windows_core::imp::define_interface!(ITfSystemLangBarItem, ITfSystemLangBarItem_Vtbl, 0x1e13e9ec_6b33_4d4a_b5eb_8a92f029f356);
 windows_core::imp::interface_hierarchy!(ITfSystemLangBarItem, windows_core::IUnknown);
@@ -12861,6 +13441,11 @@ impl ITfSystemLangBarItem_Vtbl {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl<Identity: windows_core::IUnknownImpl + ITfSystemLangBarItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfSystemLangBarItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::RuntimeName for ITfSystemLangBarItem {}
 windows_core::imp::define_interface!(ITfSystemLangBarItemSink, ITfSystemLangBarItemSink_Vtbl, 0x1449d9ab_13cf_4687_aa3e_8d8b18574396);
 windows_core::imp::interface_hierarchy!(ITfSystemLangBarItemSink, windows_core::IUnknown);
@@ -12909,6 +13494,10 @@ impl ITfSystemLangBarItemSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfSystemLangBarItemSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfSystemLangBarItemSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfSystemLangBarItemSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfSystemLangBarItemSink {}
 windows_core::imp::define_interface!(ITfSystemLangBarItemText, ITfSystemLangBarItemText_Vtbl, 0x5c4ce0e5_ba49_4b52_ac6b_3b397b4f701f);
@@ -12965,6 +13554,10 @@ impl ITfSystemLangBarItemText_Vtbl {
         iid == &<ITfSystemLangBarItemText as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfSystemLangBarItemText_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfSystemLangBarItemText_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfSystemLangBarItemText {}
 windows_core::imp::define_interface!(ITfTextEditSink, ITfTextEditSink_Vtbl, 0x8127d409_ccd3_4683_967a_b43d5b482bf7);
 windows_core::imp::interface_hierarchy!(ITfTextEditSink, windows_core::IUnknown);
@@ -12999,6 +13592,10 @@ impl ITfTextEditSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfTextEditSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfTextEditSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfTextEditSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfTextEditSink {}
 windows_core::imp::define_interface!(ITfTextInputProcessor, ITfTextInputProcessor_Vtbl, 0xaa80e7f7_2021_11d2_93e0_0060b067b86e);
@@ -13049,6 +13646,10 @@ impl ITfTextInputProcessor_Vtbl {
         iid == &<ITfTextInputProcessor as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfTextInputProcessor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfTextInputProcessor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfTextInputProcessor {}
 windows_core::imp::define_interface!(ITfTextInputProcessorEx, ITfTextInputProcessorEx_Vtbl, 0x6e4e2102_f9cd_433d_b496_303ce03a6507);
 impl core::ops::Deref for ITfTextInputProcessorEx {
@@ -13089,6 +13690,10 @@ impl ITfTextInputProcessorEx_Vtbl {
         iid == &<ITfTextInputProcessorEx as windows_core::Interface>::IID || iid == &<ITfTextInputProcessor as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfTextInputProcessorEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfTextInputProcessorEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfTextInputProcessorEx {}
 windows_core::imp::define_interface!(ITfTextLayoutSink, ITfTextLayoutSink_Vtbl, 0x2af2d06a_dd5b_4927_a0b4_54f19c91fade);
 windows_core::imp::interface_hierarchy!(ITfTextLayoutSink, windows_core::IUnknown);
@@ -13123,6 +13728,10 @@ impl ITfTextLayoutSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfTextLayoutSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfTextLayoutSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfTextLayoutSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfTextLayoutSink {}
 windows_core::imp::define_interface!(ITfThreadFocusSink, ITfThreadFocusSink_Vtbl, 0xc0f1db0c_3a20_405c_a303_96b6010a885f);
@@ -13169,6 +13778,10 @@ impl ITfThreadFocusSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfThreadFocusSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfThreadFocusSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfThreadFocusSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfThreadFocusSink {}
 windows_core::imp::define_interface!(ITfThreadMgr, ITfThreadMgr_Vtbl, 0xaa80e801_2021_11d2_93e0_0060b067b86e);
@@ -13410,6 +14023,10 @@ impl ITfThreadMgr_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfThreadMgr as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfThreadMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfThreadMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfThreadMgr {}
 windows_core::imp::define_interface!(ITfThreadMgr2, ITfThreadMgr2_Vtbl, 0x0ab198ef_6477_4ee8_8812_6780edb82d5e);
@@ -13685,6 +14302,10 @@ impl ITfThreadMgr2_Vtbl {
         iid == &<ITfThreadMgr2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfThreadMgr2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfThreadMgr2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfThreadMgr2 {}
 windows_core::imp::define_interface!(ITfThreadMgrEventSink, ITfThreadMgrEventSink_Vtbl, 0xaa80e80e_2021_11d2_93e0_0060b067b86e);
 windows_core::imp::interface_hierarchy!(ITfThreadMgrEventSink, windows_core::IUnknown);
@@ -13783,6 +14404,10 @@ impl ITfThreadMgrEventSink_Vtbl {
         iid == &<ITfThreadMgrEventSink as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfThreadMgrEventSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfThreadMgrEventSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfThreadMgrEventSink {}
 windows_core::imp::define_interface!(ITfThreadMgrEx, ITfThreadMgrEx_Vtbl, 0x3e90ade3_7594_4cb0_bb58_69628f5f458c);
 impl core::ops::Deref for ITfThreadMgrEx {
@@ -13844,6 +14469,10 @@ impl ITfThreadMgrEx_Vtbl {
         iid == &<ITfThreadMgrEx as windows_core::Interface>::IID || iid == &<ITfThreadMgr as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfThreadMgrEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfThreadMgrEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfThreadMgrEx {}
 windows_core::imp::define_interface!(ITfToolTipUIElement, ITfToolTipUIElement_Vtbl, 0x52b18b5c_555d_46b2_b00a_fa680144fbdb);
 impl core::ops::Deref for ITfToolTipUIElement {
@@ -13890,6 +14519,10 @@ impl ITfToolTipUIElement_Vtbl {
         iid == &<ITfToolTipUIElement as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfToolTipUIElement_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfToolTipUIElement_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfToolTipUIElement {}
 windows_core::imp::define_interface!(ITfTransitoryExtensionSink, ITfTransitoryExtensionSink_Vtbl, 0xa615096f_1c57_4813_8a15_55ee6e5a839c);
 windows_core::imp::interface_hierarchy!(ITfTransitoryExtensionSink, windows_core::IUnknown);
@@ -13934,6 +14567,10 @@ impl ITfTransitoryExtensionSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfTransitoryExtensionSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfTransitoryExtensionSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfTransitoryExtensionSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfTransitoryExtensionSink {}
 windows_core::imp::define_interface!(ITfTransitoryExtensionUIElement, ITfTransitoryExtensionUIElement_Vtbl, 0x858f956a_972f_42a2_a2f2_0321e1abe209);
@@ -13980,6 +14617,10 @@ impl ITfTransitoryExtensionUIElement_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfTransitoryExtensionUIElement as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfTransitoryExtensionUIElement_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfTransitoryExtensionUIElement_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfTransitoryExtensionUIElement {}
 windows_core::imp::define_interface!(ITfUIElement, ITfUIElement_Vtbl, 0xea1ea137_19df_11d7_a6d2_00065b84435c);
@@ -14077,6 +14718,10 @@ impl ITfUIElement_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfUIElement as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfUIElement_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfUIElement_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfUIElement {}
 windows_core::imp::define_interface!(ITfUIElementMgr, ITfUIElementMgr_Vtbl, 0xea1ea135_19df_11d7_a6d2_00065b84435c);
@@ -14181,6 +14826,10 @@ impl ITfUIElementMgr_Vtbl {
         iid == &<ITfUIElementMgr as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITfUIElementMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfUIElementMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITfUIElementMgr {}
 windows_core::imp::define_interface!(ITfUIElementSink, ITfUIElementSink_Vtbl, 0xea1ea136_19df_11d7_a6d2_00065b84435c);
 windows_core::imp::interface_hierarchy!(ITfUIElementSink, windows_core::IUnknown);
@@ -14238,6 +14887,10 @@ impl ITfUIElementSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITfUIElementSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITfUIElementSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITfUIElementSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITfUIElementSink {}
 windows_core::imp::define_interface!(IUIManagerEventSink, IUIManagerEventSink_Vtbl, 0xcd91d690_a7e8_4265_9b38_8bb3bbaba7de);
@@ -14332,6 +14985,10 @@ impl IUIManagerEventSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUIManagerEventSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IUIManagerEventSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUIManagerEventSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IUIManagerEventSink {}
 windows_core::imp::define_interface!(IVersionInfo, IVersionInfo_Vtbl, 0x401518ec_db00_4611_9b29_2a0e4b9afa85);
@@ -14450,6 +15107,10 @@ impl IVersionInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVersionInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVersionInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVersionInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVersionInfo {}
 #[repr(transparent)]

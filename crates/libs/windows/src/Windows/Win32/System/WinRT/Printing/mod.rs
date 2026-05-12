@@ -70,6 +70,11 @@ impl IPrintDocumentPageSource_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Storage_Xps_Printing")]
+impl<Identity: windows_core::IUnknownImpl + IPrintDocumentPageSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintDocumentPageSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Storage_Xps_Printing")]
 impl windows_core::RuntimeName for IPrintDocumentPageSource {}
 windows_core::imp::define_interface!(IPrintManagerInterop, IPrintManagerInterop_Vtbl, 0xc5435a42_8d43_4e7b_a68a_ef311e392087);
 windows_core::imp::interface_hierarchy!(IPrintManagerInterop, windows_core::IUnknown, windows_core::IInspectable);
@@ -124,6 +129,10 @@ impl IPrintManagerInterop_Vtbl {
         iid == &<IPrintManagerInterop as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPrintManagerInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintManagerInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPrintManagerInterop {}
 windows_core::imp::define_interface!(IPrintPreviewPageCollection, IPrintPreviewPageCollection_Vtbl, 0x0b31cc62_d7ec_4747_9d6e_f2537d870f2b);
 windows_core::imp::interface_hierarchy!(IPrintPreviewPageCollection, windows_core::IUnknown);
@@ -168,6 +177,10 @@ impl IPrintPreviewPageCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintPreviewPageCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPrintPreviewPageCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintPreviewPageCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPrintPreviewPageCollection {}
 windows_core::imp::define_interface!(IPrintWorkflowConfigurationNative, IPrintWorkflowConfigurationNative_Vtbl, 0xc056be0a_9ee2_450a_9823_964f0006f2bb);
@@ -269,6 +282,11 @@ impl IPrintWorkflowConfigurationNative_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IPrintWorkflowConfigurationNative_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintWorkflowConfigurationNative_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IPrintWorkflowConfigurationNative {}
 windows_core::imp::define_interface!(IPrintWorkflowObjectModelSourceFileContentNative, IPrintWorkflowObjectModelSourceFileContentNative_Vtbl, 0x68c9e477_993e_4052_8ac6_454eff58db9d);
 windows_core::imp::interface_hierarchy!(IPrintWorkflowObjectModelSourceFileContentNative, windows_core::IUnknown);
@@ -334,6 +352,11 @@ impl IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Storage_Xps")]
+impl<Identity: windows_core::IUnknownImpl + IPrintWorkflowObjectModelSourceFileContentNative_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Storage_Xps")]
 impl windows_core::RuntimeName for IPrintWorkflowObjectModelSourceFileContentNative {}
 windows_core::imp::define_interface!(IPrintWorkflowXpsObjectModelTargetPackageNative, IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl, 0x7d96bc74_9b54_4ca1_ad3a_979c3d44ddac);
 windows_core::imp::interface_hierarchy!(IPrintWorkflowXpsObjectModelTargetPackageNative, windows_core::IUnknown);
@@ -379,6 +402,11 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintWorkflowXpsObjectModelTargetPackageNative as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Storage_Xps")]
+impl<Identity: windows_core::IUnknownImpl + IPrintWorkflowXpsObjectModelTargetPackageNative_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Storage_Xps")]
 impl windows_core::RuntimeName for IPrintWorkflowXpsObjectModelTargetPackageNative {}
@@ -492,6 +520,11 @@ impl IPrintWorkflowXpsReceiver_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IPrintWorkflowXpsReceiver_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintWorkflowXpsReceiver_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IPrintWorkflowXpsReceiver {}
 windows_core::imp::define_interface!(IPrintWorkflowXpsReceiver2, IPrintWorkflowXpsReceiver2_Vtbl, 0x023bcc0c_dfab_4a61_b074_490c6995580d);
 impl core::ops::Deref for IPrintWorkflowXpsReceiver2 {
@@ -530,6 +563,11 @@ impl IPrintWorkflowXpsReceiver2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintWorkflowXpsReceiver2 as windows_core::Interface>::IID || iid == &<IPrintWorkflowXpsReceiver as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IPrintWorkflowXpsReceiver2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintWorkflowXpsReceiver2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IPrintWorkflowXpsReceiver2 {}
@@ -585,5 +623,9 @@ impl IPrinting3DManagerInterop_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrinting3DManagerInterop as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPrinting3DManagerInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrinting3DManagerInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPrinting3DManagerInterop {}

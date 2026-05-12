@@ -205,6 +205,10 @@ impl IClosable_Vtbl {
         iid == &<IClosable as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IClosable_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IClosable_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClosable_Vtbl {
@@ -274,6 +278,10 @@ impl IGetActivationFactory_Vtbl {
         iid == &<IGetActivationFactory as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IGetActivationFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGetActivationFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetActivationFactory_Vtbl {
@@ -336,6 +344,10 @@ impl IMemoryBuffer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMemoryBuffer as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMemoryBuffer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMemoryBuffer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -433,6 +445,10 @@ impl IMemoryBufferReference_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMemoryBufferReference as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMemoryBufferReference_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMemoryBufferReference_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1074,6 +1090,10 @@ impl IPropertyValue_Vtbl {
         iid == &<IPropertyValue as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPropertyValue_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPropertyValue_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyValue_Vtbl {
@@ -1441,6 +1461,10 @@ impl<T: windows_core::RuntimeType + 'static> IReference_Vtbl<T> {
         iid == &<IReference<T> as windows_core::Interface>::IID
     }
 }
+impl<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl + IReference_Impl<T> + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IReference_Vtbl<T> {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReference_Vtbl<T>
@@ -1727,6 +1751,10 @@ impl<T: windows_core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
         iid == &<IReferenceArray<T> as windows_core::Interface>::IID
     }
 }
+impl<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl + IReferenceArray_Impl<T> + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IReferenceArray_Vtbl<T> {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceArray_Vtbl<T>
@@ -1776,6 +1804,10 @@ impl IStringable_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStringable as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IStringable_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStringable_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1905,6 +1937,10 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWwwFormUrlDecoderEntry as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWwwFormUrlDecoderEntry_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWwwFormUrlDecoderEntry_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

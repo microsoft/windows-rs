@@ -411,6 +411,10 @@ impl IActivatedEventArgsDeferral_Vtbl {
         iid == &<IActivatedEventArgsDeferral as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IActivatedEventArgsDeferral_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IActivatedEventArgsDeferral_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivatedEventArgsDeferral_Vtbl {
@@ -605,6 +609,10 @@ impl IWebUIBackgroundTaskInstance_Vtbl {
         iid == &<IWebUIBackgroundTaskInstance as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IWebUIBackgroundTaskInstance_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebUIBackgroundTaskInstance_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUIBackgroundTaskInstance_Vtbl {
@@ -674,6 +682,10 @@ impl IWebUINavigatedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebUINavigatedEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWebUINavigatedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebUINavigatedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -243,6 +243,10 @@ impl IInkPointFactory_Vtbl {
         iid == &<IInkPointFactory as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IInkPointFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInkPointFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkPointFactory_Vtbl {
@@ -413,6 +417,10 @@ impl IInkPresenterRulerFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkPresenterRulerFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IInkPresenterRulerFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInkPresenterRulerFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -586,6 +594,10 @@ impl IInkPresenterStencil_Vtbl {
         iid == &<IInkPresenterStencil as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IInkPresenterStencil_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInkPresenterStencil_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkPresenterStencil_Vtbl {
@@ -702,6 +714,10 @@ impl IInkRecognizerContainer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkRecognizerContainer as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IInkRecognizerContainer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInkRecognizerContainer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1096,6 +1112,11 @@ impl IInkStrokeContainer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkStrokeContainer as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + IInkStrokeContainer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInkStrokeContainer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

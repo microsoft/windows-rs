@@ -113,6 +113,10 @@ impl IMLOperatorAttributes_Vtbl {
         iid == &<IMLOperatorAttributes as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMLOperatorAttributes_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMLOperatorAttributes_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMLOperatorAttributes {}
 windows_core::imp::define_interface!(IMLOperatorKernel, IMLOperatorKernel_Vtbl, 0x11c4b4a0_b467_4eaa_a1a6_b961d8d0ed79);
 windows_core::imp::interface_hierarchy!(IMLOperatorKernel, windows_core::IUnknown);
@@ -146,6 +150,10 @@ impl IMLOperatorKernel_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMLOperatorKernel as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMLOperatorKernel_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMLOperatorKernel_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMLOperatorKernel {}
 windows_core::imp::define_interface!(IMLOperatorKernelContext, IMLOperatorKernelContext_Vtbl, 0x82536a28_f022_4769_9d3f_8b278f84c0c3);
@@ -268,6 +276,10 @@ impl IMLOperatorKernelContext_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMLOperatorKernelContext as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMLOperatorKernelContext_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMLOperatorKernelContext_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMLOperatorKernelContext {}
 windows_core::imp::define_interface!(IMLOperatorKernelCreationContext, IMLOperatorKernelCreationContext_Vtbl, 0x5459b53d_a0fc_4665_addd_70171ef7e631);
@@ -436,6 +448,10 @@ impl IMLOperatorKernelCreationContext_Vtbl {
         iid == &<IMLOperatorKernelCreationContext as windows_core::Interface>::IID || iid == &<IMLOperatorAttributes as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMLOperatorKernelCreationContext_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMLOperatorKernelCreationContext_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMLOperatorKernelCreationContext {}
 windows_core::imp::define_interface!(IMLOperatorKernelFactory, IMLOperatorKernelFactory_Vtbl, 0xef15ad6f_0dc9_4908_ab35_a575a30dfbf8);
 windows_core::imp::interface_hierarchy!(IMLOperatorKernelFactory, windows_core::IUnknown);
@@ -478,6 +494,10 @@ impl IMLOperatorKernelFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMLOperatorKernelFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMLOperatorKernelFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMLOperatorKernelFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMLOperatorKernelFactory {}
 windows_core::imp::define_interface!(IMLOperatorRegistry, IMLOperatorRegistry_Vtbl, 0x2af9dd2d_b516_4672_9ab5_530c208493ad);
@@ -532,6 +552,10 @@ impl IMLOperatorRegistry_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMLOperatorRegistry as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMLOperatorRegistry_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMLOperatorRegistry_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMLOperatorRegistry {}
 windows_core::imp::define_interface!(IMLOperatorShapeInferenceContext, IMLOperatorShapeInferenceContext_Vtbl, 0x105b6b29_5408_4a68_9959_09b5955a3492);
@@ -675,6 +699,10 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
         iid == &<IMLOperatorShapeInferenceContext as windows_core::Interface>::IID || iid == &<IMLOperatorAttributes as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMLOperatorShapeInferenceContext_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMLOperatorShapeInferenceContext_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMLOperatorShapeInferenceContext {}
 windows_core::imp::define_interface!(IMLOperatorShapeInferrer, IMLOperatorShapeInferrer_Vtbl, 0x540be5be_a6c9_40ee_83f6_d2b8b40a7798);
 windows_core::imp::interface_hierarchy!(IMLOperatorShapeInferrer, windows_core::IUnknown);
@@ -708,6 +736,10 @@ impl IMLOperatorShapeInferrer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMLOperatorShapeInferrer as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMLOperatorShapeInferrer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMLOperatorShapeInferrer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMLOperatorShapeInferrer {}
 windows_core::imp::define_interface!(IMLOperatorTensor, IMLOperatorTensor_Vtbl, 0x7fe41f41_f430_440e_aece_54416dc8b9db);
@@ -819,6 +851,10 @@ impl IMLOperatorTensor_Vtbl {
         iid == &<IMLOperatorTensor as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMLOperatorTensor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMLOperatorTensor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMLOperatorTensor {}
 windows_core::imp::define_interface!(IMLOperatorTensorShapeDescription, IMLOperatorTensorShapeDescription_Vtbl, 0xf20e8cbe_3b28_4248_be95_f96fbc6e4643);
 windows_core::imp::interface_hierarchy!(IMLOperatorTensorShapeDescription, windows_core::IUnknown);
@@ -918,6 +954,10 @@ impl IMLOperatorTensorShapeDescription_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMLOperatorTensorShapeDescription as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMLOperatorTensorShapeDescription_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMLOperatorTensorShapeDescription_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMLOperatorTensorShapeDescription {}
 windows_core::imp::define_interface!(IMLOperatorTypeInferenceContext, IMLOperatorTypeInferenceContext_Vtbl, 0xec893bb1_f938_427b_8488_c8dcf775f138);
@@ -1028,6 +1068,10 @@ impl IMLOperatorTypeInferenceContext_Vtbl {
         iid == &<IMLOperatorTypeInferenceContext as windows_core::Interface>::IID || iid == &<IMLOperatorAttributes as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMLOperatorTypeInferenceContext_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMLOperatorTypeInferenceContext_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMLOperatorTypeInferenceContext {}
 windows_core::imp::define_interface!(IMLOperatorTypeInferrer, IMLOperatorTypeInferrer_Vtbl, 0x781aeb48_9bcb_4797_bf77_8bf455217beb);
 windows_core::imp::interface_hierarchy!(IMLOperatorTypeInferrer, windows_core::IUnknown);
@@ -1061,6 +1105,10 @@ impl IMLOperatorTypeInferrer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMLOperatorTypeInferrer as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMLOperatorTypeInferrer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMLOperatorTypeInferrer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMLOperatorTypeInferrer {}
 windows_core::imp::define_interface!(IWinMLEvaluationContext, IWinMLEvaluationContext_Vtbl, 0x95848f9e_583d_4054_af12_916387cd8426);
@@ -1141,6 +1189,11 @@ impl IWinMLEvaluationContext_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWinMLEvaluationContext as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl<Identity: windows_core::IUnknownImpl + IWinMLEvaluationContext_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWinMLEvaluationContext_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for IWinMLEvaluationContext {}
@@ -1240,6 +1293,10 @@ impl IWinMLModel_Vtbl {
         iid == &<IWinMLModel as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IWinMLModel_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWinMLModel_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IWinMLModel {}
 windows_core::imp::define_interface!(IWinMLRuntime, IWinMLRuntime_Vtbl, 0xa0425329_40ae_48d9_bce3_829ef7b8a41a);
 windows_core::imp::interface_hierarchy!(IWinMLRuntime, windows_core::IUnknown);
@@ -1332,6 +1389,11 @@ impl IWinMLRuntime_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl<Identity: windows_core::IUnknownImpl + IWinMLRuntime_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWinMLRuntime_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for IWinMLRuntime {}
 windows_core::imp::define_interface!(IWinMLRuntimeFactory, IWinMLRuntimeFactory_Vtbl, 0xa807b84d_4ae5_4bc0_a76a_941aa246bd41);
 windows_core::imp::interface_hierarchy!(IWinMLRuntimeFactory, windows_core::IUnknown);
@@ -1371,6 +1433,10 @@ impl IWinMLRuntimeFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWinMLRuntimeFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWinMLRuntimeFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWinMLRuntimeFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWinMLRuntimeFactory {}
 #[repr(C)]

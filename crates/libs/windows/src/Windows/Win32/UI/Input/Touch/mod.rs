@@ -994,6 +994,10 @@ impl IInertiaProcessor_Vtbl {
         iid == &<IInertiaProcessor as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IInertiaProcessor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInertiaProcessor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IInertiaProcessor {}
 windows_core::imp::define_interface!(IManipulationProcessor, IManipulationProcessor_Vtbl, 0xa22ac519_8300_48a0_bef4_f1be8737dba4);
 windows_core::imp::interface_hierarchy!(IManipulationProcessor, windows_core::IUnknown);
@@ -1349,6 +1353,10 @@ impl IManipulationProcessor_Vtbl {
         iid == &<IManipulationProcessor as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IManipulationProcessor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IManipulationProcessor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IManipulationProcessor {}
 pub const InertiaProcessor: windows_core::GUID = windows_core::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
 pub const MANIPULATION_ALL: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(15i32);
@@ -1567,5 +1575,9 @@ impl _IManipulationEvents_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<_IManipulationEvents as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + _IManipulationEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for _IManipulationEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for _IManipulationEvents {}

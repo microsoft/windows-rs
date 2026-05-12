@@ -43,6 +43,10 @@ impl IWaaSAssessor_Vtbl {
         iid == &<IWaaSAssessor as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IWaaSAssessor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWaaSAssessor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IWaaSAssessor {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

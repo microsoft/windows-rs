@@ -2190,6 +2190,10 @@ impl IAcousticEchoCancellationControl_Vtbl {
         iid == &<IAcousticEchoCancellationControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAcousticEchoCancellationControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAcousticEchoCancellationControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAcousticEchoCancellationControl {}
 windows_core::imp::define_interface!(IActivateAudioInterfaceAsyncOperation, IActivateAudioInterfaceAsyncOperation_Vtbl, 0x72a22d78_cde4_431d_b8cc_843a71199b6d);
 windows_core::imp::interface_hierarchy!(IActivateAudioInterfaceAsyncOperation, windows_core::IUnknown);
@@ -2220,6 +2224,10 @@ impl IActivateAudioInterfaceAsyncOperation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IActivateAudioInterfaceAsyncOperation as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IActivateAudioInterfaceAsyncOperation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IActivateAudioInterfaceAsyncOperation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IActivateAudioInterfaceAsyncOperation {}
 windows_core::imp::define_interface!(IActivateAudioInterfaceCompletionHandler, IActivateAudioInterfaceCompletionHandler_Vtbl, 0x41d949ab_9862_444a_80f6_c261334da5eb);
@@ -2254,6 +2262,10 @@ impl IActivateAudioInterfaceCompletionHandler_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IActivateAudioInterfaceCompletionHandler as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IActivateAudioInterfaceCompletionHandler_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IActivateAudioInterfaceCompletionHandler_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IActivateAudioInterfaceCompletionHandler {}
 windows_core::imp::define_interface!(IAudioAmbisonicsControl, IAudioAmbisonicsControl_Vtbl, 0x28724c91_df35_4856_9f76_d6a26413f3df);
@@ -2334,6 +2346,10 @@ impl IAudioAmbisonicsControl_Vtbl {
         iid == &<IAudioAmbisonicsControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioAmbisonicsControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioAmbisonicsControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioAmbisonicsControl {}
 windows_core::imp::define_interface!(IAudioAutoGainControl, IAudioAutoGainControl_Vtbl, 0x85401fd4_6de4_4b9d_9869_2d6753a82f3c);
 windows_core::imp::interface_hierarchy!(IAudioAutoGainControl, windows_core::IUnknown);
@@ -2389,6 +2405,10 @@ impl IAudioAutoGainControl_Vtbl {
         iid == &<IAudioAutoGainControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioAutoGainControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioAutoGainControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioAutoGainControl {}
 windows_core::imp::define_interface!(IAudioBass, IAudioBass_Vtbl, 0xa2b1a1d9_4db3_425d_a2b2_bd335cb3e2e5);
 impl core::ops::Deref for IAudioBass {
@@ -2411,6 +2431,10 @@ impl IAudioBass_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioBass as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioBass_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioBass_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioBass {}
 windows_core::imp::define_interface!(IAudioCaptureClient, IAudioCaptureClient_Vtbl, 0xc8adbd64_e71e_48a0_a4de_185c395cd317);
@@ -2479,6 +2503,10 @@ impl IAudioCaptureClient_Vtbl {
         iid == &<IAudioCaptureClient as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioCaptureClient_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioCaptureClient_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioCaptureClient {}
 windows_core::imp::define_interface!(IAudioChannelConfig, IAudioChannelConfig_Vtbl, 0xbb11c46f_ec28_493c_b88a_5db88062ce98);
 windows_core::imp::interface_hierarchy!(IAudioChannelConfig, windows_core::IUnknown);
@@ -2533,6 +2561,10 @@ impl IAudioChannelConfig_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioChannelConfig as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioChannelConfig_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioChannelConfig_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioChannelConfig {}
 windows_core::imp::define_interface!(IAudioClient, IAudioClient_Vtbl, 0x1cb9ad4c_dbfa_4c32_b178_c2f568a703b2);
@@ -2740,6 +2772,10 @@ impl IAudioClient_Vtbl {
         iid == &<IAudioClient as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioClient_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioClient_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioClient {}
 windows_core::imp::define_interface!(IAudioClient2, IAudioClient2_Vtbl, 0x726778cd_f60a_4eda_82de_e47610cd78aa);
 impl core::ops::Deref for IAudioClient2 {
@@ -2813,6 +2849,10 @@ impl IAudioClient2_Vtbl {
         iid == &<IAudioClient2 as windows_core::Interface>::IID || iid == &<IAudioClient as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioClient2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioClient2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioClient2 {}
 windows_core::imp::define_interface!(IAudioClient3, IAudioClient3_Vtbl, 0x7ed4ee07_8e67_4cd4_8c1a_2b7a5987ad42);
 impl core::ops::Deref for IAudioClient3 {
@@ -2877,6 +2917,10 @@ impl IAudioClient3_Vtbl {
         iid == &<IAudioClient3 as windows_core::Interface>::IID || iid == &<IAudioClient as windows_core::Interface>::IID || iid == &<IAudioClient2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioClient3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioClient3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioClient3 {}
 windows_core::imp::define_interface!(IAudioClientDuckingControl, IAudioClientDuckingControl_Vtbl, 0xc789d381_a28c_4168_b28f_d3a837924dc3);
 windows_core::imp::interface_hierarchy!(IAudioClientDuckingControl, windows_core::IUnknown);
@@ -2910,6 +2954,10 @@ impl IAudioClientDuckingControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioClientDuckingControl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioClientDuckingControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioClientDuckingControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioClientDuckingControl {}
 windows_core::imp::define_interface!(IAudioClock, IAudioClock_Vtbl, 0xcd63314f_3fba_4a1b_812c_ef96358728e7);
@@ -2987,6 +3035,10 @@ impl IAudioClock_Vtbl {
         iid == &<IAudioClock as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioClock_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioClock_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioClock {}
 windows_core::imp::define_interface!(IAudioClock2, IAudioClock2_Vtbl, 0x6f49ff73_6727_49ac_a008_d98cf5e70048);
 windows_core::imp::interface_hierarchy!(IAudioClock2, windows_core::IUnknown);
@@ -3017,6 +3069,10 @@ impl IAudioClock2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioClock2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioClock2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioClock2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioClock2 {}
 windows_core::imp::define_interface!(IAudioClockAdjustment, IAudioClockAdjustment_Vtbl, 0xf6e4c0a0_46d9_4fb8_be21_57a3ef2b626c);
@@ -3049,6 +3105,10 @@ impl IAudioClockAdjustment_Vtbl {
         iid == &<IAudioClockAdjustment as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioClockAdjustment_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioClockAdjustment_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioClockAdjustment {}
 windows_core::imp::define_interface!(IAudioEffectsChangedNotificationClient, IAudioEffectsChangedNotificationClient_Vtbl, 0xa5ded44f_3c5d_4b2b_bd1e_5dc1ee20bbf6);
 windows_core::imp::interface_hierarchy!(IAudioEffectsChangedNotificationClient, windows_core::IUnknown);
@@ -3079,6 +3139,10 @@ impl IAudioEffectsChangedNotificationClient_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioEffectsChangedNotificationClient as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioEffectsChangedNotificationClient_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioEffectsChangedNotificationClient_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioEffectsChangedNotificationClient {}
 windows_core::imp::define_interface!(IAudioEffectsManager, IAudioEffectsManager_Vtbl, 0x4460b3ae_4b44_4527_8676_7548a8acd260);
@@ -3156,6 +3220,10 @@ impl IAudioEffectsManager_Vtbl {
         iid == &<IAudioEffectsManager as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioEffectsManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioEffectsManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioEffectsManager {}
 windows_core::imp::define_interface!(IAudioFormatEnumerator, IAudioFormatEnumerator_Vtbl, 0xdcdaa858_895a_4a22_a5eb_67bda506096d);
 windows_core::imp::interface_hierarchy!(IAudioFormatEnumerator, windows_core::IUnknown);
@@ -3216,6 +3284,10 @@ impl IAudioFormatEnumerator_Vtbl {
         iid == &<IAudioFormatEnumerator as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioFormatEnumerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioFormatEnumerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioFormatEnumerator {}
 windows_core::imp::define_interface!(IAudioInputSelector, IAudioInputSelector_Vtbl, 0x4f03dc02_5e6e_4653_8f72_a030c123d598);
 windows_core::imp::interface_hierarchy!(IAudioInputSelector, windows_core::IUnknown);
@@ -3270,6 +3342,10 @@ impl IAudioInputSelector_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioInputSelector as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioInputSelector_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioInputSelector_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioInputSelector {}
 windows_core::imp::define_interface!(IAudioLoudness, IAudioLoudness_Vtbl, 0x7d8b1437_dd53_4350_9c1b_1ee2890bd938);
@@ -3326,6 +3402,10 @@ impl IAudioLoudness_Vtbl {
         iid == &<IAudioLoudness as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioLoudness_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioLoudness_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioLoudness {}
 windows_core::imp::define_interface!(IAudioMidrange, IAudioMidrange_Vtbl, 0x5e54b6d7_b44b_40d9_9a9e_e691d9ce6edf);
 impl core::ops::Deref for IAudioMidrange {
@@ -3348,6 +3428,10 @@ impl IAudioMidrange_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioMidrange as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioMidrange_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioMidrange_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioMidrange {}
 windows_core::imp::define_interface!(IAudioMute, IAudioMute_Vtbl, 0xdf45aeea_b74a_4b6b_afad_2366b6aa012e);
@@ -3399,6 +3483,10 @@ impl IAudioMute_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioMute as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioMute_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioMute_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioMute {}
 windows_core::imp::define_interface!(IAudioOutputSelector, IAudioOutputSelector_Vtbl, 0xbb515f69_94a7_429e_8b9c_271b3f11a3ab);
@@ -3454,6 +3542,10 @@ impl IAudioOutputSelector_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioOutputSelector as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioOutputSelector_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioOutputSelector_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioOutputSelector {}
 windows_core::imp::define_interface!(IAudioPeakMeter, IAudioPeakMeter_Vtbl, 0xdd79923c_0599_45e0_b8b6_c8df7db6e796);
@@ -3519,6 +3611,10 @@ impl IAudioPeakMeter_Vtbl {
         iid == &<IAudioPeakMeter as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioPeakMeter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioPeakMeter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioPeakMeter {}
 windows_core::imp::define_interface!(IAudioRenderClient, IAudioRenderClient_Vtbl, 0xf294acfc_3146_4483_a7bf_addca7c260e2);
 windows_core::imp::interface_hierarchy!(IAudioRenderClient, windows_core::IUnknown);
@@ -3573,6 +3669,10 @@ impl IAudioRenderClient_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioRenderClient as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioRenderClient_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioRenderClient_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioRenderClient {}
 windows_core::imp::define_interface!(IAudioSessionControl, IAudioSessionControl_Vtbl, 0xf4b1a599_7266_4319_a8ca_e70acb11e8cd);
@@ -3752,6 +3852,10 @@ impl IAudioSessionControl_Vtbl {
         iid == &<IAudioSessionControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioSessionControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioSessionControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioSessionControl {}
 windows_core::imp::define_interface!(IAudioSessionControl2, IAudioSessionControl2_Vtbl, 0xbfb7ff88_7239_4fc9_8fa2_07c950be9c6d);
 impl core::ops::Deref for IAudioSessionControl2 {
@@ -3867,6 +3971,10 @@ impl IAudioSessionControl2_Vtbl {
         iid == &<IAudioSessionControl2 as windows_core::Interface>::IID || iid == &<IAudioSessionControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioSessionControl2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioSessionControl2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioSessionControl2 {}
 windows_core::imp::define_interface!(IAudioSessionEnumerator, IAudioSessionEnumerator_Vtbl, 0xe2f5bb11_0570_40ca_acdd_3aa01277dee8);
 windows_core::imp::interface_hierarchy!(IAudioSessionEnumerator, windows_core::IUnknown);
@@ -3930,6 +4038,10 @@ impl IAudioSessionEnumerator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioSessionEnumerator as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioSessionEnumerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioSessionEnumerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioSessionEnumerator {}
 windows_core::imp::define_interface!(IAudioSessionEvents, IAudioSessionEvents_Vtbl, 0x24918acc_64b3_37c1_8ca9_74a66e9957a8);
@@ -4043,6 +4155,10 @@ impl IAudioSessionEvents_Vtbl {
         iid == &<IAudioSessionEvents as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioSessionEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioSessionEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioSessionEvents {}
 windows_core::imp::define_interface!(IAudioSessionManager, IAudioSessionManager_Vtbl, 0xbfa971f1_4d5e_40bb_935e_967039bfbee4);
 windows_core::imp::interface_hierarchy!(IAudioSessionManager, windows_core::IUnknown);
@@ -4106,6 +4222,10 @@ impl IAudioSessionManager_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioSessionManager as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioSessionManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioSessionManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioSessionManager {}
 windows_core::imp::define_interface!(IAudioSessionManager2, IAudioSessionManager2_Vtbl, 0x77aa99a0_1bd6_484f_8bc7_2c654c9a9b6f);
@@ -4217,6 +4337,10 @@ impl IAudioSessionManager2_Vtbl {
         iid == &<IAudioSessionManager2 as windows_core::Interface>::IID || iid == &<IAudioSessionManager as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioSessionManager2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioSessionManager2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioSessionManager2 {}
 windows_core::imp::define_interface!(IAudioSessionNotification, IAudioSessionNotification_Vtbl, 0x641dd20b_4d41_49cc_aba3_174b9477bb08);
 windows_core::imp::interface_hierarchy!(IAudioSessionNotification, windows_core::IUnknown);
@@ -4250,6 +4374,10 @@ impl IAudioSessionNotification_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioSessionNotification as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioSessionNotification_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioSessionNotification_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioSessionNotification {}
 windows_core::imp::define_interface!(IAudioStateMonitor, IAudioStateMonitor_Vtbl, 0x63bd8738_e30d_4c77_bf5c_834e87c657e2);
@@ -4317,6 +4445,10 @@ impl IAudioStateMonitor_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioStateMonitor as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioStateMonitor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioStateMonitor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioStateMonitor {}
 windows_core::imp::define_interface!(IAudioStreamVolume, IAudioStreamVolume_Vtbl, 0x93014887_242d_4068_8a15_cf5e93b90fe3);
@@ -4418,6 +4550,10 @@ impl IAudioStreamVolume_Vtbl {
         iid == &<IAudioStreamVolume as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioStreamVolume_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioStreamVolume_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioStreamVolume {}
 windows_core::imp::define_interface!(IAudioSystemEffectsPropertyChangeNotificationClient, IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl, 0x20049d40_56d5_400e_a2ef_385599feed49);
 windows_core::imp::interface_hierarchy!(IAudioSystemEffectsPropertyChangeNotificationClient, windows_core::IUnknown);
@@ -4448,6 +4584,10 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioSystemEffectsPropertyChangeNotificationClient as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioSystemEffectsPropertyChangeNotificationClient_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioSystemEffectsPropertyChangeNotificationClient {}
 windows_core::imp::define_interface!(IAudioSystemEffectsPropertyStore, IAudioSystemEffectsPropertyStore_Vtbl, 0x302ae7f9_d7e0_43e4_971b_1f8293613d2a);
@@ -4603,6 +4743,11 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl<Identity: windows_core::IUnknownImpl + IAudioSystemEffectsPropertyStore_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioSystemEffectsPropertyStore_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::RuntimeName for IAudioSystemEffectsPropertyStore {}
 windows_core::imp::define_interface!(IAudioTreble, IAudioTreble_Vtbl, 0x0a717812_694e_4907_b74b_bafa5cfdca7b);
 impl core::ops::Deref for IAudioTreble {
@@ -4625,6 +4770,10 @@ impl IAudioTreble_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioTreble as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioTreble_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioTreble_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioTreble {}
 windows_core::imp::define_interface!(IAudioViewManagerService, IAudioViewManagerService_Vtbl, 0xa7a7ef10_1f49_45e0_ad35_612057cc8f74);
@@ -4656,6 +4805,10 @@ impl IAudioViewManagerService_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioViewManagerService as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioViewManagerService_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioViewManagerService_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioViewManagerService {}
 windows_core::imp::define_interface!(IAudioVolumeDuckNotification, IAudioVolumeDuckNotification_Vtbl, 0xc3b284d4_6d39_4359_b3cf_b56ddb3bb39c);
@@ -4709,6 +4862,10 @@ impl IAudioVolumeDuckNotification_Vtbl {
         iid == &<IAudioVolumeDuckNotification as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAudioVolumeDuckNotification_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioVolumeDuckNotification_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAudioVolumeDuckNotification {}
 windows_core::imp::define_interface!(IAudioVolumeLevel, IAudioVolumeLevel_Vtbl, 0x7fb7b48f_531d_44a2_bcb3_5ad5a134b3dc);
 impl core::ops::Deref for IAudioVolumeLevel {
@@ -4731,6 +4888,10 @@ impl IAudioVolumeLevel_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioVolumeLevel as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAudioVolumeLevel_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioVolumeLevel_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAudioVolumeLevel {}
 windows_core::imp::define_interface!(IChannelAudioVolume, IChannelAudioVolume_Vtbl, 0x1c158861_b533_4b30_b1cf_e853e51c59b8);
@@ -4831,6 +4992,10 @@ impl IChannelAudioVolume_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IChannelAudioVolume as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IChannelAudioVolume_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IChannelAudioVolume_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IChannelAudioVolume {}
 windows_core::imp::define_interface!(IConnector, IConnector_Vtbl, 0x9c2c4058_23f5_41de_877a_df3af236a09e);
@@ -5007,6 +5172,10 @@ impl IConnector_Vtbl {
         iid == &<IConnector as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IConnector_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IConnector_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IConnector {}
 windows_core::imp::define_interface!(IControlChangeNotify, IControlChangeNotify_Vtbl, 0xa09513ed_c709_4d21_bd7b_5f34c47f3947);
 windows_core::imp::interface_hierarchy!(IControlChangeNotify, windows_core::IUnknown);
@@ -5037,6 +5206,10 @@ impl IControlChangeNotify_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IControlChangeNotify as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IControlChangeNotify_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IControlChangeNotify_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IControlChangeNotify {}
 windows_core::imp::define_interface!(IControlInterface, IControlInterface_Vtbl, 0x45d37c3f_5140_444a_ae24_400789f3cbf3);
@@ -5097,6 +5270,10 @@ impl IControlInterface_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IControlInterface as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IControlInterface_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IControlInterface_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IControlInterface {}
 windows_core::imp::define_interface!(IDeviceSpecificProperty, IDeviceSpecificProperty_Vtbl, 0x3b22bcbf_2586_4af0_8583_205d391b807c);
@@ -5176,6 +5353,10 @@ impl IDeviceSpecificProperty_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDeviceSpecificProperty as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDeviceSpecificProperty_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDeviceSpecificProperty_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDeviceSpecificProperty {}
 windows_core::imp::define_interface!(IDeviceTopology, IDeviceTopology_Vtbl, 0x2a07407e_6497_4a18_9787_32f79bd0d98f);
@@ -5350,6 +5531,10 @@ impl IDeviceTopology_Vtbl {
         iid == &<IDeviceTopology as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDeviceTopology_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDeviceTopology_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDeviceTopology {}
 windows_core::imp::define_interface!(IMMDevice, IMMDevice_Vtbl, 0xd666063f_1587_4e43_81f1_b948e807363f);
 windows_core::imp::interface_hierarchy!(IMMDevice, windows_core::IUnknown);
@@ -5462,6 +5647,11 @@ impl IMMDevice_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl<Identity: windows_core::IUnknownImpl + IMMDevice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMMDevice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl windows_core::RuntimeName for IMMDevice {}
 windows_core::imp::define_interface!(IMMDeviceActivator, IMMDeviceActivator_Vtbl, 0x3b0d0ea4_d0a9_4b0e_935b_09516746fac0);
 windows_core::imp::interface_hierarchy!(IMMDeviceActivator, windows_core::IUnknown);
@@ -5501,6 +5691,11 @@ impl IMMDeviceActivator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMMDeviceActivator as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IMMDeviceActivator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMMDeviceActivator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMMDeviceActivator {}
@@ -5562,6 +5757,10 @@ impl IMMDeviceCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMMDeviceCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMMDeviceCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMMDeviceCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMMDeviceCollection {}
 windows_core::imp::define_interface!(IMMDeviceEnumerator, IMMDeviceEnumerator_Vtbl, 0xa95664d2_9614_4f35_a746_de8db63617e6);
@@ -5681,6 +5880,10 @@ impl IMMDeviceEnumerator_Vtbl {
         iid == &<IMMDeviceEnumerator as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMMDeviceEnumerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMMDeviceEnumerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMMDeviceEnumerator {}
 windows_core::imp::define_interface!(IMMEndpoint, IMMEndpoint_Vtbl, 0x1be09788_6894_4089_8586_9a2a6c265ac5);
 windows_core::imp::interface_hierarchy!(IMMEndpoint, windows_core::IUnknown);
@@ -5720,6 +5923,10 @@ impl IMMEndpoint_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMMEndpoint as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMMEndpoint_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMMEndpoint_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMMEndpoint {}
 windows_core::imp::define_interface!(IMMNotificationClient, IMMNotificationClient_Vtbl, 0x7991eec9_7e89_4d85_8390_6c703cec60c0);
@@ -5818,6 +6025,10 @@ impl IMMNotificationClient_Vtbl {
         iid == &<IMMNotificationClient as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMMNotificationClient_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMMNotificationClient_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMMNotificationClient {}
 windows_core::imp::define_interface!(IMessageFilter, IMessageFilter_Vtbl, 0x00000016_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IMessageFilter, windows_core::IUnknown);
@@ -5881,6 +6092,11 @@ impl IMessageFilter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMessageFilter as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IMessageFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMessageFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IMessageFilter {}
@@ -6157,6 +6373,10 @@ impl IPart_Vtbl {
         iid == &<IPart as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPart_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPart_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPart {}
 windows_core::imp::define_interface!(IPartsList, IPartsList_Vtbl, 0x6daa848c_5eb0_45cc_aea5_998a2cda1ffb);
 windows_core::imp::interface_hierarchy!(IPartsList, windows_core::IUnknown);
@@ -6216,6 +6436,10 @@ impl IPartsList_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPartsList as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPartsList_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPartsList_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPartsList {}
 windows_core::imp::define_interface!(IPerChannelDbLevel, IPerChannelDbLevel_Vtbl, 0xc2f8e001_f205_4bc9_99bc_c13b1e048ccb);
@@ -6329,6 +6553,10 @@ impl IPerChannelDbLevel_Vtbl {
         iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPerChannelDbLevel_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPerChannelDbLevel_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPerChannelDbLevel {}
 windows_core::imp::define_interface!(ISimpleAudioVolume, ISimpleAudioVolume_Vtbl, 0x87ce5498_68d6_44e5_9215_6da47ef883d8);
 windows_core::imp::interface_hierarchy!(ISimpleAudioVolume, windows_core::IUnknown);
@@ -6416,6 +6644,10 @@ impl ISimpleAudioVolume_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISimpleAudioVolume as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISimpleAudioVolume_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISimpleAudioVolume_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISimpleAudioVolume {}
 windows_core::imp::define_interface!(ISpatialAudioClient, ISpatialAudioClient_Vtbl, 0xbbf8e066_aaaa_49be_9a4d_fd2a858ea27f);
@@ -6586,6 +6818,11 @@ impl ISpatialAudioClient_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioClient_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioClient_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISpatialAudioClient {}
 windows_core::imp::define_interface!(ISpatialAudioClient2, ISpatialAudioClient2_Vtbl, 0xcaabe452_a66a_4bee_a93e_e320463f6a53);
 impl core::ops::Deref for ISpatialAudioClient2 {
@@ -6657,6 +6894,11 @@ impl ISpatialAudioClient2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpatialAudioClient2 as windows_core::Interface>::IID || iid == &<ISpatialAudioClient as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioClient2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioClient2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISpatialAudioClient2 {}
@@ -6777,6 +7019,10 @@ impl ISpatialAudioMetadataClient_Vtbl {
         iid == &<ISpatialAudioMetadataClient as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioMetadataClient_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioMetadataClient_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISpatialAudioMetadataClient {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataCopier, ISpatialAudioMetadataCopier_Vtbl, 0xd224b233_e251_4fd0_9ca2_d5ecf9a68404);
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataCopier, windows_core::IUnknown);
@@ -6849,6 +7095,10 @@ impl ISpatialAudioMetadataCopier_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpatialAudioMetadataCopier as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioMetadataCopier_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioMetadataCopier_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISpatialAudioMetadataCopier {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataItems, ISpatialAudioMetadataItems_Vtbl, 0xbcd7c78f_3098_4f22_b547_a2f25a381269);
@@ -6977,6 +7227,10 @@ impl ISpatialAudioMetadataItems_Vtbl {
         iid == &<ISpatialAudioMetadataItems as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioMetadataItems_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioMetadataItems_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISpatialAudioMetadataItems {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataItemsBuffer, ISpatialAudioMetadataItemsBuffer_Vtbl, 0x42640a16_e1bd_42d9_9ff6_031ab71a2dba);
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataItemsBuffer, windows_core::IUnknown);
@@ -7034,6 +7288,10 @@ impl ISpatialAudioMetadataItemsBuffer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpatialAudioMetadataItemsBuffer as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioMetadataItemsBuffer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioMetadataItemsBuffer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISpatialAudioMetadataItemsBuffer {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataReader, ISpatialAudioMetadataReader_Vtbl, 0xb78e86a2_31d9_4c32_94d2_7df40fc7ebec);
@@ -7108,6 +7366,10 @@ impl ISpatialAudioMetadataReader_Vtbl {
         iid == &<ISpatialAudioMetadataReader as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioMetadataReader_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioMetadataReader_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISpatialAudioMetadataReader {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataWriter, ISpatialAudioMetadataWriter_Vtbl, 0x1b17ca01_2955_444d_a430_537dc589a844);
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataWriter, windows_core::IUnknown);
@@ -7181,6 +7443,10 @@ impl ISpatialAudioMetadataWriter_Vtbl {
         iid == &<ISpatialAudioMetadataWriter as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioMetadataWriter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioMetadataWriter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISpatialAudioMetadataWriter {}
 windows_core::imp::define_interface!(ISpatialAudioObject, ISpatialAudioObject_Vtbl, 0xdde28967_521b_46e5_8f00_bd6f2bc8ab1d);
 impl core::ops::Deref for ISpatialAudioObject {
@@ -7232,6 +7498,10 @@ impl ISpatialAudioObject_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpatialAudioObject as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectBase as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioObject_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioObject_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISpatialAudioObject {}
 windows_core::imp::define_interface!(ISpatialAudioObjectBase, ISpatialAudioObjectBase_Vtbl, 0xcce0b8f2_8d4d_4efb_a8cf_3d6ecf1c30e0);
@@ -7320,6 +7590,10 @@ impl ISpatialAudioObjectBase_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpatialAudioObjectBase as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioObjectBase_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioObjectBase_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISpatialAudioObjectBase {}
 windows_core::imp::define_interface!(ISpatialAudioObjectForHrtf, ISpatialAudioObjectForHrtf_Vtbl, 0xd7436ade_1978_4e14_aba0_555bd8eb83b4);
@@ -7421,6 +7695,10 @@ impl ISpatialAudioObjectForHrtf_Vtbl {
         iid == &<ISpatialAudioObjectForHrtf as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectBase as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioObjectForHrtf_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioObjectForHrtf_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISpatialAudioObjectForHrtf {}
 windows_core::imp::define_interface!(ISpatialAudioObjectForMetadataCommands, ISpatialAudioObjectForMetadataCommands_Vtbl, 0x0df2c94b_f5f9_472d_af6b_c46e0ac9cd05);
 impl core::ops::Deref for ISpatialAudioObjectForMetadataCommands {
@@ -7457,6 +7735,10 @@ impl ISpatialAudioObjectForMetadataCommands_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpatialAudioObjectForMetadataCommands as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectBase as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioObjectForMetadataCommands_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioObjectForMetadataCommands_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISpatialAudioObjectForMetadataCommands {}
 windows_core::imp::define_interface!(ISpatialAudioObjectForMetadataItems, ISpatialAudioObjectForMetadataItems_Vtbl, 0xddea49ff_3bc0_4377_8aad_9fbcfd808566);
@@ -7503,6 +7785,10 @@ impl ISpatialAudioObjectForMetadataItems_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpatialAudioObjectForMetadataItems as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectBase as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioObjectForMetadataItems_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioObjectForMetadataItems_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISpatialAudioObjectForMetadataItems {}
 windows_core::imp::define_interface!(ISpatialAudioObjectRenderStream, ISpatialAudioObjectRenderStream_Vtbl, 0xbab5f473_b423_477b_85f5_b5a332a04153);
@@ -7552,6 +7838,10 @@ impl ISpatialAudioObjectRenderStream_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpatialAudioObjectRenderStream as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioObjectRenderStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioObjectRenderStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISpatialAudioObjectRenderStream {}
 windows_core::imp::define_interface!(ISpatialAudioObjectRenderStreamBase, ISpatialAudioObjectRenderStreamBase_Vtbl, 0xfeaaf403_c1d8_450d_aa05_e0ccee7502a8);
@@ -7672,6 +7962,10 @@ impl ISpatialAudioObjectRenderStreamBase_Vtbl {
         iid == &<ISpatialAudioObjectRenderStreamBase as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioObjectRenderStreamBase_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioObjectRenderStreamBase_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISpatialAudioObjectRenderStreamBase {}
 windows_core::imp::define_interface!(ISpatialAudioObjectRenderStreamForHrtf, ISpatialAudioObjectRenderStreamForHrtf_Vtbl, 0xe08deef9_5363_406e_9fdc_080ee247bbe0);
 impl core::ops::Deref for ISpatialAudioObjectRenderStreamForHrtf {
@@ -7720,6 +8014,10 @@ impl ISpatialAudioObjectRenderStreamForHrtf_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpatialAudioObjectRenderStreamForHrtf as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioObjectRenderStreamForHrtf_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioObjectRenderStreamForHrtf_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISpatialAudioObjectRenderStreamForHrtf {}
 windows_core::imp::define_interface!(ISpatialAudioObjectRenderStreamForMetadata, ISpatialAudioObjectRenderStreamForMetadata_Vtbl, 0xbbc9c907_48d5_4a2e_a0c7_f7f0d67c1fb1);
@@ -7791,6 +8089,10 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
         iid == &<ISpatialAudioObjectRenderStreamForMetadata as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioObjectRenderStreamForMetadata_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISpatialAudioObjectRenderStreamForMetadata {}
 windows_core::imp::define_interface!(ISpatialAudioObjectRenderStreamNotify, ISpatialAudioObjectRenderStreamNotify_Vtbl, 0xdddf83e6_68d7_4c70_883f_a1836afb4a50);
 windows_core::imp::interface_hierarchy!(ISpatialAudioObjectRenderStreamNotify, windows_core::IUnknown);
@@ -7828,6 +8130,10 @@ impl ISpatialAudioObjectRenderStreamNotify_Vtbl {
         iid == &<ISpatialAudioObjectRenderStreamNotify as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISpatialAudioObjectRenderStreamNotify_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISpatialAudioObjectRenderStreamNotify_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISpatialAudioObjectRenderStreamNotify {}
 windows_core::imp::define_interface!(ISubunit, ISubunit_Vtbl, 0x82149a85_dba6_4487_86bb_ea8f7fefcc71);
 windows_core::imp::interface_hierarchy!(ISubunit, windows_core::IUnknown);
@@ -7844,6 +8150,10 @@ impl ISubunit_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISubunit as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISubunit_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISubunit_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISubunit {}
 pub const In: DataFlow = DataFlow(0i32);

@@ -53,6 +53,10 @@ impl IGraphicsEffect_Vtbl {
         iid == &<IGraphicsEffect as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IGraphicsEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGraphicsEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsEffect_Vtbl {
@@ -76,6 +80,10 @@ impl IGraphicsEffectSource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGraphicsEffectSource as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IGraphicsEffectSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGraphicsEffectSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

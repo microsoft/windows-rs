@@ -114,6 +114,11 @@ impl IPhotoAcquire_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IPhotoAcquire_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPhotoAcquire_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IPhotoAcquire {}
 windows_core::imp::define_interface!(IPhotoAcquireDeviceSelectionDialog, IPhotoAcquireDeviceSelectionDialog_Vtbl, 0x00f28837_55dd_4f37_aaf5_6855a9640467);
 windows_core::imp::interface_hierarchy!(IPhotoAcquireDeviceSelectionDialog, windows_core::IUnknown);
@@ -177,6 +182,10 @@ impl IPhotoAcquireDeviceSelectionDialog_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPhotoAcquireDeviceSelectionDialog as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPhotoAcquireDeviceSelectionDialog_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPhotoAcquireDeviceSelectionDialog_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPhotoAcquireDeviceSelectionDialog {}
 windows_core::imp::define_interface!(IPhotoAcquireItem, IPhotoAcquireItem_Vtbl, 0x00f21c97_28bf_4c02_b842_5e4e90139a30);
@@ -390,6 +399,11 @@ impl IPhotoAcquireItem_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IPhotoAcquireItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPhotoAcquireItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPhotoAcquireItem {}
 windows_core::imp::define_interface!(IPhotoAcquireOptionsDialog, IPhotoAcquireOptionsDialog_Vtbl, 0x00f2b3ee_bf64_47ee_89f4_4dedd79643f2);
 windows_core::imp::interface_hierarchy!(IPhotoAcquireOptionsDialog, windows_core::IUnknown);
@@ -484,6 +498,10 @@ impl IPhotoAcquireOptionsDialog_Vtbl {
         iid == &<IPhotoAcquireOptionsDialog as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPhotoAcquireOptionsDialog_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPhotoAcquireOptionsDialog_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPhotoAcquireOptionsDialog {}
 windows_core::imp::define_interface!(IPhotoAcquirePlugin, IPhotoAcquirePlugin_Vtbl, 0x00f2dceb_ecb8_4f77_8e47_e7a987c83dd0);
 windows_core::imp::interface_hierarchy!(IPhotoAcquirePlugin, windows_core::IUnknown);
@@ -569,6 +587,11 @@ impl IPhotoAcquirePlugin_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPhotoAcquirePlugin as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl<Identity: windows_core::IUnknownImpl + IPhotoAcquirePlugin_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPhotoAcquirePlugin_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl windows_core::RuntimeName for IPhotoAcquirePlugin {}
@@ -888,6 +911,11 @@ impl IPhotoAcquireProgressCB_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IPhotoAcquireProgressCB_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPhotoAcquireProgressCB_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPhotoAcquireProgressCB {}
 windows_core::imp::define_interface!(IPhotoAcquireSettings, IPhotoAcquireSettings_Vtbl, 0x00f2b868_dd67_487c_9553_049240767e91);
 windows_core::imp::interface_hierarchy!(IPhotoAcquireSettings, windows_core::IUnknown);
@@ -1129,6 +1157,10 @@ impl IPhotoAcquireSettings_Vtbl {
         iid == &<IPhotoAcquireSettings as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPhotoAcquireSettings_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPhotoAcquireSettings_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPhotoAcquireSettings {}
 windows_core::imp::define_interface!(IPhotoAcquireSource, IPhotoAcquireSource_Vtbl, 0x00f2c703_8613_4282_a53b_6ec59c5883ac);
 windows_core::imp::interface_hierarchy!(IPhotoAcquireSource, windows_core::IUnknown);
@@ -1302,6 +1334,11 @@ impl IPhotoAcquireSource_Vtbl {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl<Identity: windows_core::IUnknownImpl + IPhotoAcquireSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPhotoAcquireSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::RuntimeName for IPhotoAcquireSource {}
 windows_core::imp::define_interface!(IPhotoProgressActionCB, IPhotoProgressActionCB_Vtbl, 0x00f242d0_b206_4e7d_b4c1_4755bcbb9c9f);
 windows_core::imp::interface_hierarchy!(IPhotoProgressActionCB, windows_core::IUnknown);
@@ -1332,6 +1369,10 @@ impl IPhotoProgressActionCB_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPhotoProgressActionCB as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPhotoProgressActionCB_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPhotoProgressActionCB_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPhotoProgressActionCB {}
 windows_core::imp::define_interface!(IPhotoProgressDialog, IPhotoProgressDialog_Vtbl, 0x00f246f9_0750_4f08_9381_2cd8e906a4ae);
@@ -1633,6 +1674,11 @@ impl IPhotoProgressDialog_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
+impl<Identity: windows_core::IUnknownImpl + IPhotoProgressDialog_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPhotoProgressDialog_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for IPhotoProgressDialog {}
 windows_core::imp::define_interface!(IUserInputString, IUserInputString_Vtbl, 0x00f243a1_205b_45ba_ae26_abbc53aa7a6f);
 windows_core::imp::interface_hierarchy!(IUserInputString, windows_core::IUnknown);
@@ -1861,6 +1907,11 @@ impl IUserInputString_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUserInputString as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl<Identity: windows_core::IUnknownImpl + IUserInputString_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUserInputString_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for IUserInputString {}

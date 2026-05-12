@@ -137,6 +137,10 @@ impl ISearchPaneQueryChangedEventArgs_Vtbl {
         iid == &<ISearchPaneQueryChangedEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISearchPaneQueryChangedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISearchPaneQueryChangedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPaneQueryChangedEventArgs_Vtbl {

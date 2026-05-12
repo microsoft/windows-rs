@@ -1925,6 +1925,10 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
         iid == &<IDefaultAudioDeviceChangedEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDefaultAudioDeviceChangedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDefaultAudioDeviceChangedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDefaultAudioDeviceChangedEventArgs_Vtbl {
@@ -2385,6 +2389,11 @@ impl IMediaDeviceController_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaDeviceController as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
+impl<Identity: windows_core::IUnknownImpl + IMediaDeviceController_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMediaDeviceController_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

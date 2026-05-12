@@ -205,6 +205,11 @@ impl IWebAccountProviderBaseReportOperation_Vtbl {
         iid == &<IWebAccountProviderBaseReportOperation as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Security_Authentication_Web_Core")]
+impl<Identity: windows_core::IUnknownImpl + IWebAccountProviderBaseReportOperation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebAccountProviderBaseReportOperation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderBaseReportOperation_Vtbl {
@@ -280,6 +285,10 @@ impl IWebAccountProviderOperation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAccountProviderOperation as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWebAccountProviderOperation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebAccountProviderOperation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -383,6 +392,11 @@ impl IWebAccountProviderSilentReportOperation_Vtbl {
         iid == &<IWebAccountProviderSilentReportOperation as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Security_Authentication_Web_Core")]
+impl<Identity: windows_core::IUnknownImpl + IWebAccountProviderSilentReportOperation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebAccountProviderSilentReportOperation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderSilentReportOperation_Vtbl {
@@ -432,6 +446,10 @@ impl IWebAccountProviderTokenObjects_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAccountProviderTokenObjects as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWebAccountProviderTokenObjects_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebAccountProviderTokenObjects_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -490,6 +508,11 @@ impl IWebAccountProviderTokenObjects2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAccountProviderTokenObjects2 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "System")]
+impl<Identity: windows_core::IUnknownImpl + IWebAccountProviderTokenObjects2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebAccountProviderTokenObjects2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -603,6 +626,10 @@ impl IWebAccountProviderTokenOperation_Vtbl {
         iid == &<IWebAccountProviderTokenOperation as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IWebAccountProviderTokenOperation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebAccountProviderTokenOperation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderTokenOperation_Vtbl {
@@ -660,6 +687,11 @@ impl IWebAccountProviderUIReportOperation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAccountProviderUIReportOperation as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Security_Authentication_Web_Core")]
+impl<Identity: windows_core::IUnknownImpl + IWebAccountProviderUIReportOperation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebAccountProviderUIReportOperation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

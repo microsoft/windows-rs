@@ -382,6 +382,11 @@ impl ICorProfilerAssemblyReferenceProvider_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerAssemblyReferenceProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerAssemblyReferenceProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerAssemblyReferenceProvider {}
 windows_core::imp::define_interface!(ICorProfilerCallback, ICorProfilerCallback_Vtbl, 0x176fbed1_a55c_4796_98ca_a9da0ef883e7);
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback, windows_core::IUnknown);
@@ -1253,6 +1258,10 @@ impl ICorProfilerCallback_Vtbl {
         iid == &<ICorProfilerCallback as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICorProfilerCallback {}
 windows_core::imp::define_interface!(ICorProfilerCallback10, ICorProfilerCallback10_Vtbl, 0xcec5b60e_c69c_495f_87f6_84d28ee16ffb);
 impl core::ops::Deref for ICorProfilerCallback10 {
@@ -1320,6 +1329,10 @@ impl ICorProfilerCallback10_Vtbl {
         iid == &<ICorProfilerCallback10 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback as windows_core::Interface>::IID || iid == &<ICorProfilerCallback2 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback3 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback4 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback5 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback6 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback7 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback8 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback9 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerCallback10_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerCallback10_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICorProfilerCallback10 {}
 windows_core::imp::define_interface!(ICorProfilerCallback11, ICorProfilerCallback11_Vtbl, 0x42350846_aaed_47f7_b128_fd0c98881cde);
 impl core::ops::Deref for ICorProfilerCallback11 {
@@ -1356,6 +1369,10 @@ impl ICorProfilerCallback11_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICorProfilerCallback11 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback as windows_core::Interface>::IID || iid == &<ICorProfilerCallback2 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback3 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback4 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback5 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback6 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback7 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback8 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback9 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback10 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerCallback11_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerCallback11_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ICorProfilerCallback11 {}
 windows_core::imp::define_interface!(ICorProfilerCallback2, ICorProfilerCallback2_Vtbl, 0x8a8cc829_ccf2_49fe_bbae_0f022228071a);
@@ -1481,6 +1498,10 @@ impl ICorProfilerCallback2_Vtbl {
         iid == &<ICorProfilerCallback2 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerCallback2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerCallback2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICorProfilerCallback2 {}
 windows_core::imp::define_interface!(ICorProfilerCallback3, ICorProfilerCallback3_Vtbl, 0x4fd2ed52_7731_4b8d_9469_03d2cc3086c5);
 impl core::ops::Deref for ICorProfilerCallback3 {
@@ -1547,6 +1568,10 @@ impl ICorProfilerCallback3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICorProfilerCallback3 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback as windows_core::Interface>::IID || iid == &<ICorProfilerCallback2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerCallback3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerCallback3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ICorProfilerCallback3 {}
 windows_core::imp::define_interface!(ICorProfilerCallback4, ICorProfilerCallback4_Vtbl, 0x7b63b2e3_107d_4d48_b2f6_f61e229470d2);
@@ -1651,6 +1676,10 @@ impl ICorProfilerCallback4_Vtbl {
         iid == &<ICorProfilerCallback4 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback as windows_core::Interface>::IID || iid == &<ICorProfilerCallback2 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback3 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerCallback4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerCallback4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICorProfilerCallback4 {}
 windows_core::imp::define_interface!(ICorProfilerCallback5, ICorProfilerCallback5_Vtbl, 0x8dfba405_8c9f_45f8_bffa_83b14cef78b5);
 impl core::ops::Deref for ICorProfilerCallback5 {
@@ -1690,6 +1719,10 @@ impl ICorProfilerCallback5_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICorProfilerCallback5 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback as windows_core::Interface>::IID || iid == &<ICorProfilerCallback2 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback3 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback4 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerCallback5_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerCallback5_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ICorProfilerCallback5 {}
 windows_core::imp::define_interface!(ICorProfilerCallback6, ICorProfilerCallback6_Vtbl, 0xfc13df4b_4448_4f4f_950c_ba8d19d00c36);
@@ -1732,6 +1765,10 @@ impl ICorProfilerCallback6_Vtbl {
         iid == &<ICorProfilerCallback6 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback as windows_core::Interface>::IID || iid == &<ICorProfilerCallback2 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback3 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback4 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback5 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerCallback6_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerCallback6_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICorProfilerCallback6 {}
 windows_core::imp::define_interface!(ICorProfilerCallback7, ICorProfilerCallback7_Vtbl, 0xf76a2dba_1d52_4539_866c_2aa518f9efc3);
 impl core::ops::Deref for ICorProfilerCallback7 {
@@ -1768,6 +1805,10 @@ impl ICorProfilerCallback7_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICorProfilerCallback7 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback as windows_core::Interface>::IID || iid == &<ICorProfilerCallback2 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback3 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback4 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback5 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback6 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerCallback7_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerCallback7_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ICorProfilerCallback7 {}
 windows_core::imp::define_interface!(ICorProfilerCallback8, ICorProfilerCallback8_Vtbl, 0x5bed9b15_c079_4d47_bfe2_215a140c07e0);
@@ -1821,6 +1862,10 @@ impl ICorProfilerCallback8_Vtbl {
         iid == &<ICorProfilerCallback8 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback as windows_core::Interface>::IID || iid == &<ICorProfilerCallback2 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback3 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback4 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback5 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback6 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback7 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerCallback8_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerCallback8_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICorProfilerCallback8 {}
 windows_core::imp::define_interface!(ICorProfilerCallback9, ICorProfilerCallback9_Vtbl, 0x27583ec3_c8f5_482f_8052_194b8ce4705a);
 impl core::ops::Deref for ICorProfilerCallback9 {
@@ -1857,6 +1902,10 @@ impl ICorProfilerCallback9_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICorProfilerCallback9 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback as windows_core::Interface>::IID || iid == &<ICorProfilerCallback2 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback3 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback4 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback5 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback6 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback7 as windows_core::Interface>::IID || iid == &<ICorProfilerCallback8 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerCallback9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerCallback9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ICorProfilerCallback9 {}
 windows_core::imp::define_interface!(ICorProfilerFunctionControl, ICorProfilerFunctionControl_Vtbl, 0xf0963021_e1ea_4732_8581_e01b0bd3c0c6);
@@ -1915,6 +1964,10 @@ impl ICorProfilerFunctionControl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICorProfilerFunctionControl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerFunctionControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerFunctionControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ICorProfilerFunctionControl {}
 windows_core::imp::define_interface!(ICorProfilerFunctionEnum, ICorProfilerFunctionEnum_Vtbl, 0xff71301a_b994_429d_a10b_b345a65280ef);
@@ -2015,6 +2068,10 @@ impl ICorProfilerFunctionEnum_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICorProfilerFunctionEnum as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerFunctionEnum_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerFunctionEnum_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ICorProfilerFunctionEnum {}
 windows_core::imp::define_interface!(ICorProfilerInfo, ICorProfilerInfo_Vtbl, 0x28b5557d_3f3f_48b4_90b2_5f9eea2f6c48);
@@ -2576,6 +2633,11 @@ impl ICorProfilerInfo_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo {}
 windows_core::imp::define_interface!(ICorProfilerInfo10, ICorProfilerInfo10_Vtbl, 0x2f1b5152_c869_40c9_aa5f_3abe026bd720);
 impl core::ops::Deref for ICorProfilerInfo10 {
@@ -2679,6 +2741,11 @@ impl ICorProfilerInfo10_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerInfo10_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerInfo10_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo10 {}
 windows_core::imp::define_interface!(ICorProfilerInfo11, ICorProfilerInfo11_Vtbl, 0x06398876_8987_4154_b621_40a00d6e4d04);
 impl core::ops::Deref for ICorProfilerInfo11 {
@@ -2739,6 +2806,11 @@ impl ICorProfilerInfo11_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICorProfilerInfo11 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo as windows_core::Interface>::IID || iid == &<ICorProfilerInfo2 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo3 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo4 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo5 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo6 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo7 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo8 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo9 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo10 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerInfo11_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerInfo11_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo11 {}
@@ -2889,6 +2961,11 @@ impl ICorProfilerInfo12_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerInfo12_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerInfo12_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo12 {}
 windows_core::imp::define_interface!(ICorProfilerInfo13, ICorProfilerInfo13_Vtbl, 0x6e6c7ee2_0701_4ec2_9d29_2e8733b66934);
 impl core::ops::Deref for ICorProfilerInfo13 {
@@ -2975,6 +3052,11 @@ impl ICorProfilerInfo13_Vtbl {
             || iid == &<ICorProfilerInfo11 as windows_core::Interface>::IID
             || iid == &<ICorProfilerInfo12 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerInfo13_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerInfo13_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo13 {}
@@ -3076,6 +3158,11 @@ impl ICorProfilerInfo14_Vtbl {
             || iid == &<ICorProfilerInfo12 as windows_core::Interface>::IID
             || iid == &<ICorProfilerInfo13 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerInfo14_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerInfo14_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo14 {}
@@ -3437,6 +3524,11 @@ impl ICorProfilerInfo2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerInfo2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerInfo2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo2 {}
 windows_core::imp::define_interface!(ICorProfilerInfo3, ICorProfilerInfo3_Vtbl, 0xb555ed4f_452a_4e54_8b39_b5360bad32a0);
 impl core::ops::Deref for ICorProfilerInfo3 {
@@ -3663,6 +3755,11 @@ impl ICorProfilerInfo3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerInfo3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerInfo3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo3 {}
 windows_core::imp::define_interface!(ICorProfilerInfo4, ICorProfilerInfo4_Vtbl, 0x0d8fdcaa_6257_47bf_b1bf_94dac88466ee);
 impl core::ops::Deref for ICorProfilerInfo4 {
@@ -3841,6 +3938,11 @@ impl ICorProfilerInfo4_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerInfo4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerInfo4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo4 {}
 windows_core::imp::define_interface!(ICorProfilerInfo5, ICorProfilerInfo5_Vtbl, 0x07602928_ce38_4b83_81e7_74adaf781214);
 impl core::ops::Deref for ICorProfilerInfo5 {
@@ -3896,6 +3998,11 @@ impl ICorProfilerInfo5_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerInfo5_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerInfo5_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo5 {}
 windows_core::imp::define_interface!(ICorProfilerInfo6, ICorProfilerInfo6_Vtbl, 0xf30a070d_bffb_46a7_b1d8_8781ef7b698a);
 impl core::ops::Deref for ICorProfilerInfo6 {
@@ -3937,6 +4044,11 @@ impl ICorProfilerInfo6_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICorProfilerInfo6 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo as windows_core::Interface>::IID || iid == &<ICorProfilerInfo2 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo3 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo4 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo5 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerInfo6_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerInfo6_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo6 {}
@@ -4015,6 +4127,11 @@ impl ICorProfilerInfo7_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerInfo7_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerInfo7_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo7 {}
 windows_core::imp::define_interface!(ICorProfilerInfo8, ICorProfilerInfo8_Vtbl, 0xc5ac80a6_782e_4716_8044_39598c60cfbf);
 impl core::ops::Deref for ICorProfilerInfo8 {
@@ -4091,6 +4208,11 @@ impl ICorProfilerInfo8_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerInfo8_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerInfo8_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo8 {}
 windows_core::imp::define_interface!(ICorProfilerInfo9, ICorProfilerInfo9_Vtbl, 0x008170db_f8cc_4796_9a51_dc8aa0b47012);
 impl core::ops::Deref for ICorProfilerInfo9 {
@@ -4156,6 +4278,11 @@ impl ICorProfilerInfo9_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICorProfilerInfo9 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo as windows_core::Interface>::IID || iid == &<ICorProfilerInfo2 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo3 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo4 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo5 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo6 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo7 as windows_core::Interface>::IID || iid == &<ICorProfilerInfo8 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerInfo9_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerInfo9_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo9 {}
@@ -4258,6 +4385,10 @@ impl ICorProfilerMethodEnum_Vtbl {
         iid == &<ICorProfilerMethodEnum as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerMethodEnum_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerMethodEnum_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICorProfilerMethodEnum {}
 windows_core::imp::define_interface!(ICorProfilerModuleEnum, ICorProfilerModuleEnum_Vtbl, 0xb0266d75_2081_4493_af7f_028ba34db891);
 windows_core::imp::interface_hierarchy!(ICorProfilerModuleEnum, windows_core::IUnknown);
@@ -4357,6 +4488,10 @@ impl ICorProfilerModuleEnum_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICorProfilerModuleEnum as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerModuleEnum_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerModuleEnum_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ICorProfilerModuleEnum {}
 windows_core::imp::define_interface!(ICorProfilerObjectEnum, ICorProfilerObjectEnum_Vtbl, 0x2c6269bd_2d13_4321_ae12_6686365fd6af);
@@ -4458,6 +4593,10 @@ impl ICorProfilerObjectEnum_Vtbl {
         iid == &<ICorProfilerObjectEnum as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerObjectEnum_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerObjectEnum_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICorProfilerObjectEnum {}
 windows_core::imp::define_interface!(ICorProfilerThreadEnum, ICorProfilerThreadEnum_Vtbl, 0x571194f7_25ed_419f_aa8b_7016b3159701);
 windows_core::imp::interface_hierarchy!(ICorProfilerThreadEnum, windows_core::IUnknown);
@@ -4558,6 +4697,10 @@ impl ICorProfilerThreadEnum_Vtbl {
         iid == &<ICorProfilerThreadEnum as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICorProfilerThreadEnum_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorProfilerThreadEnum_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICorProfilerThreadEnum {}
 windows_core::imp::define_interface!(IMethodMalloc, IMethodMalloc_Vtbl, 0xa0efb28b_6ee2_4d7b_b983_a75ef7beedb8);
 windows_core::imp::interface_hierarchy!(IMethodMalloc, windows_core::IUnknown);
@@ -4588,6 +4731,10 @@ impl IMethodMalloc_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMethodMalloc as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMethodMalloc_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMethodMalloc_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMethodMalloc {}
 pub const NO_MAPPING: CorDebugIlToNativeMappingTypes = CorDebugIlToNativeMappingTypes(-1i32);

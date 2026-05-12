@@ -219,6 +219,10 @@ impl IPrintCustomOptionDetails_Vtbl {
         iid == &<IPrintCustomOptionDetails as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPrintCustomOptionDetails_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintCustomOptionDetails_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintCustomOptionDetails_Vtbl {
@@ -383,6 +387,10 @@ impl IPrintItemListOptionDetails_Vtbl {
         iid == &<IPrintItemListOptionDetails as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPrintItemListOptionDetails_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintItemListOptionDetails_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintItemListOptionDetails_Vtbl {
@@ -530,6 +538,10 @@ impl IPrintNumberOptionDetails_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintNumberOptionDetails as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPrintNumberOptionDetails_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintNumberOptionDetails_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -707,6 +719,10 @@ impl IPrintOptionDetails_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintOptionDetails as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPrintOptionDetails_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintOptionDetails_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -911,6 +927,10 @@ impl IPrintTextOptionDetails_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintTextOptionDetails as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPrintTextOptionDetails_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintTextOptionDetails_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

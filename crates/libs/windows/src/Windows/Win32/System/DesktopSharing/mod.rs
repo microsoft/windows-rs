@@ -319,6 +319,11 @@ impl IRDPSRAPIApplication_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIApplication_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIApplication_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIApplication {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIApplicationFilter, IRDPSRAPIApplicationFilter_Vtbl, 0xd20f10ca_6637_4f06_b1d5_277ea7e5160d);
@@ -430,6 +435,11 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIApplicationFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIApplicationFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIApplicationFilter {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIApplicationList, IRDPSRAPIApplicationList_Vtbl, 0xd4b4aeb3_22dc_4837_b3b6_42ea2517849a);
@@ -502,6 +512,11 @@ impl IRDPSRAPIApplicationList_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRDPSRAPIApplicationList as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIApplicationList_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIApplicationList_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIApplicationList {}
@@ -690,6 +705,11 @@ impl IRDPSRAPIAttendee_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIAttendee_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIAttendee_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIAttendee {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIAttendeeDisconnectInfo, IRDPSRAPIAttendeeDisconnectInfo_Vtbl, 0xc187689f_447c_44a1_9c14_fffbb3b7ec17);
@@ -789,6 +809,11 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIAttendeeDisconnectInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIAttendeeDisconnectInfo {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIAttendeeManager, IRDPSRAPIAttendeeManager_Vtbl, 0xba3a37e8_33da_4749_8da0_07fa34da7944);
@@ -861,6 +886,11 @@ impl IRDPSRAPIAttendeeManager_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRDPSRAPIAttendeeManager as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIAttendeeManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIAttendeeManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIAttendeeManager {}
@@ -954,6 +984,10 @@ impl IRDPSRAPIAudioStream_Vtbl {
         iid == &<IRDPSRAPIAudioStream as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIAudioStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIAudioStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IRDPSRAPIAudioStream {}
 windows_core::imp::define_interface!(IRDPSRAPIClipboardUseEvents, IRDPSRAPIClipboardUseEvents_Vtbl, 0xd559f59a_7a27_4138_8763_247ce5f659a8);
 windows_core::imp::interface_hierarchy!(IRDPSRAPIClipboardUseEvents, windows_core::IUnknown);
@@ -1002,6 +1036,11 @@ impl IRDPSRAPIClipboardUseEvents_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRDPSRAPIClipboardUseEvents as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIClipboardUseEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIClipboardUseEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IRDPSRAPIClipboardUseEvents {}
@@ -1058,6 +1097,10 @@ impl IRDPSRAPIDebug_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRDPSRAPIDebug as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIDebug_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIDebug_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRDPSRAPIDebug {}
 #[cfg(feature = "Win32_System_Com")]
@@ -1177,6 +1220,11 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRDPSRAPIFrameBuffer as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIFrameBuffer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIFrameBuffer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIFrameBuffer {}
@@ -1344,6 +1392,11 @@ impl IRDPSRAPIInvitation_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIInvitation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIInvitation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIInvitation {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIInvitationManager, IRDPSRAPIInvitationManager_Vtbl, 0x4722b049_92c3_4c2d_8a65_f7348f644dcf);
@@ -1468,6 +1521,11 @@ impl IRDPSRAPIInvitationManager_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIInvitationManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIInvitationManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIInvitationManager {}
 windows_core::imp::define_interface!(IRDPSRAPIPerfCounterLogger, IRDPSRAPIPerfCounterLogger_Vtbl, 0x071c2533_0fa4_4e8f_ae83_9c10b4305ab5);
 windows_core::imp::interface_hierarchy!(IRDPSRAPIPerfCounterLogger, windows_core::IUnknown);
@@ -1498,6 +1556,10 @@ impl IRDPSRAPIPerfCounterLogger_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRDPSRAPIPerfCounterLogger as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIPerfCounterLogger_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIPerfCounterLogger_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRDPSRAPIPerfCounterLogger {}
 windows_core::imp::define_interface!(IRDPSRAPIPerfCounterLoggingManager, IRDPSRAPIPerfCounterLoggingManager_Vtbl, 0x9a512c86_ac6e_4a8e_b1a4_fcef363f6e64);
@@ -1538,6 +1600,10 @@ impl IRDPSRAPIPerfCounterLoggingManager_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRDPSRAPIPerfCounterLoggingManager as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIPerfCounterLoggingManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIPerfCounterLoggingManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRDPSRAPIPerfCounterLoggingManager {}
 #[cfg(feature = "Win32_System_Com")]
@@ -1614,6 +1680,11 @@ impl IRDPSRAPISessionProperties_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRDPSRAPISessionProperties as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPISessionProperties_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPISessionProperties_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPISessionProperties {}
@@ -1874,6 +1945,11 @@ impl IRDPSRAPISharingSession_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPISharingSession_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPISharingSession_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPISharingSession {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPISharingSession2, IRDPSRAPISharingSession2_Vtbl, 0xfee4ee57_e3e8_4205_8fb0_8fd1d0675c21);
@@ -1959,6 +2035,11 @@ impl IRDPSRAPISharingSession2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRDPSRAPISharingSession2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IRDPSRAPISharingSession as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPISharingSession2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPISharingSession2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPISharingSession2 {}
@@ -2102,6 +2183,11 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPITcpConnectionInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPITcpConnectionInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPITcpConnectionInfo {}
 windows_core::imp::define_interface!(IRDPSRAPITransportStream, IRDPSRAPITransportStream_Vtbl, 0x36cfa065_43bb_4ef7_aed7_9b88a5053036);
 windows_core::imp::interface_hierarchy!(IRDPSRAPITransportStream, windows_core::IUnknown);
@@ -2216,6 +2302,10 @@ impl IRDPSRAPITransportStream_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRDPSRAPITransportStream as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPITransportStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPITransportStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRDPSRAPITransportStream {}
 windows_core::imp::define_interface!(IRDPSRAPITransportStreamBuffer, IRDPSRAPITransportStreamBuffer_Vtbl, 0x81c80290_5085_44b0_b460_f865c39cb4a9);
@@ -2416,6 +2506,10 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
         iid == &<IRDPSRAPITransportStreamBuffer as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPITransportStreamBuffer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPITransportStreamBuffer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IRDPSRAPITransportStreamBuffer {}
 windows_core::imp::define_interface!(IRDPSRAPITransportStreamEvents, IRDPSRAPITransportStreamEvents_Vtbl, 0xea81c254_f5af_4e40_982e_3e63bb595276);
 windows_core::imp::interface_hierarchy!(IRDPSRAPITransportStreamEvents, windows_core::IUnknown);
@@ -2479,6 +2573,10 @@ impl IRDPSRAPITransportStreamEvents_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRDPSRAPITransportStreamEvents as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPITransportStreamEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPITransportStreamEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRDPSRAPITransportStreamEvents {}
 #[cfg(feature = "Win32_System_Com")]
@@ -2756,6 +2854,11 @@ impl IRDPSRAPIViewer_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIViewer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIViewer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIViewer {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIVirtualChannel, IRDPSRAPIVirtualChannel_Vtbl, 0x05e12f95_28b3_4c9a_8780_d0248574a1e0);
@@ -2879,6 +2982,11 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIVirtualChannel_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIVirtualChannel_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIVirtualChannel {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIVirtualChannelManager, IRDPSRAPIVirtualChannelManager_Vtbl, 0x0d11c661_5d0d_4ee4_89df_2166ae1fdfed);
@@ -2980,6 +3088,11 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRDPSRAPIVirtualChannelManager as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIVirtualChannelManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIVirtualChannelManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIVirtualChannelManager {}
@@ -3147,6 +3260,11 @@ impl IRDPSRAPIWindow_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIWindow_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIWindow_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIWindow {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRDPSRAPIWindowList, IRDPSRAPIWindowList_Vtbl, 0x8a05ce44_715a_4116_a189_a118f30a07bd);
@@ -3219,6 +3337,11 @@ impl IRDPSRAPIWindowList_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRDPSRAPIWindowList as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IRDPSRAPIWindowList_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPSRAPIWindowList_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIWindowList {}
@@ -3339,6 +3462,10 @@ impl IRDPViewerInputSink_Vtbl {
         iid == &<IRDPViewerInputSink as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRDPViewerInputSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRDPViewerInputSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IRDPViewerInputSink {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3418,6 +3545,11 @@ impl _IRDPSessionEvents_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<_IRDPSessionEvents as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + _IRDPSessionEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for _IRDPSessionEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for _IRDPSessionEvents {}

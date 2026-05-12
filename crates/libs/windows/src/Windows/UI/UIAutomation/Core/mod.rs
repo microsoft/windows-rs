@@ -252,6 +252,10 @@ impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
         iid == &<ICoreAutomationConnectionBoundObjectProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICoreAutomationConnectionBoundObjectProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreAutomationConnectionBoundObjectProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreAutomationConnectionBoundObjectProvider_Vtbl {
@@ -360,6 +364,10 @@ impl ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreAutomationRemoteOperationExtensionProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICoreAutomationRemoteOperationExtensionProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

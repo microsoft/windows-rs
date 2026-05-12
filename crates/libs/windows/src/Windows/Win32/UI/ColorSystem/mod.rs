@@ -1400,6 +1400,10 @@ impl IDeviceModelPlugIn_Vtbl {
         iid == &<IDeviceModelPlugIn as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDeviceModelPlugIn_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDeviceModelPlugIn_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDeviceModelPlugIn {}
 windows_core::imp::define_interface!(IGamutMapModelPlugIn, IGamutMapModelPlugIn_Vtbl, 0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
 windows_core::imp::interface_hierarchy!(IGamutMapModelPlugIn, windows_core::IUnknown);
@@ -1449,6 +1453,10 @@ impl IGamutMapModelPlugIn_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGamutMapModelPlugIn as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IGamutMapModelPlugIn_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGamutMapModelPlugIn_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IGamutMapModelPlugIn {}
 pub const INDEX_DONT_CARE: u32 = 0u32;

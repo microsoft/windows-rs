@@ -72,6 +72,10 @@ impl ISceSvcAttachmentData_Vtbl {
         iid == &<ISceSvcAttachmentData as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISceSvcAttachmentData_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISceSvcAttachmentData_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ISceSvcAttachmentData {}
 windows_core::imp::define_interface!(ISceSvcAttachmentPersistInfo, ISceSvcAttachmentPersistInfo_Vtbl, 0x6d90e0d0_200d_11d1_affb_00c04fb984f9);
 windows_core::imp::interface_hierarchy!(ISceSvcAttachmentPersistInfo, windows_core::IUnknown);
@@ -129,6 +133,10 @@ impl ISceSvcAttachmentPersistInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISceSvcAttachmentPersistInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISceSvcAttachmentPersistInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISceSvcAttachmentPersistInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ISceSvcAttachmentPersistInfo {}
 pub type PFSCE_FREE_INFO = Option<unsafe extern "system" fn(pvserviceinfo: *mut core::ffi::c_void) -> u32>;

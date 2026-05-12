@@ -587,6 +587,11 @@ impl IGameListEntry_Vtbl {
         iid == &<IGameListEntry as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "ApplicationModel")]
+impl<Identity: windows_core::IUnknownImpl + IGameListEntry_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGameListEntry_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameListEntry_Vtbl {

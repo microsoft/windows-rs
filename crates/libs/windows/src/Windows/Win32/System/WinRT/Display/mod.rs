@@ -71,6 +71,11 @@ impl IDisplayDeviceInterop_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Security")]
+impl<Identity: windows_core::IUnknownImpl + IDisplayDeviceInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDisplayDeviceInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Security")]
 impl windows_core::RuntimeName for IDisplayDeviceInterop {}
 windows_core::imp::define_interface!(IDisplayPathInterop, IDisplayPathInterop_Vtbl, 0xa6ba4205_e59e_4e71_b25b_4e436d21ee3d);
 windows_core::imp::interface_hierarchy!(IDisplayPathInterop, windows_core::IUnknown);
@@ -134,5 +139,9 @@ impl IDisplayPathInterop_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDisplayPathInterop as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDisplayPathInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDisplayPathInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDisplayPathInterop {}

@@ -47,6 +47,11 @@ impl ILearningModelDeviceFactoryNative_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl<Identity: windows_core::IUnknownImpl + ILearningModelDeviceFactoryNative_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILearningModelDeviceFactoryNative_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ILearningModelDeviceFactoryNative {}
 windows_core::imp::define_interface!(ILearningModelOperatorProviderNative, ILearningModelOperatorProviderNative_Vtbl, 0x1adaa23a_eb67_41f3_aad8_5d984e9bacd4);
 windows_core::imp::interface_hierarchy!(ILearningModelOperatorProviderNative, windows_core::IUnknown);
@@ -94,6 +99,11 @@ impl ILearningModelOperatorProviderNative_Vtbl {
     }
 }
 #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
+impl<Identity: windows_core::IUnknownImpl + ILearningModelOperatorProviderNative_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILearningModelOperatorProviderNative_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_AI_MachineLearning_WinML")]
 impl windows_core::RuntimeName for ILearningModelOperatorProviderNative {}
 windows_core::imp::define_interface!(ILearningModelSessionOptionsNative, ILearningModelSessionOptionsNative_Vtbl, 0xc71e953f_37b4_4564_8658_d8396866db0d);
 windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative, windows_core::IUnknown);
@@ -125,6 +135,10 @@ impl ILearningModelSessionOptionsNative_Vtbl {
         iid == &<ILearningModelSessionOptionsNative as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ILearningModelSessionOptionsNative_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILearningModelSessionOptionsNative_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ILearningModelSessionOptionsNative {}
 windows_core::imp::define_interface!(ILearningModelSessionOptionsNative1, ILearningModelSessionOptionsNative1_Vtbl, 0x5da37a26_0526_414b_91e4_2a0fa3ddba40);
 windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative1, windows_core::IUnknown);
@@ -155,6 +169,10 @@ impl ILearningModelSessionOptionsNative1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILearningModelSessionOptionsNative1 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ILearningModelSessionOptionsNative1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILearningModelSessionOptionsNative1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ILearningModelSessionOptionsNative1 {}
 windows_core::imp::define_interface!(ITensorNative, ITensorNative_Vtbl, 0x52f547ef_5b03_49b5_82d6_565f1ee0dd49);
@@ -218,6 +236,11 @@ impl ITensorNative_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl<Identity: windows_core::IUnknownImpl + ITensorNative_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITensorNative_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ITensorNative {}
 windows_core::imp::define_interface!(ITensorStaticsNative, ITensorStaticsNative_Vtbl, 0x39d055a4_66f6_4ebc_95d9_7a29ebe7690a);
 windows_core::imp::interface_hierarchy!(ITensorStaticsNative, windows_core::IUnknown);
@@ -257,6 +280,11 @@ impl ITensorStaticsNative_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITensorStaticsNative as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl<Identity: windows_core::IUnknownImpl + ITensorStaticsNative_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITensorStaticsNative_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ITensorStaticsNative {}

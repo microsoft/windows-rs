@@ -53,6 +53,11 @@ impl IUriToStreamResolver_Vtbl {
         iid == &<IUriToStreamResolver as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + IUriToStreamResolver_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUriToStreamResolver_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUriToStreamResolver_Vtbl {

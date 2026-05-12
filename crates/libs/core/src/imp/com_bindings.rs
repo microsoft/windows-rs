@@ -44,6 +44,12 @@ impl IAgileObject_Vtbl {
         iid == &<IAgileObject as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAgileObject_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IAgileObject_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IAgileObject {}
 windows_core::imp::define_interface!(
     IAgileReference,
@@ -110,6 +116,14 @@ impl IAgileReference_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAgileReference as windows_core::Interface>::IID
     }
+}
+impl<
+        Identity: windows_core::IUnknownImpl + IAgileReference_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IAgileReference_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IAgileReference {}
 windows_core::imp::define_interface!(
@@ -178,6 +192,12 @@ impl IWeakReference_Vtbl {
         iid == &<IWeakReference as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IWeakReference_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IWeakReference_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IWeakReference {}
 windows_core::imp::define_interface!(
     IWeakReferenceSource,
@@ -238,6 +258,14 @@ impl IWeakReferenceSource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWeakReferenceSource as windows_core::Interface>::IID
     }
+}
+impl<
+        Identity: windows_core::IUnknownImpl + IWeakReferenceSource_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IWeakReferenceSource_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWeakReferenceSource {}
 pub const JSCRIPT_E_CANTEXECUTE: windows_core::HRESULT = windows_core::HRESULT(0x89020001_u32 as _);

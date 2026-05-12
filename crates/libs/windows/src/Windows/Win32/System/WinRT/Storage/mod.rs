@@ -161,6 +161,10 @@ impl IOplockBreakingHandler_Vtbl {
         iid == &<IOplockBreakingHandler as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOplockBreakingHandler_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOplockBreakingHandler_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOplockBreakingHandler {}
 windows_core::imp::define_interface!(IRandomAccessStreamFileAccessMode, IRandomAccessStreamFileAccessMode_Vtbl, 0x332e5848_2e15_458e_85c4_c911c0c3d6f4);
 windows_core::imp::interface_hierarchy!(IRandomAccessStreamFileAccessMode, windows_core::IUnknown);
@@ -200,6 +204,10 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRandomAccessStreamFileAccessMode as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRandomAccessStreamFileAccessMode_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRandomAccessStreamFileAccessMode_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRandomAccessStreamFileAccessMode {}
 windows_core::imp::define_interface!(IStorageFolderHandleAccess, IStorageFolderHandleAccess_Vtbl, 0xdf19938f_5462_48a0_be65_d2a3271a08d6);
@@ -245,6 +253,10 @@ impl IStorageFolderHandleAccess_Vtbl {
         iid == &<IStorageFolderHandleAccess as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IStorageFolderHandleAccess_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageFolderHandleAccess_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IStorageFolderHandleAccess {}
 windows_core::imp::define_interface!(IStorageItemHandleAccess, IStorageItemHandleAccess_Vtbl, 0x5ca296b2_2c25_4d22_b785_b885c8201e6a);
 windows_core::imp::interface_hierarchy!(IStorageItemHandleAccess, windows_core::IUnknown);
@@ -288,6 +300,10 @@ impl IStorageItemHandleAccess_Vtbl {
         iid == &<IStorageItemHandleAccess as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IStorageItemHandleAccess_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageItemHandleAccess_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IStorageItemHandleAccess {}
 windows_core::imp::define_interface!(IUnbufferedFileHandleOplockCallback, IUnbufferedFileHandleOplockCallback_Vtbl, 0xd1019a0e_6243_4329_8497_2e75894d7710);
 windows_core::imp::interface_hierarchy!(IUnbufferedFileHandleOplockCallback, windows_core::IUnknown);
@@ -318,6 +334,10 @@ impl IUnbufferedFileHandleOplockCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUnbufferedFileHandleOplockCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IUnbufferedFileHandleOplockCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUnbufferedFileHandleOplockCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IUnbufferedFileHandleOplockCallback {}
 windows_core::imp::define_interface!(IUnbufferedFileHandleProvider, IUnbufferedFileHandleProvider_Vtbl, 0xa65c9109_42ab_4b94_a7b1_dd2e4e68515e);
@@ -376,5 +396,9 @@ impl IUnbufferedFileHandleProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUnbufferedFileHandleProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IUnbufferedFileHandleProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IUnbufferedFileHandleProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IUnbufferedFileHandleProvider {}

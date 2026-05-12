@@ -132,6 +132,10 @@ impl IIsolatedAppLauncher_Vtbl {
         iid == &<IIsolatedAppLauncher as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IIsolatedAppLauncher_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IIsolatedAppLauncher_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IIsolatedAppLauncher {}
 windows_core::imp::define_interface!(IIsolatedProcessLauncher, IIsolatedProcessLauncher_Vtbl, 0x1aa24232_9a91_4201_88cb_122f9d6522e0);
 windows_core::imp::interface_hierarchy!(IIsolatedProcessLauncher, windows_core::IUnknown);
@@ -241,6 +245,10 @@ impl IIsolatedProcessLauncher_Vtbl {
         iid == &<IIsolatedProcessLauncher as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IIsolatedProcessLauncher_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IIsolatedProcessLauncher_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IIsolatedProcessLauncher {}
 windows_core::imp::define_interface!(IIsolatedProcessLauncher2, IIsolatedProcessLauncher2_Vtbl, 0x780e4416_5e72_4123_808e_66dc6479feef);
 impl core::ops::Deref for IIsolatedProcessLauncher2 {
@@ -282,6 +290,10 @@ impl IIsolatedProcessLauncher2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IIsolatedProcessLauncher2 as windows_core::Interface>::IID || iid == &<IIsolatedProcessLauncher as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IIsolatedProcessLauncher2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IIsolatedProcessLauncher2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IIsolatedProcessLauncher2 {}
 pub const IsolatedAppLauncher: windows_core::GUID = windows_core::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);

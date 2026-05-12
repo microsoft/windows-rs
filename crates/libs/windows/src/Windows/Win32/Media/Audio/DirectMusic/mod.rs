@@ -835,6 +835,11 @@ impl IDirectMusic_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
+impl<Identity: windows_core::IUnknownImpl + IDirectMusic_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectMusic_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_Audio_DirectSound")]
 impl windows_core::RuntimeName for IDirectMusic {}
 windows_core::imp::define_interface!(IDirectMusic8, IDirectMusic8_Vtbl, 0x2d3629f7_813d_4939_8508_f05c6b75fd97);
 impl core::ops::Deref for IDirectMusic8 {
@@ -876,6 +881,11 @@ impl IDirectMusic8_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirectMusic8 as windows_core::Interface>::IID || iid == &<IDirectMusic as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Media_Audio_DirectSound")]
+impl<Identity: windows_core::IUnknownImpl + IDirectMusic8_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectMusic8_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
 impl windows_core::RuntimeName for IDirectMusic8 {}
@@ -1056,6 +1066,10 @@ impl IDirectMusicBuffer_Vtbl {
         iid == &<IDirectMusicBuffer as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDirectMusicBuffer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectMusicBuffer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDirectMusicBuffer {}
 windows_core::imp::define_interface!(IDirectMusicCollection, IDirectMusicCollection_Vtbl, 0xd2ac287c_b39b_11d1_8704_00600893b1bd);
 windows_core::imp::interface_hierarchy!(IDirectMusicCollection, windows_core::IUnknown);
@@ -1114,6 +1128,10 @@ impl IDirectMusicCollection_Vtbl {
         iid == &<IDirectMusicCollection as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDirectMusicCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectMusicCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDirectMusicCollection {}
 windows_core::imp::define_interface!(IDirectMusicDownload, IDirectMusicDownload_Vtbl, 0xd2ac287b_b39b_11d1_8704_00600893b1bd);
 windows_core::imp::interface_hierarchy!(IDirectMusicDownload, windows_core::IUnknown);
@@ -1145,6 +1163,10 @@ impl IDirectMusicDownload_Vtbl {
         iid == &<IDirectMusicDownload as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDirectMusicDownload_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectMusicDownload_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDirectMusicDownload {}
 windows_core::imp::define_interface!(IDirectMusicDownloadedInstrument, IDirectMusicDownloadedInstrument_Vtbl, 0xd2ac287e_b39b_11d1_8704_00600893b1bd);
 windows_core::imp::interface_hierarchy!(IDirectMusicDownloadedInstrument, windows_core::IUnknown);
@@ -1161,6 +1183,10 @@ impl IDirectMusicDownloadedInstrument_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirectMusicDownloadedInstrument as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDirectMusicDownloadedInstrument_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectMusicDownloadedInstrument_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDirectMusicDownloadedInstrument {}
 windows_core::imp::define_interface!(IDirectMusicInstrument, IDirectMusicInstrument_Vtbl, 0xd2ac287d_b39b_11d1_8704_00600893b1bd);
@@ -1203,6 +1229,10 @@ impl IDirectMusicInstrument_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirectMusicInstrument as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDirectMusicInstrument_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectMusicInstrument_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDirectMusicInstrument {}
 windows_core::imp::define_interface!(IDirectMusicPort, IDirectMusicPort_Vtbl, 0x08f2d8c9_37c2_11d2_b9f9_0000f875ac12);
@@ -1466,6 +1496,11 @@ impl IDirectMusicPort_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Media_Audio_DirectSound", feature = "Win32_System_IO"))]
+impl<Identity: windows_core::IUnknownImpl + IDirectMusicPort_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectMusicPort_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Media_Audio_DirectSound", feature = "Win32_System_IO"))]
 impl windows_core::RuntimeName for IDirectMusicPort {}
 windows_core::imp::define_interface!(IDirectMusicPortDownload, IDirectMusicPortDownload_Vtbl, 0xd2ac287a_b39b_11d1_8704_00600893b1bd);
 windows_core::imp::interface_hierarchy!(IDirectMusicPortDownload, windows_core::IUnknown);
@@ -1583,6 +1618,10 @@ impl IDirectMusicPortDownload_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirectMusicPortDownload as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDirectMusicPortDownload_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectMusicPortDownload_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDirectMusicPortDownload {}
 windows_core::imp::define_interface!(IDirectMusicSynth, IDirectMusicSynth_Vtbl, 0x09823661_5c85_11d2_afa6_00aa0024d8b6);
@@ -1825,6 +1864,10 @@ impl IDirectMusicSynth_Vtbl {
         iid == &<IDirectMusicSynth as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDirectMusicSynth_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectMusicSynth_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDirectMusicSynth {}
 windows_core::imp::define_interface!(IDirectMusicSynth8, IDirectMusicSynth8_Vtbl, 0x53cab625_2711_4c9f_9de7_1b7f925f6fc8);
 impl core::ops::Deref for IDirectMusicSynth8 {
@@ -1912,6 +1955,10 @@ impl IDirectMusicSynth8_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirectMusicSynth8 as windows_core::Interface>::IID || iid == &<IDirectMusicSynth as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDirectMusicSynth8_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectMusicSynth8_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDirectMusicSynth8 {}
 windows_core::imp::define_interface!(IDirectMusicSynthSink, IDirectMusicSynthSink_Vtbl, 0x09823663_5c85_11d2_afa6_00aa0024d8b6);
@@ -2057,6 +2104,11 @@ impl IDirectMusicSynthSink_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
+impl<Identity: windows_core::IUnknownImpl + IDirectMusicSynthSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectMusicSynthSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_Audio_DirectSound")]
 impl windows_core::RuntimeName for IDirectMusicSynthSink {}
 windows_core::imp::define_interface!(IDirectMusicThru, IDirectMusicThru_Vtbl, 0xced153e7_3606_11d2_b9f9_0000f875ac12);
 windows_core::imp::interface_hierarchy!(IDirectMusicThru, windows_core::IUnknown);
@@ -2090,6 +2142,10 @@ impl IDirectMusicThru_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirectMusicThru as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDirectMusicThru_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirectMusicThru_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDirectMusicThru {}
 #[repr(C)]

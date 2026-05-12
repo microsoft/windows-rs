@@ -251,6 +251,10 @@ impl INetDiagExtensibleHelper_Vtbl {
         iid == &<INetDiagExtensibleHelper as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + INetDiagExtensibleHelper_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INetDiagExtensibleHelper_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for INetDiagExtensibleHelper {}
 windows_core::imp::define_interface!(INetDiagHelper, INetDiagHelper_Vtbl, 0xc0b35746_ebf5_11d8_bbe9_505054503030);
 windows_core::imp::interface_hierarchy!(INetDiagHelper, windows_core::IUnknown);
@@ -522,6 +526,10 @@ impl INetDiagHelper_Vtbl {
         iid == &<INetDiagHelper as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + INetDiagHelper_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INetDiagHelper_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for INetDiagHelper {}
 windows_core::imp::define_interface!(INetDiagHelperEx, INetDiagHelperEx_Vtbl, 0x972dab4d_e4e3_4fc6_ae54_5f65ccde4a15);
 windows_core::imp::interface_hierarchy!(INetDiagHelperEx, windows_core::IUnknown);
@@ -583,6 +591,10 @@ impl INetDiagHelperEx_Vtbl {
         iid == &<INetDiagHelperEx as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + INetDiagHelperEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INetDiagHelperEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for INetDiagHelperEx {}
 windows_core::imp::define_interface!(INetDiagHelperInfo, INetDiagHelperInfo_Vtbl, 0xc0b35747_ebf5_11d8_bbe9_505054503030);
 windows_core::imp::interface_hierarchy!(INetDiagHelperInfo, windows_core::IUnknown);
@@ -613,6 +625,10 @@ impl INetDiagHelperInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<INetDiagHelperInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + INetDiagHelperInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INetDiagHelperInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for INetDiagHelperInfo {}
 windows_core::imp::define_interface!(INetDiagHelperUtilFactory, INetDiagHelperUtilFactory_Vtbl, 0x104613fb_bc57_4178_95ba_88809698354a);
@@ -648,6 +664,10 @@ impl INetDiagHelperUtilFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<INetDiagHelperUtilFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + INetDiagHelperUtilFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INetDiagHelperUtilFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for INetDiagHelperUtilFactory {}
 #[repr(C)]

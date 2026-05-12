@@ -1929,6 +1929,10 @@ impl ICcgDomainAuthCredentials_Vtbl {
         iid == &<ICcgDomainAuthCredentials as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICcgDomainAuthCredentials_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICcgDomainAuthCredentials_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICcgDomainAuthCredentials {}
 pub const ID_CAP_SLAPI: windows_core::PCWSTR = windows_core::w!("slapiQueryLicenseValue");
 #[cfg(feature = "Win32_Security_Credentials")]

@@ -753,6 +753,10 @@ impl IBuffer_Vtbl {
         iid == &<IBuffer as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBuffer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBuffer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBuffer_Vtbl {
@@ -821,6 +825,10 @@ impl IContentTypeProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContentTypeProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IContentTypeProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContentTypeProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1339,6 +1347,10 @@ impl IDataReader_Vtbl {
         iid == &<IDataReader as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDataReader_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDataReader_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataReader_Vtbl {
@@ -1800,6 +1812,10 @@ impl IDataWriter_Vtbl {
         iid == &<IDataWriter as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDataWriter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDataWriter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataWriter_Vtbl {
@@ -1919,6 +1935,10 @@ impl IInputStream_Vtbl {
         iid == &<IInputStream as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IInputStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInputStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputStream_Vtbl {
@@ -1967,6 +1987,10 @@ impl IInputStreamReference_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInputStreamReference as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IInputStreamReference_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInputStreamReference_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2046,6 +2070,10 @@ impl IOutputStream_Vtbl {
         iid == &<IOutputStream as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOutputStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOutputStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOutputStream_Vtbl {
@@ -2118,6 +2146,11 @@ impl IPropertySetSerializer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPropertySetSerializer as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<Identity: windows_core::IUnknownImpl + IPropertySetSerializer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPropertySetSerializer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2351,6 +2384,10 @@ impl IRandomAccessStream_Vtbl {
         iid == &<IRandomAccessStream as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRandomAccessStream_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRandomAccessStream_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRandomAccessStream_Vtbl {
@@ -2407,6 +2444,10 @@ impl IRandomAccessStreamReference_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRandomAccessStreamReference as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRandomAccessStreamReference_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRandomAccessStreamReference_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2552,6 +2593,10 @@ impl IRandomAccessStreamWithContentType_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRandomAccessStreamWithContentType as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRandomAccessStreamWithContentType_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IRandomAccessStreamWithContentType_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

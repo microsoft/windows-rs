@@ -5450,6 +5450,11 @@ impl IDiskQuotaControl_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IDiskQuotaControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDiskQuotaControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IDiskQuotaControl {}
 windows_core::imp::define_interface!(IDiskQuotaEvents, IDiskQuotaEvents_Vtbl, 0x7988b579_ec89_11cf_9c00_00aa00a14f56);
 windows_core::imp::interface_hierarchy!(IDiskQuotaEvents, windows_core::IUnknown);
@@ -5483,6 +5488,10 @@ impl IDiskQuotaEvents_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDiskQuotaEvents as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDiskQuotaEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDiskQuotaEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDiskQuotaEvents {}
 windows_core::imp::define_interface!(IDiskQuotaUser, IDiskQuotaUser_Vtbl, 0x7988b574_ec89_11cf_9c00_00aa00a14f56);
@@ -5700,6 +5709,10 @@ impl IDiskQuotaUser_Vtbl {
         iid == &<IDiskQuotaUser as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDiskQuotaUser_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDiskQuotaUser_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDiskQuotaUser {}
 windows_core::imp::define_interface!(IDiskQuotaUserBatch, IDiskQuotaUserBatch_Vtbl, 0x7988b576_ec89_11cf_9c00_00aa00a14f56);
 windows_core::imp::interface_hierarchy!(IDiskQuotaUserBatch, windows_core::IUnknown);
@@ -5775,6 +5788,10 @@ impl IDiskQuotaUserBatch_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDiskQuotaUserBatch as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDiskQuotaUserBatch_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDiskQuotaUserBatch_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDiskQuotaUserBatch {}
 windows_core::imp::define_interface!(IEnumDiskQuotaUsers, IEnumDiskQuotaUsers_Vtbl, 0x7988b577_ec89_11cf_9c00_00aa00a14f56);
@@ -5854,6 +5871,10 @@ impl IEnumDiskQuotaUsers_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumDiskQuotaUsers as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumDiskQuotaUsers_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumDiskQuotaUsers_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumDiskQuotaUsers {}
 pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;

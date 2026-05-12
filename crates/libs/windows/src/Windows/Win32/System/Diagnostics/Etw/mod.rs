@@ -2131,6 +2131,10 @@ impl ITraceEvent_Vtbl {
         iid == &<ITraceEvent as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITraceEvent_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITraceEvent_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITraceEvent {}
 windows_core::imp::define_interface!(ITraceEventCallback, ITraceEventCallback_Vtbl, 0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
 windows_core::imp::interface_hierarchy!(ITraceEventCallback, windows_core::IUnknown);
@@ -2199,6 +2203,10 @@ impl ITraceEventCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITraceEventCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITraceEventCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITraceEventCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITraceEventCallback {}
 windows_core::imp::define_interface!(ITraceRelogger, ITraceRelogger_Vtbl, 0xf754ad43_3bcc_4286_8009_9c5da214e84e);
@@ -2362,6 +2370,10 @@ impl ITraceRelogger_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITraceRelogger as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITraceRelogger_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITraceRelogger_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITraceRelogger {}
 pub const ImageLoadGuid: windows_core::GUID = windows_core::GUID::from_u128(0x2cb15d1d_5fc1_11d2_abe1_00a0c911f518);

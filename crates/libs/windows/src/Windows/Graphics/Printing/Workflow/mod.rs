@@ -239,6 +239,10 @@ impl IPrintWorkflowObjectModelProvider_Vtbl {
         iid == &<IPrintWorkflowObjectModelProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPrintWorkflowObjectModelProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPrintWorkflowObjectModelProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowObjectModelProvider_Vtbl {

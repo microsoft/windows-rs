@@ -156,6 +156,10 @@ impl IImageScannerFormatConfiguration_Vtbl {
         iid == &<IImageScannerFormatConfiguration as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IImageScannerFormatConfiguration_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IImageScannerFormatConfiguration_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageScannerFormatConfiguration_Vtbl {
@@ -762,6 +766,10 @@ impl IImageScannerSourceConfiguration_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IImageScannerSourceConfiguration as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IImageScannerSourceConfiguration_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IImageScannerSourceConfiguration_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -342,6 +342,10 @@ impl IXAPO_Vtbl {
         iid == &<IXAPO as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXAPO_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXAPO_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXAPO {}
 windows_core::imp::define_interface!(IXAPOHrtfParameters, IXAPOHrtfParameters_Vtbl, 0x15b3cd66_e9de_4464_b6e6_2bc3cf63d455);
 windows_core::imp::interface_hierarchy!(IXAPOHrtfParameters, windows_core::IUnknown);
@@ -412,6 +416,10 @@ impl IXAPOHrtfParameters_Vtbl {
         iid == &<IXAPOHrtfParameters as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXAPOHrtfParameters_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXAPOHrtfParameters_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXAPOHrtfParameters {}
 windows_core::imp::define_interface!(IXAPOParameters, IXAPOParameters_Vtbl, 0x26d95c66_80f2_499a_ad54_5ae7f01c6d98);
 windows_core::imp::interface_hierarchy!(IXAPOParameters, windows_core::IUnknown);
@@ -457,6 +465,10 @@ impl IXAPOParameters_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXAPOParameters as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXAPOParameters_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXAPOParameters_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXAPOParameters {}
 windows_core::imp::define_interface!(IXAudio2, IXAudio2_Vtbl, 0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d);
@@ -612,6 +624,10 @@ impl IXAudio2_Vtbl {
         iid == &<IXAudio2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXAudio2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXAudio2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXAudio2 {}
 windows_core::imp::define_interface!(IXAudio2EngineCallback, IXAudio2EngineCallback_Vtbl);
 impl IXAudio2EngineCallback {
@@ -722,6 +738,10 @@ impl IXAudio2Extension_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXAudio2Extension as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXAudio2Extension_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXAudio2Extension_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXAudio2Extension {}
 windows_core::imp::define_interface!(IXAudio2MasteringVoice, IXAudio2MasteringVoice_Vtbl);

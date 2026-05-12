@@ -110,6 +110,11 @@ impl IOpcCertificateEnumerator_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
+impl<Identity: windows_core::IUnknownImpl + IOpcCertificateEnumerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcCertificateEnumerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::RuntimeName for IOpcCertificateEnumerator {}
 windows_core::imp::define_interface!(IOpcCertificateSet, IOpcCertificateSet_Vtbl, 0x56ea4325_8e2d_4167_b1a4_e486d24c8fa7);
 windows_core::imp::interface_hierarchy!(IOpcCertificateSet, windows_core::IUnknown);
@@ -186,6 +191,11 @@ impl IOpcCertificateSet_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOpcCertificateSet as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl<Identity: windows_core::IUnknownImpl + IOpcCertificateSet_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcCertificateSet_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::RuntimeName for IOpcCertificateSet {}
@@ -505,6 +515,11 @@ impl IOpcDigitalSignature_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOpcDigitalSignature_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcDigitalSignature_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOpcDigitalSignature {}
 windows_core::imp::define_interface!(IOpcDigitalSignatureEnumerator, IOpcDigitalSignatureEnumerator_Vtbl, 0x967b6882_0ba3_4358_b9e7_b64c75063c5e);
 windows_core::imp::interface_hierarchy!(IOpcDigitalSignatureEnumerator, windows_core::IUnknown);
@@ -610,6 +625,10 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOpcDigitalSignatureEnumerator as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOpcDigitalSignatureEnumerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcDigitalSignatureEnumerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOpcDigitalSignatureEnumerator {}
 windows_core::imp::define_interface!(IOpcDigitalSignatureManager, IOpcDigitalSignatureManager_Vtbl, 0xd5e62a0b_696d_462f_94df_72e33cef2659);
@@ -825,6 +844,11 @@ impl IOpcDigitalSignatureManager_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IOpcDigitalSignatureManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcDigitalSignatureManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IOpcDigitalSignatureManager {}
 windows_core::imp::define_interface!(IOpcFactory, IOpcFactory_Vtbl, 0x6d0b4446_cd73_4ab3_94f4_8ccdf6116154);
 windows_core::imp::interface_hierarchy!(IOpcFactory, windows_core::IUnknown);
@@ -1024,6 +1048,11 @@ impl IOpcFactory_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com"))]
+impl<Identity: windows_core::IUnknownImpl + IOpcFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IOpcFactory {}
 windows_core::imp::define_interface!(IOpcPackage, IOpcPackage_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee70);
 windows_core::imp::interface_hierarchy!(IOpcPackage, windows_core::IUnknown);
@@ -1087,6 +1116,10 @@ impl IOpcPackage_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOpcPackage as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOpcPackage_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcPackage_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOpcPackage {}
 windows_core::imp::define_interface!(IOpcPart, IOpcPart_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee71);
@@ -1226,6 +1259,11 @@ impl IOpcPart_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOpcPart_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcPart_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOpcPart {}
 windows_core::imp::define_interface!(IOpcPartEnumerator, IOpcPartEnumerator_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee75);
 windows_core::imp::interface_hierarchy!(IOpcPartEnumerator, windows_core::IUnknown);
@@ -1331,6 +1369,10 @@ impl IOpcPartEnumerator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOpcPartEnumerator as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOpcPartEnumerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcPartEnumerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOpcPartEnumerator {}
 windows_core::imp::define_interface!(IOpcPartSet, IOpcPartSet_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee73);
@@ -1482,6 +1524,11 @@ impl IOpcPartSet_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOpcPartSet_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcPartSet_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOpcPartSet {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IOpcPartUri, IOpcPartUri_Vtbl, 0x7d3babe7_88b2_46ba_85cb_4203cb016c87);
@@ -1582,6 +1629,11 @@ impl IOpcPartUri_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOpcPartUri as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IUri as windows_core::Interface>::IID || iid == &<IOpcUri as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOpcPartUri_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcPartUri_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOpcPartUri {}
@@ -1722,6 +1774,11 @@ impl IOpcRelationship_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOpcRelationship_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcRelationship_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOpcRelationship {}
 windows_core::imp::define_interface!(IOpcRelationshipEnumerator, IOpcRelationshipEnumerator_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee76);
 windows_core::imp::interface_hierarchy!(IOpcRelationshipEnumerator, windows_core::IUnknown);
@@ -1828,6 +1885,10 @@ impl IOpcRelationshipEnumerator_Vtbl {
         iid == &<IOpcRelationshipEnumerator as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOpcRelationshipEnumerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcRelationshipEnumerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOpcRelationshipEnumerator {}
 windows_core::imp::define_interface!(IOpcRelationshipSelector, IOpcRelationshipSelector_Vtbl, 0xf8f26c7f_b28f_4899_84c8_5d5639ede75f);
 windows_core::imp::interface_hierarchy!(IOpcRelationshipSelector, windows_core::IUnknown);
@@ -1891,6 +1952,10 @@ impl IOpcRelationshipSelector_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOpcRelationshipSelector as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOpcRelationshipSelector_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcRelationshipSelector_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOpcRelationshipSelector {}
 windows_core::imp::define_interface!(IOpcRelationshipSelectorEnumerator, IOpcRelationshipSelectorEnumerator_Vtbl, 0x5e50a181_a91b_48ac_88d2_bca3d8f8c0b1);
@@ -1998,6 +2063,10 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
         iid == &<IOpcRelationshipSelectorEnumerator as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOpcRelationshipSelectorEnumerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcRelationshipSelectorEnumerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOpcRelationshipSelectorEnumerator {}
 windows_core::imp::define_interface!(IOpcRelationshipSelectorSet, IOpcRelationshipSelectorSet_Vtbl, 0x6e34c269_a4d3_47c0_b5c4_87ff2b3b6136);
 windows_core::imp::interface_hierarchy!(IOpcRelationshipSelectorSet, windows_core::IUnknown);
@@ -2079,6 +2148,10 @@ impl IOpcRelationshipSelectorSet_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOpcRelationshipSelectorSet as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOpcRelationshipSelectorSet_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcRelationshipSelectorSet_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOpcRelationshipSelectorSet {}
 windows_core::imp::define_interface!(IOpcRelationshipSet, IOpcRelationshipSet_Vtbl, 0x42195949_3b79_4fc8_89c6_fc7fb979ee74);
@@ -2268,6 +2341,11 @@ impl IOpcRelationshipSet_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOpcRelationshipSet_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcRelationshipSet_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOpcRelationshipSet {}
 windows_core::imp::define_interface!(IOpcSignatureCustomObject, IOpcSignatureCustomObject_Vtbl, 0x5d77a19e_62c1_44e7_becd_45da5ae51a56);
 windows_core::imp::interface_hierarchy!(IOpcSignatureCustomObject, windows_core::IUnknown);
@@ -2298,6 +2376,10 @@ impl IOpcSignatureCustomObject_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOpcSignatureCustomObject as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOpcSignatureCustomObject_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcSignatureCustomObject_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOpcSignatureCustomObject {}
 windows_core::imp::define_interface!(IOpcSignatureCustomObjectEnumerator, IOpcSignatureCustomObjectEnumerator_Vtbl, 0x5ee4fe1d_e1b0_4683_8079_7ea0fcf80b4c);
@@ -2405,6 +2487,10 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
         iid == &<IOpcSignatureCustomObjectEnumerator as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOpcSignatureCustomObjectEnumerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcSignatureCustomObjectEnumerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOpcSignatureCustomObjectEnumerator {}
 windows_core::imp::define_interface!(IOpcSignatureCustomObjectSet, IOpcSignatureCustomObjectSet_Vtbl, 0x8f792ac5_7947_4e11_bc3d_2659ff046ae1);
 windows_core::imp::interface_hierarchy!(IOpcSignatureCustomObjectSet, windows_core::IUnknown);
@@ -2483,6 +2569,10 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOpcSignatureCustomObjectSet as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOpcSignatureCustomObjectSet_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcSignatureCustomObjectSet_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOpcSignatureCustomObjectSet {}
 windows_core::imp::define_interface!(IOpcSignaturePartReference, IOpcSignaturePartReference_Vtbl, 0xe24231ca_59f4_484e_b64b_36eeda36072c);
@@ -2609,6 +2699,11 @@ impl IOpcSignaturePartReference_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOpcSignaturePartReference_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcSignaturePartReference_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOpcSignaturePartReference {}
 windows_core::imp::define_interface!(IOpcSignaturePartReferenceEnumerator, IOpcSignaturePartReferenceEnumerator_Vtbl, 0x80eb1561_8c77_49cf_8266_459b356ee99a);
 windows_core::imp::interface_hierarchy!(IOpcSignaturePartReferenceEnumerator, windows_core::IUnknown);
@@ -2715,6 +2810,10 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
         iid == &<IOpcSignaturePartReferenceEnumerator as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOpcSignaturePartReferenceEnumerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcSignaturePartReferenceEnumerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOpcSignaturePartReferenceEnumerator {}
 windows_core::imp::define_interface!(IOpcSignaturePartReferenceSet, IOpcSignaturePartReferenceSet_Vtbl, 0x6c9fe28c_ecd9_4b22_9d36_7fdde670fec0);
 windows_core::imp::interface_hierarchy!(IOpcSignaturePartReferenceSet, windows_core::IUnknown);
@@ -2803,6 +2902,11 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOpcSignaturePartReferenceSet as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOpcSignaturePartReferenceSet_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcSignaturePartReferenceSet_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOpcSignaturePartReferenceSet {}
@@ -2951,6 +3055,11 @@ impl IOpcSignatureReference_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOpcSignatureReference_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcSignatureReference_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOpcSignatureReference {}
 windows_core::imp::define_interface!(IOpcSignatureReferenceEnumerator, IOpcSignatureReferenceEnumerator_Vtbl, 0xcfa59a45_28b1_4868_969e_fa8097fdc12a);
 windows_core::imp::interface_hierarchy!(IOpcSignatureReferenceEnumerator, windows_core::IUnknown);
@@ -3057,6 +3166,10 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
         iid == &<IOpcSignatureReferenceEnumerator as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IOpcSignatureReferenceEnumerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcSignatureReferenceEnumerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IOpcSignatureReferenceEnumerator {}
 windows_core::imp::define_interface!(IOpcSignatureReferenceSet, IOpcSignatureReferenceSet_Vtbl, 0xf3b02d31_ab12_42dd_9e2f_2b16761c3c1e);
 windows_core::imp::interface_hierarchy!(IOpcSignatureReferenceSet, windows_core::IUnknown);
@@ -3147,6 +3260,11 @@ impl IOpcSignatureReferenceSet_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOpcSignatureReferenceSet as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOpcSignatureReferenceSet_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcSignatureReferenceSet_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOpcSignatureReferenceSet {}
@@ -3295,6 +3413,11 @@ impl IOpcSignatureRelationshipReference_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOpcSignatureRelationshipReference_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcSignatureRelationshipReference_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOpcSignatureRelationshipReference {}
 windows_core::imp::define_interface!(IOpcSignatureRelationshipReferenceEnumerator, IOpcSignatureRelationshipReferenceEnumerator_Vtbl, 0x773ba3e4_f021_48e4_aa04_9816db5d3495);
 windows_core::imp::interface_hierarchy!(IOpcSignatureRelationshipReferenceEnumerator, windows_core::IUnknown);
@@ -3400,6 +3523,10 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOpcSignatureRelationshipReferenceEnumerator as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IOpcSignatureRelationshipReferenceEnumerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IOpcSignatureRelationshipReferenceEnumerator {}
 windows_core::imp::define_interface!(IOpcSignatureRelationshipReferenceSet, IOpcSignatureRelationshipReferenceSet_Vtbl, 0x9f863ca5_3631_404c_828d_807e0715069b);
@@ -3511,6 +3638,11 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOpcSignatureRelationshipReferenceSet as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOpcSignatureRelationshipReferenceSet_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcSignatureRelationshipReferenceSet_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOpcSignatureRelationshipReferenceSet {}
@@ -3861,6 +3993,11 @@ impl IOpcSigningOptions_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOpcSigningOptions_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcSigningOptions_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOpcSigningOptions {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IOpcUri, IOpcUri_Vtbl, 0xbc9c1b9b_d62c_49eb_aef0_3b4e0b28ebed);
@@ -3964,6 +4101,11 @@ impl IOpcUri_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOpcUri as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IUri as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IOpcUri_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IOpcUri_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IOpcUri {}

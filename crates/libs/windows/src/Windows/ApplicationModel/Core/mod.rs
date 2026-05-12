@@ -650,6 +650,10 @@ impl ICoreApplicationUnhandledError_Vtbl {
         iid == &<ICoreApplicationUnhandledError as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICoreApplicationUnhandledError_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreApplicationUnhandledError_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationUnhandledError_Vtbl {
@@ -878,6 +882,11 @@ impl IFrameworkView_Vtbl {
         iid == &<IFrameworkView as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "UI_Core")]
+impl<Identity: windows_core::IUnknownImpl + IFrameworkView_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFrameworkView_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameworkView_Vtbl {
@@ -930,6 +939,10 @@ impl IFrameworkViewSource_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFrameworkViewSource as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IFrameworkViewSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFrameworkViewSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

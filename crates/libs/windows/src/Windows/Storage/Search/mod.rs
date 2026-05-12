@@ -441,6 +441,11 @@ impl IIndexableContent_Vtbl {
         iid == &<IIndexableContent as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + IIndexableContent_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IIndexableContent_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIndexableContent_Vtbl {
@@ -936,6 +941,11 @@ impl IStorageFolderQueryOperations_Vtbl {
         iid == &<IStorageFolderQueryOperations as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + IStorageFolderQueryOperations_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageFolderQueryOperations_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageFolderQueryOperations_Vtbl {
@@ -1198,6 +1208,10 @@ impl IStorageQueryResultBase_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageQueryResultBase as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IStorageQueryResultBase_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageQueryResultBase_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

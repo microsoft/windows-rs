@@ -320,6 +320,10 @@ impl IGameExplorer_Vtbl {
         iid == &<IGameExplorer as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IGameExplorer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGameExplorer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IGameExplorer {}
 windows_core::imp::define_interface!(IGameExplorer2, IGameExplorer2_Vtbl, 0x86874aa7_a1ed_450d_a7eb_b89e20b2fff3);
 windows_core::imp::interface_hierarchy!(IGameExplorer2, windows_core::IUnknown);
@@ -396,6 +400,10 @@ impl IGameExplorer2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGameExplorer2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IGameExplorer2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGameExplorer2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IGameExplorer2 {}
 windows_core::imp::define_interface!(IGameStatistics, IGameStatistics_Vtbl, 0x3887c9ca_04a0_42ae_bc4c_5fa6c7721145);
@@ -633,6 +641,10 @@ impl IGameStatistics_Vtbl {
         iid == &<IGameStatistics as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IGameStatistics_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGameStatistics_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IGameStatistics {}
 windows_core::imp::define_interface!(IGameStatisticsMgr, IGameStatisticsMgr_Vtbl, 0xaff3ea11_e70e_407d_95dd_35e612c41ce2);
 windows_core::imp::interface_hierarchy!(IGameStatisticsMgr, windows_core::IUnknown);
@@ -684,6 +696,10 @@ impl IGameStatisticsMgr_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGameStatisticsMgr as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IGameStatisticsMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGameStatisticsMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IGameStatisticsMgr {}
 windows_core::imp::define_interface!(IXblIdpAuthManager, IXblIdpAuthManager_Vtbl, 0xeb5ddb08_8bbf_449b_ac21_b02ddeb3b136);
@@ -823,6 +839,10 @@ impl IXblIdpAuthManager_Vtbl {
         iid == &<IXblIdpAuthManager as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXblIdpAuthManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXblIdpAuthManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXblIdpAuthManager {}
 windows_core::imp::define_interface!(IXblIdpAuthManager2, IXblIdpAuthManager2_Vtbl, 0xbf8c0950_8389_43dd_9a76_a19728ec5dc5);
 windows_core::imp::interface_hierarchy!(IXblIdpAuthManager2, windows_core::IUnknown);
@@ -873,6 +893,10 @@ impl IXblIdpAuthManager2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXblIdpAuthManager2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXblIdpAuthManager2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXblIdpAuthManager2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXblIdpAuthManager2 {}
 windows_core::imp::define_interface!(IXblIdpAuthTokenResult, IXblIdpAuthTokenResult_Vtbl, 0x46ce0225_f267_4d68_b299_b2762552dec1);
@@ -1316,6 +1340,10 @@ impl IXblIdpAuthTokenResult_Vtbl {
         iid == &<IXblIdpAuthTokenResult as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXblIdpAuthTokenResult_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXblIdpAuthTokenResult_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXblIdpAuthTokenResult {}
 windows_core::imp::define_interface!(IXblIdpAuthTokenResult2, IXblIdpAuthTokenResult2_Vtbl, 0x75d760b0_60b9_412d_994f_26b2cd5f7812);
 windows_core::imp::interface_hierarchy!(IXblIdpAuthTokenResult2, windows_core::IUnknown);
@@ -1400,6 +1428,10 @@ impl IXblIdpAuthTokenResult2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXblIdpAuthTokenResult2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXblIdpAuthTokenResult2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXblIdpAuthTokenResult2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXblIdpAuthTokenResult2 {}
 #[repr(transparent)]

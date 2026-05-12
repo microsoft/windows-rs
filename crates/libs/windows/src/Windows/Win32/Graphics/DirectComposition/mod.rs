@@ -311,6 +311,11 @@ impl IDCompositionAffineTransform2DEffect_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionAffineTransform2DEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionAffineTransform2DEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDCompositionAffineTransform2DEffect {}
 windows_core::imp::define_interface!(IDCompositionAnimation, IDCompositionAnimation_Vtbl, 0xcbfd91d9_51b2_45e4_b3de_d19ccfb863c5);
 windows_core::imp::interface_hierarchy!(IDCompositionAnimation, windows_core::IUnknown);
@@ -404,6 +409,10 @@ impl IDCompositionAnimation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionAnimation as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionAnimation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionAnimation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionAnimation {}
 windows_core::imp::define_interface!(IDCompositionArithmeticCompositeEffect, IDCompositionArithmeticCompositeEffect_Vtbl, 0x3b67dfa8_e3dd_4e61_b640_46c2f3d739dc);
@@ -565,6 +574,10 @@ impl IDCompositionArithmeticCompositeEffect_Vtbl {
         iid == &<IDCompositionArithmeticCompositeEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDCompositionArithmeticCompositeEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionArithmeticCompositeEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDCompositionArithmeticCompositeEffect {}
 windows_core::imp::define_interface!(IDCompositionBlendEffect, IDCompositionBlendEffect_Vtbl, 0x33ecdc0a_578a_4a11_9c14_0cb90517f9c5);
 impl core::ops::Deref for IDCompositionBlendEffect {
@@ -607,6 +620,11 @@ impl IDCompositionBlendEffect_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionBlendEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionBlendEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionBlendEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDCompositionBlendEffect {}
@@ -769,6 +787,10 @@ impl IDCompositionBrightnessEffect_Vtbl {
         iid == &<IDCompositionBrightnessEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDCompositionBrightnessEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionBrightnessEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDCompositionBrightnessEffect {}
 windows_core::imp::define_interface!(IDCompositionClip, IDCompositionClip_Vtbl, 0x64ac3703_9d3f_45ec_a109_7cac0e7a13a7);
 windows_core::imp::interface_hierarchy!(IDCompositionClip, windows_core::IUnknown);
@@ -785,6 +807,10 @@ impl IDCompositionClip_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionClip as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionClip_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionClip_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionClip {}
 windows_core::imp::define_interface!(IDCompositionColorMatrixEffect, IDCompositionColorMatrixEffect_Vtbl, 0xc1170a22_3ce2_4966_90d4_55408bfc84c4);
@@ -888,6 +914,11 @@ impl IDCompositionColorMatrixEffect_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionColorMatrixEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionColorMatrixEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDCompositionColorMatrixEffect {}
 windows_core::imp::define_interface!(IDCompositionCompositeEffect, IDCompositionCompositeEffect_Vtbl, 0x576616c0_a231_494d_a38d_00fd5ec4db46);
 impl core::ops::Deref for IDCompositionCompositeEffect {
@@ -930,6 +961,11 @@ impl IDCompositionCompositeEffect_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionCompositeEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionCompositeEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionCompositeEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDCompositionCompositeEffect {}
@@ -1027,6 +1063,11 @@ impl IDCompositionDelegatedInkTrail_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionDelegatedInkTrail_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionDelegatedInkTrail_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDCompositionDelegatedInkTrail {}
 windows_core::imp::define_interface!(IDCompositionDesktopDevice, IDCompositionDesktopDevice_Vtbl, 0x5f4633fe_1e08_4cb8_8c75_ce24333f5602);
 impl core::ops::Deref for IDCompositionDesktopDevice {
@@ -1119,6 +1160,11 @@ impl IDCompositionDesktopDevice_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionDesktopDevice as windows_core::Interface>::IID || iid == &<IDCompositionDevice2 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionDesktopDevice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionDesktopDevice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDCompositionDesktopDevice {}
@@ -1644,6 +1690,11 @@ impl IDCompositionDevice_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionDevice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionDevice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDCompositionDevice {}
 windows_core::imp::define_interface!(IDCompositionDevice2, IDCompositionDevice2_Vtbl, 0x75f6468d_1b8e_447c_9bc6_75fea80b5b25);
 windows_core::imp::interface_hierarchy!(IDCompositionDevice2, windows_core::IUnknown);
@@ -2107,6 +2158,11 @@ impl IDCompositionDevice2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionDevice2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionDevice2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDCompositionDevice2 {}
 windows_core::imp::define_interface!(IDCompositionDevice3, IDCompositionDevice3_Vtbl, 0x0987cb06_f916_48bf_8d35_ce7641781bd9);
 impl core::ops::Deref for IDCompositionDevice3 {
@@ -2411,6 +2467,11 @@ impl IDCompositionDevice3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionDevice3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionDevice3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDCompositionDevice3 {}
 windows_core::imp::define_interface!(IDCompositionDevice4, IDCompositionDevice4_Vtbl, 0x85fc5cca_2da6_494c_86b6_4a775c049b8a);
 impl core::ops::Deref for IDCompositionDevice4 {
@@ -2490,6 +2551,11 @@ impl IDCompositionDevice4_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionDevice4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionDevice4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDCompositionDevice4 {}
 windows_core::imp::define_interface!(IDCompositionDevice5, IDCompositionDevice5_Vtbl, 0x2c6bebfe_a603_472f_af34_d2443356e61b);
 impl core::ops::Deref for IDCompositionDevice5 {
@@ -2539,6 +2605,11 @@ impl IDCompositionDevice5_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionDevice5_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionDevice5_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDCompositionDevice5 {}
 windows_core::imp::define_interface!(IDCompositionDeviceDebug, IDCompositionDeviceDebug_Vtbl, 0xa1a3c64a_224f_4a81_9773_4f03a89d3c6c);
 windows_core::imp::interface_hierarchy!(IDCompositionDeviceDebug, windows_core::IUnknown);
@@ -2584,6 +2655,10 @@ impl IDCompositionDeviceDebug_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionDeviceDebug as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionDeviceDebug_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionDeviceDebug_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionDeviceDebug {}
 windows_core::imp::define_interface!(IDCompositionDynamicTexture, IDCompositionDynamicTexture_Vtbl, 0xa1de1d3f_6405_447f_8e95_1383a34b0277);
@@ -2637,6 +2712,10 @@ impl IDCompositionDynamicTexture_Vtbl {
         iid == &<IDCompositionDynamicTexture as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDCompositionDynamicTexture_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionDynamicTexture_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDCompositionDynamicTexture {}
 windows_core::imp::define_interface!(IDCompositionEffect, IDCompositionEffect_Vtbl, 0xec81b08f_bfcb_4e8d_b193_a915587999e8);
 windows_core::imp::interface_hierarchy!(IDCompositionEffect, windows_core::IUnknown);
@@ -2653,6 +2732,10 @@ impl IDCompositionEffect_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionEffect as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionEffect {}
 windows_core::imp::define_interface!(IDCompositionEffectGroup, IDCompositionEffectGroup_Vtbl, 0xa7929a74_e6b2_4bd6_8b95_4040119ca34d);
@@ -2724,6 +2807,10 @@ impl IDCompositionEffectGroup_Vtbl {
         iid == &<IDCompositionEffectGroup as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDCompositionEffectGroup_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionEffectGroup_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDCompositionEffectGroup {}
 windows_core::imp::define_interface!(IDCompositionFilterEffect, IDCompositionFilterEffect_Vtbl, 0x30c421d5_8cb2_4e9f_b133_37be270d4ac2);
 impl core::ops::Deref for IDCompositionFilterEffect {
@@ -2763,6 +2850,10 @@ impl IDCompositionFilterEffect_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionFilterEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionFilterEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionFilterEffect {}
 windows_core::imp::define_interface!(IDCompositionGaussianBlurEffect, IDCompositionGaussianBlurEffect_Vtbl, 0x45d4d0b7_1bd4_454e_8894_2bfa68443033);
@@ -2838,6 +2929,11 @@ impl IDCompositionGaussianBlurEffect_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionGaussianBlurEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionGaussianBlurEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDCompositionGaussianBlurEffect {}
 windows_core::imp::define_interface!(IDCompositionHueRotationEffect, IDCompositionHueRotationEffect_Vtbl, 0x6db9f920_0770_4781_b0c6_381912f9d167);
 impl core::ops::Deref for IDCompositionHueRotationEffect {
@@ -2892,6 +2988,10 @@ impl IDCompositionHueRotationEffect_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionHueRotationEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionHueRotationEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionHueRotationEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionHueRotationEffect {}
 windows_core::imp::define_interface!(IDCompositionInkTrailDevice, IDCompositionInkTrailDevice_Vtbl, 0xdf0c7cec_cdeb_4d4a_b91c_721bf22f4e6c);
@@ -2959,6 +3059,10 @@ impl IDCompositionInkTrailDevice_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionInkTrailDevice as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionInkTrailDevice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionInkTrailDevice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionInkTrailDevice {}
 windows_core::imp::define_interface!(IDCompositionLinearTransferEffect, IDCompositionLinearTransferEffect_Vtbl, 0x4305ee5b_c4a0_4c88_9385_67124e017683);
@@ -3264,6 +3368,10 @@ impl IDCompositionLinearTransferEffect_Vtbl {
         iid == &<IDCompositionLinearTransferEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDCompositionLinearTransferEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionLinearTransferEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDCompositionLinearTransferEffect {}
 windows_core::imp::define_interface!(IDCompositionMatrixTransform, IDCompositionMatrixTransform_Vtbl, 0x16cdff07_c503_419c_83f2_0965c7af1fa6);
 impl core::ops::Deref for IDCompositionMatrixTransform {
@@ -3331,6 +3439,10 @@ impl IDCompositionMatrixTransform_Vtbl {
         iid == &<IDCompositionMatrixTransform as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionTransform3D as windows_core::Interface>::IID || iid == &<IDCompositionTransform as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDCompositionMatrixTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionMatrixTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDCompositionMatrixTransform {}
 windows_core::imp::define_interface!(IDCompositionMatrixTransform3D, IDCompositionMatrixTransform3D_Vtbl, 0x4b3363f0_643b_41b7_b6e0_ccf22d34467c);
 impl core::ops::Deref for IDCompositionMatrixTransform3D {
@@ -3397,6 +3509,10 @@ impl IDCompositionMatrixTransform3D_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionMatrixTransform3D as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionTransform3D as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionMatrixTransform3D_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionMatrixTransform3D_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionMatrixTransform3D {}
 windows_core::imp::define_interface!(IDCompositionRectangleClip, IDCompositionRectangleClip_Vtbl, 0x9842ad7d_d9cf_4908_aed7_48b51da5e7c2);
@@ -3750,6 +3866,10 @@ impl IDCompositionRectangleClip_Vtbl {
         iid == &<IDCompositionRectangleClip as windows_core::Interface>::IID || iid == &<IDCompositionClip as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDCompositionRectangleClip_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionRectangleClip_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDCompositionRectangleClip {}
 windows_core::imp::define_interface!(IDCompositionRotateTransform, IDCompositionRotateTransform_Vtbl, 0x641ed83c_ae96_46c5_90dc_32774cc5c6d5);
 impl core::ops::Deref for IDCompositionRotateTransform {
@@ -3858,6 +3978,10 @@ impl IDCompositionRotateTransform_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionRotateTransform as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionTransform3D as windows_core::Interface>::IID || iid == &<IDCompositionTransform as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionRotateTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionRotateTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionRotateTransform {}
 windows_core::imp::define_interface!(IDCompositionRotateTransform3D, IDCompositionRotateTransform3D_Vtbl, 0xd8f5b23f_d429_4a91_b55a_d2f45fd75b18);
@@ -4076,6 +4200,10 @@ impl IDCompositionRotateTransform3D_Vtbl {
         iid == &<IDCompositionRotateTransform3D as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionTransform3D as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDCompositionRotateTransform3D_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionRotateTransform3D_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDCompositionRotateTransform3D {}
 windows_core::imp::define_interface!(IDCompositionSaturationEffect, IDCompositionSaturationEffect_Vtbl, 0xa08debda_3258_4fa4_9f16_9174d3fe93b1);
 impl core::ops::Deref for IDCompositionSaturationEffect {
@@ -4130,6 +4258,10 @@ impl IDCompositionSaturationEffect_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionSaturationEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionSaturationEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionSaturationEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionSaturationEffect {}
 windows_core::imp::define_interface!(IDCompositionScaleTransform, IDCompositionScaleTransform_Vtbl, 0x71fde914_40ef_45ef_bd51_68b037c339f9);
@@ -4266,6 +4398,10 @@ impl IDCompositionScaleTransform_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionScaleTransform as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionTransform3D as windows_core::Interface>::IID || iid == &<IDCompositionTransform as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionScaleTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionScaleTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionScaleTransform {}
 windows_core::imp::define_interface!(IDCompositionScaleTransform3D, IDCompositionScaleTransform3D_Vtbl, 0x2a9e9ead_364b_4b15_a7c4_a1997f78b389);
@@ -4457,6 +4593,10 @@ impl IDCompositionScaleTransform3D_Vtbl {
         iid == &<IDCompositionScaleTransform3D as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionTransform3D as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDCompositionScaleTransform3D_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionScaleTransform3D_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDCompositionScaleTransform3D {}
 windows_core::imp::define_interface!(IDCompositionShadowEffect, IDCompositionShadowEffect_Vtbl, 0x4ad18ac0_cfd2_4c2f_bb62_96e54fdb6879);
 impl core::ops::Deref for IDCompositionShadowEffect {
@@ -4632,6 +4772,10 @@ impl IDCompositionShadowEffect_Vtbl {
         iid == &<IDCompositionShadowEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDCompositionShadowEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionShadowEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDCompositionShadowEffect {}
 windows_core::imp::define_interface!(IDCompositionSkewTransform, IDCompositionSkewTransform_Vtbl, 0xe57aa735_dcdb_4c72_9c61_0591f58889ee);
 impl core::ops::Deref for IDCompositionSkewTransform {
@@ -4768,6 +4912,10 @@ impl IDCompositionSkewTransform_Vtbl {
         iid == &<IDCompositionSkewTransform as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionTransform3D as windows_core::Interface>::IID || iid == &<IDCompositionTransform as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDCompositionSkewTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionSkewTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDCompositionSkewTransform {}
 windows_core::imp::define_interface!(IDCompositionSurface, IDCompositionSurface_Vtbl, 0xbb8a4953_2c99_4f5a_96f5_4819027fa3ac);
 windows_core::imp::interface_hierarchy!(IDCompositionSurface, windows_core::IUnknown);
@@ -4854,6 +5002,10 @@ impl IDCompositionSurface_Vtbl {
         iid == &<IDCompositionSurface as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDCompositionSurface_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionSurface_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDCompositionSurface {}
 windows_core::imp::define_interface!(IDCompositionSurfaceFactory, IDCompositionSurfaceFactory_Vtbl, 0xe334bc12_3937_4e02_85eb_fcf4eb30d2c8);
 windows_core::imp::interface_hierarchy!(IDCompositionSurfaceFactory, windows_core::IUnknown);
@@ -4927,6 +5079,11 @@ impl IDCompositionSurfaceFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionSurfaceFactory as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionSurfaceFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionSurfaceFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDCompositionSurfaceFactory {}
@@ -5173,6 +5330,10 @@ impl IDCompositionTableTransferEffect_Vtbl {
         iid == &<IDCompositionTableTransferEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDCompositionTableTransferEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionTableTransferEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDCompositionTableTransferEffect {}
 windows_core::imp::define_interface!(IDCompositionTarget, IDCompositionTarget_Vtbl, 0xeacdd04c_117e_4e17_88f4_d1b12b0e3d89);
 windows_core::imp::interface_hierarchy!(IDCompositionTarget, windows_core::IUnknown);
@@ -5206,6 +5367,10 @@ impl IDCompositionTarget_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionTarget as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionTarget_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionTarget_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionTarget {}
 windows_core::imp::define_interface!(IDCompositionTexture, IDCompositionTexture_Vtbl, 0x929bb1aa_725f_433b_abd7_273075a835f2);
@@ -5296,6 +5461,11 @@ impl IDCompositionTexture_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionTexture_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionTexture_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for IDCompositionTexture {}
 windows_core::imp::define_interface!(IDCompositionTransform, IDCompositionTransform_Vtbl, 0xfd55faa7_37e0_4c20_95d2_9be45bc33f55);
 impl core::ops::Deref for IDCompositionTransform {
@@ -5319,6 +5489,10 @@ impl IDCompositionTransform_Vtbl {
         iid == &<IDCompositionTransform as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionTransform3D as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDCompositionTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDCompositionTransform {}
 windows_core::imp::define_interface!(IDCompositionTransform3D, IDCompositionTransform3D_Vtbl, 0x71185722_246b_41f2_aad1_0443f7f4bfc2);
 impl core::ops::Deref for IDCompositionTransform3D {
@@ -5341,6 +5515,10 @@ impl IDCompositionTransform3D_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionTransform3D as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionTransform3D_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionTransform3D_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionTransform3D {}
 windows_core::imp::define_interface!(IDCompositionTranslateTransform, IDCompositionTranslateTransform_Vtbl, 0x06791122_c6f0_417d_8323_269e987f5954);
@@ -5423,6 +5601,10 @@ impl IDCompositionTranslateTransform_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionTranslateTransform as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionTransform3D as windows_core::Interface>::IID || iid == &<IDCompositionTransform as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionTranslateTransform_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionTranslateTransform_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionTranslateTransform {}
 windows_core::imp::define_interface!(IDCompositionTranslateTransform3D, IDCompositionTranslateTransform3D_Vtbl, 0x91636d4b_9ba1_4532_aaf7_e3344994d788);
@@ -5532,6 +5714,10 @@ impl IDCompositionTranslateTransform3D_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionTranslateTransform3D as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionTransform3D as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionTranslateTransform3D_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionTranslateTransform3D_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionTranslateTransform3D {}
 windows_core::imp::define_interface!(IDCompositionTurbulenceEffect, IDCompositionTurbulenceEffect_Vtbl, 0xa6a55bda_c09c_49f3_9193_a41922c89715);
@@ -5652,6 +5838,11 @@ impl IDCompositionTurbulenceEffect_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionTurbulenceEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionTurbulenceEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDCompositionTurbulenceEffect {}
 windows_core::imp::define_interface!(IDCompositionVirtualSurface, IDCompositionVirtualSurface_Vtbl, 0xae471c51_5f53_4a24_8d3e_d0c39c30b3f0);
 impl core::ops::Deref for IDCompositionVirtualSurface {
@@ -5699,6 +5890,10 @@ impl IDCompositionVirtualSurface_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionVirtualSurface as windows_core::Interface>::IID || iid == &<IDCompositionSurface as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDCompositionVirtualSurface_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionVirtualSurface_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDCompositionVirtualSurface {}
 windows_core::imp::define_interface!(IDCompositionVisual, IDCompositionVisual_Vtbl, 0x4d93059d_097b_4651_9a60_f0f25116e2f3);
@@ -5961,6 +6156,11 @@ impl IDCompositionVisual_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionVisual_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionVisual_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDCompositionVisual {}
 windows_core::imp::define_interface!(IDCompositionVisual2, IDCompositionVisual2_Vtbl, 0xe8de1639_4331_4b26_bc5f_6a321d347a85);
 impl core::ops::Deref for IDCompositionVisual2 {
@@ -6014,6 +6214,11 @@ impl IDCompositionVisual2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionVisual2 as windows_core::Interface>::IID || iid == &<IDCompositionVisual as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionVisual2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionVisual2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDCompositionVisual2 {}
@@ -6152,6 +6357,11 @@ impl IDCompositionVisual3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionVisual3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionVisual3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDCompositionVisual3 {}
 windows_core::imp::define_interface!(IDCompositionVisualDebug, IDCompositionVisualDebug_Vtbl, 0xfed2b808_5eb4_43a0_aea3_35f65280f91b);
 impl core::ops::Deref for IDCompositionVisualDebug {
@@ -6233,6 +6443,11 @@ impl IDCompositionVisualDebug_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDCompositionVisualDebug as windows_core::Interface>::IID || iid == &<IDCompositionVisual as windows_core::Interface>::IID || iid == &<IDCompositionVisual2 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl<Identity: windows_core::IUnknownImpl + IDCompositionVisualDebug_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDCompositionVisualDebug_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDCompositionVisualDebug {}

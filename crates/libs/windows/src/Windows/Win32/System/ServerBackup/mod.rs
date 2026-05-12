@@ -48,6 +48,10 @@ impl IWsbApplicationAsync_Vtbl {
         iid == &<IWsbApplicationAsync as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IWsbApplicationAsync_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWsbApplicationAsync_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IWsbApplicationAsync {}
 windows_core::imp::define_interface!(IWsbApplicationBackupSupport, IWsbApplicationBackupSupport_Vtbl, 0x1eff3510_4a27_46ad_b9e0_08332f0f4f6d);
 windows_core::imp::interface_hierarchy!(IWsbApplicationBackupSupport, windows_core::IUnknown);
@@ -92,6 +96,10 @@ impl IWsbApplicationBackupSupport_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWsbApplicationBackupSupport as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWsbApplicationBackupSupport_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWsbApplicationBackupSupport_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWsbApplicationBackupSupport {}
 windows_core::imp::define_interface!(IWsbApplicationRestoreSupport, IWsbApplicationRestoreSupport_Vtbl, 0x8d3bdb38_4ee8_4718_85f9_c7dbc4ab77aa);
@@ -181,6 +189,10 @@ impl IWsbApplicationRestoreSupport_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWsbApplicationRestoreSupport as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWsbApplicationRestoreSupport_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWsbApplicationRestoreSupport_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWsbApplicationRestoreSupport {}
 pub const WSBAPP_ASYNC_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x7A0004_u32 as _);

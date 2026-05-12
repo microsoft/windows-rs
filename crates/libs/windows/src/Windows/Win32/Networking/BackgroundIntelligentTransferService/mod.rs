@@ -101,6 +101,10 @@ impl AsyncIBackgroundCopyCallback_Vtbl {
         iid == &<AsyncIBackgroundCopyCallback as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + AsyncIBackgroundCopyCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIBackgroundCopyCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for AsyncIBackgroundCopyCallback {}
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -608,6 +612,11 @@ impl IBITSExtensionSetup_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IBITSExtensionSetup_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBITSExtensionSetup_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBITSExtensionSetup {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IBITSExtensionSetupFactory, IBITSExtensionSetupFactory_Vtbl, 0xd5d2d542_5503_4e64_8b48_72ef91a32ee1);
@@ -660,6 +669,11 @@ impl IBITSExtensionSetupFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBITSExtensionSetupFactory as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IBITSExtensionSetupFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBITSExtensionSetupFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBITSExtensionSetupFactory {}
@@ -729,6 +743,10 @@ impl IBackgroundCopyCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundCopyCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBackgroundCopyCallback {}
 windows_core::imp::define_interface!(IBackgroundCopyCallback1, IBackgroundCopyCallback1_Vtbl, 0x084f6593_3800_4e08_9b59_99fa59addf82);
@@ -800,6 +818,10 @@ impl IBackgroundCopyCallback1_Vtbl {
         iid == &<IBackgroundCopyCallback1 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyCallback1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyCallback1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBackgroundCopyCallback1 {}
 windows_core::imp::define_interface!(IBackgroundCopyCallback2, IBackgroundCopyCallback2_Vtbl, 0x659cdeac_489e_11d9_a9cd_000d56965251);
 impl core::ops::Deref for IBackgroundCopyCallback2 {
@@ -841,6 +863,10 @@ impl IBackgroundCopyCallback2_Vtbl {
         iid == &<IBackgroundCopyCallback2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyCallback as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyCallback2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyCallback2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBackgroundCopyCallback2 {}
 windows_core::imp::define_interface!(IBackgroundCopyCallback3, IBackgroundCopyCallback3_Vtbl, 0x98c97bd2_e32b_4ad8_a528_95fd8b16bd42);
 impl core::ops::Deref for IBackgroundCopyCallback3 {
@@ -881,6 +907,10 @@ impl IBackgroundCopyCallback3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundCopyCallback3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyCallback as windows_core::Interface>::IID || iid == &<IBackgroundCopyCallback2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyCallback3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyCallback3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBackgroundCopyCallback3 {}
 windows_core::imp::define_interface!(IBackgroundCopyError, IBackgroundCopyError_Vtbl, 0x19c613a0_fcb8_4f28_81ae_897c3d078f81);
@@ -1000,6 +1030,10 @@ impl IBackgroundCopyError_Vtbl {
         iid == &<IBackgroundCopyError as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyError_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyError_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBackgroundCopyError {}
 windows_core::imp::define_interface!(IBackgroundCopyFile, IBackgroundCopyFile_Vtbl, 0x01b7bd23_fb88_4a77_8490_5891d3e4653a);
 windows_core::imp::interface_hierarchy!(IBackgroundCopyFile, windows_core::IUnknown);
@@ -1076,6 +1110,10 @@ impl IBackgroundCopyFile_Vtbl {
         iid == &<IBackgroundCopyFile as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyFile_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyFile_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBackgroundCopyFile {}
 windows_core::imp::define_interface!(IBackgroundCopyFile2, IBackgroundCopyFile2_Vtbl, 0x83e81b93_0873_474d_8a8c_f2018b1a939c);
 impl core::ops::Deref for IBackgroundCopyFile2 {
@@ -1130,6 +1168,10 @@ impl IBackgroundCopyFile2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyFile2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyFile2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBackgroundCopyFile2 {}
 windows_core::imp::define_interface!(IBackgroundCopyFile3, IBackgroundCopyFile3_Vtbl, 0x659cdeaa_489e_11d9_a9cd_000d56965251);
@@ -1234,6 +1276,10 @@ impl IBackgroundCopyFile3_Vtbl {
         iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyFile3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyFile3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBackgroundCopyFile3 {}
 windows_core::imp::define_interface!(IBackgroundCopyFile4, IBackgroundCopyFile4_Vtbl, 0xef7e0655_7888_4960_b0e5_730846e03492);
 impl core::ops::Deref for IBackgroundCopyFile4 {
@@ -1270,6 +1316,10 @@ impl IBackgroundCopyFile4_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundCopyFile4 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyFile4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyFile4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBackgroundCopyFile4 {}
 windows_core::imp::define_interface!(IBackgroundCopyFile5, IBackgroundCopyFile5_Vtbl, 0x85c1657f_dafc_40e8_8834_df18ea25717e);
@@ -1331,6 +1381,10 @@ impl IBackgroundCopyFile5_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundCopyFile5 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile4 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyFile5_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyFile5_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBackgroundCopyFile5 {}
 windows_core::imp::define_interface!(IBackgroundCopyFile6, IBackgroundCopyFile6_Vtbl, 0xcf6784f7_d677_49fd_9368_cb47aee9d1ad);
@@ -1395,6 +1449,10 @@ impl IBackgroundCopyFile6_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundCopyFile6 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile4 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile5 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyFile6_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyFile6_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBackgroundCopyFile6 {}
 windows_core::imp::define_interface!(IBackgroundCopyGroup, IBackgroundCopyGroup_Vtbl, 0x1ded80a7_53ea_424f_8a04_17fea9adc4f5);
@@ -1682,6 +1740,11 @@ impl IBackgroundCopyGroup_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundCopyGroup as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyGroup_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyGroup_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBackgroundCopyGroup {}
@@ -2233,6 +2296,10 @@ impl IBackgroundCopyJob_Vtbl {
         iid == &<IBackgroundCopyJob as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyJob_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyJob_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBackgroundCopyJob {}
 windows_core::imp::define_interface!(IBackgroundCopyJob1, IBackgroundCopyJob1_Vtbl, 0x59f5553c_2031_4629_bb18_2645a6970947);
 windows_core::imp::interface_hierarchy!(IBackgroundCopyJob1, windows_core::IUnknown);
@@ -2387,6 +2454,10 @@ impl IBackgroundCopyJob1_Vtbl {
         iid == &<IBackgroundCopyJob1 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyJob1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyJob1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBackgroundCopyJob1 {}
 windows_core::imp::define_interface!(IBackgroundCopyJob2, IBackgroundCopyJob2_Vtbl, 0x54b50739_686f_45eb_9dff_d6a9a0faa9af);
 impl core::ops::Deref for IBackgroundCopyJob2 {
@@ -2527,6 +2598,10 @@ impl IBackgroundCopyJob2_Vtbl {
         iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyJob2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyJob2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBackgroundCopyJob2 {}
 windows_core::imp::define_interface!(IBackgroundCopyJob3, IBackgroundCopyJob3_Vtbl, 0x443c8934_90ff_48ed_bcde_26f5c7450042);
 impl core::ops::Deref for IBackgroundCopyJob3 {
@@ -2619,6 +2694,10 @@ impl IBackgroundCopyJob3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundCopyJob3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyJob3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyJob3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBackgroundCopyJob3 {}
 windows_core::imp::define_interface!(IBackgroundCopyJob4, IBackgroundCopyJob4_Vtbl, 0x659cdeae_489e_11d9_a9cd_000d56965251);
@@ -2756,6 +2835,10 @@ impl IBackgroundCopyJob4_Vtbl {
         iid == &<IBackgroundCopyJob4 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob3 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyJob4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyJob4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBackgroundCopyJob4 {}
 windows_core::imp::define_interface!(IBackgroundCopyJob5, IBackgroundCopyJob5_Vtbl, 0xe847030c_bbba_4657_af6d_484aa42bf1fe);
 impl core::ops::Deref for IBackgroundCopyJob5 {
@@ -2816,6 +2899,10 @@ impl IBackgroundCopyJob5_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundCopyJob5 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob4 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyJob5_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyJob5_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBackgroundCopyJob5 {}
 windows_core::imp::define_interface!(IBackgroundCopyJobHttpOptions, IBackgroundCopyJobHttpOptions_Vtbl, 0xf1bd1079_9f01_4bdc_8036_f09b70095066);
@@ -2963,6 +3050,10 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyJobHttpOptions_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyJobHttpOptions_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBackgroundCopyJobHttpOptions {}
 windows_core::imp::define_interface!(IBackgroundCopyJobHttpOptions2, IBackgroundCopyJobHttpOptions2_Vtbl, 0xb591a192_a405_4fc3_8323_4c5c542578fc);
 impl core::ops::Deref for IBackgroundCopyJobHttpOptions2 {
@@ -3027,6 +3118,10 @@ impl IBackgroundCopyJobHttpOptions2_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyJobHttpOptions2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyJobHttpOptions2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBackgroundCopyJobHttpOptions2 {}
 windows_core::imp::define_interface!(IBackgroundCopyJobHttpOptions3, IBackgroundCopyJobHttpOptions3_Vtbl, 0x8a9263d3_fd4c_4eda_9b28_30132a4d4e3c);
 impl core::ops::Deref for IBackgroundCopyJobHttpOptions3 {
@@ -3081,6 +3176,10 @@ impl IBackgroundCopyJobHttpOptions3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundCopyJobHttpOptions3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as windows_core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyJobHttpOptions3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyJobHttpOptions3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBackgroundCopyJobHttpOptions3 {}
 windows_core::imp::define_interface!(IBackgroundCopyManager, IBackgroundCopyManager_Vtbl, 0x5ce34c0d_0dc9_4c1f_897c_daa1b78cee7c);
@@ -3182,6 +3281,10 @@ impl IBackgroundCopyManager_Vtbl {
         iid == &<IBackgroundCopyManager as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBackgroundCopyManager {}
 windows_core::imp::define_interface!(IBackgroundCopyQMgr, IBackgroundCopyQMgr_Vtbl, 0x16f41c69_09f5_41d2_8cd8_3c08c47bc8a8);
 windows_core::imp::interface_hierarchy!(IBackgroundCopyQMgr, windows_core::IUnknown);
@@ -3267,6 +3370,10 @@ impl IBackgroundCopyQMgr_Vtbl {
         iid == &<IBackgroundCopyQMgr as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyQMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyQMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBackgroundCopyQMgr {}
 windows_core::imp::define_interface!(IBackgroundCopyServerCertificateValidationCallback, IBackgroundCopyServerCertificateValidationCallback_Vtbl, 0x4cec0d02_def7_4158_813a_c32a46945ff7);
 windows_core::imp::interface_hierarchy!(IBackgroundCopyServerCertificateValidationCallback, windows_core::IUnknown);
@@ -3301,6 +3408,10 @@ impl IBackgroundCopyServerCertificateValidationCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundCopyServerCertificateValidationCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCopyServerCertificateValidationCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCopyServerCertificateValidationCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBackgroundCopyServerCertificateValidationCallback {}
 windows_core::imp::define_interface!(IBitsPeer, IBitsPeer_Vtbl, 0x659cdea2_489e_11d9_a9cd_000d56965251);
@@ -3386,6 +3497,10 @@ impl IBitsPeer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBitsPeer as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBitsPeer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBitsPeer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBitsPeer {}
 windows_core::imp::define_interface!(IBitsPeerCacheAdministration, IBitsPeerCacheAdministration_Vtbl, 0x659cdead_489e_11d9_a9cd_000d56965251);
@@ -3634,6 +3749,10 @@ impl IBitsPeerCacheAdministration_Vtbl {
         iid == &<IBitsPeerCacheAdministration as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBitsPeerCacheAdministration_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBitsPeerCacheAdministration_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBitsPeerCacheAdministration {}
 windows_core::imp::define_interface!(IBitsPeerCacheRecord, IBitsPeerCacheRecord_Vtbl, 0x659cdeaf_489e_11d9_a9cd_000d56965251);
 windows_core::imp::interface_hierarchy!(IBitsPeerCacheRecord, windows_core::IUnknown);
@@ -3785,6 +3904,10 @@ impl IBitsPeerCacheRecord_Vtbl {
         iid == &<IBitsPeerCacheRecord as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBitsPeerCacheRecord_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBitsPeerCacheRecord_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IBitsPeerCacheRecord {}
 windows_core::imp::define_interface!(IBitsTokenOptions, IBitsTokenOptions_Vtbl, 0x9a2584c3_f7d2_457a_9a5e_22b67bffc7d2);
 windows_core::imp::interface_hierarchy!(IBitsTokenOptions, windows_core::IUnknown);
@@ -3884,6 +4007,10 @@ impl IBitsTokenOptions_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBitsTokenOptions as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBitsTokenOptions_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBitsTokenOptions_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IBitsTokenOptions {}
 windows_core::imp::define_interface!(IEnumBackgroundCopyFiles, IEnumBackgroundCopyFiles_Vtbl, 0xca51e165_c365_424c_8d41_24aaa4ff3c40);
@@ -3985,6 +4112,10 @@ impl IEnumBackgroundCopyFiles_Vtbl {
         iid == &<IEnumBackgroundCopyFiles as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumBackgroundCopyFiles_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumBackgroundCopyFiles_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumBackgroundCopyFiles {}
 windows_core::imp::define_interface!(IEnumBackgroundCopyGroups, IEnumBackgroundCopyGroups_Vtbl, 0xd993e603_4aa4_47c5_8665_c20d39c2ba4f);
 windows_core::imp::interface_hierarchy!(IEnumBackgroundCopyGroups, windows_core::IUnknown);
@@ -4084,6 +4215,10 @@ impl IEnumBackgroundCopyGroups_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumBackgroundCopyGroups as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumBackgroundCopyGroups_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumBackgroundCopyGroups_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumBackgroundCopyGroups {}
 windows_core::imp::define_interface!(IEnumBackgroundCopyJobs, IEnumBackgroundCopyJobs_Vtbl, 0x1af4f612_3b71_466f_8f58_7b6f73ac57ad);
@@ -4185,6 +4320,10 @@ impl IEnumBackgroundCopyJobs_Vtbl {
         iid == &<IEnumBackgroundCopyJobs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumBackgroundCopyJobs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumBackgroundCopyJobs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumBackgroundCopyJobs {}
 windows_core::imp::define_interface!(IEnumBackgroundCopyJobs1, IEnumBackgroundCopyJobs1_Vtbl, 0x8baeba9d_8f1c_42c4_b82c_09ae79980d25);
 windows_core::imp::interface_hierarchy!(IEnumBackgroundCopyJobs1, windows_core::IUnknown);
@@ -4284,6 +4423,10 @@ impl IEnumBackgroundCopyJobs1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumBackgroundCopyJobs1 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumBackgroundCopyJobs1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumBackgroundCopyJobs1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumBackgroundCopyJobs1 {}
 windows_core::imp::define_interface!(IEnumBitsPeerCacheRecords, IEnumBitsPeerCacheRecords_Vtbl, 0x659cdea4_489e_11d9_a9cd_000d56965251);
@@ -4385,6 +4528,10 @@ impl IEnumBitsPeerCacheRecords_Vtbl {
         iid == &<IEnumBitsPeerCacheRecords as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumBitsPeerCacheRecords_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumBitsPeerCacheRecords_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumBitsPeerCacheRecords {}
 windows_core::imp::define_interface!(IEnumBitsPeers, IEnumBitsPeers_Vtbl, 0x659cdea5_489e_11d9_a9cd_000d56965251);
 windows_core::imp::interface_hierarchy!(IEnumBitsPeers, windows_core::IUnknown);
@@ -4484,6 +4631,10 @@ impl IEnumBitsPeers_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumBitsPeers as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumBitsPeers_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumBitsPeers_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumBitsPeers {}
 pub const QM_E_DOWNLOADER_UNAVAILABLE: u32 = 2164264963u32;

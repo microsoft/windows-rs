@@ -2470,6 +2470,11 @@ impl ICameraUIControl_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + ICameraUIControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICameraUIControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ICameraUIControl {}
 windows_core::imp::define_interface!(ICameraUIControlEventCallback, ICameraUIControlEventCallback_Vtbl, 0x1bfa0c2c_fbcd_4776_bda4_88bf974e74f4);
 windows_core::imp::interface_hierarchy!(ICameraUIControlEventCallback, windows_core::IUnknown);
@@ -2558,6 +2563,10 @@ impl ICameraUIControlEventCallback_Vtbl {
         iid == &<ICameraUIControlEventCallback as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICameraUIControlEventCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICameraUIControlEventCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICameraUIControlEventCallback {}
 windows_core::imp::define_interface!(IClipServiceNotificationHelper, IClipServiceNotificationHelper_Vtbl, 0xc39948f0_6142_44fd_98ca_e1681a8d68b5);
 windows_core::imp::interface_hierarchy!(IClipServiceNotificationHelper, windows_core::IUnknown);
@@ -2588,6 +2597,10 @@ impl IClipServiceNotificationHelper_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IClipServiceNotificationHelper as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IClipServiceNotificationHelper_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IClipServiceNotificationHelper_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IClipServiceNotificationHelper {}
 windows_core::imp::define_interface!(IContainerActivationHelper, IContainerActivationHelper_Vtbl, 0xb524f93f_80d5_4ec7_ae9e_d66e93ade1fa);
@@ -2629,6 +2642,10 @@ impl IContainerActivationHelper_Vtbl {
         iid == &<IContainerActivationHelper as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IContainerActivationHelper_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContainerActivationHelper_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IContainerActivationHelper {}
 windows_core::imp::define_interface!(IDefaultBrowserSyncSettings, IDefaultBrowserSyncSettings_Vtbl, 0x7a27faad_5ae6_4255_9030_c530936292e3);
 windows_core::imp::interface_hierarchy!(IDefaultBrowserSyncSettings, windows_core::IUnknown);
@@ -2660,6 +2677,10 @@ impl IDefaultBrowserSyncSettings_Vtbl {
         iid == &<IDefaultBrowserSyncSettings as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDefaultBrowserSyncSettings_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDefaultBrowserSyncSettings_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDefaultBrowserSyncSettings {}
 windows_core::imp::define_interface!(IDeleteBrowsingHistory, IDeleteBrowsingHistory_Vtbl, 0xcf38ed4b_2be7_4461_8b5e_9a466dc82ae3);
 windows_core::imp::interface_hierarchy!(IDeleteBrowsingHistory, windows_core::IUnknown);
@@ -2690,6 +2711,10 @@ impl IDeleteBrowsingHistory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDeleteBrowsingHistory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDeleteBrowsingHistory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDeleteBrowsingHistory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDeleteBrowsingHistory {}
 pub const IE4_BACKNEW: u32 = 2u32;
@@ -2787,6 +2812,11 @@ impl IEditionUpgradeBroker_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEditionUpgradeBroker as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl<Identity: windows_core::IUnknownImpl + IEditionUpgradeBroker_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEditionUpgradeBroker_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Ole")]
 impl windows_core::RuntimeName for IEditionUpgradeBroker {}
@@ -2901,6 +2931,10 @@ impl IEditionUpgradeHelper_Vtbl {
         iid == &<IEditionUpgradeHelper as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEditionUpgradeHelper_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEditionUpgradeHelper_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEditionUpgradeHelper {}
 windows_core::imp::define_interface!(IFClipNotificationHelper, IFClipNotificationHelper_Vtbl, 0x3d5e3d21_bd41_4c2a_a669_b17ce87fb50b);
 windows_core::imp::interface_hierarchy!(IFClipNotificationHelper, windows_core::IUnknown);
@@ -2931,6 +2965,10 @@ impl IFClipNotificationHelper_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFClipNotificationHelper as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IFClipNotificationHelper_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFClipNotificationHelper_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IFClipNotificationHelper {}
 pub const IF_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(512u32);
@@ -3159,6 +3197,10 @@ impl IWindowsLockModeHelper_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWindowsLockModeHelper as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWindowsLockModeHelper_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWindowsLockModeHelper_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWindowsLockModeHelper {}
 #[repr(C)]

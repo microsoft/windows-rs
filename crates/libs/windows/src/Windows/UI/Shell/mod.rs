@@ -158,6 +158,10 @@ impl IAdaptiveCard_Vtbl {
         iid == &<IAdaptiveCard as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAdaptiveCard_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAdaptiveCard_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveCard_Vtbl {
@@ -206,6 +210,10 @@ impl IAdaptiveCardBuilderStatics_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAdaptiveCardBuilderStatics as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IAdaptiveCardBuilderStatics_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAdaptiveCardBuilderStatics_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

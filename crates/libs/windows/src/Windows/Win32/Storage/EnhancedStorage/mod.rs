@@ -328,6 +328,10 @@ impl IEnhancedStorageACT_Vtbl {
         iid == &<IEnhancedStorageACT as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnhancedStorageACT_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnhancedStorageACT_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnhancedStorageACT {}
 windows_core::imp::define_interface!(IEnhancedStorageACT2, IEnhancedStorageACT2_Vtbl, 0x4da57d2e_8eb3_41f6_a07e_98b52b88242b);
 impl core::ops::Deref for IEnhancedStorageACT2 {
@@ -397,6 +401,10 @@ impl IEnhancedStorageACT2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnhancedStorageACT2 as windows_core::Interface>::IID || iid == &<IEnhancedStorageACT as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnhancedStorageACT2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnhancedStorageACT2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnhancedStorageACT2 {}
 windows_core::imp::define_interface!(IEnhancedStorageACT3, IEnhancedStorageACT3_Vtbl, 0x022150a1_113d_11df_bb61_001aa01bbc58);
@@ -479,6 +487,10 @@ impl IEnhancedStorageACT3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnhancedStorageACT3 as windows_core::Interface>::IID || iid == &<IEnhancedStorageACT as windows_core::Interface>::IID || iid == &<IEnhancedStorageACT2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnhancedStorageACT3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnhancedStorageACT3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnhancedStorageACT3 {}
 windows_core::imp::define_interface!(IEnhancedStorageSilo, IEnhancedStorageSilo_Vtbl, 0x5aef78c6_2242_4703_bf49_44b29357a359);
@@ -596,6 +608,11 @@ impl IEnhancedStorageSilo_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Devices_PortableDevices")]
+impl<Identity: windows_core::IUnknownImpl + IEnhancedStorageSilo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnhancedStorageSilo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Devices_PortableDevices")]
 impl windows_core::RuntimeName for IEnhancedStorageSilo {}
 windows_core::imp::define_interface!(IEnhancedStorageSiloAction, IEnhancedStorageSiloAction_Vtbl, 0xb6f7f311_206f_4ff8_9c4b_27efee77a86f);
 windows_core::imp::interface_hierarchy!(IEnhancedStorageSiloAction, windows_core::IUnknown);
@@ -672,6 +689,10 @@ impl IEnhancedStorageSiloAction_Vtbl {
         iid == &<IEnhancedStorageSiloAction as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnhancedStorageSiloAction_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnhancedStorageSiloAction_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnhancedStorageSiloAction {}
 windows_core::imp::define_interface!(IEnumEnhancedStorageACT, IEnumEnhancedStorageACT_Vtbl, 0x09b224bd_1335_4631_a7ff_cfd3a92646d7);
 windows_core::imp::interface_hierarchy!(IEnumEnhancedStorageACT, windows_core::IUnknown);
@@ -729,6 +750,10 @@ impl IEnumEnhancedStorageACT_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumEnhancedStorageACT as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumEnhancedStorageACT_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumEnhancedStorageACT_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumEnhancedStorageACT {}
 pub const IMPORTANCE_HIGH_MAX: i32 = 5i32;

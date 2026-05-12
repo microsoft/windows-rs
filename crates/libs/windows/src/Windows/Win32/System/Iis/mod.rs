@@ -80,6 +80,10 @@ impl AsyncIFtpAuthenticationProvider_Vtbl {
         iid == &<AsyncIFtpAuthenticationProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + AsyncIFtpAuthenticationProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIFtpAuthenticationProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for AsyncIFtpAuthenticationProvider {}
 windows_core::imp::define_interface!(AsyncIFtpAuthorizationProvider, AsyncIFtpAuthorizationProvider_Vtbl, 0x860dc339_07e5_4a5c_9c61_8820cea012bc);
 windows_core::imp::interface_hierarchy!(AsyncIFtpAuthorizationProvider, windows_core::IUnknown);
@@ -141,6 +145,10 @@ impl AsyncIFtpAuthorizationProvider_Vtbl {
         iid == &<AsyncIFtpAuthorizationProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + AsyncIFtpAuthorizationProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIFtpAuthorizationProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for AsyncIFtpAuthorizationProvider {}
 windows_core::imp::define_interface!(AsyncIFtpHomeDirectoryProvider, AsyncIFtpHomeDirectoryProvider_Vtbl, 0x73f81638_6295_42bd_a2be_4a657f7c479c);
 windows_core::imp::interface_hierarchy!(AsyncIFtpHomeDirectoryProvider, windows_core::IUnknown);
@@ -201,6 +209,10 @@ impl AsyncIFtpHomeDirectoryProvider_Vtbl {
         iid == &<AsyncIFtpHomeDirectoryProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + AsyncIFtpHomeDirectoryProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIFtpHomeDirectoryProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for AsyncIFtpHomeDirectoryProvider {}
 windows_core::imp::define_interface!(AsyncIFtpLogProvider, AsyncIFtpLogProvider_Vtbl, 0x00a0ae46_2498_48b2_95e6_df678ed7d49f);
 windows_core::imp::interface_hierarchy!(AsyncIFtpLogProvider, windows_core::IUnknown);
@@ -246,6 +258,10 @@ impl AsyncIFtpLogProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<AsyncIFtpLogProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + AsyncIFtpLogProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIFtpLogProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for AsyncIFtpLogProvider {}
 windows_core::imp::define_interface!(AsyncIFtpPostprocessProvider, AsyncIFtpPostprocessProvider_Vtbl, 0xa16b2542_9694_4eb1_a564_6c2e91fdc133);
@@ -302,6 +318,10 @@ impl AsyncIFtpPostprocessProvider_Vtbl {
         iid == &<AsyncIFtpPostprocessProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + AsyncIFtpPostprocessProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIFtpPostprocessProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for AsyncIFtpPostprocessProvider {}
 windows_core::imp::define_interface!(AsyncIFtpPreprocessProvider, AsyncIFtpPreprocessProvider_Vtbl, 0x6ff5fd8f_fd8e_48b1_a3e0_bf7073db4db5);
 windows_core::imp::interface_hierarchy!(AsyncIFtpPreprocessProvider, windows_core::IUnknown);
@@ -356,6 +376,10 @@ impl AsyncIFtpPreprocessProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<AsyncIFtpPreprocessProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + AsyncIFtpPreprocessProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIFtpPreprocessProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for AsyncIFtpPreprocessProvider {}
 windows_core::imp::define_interface!(AsyncIFtpRoleProvider, AsyncIFtpRoleProvider_Vtbl, 0x3e83bf99_70ec_41ca_84b6_aca7c7a62caf);
@@ -417,6 +441,10 @@ impl AsyncIFtpRoleProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<AsyncIFtpRoleProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + AsyncIFtpRoleProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIFtpRoleProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for AsyncIFtpRoleProvider {}
 windows_core::imp::define_interface!(AsyncIMSAdminBaseSinkW, AsyncIMSAdminBaseSinkW_Vtbl, 0xa9e69613_b80d_11d0_b9b9_00a0c922e750);
@@ -487,6 +515,10 @@ impl AsyncIMSAdminBaseSinkW_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<AsyncIMSAdminBaseSinkW as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + AsyncIMSAdminBaseSinkW_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIMSAdminBaseSinkW_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for AsyncIMSAdminBaseSinkW {}
 pub const BINARY_METADATA: METADATATYPES = METADATATYPES(3i32);
@@ -1100,6 +1132,10 @@ impl IADMEXT_Vtbl {
         iid == &<IADMEXT as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IADMEXT_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IADMEXT_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IADMEXT {}
 windows_core::imp::define_interface!(IFtpAuthenticationProvider, IFtpAuthenticationProvider_Vtbl, 0x4659f95c_d5a8_4707_b2fc_6fd5794246cf);
 windows_core::imp::interface_hierarchy!(IFtpAuthenticationProvider, windows_core::IUnknown);
@@ -1136,6 +1172,10 @@ impl IFtpAuthenticationProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFtpAuthenticationProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IFtpAuthenticationProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFtpAuthenticationProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IFtpAuthenticationProvider {}
 windows_core::imp::define_interface!(IFtpAuthorizationProvider, IFtpAuthorizationProvider_Vtbl, 0xa50ae7a1_a35a_42b4_a4f3_f4f7057a05d1);
@@ -1183,6 +1223,10 @@ impl IFtpAuthorizationProvider_Vtbl {
         iid == &<IFtpAuthorizationProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IFtpAuthorizationProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFtpAuthorizationProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IFtpAuthorizationProvider {}
 windows_core::imp::define_interface!(IFtpHomeDirectoryProvider, IFtpHomeDirectoryProvider_Vtbl, 0x0933b392_18dd_4097_8b9c_83325c35d9a6);
 windows_core::imp::interface_hierarchy!(IFtpHomeDirectoryProvider, windows_core::IUnknown);
@@ -1228,6 +1272,10 @@ impl IFtpHomeDirectoryProvider_Vtbl {
         iid == &<IFtpHomeDirectoryProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IFtpHomeDirectoryProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFtpHomeDirectoryProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IFtpHomeDirectoryProvider {}
 windows_core::imp::define_interface!(IFtpLogProvider, IFtpLogProvider_Vtbl, 0xa18a94cc_8299_4408_816c_7c3baca1a40e);
 windows_core::imp::interface_hierarchy!(IFtpLogProvider, windows_core::IUnknown);
@@ -1258,6 +1306,10 @@ impl IFtpLogProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFtpLogProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IFtpLogProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFtpLogProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IFtpLogProvider {}
 windows_core::imp::define_interface!(IFtpPostprocessProvider, IFtpPostprocessProvider_Vtbl, 0x4522cbc6_16cd_49ad_8653_9a2c579e4280);
@@ -1299,6 +1351,10 @@ impl IFtpPostprocessProvider_Vtbl {
         iid == &<IFtpPostprocessProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IFtpPostprocessProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFtpPostprocessProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IFtpPostprocessProvider {}
 windows_core::imp::define_interface!(IFtpPreprocessProvider, IFtpPreprocessProvider_Vtbl, 0xa3c19b60_5a28_471a_8f93_ab30411cee82);
 windows_core::imp::interface_hierarchy!(IFtpPreprocessProvider, windows_core::IUnknown);
@@ -1339,6 +1395,10 @@ impl IFtpPreprocessProvider_Vtbl {
         iid == &<IFtpPreprocessProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IFtpPreprocessProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFtpPreprocessProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IFtpPreprocessProvider {}
 windows_core::imp::define_interface!(IFtpProviderConstruct, IFtpProviderConstruct_Vtbl, 0x4d1a3f7b_412d_447c_b199_64f967e9a2da);
 windows_core::imp::interface_hierarchy!(IFtpProviderConstruct, windows_core::IUnknown);
@@ -1375,6 +1435,11 @@ impl IFtpProviderConstruct_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFtpProviderConstruct as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IFtpProviderConstruct_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFtpProviderConstruct_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IFtpProviderConstruct {}
@@ -1422,6 +1487,10 @@ impl IFtpRoleProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFtpRoleProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IFtpRoleProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFtpRoleProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IFtpRoleProvider {}
 pub const IISADMIN_EXTENSIONS_CLSID_MD_KEY: windows_core::PCWSTR = windows_core::w!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
@@ -1638,6 +1707,10 @@ impl IMSAdminBase2W_Vtbl {
         iid == &<IMSAdminBase2W as windows_core::Interface>::IID || iid == &<IMSAdminBaseW as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMSAdminBase2W_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMSAdminBase2W_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMSAdminBase2W {}
 windows_core::imp::define_interface!(IMSAdminBase3W, IMSAdminBase3W_Vtbl, 0xf612954d_3b0b_4c56_9563_227b7be624b4);
 impl core::ops::Deref for IMSAdminBase3W {
@@ -1677,6 +1750,10 @@ impl IMSAdminBase3W_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMSAdminBase3W as windows_core::Interface>::IID || iid == &<IMSAdminBaseW as windows_core::Interface>::IID || iid == &<IMSAdminBase2W as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMSAdminBase3W_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMSAdminBase3W_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMSAdminBase3W {}
 windows_core::imp::define_interface!(IMSAdminBaseSinkW, IMSAdminBaseSinkW_Vtbl, 0xa9e69612_b80d_11d0_b9b9_00a0c922e750);
@@ -1723,6 +1800,10 @@ impl IMSAdminBaseSinkW_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMSAdminBaseSinkW as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMSAdminBaseSinkW_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMSAdminBaseSinkW_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMSAdminBaseSinkW {}
 windows_core::imp::define_interface!(IMSAdminBaseW, IMSAdminBaseW_Vtbl, 0x70b51430_b6ca_11d0_b9b9_00a0c922e750);
@@ -2229,6 +2310,10 @@ impl IMSAdminBaseW_Vtbl {
         iid == &<IMSAdminBaseW as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMSAdminBaseW_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMSAdminBaseW_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMSAdminBaseW {}
 windows_core::imp::define_interface!(IMSImpExpHelpW, IMSImpExpHelpW_Vtbl, 0x29ff67ff_8050_480f_9f30_cc41635f2f9d);
 windows_core::imp::interface_hierarchy!(IMSImpExpHelpW, windows_core::IUnknown);
@@ -2263,6 +2348,10 @@ impl IMSImpExpHelpW_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMSImpExpHelpW as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMSImpExpHelpW_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMSImpExpHelpW_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMSImpExpHelpW {}
 pub const INVALID_END_METADATA: METADATATYPES = METADATATYPES(6i32);

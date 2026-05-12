@@ -184,6 +184,10 @@ impl IContact_Vtbl {
         iid == &<IContact as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IContact_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContact_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IContact {}
 windows_core::imp::define_interface!(IContactAggregationAggregate, IContactAggregationAggregate_Vtbl, 0x7ed1c814_cd30_43c8_9b8d_2e489e53d54b);
 windows_core::imp::interface_hierarchy!(IContactAggregationAggregate, windows_core::IUnknown);
@@ -365,6 +369,10 @@ impl IContactAggregationAggregate_Vtbl {
         iid == &<IContactAggregationAggregate as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IContactAggregationAggregate_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactAggregationAggregate_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IContactAggregationAggregate {}
 windows_core::imp::define_interface!(IContactAggregationAggregateCollection, IContactAggregationAggregateCollection_Vtbl, 0x2359f3a6_3a68_40af_98db_0f9eb143c3bb);
 windows_core::imp::interface_hierarchy!(IContactAggregationAggregateCollection, windows_core::IUnknown);
@@ -473,6 +481,10 @@ impl IContactAggregationAggregateCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactAggregationAggregateCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IContactAggregationAggregateCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactAggregationAggregateCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IContactAggregationAggregateCollection {}
 windows_core::imp::define_interface!(IContactAggregationContact, IContactAggregationContact_Vtbl, 0x1eb22e86_4c86_41f0_9f9f_c251e9fda6c3);
@@ -802,6 +814,10 @@ impl IContactAggregationContact_Vtbl {
         iid == &<IContactAggregationContact as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IContactAggregationContact_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactAggregationContact_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IContactAggregationContact {}
 windows_core::imp::define_interface!(IContactAggregationContactCollection, IContactAggregationContactCollection_Vtbl, 0x826e66fa_81de_43ca_a6fb_8c785cd996c6);
 windows_core::imp::interface_hierarchy!(IContactAggregationContactCollection, windows_core::IUnknown);
@@ -936,6 +952,10 @@ impl IContactAggregationContactCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactAggregationContactCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IContactAggregationContactCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactAggregationContactCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IContactAggregationContactCollection {}
 windows_core::imp::define_interface!(IContactAggregationGroup, IContactAggregationGroup_Vtbl, 0xc93c545f_1284_499b_96af_07372af473e0);
@@ -1124,6 +1144,10 @@ impl IContactAggregationGroup_Vtbl {
         iid == &<IContactAggregationGroup as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IContactAggregationGroup_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactAggregationGroup_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IContactAggregationGroup {}
 windows_core::imp::define_interface!(IContactAggregationGroupCollection, IContactAggregationGroupCollection_Vtbl, 0x20a19a9c_d2f3_4b83_9143_beffd2cc226d);
 windows_core::imp::interface_hierarchy!(IContactAggregationGroupCollection, windows_core::IUnknown);
@@ -1229,6 +1253,10 @@ impl IContactAggregationGroupCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactAggregationGroupCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IContactAggregationGroupCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactAggregationGroupCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IContactAggregationGroupCollection {}
 windows_core::imp::define_interface!(IContactAggregationLink, IContactAggregationLink_Vtbl, 0xb6813323_a183_4654_8627_79b30de3a0ec);
@@ -1540,6 +1568,10 @@ impl IContactAggregationLink_Vtbl {
         iid == &<IContactAggregationLink as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IContactAggregationLink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactAggregationLink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IContactAggregationLink {}
 windows_core::imp::define_interface!(IContactAggregationLinkCollection, IContactAggregationLinkCollection_Vtbl, 0xf8bc0e93_fb55_4f28_b9fa_b1c274153292);
 windows_core::imp::interface_hierarchy!(IContactAggregationLinkCollection, windows_core::IUnknown);
@@ -1649,6 +1681,10 @@ impl IContactAggregationLinkCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactAggregationLinkCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IContactAggregationLinkCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactAggregationLinkCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IContactAggregationLinkCollection {}
 windows_core::imp::define_interface!(IContactAggregationManager, IContactAggregationManager_Vtbl, 0x1d865989_4b1f_4b60_8f34_c2ad468b2b50);
@@ -1986,6 +2022,10 @@ impl IContactAggregationManager_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactAggregationManager as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IContactAggregationManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactAggregationManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IContactAggregationManager {}
 windows_core::imp::define_interface!(IContactAggregationServerPerson, IContactAggregationServerPerson_Vtbl, 0x7fdc3d4b_1b82_4334_85c5_25184ee5a5f2);
@@ -2399,6 +2439,10 @@ impl IContactAggregationServerPerson_Vtbl {
         iid == &<IContactAggregationServerPerson as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IContactAggregationServerPerson_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactAggregationServerPerson_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IContactAggregationServerPerson {}
 windows_core::imp::define_interface!(IContactAggregationServerPersonCollection, IContactAggregationServerPersonCollection_Vtbl, 0x4f730a4a_6604_47b6_a987_669ecf1e5751);
 windows_core::imp::interface_hierarchy!(IContactAggregationServerPersonCollection, windows_core::IUnknown);
@@ -2556,6 +2600,10 @@ impl IContactAggregationServerPersonCollection_Vtbl {
         iid == &<IContactAggregationServerPersonCollection as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IContactAggregationServerPersonCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactAggregationServerPersonCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IContactAggregationServerPersonCollection {}
 windows_core::imp::define_interface!(IContactCollection, IContactCollection_Vtbl, 0xb6afa338_d779_11d9_8bde_f66bad1e3f3a);
 windows_core::imp::interface_hierarchy!(IContactCollection, windows_core::IUnknown);
@@ -2622,6 +2670,10 @@ impl IContactCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IContactCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IContactCollection {}
 windows_core::imp::define_interface!(IContactManager, IContactManager_Vtbl, 0xad553d98_deb1_474a_8e17_fc0c2075b738);
@@ -2757,6 +2809,10 @@ impl IContactManager_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactManager as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IContactManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IContactManager {}
 windows_core::imp::define_interface!(IContactProperties, IContactProperties_Vtbl, 0x70dd27dd_5cbd_46e8_bef0_23b6b346288f);
@@ -2989,6 +3045,11 @@ impl IContactProperties_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IContactProperties_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactProperties_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IContactProperties {}
 windows_core::imp::define_interface!(IContactPropertyCollection, IContactPropertyCollection_Vtbl, 0xffd3adf8_fa64_4328_b1b6_2e0db509cb3c);
 windows_core::imp::interface_hierarchy!(IContactPropertyCollection, windows_core::IUnknown);
@@ -3094,5 +3155,9 @@ impl IContactPropertyCollection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactPropertyCollection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IContactPropertyCollection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContactPropertyCollection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IContactPropertyCollection {}

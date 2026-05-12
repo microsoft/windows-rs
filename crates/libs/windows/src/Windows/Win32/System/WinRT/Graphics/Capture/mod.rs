@@ -58,6 +58,11 @@ impl IGraphicsCaptureItemInterop_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IGraphicsCaptureItemInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGraphicsCaptureItemInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IGraphicsCaptureItemInterop {}
 windows_core::imp::define_interface!(IMonitorGraphicsCaptureItemInterop, IMonitorGraphicsCaptureItemInterop_Vtbl, 0x33274d14_a076_4048_8416_747e9b04db7b);
 windows_core::imp::interface_hierarchy!(IMonitorGraphicsCaptureItemInterop, windows_core::IUnknown);
@@ -96,6 +101,11 @@ impl IMonitorGraphicsCaptureItemInterop_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IMonitorGraphicsCaptureItemInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMonitorGraphicsCaptureItemInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IMonitorGraphicsCaptureItemInterop {}
 windows_core::imp::define_interface!(IWindowGraphicsCaptureItemInterop, IWindowGraphicsCaptureItemInterop_Vtbl, 0x38e4c48b_94e6_4c44_9cfa_968193316c0c);
 windows_core::imp::interface_hierarchy!(IWindowGraphicsCaptureItemInterop, windows_core::IUnknown);
@@ -126,5 +136,9 @@ impl IWindowGraphicsCaptureItemInterop_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWindowGraphicsCaptureItemInterop as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWindowGraphicsCaptureItemInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWindowGraphicsCaptureItemInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IWindowGraphicsCaptureItemInterop {}

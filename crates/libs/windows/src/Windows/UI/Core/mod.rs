@@ -2237,6 +2237,10 @@ impl ICoreAcceleratorKeys_Vtbl {
         iid == &<ICoreAcceleratorKeys as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICoreAcceleratorKeys_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreAcceleratorKeys_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreAcceleratorKeys_Vtbl {
@@ -2468,6 +2472,10 @@ impl ICoreInputSourceBase_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreInputSourceBase as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICoreInputSourceBase_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreInputSourceBase_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2865,6 +2873,10 @@ impl ICorePointerInputSource_Vtbl {
         iid == &<ICorePointerInputSource as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICorePointerInputSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorePointerInputSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICorePointerInputSource_Vtbl {
@@ -3072,6 +3084,11 @@ impl ICorePointerInputSource2_Vtbl {
         iid == &<ICorePointerInputSource2 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "System")]
+impl<Identity: windows_core::IUnknownImpl + ICorePointerInputSource2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorePointerInputSource2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICorePointerInputSource2_Vtbl {
@@ -3204,6 +3221,10 @@ impl ICorePointerRedirector_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICorePointerRedirector as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICorePointerRedirector_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICorePointerRedirector_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4137,6 +4158,11 @@ impl ICoreWindow_Vtbl {
         iid == &<ICoreWindow as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "System"))]
+impl<Identity: windows_core::IUnknownImpl + ICoreWindow_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWindow_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWindow_Vtbl {
@@ -4352,6 +4378,10 @@ impl ICoreWindowEventArgs_Vtbl {
         iid == &<ICoreWindowEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICoreWindowEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWindowEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWindowEventArgs_Vtbl {
@@ -4508,6 +4538,10 @@ impl IInitializeWithCoreWindow_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInitializeWithCoreWindow as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IInitializeWithCoreWindow_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInitializeWithCoreWindow_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

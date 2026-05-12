@@ -996,6 +996,11 @@ impl IWebViewControl_Vtbl {
         iid == &<IWebViewControl as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Storage_Streams", feature = "UI", feature = "Web_Http"))]
+impl<Identity: windows_core::IUnknownImpl + IWebViewControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebViewControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControl_Vtbl {
@@ -1105,6 +1110,10 @@ impl IWebViewControl2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebViewControl2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IWebViewControl2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IWebViewControl2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

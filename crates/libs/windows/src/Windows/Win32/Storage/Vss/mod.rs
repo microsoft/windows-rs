@@ -84,6 +84,10 @@ impl IVssAdmin_Vtbl {
         iid == &<IVssAdmin as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVssAdmin_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssAdmin_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVssAdmin {}
 windows_core::imp::define_interface!(IVssAdminEx, IVssAdminEx_Vtbl, 0x7858a9f8_b1fa_41a6_964f_b9b36b8cd8d8);
 impl core::ops::Deref for IVssAdminEx {
@@ -166,6 +170,10 @@ impl IVssAdminEx_Vtbl {
         iid == &<IVssAdminEx as windows_core::Interface>::IID || iid == &<IVssAdmin as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVssAdminEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssAdminEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVssAdminEx {}
 windows_core::imp::define_interface!(IVssAsync, IVssAsync_Vtbl, 0x507c37b4_cf5b_4e95_b0af_14eb9767467e);
 windows_core::imp::interface_hierarchy!(IVssAsync, windows_core::IUnknown);
@@ -223,6 +231,10 @@ impl IVssAsync_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVssAsync as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVssAsync_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssAsync_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVssAsync {}
 windows_core::imp::define_interface!(IVssComponent, IVssComponent_Vtbl, 0xd2c72c96_c121_4518_b627_e5a93d010ead);
@@ -757,6 +769,10 @@ impl IVssComponent_Vtbl {
         iid == &<IVssComponent as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVssComponent_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssComponent_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVssComponent {}
 windows_core::imp::define_interface!(IVssComponentEx, IVssComponentEx_Vtbl, 0x156c8b5e_f131_4bd7_9c97_d1923be7e1fa);
 impl core::ops::Deref for IVssComponentEx {
@@ -911,6 +927,10 @@ impl IVssComponentEx_Vtbl {
         iid == &<IVssComponentEx as windows_core::Interface>::IID || iid == &<IVssComponent as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVssComponentEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssComponentEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVssComponentEx {}
 windows_core::imp::define_interface!(IVssComponentEx2, IVssComponentEx2_Vtbl, 0x3b5be0f2_07a9_4e4b_bdd3_cfdc8e2c0d2d);
 impl core::ops::Deref for IVssComponentEx2 {
@@ -961,6 +981,10 @@ impl IVssComponentEx2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVssComponentEx2 as windows_core::Interface>::IID || iid == &<IVssComponent as windows_core::Interface>::IID || iid == &<IVssComponentEx as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVssComponentEx2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssComponentEx2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVssComponentEx2 {}
 windows_core::imp::define_interface!(IVssCreateExpressWriterMetadata, IVssCreateExpressWriterMetadata_Vtbl, 0x9c772e77_b26e_427f_92dd_c996f41ea5e3);
@@ -1102,6 +1126,10 @@ impl IVssCreateExpressWriterMetadata_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVssCreateExpressWriterMetadata as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVssCreateExpressWriterMetadata_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssCreateExpressWriterMetadata_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVssCreateExpressWriterMetadata {}
 windows_core::imp::define_interface!(IVssCreateWriterMetadata, IVssCreateWriterMetadata_Vtbl);
@@ -1481,6 +1509,10 @@ impl IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
         iid == &<IVssDifferentialSoftwareSnapshotMgmt as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVssDifferentialSoftwareSnapshotMgmt_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVssDifferentialSoftwareSnapshotMgmt {}
 windows_core::imp::define_interface!(IVssDifferentialSoftwareSnapshotMgmt2, IVssDifferentialSoftwareSnapshotMgmt2_Vtbl, 0x949d7353_675f_4275_8969_f044c6277815);
 impl core::ops::Deref for IVssDifferentialSoftwareSnapshotMgmt2 {
@@ -1565,6 +1597,10 @@ impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVssDifferentialSoftwareSnapshotMgmt2 as windows_core::Interface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVssDifferentialSoftwareSnapshotMgmt2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVssDifferentialSoftwareSnapshotMgmt2 {}
 windows_core::imp::define_interface!(IVssDifferentialSoftwareSnapshotMgmt3, IVssDifferentialSoftwareSnapshotMgmt3_Vtbl, 0x383f7e71_a4c5_401f_b27f_f826289f8458);
@@ -1654,6 +1690,10 @@ impl IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
         iid == &<IVssDifferentialSoftwareSnapshotMgmt3 as windows_core::Interface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt as windows_core::Interface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVssDifferentialSoftwareSnapshotMgmt3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVssDifferentialSoftwareSnapshotMgmt3 {}
 windows_core::imp::define_interface!(IVssEnumMgmtObject, IVssEnumMgmtObject_Vtbl, 0x01954e6b_9254_4e6e_808c_c9e05d007696);
 windows_core::imp::interface_hierarchy!(IVssEnumMgmtObject, windows_core::IUnknown);
@@ -1724,6 +1764,10 @@ impl IVssEnumMgmtObject_Vtbl {
         iid == &<IVssEnumMgmtObject as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVssEnumMgmtObject_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssEnumMgmtObject_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVssEnumMgmtObject {}
 windows_core::imp::define_interface!(IVssEnumObject, IVssEnumObject_Vtbl, 0xae1c7110_2f60_11d3_8a39_00c04f72d8e3);
 windows_core::imp::interface_hierarchy!(IVssEnumObject, windows_core::IUnknown);
@@ -1793,6 +1837,10 @@ impl IVssEnumObject_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVssEnumObject as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVssEnumObject_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssEnumObject_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVssEnumObject {}
 windows_core::imp::define_interface!(IVssExpressWriter, IVssExpressWriter_Vtbl, 0xe33affdc_59c7_47b1_97d5_4266598f6235);
@@ -1878,6 +1926,10 @@ impl IVssExpressWriter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVssExpressWriter as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVssExpressWriter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssExpressWriter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVssExpressWriter {}
 windows_core::imp::define_interface!(IVssFileShareSnapshotProvider, IVssFileShareSnapshotProvider_Vtbl, 0xc8636060_7c2e_11df_8c4a_0800200c9a66);
@@ -2022,6 +2074,11 @@ impl IVssFileShareSnapshotProvider_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IVssFileShareSnapshotProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssFileShareSnapshotProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IVssFileShareSnapshotProvider {}
 windows_core::imp::define_interface!(IVssHardwareSnapshotProvider, IVssHardwareSnapshotProvider_Vtbl, 0x9593a157_44e9_4344_bbeb_44fbf9b06b10);
 windows_core::imp::interface_hierarchy!(IVssHardwareSnapshotProvider, windows_core::IUnknown);
@@ -2143,6 +2200,11 @@ impl IVssHardwareSnapshotProvider_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Storage_VirtualDiskService")]
+impl<Identity: windows_core::IUnknownImpl + IVssHardwareSnapshotProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssHardwareSnapshotProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Storage_VirtualDiskService")]
 impl windows_core::RuntimeName for IVssHardwareSnapshotProvider {}
 windows_core::imp::define_interface!(IVssHardwareSnapshotProviderEx, IVssHardwareSnapshotProviderEx_Vtbl, 0x7f5ba925_cdb1_4d11_a71f_339eb7e709fd);
 impl core::ops::Deref for IVssHardwareSnapshotProviderEx {
@@ -2252,6 +2314,11 @@ impl IVssHardwareSnapshotProviderEx_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Storage_VirtualDiskService")]
+impl<Identity: windows_core::IUnknownImpl + IVssHardwareSnapshotProviderEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssHardwareSnapshotProviderEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Storage_VirtualDiskService")]
 impl windows_core::RuntimeName for IVssHardwareSnapshotProviderEx {}
 windows_core::imp::define_interface!(IVssProviderCreateSnapshotSet, IVssProviderCreateSnapshotSet_Vtbl, 0x5f894e5b_1e39_4778_8e23_9abad9f0e08c);
 windows_core::imp::interface_hierarchy!(IVssProviderCreateSnapshotSet, windows_core::IUnknown);
@@ -2358,6 +2425,10 @@ impl IVssProviderCreateSnapshotSet_Vtbl {
         iid == &<IVssProviderCreateSnapshotSet as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVssProviderCreateSnapshotSet_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssProviderCreateSnapshotSet_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVssProviderCreateSnapshotSet {}
 windows_core::imp::define_interface!(IVssProviderNotifications, IVssProviderNotifications_Vtbl, 0xe561901f_03a5_4afe_86d0_72baeece7004);
 windows_core::imp::interface_hierarchy!(IVssProviderNotifications, windows_core::IUnknown);
@@ -2402,6 +2473,10 @@ impl IVssProviderNotifications_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVssProviderNotifications as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVssProviderNotifications_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssProviderNotifications_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVssProviderNotifications {}
 windows_core::imp::define_interface!(IVssSnapshotMgmt, IVssSnapshotMgmt_Vtbl, 0xfa7df749_66e7_4986_a27f_e2f04ae53772);
@@ -2488,6 +2563,10 @@ impl IVssSnapshotMgmt_Vtbl {
         iid == &<IVssSnapshotMgmt as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVssSnapshotMgmt_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssSnapshotMgmt_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVssSnapshotMgmt {}
 windows_core::imp::define_interface!(IVssSnapshotMgmt2, IVssSnapshotMgmt2_Vtbl, 0x0f61ec39_fe82_45f2_a3f0_768b5d427102);
 windows_core::imp::interface_hierarchy!(IVssSnapshotMgmt2, windows_core::IUnknown);
@@ -2527,6 +2606,10 @@ impl IVssSnapshotMgmt2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVssSnapshotMgmt2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVssSnapshotMgmt2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssSnapshotMgmt2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVssSnapshotMgmt2 {}
 windows_core::imp::define_interface!(IVssSoftwareSnapshotProvider, IVssSoftwareSnapshotProvider_Vtbl, 0x609e123e_2c5a_44d3_8f01_0b1d9a47d1ff);
@@ -2704,6 +2787,11 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IVssSoftwareSnapshotProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssSoftwareSnapshotProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IVssSoftwareSnapshotProvider {}
 windows_core::imp::define_interface!(IVssWMDependency, IVssWMDependency_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(IVssWMDependency, windows_core::IUnknown);
@@ -2761,6 +2849,10 @@ impl IVssWMDependency_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVssWMDependency as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVssWMDependency_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssWMDependency_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVssWMDependency {}
 windows_core::imp::define_interface!(IVssWMFiledesc, IVssWMFiledesc_Vtbl, 0);
@@ -2888,6 +2980,10 @@ impl IVssWMFiledesc_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVssWMFiledesc as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVssWMFiledesc_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVssWMFiledesc_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVssWMFiledesc {}
 windows_core::imp::define_interface!(IVssWriterComponents, IVssWriterComponents_Vtbl);

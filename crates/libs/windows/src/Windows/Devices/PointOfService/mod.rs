@@ -3452,6 +3452,10 @@ impl ICashDrawerEventSourceEventArgs_Vtbl {
         iid == &<ICashDrawerEventSourceEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICashDrawerEventSourceEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICashDrawerEventSourceEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICashDrawerEventSourceEventArgs_Vtbl {
@@ -4235,6 +4239,10 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         iid == &<ICommonClaimedPosPrinterStation as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICommonClaimedPosPrinterStation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICommonClaimedPosPrinterStation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommonClaimedPosPrinterStation_Vtbl {
@@ -4541,6 +4549,10 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICommonPosPrintStationCapabilities as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICommonPosPrintStationCapabilities_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICommonPosPrintStationCapabilities_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4855,6 +4867,10 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICommonReceiptSlipCapabilities as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICommonReceiptSlipCapabilities_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICommonReceiptSlipCapabilities_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5522,6 +5538,10 @@ impl IPosPrinterJob_Vtbl {
         iid == &<IPosPrinterJob as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPosPrinterJob_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPosPrinterJob_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPosPrinterJob_Vtbl {
@@ -5859,6 +5879,11 @@ impl IReceiptOrSlipJob_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IReceiptOrSlipJob as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Graphics_Imaging")]
+impl<Identity: windows_core::IUnknownImpl + IReceiptOrSlipJob_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IReceiptOrSlipJob_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

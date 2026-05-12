@@ -435,6 +435,10 @@ impl IXmlReader_Vtbl {
         iid == &<IXmlReader as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXmlReader_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXmlReader_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXmlReader {}
 windows_core::imp::define_interface!(IXmlResolver, IXmlResolver_Vtbl, 0x7279fc82_709d_4095_b63d_69fe4b0d9030);
 windows_core::imp::interface_hierarchy!(IXmlResolver, windows_core::IUnknown);
@@ -479,6 +483,10 @@ impl IXmlResolver_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXmlResolver as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXmlResolver_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXmlResolver_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXmlResolver {}
 windows_core::imp::define_interface!(IXmlWriter, IXmlWriter_Vtbl, 0x7279fc88_709d_4095_b63d_69fe4b0d9030);
@@ -926,6 +934,10 @@ impl IXmlWriter_Vtbl {
         iid == &<IXmlWriter as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXmlWriter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXmlWriter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IXmlWriter {}
 windows_core::imp::define_interface!(IXmlWriterLite, IXmlWriterLite_Vtbl, 0x862494c6_1310_4aad_b3cd_2dbeebf670d3);
 windows_core::imp::interface_hierarchy!(IXmlWriterLite, windows_core::IUnknown);
@@ -1341,6 +1353,10 @@ impl IXmlWriterLite_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXmlWriterLite as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXmlWriterLite_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXmlWriterLite_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IXmlWriterLite {}
 pub const MX_E_ENCODING: XmlError = XmlError(-1072894462i32);

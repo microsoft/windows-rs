@@ -3248,6 +3248,10 @@ impl IHumanPresenceSensorExtension_Vtbl {
         iid == &<IHumanPresenceSensorExtension as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IHumanPresenceSensorExtension_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IHumanPresenceSensorExtension_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSensorExtension_Vtbl {
@@ -4199,6 +4203,10 @@ impl ISensorDataThreshold_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISensorDataThreshold as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISensorDataThreshold_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISensorDataThreshold_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

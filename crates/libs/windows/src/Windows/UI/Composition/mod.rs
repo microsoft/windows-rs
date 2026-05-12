@@ -14149,6 +14149,10 @@ impl IAnimationObject_Vtbl {
         iid == &<IAnimationObject as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IAnimationObject_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAnimationObject_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationObject_Vtbl {
@@ -14343,6 +14347,10 @@ impl ICompositionAnimationBase_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICompositionAnimationBase as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICompositionAnimationBase_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositionAnimationBase_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15407,6 +15415,10 @@ impl ICompositionSupportsSystemBackdrop_Vtbl {
         iid == &<ICompositionSupportsSystemBackdrop as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICompositionSupportsSystemBackdrop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositionSupportsSystemBackdrop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionSupportsSystemBackdrop_Vtbl {
@@ -15430,6 +15442,10 @@ impl ICompositionSurface_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICompositionSurface as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICompositionSurface_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositionSurface_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15531,6 +15547,10 @@ impl ICompositionSurfaceFacade_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICompositionSurfaceFacade as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICompositionSurfaceFacade_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositionSurfaceFacade_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16695,6 +16715,10 @@ impl IVisualElement_Vtbl {
         iid == &<IVisualElement as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVisualElement_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVisualElement_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualElement_Vtbl {
@@ -16739,6 +16763,10 @@ impl IVisualElement2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVisualElement2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVisualElement2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVisualElement2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -923,6 +923,10 @@ impl IXmlCharacterData_Vtbl {
         iid == &<IXmlCharacterData as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXmlCharacterData_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXmlCharacterData_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlCharacterData_Vtbl {
@@ -1666,6 +1670,10 @@ impl IXmlNode_Vtbl {
         iid == &<IXmlNode as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXmlNode_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXmlNode_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlNode_Vtbl {
@@ -1817,6 +1825,10 @@ impl IXmlNodeSelector_Vtbl {
         iid == &<IXmlNodeSelector as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IXmlNodeSelector_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXmlNodeSelector_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlNodeSelector_Vtbl {
@@ -1900,6 +1912,10 @@ impl IXmlNodeSerializer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXmlNodeSerializer as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXmlNodeSerializer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXmlNodeSerializer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2226,6 +2242,10 @@ impl IXmlText_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXmlText as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IXmlText_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IXmlText_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

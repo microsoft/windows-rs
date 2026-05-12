@@ -2066,6 +2066,11 @@ impl ILauncherViewOptions_Vtbl {
         iid == &<ILauncherViewOptions as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "UI_ViewManagement")]
+impl<Identity: windows_core::IUnknownImpl + ILauncherViewOptions_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILauncherViewOptions_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILauncherViewOptions_Vtbl {

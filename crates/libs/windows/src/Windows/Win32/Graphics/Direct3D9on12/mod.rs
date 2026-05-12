@@ -99,6 +99,11 @@ impl IDirect3DDevice9On12_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
+impl<Identity: windows_core::IUnknownImpl + IDirect3DDevice9On12_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDirect3DDevice9On12_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
 impl windows_core::RuntimeName for IDirect3DDevice9On12 {}
 pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]

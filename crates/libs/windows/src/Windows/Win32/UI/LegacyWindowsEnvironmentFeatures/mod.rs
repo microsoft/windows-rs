@@ -91,6 +91,11 @@ impl IADesktopP2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
+impl<Identity: windows_core::IUnknownImpl + IADesktopP2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IADesktopP2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Ole")]
 impl windows_core::RuntimeName for IADesktopP2 {}
 windows_core::imp::define_interface!(IActiveDesktopP, IActiveDesktopP_Vtbl, 0x52502ee0_ec80_11d0_89ab_00c04fc2972d);
 windows_core::imp::interface_hierarchy!(IActiveDesktopP, windows_core::IUnknown);
@@ -164,6 +169,10 @@ impl IActiveDesktopP_Vtbl {
         iid == &<IActiveDesktopP as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IActiveDesktopP_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IActiveDesktopP_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IActiveDesktopP {}
 windows_core::imp::define_interface!(IBriefcaseInitiator, IBriefcaseInitiator_Vtbl, 0x99180164_da16_101a_935c_444553540000);
 windows_core::imp::interface_hierarchy!(IBriefcaseInitiator, windows_core::IUnknown);
@@ -203,6 +212,11 @@ impl IBriefcaseInitiator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBriefcaseInitiator as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IBriefcaseInitiator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBriefcaseInitiator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IBriefcaseInitiator {}
@@ -312,6 +326,11 @@ impl IEmptyVolumeCache_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Registry")]
+impl<Identity: windows_core::IUnknownImpl + IEmptyVolumeCache_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEmptyVolumeCache_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Registry")]
 impl windows_core::RuntimeName for IEmptyVolumeCache {}
 windows_core::imp::define_interface!(IEmptyVolumeCache2, IEmptyVolumeCache2_Vtbl, 0x02b7e3ba_4db3_11d2_b2d9_00c04f8eec8c);
 impl core::ops::Deref for IEmptyVolumeCache2 {
@@ -358,6 +377,11 @@ impl IEmptyVolumeCache2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEmptyVolumeCache2 as windows_core::Interface>::IID || iid == &<IEmptyVolumeCache as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Registry")]
+impl<Identity: windows_core::IUnknownImpl + IEmptyVolumeCache2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEmptyVolumeCache2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl windows_core::RuntimeName for IEmptyVolumeCache2 {}
@@ -411,6 +435,10 @@ impl IEmptyVolumeCacheCallBack_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEmptyVolumeCacheCallBack as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEmptyVolumeCacheCallBack_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEmptyVolumeCacheCallBack_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEmptyVolumeCacheCallBack {}
 windows_core::imp::define_interface!(IReconcilableObject, IReconcilableObject_Vtbl, 0x99180162_da16_101a_935c_444553540000);
@@ -478,6 +506,11 @@ impl IReconcilableObject_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl<Identity: windows_core::IUnknownImpl + IReconcilableObject_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IReconcilableObject_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl windows_core::RuntimeName for IReconcilableObject {}
 windows_core::imp::define_interface!(IReconcileInitiator, IReconcileInitiator_Vtbl, 0x99180161_da16_101a_935c_444553540000);
 windows_core::imp::interface_hierarchy!(IReconcileInitiator, windows_core::IUnknown);
@@ -526,6 +559,10 @@ impl IReconcileInitiator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IReconcileInitiator as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IReconcileInitiator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IReconcileInitiator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IReconcileInitiator {}
 #[repr(transparent)]

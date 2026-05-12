@@ -151,6 +151,10 @@ impl IDedupBackupSupport_Vtbl {
         iid == &<IDedupBackupSupport as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDedupBackupSupport_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDedupBackupSupport_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDedupBackupSupport {}
 windows_core::imp::define_interface!(IDedupChunkLibrary, IDedupChunkLibrary_Vtbl, 0xbb5144d7_2720_4dcc_8777_78597416ec23);
 windows_core::imp::interface_hierarchy!(IDedupChunkLibrary, windows_core::IUnknown);
@@ -235,6 +239,11 @@ impl IDedupChunkLibrary_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDedupChunkLibrary as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IDedupChunkLibrary_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDedupChunkLibrary_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDedupChunkLibrary {}
@@ -492,6 +501,11 @@ impl IDedupDataPort_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IDedupDataPort_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDedupDataPort_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IDedupDataPort {}
 windows_core::imp::define_interface!(IDedupDataPortManager, IDedupDataPortManager_Vtbl, 0x44677452_b90a_445e_8192_cdcfe81511fb);
 windows_core::imp::interface_hierarchy!(IDedupDataPortManager, windows_core::IUnknown);
@@ -568,6 +582,10 @@ impl IDedupDataPortManager_Vtbl {
         iid == &<IDedupDataPortManager as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDedupDataPortManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDedupDataPortManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDedupDataPortManager {}
 windows_core::imp::define_interface!(IDedupIterateChunksHash32, IDedupIterateChunksHash32_Vtbl, 0x90b584d3_72aa_400f_9767_cad866a5a2d8);
 windows_core::imp::interface_hierarchy!(IDedupIterateChunksHash32, windows_core::IUnknown);
@@ -638,6 +656,10 @@ impl IDedupIterateChunksHash32_Vtbl {
         iid == &<IDedupIterateChunksHash32 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDedupIterateChunksHash32_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDedupIterateChunksHash32_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDedupIterateChunksHash32 {}
 windows_core::imp::define_interface!(IDedupReadFileCallback, IDedupReadFileCallback_Vtbl, 0x7bacc67a_2f1d_42d0_897e_6ff62dd533bb);
 windows_core::imp::interface_hierarchy!(IDedupReadFileCallback, windows_core::IUnknown);
@@ -695,5 +717,9 @@ impl IDedupReadFileCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDedupReadFileCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDedupReadFileCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDedupReadFileCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDedupReadFileCallback {}

@@ -1438,6 +1438,11 @@ impl IBackgroundTransferBase_Vtbl {
         iid == &<IBackgroundTransferBase as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Security_Credentials")]
+impl<Identity: windows_core::IUnknownImpl + IBackgroundTransferBase_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundTransferBase_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferBase_Vtbl {
@@ -1570,6 +1575,10 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTransferContentPartFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBackgroundTransferContentPartFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundTransferContentPartFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1795,6 +1804,11 @@ impl IBackgroundTransferOperation_Vtbl {
         iid == &<IBackgroundTransferOperation as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + IBackgroundTransferOperation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundTransferOperation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferOperation_Vtbl {
@@ -1863,6 +1877,10 @@ impl IBackgroundTransferOperationPriority_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTransferOperationPriority as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBackgroundTransferOperationPriority_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundTransferOperationPriority_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

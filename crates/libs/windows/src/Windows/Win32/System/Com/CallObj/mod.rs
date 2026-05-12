@@ -401,6 +401,11 @@ impl ICallFrame_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + ICallFrame_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICallFrame_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICallFrame {}
 windows_core::imp::define_interface!(ICallFrameEvents, ICallFrameEvents_Vtbl, 0xfd5e0843_fc91_11d0_97d7_00c04fb9618a);
 windows_core::imp::interface_hierarchy!(ICallFrameEvents, windows_core::IUnknown);
@@ -435,6 +440,10 @@ impl ICallFrameEvents_Vtbl {
         iid == &<ICallFrameEvents as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICallFrameEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICallFrameEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICallFrameEvents {}
 windows_core::imp::define_interface!(ICallFrameWalker, ICallFrameWalker_Vtbl, 0x08b23919_392d_11d2_b8a4_00c04fb9618a);
 windows_core::imp::interface_hierarchy!(ICallFrameWalker, windows_core::IUnknown);
@@ -465,6 +474,10 @@ impl ICallFrameWalker_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICallFrameWalker as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICallFrameWalker_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICallFrameWalker_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ICallFrameWalker {}
 windows_core::imp::define_interface!(ICallIndirect, ICallIndirect_Vtbl, 0xd573b4b1_894e_11d2_b8b6_00c04fb9618a);
@@ -545,6 +558,10 @@ impl ICallIndirect_Vtbl {
         iid == &<ICallIndirect as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICallIndirect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICallIndirect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICallIndirect {}
 windows_core::imp::define_interface!(ICallInterceptor, ICallInterceptor_Vtbl, 0x60c7ca75_896d_11d2_b8b6_00c04fb9618a);
 impl core::ops::Deref for ICallInterceptor {
@@ -609,6 +626,10 @@ impl ICallInterceptor_Vtbl {
         iid == &<ICallInterceptor as windows_core::Interface>::IID || iid == &<ICallIndirect as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICallInterceptor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICallInterceptor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICallInterceptor {}
 windows_core::imp::define_interface!(ICallUnmarshal, ICallUnmarshal_Vtbl, 0x5333b003_2e42_11d2_b89d_00c04fb9618a);
 windows_core::imp::interface_hierarchy!(ICallUnmarshal, windows_core::IUnknown);
@@ -654,6 +675,10 @@ impl ICallUnmarshal_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICallUnmarshal as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICallUnmarshal_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICallUnmarshal_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ICallUnmarshal {}
 windows_core::imp::define_interface!(IInterfaceRelated, IInterfaceRelated_Vtbl, 0xd1fb5a79_7706_11d1_adba_00c04fc2adc0);
@@ -705,5 +730,9 @@ impl IInterfaceRelated_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInterfaceRelated as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IInterfaceRelated_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IInterfaceRelated_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IInterfaceRelated {}

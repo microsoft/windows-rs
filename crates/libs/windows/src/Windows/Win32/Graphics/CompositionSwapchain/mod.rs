@@ -97,6 +97,11 @@ impl ICompositionFramePresentStatistics_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ICompositionFramePresentStatistics_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositionFramePresentStatistics_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ICompositionFramePresentStatistics {}
 windows_core::imp::define_interface!(IIndependentFlipFramePresentStatistics, IIndependentFlipFramePresentStatistics_Vtbl, 0x8c93be27_ad94_4da0_8fd4_2413132d124e);
 impl core::ops::Deref for IIndependentFlipFramePresentStatistics {
@@ -197,6 +202,10 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
         iid == &<IIndependentFlipFramePresentStatistics as windows_core::Interface>::IID || iid == &<IPresentStatistics as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IIndependentFlipFramePresentStatistics_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IIndependentFlipFramePresentStatistics_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IIndependentFlipFramePresentStatistics {}
 windows_core::imp::define_interface!(IPresentStatistics, IPresentStatistics_Vtbl, 0xb44b8bda_7282_495d_9dd7_ceadd8b4bb86);
 windows_core::imp::interface_hierarchy!(IPresentStatistics, windows_core::IUnknown);
@@ -242,6 +251,10 @@ impl IPresentStatistics_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPresentStatistics as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPresentStatistics_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPresentStatistics_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPresentStatistics {}
 windows_core::imp::define_interface!(IPresentStatusPresentStatistics, IPresentStatusPresentStatistics_Vtbl, 0xc9ed2a41_79cb_435e_964e_c8553055420c);
@@ -294,6 +307,10 @@ impl IPresentStatusPresentStatistics_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPresentStatusPresentStatistics as windows_core::Interface>::IID || iid == &<IPresentStatistics as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPresentStatusPresentStatistics_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPresentStatusPresentStatistics_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPresentStatusPresentStatistics {}
 windows_core::imp::define_interface!(IPresentationBuffer, IPresentationBuffer_Vtbl, 0x2e217d3a_5abb_4138_9a13_a775593c89ca);
@@ -359,6 +376,10 @@ impl IPresentationBuffer_Vtbl {
         iid == &<IPresentationBuffer as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPresentationBuffer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPresentationBuffer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPresentationBuffer {}
 windows_core::imp::define_interface!(IPresentationContent, IPresentationContent_Vtbl, 0x5668bb79_3d8e_415c_b215_f38020f2d252);
 windows_core::imp::interface_hierarchy!(IPresentationContent, windows_core::IUnknown);
@@ -389,6 +410,10 @@ impl IPresentationContent_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPresentationContent as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPresentationContent_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPresentationContent_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPresentationContent {}
 windows_core::imp::define_interface!(IPresentationFactory, IPresentationFactory_Vtbl, 0x8fb37b58_1d74_4f64_a49c_1f97a80a2ec0);
@@ -457,6 +482,10 @@ impl IPresentationFactory_Vtbl {
         iid == &<IPresentationFactory as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPresentationFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPresentationFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPresentationFactory {}
 windows_core::imp::define_interface!(IPresentationFactory_SupportHdrAware, IPresentationFactory_SupportHdrAware_Vtbl, 0x2bd0b885_a16f_4bd9_a59a_d073e069d416);
 windows_core::imp::interface_hierarchy!(IPresentationFactory_SupportHdrAware, windows_core::IUnknown);
@@ -473,6 +502,10 @@ impl IPresentationFactory_SupportHdrAware_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPresentationFactory_SupportHdrAware as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPresentationFactory_SupportHdrAware_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPresentationFactory_SupportHdrAware_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPresentationFactory_SupportHdrAware {}
 windows_core::imp::define_interface!(IPresentationManager, IPresentationManager_Vtbl, 0xfb562f82_6292_470a_88b1_843661e7f20c);
@@ -704,6 +737,10 @@ impl IPresentationManager_Vtbl {
         iid == &<IPresentationManager as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPresentationManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPresentationManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPresentationManager {}
 windows_core::imp::define_interface!(IPresentationSurface, IPresentationSurface_Vtbl, 0x956710fb_ea40_4eba_a3eb_4375a0eb4edc);
 impl core::ops::Deref for IPresentationSurface {
@@ -845,6 +882,11 @@ impl IPresentationSurface_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IPresentationSurface_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPresentationSurface_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IPresentationSurface {}
 windows_core::imp::define_interface!(IPresentationSurface2, IPresentationSurface2_Vtbl, 0x95609569_c5f0_47f9_8804_5345f2e2767e);
 impl core::ops::Deref for IPresentationSurface2 {
@@ -883,6 +925,11 @@ impl IPresentationSurface2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPresentationSurface2 as windows_core::Interface>::IID || iid == &<IPresentationContent as windows_core::Interface>::IID || iid == &<IPresentationSurface as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + IPresentationSurface2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPresentationSurface2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IPresentationSurface2 {}

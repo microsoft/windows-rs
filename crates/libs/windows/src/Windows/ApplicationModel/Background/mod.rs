@@ -2086,6 +2086,10 @@ impl IBackgroundCondition_Vtbl {
         iid == &<IBackgroundCondition as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundCondition_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundCondition_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCondition_Vtbl {
@@ -2160,6 +2164,10 @@ impl IBackgroundTask_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTask as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBackgroundTask_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundTask_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2460,6 +2468,10 @@ impl IBackgroundTaskInstance_Vtbl {
         iid == &<IBackgroundTaskInstance as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundTaskInstance_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundTaskInstance_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskInstance_Vtbl {
@@ -2577,6 +2589,10 @@ impl IBackgroundTaskInstance2_Vtbl {
         iid == &<IBackgroundTaskInstance2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundTaskInstance2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundTaskInstance2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskInstance2_Vtbl {
@@ -2687,6 +2703,11 @@ impl IBackgroundTaskInstance4_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTaskInstance4 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "System")]
+impl<Identity: windows_core::IUnknownImpl + IBackgroundTaskInstance4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundTaskInstance4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2850,6 +2871,10 @@ impl IBackgroundTaskRegistration_Vtbl {
         iid == &<IBackgroundTaskRegistration as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundTaskRegistration_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundTaskRegistration_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistration_Vtbl {
@@ -2949,6 +2974,10 @@ impl IBackgroundTaskRegistration2_Vtbl {
         iid == &<IBackgroundTaskRegistration2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundTaskRegistration2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundTaskRegistration2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistration2_Vtbl {
@@ -3042,6 +3071,10 @@ impl IBackgroundTaskRegistration3_Vtbl {
         iid == &<IBackgroundTaskRegistration3 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IBackgroundTaskRegistration3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundTaskRegistration3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistration3_Vtbl {
@@ -3124,6 +3157,10 @@ impl IBackgroundTrigger_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTrigger as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IBackgroundTrigger_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBackgroundTrigger_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

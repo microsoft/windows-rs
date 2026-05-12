@@ -393,6 +393,10 @@ impl IFhConfigMgr_Vtbl {
         iid == &<IFhConfigMgr as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IFhConfigMgr_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFhConfigMgr_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IFhConfigMgr {}
 windows_core::imp::define_interface!(IFhReassociation, IFhReassociation_Vtbl, 0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
 windows_core::imp::interface_hierarchy!(IFhReassociation, windows_core::IUnknown);
@@ -484,6 +488,10 @@ impl IFhReassociation_Vtbl {
         iid == &<IFhReassociation as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IFhReassociation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFhReassociation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IFhReassociation {}
 windows_core::imp::define_interface!(IFhScopeIterator, IFhScopeIterator_Vtbl, 0x3197abce_532a_44c6_8615_f3666566a720);
 windows_core::imp::interface_hierarchy!(IFhScopeIterator, windows_core::IUnknown);
@@ -538,6 +546,10 @@ impl IFhScopeIterator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFhScopeIterator as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IFhScopeIterator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFhScopeIterator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IFhScopeIterator {}
 windows_core::imp::define_interface!(IFhTarget, IFhTarget_Vtbl, 0xd87965fd_2bad_4657_bd3b_9567eb300ced);
@@ -602,6 +614,10 @@ impl IFhTarget_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFhTarget as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IFhTarget_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFhTarget_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IFhTarget {}
 pub const MAX_BACKUP_STATUS: FH_BACKUP_STATUS = FH_BACKUP_STATUS(4i32);

@@ -191,6 +191,11 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
         iid == &<ILowLevelDevicesAggregateProvider as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
+impl<Identity: windows_core::IUnknownImpl + ILowLevelDevicesAggregateProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILowLevelDevicesAggregateProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLevelDevicesAggregateProvider_Vtbl {

@@ -3052,6 +3052,11 @@ impl IDialBranding_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl<Identity: windows_core::IUnknownImpl + IDialBranding_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDialBranding_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDialBranding {}
 windows_core::imp::define_interface!(IDialEngine, IDialEngine_Vtbl, 0x39fd782b_7905_40d5_9148_3c9b190423d5);
 windows_core::imp::interface_hierarchy!(IDialEngine, windows_core::IUnknown);
@@ -3188,6 +3193,10 @@ impl IDialEngine_Vtbl {
         iid == &<IDialEngine as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDialEngine_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDialEngine_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDialEngine {}
 windows_core::imp::define_interface!(IDialEventSink, IDialEventSink_Vtbl, 0x2d86f4ff_6e2d_4488_b2e9_6934afd41bea);
 windows_core::imp::interface_hierarchy!(IDialEventSink, windows_core::IUnknown);
@@ -3218,6 +3227,10 @@ impl IDialEventSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDialEventSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDialEventSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDialEventSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDialEventSink {}
 pub const IMMUTABLE_CACHE_ENTRY: u32 = 524288u32;
@@ -4311,6 +4324,10 @@ impl IProofOfPossessionCookieInfoManager_Vtbl {
         iid == &<IProofOfPossessionCookieInfoManager as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IProofOfPossessionCookieInfoManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IProofOfPossessionCookieInfoManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager {}
 windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager2, IProofOfPossessionCookieInfoManager2_Vtbl, 0x15e41407_b42f_4ae7_9966_34a087b2d713);
 windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager2, windows_core::IUnknown);
@@ -4349,6 +4366,10 @@ impl IProofOfPossessionCookieInfoManager2_Vtbl {
         iid == &<IProofOfPossessionCookieInfoManager2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IProofOfPossessionCookieInfoManager2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IProofOfPossessionCookieInfoManager2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager2 {}
 windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager3, IProofOfPossessionCookieInfoManager3_Vtbl, 0xc8891744_32bd_4a77_b92c_0e79a2823b96);
 windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager3, windows_core::IUnknown);
@@ -4385,6 +4406,10 @@ impl IProofOfPossessionCookieInfoManager3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IProofOfPossessionCookieInfoManager3 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IProofOfPossessionCookieInfoManager3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IProofOfPossessionCookieInfoManager3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager3 {}
 windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager4, IProofOfPossessionCookieInfoManager4_Vtbl, 0x3b74c75b_6e3f_494e_95ec_13174e12a89f);
@@ -4440,6 +4465,10 @@ impl IProofOfPossessionCookieInfoManager4_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IProofOfPossessionCookieInfoManager4 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IProofOfPossessionCookieInfoManager4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IProofOfPossessionCookieInfoManager4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager4 {}
 pub const IRF_ASYNC: u32 = 1u32;

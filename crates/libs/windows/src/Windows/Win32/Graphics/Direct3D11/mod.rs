@@ -5365,6 +5365,10 @@ impl ID3D11Asynchronous_Vtbl {
         iid == &<ID3D11Asynchronous as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11Asynchronous_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Asynchronous_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11Asynchronous {}
 windows_core::imp::define_interface!(ID3D11AuthenticatedChannel, ID3D11AuthenticatedChannel_Vtbl, 0x3015a308_dcbd_47aa_a747_192486d14d4a);
 impl core::ops::Deref for ID3D11AuthenticatedChannel {
@@ -5444,6 +5448,10 @@ impl ID3D11AuthenticatedChannel_Vtbl {
         iid == &<ID3D11AuthenticatedChannel as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11AuthenticatedChannel_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11AuthenticatedChannel_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11AuthenticatedChannel {}
 windows_core::imp::define_interface!(ID3D11BlendState, ID3D11BlendState_Vtbl, 0x75b68faa_347d_4159_8f45_a0640f01cd9a);
 impl core::ops::Deref for ID3D11BlendState {
@@ -5482,6 +5490,10 @@ impl ID3D11BlendState_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11BlendState as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11BlendState_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11BlendState_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11BlendState {}
 windows_core::imp::define_interface!(ID3D11BlendState1, ID3D11BlendState1_Vtbl, 0xcc86fabe_da55_401d_85e7_e3c9de2877e9);
@@ -5522,6 +5534,10 @@ impl ID3D11BlendState1_Vtbl {
         iid == &<ID3D11BlendState1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11BlendState as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11BlendState1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11BlendState1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11BlendState1 {}
 windows_core::imp::define_interface!(ID3D11Buffer, ID3D11Buffer_Vtbl, 0x48570b85_d1ee_4fcd_a250_eb350722b037);
 impl core::ops::Deref for ID3D11Buffer {
@@ -5560,6 +5576,10 @@ impl ID3D11Buffer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11Buffer as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Resource as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11Buffer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Buffer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11Buffer {}
 windows_core::imp::define_interface!(ID3D11ClassInstance, ID3D11ClassInstance_Vtbl, 0xa6cd7faa_b0b7_4a2f_9436_8662a65797cb);
@@ -5643,6 +5663,10 @@ impl ID3D11ClassInstance_Vtbl {
         iid == &<ID3D11ClassInstance as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11ClassInstance_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11ClassInstance_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11ClassInstance {}
 windows_core::imp::define_interface!(ID3D11ClassLinkage, ID3D11ClassLinkage_Vtbl, 0xddf57cba_9543_46e4_a12b_f207a0fe7fed);
 impl core::ops::Deref for ID3D11ClassLinkage {
@@ -5721,6 +5745,10 @@ impl ID3D11ClassLinkage_Vtbl {
         iid == &<ID3D11ClassLinkage as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11ClassLinkage_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11ClassLinkage_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11ClassLinkage {}
 windows_core::imp::define_interface!(ID3D11CommandList, ID3D11CommandList_Vtbl, 0xa24bc4d1_769e_43f7_8013_98ff566c18e2);
 impl core::ops::Deref for ID3D11CommandList {
@@ -5760,6 +5788,10 @@ impl ID3D11CommandList_Vtbl {
         iid == &<ID3D11CommandList as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11CommandList_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11CommandList_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11CommandList {}
 windows_core::imp::define_interface!(ID3D11ComputeShader, ID3D11ComputeShader_Vtbl, 0x4f5b196e_c2bd_495e_bd01_1fded38e4969);
 impl core::ops::Deref for ID3D11ComputeShader {
@@ -5784,6 +5816,10 @@ impl ID3D11ComputeShader_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11ComputeShader as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11ComputeShader_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11ComputeShader_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11ComputeShader {}
 windows_core::imp::define_interface!(ID3D11Counter, ID3D11Counter_Vtbl, 0x6e8c49fb_a371_4770_b440_29086022b741);
@@ -5827,6 +5863,10 @@ impl ID3D11Counter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11Counter as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Asynchronous as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11Counter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Counter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11Counter {}
 windows_core::imp::define_interface!(ID3D11CryptoSession, ID3D11CryptoSession_Vtbl, 0x9b32f9ad_bdcc_40a6_a39d_d5c865845720);
@@ -5938,6 +5978,10 @@ impl ID3D11CryptoSession_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11CryptoSession as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11CryptoSession_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11CryptoSession_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11CryptoSession {}
 windows_core::imp::define_interface!(ID3D11Debug, ID3D11Debug_Vtbl, 0x79cf2233_7536_4948_9d36_1e4692dc5760);
@@ -6100,6 +6144,11 @@ impl ID3D11Debug_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11Debug_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Debug_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl windows_core::RuntimeName for ID3D11Debug {}
 windows_core::imp::define_interface!(ID3D11DepthStencilState, ID3D11DepthStencilState_Vtbl, 0x03823efb_8d8f_4e1c_9aa2_f64bb2cbfdf1);
 impl core::ops::Deref for ID3D11DepthStencilState {
@@ -6138,6 +6187,10 @@ impl ID3D11DepthStencilState_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11DepthStencilState as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11DepthStencilState_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11DepthStencilState_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11DepthStencilState {}
 windows_core::imp::define_interface!(ID3D11DepthStencilView, ID3D11DepthStencilView_Vtbl, 0x9fdac92a_1876_48c3_afad_25b94f84a9b6);
@@ -6183,6 +6236,11 @@ impl ID3D11DepthStencilView_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11DepthStencilView as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11DepthStencilView_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11DepthStencilView_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11DepthStencilView {}
@@ -6824,6 +6882,11 @@ impl ID3D11Device_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11Device_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Device_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11Device {}
 windows_core::imp::define_interface!(ID3D11Device1, ID3D11Device1_Vtbl, 0xa04bfb29_08ef_43d6_a49c_a9bdbdcbe686);
 impl core::ops::Deref for ID3D11Device1 {
@@ -6958,6 +7021,11 @@ impl ID3D11Device1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11Device1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Device1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11Device1 {}
 windows_core::imp::define_interface!(ID3D11Device2, ID3D11Device2_Vtbl, 0x9d06dffa_d1e5_4d07_83a8_1bb123f2f841);
 impl core::ops::Deref for ID3D11Device2 {
@@ -7057,6 +7125,11 @@ impl ID3D11Device2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11Device2 as windows_core::Interface>::IID || iid == &<ID3D11Device as windows_core::Interface>::IID || iid == &<ID3D11Device1 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11Device2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Device2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11Device2 {}
@@ -7263,6 +7336,11 @@ impl ID3D11Device3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11Device3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Device3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11Device3 {}
 windows_core::imp::define_interface!(ID3D11Device4, ID3D11Device4_Vtbl, 0x8992ab71_02e6_4b8d_ba48_b056dcda42c4);
 impl core::ops::Deref for ID3D11Device4 {
@@ -7329,6 +7407,11 @@ impl ID3D11Device4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11Device4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Device4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11Device4 {}
 windows_core::imp::define_interface!(ID3D11Device5, ID3D11Device5_Vtbl, 0x8ffde202_a0e7_45df_9e01_e837801b5ea0);
 impl core::ops::Deref for ID3D11Device5 {
@@ -7390,6 +7473,11 @@ impl ID3D11Device5_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11Device5 as windows_core::Interface>::IID || iid == &<ID3D11Device as windows_core::Interface>::IID || iid == &<ID3D11Device1 as windows_core::Interface>::IID || iid == &<ID3D11Device2 as windows_core::Interface>::IID || iid == &<ID3D11Device3 as windows_core::Interface>::IID || iid == &<ID3D11Device4 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11Device5_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Device5_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11Device5 {}
@@ -7470,6 +7558,10 @@ impl ID3D11DeviceChild_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11DeviceChild_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11DeviceChild_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11DeviceChild {}
 windows_core::imp::define_interface!(ID3D11DeviceContext, ID3D11DeviceContext_Vtbl, 0xc0bfa96c_e089_44fb_8eaf_26f8796190da);
@@ -8951,6 +9043,11 @@ impl ID3D11DeviceContext_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11DeviceContext_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11DeviceContext_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11DeviceContext {}
 windows_core::imp::define_interface!(ID3D11DeviceContext1, ID3D11DeviceContext1_Vtbl, 0xbb2c6faa_b5fb_4082_8e6b_388b8cfa90e1);
 impl core::ops::Deref for ID3D11DeviceContext1 {
@@ -9234,6 +9331,11 @@ impl ID3D11DeviceContext1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11DeviceContext1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11DeviceContext1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11DeviceContext1 {}
 windows_core::imp::define_interface!(ID3D11DeviceContext2, ID3D11DeviceContext2_Vtbl, 0x420d5b32_b90c_4da4_bef0_359f6a24a83a);
 impl core::ops::Deref for ID3D11DeviceContext2 {
@@ -9415,6 +9517,11 @@ impl ID3D11DeviceContext2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11DeviceContext2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11DeviceContext2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11DeviceContext2 {}
 windows_core::imp::define_interface!(ID3D11DeviceContext3, ID3D11DeviceContext3_Vtbl, 0xb4e3c01d_e79e_4637_91b2_510e9f4c9b8f);
 impl core::ops::Deref for ID3D11DeviceContext3 {
@@ -9488,6 +9595,11 @@ impl ID3D11DeviceContext3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11DeviceContext3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11DeviceContext3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11DeviceContext3 {}
 windows_core::imp::define_interface!(ID3D11DeviceContext4, ID3D11DeviceContext4_Vtbl, 0x917600da_f58c_4c33_98d8_3e15b390fa24);
 impl core::ops::Deref for ID3D11DeviceContext4 {
@@ -9547,6 +9659,11 @@ impl ID3D11DeviceContext4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11DeviceContext4_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11DeviceContext4_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11DeviceContext4 {}
 windows_core::imp::define_interface!(ID3D11DomainShader, ID3D11DomainShader_Vtbl, 0xf582c508_0f36_490c_9977_31eece268cfa);
 impl core::ops::Deref for ID3D11DomainShader {
@@ -9571,6 +9688,10 @@ impl ID3D11DomainShader_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11DomainShader as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11DomainShader_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11DomainShader_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11DomainShader {}
 windows_core::imp::define_interface!(ID3D11Fence, ID3D11Fence_Vtbl, 0xaffde9d1_1df7_4bb7_8a34_0f46251dab80);
@@ -9655,6 +9776,11 @@ impl ID3D11Fence_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11Fence as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Security")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11Fence_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Fence_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Security")]
 impl windows_core::RuntimeName for ID3D11Fence {}
@@ -9849,6 +9975,11 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11FunctionLinkingGraph as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11FunctionLinkingGraph_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11FunctionLinkingGraph_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::RuntimeName for ID3D11FunctionLinkingGraph {}
@@ -10069,6 +10200,10 @@ impl ID3D11GeometryShader_Vtbl {
         iid == &<ID3D11GeometryShader as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11GeometryShader_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11GeometryShader_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11GeometryShader {}
 windows_core::imp::define_interface!(ID3D11HullShader, ID3D11HullShader_Vtbl, 0x8e5c6061_628a_4c8e_8264_bbe45cb3d5dd);
 impl core::ops::Deref for ID3D11HullShader {
@@ -10093,6 +10228,10 @@ impl ID3D11HullShader_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11HullShader as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11HullShader_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11HullShader_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11HullShader {}
 windows_core::imp::define_interface!(ID3D11InfoQueue, ID3D11InfoQueue_Vtbl, 0x6543dbb6_1b48_42f5_ab82_e97ec74326f6);
@@ -10544,6 +10683,10 @@ impl ID3D11InfoQueue_Vtbl {
         iid == &<ID3D11InfoQueue as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11InfoQueue_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11InfoQueue_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11InfoQueue {}
 windows_core::imp::define_interface!(ID3D11InputLayout, ID3D11InputLayout_Vtbl, 0xe4819ddc_4cf0_4025_bd26_5de82a3e07b7);
 impl core::ops::Deref for ID3D11InputLayout {
@@ -10568,6 +10711,10 @@ impl ID3D11InputLayout_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11InputLayout as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11InputLayout_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11InputLayout_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11InputLayout {}
 windows_core::imp::define_interface!(ID3D11LibraryReflection, ID3D11LibraryReflection_Vtbl, 0x54384f1b_5b3e_4bb7_ae01_60ba3097cbb6);
@@ -10625,6 +10772,10 @@ impl ID3D11LibraryReflection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11LibraryReflection as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11LibraryReflection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11LibraryReflection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11LibraryReflection {}
 windows_core::imp::define_interface!(ID3D11Linker, ID3D11Linker_Vtbl, 0x59a6cd0e_e10d_4c1f_88c0_63aba1daf30e);
@@ -10701,6 +10852,11 @@ impl ID3D11Linker_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11Linker_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Linker_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::RuntimeName for ID3D11Linker {}
 windows_core::imp::define_interface!(ID3D11LinkingNode, ID3D11LinkingNode_Vtbl, 0xd80dd70c_8d2f_4751_94a1_03c79b3556db);
 windows_core::imp::interface_hierarchy!(ID3D11LinkingNode, windows_core::IUnknown);
@@ -10719,6 +10875,10 @@ impl ID3D11LinkingNode_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11LinkingNode as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11LinkingNode_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11LinkingNode_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11LinkingNode {}
 windows_core::imp::define_interface!(ID3D11Module, ID3D11Module_Vtbl, 0xcac701ee_80fc_4122_8242_10b39c8cec34);
@@ -10764,6 +10924,10 @@ impl ID3D11Module_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11Module as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11Module_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Module_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11Module {}
 windows_core::imp::define_interface!(ID3D11ModuleInstance, ID3D11ModuleInstance_Vtbl, 0x469e07f7_045a_48d5_aa12_68a478cdf75d);
@@ -10924,6 +11088,10 @@ impl ID3D11ModuleInstance_Vtbl {
         iid == &<ID3D11ModuleInstance as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11ModuleInstance_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11ModuleInstance_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11ModuleInstance {}
 windows_core::imp::define_interface!(ID3D11Multithread, ID3D11Multithread_Vtbl, 0x9b7e4e00_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D11Multithread, windows_core::IUnknown);
@@ -10996,6 +11164,10 @@ impl ID3D11Multithread_Vtbl {
         iid == &<ID3D11Multithread as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11Multithread_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Multithread_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11Multithread {}
 windows_core::imp::define_interface!(ID3D11PixelShader, ID3D11PixelShader_Vtbl, 0xea82e40d_51dc_4f33_93d4_db7c9125ae8c);
 impl core::ops::Deref for ID3D11PixelShader {
@@ -11021,6 +11193,10 @@ impl ID3D11PixelShader_Vtbl {
         iid == &<ID3D11PixelShader as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11PixelShader_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11PixelShader_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11PixelShader {}
 windows_core::imp::define_interface!(ID3D11Predicate, ID3D11Predicate_Vtbl, 0x9eb576dd_9f77_4d86_81aa_8bab5fe490e2);
 impl core::ops::Deref for ID3D11Predicate {
@@ -11045,6 +11221,10 @@ impl ID3D11Predicate_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11Predicate as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Asynchronous as windows_core::Interface>::IID || iid == &<ID3D11Query as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11Predicate_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Predicate_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11Predicate {}
 windows_core::imp::define_interface!(ID3D11Query, ID3D11Query_Vtbl, 0xd6c00747_87b7_425e_b84d_44d108560afd);
@@ -11089,6 +11269,10 @@ impl ID3D11Query_Vtbl {
         iid == &<ID3D11Query as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Asynchronous as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11Query_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Query_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11Query {}
 windows_core::imp::define_interface!(ID3D11Query1, ID3D11Query1_Vtbl, 0x631b4766_36dc_461d_8db6_c47e13e60916);
 impl core::ops::Deref for ID3D11Query1 {
@@ -11132,6 +11316,10 @@ impl ID3D11Query1_Vtbl {
         iid == &<ID3D11Query1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Asynchronous as windows_core::Interface>::IID || iid == &<ID3D11Query as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11Query1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Query1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11Query1 {}
 windows_core::imp::define_interface!(ID3D11RasterizerState, ID3D11RasterizerState_Vtbl, 0x9bb4ab81_ab1a_4d8f_b506_fc04200b6ee7);
 impl core::ops::Deref for ID3D11RasterizerState {
@@ -11170,6 +11358,10 @@ impl ID3D11RasterizerState_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11RasterizerState as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11RasterizerState_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11RasterizerState_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11RasterizerState {}
 windows_core::imp::define_interface!(ID3D11RasterizerState1, ID3D11RasterizerState1_Vtbl, 0x1217d7a6_5039_418c_b042_9cbe256afd6e);
@@ -11210,6 +11402,10 @@ impl ID3D11RasterizerState1_Vtbl {
         iid == &<ID3D11RasterizerState1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11RasterizerState as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11RasterizerState1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11RasterizerState1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11RasterizerState1 {}
 windows_core::imp::define_interface!(ID3D11RasterizerState2, ID3D11RasterizerState2_Vtbl, 0x6fbd02fb_209f_46c4_b059_2ed15586a6ac);
 impl core::ops::Deref for ID3D11RasterizerState2 {
@@ -11249,6 +11445,10 @@ impl ID3D11RasterizerState2_Vtbl {
         iid == &<ID3D11RasterizerState2 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11RasterizerState as windows_core::Interface>::IID || iid == &<ID3D11RasterizerState1 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11RasterizerState2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11RasterizerState2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11RasterizerState2 {}
 windows_core::imp::define_interface!(ID3D11RefDefaultTrackingOptions, ID3D11RefDefaultTrackingOptions_Vtbl, 0x03916615_c644_418c_9bf4_75db5be63ca0);
 windows_core::imp::interface_hierarchy!(ID3D11RefDefaultTrackingOptions, windows_core::IUnknown);
@@ -11282,6 +11482,10 @@ impl ID3D11RefDefaultTrackingOptions_Vtbl {
         iid == &<ID3D11RefDefaultTrackingOptions as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11RefDefaultTrackingOptions_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11RefDefaultTrackingOptions_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11RefDefaultTrackingOptions {}
 windows_core::imp::define_interface!(ID3D11RefTrackingOptions, ID3D11RefTrackingOptions_Vtbl, 0x193dacdf_0db2_4c05_a55c_ef06cac56fd9);
 windows_core::imp::interface_hierarchy!(ID3D11RefTrackingOptions, windows_core::IUnknown);
@@ -11314,6 +11518,10 @@ impl ID3D11RefTrackingOptions_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11RefTrackingOptions as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11RefTrackingOptions_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11RefTrackingOptions_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11RefTrackingOptions {}
 windows_core::imp::define_interface!(ID3D11RenderTargetView, ID3D11RenderTargetView_Vtbl, 0xdfdba067_0b8d_4865_875b_d7b4516cc164);
@@ -11361,6 +11569,11 @@ impl ID3D11RenderTargetView_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11RenderTargetView_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11RenderTargetView_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11RenderTargetView {}
 windows_core::imp::define_interface!(ID3D11RenderTargetView1, ID3D11RenderTargetView1_Vtbl, 0xffbe2e23_f011_418a_ac56_5ceed7c5b94b);
 impl core::ops::Deref for ID3D11RenderTargetView1 {
@@ -11405,6 +11618,11 @@ impl ID3D11RenderTargetView1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11RenderTargetView1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID || iid == &<ID3D11RenderTargetView as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11RenderTargetView1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11RenderTargetView1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11RenderTargetView1 {}
@@ -11477,6 +11695,10 @@ impl ID3D11Resource_Vtbl {
         iid == &<ID3D11Resource as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11Resource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Resource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11Resource {}
 windows_core::imp::define_interface!(ID3D11SamplerState, ID3D11SamplerState_Vtbl, 0xda6fea51_564c_4487_9810_f0d0f9b4e3a5);
 impl core::ops::Deref for ID3D11SamplerState {
@@ -11515,6 +11737,10 @@ impl ID3D11SamplerState_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11SamplerState as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11SamplerState_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11SamplerState_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11SamplerState {}
 windows_core::imp::define_interface!(ID3D11ShaderReflection, ID3D11ShaderReflection_Vtbl, 0x8d536ca1_0cca_4956_a837_786963755584);
@@ -11819,6 +12045,11 @@ impl ID3D11ShaderReflection_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11ShaderReflection as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11ShaderReflection_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11ShaderReflection_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::RuntimeName for ID3D11ShaderReflection {}
@@ -12209,6 +12440,11 @@ impl ID3D11ShaderResourceView_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11ShaderResourceView_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11ShaderResourceView_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11ShaderResourceView {}
 windows_core::imp::define_interface!(ID3D11ShaderResourceView1, ID3D11ShaderResourceView1_Vtbl, 0x91308b87_9040_411d_8c67_c39253ce3802);
 impl core::ops::Deref for ID3D11ShaderResourceView1 {
@@ -12253,6 +12489,11 @@ impl ID3D11ShaderResourceView1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11ShaderResourceView1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID || iid == &<ID3D11ShaderResourceView as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl<Identity: windows_core::IUnknownImpl + ID3D11ShaderResourceView1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11ShaderResourceView1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D11ShaderResourceView1 {}
@@ -12375,6 +12616,10 @@ impl ID3D11ShaderTrace_Vtbl {
         iid == &<ID3D11ShaderTrace as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11ShaderTrace_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11ShaderTrace_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11ShaderTrace {}
 windows_core::imp::define_interface!(ID3D11ShaderTraceFactory, ID3D11ShaderTraceFactory_Vtbl, 0x1fbad429_66ab_41cc_9617_667ac10e4459);
 windows_core::imp::interface_hierarchy!(ID3D11ShaderTraceFactory, windows_core::IUnknown);
@@ -12419,6 +12664,10 @@ impl ID3D11ShaderTraceFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11ShaderTraceFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11ShaderTraceFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11ShaderTraceFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11ShaderTraceFactory {}
 windows_core::imp::define_interface!(ID3D11SwitchToRef, ID3D11SwitchToRef_Vtbl, 0x1ef337e3_58e7_4f83_a692_db221f5ed47e);
@@ -12468,6 +12717,10 @@ impl ID3D11SwitchToRef_Vtbl {
         iid == &<ID3D11SwitchToRef as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11SwitchToRef_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11SwitchToRef_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11SwitchToRef {}
 windows_core::imp::define_interface!(ID3D11Texture1D, ID3D11Texture1D_Vtbl, 0xf8fb5c27_c6b3_4f75_a4c8_439af2ef564c);
 impl core::ops::Deref for ID3D11Texture1D {
@@ -12512,6 +12765,11 @@ impl ID3D11Texture1D_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11Texture1D as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Resource as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11Texture1D_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Texture1D_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11Texture1D {}
@@ -12560,6 +12818,11 @@ impl ID3D11Texture2D_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11Texture2D_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Texture2D_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11Texture2D {}
 windows_core::imp::define_interface!(ID3D11Texture2D1, ID3D11Texture2D1_Vtbl, 0x51218251_1e33_4617_9ccb_4d3a4367e7bb);
 impl core::ops::Deref for ID3D11Texture2D1 {
@@ -12604,6 +12867,11 @@ impl ID3D11Texture2D1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11Texture2D1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Resource as windows_core::Interface>::IID || iid == &<ID3D11Texture2D as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11Texture2D1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Texture2D1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11Texture2D1 {}
@@ -12652,6 +12920,11 @@ impl ID3D11Texture3D_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11Texture3D_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Texture3D_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11Texture3D {}
 windows_core::imp::define_interface!(ID3D11Texture3D1, ID3D11Texture3D1_Vtbl, 0x0c711683_2853_4846_9bb0_f3e60639e46a);
 impl core::ops::Deref for ID3D11Texture3D1 {
@@ -12696,6 +12969,11 @@ impl ID3D11Texture3D1_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11Texture3D1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Resource as windows_core::Interface>::IID || iid == &<ID3D11Texture3D as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11Texture3D1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11Texture3D1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11Texture3D1 {}
@@ -12749,6 +13027,10 @@ impl ID3D11TracingDevice_Vtbl {
         iid == &<ID3D11TracingDevice as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11TracingDevice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11TracingDevice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11TracingDevice {}
 windows_core::imp::define_interface!(ID3D11UnorderedAccessView, ID3D11UnorderedAccessView_Vtbl, 0x28acf509_7f5c_48f6_8611_f316010a6380);
 impl core::ops::Deref for ID3D11UnorderedAccessView {
@@ -12793,6 +13075,11 @@ impl ID3D11UnorderedAccessView_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11UnorderedAccessView as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11UnorderedAccessView_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11UnorderedAccessView_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11UnorderedAccessView {}
@@ -12841,6 +13128,11 @@ impl ID3D11UnorderedAccessView1_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11UnorderedAccessView1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11UnorderedAccessView1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11UnorderedAccessView1 {}
 windows_core::imp::define_interface!(ID3D11VertexShader, ID3D11VertexShader_Vtbl, 0x3b301d64_d678_4289_8897_22f8928b72f3);
 impl core::ops::Deref for ID3D11VertexShader {
@@ -12865,6 +13157,10 @@ impl ID3D11VertexShader_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11VertexShader as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11VertexShader_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VertexShader_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11VertexShader {}
 windows_core::imp::define_interface!(ID3D11VideoContext, ID3D11VideoContext_Vtbl, 0x61f21c45_3c0e_4a74_9cea_67100d9ad5e4);
@@ -13811,6 +14107,11 @@ impl ID3D11VideoContext_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11VideoContext_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VideoContext_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoContext {}
 windows_core::imp::define_interface!(ID3D11VideoContext1, ID3D11VideoContext1_Vtbl, 0xa7f026da_a5f8_4487_a564_15e34357651e);
 impl core::ops::Deref for ID3D11VideoContext1 {
@@ -14121,6 +14422,11 @@ impl ID3D11VideoContext1_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11VideoContext1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VideoContext1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoContext1 {}
 windows_core::imp::define_interface!(ID3D11VideoContext2, ID3D11VideoContext2_Vtbl, 0xc4e7374c_6243_4d1b_ae87_52b4f740e261);
 impl core::ops::Deref for ID3D11VideoContext2 {
@@ -14230,6 +14536,11 @@ impl ID3D11VideoContext2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11VideoContext2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VideoContext2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoContext2 {}
 windows_core::imp::define_interface!(ID3D11VideoContext3, ID3D11VideoContext3_Vtbl, 0xa9e2faa0_cb39_418f_a0b7_d8aad4de672e);
 impl core::ops::Deref for ID3D11VideoContext3 {
@@ -14292,6 +14603,11 @@ impl ID3D11VideoContext3_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11VideoContext3 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11VideoContext as windows_core::Interface>::IID || iid == &<ID3D11VideoContext1 as windows_core::Interface>::IID || iid == &<ID3D11VideoContext2 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11VideoContext3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VideoContext3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoContext3 {}
@@ -14364,6 +14680,11 @@ impl ID3D11VideoDecoder_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11VideoDecoder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VideoDecoder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoDecoder {}
 windows_core::imp::define_interface!(ID3D11VideoDecoderOutputView, ID3D11VideoDecoderOutputView_Vtbl, 0xc2931aea_2a85_4f20_860f_fba1fd256e18);
 impl core::ops::Deref for ID3D11VideoDecoderOutputView {
@@ -14402,6 +14723,10 @@ impl ID3D11VideoDecoderOutputView_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11VideoDecoderOutputView as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11VideoDecoderOutputView_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VideoDecoderOutputView_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11VideoDecoderOutputView {}
 windows_core::imp::define_interface!(ID3D11VideoDevice, ID3D11VideoDevice_Vtbl, 0x10ec4d5b_975a_4689_b9e4_d0aac30fe333);
@@ -14752,6 +15077,11 @@ impl ID3D11VideoDevice_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11VideoDevice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VideoDevice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoDevice {}
 windows_core::imp::define_interface!(ID3D11VideoDevice1, ID3D11VideoDevice1_Vtbl, 0x29da1d51_1321_4454_804b_f5fc9f861f0f);
 impl core::ops::Deref for ID3D11VideoDevice1 {
@@ -14863,6 +15193,11 @@ impl ID3D11VideoDevice1_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11VideoDevice1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VideoDevice1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoDevice1 {}
 windows_core::imp::define_interface!(ID3D11VideoDevice2, ID3D11VideoDevice2_Vtbl, 0x59c0cb01_35f0_4a70_8f67_87905c906a53);
 impl core::ops::Deref for ID3D11VideoDevice2 {
@@ -14921,6 +15256,11 @@ impl ID3D11VideoDevice2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11VideoDevice2 as windows_core::Interface>::IID || iid == &<ID3D11VideoDevice as windows_core::Interface>::IID || iid == &<ID3D11VideoDevice1 as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11VideoDevice2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VideoDevice2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoDevice2 {}
@@ -14982,6 +15322,11 @@ impl ID3D11VideoProcessor_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11VideoProcessor as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11VideoProcessor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VideoProcessor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoProcessor {}
@@ -15119,6 +15464,11 @@ impl ID3D11VideoProcessorEnumerator_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11VideoProcessorEnumerator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VideoProcessorEnumerator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoProcessorEnumerator {}
 windows_core::imp::define_interface!(ID3D11VideoProcessorEnumerator1, ID3D11VideoProcessorEnumerator1_Vtbl, 0x465217f2_5568_43cf_b5b9_f61d54531ca1);
 impl core::ops::Deref for ID3D11VideoProcessorEnumerator1 {
@@ -15177,6 +15527,11 @@ impl ID3D11VideoProcessorEnumerator1_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl<Identity: windows_core::IUnknownImpl + ID3D11VideoProcessorEnumerator1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VideoProcessorEnumerator1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D11VideoProcessorEnumerator1 {}
 windows_core::imp::define_interface!(ID3D11VideoProcessorInputView, ID3D11VideoProcessorInputView_Vtbl, 0x11ec5a5f_51dc_4945_ab34_6e8c21300ea5);
 impl core::ops::Deref for ID3D11VideoProcessorInputView {
@@ -15219,6 +15574,10 @@ impl ID3D11VideoProcessorInputView_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11VideoProcessorInputView as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D11VideoProcessorInputView_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VideoProcessorInputView_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D11VideoProcessorInputView {}
 windows_core::imp::define_interface!(ID3D11VideoProcessorOutputView, ID3D11VideoProcessorOutputView_Vtbl, 0xa048285e_25a9_4527_bd93_d68b68c44254);
@@ -15263,6 +15622,10 @@ impl ID3D11VideoProcessorOutputView_Vtbl {
         iid == &<ID3D11VideoProcessorOutputView as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11VideoProcessorOutputView_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11VideoProcessorOutputView_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11VideoProcessorOutputView {}
 windows_core::imp::define_interface!(ID3D11View, ID3D11View_Vtbl, 0x839d1216_bb2e_412b_b7f4_a9dbebe08ed1);
 impl core::ops::Deref for ID3D11View {
@@ -15306,6 +15669,10 @@ impl ID3D11View_Vtbl {
         iid == &<ID3D11View as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D11View_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D11View_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D11View {}
 windows_core::imp::define_interface!(ID3DDeviceContextState, ID3DDeviceContextState_Vtbl, 0x5c1e0d8a_7c23_48f9_8c59_a92958ceff11);
 impl core::ops::Deref for ID3DDeviceContextState {
@@ -15330,6 +15697,10 @@ impl ID3DDeviceContextState_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3DDeviceContextState as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3DDeviceContextState_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3DDeviceContextState_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3DDeviceContextState {}
 windows_core::imp::define_interface!(ID3DUserDefinedAnnotation, ID3DUserDefinedAnnotation_Vtbl, 0xb2daad8b_03d4_4dbf_95eb_32ab4b63d0ab);
@@ -15408,6 +15779,10 @@ impl ID3DUserDefinedAnnotation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3DUserDefinedAnnotation as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3DUserDefinedAnnotation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3DUserDefinedAnnotation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3DUserDefinedAnnotation {}
 windows_core::imp::define_interface!(ID3DX11FFT, ID3DX11FFT_Vtbl, 0xb3f7a938_4c93_4310_a675_b30d6de50553);
@@ -15523,6 +15898,10 @@ impl ID3DX11FFT_Vtbl {
         iid == &<ID3DX11FFT as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3DX11FFT_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3DX11FFT_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3DX11FFT {}
 windows_core::imp::define_interface!(ID3DX11Scan, ID3DX11Scan_Vtbl, 0x5089b68f_e71d_4d38_be8e_f363b95a9405);
 windows_core::imp::interface_hierarchy!(ID3DX11Scan, windows_core::IUnknown);
@@ -15591,6 +15970,10 @@ impl ID3DX11Scan_Vtbl {
         iid == &<ID3DX11Scan as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3DX11Scan_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3DX11Scan_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3DX11Scan {}
 windows_core::imp::define_interface!(ID3DX11SegmentedScan, ID3DX11SegmentedScan_Vtbl, 0xa915128c_d954_4c79_bfe1_64db923194d6);
 windows_core::imp::interface_hierarchy!(ID3DX11SegmentedScan, windows_core::IUnknown);
@@ -15643,6 +16026,10 @@ impl ID3DX11SegmentedScan_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3DX11SegmentedScan as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3DX11SegmentedScan_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3DX11SegmentedScan_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3DX11SegmentedScan {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi"))]

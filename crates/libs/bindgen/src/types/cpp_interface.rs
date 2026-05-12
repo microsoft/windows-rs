@@ -404,6 +404,17 @@ impl CppInterface {
                             iid == &<#name as windows_core::Interface>::IID #(#matches)*
                         }
                     }
+                    // Opt-in to the library-based `#[implement]` foundation;
+                    // see `docs/option-d.md`.
+                    #cfg
+                    impl<
+                        Identity: windows_core::IUnknownImpl + #impl_name + 'static,
+                        const OFFSET: isize,
+                    > windows_core::imp::VtableCtor<Identity, OFFSET> for #vtbl_name {
+                        const NEW: Self = <Self>::new::<Identity, OFFSET>();
+                        const NEW_REF: &'static Self =
+                            &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+                    }
                     #cfg
                     impl windows_core::RuntimeName for #name {}
                 }

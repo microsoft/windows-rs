@@ -355,6 +355,10 @@ impl IErrorReportingSettings_Vtbl {
         iid == &<IErrorReportingSettings as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IErrorReportingSettings_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IErrorReportingSettings_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IErrorReportingSettings_Vtbl {
@@ -510,6 +514,11 @@ impl IFileLoggingSession_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileLoggingSession as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + IFileLoggingSession_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFileLoggingSession_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -749,6 +758,10 @@ impl ILoggingChannel_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILoggingChannel as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ILoggingChannel_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILoggingChannel_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1089,6 +1102,11 @@ impl ILoggingSession_Vtbl {
         iid == &<ILoggingSession as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + ILoggingSession_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILoggingSession_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoggingSession_Vtbl {
@@ -1341,6 +1359,10 @@ impl ILoggingTarget_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILoggingTarget as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ILoggingTarget_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILoggingTarget_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -116,6 +116,11 @@ impl AsyncIAssociatedIdentityProvider_Vtbl {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl<Identity: windows_core::IUnknownImpl + AsyncIAssociatedIdentityProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIAssociatedIdentityProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::RuntimeName for AsyncIAssociatedIdentityProvider {}
 windows_core::imp::define_interface!(AsyncIConnectedIdentityProvider, AsyncIConnectedIdentityProvider_Vtbl, 0x9ce55141_bce9_4e15_824d_43d79f512f93);
 windows_core::imp::interface_hierarchy!(AsyncIConnectedIdentityProvider, windows_core::IUnknown);
@@ -290,6 +295,11 @@ impl AsyncIConnectedIdentityProvider_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + AsyncIConnectedIdentityProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIConnectedIdentityProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for AsyncIConnectedIdentityProvider {}
 windows_core::imp::define_interface!(AsyncIIdentityAdvise, AsyncIIdentityAdvise_Vtbl, 0x3ab4c8da_d038_4830_8dd9_3253c55a127f);
 windows_core::imp::interface_hierarchy!(AsyncIIdentityAdvise, windows_core::IUnknown);
@@ -338,6 +348,10 @@ impl AsyncIIdentityAdvise_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<AsyncIIdentityAdvise as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + AsyncIIdentityAdvise_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIIdentityAdvise_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for AsyncIIdentityAdvise {}
 windows_core::imp::define_interface!(AsyncIIdentityAuthentication, AsyncIIdentityAuthentication_Vtbl, 0xf9a2f918_feca_4e9c_9633_61cbf13ed34d);
@@ -418,6 +432,11 @@ impl AsyncIIdentityAuthentication_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<AsyncIIdentityAuthentication as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl<Identity: windows_core::IUnknownImpl + AsyncIIdentityAuthentication_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIIdentityAuthentication_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::RuntimeName for AsyncIIdentityAuthentication {}
@@ -729,6 +748,11 @@ impl AsyncIIdentityProvider_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl<Identity: windows_core::IUnknownImpl + AsyncIIdentityProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIIdentityProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl windows_core::RuntimeName for AsyncIIdentityProvider {}
 windows_core::imp::define_interface!(AsyncIIdentityStore, AsyncIIdentityStore_Vtbl, 0xeefa1616_48de_4872_aa64_6e6206535a51);
 windows_core::imp::interface_hierarchy!(AsyncIIdentityStore, windows_core::IUnknown);
@@ -930,6 +954,11 @@ impl AsyncIIdentityStore_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + AsyncIIdentityStore_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIIdentityStore_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for AsyncIIdentityStore {}
 windows_core::imp::define_interface!(AsyncIIdentityStoreEx, AsyncIIdentityStoreEx_Vtbl, 0xfca3af9a_8a07_4eae_8632_ec3de658a36a);
 windows_core::imp::interface_hierarchy!(AsyncIIdentityStoreEx, windows_core::IUnknown);
@@ -1006,6 +1035,10 @@ impl AsyncIIdentityStoreEx_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<AsyncIIdentityStoreEx as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + AsyncIIdentityStoreEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for AsyncIIdentityStoreEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for AsyncIIdentityStoreEx {}
 pub const CIdentityProfileHandler: windows_core::GUID = windows_core::GUID::from_u128(0xecf5bf46_e3b6_449a_b56b_43f58f867814);
@@ -1089,6 +1122,11 @@ impl IAssociatedIdentityProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAssociatedIdentityProvider as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl<Identity: windows_core::IUnknownImpl + IAssociatedIdentityProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAssociatedIdentityProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::RuntimeName for IAssociatedIdentityProvider {}
@@ -1201,6 +1239,11 @@ impl IConnectedIdentityProvider_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IConnectedIdentityProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IConnectedIdentityProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IConnectedIdentityProvider {}
 pub const IDENTITIES_ALL: IDENTITY_TYPE = IDENTITY_TYPE(0i32);
 pub const IDENTITIES_ME_ONLY: IDENTITY_TYPE = IDENTITY_TYPE(1i32);
@@ -1262,6 +1305,10 @@ impl IIdentityAdvise_Vtbl {
         iid == &<IIdentityAdvise as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IIdentityAdvise_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IIdentityAdvise_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IIdentityAdvise {}
 windows_core::imp::define_interface!(IIdentityAuthentication, IIdentityAuthentication_Vtbl, 0x5e7ef254_979f_43b5_b74e_06e4eb7df0f9);
 windows_core::imp::interface_hierarchy!(IIdentityAuthentication, windows_core::IUnknown);
@@ -1313,6 +1360,11 @@ impl IIdentityAuthentication_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IIdentityAuthentication as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl<Identity: windows_core::IUnknownImpl + IIdentityAuthentication_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IIdentityAuthentication_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::RuntimeName for IIdentityAuthentication {}
@@ -1511,6 +1563,11 @@ impl IIdentityProvider_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl<Identity: windows_core::IUnknownImpl + IIdentityProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IIdentityProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl windows_core::RuntimeName for IIdentityProvider {}
 windows_core::imp::define_interface!(IIdentityStore, IIdentityStore_Vtbl, 0xdf586fa5_6f35_44f1_b209_b38e169772eb);
 windows_core::imp::interface_hierarchy!(IIdentityStore, windows_core::IUnknown);
@@ -1636,6 +1693,11 @@ impl IIdentityStore_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IIdentityStore_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IIdentityStore_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IIdentityStore {}
 windows_core::imp::define_interface!(IIdentityStoreEx, IIdentityStoreEx_Vtbl, 0xf9f9eb98_8f7f_4e38_9577_6980114ce32b);
 windows_core::imp::interface_hierarchy!(IIdentityStoreEx, windows_core::IUnknown);
@@ -1688,6 +1750,10 @@ impl IIdentityStoreEx_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IIdentityStoreEx as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IIdentityStoreEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IIdentityStoreEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IIdentityStoreEx {}
 #[repr(transparent)]

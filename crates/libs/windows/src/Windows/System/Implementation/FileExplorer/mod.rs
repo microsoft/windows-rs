@@ -74,6 +74,10 @@ impl ISysStorageProviderEventSource_Vtbl {
         iid == &<ISysStorageProviderEventSource as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISysStorageProviderEventSource_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISysStorageProviderEventSource_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISysStorageProviderEventSource_Vtbl {
@@ -145,6 +149,10 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
         iid == &<ISysStorageProviderHandlerFactory as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISysStorageProviderHandlerFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISysStorageProviderHandlerFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISysStorageProviderHandlerFactory_Vtbl {
@@ -201,6 +209,11 @@ impl ISysStorageProviderHttpRequestProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISysStorageProviderHttpRequestProvider as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Web_Http")]
+impl<Identity: windows_core::IUnknownImpl + ISysStorageProviderHttpRequestProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISysStorageProviderHttpRequestProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -77,6 +77,10 @@ impl ITpmVirtualSmartCardManager_Vtbl {
         iid == &<ITpmVirtualSmartCardManager as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITpmVirtualSmartCardManager_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITpmVirtualSmartCardManager_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITpmVirtualSmartCardManager {}
 windows_core::imp::define_interface!(ITpmVirtualSmartCardManager2, ITpmVirtualSmartCardManager2_Vtbl, 0xfdf8a2b9_02de_47f4_bc26_aa85ab5e5267);
 impl core::ops::Deref for ITpmVirtualSmartCardManager2 {
@@ -160,6 +164,10 @@ impl ITpmVirtualSmartCardManager2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITpmVirtualSmartCardManager2 as windows_core::Interface>::IID || iid == &<ITpmVirtualSmartCardManager as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITpmVirtualSmartCardManager2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITpmVirtualSmartCardManager2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITpmVirtualSmartCardManager2 {}
 windows_core::imp::define_interface!(ITpmVirtualSmartCardManager3, ITpmVirtualSmartCardManager3_Vtbl, 0x3c745a97_f375_4150_be17_5950f694c699);
@@ -250,6 +258,10 @@ impl ITpmVirtualSmartCardManager3_Vtbl {
         iid == &<ITpmVirtualSmartCardManager3 as windows_core::Interface>::IID || iid == &<ITpmVirtualSmartCardManager as windows_core::Interface>::IID || iid == &<ITpmVirtualSmartCardManager2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ITpmVirtualSmartCardManager3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITpmVirtualSmartCardManager3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ITpmVirtualSmartCardManager3 {}
 windows_core::imp::define_interface!(ITpmVirtualSmartCardManagerStatusCallback, ITpmVirtualSmartCardManagerStatusCallback_Vtbl, 0x1a1bb35f_abb8_451c_a1ae_33d98f1bef4a);
 windows_core::imp::interface_hierarchy!(ITpmVirtualSmartCardManagerStatusCallback, windows_core::IUnknown);
@@ -295,6 +307,10 @@ impl ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITpmVirtualSmartCardManagerStatusCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITpmVirtualSmartCardManagerStatusCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ITpmVirtualSmartCardManagerStatusCallback {}
 pub const RemoteTpmVirtualSmartCardManager: windows_core::GUID = windows_core::GUID::from_u128(0x152ea2a8_70dc_4c59_8b2a_32aa3ca0dcac);

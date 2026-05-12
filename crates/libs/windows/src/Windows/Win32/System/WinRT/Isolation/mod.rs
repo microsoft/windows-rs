@@ -37,4 +37,8 @@ impl IIsolatedEnvironmentInterop_Vtbl {
         iid == &<IIsolatedEnvironmentInterop as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IIsolatedEnvironmentInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IIsolatedEnvironmentInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IIsolatedEnvironmentInterop {}

@@ -657,6 +657,10 @@ impl ICeeGen_Vtbl {
         iid == &<ICeeGen as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICeeGen_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICeeGen_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICeeGen {}
 windows_core::imp::define_interface!(IHostFilter, IHostFilter_Vtbl, 0xd0e80dd3_12d4_11d3_b39d_00c04ff81795);
 windows_core::imp::interface_hierarchy!(IHostFilter, windows_core::IUnknown);
@@ -687,6 +691,10 @@ impl IHostFilter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IHostFilter as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IHostFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IHostFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IHostFilter {}
 pub const IMAGE_CEE_CS_BYVALUE: CorArgType = CorArgType(10i32);
@@ -907,6 +915,10 @@ impl IMapToken_Vtbl {
         iid == &<IMapToken as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMapToken_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMapToken_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMapToken {}
 windows_core::imp::define_interface!(IMetaDataAssemblyEmit, IMetaDataAssemblyEmit_Vtbl, 0x211ef15b_5317_4438_b196_dec87b887693);
 windows_core::imp::interface_hierarchy!(IMetaDataAssemblyEmit, windows_core::IUnknown);
@@ -1069,6 +1081,10 @@ impl IMetaDataAssemblyEmit_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMetaDataAssemblyEmit as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMetaDataAssemblyEmit_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataAssemblyEmit_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMetaDataAssemblyEmit {}
 windows_core::imp::define_interface!(IMetaDataAssemblyImport, IMetaDataAssemblyImport_Vtbl, 0xee62470b_e94b_424e_9b7c_2f00c9249f93);
@@ -1271,6 +1287,10 @@ impl IMetaDataAssemblyImport_Vtbl {
         iid == &<IMetaDataAssemblyImport as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMetaDataAssemblyImport_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataAssemblyImport_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMetaDataAssemblyImport {}
 windows_core::imp::define_interface!(IMetaDataDispenser, IMetaDataDispenser_Vtbl, 0x809c652e_7396_11d2_9771_00a0c9b4d50c);
 windows_core::imp::interface_hierarchy!(IMetaDataDispenser, windows_core::IUnknown);
@@ -1358,6 +1378,10 @@ impl IMetaDataDispenser_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMetaDataDispenser as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMetaDataDispenser_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataDispenser_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMetaDataDispenser {}
 windows_core::imp::define_interface!(IMetaDataDispenserEx, IMetaDataDispenserEx_Vtbl, 0x31bcfce2_dafb_11d2_9f81_00c04f79a0a3);
@@ -1498,6 +1522,11 @@ impl IMetaDataDispenserEx_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMetaDataDispenserEx as windows_core::Interface>::IID || iid == &<IMetaDataDispenser as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl<Identity: windows_core::IUnknownImpl + IMetaDataDispenserEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataDispenserEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMetaDataDispenserEx {}
@@ -2195,6 +2224,11 @@ impl IMetaDataEmit_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IMetaDataEmit_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataEmit_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IMetaDataEmit {}
 windows_core::imp::define_interface!(IMetaDataEmit2, IMetaDataEmit2_Vtbl, 0xf5dd9950_f693_42e6_830e_7b833e8146a9);
 impl core::ops::Deref for IMetaDataEmit2 {
@@ -2338,6 +2372,11 @@ impl IMetaDataEmit2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IMetaDataEmit2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataEmit2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IMetaDataEmit2 {}
 windows_core::imp::define_interface!(IMetaDataError, IMetaDataError_Vtbl, 0xb81ff171_20f3_11d2_8dcc_00a0c9b09c19);
 windows_core::imp::interface_hierarchy!(IMetaDataError, windows_core::IUnknown);
@@ -2368,6 +2407,10 @@ impl IMetaDataError_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMetaDataError as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMetaDataError_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataError_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMetaDataError {}
 windows_core::imp::define_interface!(IMetaDataFilter, IMetaDataFilter_Vtbl, 0xd0e80dd1_12d4_11d3_b39d_00c04ff81795);
@@ -2426,6 +2469,10 @@ impl IMetaDataFilter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMetaDataFilter as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMetaDataFilter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataFilter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMetaDataFilter {}
 windows_core::imp::define_interface!(IMetaDataImport, IMetaDataImport_Vtbl, 0x7dac8207_d3ae_4c75_9b67_92801a497d44);
@@ -3280,6 +3327,10 @@ impl IMetaDataImport_Vtbl {
         iid == &<IMetaDataImport as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMetaDataImport_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataImport_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMetaDataImport {}
 windows_core::imp::define_interface!(IMetaDataImport2, IMetaDataImport2_Vtbl, 0xfce5efa0_8bba_4f8e_a036_8f2022b08466);
 impl core::ops::Deref for IMetaDataImport2 {
@@ -3404,6 +3455,10 @@ impl IMetaDataImport2_Vtbl {
         iid == &<IMetaDataImport2 as windows_core::Interface>::IID || iid == &<IMetaDataImport as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMetaDataImport2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataImport2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMetaDataImport2 {}
 windows_core::imp::define_interface!(IMetaDataInfo, IMetaDataInfo_Vtbl, 0x7998ea64_7f95_48b8_86fc_17caf48bf5cb);
 windows_core::imp::interface_hierarchy!(IMetaDataInfo, windows_core::IUnknown);
@@ -3434,6 +3489,10 @@ impl IMetaDataInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMetaDataInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMetaDataInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMetaDataInfo {}
 windows_core::imp::define_interface!(IMetaDataTables, IMetaDataTables_Vtbl, 0xd8f579ab_402d_4b8e_82d9_5d63b1065c68);
@@ -3685,6 +3744,10 @@ impl IMetaDataTables_Vtbl {
         iid == &<IMetaDataTables as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMetaDataTables_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataTables_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMetaDataTables {}
 windows_core::imp::define_interface!(IMetaDataTables2, IMetaDataTables2_Vtbl, 0xbadb5f70_58da_43a9_a1c6_d74819f19b15);
 impl core::ops::Deref for IMetaDataTables2 {
@@ -3737,6 +3800,10 @@ impl IMetaDataTables2_Vtbl {
         iid == &<IMetaDataTables2 as windows_core::Interface>::IID || iid == &<IMetaDataTables as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMetaDataTables2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataTables2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMetaDataTables2 {}
 windows_core::imp::define_interface!(IMetaDataValidate, IMetaDataValidate_Vtbl, 0x4709c9c6_81ff_11d3_9fc7_00c04f79a0a3);
 windows_core::imp::interface_hierarchy!(IMetaDataValidate, windows_core::IUnknown);
@@ -3786,6 +3853,10 @@ impl IMetaDataValidate_Vtbl {
         iid == &<IMetaDataValidate as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMetaDataValidate_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataValidate_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMetaDataValidate {}
 windows_core::imp::define_interface!(IMetaDataWinMDImport, IMetaDataWinMDImport_Vtbl, 0x969ea0c5_964e_411b_a807_b0f3c2dfcbd4);
 windows_core::imp::interface_hierarchy!(IMetaDataWinMDImport, windows_core::IUnknown);
@@ -3816,6 +3887,10 @@ impl IMetaDataWinMDImport_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMetaDataWinMDImport as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMetaDataWinMDImport_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMetaDataWinMDImport_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMetaDataWinMDImport {}
 pub const INTEROP_AUTOPROXY_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.AutomationProxyAttribute");

@@ -96,6 +96,11 @@ impl IMILBitmapEffect_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Imaging")]
 impl windows_core::RuntimeName for IMILBitmapEffect {}
 windows_core::imp::define_interface!(IMILBitmapEffectConnections, IMILBitmapEffectConnections_Vtbl, 0xc2b5d861_9b1a_4374_89b0_dec4874d6a81);
 windows_core::imp::interface_hierarchy!(IMILBitmapEffectConnections, windows_core::IUnknown);
@@ -159,6 +164,10 @@ impl IMILBitmapEffectConnections_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMILBitmapEffectConnections as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectConnections_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectConnections_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMILBitmapEffectConnections {}
 windows_core::imp::define_interface!(IMILBitmapEffectConnectionsInfo, IMILBitmapEffectConnectionsInfo_Vtbl, 0x476b538a_c765_4237_ba4a_d6a880ff0cfc);
@@ -266,6 +275,10 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
         iid == &<IMILBitmapEffectConnectionsInfo as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectConnectionsInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectConnectionsInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMILBitmapEffectConnectionsInfo {}
 windows_core::imp::define_interface!(IMILBitmapEffectConnector, IMILBitmapEffectConnector_Vtbl, 0xf59567b3_76c1_4d47_ba1e_79f955e350ef);
 impl core::ops::Deref for IMILBitmapEffectConnector {
@@ -335,6 +348,10 @@ impl IMILBitmapEffectConnector_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMILBitmapEffectConnector as windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnectorInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectConnector_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectConnector_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMILBitmapEffectConnector {}
 windows_core::imp::define_interface!(IMILBitmapEffectConnectorInfo, IMILBitmapEffectConnectorInfo_Vtbl, 0xf66d2e4b_b46b_42fc_859e_3da0ecdb3c43);
@@ -442,6 +459,10 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
         iid == &<IMILBitmapEffectConnectorInfo as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectConnectorInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectConnectorInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMILBitmapEffectConnectorInfo {}
 windows_core::imp::define_interface!(IMILBitmapEffectEvents, IMILBitmapEffectEvents_Vtbl, 0x2e880dd8_f8ce_457b_8199_d60bb3d7ef98);
 windows_core::imp::interface_hierarchy!(IMILBitmapEffectEvents, windows_core::IUnknown);
@@ -493,6 +514,10 @@ impl IMILBitmapEffectEvents_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMILBitmapEffectEvents as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectEvents_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectEvents_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMILBitmapEffectEvents {}
 windows_core::imp::define_interface!(IMILBitmapEffectFactory, IMILBitmapEffectFactory_Vtbl, 0x33a9df34_a403_4ec7_b07e_bc0682370845);
@@ -579,6 +604,10 @@ impl IMILBitmapEffectFactory_Vtbl {
         iid == &<IMILBitmapEffectFactory as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMILBitmapEffectFactory {}
 windows_core::imp::define_interface!(IMILBitmapEffectGroup, IMILBitmapEffectGroup_Vtbl, 0x2f952360_698a_4ac6_81a1_bcfdf08eb8e8);
 windows_core::imp::interface_hierarchy!(IMILBitmapEffectGroup, windows_core::IUnknown);
@@ -658,6 +687,10 @@ impl IMILBitmapEffectGroup_Vtbl {
         iid == &<IMILBitmapEffectGroup as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectGroup_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectGroup_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMILBitmapEffectGroup {}
 windows_core::imp::define_interface!(IMILBitmapEffectGroupImpl, IMILBitmapEffectGroupImpl_Vtbl, 0x78fed518_1cfc_4807_8b85_6b6e51398f62);
 windows_core::imp::interface_hierarchy!(IMILBitmapEffectGroupImpl, windows_core::IUnknown);
@@ -736,6 +769,10 @@ impl IMILBitmapEffectGroupImpl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMILBitmapEffectGroupImpl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectGroupImpl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectGroupImpl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMILBitmapEffectGroupImpl {}
 windows_core::imp::define_interface!(IMILBitmapEffectImpl, IMILBitmapEffectImpl_Vtbl, 0xcc2468f2_9936_47be_b4af_06b5df5dbcbb);
@@ -909,6 +946,11 @@ impl IMILBitmapEffectImpl_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectImpl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectImpl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Imaging")]
 impl windows_core::RuntimeName for IMILBitmapEffectImpl {}
 windows_core::imp::define_interface!(IMILBitmapEffectInputConnector, IMILBitmapEffectInputConnector_Vtbl, 0xa9b4ecaa_7a3c_45e7_8573_f4b81b60dd6c);
 impl core::ops::Deref for IMILBitmapEffectInputConnector {
@@ -973,6 +1015,10 @@ impl IMILBitmapEffectInputConnector_Vtbl {
         iid == &<IMILBitmapEffectInputConnector as windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnectorInfo as windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnector as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectInputConnector_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectInputConnector_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMILBitmapEffectInputConnector {}
 windows_core::imp::define_interface!(IMILBitmapEffectInteriorInputConnector, IMILBitmapEffectInteriorInputConnector_Vtbl, 0x20287e9e_86a2_4e15_953d_eb1438a5b842);
 windows_core::imp::interface_hierarchy!(IMILBitmapEffectInteriorInputConnector, windows_core::IUnknown);
@@ -1013,6 +1059,10 @@ impl IMILBitmapEffectInteriorInputConnector_Vtbl {
         iid == &<IMILBitmapEffectInteriorInputConnector as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectInteriorInputConnector_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectInteriorInputConnector_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMILBitmapEffectInteriorInputConnector {}
 windows_core::imp::define_interface!(IMILBitmapEffectInteriorOutputConnector, IMILBitmapEffectInteriorOutputConnector_Vtbl, 0x00bbb6dc_acc9_4bfc_b344_8bee383dfefa);
 windows_core::imp::interface_hierarchy!(IMILBitmapEffectInteriorOutputConnector, windows_core::IUnknown);
@@ -1052,6 +1102,10 @@ impl IMILBitmapEffectInteriorOutputConnector_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMILBitmapEffectInteriorOutputConnector as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectInteriorOutputConnector_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectInteriorOutputConnector_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMILBitmapEffectInteriorOutputConnector {}
 windows_core::imp::define_interface!(IMILBitmapEffectOutputConnector, IMILBitmapEffectOutputConnector_Vtbl, 0x92957aad_841b_4866_82ec_8752468b07fd);
@@ -1123,6 +1177,10 @@ impl IMILBitmapEffectOutputConnector_Vtbl {
         iid == &<IMILBitmapEffectOutputConnector as windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnectorInfo as windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnector as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectOutputConnector_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectOutputConnector_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMILBitmapEffectOutputConnector {}
 windows_core::imp::define_interface!(IMILBitmapEffectOutputConnectorImpl, IMILBitmapEffectOutputConnectorImpl_Vtbl, 0x21fae777_8b39_4bfa_9f2d_f3941ed36913);
 windows_core::imp::interface_hierarchy!(IMILBitmapEffectOutputConnectorImpl, windows_core::IUnknown);
@@ -1174,6 +1232,10 @@ impl IMILBitmapEffectOutputConnectorImpl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMILBitmapEffectOutputConnectorImpl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectOutputConnectorImpl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectOutputConnectorImpl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMILBitmapEffectOutputConnectorImpl {}
 windows_core::imp::define_interface!(IMILBitmapEffectPrimitive, IMILBitmapEffectPrimitive_Vtbl, 0x67e31025_3091_4dfc_98d6_dd494551461d);
@@ -1316,6 +1378,11 @@ impl IMILBitmapEffectPrimitive_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectPrimitive_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectPrimitive_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for IMILBitmapEffectPrimitive {}
 windows_core::imp::define_interface!(IMILBitmapEffectPrimitiveImpl, IMILBitmapEffectPrimitiveImpl_Vtbl, 0xce41e00b_efa6_44e7_b007_dd042e3ae126);
 windows_core::imp::interface_hierarchy!(IMILBitmapEffectPrimitiveImpl, windows_core::IUnknown);
@@ -1366,6 +1433,10 @@ impl IMILBitmapEffectPrimitiveImpl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMILBitmapEffectPrimitiveImpl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectPrimitiveImpl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectPrimitiveImpl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMILBitmapEffectPrimitiveImpl {}
 windows_core::imp::define_interface!(IMILBitmapEffectRenderContext, IMILBitmapEffectRenderContext_Vtbl, 0x12a2ec7e_2d33_44b2_b334_1abb7846e390);
@@ -1494,6 +1565,10 @@ impl IMILBitmapEffectRenderContext_Vtbl {
         iid == &<IMILBitmapEffectRenderContext as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectRenderContext_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectRenderContext_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IMILBitmapEffectRenderContext {}
 windows_core::imp::define_interface!(IMILBitmapEffectRenderContextImpl, IMILBitmapEffectRenderContextImpl_Vtbl, 0x4d25accb_797d_4fd2_b128_dffeff84fcc3);
 windows_core::imp::interface_hierarchy!(IMILBitmapEffectRenderContextImpl, windows_core::IUnknown);
@@ -1584,6 +1659,10 @@ impl IMILBitmapEffectRenderContextImpl_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMILBitmapEffectRenderContextImpl as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffectRenderContextImpl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffectRenderContextImpl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMILBitmapEffectRenderContextImpl {}
 windows_core::imp::define_interface!(IMILBitmapEffects, IMILBitmapEffects_Vtbl, 0x51ac3dce_67c5_448b_9180_ad3eabddd5dd);
@@ -1690,6 +1769,10 @@ impl IMILBitmapEffects_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMILBitmapEffects as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IMILBitmapEffects_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IMILBitmapEffects_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IMILBitmapEffects {}
 pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;

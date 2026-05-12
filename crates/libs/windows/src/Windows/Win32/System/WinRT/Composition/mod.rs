@@ -47,6 +47,11 @@ impl ICompositionCapabilitiesInteropFactory_Vtbl {
     }
 }
 #[cfg(feature = "UI_Composition")]
+impl<Identity: windows_core::IUnknownImpl + ICompositionCapabilitiesInteropFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositionCapabilitiesInteropFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "UI_Composition")]
 impl windows_core::RuntimeName for ICompositionCapabilitiesInteropFactory {}
 windows_core::imp::define_interface!(ICompositionDrawingSurfaceInterop, ICompositionDrawingSurfaceInterop_Vtbl, 0xfd04e6e3_fe0c_4c3c_ab19_a07601a576ee);
 windows_core::imp::interface_hierarchy!(ICompositionDrawingSurfaceInterop, windows_core::IUnknown);
@@ -145,6 +150,10 @@ impl ICompositionDrawingSurfaceInterop_Vtbl {
         iid == &<ICompositionDrawingSurfaceInterop as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICompositionDrawingSurfaceInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositionDrawingSurfaceInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICompositionDrawingSurfaceInterop {}
 windows_core::imp::define_interface!(ICompositionDrawingSurfaceInterop2, ICompositionDrawingSurfaceInterop2_Vtbl, 0x41e64aae_98c0_4239_8e95_a330dd6aa18b);
 impl core::ops::Deref for ICompositionDrawingSurfaceInterop2 {
@@ -184,6 +193,10 @@ impl ICompositionDrawingSurfaceInterop2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICompositionDrawingSurfaceInterop2 as windows_core::Interface>::IID || iid == &<ICompositionDrawingSurfaceInterop as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICompositionDrawingSurfaceInterop2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositionDrawingSurfaceInterop2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ICompositionDrawingSurfaceInterop2 {}
 windows_core::imp::define_interface!(ICompositionGraphicsDeviceInterop, ICompositionGraphicsDeviceInterop_Vtbl, 0xa116ff71_f8bf_4c8a_9c98_70779a32a9c8);
@@ -243,6 +256,10 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
         iid == &<ICompositionGraphicsDeviceInterop as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICompositionGraphicsDeviceInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositionGraphicsDeviceInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICompositionGraphicsDeviceInterop {}
 windows_core::imp::define_interface!(ICompositionTextureInterop, ICompositionTextureInterop_Vtbl, 0xd528a265_f0a5_422f_a39d_ef62d7cd1cc4);
 windows_core::imp::interface_hierarchy!(ICompositionTextureInterop, windows_core::IUnknown);
@@ -273,6 +290,10 @@ impl ICompositionTextureInterop_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICompositionTextureInterop as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ICompositionTextureInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositionTextureInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ICompositionTextureInterop {}
 windows_core::imp::define_interface!(ICompositorDesktopInterop, ICompositorDesktopInterop_Vtbl, 0x29e691fa_4567_4dca_b319_d0f207eb6807);
@@ -334,6 +355,11 @@ impl ICompositorDesktopInterop_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICompositorDesktopInterop as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "UI_Composition_Desktop")]
+impl<Identity: windows_core::IUnknownImpl + ICompositorDesktopInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositorDesktopInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "UI_Composition_Desktop")]
 impl windows_core::RuntimeName for ICompositorDesktopInterop {}
@@ -442,6 +468,11 @@ impl ICompositorInterop_Vtbl {
     }
 }
 #[cfg(feature = "UI_Composition")]
+impl<Identity: windows_core::IUnknownImpl + ICompositorInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositorInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "UI_Composition")]
 impl windows_core::RuntimeName for ICompositorInterop {}
 windows_core::imp::define_interface!(ICompositorInterop2, ICompositorInterop2_Vtbl, 0xd3eef34c_0667_4afc_8d13_867607b0fe91);
 windows_core::imp::interface_hierarchy!(ICompositorInterop2, windows_core::IUnknown);
@@ -519,6 +550,11 @@ impl ICompositorInterop2_Vtbl {
     }
 }
 #[cfg(feature = "UI_Composition")]
+impl<Identity: windows_core::IUnknownImpl + ICompositorInterop2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositorInterop2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "UI_Composition")]
 impl windows_core::RuntimeName for ICompositorInterop2 {}
 windows_core::imp::define_interface!(IDesktopWindowTargetInterop, IDesktopWindowTargetInterop_Vtbl, 0x35dbf59e_e3f9_45b0_81e7_fe75f4145dc9);
 windows_core::imp::interface_hierarchy!(IDesktopWindowTargetInterop, windows_core::IUnknown);
@@ -559,6 +595,10 @@ impl IDesktopWindowTargetInterop_Vtbl {
         iid == &<IDesktopWindowTargetInterop as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDesktopWindowTargetInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDesktopWindowTargetInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDesktopWindowTargetInterop {}
 windows_core::imp::define_interface!(IVisualInteractionSourceInterop, IVisualInteractionSourceInterop_Vtbl, 0x11f62cd1_2f9d_42d3_b05f_d6790d9e9f8e);
 windows_core::imp::interface_hierarchy!(IVisualInteractionSourceInterop, windows_core::IUnknown);
@@ -595,6 +635,11 @@ impl IVisualInteractionSourceInterop_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVisualInteractionSourceInterop as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+impl<Identity: windows_core::IUnknownImpl + IVisualInteractionSourceInterop_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVisualInteractionSourceInterop_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for IVisualInteractionSourceInterop {}

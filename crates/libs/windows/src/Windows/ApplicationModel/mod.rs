@@ -858,6 +858,10 @@ impl IEnteredBackgroundEventArgs_Vtbl {
         iid == &<IEnteredBackgroundEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnteredBackgroundEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnteredBackgroundEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnteredBackgroundEventArgs_Vtbl {
@@ -967,6 +971,10 @@ impl ILeavingBackgroundEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILeavingBackgroundEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ILeavingBackgroundEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ILeavingBackgroundEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1295,6 +1303,10 @@ impl IPackageCatalogStatics2_Vtbl {
         iid == &<IPackageCatalogStatics2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPackageCatalogStatics2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPackageCatalogStatics2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageCatalogStatics2_Vtbl {
@@ -1556,6 +1568,10 @@ impl ISuspendingDeferral_Vtbl {
         iid == &<ISuspendingDeferral as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ISuspendingDeferral_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISuspendingDeferral_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISuspendingDeferral_Vtbl {
@@ -1604,6 +1620,10 @@ impl ISuspendingEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISuspendingEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISuspendingEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISuspendingEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1673,6 +1693,10 @@ impl ISuspendingOperation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISuspendingOperation as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISuspendingOperation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ISuspendingOperation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

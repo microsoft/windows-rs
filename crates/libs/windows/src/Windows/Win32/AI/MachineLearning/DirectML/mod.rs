@@ -2902,6 +2902,11 @@ impl IDMLBindingTable_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl<Identity: windows_core::IUnknownImpl + IDMLBindingTable_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDMLBindingTable_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for IDMLBindingTable {}
 windows_core::imp::define_interface!(IDMLCommandRecorder, IDMLCommandRecorder_Vtbl, 0xe6857a76_2e3e_4fdd_bff4_5d2ba10fb453);
 impl core::ops::Deref for IDMLCommandRecorder {
@@ -2951,6 +2956,11 @@ impl IDMLCommandRecorder_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl<Identity: windows_core::IUnknownImpl + IDMLCommandRecorder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDMLCommandRecorder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for IDMLCommandRecorder {}
 windows_core::imp::define_interface!(IDMLCompiledOperator, IDMLCompiledOperator_Vtbl, 0x6b15e56a_bf5c_4902_92d8_da3a650afea4);
 impl core::ops::Deref for IDMLCompiledOperator {
@@ -2973,6 +2983,10 @@ impl IDMLCompiledOperator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDMLCompiledOperator as windows_core::Interface>::IID || iid == &<IDMLObject as windows_core::Interface>::IID || iid == &<IDMLDeviceChild as windows_core::Interface>::IID || iid == &<IDMLPageable as windows_core::Interface>::IID || iid == &<IDMLDispatchable as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDMLCompiledOperator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDMLCompiledOperator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDMLCompiledOperator {}
 windows_core::imp::define_interface!(IDMLDebugDevice, IDMLDebugDevice_Vtbl, 0x7d6f3ac9_394a_4ac3_92a7_390cc57a8217);
@@ -3004,6 +3018,10 @@ impl IDMLDebugDevice_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDMLDebugDevice as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDMLDebugDevice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDMLDebugDevice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDMLDebugDevice {}
 windows_core::imp::define_interface!(IDMLDevice, IDMLDevice_Vtbl, 0x6dbd6437_96fd_423f_a98c_ae5e7c2a573f);
@@ -3183,6 +3201,11 @@ impl IDMLDevice_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl<Identity: windows_core::IUnknownImpl + IDMLDevice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDMLDevice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for IDMLDevice {}
 windows_core::imp::define_interface!(IDMLDevice1, IDMLDevice1_Vtbl, 0xa0884f9a_d2be_4355_aa5d_5901281ad1d2);
 impl core::ops::Deref for IDMLDevice1 {
@@ -3226,6 +3249,11 @@ impl IDMLDevice1_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl<Identity: windows_core::IUnknownImpl + IDMLDevice1_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDMLDevice1_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for IDMLDevice1 {}
 windows_core::imp::define_interface!(IDMLDeviceChild, IDMLDeviceChild_Vtbl, 0x27e83142_8165_49e3_974e_2fd66e4cb69d);
 impl core::ops::Deref for IDMLDeviceChild {
@@ -3267,6 +3295,10 @@ impl IDMLDeviceChild_Vtbl {
         iid == &<IDMLDeviceChild as windows_core::Interface>::IID || iid == &<IDMLObject as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDMLDeviceChild_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDMLDeviceChild_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDMLDeviceChild {}
 windows_core::imp::define_interface!(IDMLDispatchable, IDMLDispatchable_Vtbl, 0xdcb821a8_1039_441e_9f1c_b1759c2f3cec);
 impl core::ops::Deref for IDMLDispatchable {
@@ -3307,6 +3339,10 @@ impl IDMLDispatchable_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDMLDispatchable as windows_core::Interface>::IID || iid == &<IDMLObject as windows_core::Interface>::IID || iid == &<IDMLDeviceChild as windows_core::Interface>::IID || iid == &<IDMLPageable as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDMLDispatchable_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDMLDispatchable_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDMLDispatchable {}
 windows_core::imp::define_interface!(IDMLObject, IDMLObject_Vtbl, 0xc8263aac_9e0c_4a2d_9b8e_007521a3317c);
@@ -3384,6 +3420,10 @@ impl IDMLObject_Vtbl {
         iid == &<IDMLObject as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDMLObject_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDMLObject_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDMLObject {}
 windows_core::imp::define_interface!(IDMLOperator, IDMLOperator_Vtbl, 0x26caae7a_3081_4633_9581_226fbe57695d);
 impl core::ops::Deref for IDMLOperator {
@@ -3406,6 +3446,10 @@ impl IDMLOperator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDMLOperator as windows_core::Interface>::IID || iid == &<IDMLObject as windows_core::Interface>::IID || iid == &<IDMLDeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDMLOperator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDMLOperator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDMLOperator {}
 windows_core::imp::define_interface!(IDMLOperatorInitializer, IDMLOperatorInitializer_Vtbl, 0x427c1113_435c_469c_8676_4d5dd072f813);
@@ -3444,6 +3488,10 @@ impl IDMLOperatorInitializer_Vtbl {
         iid == &<IDMLOperatorInitializer as windows_core::Interface>::IID || iid == &<IDMLObject as windows_core::Interface>::IID || iid == &<IDMLDeviceChild as windows_core::Interface>::IID || iid == &<IDMLPageable as windows_core::Interface>::IID || iid == &<IDMLDispatchable as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDMLOperatorInitializer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDMLOperatorInitializer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDMLOperatorInitializer {}
 windows_core::imp::define_interface!(IDMLPageable, IDMLPageable_Vtbl, 0xb1ab0825_4542_4a4b_8617_6dde6e8f6201);
 impl core::ops::Deref for IDMLPageable {
@@ -3466,5 +3514,9 @@ impl IDMLPageable_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDMLPageable as windows_core::Interface>::IID || iid == &<IDMLObject as windows_core::Interface>::IID || iid == &<IDMLDeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDMLPageable_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDMLPageable_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDMLPageable {}

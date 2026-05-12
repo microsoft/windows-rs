@@ -1886,6 +1886,10 @@ impl IGameInput_Vtbl {
         iid == &<IGameInput as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IGameInput_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGameInput_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IGameInput {}
 windows_core::imp::define_interface!(IGameInputDevice, IGameInputDevice_Vtbl, 0x31dd86fb_4c1b_408a_868f_439b3cd47125);
 windows_core::imp::interface_hierarchy!(IGameInputDevice, windows_core::IUnknown);
@@ -2181,6 +2185,10 @@ impl IGameInputDevice_Vtbl {
         iid == &<IGameInputDevice as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IGameInputDevice_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGameInputDevice_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IGameInputDevice {}
 windows_core::imp::define_interface!(IGameInputDispatcher, IGameInputDispatcher_Vtbl, 0x415eed2e_98cb_42c2_8f28_b94601074e31);
 windows_core::imp::interface_hierarchy!(IGameInputDispatcher, windows_core::IUnknown);
@@ -2235,6 +2243,10 @@ impl IGameInputDispatcher_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGameInputDispatcher as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IGameInputDispatcher_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGameInputDispatcher_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IGameInputDispatcher {}
 windows_core::imp::define_interface!(IGameInputForceFeedbackEffect, IGameInputForceFeedbackEffect_Vtbl, 0x51bda05e_f742_45d9_b085_9444ae48381d);
@@ -2357,6 +2369,10 @@ impl IGameInputForceFeedbackEffect_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGameInputForceFeedbackEffect as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IGameInputForceFeedbackEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGameInputForceFeedbackEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IGameInputForceFeedbackEffect {}
 windows_core::imp::define_interface!(IGameInputRawDeviceReport, IGameInputRawDeviceReport_Vtbl, 0x61f08cf1_1ffc_40ca_a2b8_e1ab8bc5b6dc);
@@ -2491,6 +2507,10 @@ impl IGameInputRawDeviceReport_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGameInputRawDeviceReport as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IGameInputRawDeviceReport_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGameInputRawDeviceReport_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IGameInputRawDeviceReport {}
 windows_core::imp::define_interface!(IGameInputReading, IGameInputReading_Vtbl, 0x2156947a_e1fa_4de0_a30b_d812931dbd8d);
@@ -2781,5 +2801,9 @@ impl IGameInputReading_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGameInputReading as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IGameInputReading_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IGameInputReading_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IGameInputReading {}

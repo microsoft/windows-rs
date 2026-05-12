@@ -3200,6 +3200,11 @@ impl IAudioInputNode_Vtbl {
         iid == &<IAudioInputNode as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
+impl<Identity: windows_core::IUnknownImpl + IAudioInputNode_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioInputNode_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioInputNode_Vtbl {
@@ -3350,6 +3355,11 @@ impl IAudioInputNode2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioInputNode2 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
+impl<Identity: windows_core::IUnknownImpl + IAudioInputNode2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioInputNode2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3555,6 +3565,11 @@ impl IAudioNode_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioNode as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
+impl<Identity: windows_core::IUnknownImpl + IAudioNode_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioNode_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3851,6 +3866,11 @@ impl IAudioNodeWithListener_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioNodeWithListener as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
+impl<Identity: windows_core::IUnknownImpl + IAudioNodeWithListener_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioNodeWithListener_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

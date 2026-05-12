@@ -389,6 +389,10 @@ impl IKsAggregateControl_Vtbl {
         iid == &<IKsAggregateControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IKsAggregateControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsAggregateControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IKsAggregateControl {}
 windows_core::imp::define_interface!(IKsAllocator, IKsAllocator_Vtbl, 0x8da64899_c0d9_11d0_8413_0000f822fe8a);
 windows_core::imp::interface_hierarchy!(IKsAllocator, windows_core::IUnknown);
@@ -458,6 +462,10 @@ impl IKsAllocator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKsAllocator as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IKsAllocator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsAllocator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IKsAllocator {}
 windows_core::imp::define_interface!(IKsAllocatorEx, IKsAllocatorEx_Vtbl, 0x091bb63a_603f_11d1_b067_00a0c9062802);
@@ -537,6 +545,10 @@ impl IKsAllocatorEx_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKsAllocatorEx as windows_core::Interface>::IID || iid == &<IKsAllocator as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IKsAllocatorEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsAllocatorEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IKsAllocatorEx {}
 windows_core::imp::define_interface!(IKsClockPropertySet, IKsClockPropertySet_Vtbl, 0x5c5cbd84_e755_11d0_ac18_00a0c9223196);
@@ -734,6 +746,10 @@ impl IKsClockPropertySet_Vtbl {
         iid == &<IKsClockPropertySet as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IKsClockPropertySet_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsClockPropertySet_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IKsClockPropertySet {}
 windows_core::imp::define_interface!(IKsControl, IKsControl_Vtbl, 0x28f54685_06fd_11d2_b27a_00a0c9223196);
 windows_core::imp::interface_hierarchy!(IKsControl, windows_core::IUnknown);
@@ -792,6 +808,10 @@ impl IKsControl_Vtbl {
         iid == &<IKsControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IKsControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IKsControl {}
 windows_core::imp::define_interface!(IKsDataTypeCompletion, IKsDataTypeCompletion_Vtbl, 0x827d1a0e_0f73_11d2_b27a_00a0c9223196);
 windows_core::imp::interface_hierarchy!(IKsDataTypeCompletion, windows_core::IUnknown);
@@ -828,6 +848,11 @@ impl IKsDataTypeCompletion_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKsDataTypeCompletion as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
+impl<Identity: windows_core::IUnknownImpl + IKsDataTypeCompletion_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsDataTypeCompletion_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IKsDataTypeCompletion {}
@@ -942,6 +967,11 @@ impl IKsDataTypeHandler_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
+impl<Identity: windows_core::IUnknownImpl + IKsDataTypeHandler_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsDataTypeHandler_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
 impl windows_core::RuntimeName for IKsDataTypeHandler {}
 windows_core::imp::define_interface!(IKsFormatSupport, IKsFormatSupport_Vtbl, 0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
 windows_core::imp::interface_hierarchy!(IKsFormatSupport, windows_core::IUnknown);
@@ -996,6 +1026,10 @@ impl IKsFormatSupport_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKsFormatSupport as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IKsFormatSupport_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsFormatSupport_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IKsFormatSupport {}
 windows_core::imp::define_interface!(IKsInterfaceHandler, IKsInterfaceHandler_Vtbl, 0xd3abc7e0_9a61_11d0_a40d_00a0c9223196);
@@ -1068,6 +1102,11 @@ impl IKsInterfaceHandler_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_DirectShow")]
+impl<Identity: windows_core::IUnknownImpl + IKsInterfaceHandler_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsInterfaceHandler_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_DirectShow")]
 impl windows_core::RuntimeName for IKsInterfaceHandler {}
 windows_core::imp::define_interface!(IKsJackContainerId, IKsJackContainerId_Vtbl, 0xc99af463_d629_4ec4_8c00_e54d68154248);
 windows_core::imp::interface_hierarchy!(IKsJackContainerId, windows_core::IUnknown);
@@ -1107,6 +1146,10 @@ impl IKsJackContainerId_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKsJackContainerId as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IKsJackContainerId_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsJackContainerId_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IKsJackContainerId {}
 windows_core::imp::define_interface!(IKsJackDescription, IKsJackDescription_Vtbl, 0x4509f757_2d46_4637_8e62_ce7db944f57b);
@@ -1162,6 +1205,10 @@ impl IKsJackDescription_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKsJackDescription as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IKsJackDescription_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsJackDescription_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IKsJackDescription {}
 windows_core::imp::define_interface!(IKsJackDescription2, IKsJackDescription2_Vtbl, 0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
@@ -1227,6 +1274,10 @@ impl IKsJackDescription2_Vtbl {
         iid == &<IKsJackDescription2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IKsJackDescription2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsJackDescription2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IKsJackDescription2 {}
 windows_core::imp::define_interface!(IKsJackDescription3, IKsJackDescription3_Vtbl, 0xe3f6778b_6660_4cc8_a291_ecc4192d9967);
 windows_core::imp::interface_hierarchy!(IKsJackDescription3, windows_core::IUnknown);
@@ -1291,6 +1342,10 @@ impl IKsJackDescription3_Vtbl {
         iid == &<IKsJackDescription3 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IKsJackDescription3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsJackDescription3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IKsJackDescription3 {}
 windows_core::imp::define_interface!(IKsJackSinkInformation, IKsJackSinkInformation_Vtbl, 0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
 windows_core::imp::interface_hierarchy!(IKsJackSinkInformation, windows_core::IUnknown);
@@ -1321,6 +1376,10 @@ impl IKsJackSinkInformation_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKsJackSinkInformation as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IKsJackSinkInformation_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsJackSinkInformation_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IKsJackSinkInformation {}
 windows_core::imp::define_interface!(IKsNodeControl, IKsNodeControl_Vtbl, 0x11737c14_24a7_4bb5_81a0_0d003813b0c4);
@@ -1368,6 +1427,10 @@ impl IKsNodeControl_Vtbl {
         iid == &<IKsNodeControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IKsNodeControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsNodeControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IKsNodeControl {}
 windows_core::imp::define_interface!(IKsNotifyEvent, IKsNotifyEvent_Vtbl, 0x412bd695_f84b_46c1_ac73_54196dbc8fa7);
 windows_core::imp::interface_hierarchy!(IKsNotifyEvent, windows_core::IUnknown);
@@ -1399,6 +1462,10 @@ impl IKsNotifyEvent_Vtbl {
         iid == &<IKsNotifyEvent as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IKsNotifyEvent_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsNotifyEvent_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IKsNotifyEvent {}
 windows_core::imp::define_interface!(IKsObject, IKsObject_Vtbl, 0x423c13a2_2070_11d0_9ef7_00aa00a216a1);
 windows_core::imp::interface_hierarchy!(IKsObject, windows_core::IUnknown);
@@ -1429,6 +1496,10 @@ impl IKsObject_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKsObject as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IKsObject_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsObject_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IKsObject {}
 windows_core::imp::define_interface!(IKsPin, IKsPin_Vtbl, 0xb61178d1_a2d9_11cf_9e53_00aa00a216a1);
@@ -1647,6 +1718,11 @@ impl IKsPin_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_DirectShow")]
+impl<Identity: windows_core::IUnknownImpl + IKsPin_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsPin_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_DirectShow")]
 impl windows_core::RuntimeName for IKsPin {}
 windows_core::imp::define_interface!(IKsPinEx, IKsPinEx_Vtbl, 0x7bb38260_d19c_11d2_b38a_00a0c95ec22e);
 impl core::ops::Deref for IKsPinEx {
@@ -1694,6 +1770,11 @@ impl IKsPinEx_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_DirectShow")]
+impl<Identity: windows_core::IUnknownImpl + IKsPinEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsPinEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_DirectShow")]
 impl windows_core::RuntimeName for IKsPinEx {}
 windows_core::imp::define_interface!(IKsPinFactory, IKsPinFactory_Vtbl, 0xcd5ebe6b_8b6e_11d1_8ae0_00a0c9223196);
 windows_core::imp::interface_hierarchy!(IKsPinFactory, windows_core::IUnknown);
@@ -1733,6 +1814,10 @@ impl IKsPinFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKsPinFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IKsPinFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsPinFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IKsPinFactory {}
 windows_core::imp::define_interface!(IKsPinPipe, IKsPinPipe_Vtbl, 0xe539cd90_a8b4_11d1_8189_00a0c9062802);
@@ -1902,6 +1987,11 @@ impl IKsPinPipe_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Media_DirectShow")]
+impl<Identity: windows_core::IUnknownImpl + IKsPinPipe_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsPinPipe_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_Media_DirectShow")]
 impl windows_core::RuntimeName for IKsPinPipe {}
 windows_core::imp::define_interface!(IKsPropertySet, IKsPropertySet_Vtbl, 0x31efac30_515c_11d0_a9aa_00aa0061be93);
 windows_core::imp::interface_hierarchy!(IKsPropertySet, windows_core::IUnknown);
@@ -1969,6 +2059,10 @@ impl IKsPropertySet_Vtbl {
         iid == &<IKsPropertySet as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IKsPropertySet_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsPropertySet_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IKsPropertySet {}
 windows_core::imp::define_interface!(IKsQualityForwarder, IKsQualityForwarder_Vtbl, 0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
 impl core::ops::Deref for IKsQualityForwarder {
@@ -2009,6 +2103,10 @@ impl IKsQualityForwarder_Vtbl {
         iid == &<IKsQualityForwarder as windows_core::Interface>::IID || iid == &<IKsObject as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IKsQualityForwarder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsQualityForwarder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IKsQualityForwarder {}
 windows_core::imp::define_interface!(IKsTopology, IKsTopology_Vtbl, 0x28f54683_06fd_11d2_b27a_00a0c9223196);
 windows_core::imp::interface_hierarchy!(IKsTopology, windows_core::IUnknown);
@@ -2042,6 +2140,10 @@ impl IKsTopology_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKsTopology as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IKsTopology_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsTopology_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IKsTopology {}
 windows_core::imp::define_interface!(IKsTopologyInfo, IKsTopologyInfo_Vtbl, 0x720d4ac0_7533_11d0_a5d6_28db04c10000);
@@ -2214,6 +2316,10 @@ impl IKsTopologyInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKsTopologyInfo as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IKsTopologyInfo_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IKsTopologyInfo_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IKsTopologyInfo {}
 #[repr(C)]

@@ -452,6 +452,11 @@ impl IAudioEffectDefinition_Vtbl {
         iid == &<IAudioEffectDefinition as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+impl<Identity: windows_core::IUnknownImpl + IAudioEffectDefinition_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IAudioEffectDefinition_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEffectDefinition_Vtbl {
@@ -655,6 +660,11 @@ impl IBasicAudioEffect_Vtbl {
         iid == &<IBasicAudioEffect as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
+impl<Identity: windows_core::IUnknownImpl + IBasicAudioEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBasicAudioEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBasicAudioEffect_Vtbl {
@@ -840,6 +850,11 @@ impl IBasicVideoEffect_Vtbl {
         iid == &<IBasicVideoEffect as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
+impl<Identity: windows_core::IUnknownImpl + IBasicVideoEffect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IBasicVideoEffect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBasicVideoEffect_Vtbl {
@@ -1006,6 +1021,11 @@ impl IVideoCompositor_Vtbl {
         iid == &<IVideoCompositor as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
+impl<Identity: windows_core::IUnknownImpl + IVideoCompositor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVideoCompositor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoCompositor_Vtbl {
@@ -1086,6 +1106,11 @@ impl IVideoCompositorDefinition_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVideoCompositorDefinition as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<Identity: windows_core::IUnknownImpl + IVideoCompositorDefinition_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVideoCompositorDefinition_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1178,6 +1203,11 @@ impl IVideoEffectDefinition_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVideoEffectDefinition as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<Identity: windows_core::IUnknownImpl + IVideoEffectDefinition_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVideoEffectDefinition_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

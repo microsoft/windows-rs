@@ -196,6 +196,10 @@ impl EXPERIMENTAL_IPluginAuthenticator_Vtbl {
         iid == &<EXPERIMENTAL_IPluginAuthenticator as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + EXPERIMENTAL_IPluginAuthenticator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for EXPERIMENTAL_IPluginAuthenticator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for EXPERIMENTAL_IPluginAuthenticator {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -631,6 +635,10 @@ impl IPluginAuthenticator_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPluginAuthenticator as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPluginAuthenticator_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPluginAuthenticator_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IPluginAuthenticator {}
 #[repr(transparent)]

@@ -127,6 +127,10 @@ impl ICreateDeviceAccessAsync_Vtbl {
         iid == &<ICreateDeviceAccessAsync as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICreateDeviceAccessAsync_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ICreateDeviceAccessAsync_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ICreateDeviceAccessAsync {}
 windows_core::imp::define_interface!(IDeviceIoControl, IDeviceIoControl_Vtbl, 0x9eefe161_23ab_4f18_9b49_991b586ae970);
 windows_core::imp::interface_hierarchy!(IDeviceIoControl, windows_core::IUnknown);
@@ -200,6 +204,10 @@ impl IDeviceIoControl_Vtbl {
         iid == &<IDeviceIoControl as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IDeviceIoControl_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDeviceIoControl_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDeviceIoControl {}
 windows_core::imp::define_interface!(IDeviceRequestCompletionCallback, IDeviceRequestCompletionCallback_Vtbl, 0x999bad24_9acd_45bb_8669_2a2fc0288b04);
 windows_core::imp::interface_hierarchy!(IDeviceRequestCompletionCallback, windows_core::IUnknown);
@@ -230,5 +238,9 @@ impl IDeviceRequestCompletionCallback_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDeviceRequestCompletionCallback as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IDeviceRequestCompletionCallback_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IDeviceRequestCompletionCallback_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IDeviceRequestCompletionCallback {}

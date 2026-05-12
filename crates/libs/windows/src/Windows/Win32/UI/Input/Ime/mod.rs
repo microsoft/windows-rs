@@ -1033,6 +1033,11 @@ impl IActiveIME_Vtbl {
     }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+impl<Identity: windows_core::IUnknownImpl + IActiveIME_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IActiveIME_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 impl windows_core::RuntimeName for IActiveIME {}
 windows_core::imp::define_interface!(IActiveIME2, IActiveIME2_Vtbl, 0xe1c4bf0e_2d53_11d2_93e1_0060b067b86e);
 impl core::ops::Deref for IActiveIME2 {
@@ -1082,6 +1087,11 @@ impl IActiveIME2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IActiveIME2 as windows_core::Interface>::IID || iid == &<IActiveIME as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+impl<Identity: windows_core::IUnknownImpl + IActiveIME2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IActiveIME2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 impl windows_core::RuntimeName for IActiveIME2 {}
@@ -2216,6 +2226,11 @@ impl IActiveIMMApp_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IActiveIMMApp as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
+impl<Identity: windows_core::IUnknownImpl + IActiveIMMApp_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IActiveIMMApp_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
 impl windows_core::RuntimeName for IActiveIMMApp {}
@@ -3694,6 +3709,11 @@ impl IActiveIMMIME_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
+impl<Identity: windows_core::IUnknownImpl + IActiveIMMIME_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IActiveIMMIME_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
 impl windows_core::RuntimeName for IActiveIMMIME {}
 windows_core::imp::define_interface!(IActiveIMMMessagePumpOwner, IActiveIMMMessagePumpOwner_Vtbl, 0xb5cf2cfa_8aeb_11d1_9364_0060b067b86e);
 windows_core::imp::interface_hierarchy!(IActiveIMMMessagePumpOwner, windows_core::IUnknown);
@@ -3792,6 +3812,11 @@ impl IActiveIMMMessagePumpOwner_Vtbl {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl<Identity: windows_core::IUnknownImpl + IActiveIMMMessagePumpOwner_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IActiveIMMMessagePumpOwner_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::RuntimeName for IActiveIMMMessagePumpOwner {}
 windows_core::imp::define_interface!(IActiveIMMRegistrar, IActiveIMMRegistrar_Vtbl, 0xb3458082_bd00_11d1_939b_0060b067b86e);
 windows_core::imp::interface_hierarchy!(IActiveIMMRegistrar, windows_core::IUnknown);
@@ -3841,6 +3866,10 @@ impl IActiveIMMRegistrar_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IActiveIMMRegistrar as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IActiveIMMRegistrar_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IActiveIMMRegistrar_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IActiveIMMRegistrar {}
 windows_core::imp::define_interface!(IEnumInputContext, IEnumInputContext_Vtbl, 0x09b5eab0_f997_11d1_93d4_0060b067b86e);
@@ -3921,6 +3950,10 @@ impl IEnumInputContext_Vtbl {
         iid == &<IEnumInputContext as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumInputContext_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumInputContext_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumInputContext {}
 windows_core::imp::define_interface!(IEnumRegisterWordA, IEnumRegisterWordA_Vtbl, 0x08c03412_f96b_11d0_a475_00aa006bcc59);
 windows_core::imp::interface_hierarchy!(IEnumRegisterWordA, windows_core::IUnknown);
@@ -3999,6 +4032,10 @@ impl IEnumRegisterWordA_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnumRegisterWordA as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IEnumRegisterWordA_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumRegisterWordA_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IEnumRegisterWordA {}
 windows_core::imp::define_interface!(IEnumRegisterWordW, IEnumRegisterWordW_Vtbl, 0x4955dd31_b159_11d0_8fcf_00aa006bcc59);
@@ -4079,6 +4116,10 @@ impl IEnumRegisterWordW_Vtbl {
         iid == &<IEnumRegisterWordW as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumRegisterWordW_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumRegisterWordW_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumRegisterWordW {}
 pub const IFEC_S_ALREADY_DEFAULT: windows_core::HRESULT = windows_core::HRESULT(0x47400_u32 as _);
 #[cfg(feature = "Win32_System_Com")]
@@ -4108,6 +4149,11 @@ impl IFEClassFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFEClassFactory as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IClassFactory as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IFEClassFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFEClassFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IFEClassFactory {}
@@ -4179,6 +4225,10 @@ impl IFECommon_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFECommon as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IFECommon_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFECommon_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IFECommon {}
 pub const IFED_ACTIVE_DICT: IMEFMT = IMEFMT(13i32);
@@ -4539,6 +4589,10 @@ impl IFEDictionary_Vtbl {
         iid == &<IFEDictionary as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IFEDictionary_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFEDictionary_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IFEDictionary {}
 windows_core::imp::define_interface!(IFELanguage, IFELanguage_Vtbl, 0x019f7152_e6db_11d0_83c3_00c04fddb82e);
 windows_core::imp::interface_hierarchy!(IFELanguage, windows_core::IUnknown);
@@ -4636,6 +4690,10 @@ impl IFELanguage_Vtbl {
         iid == &<IFELanguage as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IFELanguage_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IFELanguage_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IFELanguage {}
 pub const IGIMIF_RIGHTMENU: u32 = 1u32;
 pub const IGIMII_CMODE: u32 = 1u32;
@@ -4677,6 +4735,10 @@ impl IImePad_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IImePad as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IImePad_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IImePad_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IImePad {}
 windows_core::imp::define_interface!(IImePadApplet, IImePadApplet_Vtbl, 0x5d8e643b_c3a9_11d1_afef_00805f0c8b6d);
@@ -4773,6 +4835,11 @@ impl IImePadApplet_Vtbl {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl<Identity: windows_core::IUnknownImpl + IImePadApplet_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IImePadApplet_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::RuntimeName for IImePadApplet {}
 windows_core::imp::define_interface!(IImePlugInDictDictionaryList, IImePlugInDictDictionaryList_Vtbl, 0x98752974_b0a6_489b_8f6f_bff3769c8eeb);
 windows_core::imp::interface_hierarchy!(IImePlugInDictDictionaryList, windows_core::IUnknown);
@@ -4826,6 +4893,11 @@ impl IImePlugInDictDictionaryList_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<Identity: windows_core::IUnknownImpl + IImePlugInDictDictionaryList_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IImePlugInDictDictionaryList_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IImePlugInDictDictionaryList {}
 windows_core::imp::define_interface!(IImeSpecifyApplets, IImeSpecifyApplets_Vtbl, 0x5d8e643c_c3a9_11d1_afef_00805f0c8b6d);
 windows_core::imp::interface_hierarchy!(IImeSpecifyApplets, windows_core::IUnknown);
@@ -4856,6 +4928,10 @@ impl IImeSpecifyApplets_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IImeSpecifyApplets as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IImeSpecifyApplets_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IImeSpecifyApplets_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IImeSpecifyApplets {}
 pub type IMCENUMPROC = Option<unsafe extern "system" fn(param0: HIMC, param1: super::super::super::Foundation::LPARAM) -> windows_core::BOOL>;

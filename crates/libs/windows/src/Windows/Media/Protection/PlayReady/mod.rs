@@ -115,6 +115,10 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
         iid == &<INDClosedCaptionDataReceivedEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + INDClosedCaptionDataReceivedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDClosedCaptionDataReceivedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDClosedCaptionDataReceivedEventArgs_Vtbl {
@@ -188,6 +192,10 @@ impl INDCustomData_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<INDCustomData as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + INDCustomData_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDCustomData_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -367,6 +375,10 @@ impl INDDownloadEngine_Vtbl {
         iid == &<INDDownloadEngine as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + INDDownloadEngine_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDDownloadEngine_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDDownloadEngine_Vtbl {
@@ -472,6 +484,10 @@ impl INDDownloadEngineNotifier_Vtbl {
         iid == &<INDDownloadEngineNotifier as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + INDDownloadEngineNotifier_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDDownloadEngineNotifier_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDDownloadEngineNotifier_Vtbl {
@@ -525,6 +541,10 @@ impl INDLicenseFetchCompletedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<INDLicenseFetchCompletedEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + INDLicenseFetchCompletedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDLicenseFetchCompletedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -631,6 +651,10 @@ impl INDLicenseFetchDescriptor_Vtbl {
         iid == &<INDLicenseFetchDescriptor as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + INDLicenseFetchDescriptor_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDLicenseFetchDescriptor_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDLicenseFetchDescriptor_Vtbl {
@@ -692,6 +716,10 @@ impl INDLicenseFetchResult_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<INDLicenseFetchResult as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + INDLicenseFetchResult_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDLicenseFetchResult_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -805,6 +833,10 @@ impl INDMessenger_Vtbl {
         iid == &<INDMessenger as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + INDMessenger_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDMessenger_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDMessenger_Vtbl {
@@ -855,6 +887,10 @@ impl INDProximityDetectionCompletedEventArgs_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<INDProximityDetectionCompletedEventArgs as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + INDProximityDetectionCompletedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDProximityDetectionCompletedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -957,6 +993,10 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
         iid == &<INDRegistrationCompletedEventArgs as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + INDRegistrationCompletedEventArgs_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDRegistrationCompletedEventArgs_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDRegistrationCompletedEventArgs_Vtbl {
@@ -1007,6 +1047,10 @@ impl INDSendResult_Vtbl {
         iid == &<INDSendResult as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + INDSendResult_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDSendResult_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDSendResult_Vtbl {
@@ -1056,6 +1100,11 @@ impl INDStartResult_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<INDStartResult as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Media_Core")]
+impl<Identity: windows_core::IUnknownImpl + INDStartResult_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDStartResult_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1112,6 +1161,11 @@ impl INDStorageFileHelper_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<INDStorageFileHelper as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + INDStorageFileHelper_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDStorageFileHelper_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1225,6 +1279,11 @@ impl INDStreamParser_Vtbl {
         iid == &<INDStreamParser as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Media_Core")]
+impl<Identity: windows_core::IUnknownImpl + INDStreamParser_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDStreamParser_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDStreamParser_Vtbl {
@@ -1322,6 +1381,11 @@ impl INDStreamParserNotifier_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<INDStreamParserNotifier as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Media_Core")]
+impl<Identity: windows_core::IUnknownImpl + INDStreamParserNotifier_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDStreamParserNotifier_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1602,6 +1666,10 @@ impl INDTransmitterProperties_Vtbl {
         iid == &<INDTransmitterProperties as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + INDTransmitterProperties_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for INDTransmitterProperties_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDTransmitterProperties_Vtbl {
@@ -1803,6 +1871,10 @@ impl IPlayReadyDomain_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPlayReadyDomain as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPlayReadyDomain_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPlayReadyDomain_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2037,6 +2109,10 @@ impl IPlayReadyLicense_Vtbl {
         iid == &<IPlayReadyLicense as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPlayReadyLicense_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPlayReadyLicense_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicense_Vtbl {
@@ -2225,6 +2301,10 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
         iid == &<IPlayReadyLicenseAcquisitionServiceRequest as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPlayReadyLicenseAcquisitionServiceRequest_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
@@ -2331,6 +2411,10 @@ impl IPlayReadyLicenseSession_Vtbl {
         iid == &<IPlayReadyLicenseSession as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPlayReadyLicenseSession_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPlayReadyLicenseSession_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseSession_Vtbl {
@@ -2398,6 +2482,10 @@ impl IPlayReadyLicenseSession2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPlayReadyLicenseSession2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPlayReadyLicenseSession2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPlayReadyLicenseSession2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2647,6 +2735,10 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
         iid == &<IPlayReadySecureStopServiceRequest as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPlayReadySecureStopServiceRequest_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPlayReadySecureStopServiceRequest_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadySecureStopServiceRequest_Vtbl {
@@ -2875,6 +2967,10 @@ impl IPlayReadyServiceRequest_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPlayReadyServiceRequest as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IPlayReadyServiceRequest_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IPlayReadyServiceRequest_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

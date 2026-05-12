@@ -1832,6 +1832,11 @@ impl IStorageFile_Vtbl {
         iid == &<IStorageFile as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+impl<Identity: windows_core::IUnknownImpl + IStorageFile_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageFile_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
 #[doc(hidden)]
@@ -1918,6 +1923,11 @@ impl IStorageFile2_Vtbl {
         iid == &<IStorageFile2 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_Streams")]
+impl<Identity: windows_core::IUnknownImpl + IStorageFile2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageFile2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageFile2_Vtbl {
@@ -1969,6 +1979,10 @@ impl IStorageFilePropertiesWithAvailability_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageFilePropertiesWithAvailability as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IStorageFilePropertiesWithAvailability_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageFilePropertiesWithAvailability_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2337,6 +2351,11 @@ impl IStorageFolder_Vtbl {
         iid == &<IStorageFolder as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search", feature = "Storage_Streams"))]
+impl<Identity: windows_core::IUnknownImpl + IStorageFolder_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageFolder_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageFolder_Vtbl {
@@ -2415,6 +2434,10 @@ impl IStorageFolder2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageFolder2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IStorageFolder2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageFolder2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2691,6 +2714,11 @@ impl IStorageItem_Vtbl {
         iid == &<IStorageItem as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Storage_FileProperties")]
+impl<Identity: windows_core::IUnknownImpl + IStorageItem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageItem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItem_Vtbl {
@@ -2850,6 +2878,11 @@ impl IStorageItem2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageItem2 as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
+impl<Identity: windows_core::IUnknownImpl + IStorageItem2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageItem2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3037,6 +3070,11 @@ impl IStorageItemProperties_Vtbl {
         iid == &<IStorageItemProperties as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+impl<Identity: windows_core::IUnknownImpl + IStorageItemProperties_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageItemProperties_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemProperties_Vtbl {
@@ -3206,6 +3244,11 @@ impl IStorageItemProperties2_Vtbl {
         iid == &<IStorageItemProperties2 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+impl<Identity: windows_core::IUnknownImpl + IStorageItemProperties2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageItemProperties2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemProperties2_Vtbl {
@@ -3319,6 +3362,11 @@ impl IStorageItemPropertiesWithProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStorageItemPropertiesWithProvider as windows_core::Interface>::IID
     }
+}
+#[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+impl<Identity: windows_core::IUnknownImpl + IStorageItemPropertiesWithProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStorageItemPropertiesWithProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3548,6 +3596,10 @@ impl IStreamedFileDataRequest_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStreamedFileDataRequest as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IStreamedFileDataRequest_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IStreamedFileDataRequest_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

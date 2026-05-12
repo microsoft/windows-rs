@@ -1042,6 +1042,10 @@ impl IContentPrefetcherTaskTrigger_Vtbl {
         iid == &<IContentPrefetcherTaskTrigger as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IContentPrefetcherTaskTrigger_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IContentPrefetcherTaskTrigger_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IContentPrefetcherTaskTrigger {}
 pub type WS_ABANDON_MESSAGE_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_ABORT_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;

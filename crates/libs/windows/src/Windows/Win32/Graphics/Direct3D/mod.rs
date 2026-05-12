@@ -876,6 +876,10 @@ impl ID3DBlob_Vtbl {
         iid == &<ID3DBlob as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3DBlob_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3DBlob_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3DBlob {}
 windows_core::imp::define_interface!(ID3DDestructionNotifier, ID3DDestructionNotifier_Vtbl, 0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
 windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, windows_core::IUnknown);
@@ -932,6 +936,10 @@ impl ID3DDestructionNotifier_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3DDestructionNotifier as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3DDestructionNotifier_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3DDestructionNotifier_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3DDestructionNotifier {}
 windows_core::imp::define_interface!(ID3DInclude, ID3DInclude_Vtbl);
@@ -1150,6 +1158,10 @@ impl ID3DShaderCacheApplication_Vtbl {
         iid == &<ID3DShaderCacheApplication as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3DShaderCacheApplication_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3DShaderCacheApplication_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3DShaderCacheApplication {}
 windows_core::imp::define_interface!(ID3DShaderCacheComponent, ID3DShaderCacheComponent_Vtbl, 0xeed1bf00_f5c7_4cf7_885c_d0f9c0cb4828);
 windows_core::imp::interface_hierarchy!(ID3DShaderCacheComponent, windows_core::IUnknown);
@@ -1255,6 +1267,10 @@ impl ID3DShaderCacheComponent_Vtbl {
         iid == &<ID3DShaderCacheComponent as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3DShaderCacheComponent_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3DShaderCacheComponent_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3DShaderCacheComponent {}
 windows_core::imp::define_interface!(ID3DShaderCacheExplorer, ID3DShaderCacheExplorer_Vtbl, 0x90432322_32f5_487f_9264_e9390fa58b2a);
 windows_core::imp::interface_hierarchy!(ID3DShaderCacheExplorer, windows_core::IUnknown);
@@ -1292,6 +1308,10 @@ impl ID3DShaderCacheExplorer_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3DShaderCacheExplorer as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3DShaderCacheExplorer_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3DShaderCacheExplorer_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3DShaderCacheExplorer {}
 windows_core::imp::define_interface!(ID3DShaderCacheInstaller, ID3DShaderCacheInstaller_Vtbl, 0xbbe30de1_6318_4526_ae17_776693191bb4);
@@ -1472,6 +1492,11 @@ impl ID3DShaderCacheInstaller_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Services")]
+impl<Identity: windows_core::IUnknownImpl + ID3DShaderCacheInstaller_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3DShaderCacheInstaller_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
+#[cfg(feature = "Win32_System_Services")]
 impl windows_core::RuntimeName for ID3DShaderCacheInstaller {}
 windows_core::imp::define_interface!(ID3DShaderCacheInstallerClient, ID3DShaderCacheInstallerClient_Vtbl);
 impl ID3DShaderCacheInstallerClient {
@@ -1599,6 +1624,10 @@ impl ID3DShaderCacheInstallerFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3DShaderCacheInstallerFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3DShaderCacheInstallerFactory_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for ID3DShaderCacheInstallerFactory_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3DShaderCacheInstallerFactory {}
 pub type PFN_DESTRUCTION_CALLBACK = Option<unsafe extern "system" fn(pdata: *mut core::ffi::c_void)>;

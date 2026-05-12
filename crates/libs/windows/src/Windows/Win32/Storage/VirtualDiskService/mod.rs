@@ -186,6 +186,10 @@ impl IEnumVdsObject_Vtbl {
         iid == &<IEnumVdsObject as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IEnumVdsObject_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IEnumVdsObject_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IEnumVdsObject {}
 windows_core::imp::define_interface!(IVdsAdmin, IVdsAdmin_Vtbl, 0xd188e97d_85aa_4d33_abc6_26299a10ffc1);
 windows_core::imp::interface_hierarchy!(IVdsAdmin, windows_core::IUnknown);
@@ -236,6 +240,10 @@ impl IVdsAdmin_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsAdmin as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsAdmin_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsAdmin_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsAdmin {}
 windows_core::imp::define_interface!(IVdsAdvancedDisk, IVdsAdvancedDisk_Vtbl, 0x6e6f6b40_977c_4069_bddd_ac710059f8c0);
@@ -409,6 +417,10 @@ impl IVdsAdvancedDisk_Vtbl {
         iid == &<IVdsAdvancedDisk as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsAdvancedDisk_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsAdvancedDisk_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsAdvancedDisk {}
 windows_core::imp::define_interface!(IVdsAdvancedDisk2, IVdsAdvancedDisk2_Vtbl, 0x9723f420_9355_42de_ab66_e31bb15beeac);
 windows_core::imp::interface_hierarchy!(IVdsAdvancedDisk2, windows_core::IUnknown);
@@ -439,6 +451,10 @@ impl IVdsAdvancedDisk2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsAdvancedDisk2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsAdvancedDisk2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsAdvancedDisk2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsAdvancedDisk2 {}
 windows_core::imp::define_interface!(IVdsAdvancedDisk3, IVdsAdvancedDisk3_Vtbl, 0x3858c0d5_0f35_4bf5_9714_69874963bc36);
@@ -495,6 +511,10 @@ impl IVdsAdvancedDisk3_Vtbl {
         iid == &<IVdsAdvancedDisk3 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsAdvancedDisk3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsAdvancedDisk3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsAdvancedDisk3 {}
 windows_core::imp::define_interface!(IVdsAdviseSink, IVdsAdviseSink_Vtbl, 0x8326cd1d_cf59_4936_b786_5efc08798e25);
 windows_core::imp::interface_hierarchy!(IVdsAdviseSink, windows_core::IUnknown);
@@ -525,6 +545,10 @@ impl IVdsAdviseSink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsAdviseSink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsAdviseSink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsAdviseSink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsAdviseSink {}
 windows_core::imp::define_interface!(IVdsAsync, IVdsAsync_Vtbl, 0xd5d23b6d_5a55_4492_9889_397a3c2d2dbc);
@@ -583,6 +607,10 @@ impl IVdsAsync_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsAsync as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsAsync_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsAsync_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsAsync {}
 windows_core::imp::define_interface!(IVdsController, IVdsController_Vtbl, 0xcb53d96e_dffb_474a_a078_790d1e2bc082);
@@ -720,6 +748,10 @@ impl IVdsController_Vtbl {
         iid == &<IVdsController as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsController_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsController_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsController {}
 windows_core::imp::define_interface!(IVdsControllerControllerPort, IVdsControllerControllerPort_Vtbl, 0xca5d735f_6bae_42c0_b30e_f2666045ce71);
 windows_core::imp::interface_hierarchy!(IVdsControllerControllerPort, windows_core::IUnknown);
@@ -759,6 +791,10 @@ impl IVdsControllerControllerPort_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsControllerControllerPort as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsControllerControllerPort_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsControllerControllerPort_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsControllerControllerPort {}
 windows_core::imp::define_interface!(IVdsControllerPort, IVdsControllerPort_Vtbl, 0x18691d0d_4e7f_43e8_92e4_cf44beeed11c);
@@ -860,6 +896,10 @@ impl IVdsControllerPort_Vtbl {
         iid == &<IVdsControllerPort as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsControllerPort_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsControllerPort_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsControllerPort {}
 windows_core::imp::define_interface!(IVdsCreatePartitionEx, IVdsCreatePartitionEx_Vtbl, 0x9882f547_cfc3_420b_9750_00dfbec50662);
 windows_core::imp::interface_hierarchy!(IVdsCreatePartitionEx, windows_core::IUnknown);
@@ -899,6 +939,10 @@ impl IVdsCreatePartitionEx_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsCreatePartitionEx as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsCreatePartitionEx_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsCreatePartitionEx_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsCreatePartitionEx {}
 windows_core::imp::define_interface!(IVdsDisk, IVdsDisk_Vtbl, 0x07e5c822_f00c_47a1_8fce_b244da56fd06);
@@ -1015,6 +1059,10 @@ impl IVdsDisk_Vtbl {
         iid == &<IVdsDisk as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsDisk_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsDisk_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsDisk {}
 windows_core::imp::define_interface!(IVdsDisk2, IVdsDisk2_Vtbl, 0x40f73c8b_687d_4a13_8d96_3d7f2e683936);
 windows_core::imp::interface_hierarchy!(IVdsDisk2, windows_core::IUnknown);
@@ -1045,6 +1093,10 @@ impl IVdsDisk2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsDisk2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsDisk2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsDisk2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsDisk2 {}
 windows_core::imp::define_interface!(IVdsDisk3, IVdsDisk3_Vtbl, 0x8f4b2f5d_ec15_4357_992f_473ef10975b9);
@@ -1092,6 +1144,10 @@ impl IVdsDisk3_Vtbl {
         iid == &<IVdsDisk3 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsDisk3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsDisk3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsDisk3 {}
 windows_core::imp::define_interface!(IVdsDiskOnline, IVdsDiskOnline_Vtbl, 0x90681b1d_6a7f_48e8_9061_31b7aa125322);
 windows_core::imp::interface_hierarchy!(IVdsDiskOnline, windows_core::IUnknown);
@@ -1133,6 +1189,10 @@ impl IVdsDiskOnline_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsDiskOnline as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsDiskOnline_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsDiskOnline_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsDiskOnline {}
 windows_core::imp::define_interface!(IVdsDiskPartitionMF, IVdsDiskPartitionMF_Vtbl, 0x538684e0_ba3d_4bc0_aca9_164aff85c2a9);
@@ -1226,6 +1286,10 @@ impl IVdsDiskPartitionMF_Vtbl {
         iid == &<IVdsDiskPartitionMF as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsDiskPartitionMF_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsDiskPartitionMF_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsDiskPartitionMF {}
 windows_core::imp::define_interface!(IVdsDiskPartitionMF2, IVdsDiskPartitionMF2_Vtbl, 0x9cbe50ca_f2d2_4bf4_ace1_96896b729625);
 windows_core::imp::interface_hierarchy!(IVdsDiskPartitionMF2, windows_core::IUnknown);
@@ -1269,6 +1333,10 @@ impl IVdsDiskPartitionMF2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsDiskPartitionMF2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsDiskPartitionMF2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsDiskPartitionMF2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsDiskPartitionMF2 {}
 windows_core::imp::define_interface!(IVdsDrive, IVdsDrive_Vtbl, 0xff24efa4_aade_4b6b_898b_eaa6a20887c7);
@@ -1373,6 +1441,10 @@ impl IVdsDrive_Vtbl {
         iid == &<IVdsDrive as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsDrive_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsDrive_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsDrive {}
 windows_core::imp::define_interface!(IVdsDrive2, IVdsDrive2_Vtbl, 0x60b5a730_addf_4436_8ca7_5769e2d1ffa4);
 windows_core::imp::interface_hierarchy!(IVdsDrive2, windows_core::IUnknown);
@@ -1403,6 +1475,10 @@ impl IVdsDrive2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsDrive2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsDrive2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsDrive2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsDrive2 {}
 windows_core::imp::define_interface!(IVdsHbaPort, IVdsHbaPort_Vtbl, 0x2abd757f_2851_4997_9a13_47d2a885d6ca);
@@ -1449,6 +1525,10 @@ impl IVdsHbaPort_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsHbaPort as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsHbaPort_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsHbaPort_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsHbaPort {}
 windows_core::imp::define_interface!(IVdsHwProvider, IVdsHwProvider_Vtbl, 0xd99bdaae_b13a_4178_9fdb_e27f16b4603e);
@@ -1517,6 +1597,10 @@ impl IVdsHwProvider_Vtbl {
         iid == &<IVdsHwProvider as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsHwProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsHwProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsHwProvider {}
 windows_core::imp::define_interface!(IVdsHwProviderPrivate, IVdsHwProviderPrivate_Vtbl, 0x98f17bf3_9f33_4f12_8714_8b4075092c2e);
 windows_core::imp::interface_hierarchy!(IVdsHwProviderPrivate, windows_core::IUnknown);
@@ -1560,6 +1644,10 @@ impl IVdsHwProviderPrivate_Vtbl {
         iid == &<IVdsHwProviderPrivate as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsHwProviderPrivate_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsHwProviderPrivate_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsHwProviderPrivate {}
 windows_core::imp::define_interface!(IVdsHwProviderPrivateMpio, IVdsHwProviderPrivateMpio_Vtbl, 0x310a7715_ac2b_4c6f_9827_3d742f351676);
 windows_core::imp::interface_hierarchy!(IVdsHwProviderPrivateMpio, windows_core::IUnknown);
@@ -1590,6 +1678,10 @@ impl IVdsHwProviderPrivateMpio_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsHwProviderPrivateMpio as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsHwProviderPrivateMpio_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsHwProviderPrivateMpio_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsHwProviderPrivateMpio {}
 windows_core::imp::define_interface!(IVdsHwProviderStoragePools, IVdsHwProviderStoragePools_Vtbl, 0xd5b5937a_f188_4c79_b86c_11c920ad11b8);
@@ -1679,6 +1771,10 @@ impl IVdsHwProviderStoragePools_Vtbl {
         iid == &<IVdsHwProviderStoragePools as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsHwProviderStoragePools_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsHwProviderStoragePools_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsHwProviderStoragePools {}
 windows_core::imp::define_interface!(IVdsHwProviderType, IVdsHwProviderType_Vtbl, 0x3e0f5166_542d_4fc6_947a_012174240b7e);
 windows_core::imp::interface_hierarchy!(IVdsHwProviderType, windows_core::IUnknown);
@@ -1719,6 +1815,10 @@ impl IVdsHwProviderType_Vtbl {
         iid == &<IVdsHwProviderType as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsHwProviderType_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsHwProviderType_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsHwProviderType {}
 windows_core::imp::define_interface!(IVdsHwProviderType2, IVdsHwProviderType2_Vtbl, 0x8190236f_c4d0_4e81_8011_d69512fcc984);
 windows_core::imp::interface_hierarchy!(IVdsHwProviderType2, windows_core::IUnknown);
@@ -1758,6 +1858,10 @@ impl IVdsHwProviderType2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsHwProviderType2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsHwProviderType2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsHwProviderType2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsHwProviderType2 {}
 windows_core::imp::define_interface!(IVdsIscsiInitiatorAdapter, IVdsIscsiInitiatorAdapter_Vtbl, 0xb07fedd4_1682_4440_9189_a39b55194dc5);
@@ -1855,6 +1959,10 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsIscsiInitiatorAdapter as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsIscsiInitiatorAdapter_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsIscsiInitiatorAdapter_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsIscsiInitiatorAdapter {}
 windows_core::imp::define_interface!(IVdsIscsiInitiatorPortal, IVdsIscsiInitiatorPortal_Vtbl, 0x38a0a9ab_7cc8_4693_ac07_1f28bd03c3da);
@@ -1955,6 +2063,10 @@ impl IVdsIscsiInitiatorPortal_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsIscsiInitiatorPortal as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsIscsiInitiatorPortal_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsIscsiInitiatorPortal_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsIscsiInitiatorPortal {}
 windows_core::imp::define_interface!(IVdsIscsiPortal, IVdsIscsiPortal_Vtbl, 0x7fa1499d_ec85_4a8a_a47b_ff69201fcd34);
@@ -2088,6 +2200,10 @@ impl IVdsIscsiPortal_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsIscsiPortal as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsIscsiPortal_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsIscsiPortal_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsIscsiPortal {}
 windows_core::imp::define_interface!(IVdsIscsiPortalGroup, IVdsIscsiPortalGroup_Vtbl, 0xfef5f89d_a3dd_4b36_bf28_e7dde045c593);
@@ -2228,6 +2344,10 @@ impl IVdsIscsiPortalGroup_Vtbl {
         iid == &<IVdsIscsiPortalGroup as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsIscsiPortalGroup_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsIscsiPortalGroup_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsIscsiPortalGroup {}
 windows_core::imp::define_interface!(IVdsIscsiPortalLocal, IVdsIscsiPortalLocal_Vtbl, 0xad837c28_52c1_421d_bf04_fae7da665396);
 windows_core::imp::interface_hierarchy!(IVdsIscsiPortalLocal, windows_core::IUnknown);
@@ -2258,6 +2378,10 @@ impl IVdsIscsiPortalLocal_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsIscsiPortalLocal as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsIscsiPortalLocal_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsIscsiPortalLocal_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsIscsiPortalLocal {}
 windows_core::imp::define_interface!(IVdsIscsiTarget, IVdsIscsiTarget_Vtbl, 0xaa8f5055_83e5_4bcc_aa73_19851a36a849);
@@ -2454,6 +2578,10 @@ impl IVdsIscsiTarget_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsIscsiTarget as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsIscsiTarget_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsIscsiTarget_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsIscsiTarget {}
 windows_core::imp::define_interface!(IVdsLun, IVdsLun_Vtbl, 0x3540a9c7_e60f_4111_a840_8bba6c2c83d8);
@@ -2765,6 +2893,10 @@ impl IVdsLun_Vtbl {
         iid == &<IVdsLun as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsLun_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsLun_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsLun {}
 windows_core::imp::define_interface!(IVdsLun2, IVdsLun2_Vtbl, 0xe5b3a735_9efb_499a_8071_4394d9ee6fcb);
 windows_core::imp::interface_hierarchy!(IVdsLun2, windows_core::IUnknown);
@@ -2810,6 +2942,10 @@ impl IVdsLun2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsLun2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsLun2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsLun2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsLun2 {}
 windows_core::imp::define_interface!(IVdsLunControllerPorts, IVdsLunControllerPorts_Vtbl, 0x451fe266_da6d_406a_bb60_82e534f85aeb);
@@ -2866,6 +3002,10 @@ impl IVdsLunControllerPorts_Vtbl {
         iid == &<IVdsLunControllerPorts as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsLunControllerPorts_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsLunControllerPorts_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsLunControllerPorts {}
 windows_core::imp::define_interface!(IVdsLunIscsi, IVdsLunIscsi_Vtbl, 0x0d7c1e64_b59b_45ae_b86a_2c2cc6a42067);
 windows_core::imp::interface_hierarchy!(IVdsLunIscsi, windows_core::IUnknown);
@@ -2920,6 +3060,10 @@ impl IVdsLunIscsi_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsLunIscsi as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsLunIscsi_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsLunIscsi_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsLunIscsi {}
 windows_core::imp::define_interface!(IVdsLunMpio, IVdsLunMpio_Vtbl, 0x7c5fbae3_333a_48a1_a982_33c15788cde3);
@@ -3000,6 +3144,10 @@ impl IVdsLunMpio_Vtbl {
         iid == &<IVdsLunMpio as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsLunMpio_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsLunMpio_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsLunMpio {}
 windows_core::imp::define_interface!(IVdsLunNaming, IVdsLunNaming_Vtbl, 0x907504cb_6b4e_4d88_a34d_17ba661fbb06);
 windows_core::imp::interface_hierarchy!(IVdsLunNaming, windows_core::IUnknown);
@@ -3033,6 +3181,10 @@ impl IVdsLunNaming_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsLunNaming as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsLunNaming_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsLunNaming_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsLunNaming {}
 windows_core::imp::define_interface!(IVdsLunNumber, IVdsLunNumber_Vtbl, 0xd3f95e46_54b3_41f9_b678_0f1871443a08);
@@ -3073,6 +3225,10 @@ impl IVdsLunNumber_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsLunNumber as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsLunNumber_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsLunNumber_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsLunNumber {}
 windows_core::imp::define_interface!(IVdsLunPlex, IVdsLunPlex_Vtbl, 0x0ee1a790_5d2e_4abb_8c99_c481e8be2138);
@@ -3165,6 +3321,10 @@ impl IVdsLunPlex_Vtbl {
         iid == &<IVdsLunPlex as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsLunPlex_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsLunPlex_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsLunPlex {}
 windows_core::imp::define_interface!(IVdsMaintenance, IVdsMaintenance_Vtbl, 0xdaebeef3_8523_47ed_a2b9_05cecce2a1ae);
 windows_core::imp::interface_hierarchy!(IVdsMaintenance, windows_core::IUnknown);
@@ -3222,6 +3382,10 @@ impl IVdsMaintenance_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsMaintenance as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsMaintenance_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsMaintenance_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsMaintenance {}
 windows_core::imp::define_interface!(IVdsOpenVDisk, IVdsOpenVDisk_Vtbl, 0x75c8f324_f715_4fe3_a28e_f9011b61a4a1);
@@ -3381,6 +3545,11 @@ impl IVdsOpenVDisk_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsOpenVDisk as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Storage_Vhd")]
+impl<Identity: windows_core::IUnknownImpl + IVdsOpenVDisk_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsOpenVDisk_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl windows_core::RuntimeName for IVdsOpenVDisk {}
@@ -3579,6 +3748,10 @@ impl IVdsPack_Vtbl {
         iid == &<IVdsPack as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsPack_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsPack_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsPack {}
 windows_core::imp::define_interface!(IVdsPack2, IVdsPack2_Vtbl, 0x13b50bff_290a_47dd_8558_b7c58db1a71a);
 windows_core::imp::interface_hierarchy!(IVdsPack2, windows_core::IUnknown);
@@ -3619,6 +3792,10 @@ impl IVdsPack2_Vtbl {
         iid == &<IVdsPack2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsPack2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsPack2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsPack2 {}
 windows_core::imp::define_interface!(IVdsProvider, IVdsProvider_Vtbl, 0x10c5e575_7984_4e81_a56b_431f5f92ae42);
 windows_core::imp::interface_hierarchy!(IVdsProvider, windows_core::IUnknown);
@@ -3649,6 +3826,10 @@ impl IVdsProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsProvider {}
 windows_core::imp::define_interface!(IVdsProviderPrivate, IVdsProviderPrivate_Vtbl, 0x11f3cd41_b7e8_48ff_9472_9dff018aa292);
@@ -3721,6 +3902,10 @@ impl IVdsProviderPrivate_Vtbl {
         iid == &<IVdsProviderPrivate as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsProviderPrivate_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsProviderPrivate_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsProviderPrivate {}
 windows_core::imp::define_interface!(IVdsProviderSupport, IVdsProviderSupport_Vtbl, 0x1732be13_e8f9_4a03_bfbc_5f616aa66ce1);
 windows_core::imp::interface_hierarchy!(IVdsProviderSupport, windows_core::IUnknown);
@@ -3760,6 +3945,10 @@ impl IVdsProviderSupport_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsProviderSupport as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsProviderSupport_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsProviderSupport_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsProviderSupport {}
 windows_core::imp::define_interface!(IVdsRemovable, IVdsRemovable_Vtbl, 0x0316560b_5db4_4ed9_bbb5_213436ddc0d9);
@@ -3802,6 +3991,10 @@ impl IVdsRemovable_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsRemovable as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsRemovable_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsRemovable_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsRemovable {}
 windows_core::imp::define_interface!(IVdsService, IVdsService_Vtbl, 0x0818a8ef_9ba9_40d8_a6f9_e22833cc771e);
@@ -4086,6 +4279,10 @@ impl IVdsService_Vtbl {
         iid == &<IVdsService as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsService_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsService_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsService {}
 windows_core::imp::define_interface!(IVdsServiceHba, IVdsServiceHba_Vtbl, 0x0ac13689_3134_47c6_a17c_4669216801be);
 windows_core::imp::interface_hierarchy!(IVdsServiceHba, windows_core::IUnknown);
@@ -4126,6 +4323,10 @@ impl IVdsServiceHba_Vtbl {
         iid == &<IVdsServiceHba as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsServiceHba_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsServiceHba_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsServiceHba {}
 windows_core::imp::define_interface!(IVdsServiceInitialization, IVdsServiceInitialization_Vtbl, 0x4afc3636_db01_4052_80c3_03bbcb8d3c69);
 windows_core::imp::interface_hierarchy!(IVdsServiceInitialization, windows_core::IUnknown);
@@ -4159,6 +4360,10 @@ impl IVdsServiceInitialization_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsServiceInitialization as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsServiceInitialization_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsServiceInitialization_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsServiceInitialization {}
 windows_core::imp::define_interface!(IVdsServiceIscsi, IVdsServiceIscsi_Vtbl, 0x14fbe036_3ed7_4e10_90e9_a5ff991aff01);
@@ -4284,6 +4489,10 @@ impl IVdsServiceIscsi_Vtbl {
         iid == &<IVdsServiceIscsi as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsServiceIscsi_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsServiceIscsi_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsServiceIscsi {}
 windows_core::imp::define_interface!(IVdsServiceLoader, IVdsServiceLoader_Vtbl, 0xe0393303_90d4_4a97_ab71_e9b671ee2729);
 windows_core::imp::interface_hierarchy!(IVdsServiceLoader, windows_core::IUnknown);
@@ -4326,6 +4535,10 @@ impl IVdsServiceLoader_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsServiceLoader as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsServiceLoader_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsServiceLoader_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsServiceLoader {}
 windows_core::imp::define_interface!(IVdsServiceSAN, IVdsServiceSAN_Vtbl, 0xfc5d23e8_a88b_41a5_8de0_2d2f73c5a630);
@@ -4382,6 +4595,10 @@ impl IVdsServiceSAN_Vtbl {
         iid == &<IVdsServiceSAN as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsServiceSAN_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsServiceSAN_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsServiceSAN {}
 windows_core::imp::define_interface!(IVdsServiceSw, IVdsServiceSw_Vtbl, 0x15fc031c_0652_4306_b2c3_f558b8f837e2);
 windows_core::imp::interface_hierarchy!(IVdsServiceSw, windows_core::IUnknown);
@@ -4424,6 +4641,10 @@ impl IVdsServiceSw_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsServiceSw as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsServiceSw_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsServiceSw_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsServiceSw {}
 windows_core::imp::define_interface!(IVdsServiceUninstallDisk, IVdsServiceUninstallDisk_Vtbl, 0xb6b22da8_f903_4be7_b492_c09d875ac9da);
@@ -4479,6 +4700,10 @@ impl IVdsServiceUninstallDisk_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsServiceUninstallDisk as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsServiceUninstallDisk_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsServiceUninstallDisk_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsServiceUninstallDisk {}
 windows_core::imp::define_interface!(IVdsStoragePool, IVdsStoragePool_Vtbl, 0x932ca8cf_0eb3_4ba8_9620_22665d7f8450);
@@ -4600,6 +4825,10 @@ impl IVdsStoragePool_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsStoragePool as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsStoragePool_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsStoragePool_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsStoragePool {}
 windows_core::imp::define_interface!(IVdsSubSystem, IVdsSubSystem_Vtbl, 0x6fcee2d3_6d90_4f91_80e2_a5c7caaca9d8);
@@ -4833,6 +5062,10 @@ impl IVdsSubSystem_Vtbl {
         iid == &<IVdsSubSystem as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsSubSystem_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsSubSystem_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsSubSystem {}
 windows_core::imp::define_interface!(IVdsSubSystem2, IVdsSubSystem2_Vtbl, 0xbe666735_7800_4a77_9d9c_40f85b87e292);
 windows_core::imp::interface_hierarchy!(IVdsSubSystem2, windows_core::IUnknown);
@@ -4933,6 +5166,10 @@ impl IVdsSubSystem2_Vtbl {
         iid == &<IVdsSubSystem2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsSubSystem2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsSubSystem2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsSubSystem2 {}
 windows_core::imp::define_interface!(IVdsSubSystemImportTarget, IVdsSubSystemImportTarget_Vtbl, 0x83bfb87f_43fb_4903_baa6_127f01029eec);
 windows_core::imp::interface_hierarchy!(IVdsSubSystemImportTarget, windows_core::IUnknown);
@@ -4991,6 +5228,10 @@ impl IVdsSubSystemImportTarget_Vtbl {
         iid == &<IVdsSubSystemImportTarget as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsSubSystemImportTarget_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsSubSystemImportTarget_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsSubSystemImportTarget {}
 windows_core::imp::define_interface!(IVdsSubSystemInterconnect, IVdsSubSystemInterconnect_Vtbl, 0x9e6fa560_c141_477b_83ba_0b6c38f7febf);
 windows_core::imp::interface_hierarchy!(IVdsSubSystemInterconnect, windows_core::IUnknown);
@@ -5030,6 +5271,10 @@ impl IVdsSubSystemInterconnect_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsSubSystemInterconnect as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsSubSystemInterconnect_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsSubSystemInterconnect_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsSubSystemInterconnect {}
 windows_core::imp::define_interface!(IVdsSubSystemIscsi, IVdsSubSystemIscsi_Vtbl, 0x0027346f_40d0_4b45_8cec_5906dc0380c8);
@@ -5132,6 +5377,10 @@ impl IVdsSubSystemIscsi_Vtbl {
         iid == &<IVdsSubSystemIscsi as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsSubSystemIscsi_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsSubSystemIscsi_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsSubSystemIscsi {}
 windows_core::imp::define_interface!(IVdsSubSystemNaming, IVdsSubSystemNaming_Vtbl, 0x0d70faa3_9cd4_4900_aa20_6981b6aafc75);
 windows_core::imp::interface_hierarchy!(IVdsSubSystemNaming, windows_core::IUnknown);
@@ -5165,6 +5414,10 @@ impl IVdsSubSystemNaming_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsSubSystemNaming as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsSubSystemNaming_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsSubSystemNaming_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsSubSystemNaming {}
 windows_core::imp::define_interface!(IVdsSwProvider, IVdsSwProvider_Vtbl, 0x9aa58360_ce33_4f92_b658_ed24b14425b8);
@@ -5229,6 +5482,10 @@ impl IVdsSwProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsSwProvider as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsSwProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsSwProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsSwProvider {}
 windows_core::imp::define_interface!(IVdsVDisk, IVdsVDisk_Vtbl, 0x1e062b84_e5e6_4b4b_8a25_67b81e8f13e8);
@@ -5336,6 +5593,11 @@ impl IVdsVDisk_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsVDisk as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Storage_Vhd")]
+impl<Identity: windows_core::IUnknownImpl + IVdsVDisk_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsVDisk_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl windows_core::RuntimeName for IVdsVDisk {}
@@ -5469,6 +5731,11 @@ impl IVdsVdProvider_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsVdProvider as windows_core::Interface>::IID
     }
+}
+#[cfg(feature = "Win32_Storage_Vhd")]
+impl<Identity: windows_core::IUnknownImpl + IVdsVdProvider_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsVdProvider_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl windows_core::RuntimeName for IVdsVdProvider {}
@@ -5688,6 +5955,10 @@ impl IVdsVolume_Vtbl {
         iid == &<IVdsVolume as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsVolume_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsVolume_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsVolume {}
 windows_core::imp::define_interface!(IVdsVolume2, IVdsVolume2_Vtbl, 0x72ae6713_dcbb_4a03_b36b_371f6ac6b53d);
 windows_core::imp::interface_hierarchy!(IVdsVolume2, windows_core::IUnknown);
@@ -5718,6 +5989,10 @@ impl IVdsVolume2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsVolume2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsVolume2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsVolume2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsVolume2 {}
 windows_core::imp::define_interface!(IVdsVolumeMF, IVdsVolumeMF_Vtbl, 0xee2d5ded_6236_4169_931d_b9778ce03dc6);
@@ -5879,6 +6154,10 @@ impl IVdsVolumeMF_Vtbl {
         iid == &<IVdsVolumeMF as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsVolumeMF_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsVolumeMF_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsVolumeMF {}
 windows_core::imp::define_interface!(IVdsVolumeMF2, IVdsVolumeMF2_Vtbl, 0x4dbcee9a_6343_4651_b85f_5e75d74d983c);
 windows_core::imp::interface_hierarchy!(IVdsVolumeMF2, windows_core::IUnknown);
@@ -5959,6 +6238,10 @@ impl IVdsVolumeMF2_Vtbl {
         iid == &<IVdsVolumeMF2 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsVolumeMF2_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsVolumeMF2_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsVolumeMF2 {}
 windows_core::imp::define_interface!(IVdsVolumeMF3, IVdsVolumeMF3_Vtbl, 0x6788faf9_214e_4b85_ba59_266953616e09);
 windows_core::imp::interface_hierarchy!(IVdsVolumeMF3, windows_core::IUnknown);
@@ -6030,6 +6313,10 @@ impl IVdsVolumeMF3_Vtbl {
         iid == &<IVdsVolumeMF3 as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsVolumeMF3_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsVolumeMF3_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsVolumeMF3 {}
 windows_core::imp::define_interface!(IVdsVolumeOnline, IVdsVolumeOnline_Vtbl, 0x1be2275a_b315_4f70_9e44_879b3a2a53f2);
 windows_core::imp::interface_hierarchy!(IVdsVolumeOnline, windows_core::IUnknown);
@@ -6060,6 +6347,10 @@ impl IVdsVolumeOnline_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsVolumeOnline as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsVolumeOnline_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsVolumeOnline_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsVolumeOnline {}
 windows_core::imp::define_interface!(IVdsVolumePlex, IVdsVolumePlex_Vtbl, 0x4daa0135_e1d1_40f1_aaa5_3cc1e53221c3);
@@ -6149,6 +6440,10 @@ impl IVdsVolumePlex_Vtbl {
         iid == &<IVdsVolumePlex as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVdsVolumePlex_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsVolumePlex_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IVdsVolumePlex {}
 windows_core::imp::define_interface!(IVdsVolumeShrink, IVdsVolumeShrink_Vtbl, 0xd68168c9_82a2_4f85_b6e9_74707c49a58f);
 windows_core::imp::interface_hierarchy!(IVdsVolumeShrink, windows_core::IUnknown);
@@ -6212,6 +6507,10 @@ impl IVdsVolumeShrink_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVdsVolumeShrink as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVdsVolumeShrink_Impl + 'static, const OFFSET: isize> windows_core::imp::VtableCtor<Identity, OFFSET> for IVdsVolumeShrink_Vtbl {
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IVdsVolumeShrink {}
 pub const MAX_FS_ALLOWED_CLUSTER_SIZES_SIZE: u32 = 32u32;
