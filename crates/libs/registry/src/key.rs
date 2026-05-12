@@ -170,6 +170,15 @@ impl Key {
         self.get_value(name)?.try_into()
     }
 
+    /// Gets the `REG_BINARY` value for the name in the registry key.
+    pub fn get_bytes<T: AsRef<str>>(&self, name: T) -> Result<Vec<u8>> {
+        let value = self.get_value(name)?;
+        match value.ty() {
+            Type::Bytes => Ok(value.to_vec()),
+            _ => Err(invalid_data()),
+        }
+    }
+
     /// Sets the name and value in the registry key.
     ///
     /// This method avoids any allocations.
