@@ -1,8 +1,11 @@
 # Option D — A library-based foundation for `#[implement]`
 
-> **Status:** design draft for review. No code under `crates/` has been changed
-> yet. The goal of this document is to settle the shape of the foundation
-> before any of the existing `#[implement]` machinery is touched.
+> **Status:** design draft for review. The seven open questions raised in the
+> first revision have been resolved (see [Resolved decisions](#resolved-decisions)
+> below). No code under `crates/` has been changed yet — the next concrete
+> action is the Step 0 spike. The doc is written so that anyone reviewing it
+> can see, for each load-bearing choice, both *what* was picked and *why* the
+> alternative was rejected.
 
 ## Summary
 
@@ -124,8 +127,10 @@ types) are re-exported from the crate root with `#[doc(hidden)]` removed.
 * **Blanket impls** of `Deref`, `IUnknownImpl`, `ComObjectInner`,
   `ComObjectInterface<I>`, `AsImpl<T>`, `From<T> for I`, and `Compose`.
 
-The rest of this section describes each piece. Open questions (with a
-proposed default and a fallback) are called out as **OQ-N**.
+The rest of this section describes each piece. The seven open questions
+that drove the first revision of this doc are now resolved inline (with a
+"**Resolution (OQ-*N*):**" tag at the relevant point) and summarised in the
+[Resolved decisions](#resolved-decisions) table near the end.
 
 ### Representation choice: const-generic array vs. tuple-driven HList
 
@@ -203,10 +208,17 @@ impl<I0: Interface, I1: Interface> InterfaceList for (I0, I1) { /* LEN = 2 */ }
 // ... up to a reasonable arity (16 matches today's effective ceiling)
 ```
 
-Each tuple impl maps to the corresponding `VCons` tower. Beyond the supported
-arity, users (and the macros) can drop down to HList syntax. **OQ-1:** pick a
-maximum tuple arity. Proposed default: 16. Anyone needing more uses the
-explicit HList form.
+Each tuple impl maps to the corresponding `VCons` tower. The maximum
+supported arity is **16** (resolves OQ-1). The largest in-tree use today is 3
+(`#[implement(IObservableMap<K,V>, IMap<K,V>, IIterable<...>)]`,
+`#[implement(IPropertyStore, IInitializeWithStream, IPropertyStoreCapabilities)]`,
+etc. — verified by grepping `#[implement(` across `crates/`); 16 leaves a
+~5× headroom and matches the de-facto ceiling other Rust HList-via-tuple
+libraries use (`frunk`, `axum::extract`, `bevy_ecs::SystemParam`). Anyone
+needing more uses the explicit `VCons<I0, VCons<I1, ...VNil>>` form, which
+is documented but not sugared. Bumping the limit later is one
+search-and-replace inside the per-arity macro in `windows-core` and is
+forward-compatible.
 
 #### Optional later optimisation: const-generic array
 
@@ -314,11 +326,17 @@ impl<T: ::windows_core::IFoo_Impl, const OFFSET: isize>
 }
 ```
 
-**OQ-2:** the cleanest way to do this is to teach `windows-interface` to emit
-that one extra impl alongside `IFoo_Vtbl`. The alternative is to leave
-`IFoo_Vtbl::new` callable only at concrete-type sites and emit the per-slot
-const inside the macro (which puts the duplicate knowledge back in two
-places). I recommend the bindgen change; it is mechanical and bounded.
+**Resolution (OQ-2): the `VtableCtor` opt-in is emitted by `windows-interface`
+alongside `IFoo_Vtbl`.** The alternative — leave `IFoo_Vtbl::new` callable
+only at concrete-type sites and emit the per-slot const inside each macro —
+puts the same knowledge in two places (proc macro and `macro_rules!` shim)
+and undoes the central goal of Option D. The bindgen edit is mechanical
+(one impl in `crates/libs/bindgen/src/types/interface.rs` next to the
+existing `_Vtbl::new` emission), bounded (no signature change to `_Vtbl::new`
+itself, so existing call sites keep working), and covered by the existing
+golden tests under `crates/tests/fixtures/`. The `IFoo_Impl` bound mirrors
+the bound `_Vtbl::new::<T, OFFSET>()` already requires today, so no new trait
+plumbing is needed on the interface side.
 
 Note: `IInspectable_Vtbl::new` already takes an extra `FirstInterface` type
 parameter that drives the runtime-class-name lookup. The `VtableCtor` trait
@@ -372,10 +390,24 @@ pub struct NonAgile;  // IS_AGILE = false, HAS_MARSHAL = false
 ```
 
 The choice between phantom types and const-generic bools is one of taste.
-Phantom types let us derive other things from them (e.g. a future
-"thread-affine" agility could add a `'static` bound). The plan suggests const
-generics; this design uses sealed marker types because they compose better
-with `where`-clauses. **OQ-3.**
+**Resolution (OQ-3): sealed marker types.** Two reasons:
+
+1. **Composability.** `where T::Agility: Agility<HAS_MARSHAL = true>` is
+   awkward in `where`-clauses; `where T::Agility = Agile` is not legal Rust
+   at all. With marker types, callers write `where T::Agility: AgileMarshaler`
+   and we get to pick the trait granularity later (e.g. a future
+   `FreeThreadedMarshaler` selection without changing the `Agility`
+   signature).
+2. **Forward-extension cost.** Adding a third agility level (e.g. STA-only)
+   is a new struct + `impl Agility for ...`. With const generics it would
+   require widening every const, and any downstream code that pattern-matched
+   on the bool would need updating.
+
+Today's macro effectively does the same thing — it emits or omits whole
+blocks based on `Agile = true/false` — so the user-visible knob (`Agile =
+true`) does not change. The macro layer translates `Agile = true/false` to
+`type Agility = Agile;` / `type Agility = NonAgile;` in the generated
+`impl Implemented` block.
 
 The defaults on `Implemented` correspond to today's defaults: agile, trust
 level 0, dynamic cast on (subject to the lifetime constraint that the proc
@@ -495,10 +527,20 @@ The match-based approach the macro uses today (one `if` per interface,
 short-circuiting on first hit) is equivalent in code-gen to this loop after
 inlining: the slice is a `'static` table of small fixed length, the loop is
 trivially unrolled by LLVM, and each comparison reduces to two 64-bit `eq`
-checks on the GUID. We do not expect any measurable regression. If a
-benchmark shows one, the per-arity tuple impl can specialise to an unrolled
-match. **OQ-4** flags this as something to benchmark before locking the
-foundation.
+checks on the GUID.
+
+**Resolution (OQ-4): start with the loop; benchmark in Step 0; only
+specialise if a regression appears.** Concretely the spike (Step 0) adds a
+criterion microbenchmark that calls `QueryInterface` for (a) the identity
+IID, (b) the last-declared IID, and (c) an unknown IID, with implementer
+arities of 1, 3, 8, and 16. The pass criterion is "within 1 ns / call of
+today's macro output on x86_64 release builds with `lto = "thin"`". If any
+configuration regresses by more than that, the per-arity tuple `InterfaceList`
+impl gains a hand-rolled match for the `IID_SLOTS` lookup (the rest of the
+generic `QueryInterface` body still reuses the blanket). The decision point
+is recorded in this doc when the spike lands; in the meantime the loop is
+the working assumption because it minimises monomorphisation overhead and is
+easier to audit.
 
 #### Blanket conversions
 
@@ -554,25 +596,32 @@ the first vtable slot.)
 There is **one coherence concern** with `From<T> for I`. Rust's orphan rules
 allow this impl because either `T` or `I` is local at every use site (`T` is
 the user's type, `I` is a `windows-core` interface), but the blanket form
-asks rustc to prove non-overlap with hypothetical future blanket impls of
-`From<X> for Y` written by users. In practice, the existing macro emits
-non-blanket impls (one per interface) and those impls would collide with this
-blanket. So:
+asks rustc to prove non-overlap with the per-interface `From<T> for I` impls
+the existing macro emits.
 
-* In Step 1 (foundation only, macro untouched) the blanket `From` is **gated
-  by the `Implements<I>` bound**, which means it does not fire unless the
-  user (or the macro) has declared `Implemented` with a matching list. The
-  per-interface `From` impls emitted by today's macro continue to exist; they
-  win where they apply, and the blanket fills in for hand-written
-  `Implemented` declarations.
-* In Step 2 (macro reskinned) the macro stops emitting the per-interface
-  `From`s and relies on the blanket instead.
+**Resolution (OQ-5): the blanket lives behind the `Implements<I>` bound, and
+the macro stops emitting per-interface `From` impls in Step 2.** Stage-by-stage:
 
-Step 1 alone is therefore safe to land without touching any existing user
-code. **OQ-5** captures the one edge case: if a user has both a
-`#[implement]` and a hand-written `impl Implemented`, the macro-generated
-per-interface impls and the blanket would coexist; rustc would reject that
-program. Acceptable, because nobody should be doing both for the same type.
+* **Step 1 (foundation only).** The blanket `From<T> for I where T: Implemented,
+  T::Interfaces: Implements<I>` does not collide with the macro's per-interface
+  `From` impls because the blanket only fires for types that have a
+  hand-written `impl Implemented`, and `#[implement]` does *not* emit
+  `impl Implemented` in Step 1. Existing user code is therefore untouched.
+* **Step 2 (macro reskinned).** `#[implement]` emits `impl Implemented for T`
+  and stops emitting per-interface `From`s. The blanket takes over. This is
+  one `quote!` block deleted from `gen_impl_from`, and the existing macro
+  test suite (every `From<Foo> for IFoo` call site in
+  `crates/tests/libs/implement*`) is the regression gate.
+* **Edge case.** If a user writes both `#[implement(IFoo)]` and a hand-written
+  `impl Implemented for Foo`, rustc rejects the program with a duplicate-impl
+  error. This is acceptable: the macro and the hand-written declaration are
+  alternatives, not stackable. The error message is unambiguous because both
+  impls cite the same `Foo` and `IFoo` types.
+
+The fallback considered (keep the per-interface emission, no blanket at all)
+was rejected because it would force `implement_decl!` and hand-written use to
+re-emit the per-interface impls themselves, defeating the purpose of moving
+the knowledge into `windows-core`.
 
 ### Construction
 
@@ -602,11 +651,30 @@ impl<T: Implemented> Outer<T, T::Interfaces> {
 }
 ```
 
-**OQ-6:** the `const` distinction. The proc macro currently inspects
-`generics.params.is_empty()` and decides whether to emit `const fn`. The
-foundation can do the same with a sealed `NonGeneric` marker auto-implemented
-where appropriate, or by simply offering two constructors and letting the
-macro pick. Two constructors is the simpler path.
+**Resolution (OQ-6): two named constructors.** `Outer::new` is `const`, gated
+by a sealed `NonGeneric` marker that is auto-implemented by a blanket impl
+on every `T` whose `T::Interfaces` resolves to a tuple of *concrete* types
+(no generic parameter mentioned). `Outer::new_generic` is the non-`const`
+counterpart used when `T` carries free generics.
+
+Why two named ctors instead of one polymorphic `new`:
+
+* Rust does not allow a `const fn` to be conditionally `const` on a trait
+  bound — `pub const fn new(value: T) -> Self where T: NonGeneric` is
+  well-formed but the `const`-ness is a property of the function, not the
+  bound, so callers in generic contexts get a confusing error.
+* Two ctors map cleanly to today's macro split (`is_generic` flag, see
+  `crates/libs/implement/src/gen.rs:443-448`) — the macro picks `new` or
+  `new_generic` from the same `is_generic` check, with no other change to
+  its emission shape.
+* The sealed `NonGeneric` marker is still useful as a *bound* on `new`'s
+  signature, because it gives a clear error ("`T` is generic; use
+  `Outer::new_generic`") instead of a const-eval failure deep inside
+  vtable initialisation.
+
+`new_generic` is what `ComObjectInner::into_object` calls in its blanket impl,
+so `ComObject::new(generic_value)` keeps working without the user picking a
+ctor.
 
 `ComObjectInner::into_object` becomes a blanket impl:
 
@@ -642,6 +710,9 @@ quote! {
         const TRUST: u8 = #trust_level;
         const DYNAMIC_CAST: bool = #dynamic_cast;
     }
+
+    // Only emitted when `!is_generic` — see OQ-7 below.
+    #into_static_forwarder
 }
 ```
 
@@ -657,14 +728,43 @@ the user wrote also resolves, because `Foo_Impl` is just an alias and trait
 impls on the underlying `Outer<...>` type satisfy the alias.
 
 There is one wart: today the macro emits `impl Foo_Impl { fn into_outer(self) {...} }`
-and `into_static`. The first becomes `Outer::new` (inherent) and the second
-stays as an inherent fn on `Foo` provided by a blanket impl on
-`T: Implemented`. **OQ-7:** check that `Foo::into_static()` stays callable
-through normal method resolution — it should, because blanket impls on `T`
-provide inherent-looking methods at the call site even when they live in a
-separate trait. If method resolution turns out to be unhappy, fall back to
-the macro emitting a trivial `impl Foo { pub const fn into_static(self) -> ...
-{ Outer::new(self).into_static() } }`.
+and `into_static` (the latter only for non-generic `T`). With the foundation,
+`into_outer` becomes the inherent `Outer::new` (or `Outer::new_generic`) and
+needs no forwarder — `Foo_Impl` is a type alias, so `Foo_Impl::new(value)`
+calls the inherent ctor on `Outer`.
+
+`into_static` is trickier because today it lives as an inherent method on
+**`Foo`**, not on `Foo_Impl`. **Resolution (OQ-7): the macro keeps emitting
+the two-line `into_static` forwarder on `Foo`.** Concretely:
+
+```rust,ignore
+impl Foo {
+    pub const fn into_static(self) -> ::windows_core::StaticComObject<Foo_Impl> {
+        ::windows_core::StaticComObject::from_outer(Foo_Impl::new(self))
+    }
+}
+```
+
+Reasoning:
+
+* Rust does not allow inherent methods to be added to a foreign type via a
+  blanket impl. The only ways to give `Foo::into_static()` to user code are
+  (a) emit an inherent method from the macro, (b) put it on a trait the user
+  must import, or (c) require the user to call
+  `StaticComObject::from_outer(Foo_Impl::new(value))` directly.
+* (b) breaks today's call sites unless we also add a `prelude` import, which
+  is a wider conversation than Option D should drag in. (c) is a public-API
+  break.
+* (a) is two lines per macro invocation and zero lines elsewhere. The
+  forwarder cannot drift out of sync with the foundation because it only
+  references public API (`StaticComObject::from_outer` and `Outer::new`).
+* `into_static` is gated on non-generic `T` exactly as today; the macro reuses
+  its `is_generic` check.
+
+`implement_decl!` users get the same forwarder by way of an extra macro arm
+(also two lines). Hand-written zero-macro users call
+`StaticComObject::from_outer(Foo_Impl::new(value))` directly, which is the
+form documented in the "Hand-written use" section below.
 
 ### What `implement_decl!` emits
 
@@ -762,9 +862,16 @@ Build the HList shape end-to-end **in a test crate** under
   `static_assertions::assert_eq_size!` check.
 * Compiles on stable Rust with `--no-default-features` and with default
   features.
+* **Runs the OQ-4 microbenchmark** (criterion) comparing
+  `QueryInterface(identity)`, `QueryInterface(last)`, and
+  `QueryInterface(unknown)` between the macro-emitted `Foo_Impl` and the
+  foundation's `Outer<Foo, ...>`, at arities 1, 3, 8, and 16. Pass criterion:
+  within 1 ns/call on x86_64 release builds with `lto = "thin"`.
 
-If the spike compiles and the layout matches, the design is locked. If not,
-the report goes back to this document and the OQs are revisited.
+If the spike compiles, the layout matches, and the benchmark passes the OQ-4
+criterion, the design is locked. If the layout check fails, this doc is
+updated. If only the benchmark fails, the per-arity tuple `InterfaceList`
+impl gains an unrolled-match specialisation (the rest of the design holds).
 
 ### Step 1 — Foundation only, macro untouched
 
@@ -866,22 +973,32 @@ The foundation emits, per `Outer<T, L>` monomorphisation:
 
 After inlining and LLVM's loop-unroller, the two are expected to produce
 identical code for `as_interface_ref` and `as_impl_ptr`, and within a
-single-instruction tolerance for `QueryInterface`. **OQ-4** (above) calls
-out the one place where we should measure before locking the design.
+single-instruction tolerance for `QueryInterface`. The OQ-4 microbenchmark
+in Step 0 is the empirical check on that expectation.
 
-## Open questions, consolidated
+## Resolved decisions
 
-| #     | Question                                                              | Default                            | Fallback                         |
-|-------|-----------------------------------------------------------------------|------------------------------------|----------------------------------|
-| OQ-1  | Maximum supported tuple arity                                         | 16                                 | Higher, or HList literals        |
-| OQ-2  | Where does `VtableCtor` get emitted                                   | `windows-interface` adds one line  | Macro re-emits per-slot consts   |
-| OQ-3  | Knob representation                                                   | Sealed marker types                | `const` generics                 |
-| OQ-4  | `QueryInterface` loop vs. unrolled match                              | Loop, benchmarked                  | Per-arity unrolled match         |
-| OQ-5  | `From<T> for I` blanket vs. coexisting macro emission                 | Blanket gated by `Implements<I>`   | Keep macro emission, no blanket  |
-| OQ-6  | `const fn` constructor vs. two ctors                                  | Two ctors (`new`, `new_generic`)   | Sealed `NonGeneric` marker       |
-| OQ-7  | Method resolution for `into_static` via blanket                       | Blanket on `T: Implemented`        | Macro emits inherent forwarder   |
+The seven open questions raised in the first revision of this doc are now
+resolved. Each row links to the section that contains the full reasoning;
+the "Why not the alternative" column is intentionally short — it captures the
+single load-bearing reason the alternative was rejected, not an exhaustive
+trade-off list.
 
-None of these block the spike. All are revisited after Step 0 lands.
+| #    | Question                                                | **Decision**                                                              | Why not the alternative                                                                            |
+|------|---------------------------------------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| OQ-1 | Maximum supported tuple arity                           | **16**, with explicit `VCons` form for anything larger                    | Lower would force most use cases through HList syntax; higher is a search-and-replace away         |
+| OQ-2 | Where does `VtableCtor` get emitted                     | **`windows-interface` emits one extra impl per `_Vtbl`**                  | Per-slot const in macros duplicates ABI knowledge across proc macro + `macro_rules!` shim          |
+| OQ-3 | Knob representation                                     | **Sealed marker types** (`Agile` / `NonAgile`)                            | Const generics can't carry future knobs (e.g. STA-only) without widening every const               |
+| OQ-4 | `QueryInterface` loop vs. unrolled match                | **Loop**, with Step 0 benchmark; specialise per-arity only if regression  | Unconditional unrolled match adds monomorphisation cost we don't yet need                          |
+| OQ-5 | `From<T> for I` blanket vs. coexisting macro emission   | **Blanket gated by `Implements<I>`**, macro stops emitting per-iface From | Keeping macro emission would force `implement_decl!` to re-emit too, defeating the foundation's purpose |
+| OQ-6 | `const fn` constructor vs. two ctors                    | **Two named ctors** (`Outer::new`, `Outer::new_generic`)                  | One conditionally-`const` ctor produces confusing errors in generic contexts                       |
+| OQ-7 | How does `Foo::into_static()` stay callable             | **Macro emits a 2-line forwarder on `Foo`**                               | Blanket on `T: Implemented` cannot add inherent methods to a foreign type; trait import is API-breaking |
+
+These decisions are reflected in the body of the doc above and in the
+migration plan. None of them blocks the Step 0 spike; OQ-4 is the only one
+whose final form can change as a result of the spike (the loop may gain a
+per-arity match specialisation), and that change is internal to
+`windows-core`.
 
 ## What this document does not commit to
 
@@ -897,6 +1014,14 @@ None of these block the spike. All are revisited after Step 0 lands.
 ## Next action
 
 The next action is the spike (Step 0). It is small (under a day's work),
-contained to a new test crate, and answers every load-bearing question in
-this document. After it lands, this doc is updated with the spike's results
-and the OQs are resolved before Step 1 begins.
+contained to a new test crate at
+`crates/tests/libs/implement_foundation_spike`, and exercises every
+load-bearing decision above:
+
+* Layout-equality assertions answer the OQ-2 / OQ-6 plumbing.
+* The criterion microbenchmark answers OQ-4 (loop vs. unrolled match).
+* Hand-written `impl Implemented` plus a `#[implement]`-style call site
+  exercise OQ-3 / OQ-5 / OQ-7 in the same crate.
+
+After the spike lands this section is updated with the actual numbers and
+the migration plan is unblocked.
