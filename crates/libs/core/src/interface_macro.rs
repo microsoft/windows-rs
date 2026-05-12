@@ -9,15 +9,14 @@
 //! ## Scope
 //!
 //! `interface_decl!` targets the dominant case: a COM interface whose direct parent is
-//! `IUnknown`, whose methods either return `windows_core::Result<()>`, return a value
-//! type, or return nothing. It does **not** support `Result<T>` for non-unit `T` (the
-//! safe caller wrapper would discard the value); model that case with a `*mut T`
-//! out-parameter and `Result<()>`. It does **not** support `Ref<T>` / `OutRef<T>`
-//! parameters with the implicit `Param` / `OutParam` bound generation that `#[interface]`
-//! provides — pass the underlying ABI types instead. It does not support scoped
-//! (non-`IUnknown`) interfaces or `IInspectable`-derived (WinRT) interfaces. The matching
-//! chain for derived custom interfaces is not traversed; use the proc-macro for those
-//! cases.
+//! `IUnknown`, whose methods either return `windows_core::Result<()>` or return nothing.
+//! It does **not** support `Result<T>` for non-unit `T` (the safe caller wrapper would
+//! discard the value); model that case with a `*mut T` out-parameter and `Result<()>`.
+//! It does **not** support `Ref<T>` / `OutRef<T>` parameters with the implicit `Param` /
+//! `OutParam` bound generation that `#[interface]` provides — pass the underlying ABI
+//! types instead. It does not support scoped (non-`IUnknown`) interfaces or
+//! `IInspectable`-derived (WinRT) interfaces. The matching chain for derived custom
+//! interfaces is not traversed; use the proc-macro for those cases.
 //!
 //! ## Syntax
 //!
@@ -25,12 +24,10 @@
 //! use windows_core::*;
 //!
 //! interface_decl! {
-//!     /// Docs go here.
-//!     pub unsafe trait IFoo(IFoo_Vtbl, IFoo_Impl) : IUnknown
+//!     unsafe trait IFoo(IFoo_Vtbl, IFoo_Impl) : IUnknown
 //!         = 0x094d70d6_5202_44b8_abb8_43860da5aca2
 //!     {
 //!         unsafe fn Void(&self);
-//!         unsafe fn GetValue(&self, value: *mut i32) -> HRESULT;
 //!         unsafe fn TryGetValue(&self, value: *mut i32) -> Result<()>;
 //!     }
 //! }
@@ -39,14 +36,14 @@
 //! The struct ident (`IFoo`), the vtable struct ident (`IFoo_Vtbl`), and the implementation
 //! trait ident (`IFoo_Impl`) are all spelled out by the caller; `macro_rules!` cannot
 //! synthesize identifiers from another ident the way a proc-macro can. The IID is supplied
-//! as a `u128` integer literal.
+//! as a `u128` integer literal. The generated interface struct is always `pub`, matching
+//! the proc-macro's behavior.
 //!
 //! ## Semantics
 //!
 //! - `-> Result<()>` methods produce a safe caller-side wrapper that appends `.ok()` and a
 //!   vtable entry typed `-> HRESULT`. The thunk converts the implementer's `Result<()>`
 //!   back into an `HRESULT` via `Into`.
-//! - Any other return type is passed through unchanged.
 //! - A method with no return type produces a void-returning thunk.
 
 /// Declares a COM interface inheriting from `IUnknown`, without using the `#[interface]`
@@ -54,8 +51,7 @@
 #[macro_export]
 macro_rules! interface_decl {
     (
-        $(#[doc = $doc:expr])*
-        $vis:vis unsafe trait $name:ident ( $vtbl:ident, $impl_trait:ident ) : $parent:ty = $iid:literal {
+        unsafe trait $name:ident ( $vtbl:ident, $impl_trait:ident ) : $parent:ty = $iid:literal {
             $($methods:tt)*
         }
     ) => {
@@ -80,12 +76,12 @@ macro_rules! interface_decl {
         // Safe caller-side wrappers (inside `impl $name { ... }`, item-position — helper
         // macros are permitted here and may emit a sequence of `fn` items).
         impl $name {
-            $crate::__interface_decl_safe_wrappers!($vis, $($methods)*);
+            $crate::__interface_decl_safe_wrappers!($($methods)*);
         }
 
         // Implementation trait (inside `trait { ... }`, item-position).
         #[allow(non_camel_case_types)]
-        $vis trait $impl_trait: Sized + $crate::IUnknownImpl {
+        pub trait $impl_trait: Sized + $crate::IUnknownImpl {
             $crate::__interface_decl_trait_methods!($($methods)*);
         }
 
@@ -95,7 +91,6 @@ macro_rules! interface_decl {
         // exhausted.
         $crate::__interface_decl_vtbl! {
             @start
-            vis: $vis,
             name: $name,
             vtbl: $vtbl,
             impl_trait: $impl_trait,
@@ -107,54 +102,36 @@ macro_rules! interface_decl {
 
 // --- safe caller-side wrappers ---
 //
-// One arm per supported return-type shape (Result, value, void); each arm peels off the
+// One arm per supported return-type shape (Result<()>, void); each arm peels off the
 // head method and recurses on the tail.
 
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __interface_decl_safe_wrappers {
-    ($vis:vis,) => {};
-    ($vis:vis,
-        $(#[doc = $mdoc:expr])*
+    () => {};
+    (
         unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> Result < () > ;
         $($rest:tt)*
     ) => {
-        $(#[doc = $mdoc])*
         #[inline]
-        $vis unsafe fn $mname(&self $(, $aname: $aty)*) -> $crate::Result<()> {
+        pub unsafe fn $mname(&self $(, $aname: $aty)*) -> $crate::Result<()> {
             unsafe {
                 ($crate::Interface::vtable(self).$mname)($crate::Interface::as_raw(self) $(, $aname)*).ok()
             }
         }
-        $crate::__interface_decl_safe_wrappers!($vis, $($rest)*);
+        $crate::__interface_decl_safe_wrappers!($($rest)*);
     };
-    ($vis:vis,
-        $(#[doc = $mdoc:expr])*
-        unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> $ret:ty ;
-        $($rest:tt)*
-    ) => {
-        $(#[doc = $mdoc])*
-        #[inline]
-        $vis unsafe fn $mname(&self $(, $aname: $aty)*) -> $ret {
-            unsafe {
-                ($crate::Interface::vtable(self).$mname)($crate::Interface::as_raw(self) $(, $aname)*)
-            }
-        }
-        $crate::__interface_decl_safe_wrappers!($vis, $($rest)*);
-    };
-    ($vis:vis,
-        $(#[doc = $mdoc:expr])*
+    (
         unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) ;
         $($rest:tt)*
     ) => {
-        $(#[doc = $mdoc])*
         #[inline]
-        $vis unsafe fn $mname(&self $(, $aname: $aty)*) {
+        pub unsafe fn $mname(&self $(, $aname: $aty)*) {
             unsafe {
                 ($crate::Interface::vtable(self).$mname)($crate::Interface::as_raw(self) $(, $aname)*)
             }
         }
-        $crate::__interface_decl_safe_wrappers!($vis, $($rest)*);
+        $crate::__interface_decl_safe_wrappers!($($rest)*);
     };
 }
 
@@ -165,29 +142,16 @@ macro_rules! __interface_decl_safe_wrappers {
 macro_rules! __interface_decl_trait_methods {
     () => {};
     (
-        $(#[doc = $mdoc:expr])*
         unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> Result < () > ;
         $($rest:tt)*
     ) => {
-        $(#[doc = $mdoc])*
         unsafe fn $mname(&self $(, $aname: $aty)*) -> $crate::Result<()>;
         $crate::__interface_decl_trait_methods!($($rest)*);
     };
     (
-        $(#[doc = $mdoc:expr])*
-        unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> $ret:ty ;
-        $($rest:tt)*
-    ) => {
-        $(#[doc = $mdoc])*
-        unsafe fn $mname(&self $(, $aname: $aty)*) -> $ret;
-        $crate::__interface_decl_trait_methods!($($rest)*);
-    };
-    (
-        $(#[doc = $mdoc:expr])*
         unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) ;
         $($rest:tt)*
     ) => {
-        $(#[doc = $mdoc])*
         unsafe fn $mname(&self $(, $aname: $aty)*);
         $crate::__interface_decl_trait_methods!($($rest)*);
     };
@@ -204,7 +168,6 @@ macro_rules! __interface_decl_trait_methods {
 macro_rules! __interface_decl_vtbl {
     // Entry point: initialize empty accumulators.
     (@start
-        vis: $vis:vis,
         name: $name:ident,
         vtbl: $vtbl:ident,
         impl_trait: $impl_trait:ident,
@@ -213,7 +176,6 @@ macro_rules! __interface_decl_vtbl {
     ) => {
         $crate::__interface_decl_vtbl! {
             @walk
-            vis: $vis,
             name: $name,
             vtbl: $vtbl,
             impl_trait: $impl_trait,
@@ -227,7 +189,6 @@ macro_rules! __interface_decl_vtbl {
 
     // Result-returning method (only `Result<()>` is supported).
     (@walk
-        vis: $vis:vis,
         name: $name:ident,
         vtbl: $vtbl:ident,
         impl_trait: $impl_trait:ident,
@@ -236,14 +197,12 @@ macro_rules! __interface_decl_vtbl {
         inits: { $($inits:tt)* },
         thunks: { $($thunks:tt)* },
         rest: {
-            $(#[doc = $mdoc:expr])*
             unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> Result < () > ;
             $($more:tt)*
         }
     ) => {
         $crate::__interface_decl_vtbl! {
             @walk
-            vis: $vis,
             name: $name,
             vtbl: $vtbl,
             impl_trait: $impl_trait,
@@ -278,62 +237,8 @@ macro_rules! __interface_decl_vtbl {
         }
     };
 
-    // Value-returning method.
-    (@walk
-        vis: $vis:vis,
-        name: $name:ident,
-        vtbl: $vtbl:ident,
-        impl_trait: $impl_trait:ident,
-        parent: $parent:ty,
-        fields: { $($fields:tt)* },
-        inits: { $($inits:tt)* },
-        thunks: { $($thunks:tt)* },
-        rest: {
-            $(#[doc = $mdoc:expr])*
-            unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> $ret:ty ;
-            $($more:tt)*
-        }
-    ) => {
-        $crate::__interface_decl_vtbl! {
-            @walk
-            vis: $vis,
-            name: $name,
-            vtbl: $vtbl,
-            impl_trait: $impl_trait,
-            parent: $parent,
-            fields: {
-                $($fields)*
-                pub $mname: unsafe extern "system" fn(
-                    this: *mut ::core::ffi::c_void
-                    $(, $aname: $aty)*
-                ) -> $ret,
-            },
-            inits: {
-                $($inits)*
-                $mname: $mname::<Identity, OFFSET>,
-            },
-            thunks: {
-                $($thunks)*
-                unsafe extern "system" fn $mname<Identity: $crate::IUnknownImpl, const OFFSET: isize>(
-                    this: *mut ::core::ffi::c_void
-                    $(, $aname: $aty)*
-                ) -> $ret
-                where
-                    Identity: $impl_trait,
-                {
-                    let this_outer: &Identity = unsafe {
-                        &*((this as *const *const ()).offset(OFFSET) as *const Identity)
-                    };
-                    unsafe { <Identity as $impl_trait>::$mname(this_outer $(, $aname)*) }
-                }
-            },
-            rest: { $($more)* }
-        }
-    };
-
     // Void-returning method.
     (@walk
-        vis: $vis:vis,
         name: $name:ident,
         vtbl: $vtbl:ident,
         impl_trait: $impl_trait:ident,
@@ -342,14 +247,12 @@ macro_rules! __interface_decl_vtbl {
         inits: { $($inits:tt)* },
         thunks: { $($thunks:tt)* },
         rest: {
-            $(#[doc = $mdoc:expr])*
             unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) ;
             $($more:tt)*
         }
     ) => {
         $crate::__interface_decl_vtbl! {
             @walk
-            vis: $vis,
             name: $name,
             vtbl: $vtbl,
             impl_trait: $impl_trait,
@@ -386,7 +289,6 @@ macro_rules! __interface_decl_vtbl {
 
     // Base case: rest is empty, emit the struct and its impl block.
     (@walk
-        vis: $vis:vis,
         name: $name:ident,
         vtbl: $vtbl:ident,
         impl_trait: $impl_trait:ident,
@@ -398,7 +300,7 @@ macro_rules! __interface_decl_vtbl {
     ) => {
         #[repr(C)]
         #[doc(hidden)]
-        $vis struct $vtbl {
+        pub struct $vtbl {
             pub base__: <$parent as $crate::Interface>::Vtable,
             $($fields)*
         }

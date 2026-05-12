@@ -54,8 +54,8 @@
 //! ## Generic implementer types
 //!
 //! For generic implementers like `StockIterable<T>` that implement generic interfaces such
-//! as `IIterable<T>`, the macro accepts a leading `<G…>` generic-parameter list and an
-//! optional trailing `where` clause. Each interface entry is then spelled out as a full
+//! as `IIterable<T>`, the macro accepts a leading `<G…>` generic-parameter list and a
+//! mandatory trailing `where` clause. Each interface entry is then spelled out as a full
 //! type rather than a bare ident:
 //!
 //! ```rust,ignore
@@ -67,9 +67,8 @@
 //! }
 //! ```
 //!
-//! The leading ident of every interface entry must be unique within a single invocation —
-//! it doubles as the per-chain struct field name and as the name of the per-chain
-//! associated constant on `Foo_Impl`.
+//! The `where` clause is forwarded verbatim to every emitted impl and to the `Foo_Impl`
+//! struct definition.
 //!
 //! Generic invocations differ from non-generic ones in two emission details:
 //!
@@ -111,20 +110,21 @@ macro_rules! implement_decl {
     // Generic form: `impl<G, …> Name as Vis Name_Impl : [Iface<…>, …] where …`.
     //
     // Listed before the non-generic arm so that a leading `<` reliably steers here.
-    // Delegates to the generic-emission pipeline (associated-const vtable storage).
+    // The `where` clause is required and is forwarded verbatim to every emitted impl
+    // and to the `Foo_Impl` struct definition.
     (
         impl < $($gp:ident),+ $(,)? >
             $name:ident as $impl_vis:vis $impl_name:ident
         : [
             $( $ifty:ty ),+ $(,)?
         ]
-        $( where $($wc:tt)+ )?
+        where $($wc:tt)+
     ) => {
         $crate::__implement_decl_g_zip! {
             @zip
             ctx: {
                 generics:  [ $($gp),+ ],
-                wc:        { $( $($wc)+ )? },
+                wc:        { $($wc)+ },
                 vis:       $impl_vis,
                 name:      $name,
                 impl_name: $impl_name,
