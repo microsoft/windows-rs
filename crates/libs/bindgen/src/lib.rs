@@ -128,6 +128,51 @@ pub fn builder() -> Bindgen {
 /// In this example, all types from the `Windows.Foundation.Numerics` namepace are included with the
 /// exception of `Matrix3x2` which is excluded due to the `!` preamble.
 ///
+/// ## Method-level filters
+///
+/// `--filter` entries can also target individual methods of an interface using the
+/// `Namespace.Type::Method` form. This is useful for trimming heavy interfaces down to
+/// only the methods you actually call:
+///
+/// ```rust
+/// let args = [
+///     "--out",
+///     "src/bindings.rs",
+///     "--filter",
+///     "Microsoft.UI.Xaml",
+///     "!Microsoft.UI.Xaml.IUIElement::AccessKey",
+///     "!Microsoft.UI.Xaml.IUIElement::Translation",
+/// ];
+/// ```
+///
+/// Method-level entries follow this grammar:
+///
+/// | Entry                         | Meaning                                                                         |
+/// |-------------------------------|---------------------------------------------------------------------------------|
+/// | `Ns.Type`                     | Keep the type and all its methods (existing behavior; backwards-compatible).    |
+/// | `Ns.Type::Method`             | Allowlist mode: only listed methods are kept; the rest demote to `Slot: usize`. |
+/// | `!Ns.Type::Method`            | Denylist mode: the listed methods demote to `Slot: usize`; the rest are kept.   |
+/// | `Ns.Type::Property`           | Sugar for `Ns.Type::get_Property` + `Ns.Type::put_Property` (whichever exist).  |
+/// | `Ns.Type::Event`              | Sugar for `Ns.Type::add_Event` + `Ns.Type::remove_Event` (whichever exist).     |
+///
+/// When `Ns.Type` is a runtime class, the entry resolves against the class's required interfaces
+/// (instance default, static factory, activation/composable factory, base interfaces) and registers
+/// the equivalent filter on every required interface that exposes the named method. This drops the
+/// matching forwarder on `impl Class { … }` (and demotes the underlying vtable slot) without
+/// requiring the caller to know which interface owns the method. If the method name is not found
+/// on any required interface, bindgen panics with a list of the interfaces searched.
+///
+/// Vtable layout is preserved: demoted methods become `Slot: usize` at their original offset using
+/// the same opaque-slot mechanism `--minimal` already uses for signature-pruned methods, so ABI is
+/// safe by construction. Mixing allow (`Ns.Type::Method`) and deny (`!Ns.Type::Method`) entries
+/// on the same type is a hard error, as is using a method-level filter on a type matched by
+/// `--implements` (methods on implemented interfaces are always emitted).
+///
+/// Because demoting a method to an opaque slot leaves the type unable to be implemented through
+/// its `_Impl` trait, the trait is omitted with the same warning the existing dependency-skip
+/// path emits. This is a binary-size / compile-time tool, not an API gate — raw-vtable callers
+/// can still derive the offset of a demoted slot.
+///
 /// # `--in`
 ///
 /// `--in` can indicate a .winmd file or directory containing .winmd files. Alternatively, the special
@@ -497,8 +542,10 @@ impl Bindgen {
 
     /// Add a filter rule to include or exclude APIs.
     ///
-    /// Filter rules may be a function or type name, a namespace prefix, or a fully-qualified name.
-    /// Prefix with `!` to exclude rather than include.
+    /// Filter rules may be a function or type name, a namespace prefix, a fully-qualified name,
+    /// or a method-level entry of the form `Namespace.Type::Method` (with optional `Property` /
+    /// `Event` sugar). Prefix with `!` to exclude rather than include. See the crate-level
+    /// docs for the full grammar.
     pub fn filter(&mut self, filter: &str) -> &mut Self {
         self.filter.push(filter.to_string());
         self
@@ -506,8 +553,10 @@ impl Bindgen {
 
     /// Add multiple filter rules to include or exclude APIs.
     ///
-    /// Filter rules may be a function or type name, a namespace prefix, or a fully-qualified name.
-    /// Prefix with `!` to exclude rather than include.
+    /// Filter rules may be a function or type name, a namespace prefix, a fully-qualified name,
+    /// or a method-level entry of the form `Namespace.Type::Method` (with optional `Property` /
+    /// `Event` sugar). Prefix with `!` to exclude rather than include. See the crate-level
+    /// docs for the full grammar.
     pub fn filters<I, S>(&mut self, filters: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
@@ -972,6 +1021,7 @@ impl Bindgen {
         let types = TypeMap::filter(&reader, &filter, &references);
         let derive = Derive::new(&reader, &types, &derive_str);
         let implements = Implements::new(&implements_str);
+        filter.validate_implements(&implements);
         let warnings = WarningBuilder::default();
 
         let config = Config {
@@ -979,6 +1029,7 @@ impl Bindgen {
             types: &types,
             flat: self.flat,
             references: &references,
+            filter: &filter,
             derive: &derive,
             no_allow: self.no_allow,
             no_comment: self.no_comment,

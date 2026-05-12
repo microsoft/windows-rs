@@ -22,6 +22,14 @@ impl Implements {
             .iter()
             .any(|rule| match_type_name(rule, name.namespace(), name.name()))
     }
+
+    /// Like `matches`, but operating on plain string slices. Used during
+    /// filter validation where interned `TypeName`s aren't available.
+    pub fn matches_str(&self, namespace: &str, name: &str) -> bool {
+        self.0
+            .iter()
+            .any(|rule| match_type_name(rule, namespace, name))
+    }
 }
 
 /// Returns `true` if `rule` selects the type `namespace.name`. A `rule` whose

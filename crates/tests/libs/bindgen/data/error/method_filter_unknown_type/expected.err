@@ -1,0 +1,2 @@
+
+error: type not found: `Windows.Foundation.NoSuchType` (in method filter `Windows.Foundation.NoSuchType::Method`)

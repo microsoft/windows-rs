@@ -1,0 +1,19 @@
+// Exercises method-level `--filter` denylist support: `!Ns.Type::Method`
+// demotes a single method to an opaque `Slot: usize` while leaving the
+// rest of the interface intact.
+//
+//   * `IFoo::Keep` should still emit a typed vtable slot (`pub Keep:
+//     unsafe extern "system" fn(...)`) and an `impl IFoo { pub fn Keep
+//     ... }` wrapper.
+//   * `IFoo::Drop` should demote to a plain `Drop: usize,` slot at the
+//     same vtable offset, with no wrapper method emitted.
+//   * The `_Impl` trait must be omitted (it cannot describe a partial
+//     vtable), matching the existing dependency-skip path.
+
+#[winrt]
+mod Test {
+    interface IFoo {
+        fn Keep(&self) -> i32;
+        fn Drop(&self) -> i32;
+    }
+}
