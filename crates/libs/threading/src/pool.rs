@@ -22,7 +22,7 @@ impl Pool {
             e.CleanupGroup = check(CreateThreadpoolCleanupGroup());
         }
 
-        // The `TP_CALLBACK_ENVIRON_V3` is boxed to ensure its memory address remains stable for the life of the `Pool` object.
+        // Box the environment so its address remains stable for the lifetime of the `Pool`.
         Self(Box::new(e))
     }
 
@@ -48,7 +48,7 @@ impl Pool {
     /// * The closure must have `'static` lifetime as the thread may outlive the lifetime in which `submit` is called.
     /// * The closure must be `Send` as it will be sent to another thread for execution.
     pub fn submit<F: FnOnce() + Send + 'static>(&self, f: F) {
-        // This is safe because the closure has a `'static` lifetime.
+        // SAFETY: the closure has `'static` lifetime.
         unsafe {
             try_submit(&*self.0, f);
         }
@@ -100,7 +100,7 @@ unsafe impl Send for Pool {}
 
 impl Drop for Pool {
     fn drop(&mut self) {
-        // The `Pool` object cannot be dropped without waiting for all closures to complete, as their
+        // The `Pool` cannot be dropped without waiting for all closures to complete, as their
         // lifetimes are only guaranteed to be as long as the `Pool` object.
         self.join();
 
