@@ -248,7 +248,7 @@ macro_rules! __interface_decl_vtbl {
             },
             thunks: {
                 $($thunks)*
-                unsafe extern "system" fn $mname<Identity: $crate::IUnknownImpl, const OFFSET: isize>(
+                unsafe extern "system" fn $mname<Identity, const OFFSET: isize>(
                     this: *mut ::core::ffi::c_void
                     $(, $aname: $aty)*
                 ) -> $crate::HRESULT
@@ -298,7 +298,7 @@ macro_rules! __interface_decl_vtbl {
             },
             thunks: {
                 $($thunks)*
-                unsafe extern "system" fn $mname<Identity: $crate::IUnknownImpl, const OFFSET: isize>(
+                unsafe extern "system" fn $mname<Identity, const OFFSET: isize>(
                     this: *mut ::core::ffi::c_void
                     $(, $aname: $aty)*
                 )
@@ -349,7 +349,7 @@ macro_rules! __interface_decl_vtbl {
             },
             thunks: {
                 $($thunks)*
-                unsafe extern "system" fn $mname<Identity: $crate::IUnknownImpl, const OFFSET: isize>(
+                unsafe extern "system" fn $mname<Identity, const OFFSET: isize>(
                     this: *mut ::core::ffi::c_void
                     $(, $aname: $aty)*
                 ) -> $rty
@@ -385,7 +385,7 @@ macro_rules! __interface_decl_vtbl {
         }
 
         impl $vtbl {
-            pub const fn new<Identity: $crate::IUnknownImpl, const OFFSET: isize>() -> Self
+            pub const fn new<Identity, const OFFSET: isize>() -> Self
             where
                 Identity: $impl_trait,
             {
