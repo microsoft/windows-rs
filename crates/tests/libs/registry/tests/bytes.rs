@@ -27,7 +27,7 @@ fn bytes() -> Result<()> {
         (Type::Other(1234), 4)
     );
 
-    // Make sure there's some zeros in the middle in case someone adds some
+    // make sure there's some zeros in the middle in case someone adds some
     // null-checks that shouldn't be happening for this Type.
     let test_bytes = &[
         0x12, 0x34, 0x56, 0x78, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x9A, 0xBC,
