@@ -30,10 +30,21 @@ interface_decl! {
     }
 }
 
+// Interface modeled after `IWindowNative` from WinUI: a method that returns a raw
+// `HRESULT` rather than `Result<()>`. The safe wrapper, impl trait, and vtable entry
+// all carry the declared return type through verbatim.
+interface_decl! {
+    unsafe trait IRaw(IRaw_Vtbl, IRaw_Impl) : IUnknown
+        = 0xeecdbf0e_bae9_4cb6_a68e_9598e1cb57bb
+    {
+        unsafe fn Echo(&self, code: HRESULT, out: *mut HRESULT) -> HRESULT;
+    }
+}
+
 pub struct Test;
 
 implement_decl! {
-    impl Test as pub Test_Impl: [ITest, IOther]
+    impl Test as pub Test_Impl: [ITest, IOther, IRaw]
 }
 
 impl ITest_Impl for Test_Impl {
@@ -47,6 +58,13 @@ impl IOther_Impl for Test_Impl {
     unsafe fn Sum(&self, a: i32, b: i32, out: *mut i32) -> Result<()> {
         unsafe { *out = a + b };
         Ok(())
+    }
+}
+
+impl IRaw_Impl for Test_Impl {
+    unsafe fn Echo(&self, code: HRESULT, out: *mut HRESULT) -> HRESULT {
+        unsafe { *out = code };
+        code
     }
 }
 
@@ -80,6 +98,23 @@ fn test_iother() {
         let other2: IOther = test.cast().unwrap();
         other2.Sum(7, 8, &mut value).unwrap();
         assert_eq!(value, 15);
+    }
+}
+
+#[test]
+fn test_iraw() {
+    unsafe {
+        let raw: IRaw = Test.into();
+        let mut out = S_OK;
+        // Method returns the raw `HRESULT` verbatim, no `Result` wrapping.
+        assert_eq!(raw.Echo(S_FALSE, &mut out), S_FALSE);
+        assert_eq!(out, S_FALSE);
+        assert_eq!(raw.Echo(E_INVALIDARG, &mut out), E_INVALIDARG);
+        assert_eq!(out, E_INVALIDARG);
+
+        // QueryInterface across to the other interfaces is unaffected.
+        let test: ITest = raw.cast().unwrap();
+        test.Void();
     }
 }
 

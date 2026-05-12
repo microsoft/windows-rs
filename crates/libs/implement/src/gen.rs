@@ -66,10 +66,10 @@ fn gen_impl_struct(inputs: &ImplementInputs) -> syn::Item {
     let vis = &inputs.original_type.vis;
 
     let mut impl_fields = quote! {
-        // Holds the inner non-delegating `IInspectable` when this type aggregates a
-        // composable WinRT class. Stays `None` otherwise. `QueryInterface` falls through
-        // here when the requested IID is not handled locally. Wrapped in `ComposeBase`
-        // (`repr(transparent)` over `Option<IInspectable>`) for `Sync`.
+        // Holds the inner non-delegating `IInspectable` when this type aggregates a composable
+        // WinRT class; otherwise stays `None`. `QueryInterface` falls through here when the
+        // requested IID is not handled locally. Wrapped in `ComposeBase` (`repr(transparent)`
+        // over `Option<IInspectable>`) for `Sync`.
         base: ::windows_core::ComposeBase,
         identity: &'static ::windows_core::IInspectable_Vtbl,
     };
@@ -257,10 +257,10 @@ fn gen_impl_com_object_inner(inputs: &ImplementInputs) -> syn::Item {
         impl #generics ::windows_core::ComObjectInner for #original_ident::#generics_idents where #constraints {
             type Outer = #impl_ident::#generics_idents;
 
-            // Assembles the boxed COM object. We immediately move the value into a heap
-            // allocation and return only a `ComObject` reference, never an owned
-            // `Foo_Impl`. Exposing an owned `Foo_Impl` to safe code would be unsound
-            // because of the reference-count adjustments it performs.
+            // Assembles the boxed COM object. Move the value into a heap allocation and return
+            // only a `ComObject` reference, never an owned `Foo_Impl`: exposing an owned
+            // `Foo_Impl` to safe code would be unsound because of the reference-count
+            // adjustments it performs.
 
             fn into_object(self) -> ::windows_core::ComObject<Self> {
                 let boxed = ::windows_core::imp::Box::<#impl_ident::#generics_idents>::new(self.into_outer());
@@ -448,15 +448,15 @@ fn gen_into_outer(inputs: &ImplementInputs) -> syn::ImplItem {
     };
 
     parse_quote! {
-        // This constructs an "outer" object. This should only be used by the implementation
-        // of the outer object, never by application code.
+        // Constructs the "outer" object. Used only by the implementation of the outer object,
+        // never by application code.
         //
         // The callers of this function (`into_static` and `into_object`) are both responsible
-        // for maintaining one of our invariants: Application code never has an owned instance
-        // of the outer (implementation) type. into_static() maintains this invariant by
-        // returning a wrapped StaticComObject value, which owns its contents but never gives
-        // application code a way to mutably access its contents. This prevents the refcount
-        // shearing problem.
+        // for maintaining one of our invariants: application code never has an owned instance
+        // of the outer (implementation) type. `into_static` maintains this invariant by
+        // returning a wrapped `StaticComObject` value, which owns its contents but never gives
+        // application code a way to mutably access them. This prevents the refcount-shearing
+        // problem.
         //
         // TODO: Make it impossible for app code to call this function, by placing it in a
         // module and marking this as private to the module.
@@ -476,10 +476,9 @@ fn gen_into_outer(inputs: &ImplementInputs) -> syn::ImplItem {
 fn gen_into_static(inputs: &ImplementInputs) -> syn::ImplItem {
     assert!(!inputs.is_generic);
     parse_quote! {
-        /// This converts a partially-constructed COM object (in the sense that it contains
-        /// application state but does not yet have vtable and reference count constructed)
-        /// into a `StaticComObject`. This allows the COM object to be stored in static
-        /// (global) variables.
+        /// This converts a partially-constructed COM object (containing application state but
+        /// without vtable and reference count yet set up) into a `StaticComObject`. This allows
+        /// the COM object to be stored in static (global) variables.
         pub const fn into_static(self) -> ::windows_core::StaticComObject<Self> {
             ::windows_core::StaticComObject::from_outer(self.into_outer())
         }
