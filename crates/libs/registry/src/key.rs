@@ -175,10 +175,10 @@ impl Key {
     /// Gets the `REG_BINARY` value for the name in the registry key.
     pub fn get_bytes<T: AsRef<str>>(&self, name: T) -> Result<Vec<u8>> {
         let name = pcwstr(name);
-        let (ty, sz) = unsafe { self.raw_get_info(name.as_raw())? };
+        let (ty, len) = unsafe { self.raw_get_info(name.as_raw())? };
         match ty {
             Type::Bytes => {
-                let mut value = vec![0; sz];
+                let mut value = vec![0; len];
                 unsafe { self.raw_get_bytes(name.as_raw(), &mut value)? };
                 Ok(value)
             }
