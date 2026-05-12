@@ -2,10 +2,15 @@
 
 > **Status:** design draft for review. The seven open questions raised in the
 > first revision have been resolved (see [Resolved decisions](#resolved-decisions)
-> below). No code under `crates/` has been changed yet — the next concrete
-> action is the Step 0 spike. The doc is written so that anyone reviewing it
-> can see, for each load-bearing choice, both *what* was picked and *why* the
-> alternative was rejected.
+> below). **Step 0 phase 1 spike has landed** at
+> [`crates/tests/libs/implement_foundation_spike`](../crates/tests/libs/implement_foundation_spike):
+> it proves the foundation type-checks on stable Rust 1.82 (windows-core's
+> MSRV) under both default features and `--no-default-features`, and that
+> `Outer<Foo, (IValue,)>` has byte-identical layout to today's
+> `#[implement]`-emitted `Foo_Impl`. Two stable-Rust constraints surfaced and
+> have been folded back into [Per-slot vtable initialisers](#per-slot-vtable-initialisers).
+> The next concrete action is the Step 0 phase 2 spike: `IUnknownImpl` impl
+> on `Outer<T, L>` plus the OQ-4 microbenchmark.
 
 ## Summary
 
@@ -286,45 +291,56 @@ impl<T, I0> ListVtables<T> for (I0,)
 where
     T: IUnknownImpl,
     I0: Interface,
-    I0::Vtable: HasVtblCtor<T, -2>,   // see below
+    I0::Vtable: VtableCtor<T, -2>,
 {
     const STORAGE: VCons<I0, VNil> = VCons {
-        vtable: &<I0::Vtable as HasVtblCtor<T, -2>>::NEW,
+        // NEW_REF, *not* `&...::NEW` — see the spike's Finding 2 below.
+        vtable: <I0::Vtable as VtableCtor<T, -2>>::NEW_REF,
         rest: VNil,
     };
 }
 ```
 
-The `HasVtblCtor<T, OFFSET>` helper trait wraps the existing
-`Vtbl::new::<T, OFFSET>()` const fn. It exists because we cannot write
-`I0::Vtable::new::<T, -2>` directly in a generic context — `new` is an
-inherent `const fn` on each concrete `_Vtbl` type, not a trait method. The
-helper has a blanket impl:
+…where `VtableCtor<T, OFFSET>` is the one trait that `windows-interface`'s
+generated `_Vtbl` types need to opt into:
 
 ```rust,ignore
-pub trait HasVtblCtor<T, const OFFSET: isize> {
+pub trait VtableCtor<T, const OFFSET: isize>: Sized + 'static {
     const NEW: Self;
-}
-
-impl<V, T, const OFFSET: isize> HasVtblCtor<T, OFFSET> for V
-where
-    V: VtableCtor<T, OFFSET>,    // a *sealed* trait, blanket-impl'd by ...
-{
-    const NEW: Self = <V as VtableCtor<T, OFFSET>>::new();
+    const NEW_REF: &'static Self;
 }
 ```
 
-…and `VtableCtor<T, OFFSET>` is the one trait that `windows-interface`'s
-generated `_Vtbl` types need to opt into. That opt-in is **the one bindgen
-change** we have to make, and it is one line per interface:
+That opt-in is **the one bindgen change** we have to make, and it is three
+lines per interface:
 
 ```rust,ignore
-impl<T: ::windows_core::IFoo_Impl, const OFFSET: isize>
+impl<T: ::windows_core::IFoo_Impl + 'static, const OFFSET: isize>
     ::windows_core::imp::VtableCtor<T, OFFSET> for IFoo_Vtbl
 {
-    const fn new() -> Self { <Self>::new::<T, OFFSET>() }
+    const NEW: Self = <Self>::new::<T, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as ::windows_core::imp::VtableCtor<T, OFFSET>>::NEW;
 }
 ```
+
+Why three lines and not one (the spike's stable-Rust constraints):
+
+* **Finding 1 — no `const fn` in trait position.** The earlier draft used
+  `const fn new() -> Self` inside the `VtableCtor` trait. That requires
+  nightly's `const_trait_impl`; the stable replacement is an associated
+  `const NEW: Self`. The draft's `HasVtblCtor` / `VtableCtor::new()` split
+  has been collapsed accordingly.
+
+* **Finding 2 — `&<V as VtableCtor<T, O>>::NEW` does not promote when `V`
+  is generic.** Stable rustc rejects this with `E0492` because for an
+  arbitrary `V` it cannot rule out interior mutability. So the trait must
+  also expose `NEW_REF: &'static Self`, materialised inside the
+  per-`_Vtbl` impl where `Self` is concrete and the borrow does promote.
+  The generic call site in `ListVtables::STORAGE` reads `NEW_REF` directly
+  without re-borrowing.
+
+Both findings are validated by the Step 0 spike at
+`crates/tests/libs/implement_foundation_spike`.
 
 **Resolution (OQ-2): the `VtableCtor` opt-in is emitted by `windows-interface`
 alongside `IFoo_Vtbl`.** The alternative — leave `IFoo_Vtbl::new` callable
@@ -844,34 +860,83 @@ for free.
 Each step is independently shippable, builds on the previous one, and is
 gated by the existing implement test suite plus the new foundation tests.
 
-### Step 0 — Spike (this branch, no PR yet)
+### Step 0 — Spike
 
-Build the HList shape end-to-end **in a test crate** under
-`crates/tests/libs/implement_foundation_spike` (new). The spike:
+Phase 1 of the spike has landed under
+[`crates/tests/libs/implement_foundation_spike`](../crates/tests/libs/implement_foundation_spike).
+It exists in the workspace as a regular test crate (`test_implement_foundation_spike`)
+and is built by `cargo build --workspace` and tested by `cargo test -p
+test_implement_foundation_spike`.
 
-* Defines `Outer`, `InterfaceList`, `Implemented`, `Implements`,
-  `VtableCtor`, the blanket impls, and the tuple `InterfaceList` impls for
+#### What phase 1 covered
+
+* Defines `Outer`, `InterfaceList`, `Implements`, `Implemented`,
+  `VtableCtor`, sealed `Agility` (`Agile` / `NonAgile`), `VNil` / `VCons`,
+  and the tuple `InterfaceList` impls for arity 0..=4.
+* Adds the `VtableCtor` opt-in for `IUnknown_Vtbl`, `IInspectable_Vtbl`, and
+  a hand-rolled fake `IValue_Vtbl` declared via the existing
+  `windows-interface` `#[interface(...)]` proc macro — proving Step 2 needs
+  no signature changes to `_Vtbl::new`.
+* Defines a hand-written `Foo` user type with `impl Implemented for Foo`
+  declaring `(IValue,)` as its interface list (no proc macro), and a
+  parallel `#[implement(IValue)]` `Foo` for layout comparison.
+* Asserts byte-identical layout between `Outer<Foo, (IValue,)>` and the
+  macro-emitted `Foo_Impl` via `static_assertions::{assert_eq_size!,
+  assert_eq_align!}` plus `core::mem::offset_of!` checks for `base`,
+  `identity`, `vtables`, and `this` field offsets, and a separate type-level
+  proof that the `VCons` tower folds to a flat sequence of pointers for
   arity 0..=4.
-* Adds the one `VtableCtor` impl for `IUnknown_Vtbl`, `IInspectable_Vtbl`,
-  and a hand-rolled fake `IValue_Vtbl` (so we are not yet asking bindgen to
-  emit it).
-* Hand-writes one `#[implement]`-equivalent test case using the foundation
-  directly.
-* Compares the layout of the resulting `Outer<Foo, (IValue,)>` to the layout
-  of today's macro-emitted `Foo_Impl` with `core::mem::offset_of!` and a
-  `static_assertions::assert_eq_size!` check.
-* Compiles on stable Rust with `--no-default-features` and with default
-  features.
-* **Runs the OQ-4 microbenchmark** (criterion) comparing
+* Compiles cleanly on stable Rust 1.82 (windows-core's MSRV) both with
+  default features and with `--no-default-features`. Lib is `#![no_std]`.
+
+All assertions pass. The layout claim is locked.
+
+#### Findings folded back into this doc
+
+The spike surfaced two stable-Rust constraints that had to revise the
+draft's `VtableCtor` shape. Both have been incorporated into
+[Per-slot vtable initialisers](#per-slot-vtable-initialisers) above.
+
+1. **`const fn` in trait position is unstable.** The draft used
+   `pub trait VtableCtor<T, const OFFSET: isize>: Sized { const fn new() -> Self; }`,
+   which is gated behind `const_trait_impl` (nightly). The stable replacement
+   is an associated `const NEW: Self`. The draft's `HasVtblCtor` /
+   `VtableCtor::new()` split has been collapsed into a single trait.
+
+2. **`&<V as VtableCtor<T, O>>::NEW` does not promote when `V` is generic.**
+   `rustc` rejects this with `E0492` ("interior mutable shared borrows of
+   temporaries that have their lifetime extended until the end of the
+   program are not allowed") because for an arbitrary `V` it cannot rule out
+   interior mutability. The trait must therefore expose **both** `NEW: Self`
+   and `NEW_REF: &'static Self`. Each per-`_Vtbl` opt-in fills in both — the
+   reference is constructed inside the impl as
+   `&<Self as VtableCtor<T, OFFSET>>::NEW`, where `Self` is concrete and the
+   borrow does promote. The generic call site in `ListVtables::STORAGE`
+   reads `NEW_REF` directly without re-borrowing.
+
+   Practical consequence: the `windows-bindgen` emission for Step 2 is
+   three lines per `_Vtbl` rather than one. The line count is still
+   trivial and the ABI knowledge is still in one place.
+
+#### What phase 1 did not cover (deferred to phase 2)
+
+* `IUnknownImpl` impl on `Outer<T, L>` and the generic `QueryInterface`
+  body. The phase-1 layout proof is type-level (`size_of`, `align_of`,
+  `offset_of!`), so it does not need a constructor or any runtime behaviour.
+  Phase 2 wires `IUnknownImpl` and provides the real `Outer::new` ctor (the
+  OQ-6 `new` / `new_generic` split).
+* The OQ-4 microbenchmark. The benchmark compares
   `QueryInterface(identity)`, `QueryInterface(last)`, and
   `QueryInterface(unknown)` between the macro-emitted `Foo_Impl` and the
-  foundation's `Outer<Foo, ...>`, at arities 1, 3, 8, and 16. Pass criterion:
-  within 1 ns/call on x86_64 release builds with `lto = "thin"`.
+  foundation's `Outer<Foo, ...>` at arities 1, 3, 8, 16. Pass criterion:
+  within 1 ns/call on x86_64 release builds with `lto = "thin"`. Phase 2
+  enables this once `Outer<T, L>: IUnknownImpl` exists.
 
-If the spike compiles, the layout matches, and the benchmark passes the OQ-4
-criterion, the design is locked. If the layout check fails, this doc is
-updated. If only the benchmark fails, the per-arity tuple `InterfaceList`
-impl gains an unrolled-match specialisation (the rest of the design holds).
+If phase 2's layout check fails (it should not, since the type-level
+assertions in phase 1 already pin everything down) this doc is updated.
+If only the benchmark fails, the per-arity tuple `InterfaceList` impl gains
+an unrolled-match specialisation in `IID_SLOTS` lookup; the rest of the
+design holds.
 
 ### Step 1 — Foundation only, macro untouched
 

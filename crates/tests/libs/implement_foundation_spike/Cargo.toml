@@ -1,0 +1,26 @@
+[package]
+name = "test_implement_foundation_spike"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+# Step 0 spike for `docs/option-d.md`. Lives under `crates/tests/libs` so the
+# `crates/tests/*/*` glob in the workspace `Cargo.toml` picks it up. Verifies
+# that the proposed `Outer<T, L>` foundation:
+#   * compiles on stable Rust (no nightly features),
+#   * builds with default features and with `--no-default-features`,
+#   * yields a `repr(C)` layout byte-identical to today's `#[implement]`-emitted
+#     `Foo_Impl`.
+
+[dependencies.windows-core]
+workspace = true
+
+[dependencies]
+static_assertions = "1.1"
+
+[lints]
+workspace = true
