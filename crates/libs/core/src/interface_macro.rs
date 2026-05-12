@@ -9,7 +9,9 @@
 //! ## Scope
 //!
 //! `interface_decl!` targets the dominant case: a COM interface whose direct parent is
-//! `IUnknown`, whose methods either return `windows_core::Result<()>` or return nothing.
+//! `IUnknown`, whose methods either return `windows_core::Result<()>`, return nothing,
+//! or return a raw ABI type (most commonly `HRESULT`) that is passed through unchanged
+//! to the caller.
 //! It does **not** support `Result<T>` for non-unit `T` (the safe caller wrapper would
 //! discard the value); model that case with a `*mut T` out-parameter and `Result<()>`.
 //! It does **not** support `Ref<T>` / `OutRef<T>` parameters with the implicit `Param` /
@@ -45,6 +47,9 @@
 //!   vtable entry typed `-> HRESULT`. The thunk converts the implementer's `Result<()>`
 //!   back into an `HRESULT` via `Into`.
 //! - A method with no return type produces a void-returning thunk.
+//! - A method with any other return type (e.g. `-> HRESULT`) is passed through verbatim:
+//!   the vtable entry, the safe caller-side wrapper, and the implementer trait all use the
+//!   declared return type as-is, and the thunk forwards the implementer's value unchanged.
 
 /// Declares a COM interface inheriting from `IUnknown`, without using the `#[interface]`
 /// proc-macro. See the module-level documentation for the supported syntax and scope.
@@ -133,6 +138,21 @@ macro_rules! __interface_decl_safe_wrappers {
         }
         $crate::__interface_decl_safe_wrappers!($($rest)*);
     };
+    // Method with an arbitrary (non-`Result<()>`) return type — passed through verbatim.
+    // This arm must follow the `Result<()>` arm above because `$rty:ty` would also match
+    // `Result<()>`; macro_rules tries arms top-down.
+    (
+        unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> $rty:ty ;
+        $($rest:tt)*
+    ) => {
+        #[inline]
+        pub unsafe fn $mname(&self $(, $aname: $aty)*) -> $rty {
+            unsafe {
+                ($crate::Interface::vtable(self).$mname)($crate::Interface::as_raw(self) $(, $aname)*)
+            }
+        }
+        $crate::__interface_decl_safe_wrappers!($($rest)*);
+    };
 }
 
 // --- _Impl trait method declarations ---
@@ -153,6 +173,14 @@ macro_rules! __interface_decl_trait_methods {
         $($rest:tt)*
     ) => {
         unsafe fn $mname(&self $(, $aname: $aty)*);
+        $crate::__interface_decl_trait_methods!($($rest)*);
+    };
+    // Arbitrary non-`Result<()>` return type. Must follow the `Result<()>` arm.
+    (
+        unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> $rty:ty ;
+        $($rest:tt)*
+    ) => {
+        unsafe fn $mname(&self $(, $aname: $aty)*) -> $rty;
         $crate::__interface_decl_trait_methods!($($rest)*);
     };
 }
@@ -274,6 +302,57 @@ macro_rules! __interface_decl_vtbl {
                     this: *mut ::core::ffi::c_void
                     $(, $aname: $aty)*
                 )
+                where
+                    Identity: $impl_trait,
+                {
+                    let this_outer: &Identity = unsafe {
+                        &*((this as *const *const ()).offset(OFFSET) as *const Identity)
+                    };
+                    unsafe { <Identity as $impl_trait>::$mname(this_outer $(, $aname)*) }
+                }
+            },
+            rest: { $($more)* }
+        }
+    };
+
+    // Method with an arbitrary (non-`Result<()>`) return type — passed through verbatim.
+    // Must come after the `Result<()>` arm because `$rty:ty` would also match `Result<()>`.
+    (@walk
+        name: $name:ident,
+        vtbl: $vtbl:ident,
+        impl_trait: $impl_trait:ident,
+        parent: $parent:ty,
+        fields: { $($fields:tt)* },
+        inits: { $($inits:tt)* },
+        thunks: { $($thunks:tt)* },
+        rest: {
+            unsafe fn $mname:ident (&self $(, $aname:ident : $aty:ty)* $(,)? ) -> $rty:ty ;
+            $($more:tt)*
+        }
+    ) => {
+        $crate::__interface_decl_vtbl! {
+            @walk
+            name: $name,
+            vtbl: $vtbl,
+            impl_trait: $impl_trait,
+            parent: $parent,
+            fields: {
+                $($fields)*
+                pub $mname: unsafe extern "system" fn(
+                    this: *mut ::core::ffi::c_void
+                    $(, $aname: $aty)*
+                ) -> $rty,
+            },
+            inits: {
+                $($inits)*
+                $mname: $mname::<Identity, OFFSET>,
+            },
+            thunks: {
+                $($thunks)*
+                unsafe extern "system" fn $mname<Identity: $crate::IUnknownImpl, const OFFSET: isize>(
+                    this: *mut ::core::ffi::c_void
+                    $(, $aname: $aty)*
+                ) -> $rty
                 where
                     Identity: $impl_trait,
                 {
