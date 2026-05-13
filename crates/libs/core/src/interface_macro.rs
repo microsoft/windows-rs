@@ -401,5 +401,22 @@ macro_rules! __interface_decl_vtbl {
                 *iid == <$name as $crate::Interface>::IID
             }
         }
+
+        // Opt-in to the library-based `#[implement]` foundation
+        // (`docs/option-d.md` Step 1b). Generic call sites read `NEW_REF`;
+        // each per-`_Vtbl` impl writes it as
+        // `&<Self as VtableCtor<T, OFFSET>>::NEW` so the borrow promotes
+        // to `&'static Self` (interior-mutability check succeeds because
+        // `Self` is concrete here). Mirrors the equivalent emission from
+        // the `#[interface]` proc macro
+        // (`crates/libs/interface/src/gen.rs:258-271`).
+        impl<
+            Identity: $crate::IUnknownImpl + $impl_trait + 'static,
+            const OFFSET: isize,
+        > $crate::imp::VtableCtor<Identity, OFFSET> for $vtbl {
+            const NEW: Self = <Self>::new::<Identity, OFFSET>();
+            const NEW_REF: &'static Self =
+                &<Self as $crate::imp::VtableCtor<Identity, OFFSET>>::NEW;
+        }
     };
 }

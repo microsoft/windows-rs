@@ -4796,8 +4796,10 @@ impl IApplicationFactory_Vtbl {
         iid == &<IApplicationFactory as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IApplicationFactory_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IApplicationFactory_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IApplicationFactory_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IApplicationFactory_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -4843,8 +4845,11 @@ impl IApplicationInitializationCallbackParams_Vtbl {
         iid == &<IApplicationInitializationCallbackParams as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IApplicationInitializationCallbackParams_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IApplicationInitializationCallbackParams_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IApplicationInitializationCallbackParams_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for IApplicationInitializationCallbackParams_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -5073,8 +5078,10 @@ impl IApplicationOverrides_Vtbl {
         iid == &<IApplicationOverrides as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IApplicationOverrides_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IApplicationOverrides_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IApplicationOverrides_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IApplicationOverrides_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -5169,8 +5176,10 @@ impl IApplicationOverrides2_Vtbl {
         iid == &<IApplicationOverrides2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IApplicationOverrides2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IApplicationOverrides2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IApplicationOverrides2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IApplicationOverrides2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -5683,8 +5692,10 @@ impl IControlFactory_Vtbl {
         iid == &<IControlFactory as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IControlFactory_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IControlFactory_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IControlFactory_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IControlFactory_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -5856,8 +5867,10 @@ impl IControlProtected_Vtbl {
         iid == &<IControlProtected as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IControlProtected_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IControlProtected_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IControlProtected_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IControlProtected_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -6142,8 +6155,10 @@ impl IDependencyObjectFactory_Vtbl {
         iid == &<IDependencyObjectFactory as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IDependencyObjectFactory_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IDependencyObjectFactory_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IDependencyObjectFactory_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IDependencyObjectFactory_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -6365,8 +6380,10 @@ impl IFrameworkElement3_Vtbl {
         iid == &<IFrameworkElement3 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IFrameworkElement3_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IFrameworkElement3_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IFrameworkElement3_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IFrameworkElement3_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -6525,8 +6542,10 @@ impl IFrameworkElementFactory_Vtbl {
         iid == &<IFrameworkElementFactory as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IFrameworkElementFactory_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IFrameworkElementFactory_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IFrameworkElementFactory_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IFrameworkElementFactory_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -6640,8 +6659,10 @@ impl IFrameworkElementOverrides_Vtbl {
         iid == &<IFrameworkElementOverrides as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IFrameworkElementOverrides_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IFrameworkElementOverrides_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IFrameworkElementOverrides_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IFrameworkElementOverrides_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -6721,8 +6742,10 @@ impl IFrameworkElementOverrides2_Vtbl {
         iid == &<IFrameworkElementOverrides2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IFrameworkElementOverrides2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IFrameworkElementOverrides2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IFrameworkElementOverrides2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IFrameworkElementOverrides2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -6780,8 +6803,10 @@ impl IFrameworkElementProtected7_Vtbl {
         iid == &<IFrameworkElementProtected7 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IFrameworkElementProtected7_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IFrameworkElementProtected7_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IFrameworkElementProtected7_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IFrameworkElementProtected7_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -6913,8 +6938,10 @@ impl IFrameworkElementStatics5_Vtbl {
         iid == &<IFrameworkElementStatics5 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IFrameworkElementStatics5_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IFrameworkElementStatics5_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IFrameworkElementStatics5_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IFrameworkElementStatics5_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -7357,8 +7384,10 @@ impl ITextBoxFactory_Vtbl {
         iid == &<ITextBoxFactory as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ITextBoxFactory_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ITextBoxFactory_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ITextBoxFactory_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ITextBoxFactory_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -8066,8 +8095,10 @@ impl IUIElementFactory_Vtbl {
         iid == &<IUIElementFactory as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IUIElementFactory_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IUIElementFactory_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IUIElementFactory_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IUIElementFactory_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -8194,8 +8225,10 @@ impl IUIElementOverrides9_Vtbl {
         iid == &<IUIElementOverrides9 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IUIElementOverrides9_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IUIElementOverrides9_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IUIElementOverrides9_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IUIElementOverrides9_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -8684,8 +8717,10 @@ impl IWindowCreatedEventArgs_Vtbl {
         iid == &<IWindowCreatedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IWindowCreatedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IWindowCreatedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IWindowCreatedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IWindowCreatedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;

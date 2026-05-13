@@ -55,8 +55,19 @@ where
     L: InterfaceList + ListVtables<Outer<T, L>>,
     IInspectable_Vtbl: VtableCtor<Outer<T, L>, -1>,
 {
-    /// Constructs an `Outer<T, L>` from `T`. Non-const (OQ-6).
-    pub fn new_generic(value: T) -> Self {
+    /// Constructs an `Outer<T, L>` from `T`.
+    ///
+    /// `const fn` so that the reskinned `implement_decl!` (Step 2b) can
+    /// keep its `pub const fn into_outer` / `pub const fn into_static`
+    /// inherent methods on the user type, preserving the API contract of
+    /// `crates/libs/core/src/implement_macro.rs`'s pre-reskin emission.
+    /// Stable rustc accepts this because the body only reads associated
+    /// constants (`NEW_REF`, `STORAGE`) and calls `const fn` ctors
+    /// (`ComposeBase::new`, `WeakRefCount::new`); no trait *methods* are
+    /// invoked. OQ-6 in `docs/option-d.md` originally split this in two
+    /// to avoid conditionally-`const` ctors; now that the body is purely
+    /// const, the split isn't needed for non-generic callers.
+    pub const fn new_generic(value: T) -> Self {
         Self {
             base: ComposeBase::new(),
             identity: <IInspectable_Vtbl as VtableCtor<Outer<T, L>, -1>>::NEW_REF,
