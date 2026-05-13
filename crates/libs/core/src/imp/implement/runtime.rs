@@ -100,6 +100,30 @@ where
         let slot = <L as Implements<I>>::SLOT;
         unsafe { core::mem::transmute(base.add(slot)) }
     }
+
+    /// Returns an `InterfaceRef<I>` pointing at the slot at offset `SLOT`
+    /// (pointer-units from `&self.identity`).
+    ///
+    /// This is the slot-indexed sibling of [`as_declared_interface`]. It
+    /// exists because stable Rust rejects per-position `Implements<Ik>`
+    /// blanket impls on tuples — `(I0, I1, …)` only provides
+    /// `Implements<I0>` (head), so a reskinned macro cannot reach
+    /// non-head declared interfaces through `as_declared_interface`. See
+    /// the rationale in `crates/libs/core/src/imp/implement/list.rs:62-68`.
+    ///
+    /// # Safety
+    /// `SLOT` must satisfy `1 <= SLOT <= L::LEN` and the pointer at that
+    /// slot must be a vtable pointer for `I`. The macro emission
+    /// statically computes `SLOT` from the position of `I` in the user's
+    /// interface list and is sound by construction; hand-written users
+    /// should prefer the safe [`as_declared_interface`] when possible.
+    ///
+    /// [`as_declared_interface`]: Self::as_declared_interface
+    #[inline(always)]
+    pub unsafe fn as_slot_interface<I: Interface, const SLOT: usize>(&self) -> InterfaceRef<'_, I> {
+        let base = &self.identity as *const _ as *const *const c_void;
+        unsafe { core::mem::transmute(base.add(SLOT)) }
+    }
 }
 
 // =============================================================================
