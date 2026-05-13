@@ -50,9 +50,7 @@ impl Filter {
             return;
         }
         for (namespace, name) in self.methods.keys() {
-            // `TypeName` requires `&'static str`; for matching we rebuild from
-            // the metadata-side static names. Here we just match by string.
-            if implements_matches(implements, namespace, name) {
+            if implements.matches_str(namespace, name) {
                 panic!(
                     "method-level filter on `{namespace}.{name}` conflicts with `--implements`: \
                      methods on implemented interfaces are always emitted"
@@ -115,17 +113,6 @@ impl Filter {
             Some(MethodFilter::Exclude(set)) => !set.contains(method),
         }
     }
-}
-
-/// Best-effort match against `Implements` patterns using the same rules as
-/// `Implements::matches`, but operating on plain strings so it works during
-/// filter validation (before we have access to interned `TypeName`s).
-fn implements_matches(implements: &Implements, namespace: &str, name: &str) -> bool {
-    // `Implements` stores its rules privately; we use its public `matches`
-    // helper indirectly by constructing a one-off `TypeName`. That requires
-    // `&'static str`, but for validation purposes we only need to compare
-    // against the same kind of patterns. Re-implement the matcher here.
-    implements.matches_str(namespace, name)
 }
 
 #[track_caller]
@@ -354,7 +341,7 @@ fn register_method_filter(
 
 fn match_type_name(rule: &str, namespace: &str, name: &str) -> bool {
     if rule.len() <= namespace.len() {
-        return namespace.starts_with(rule);
+        return namespace_starts_with(namespace, rule);
     }
 
     if !rule.starts_with(namespace) {
