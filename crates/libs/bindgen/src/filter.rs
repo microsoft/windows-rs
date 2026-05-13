@@ -5,6 +5,14 @@ use std::collections::{BTreeSet, HashMap};
 pub struct Filter {
     rules: Vec<(String, bool)>,
     methods: HashMap<(String, String), MethodFilter>,
+    /// Reachability-derived per-type method keep set, populated by the
+    /// `--minimal` reachability pass when enabled. A `Some(set)` for a
+    /// `(namespace, name)` key means "only the listed methods are kept";
+    /// a missing key means "all methods kept" (default behavior).
+    ///
+    /// This is consulted only when no user-supplied [`MethodFilter`] exists
+    /// for the type — user intent always wins.
+    reachability: Option<HashMap<(String, String), BTreeSet<String>>>,
 }
 
 /// Per-type method filter. Entries are exact method names (after sugar
@@ -39,7 +47,39 @@ impl Filter {
             left.cmp(&right).reverse()
         });
 
-        Self { rules, methods }
+        Self {
+            rules,
+            methods,
+            reachability: None,
+        }
+    }
+
+    /// Install the keep set computed by the reachability pass. Should be
+    /// called at most once, after [`Filter::new`] and before any code
+    /// generation. See [`crate::reachability`].
+    pub fn install_reachability(
+        &mut self,
+        reachability: HashMap<(String, String), BTreeSet<String>>,
+    ) {
+        self.reachability = Some(reachability);
+    }
+
+    /// Returns `true` if the type has a user-supplied per-method filter
+    /// entry (`Ns.Type::Method` or `!Ns.Type::Method`). Used by the
+    /// reachability pass to skip pinning when the user already curated
+    /// the method set explicitly.
+    pub fn has_user_methods(&self, namespace: &str, name: &str) -> bool {
+        self.methods
+            .contains_key(&(namespace.to_string(), name.to_string()))
+    }
+
+    /// Returns `true` if the type matches an explicit `--filter` rule
+    /// (a fully-qualified `Ns.Type` rule or a namespace-prefix rule).
+    /// Used by the reachability pass to seed roots: only types the user
+    /// (or namespace-cascade) actually named get all their methods kept;
+    /// types pulled in only as transitive type-dependencies are pruned.
+    pub fn has_explicit_type_rule(&self, name: TypeName) -> bool {
+        self.includes_type_name(name).is_some()
     }
 
     /// Validate that no method-level filter entry targets a type matched by
@@ -104,16 +144,29 @@ impl Filter {
 
     /// Returns `true` if `method` on `type_name` should be emitted as a real
     /// vtable slot (rather than demoted to an opaque `Slot: usize`).
-    /// In the absence of a method filter for this type, all methods are kept.
+    ///
+    /// Decision order:
+    /// 1. If the user supplied a method-level filter (`MethodFilter::Keep` /
+    ///    `MethodFilter::Exclude`) for this type, honor it. User intent wins.
+    /// 2. Otherwise, if `--minimal` reachability ran and produced a keep
+    ///    set for this type, only methods in that set are kept.
+    /// 3. Otherwise, all methods are kept (today's default).
     pub fn includes_method(&self, type_name: TypeName, method: &str) -> bool {
-        match self.methods.get(&(
+        let key = (
             type_name.namespace().to_string(),
             type_name.name().to_string(),
-        )) {
-            None => true,
-            Some(MethodFilter::Keep(set)) => set.contains(method),
-            Some(MethodFilter::Exclude(set)) => !set.contains(method),
+        );
+        match self.methods.get(&key) {
+            Some(MethodFilter::Keep(set)) => return set.contains(method),
+            Some(MethodFilter::Exclude(set)) => return !set.contains(method),
+            None => {}
         }
+        if let Some(reach) = &self.reachability {
+            if let Some(set) = reach.get(&key) {
+                return set.contains(method);
+            }
+        }
+        true
     }
 }
 

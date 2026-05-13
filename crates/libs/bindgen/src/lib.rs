@@ -15,6 +15,7 @@ mod index;
 mod io;
 mod libraries;
 mod param;
+mod reachability;
 mod references;
 mod signature;
 mod tables;
@@ -87,7 +88,7 @@ pub fn builder() -> Bindgen {
 /// | `--sys` | Generates raw or sys-style Rust bindings. |
 /// | `--sys-fn-ptrs` | Additionally generates function pointers for sys-style Rust bindings. |
 /// | `--sys-fn-extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. |
-/// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time. Mutually exclusive with `--sys`. |
+/// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time. Also enables **reachability pruning** — methods on transitively-included interfaces whose signatures are never referenced by anything reachable from the `--filter` roots are demoted to opaque `Slot: usize` vtable placeholders (use `Ns.Type::Method` to re-promote). Mutually exclusive with `--sys`. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. |
 /// | `--implements` | Includes implementation traits for the listed types only. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
@@ -716,6 +717,22 @@ impl Bindgen {
     /// raw-vtable callers are unaffected.
     ///
     /// `--minimal` is mutually exclusive with `--sys`.
+    ///
+    /// In `--minimal` mode bindgen also performs **reachability pruning**:
+    /// methods on interfaces that were pulled into the type map only as
+    /// transitive dependencies (a base interface, parameter, return type,
+    /// generic argument, or default interface of a kept class) and whose
+    /// signatures are never referenced by anything reachable from the
+    /// explicit `--filter` roots are demoted to opaque `Slot: usize`
+    /// vtable placeholders. Their `pub fn` forwarders are dropped. The
+    /// vtable layout, IID, `RuntimeType` signature, and
+    /// `interface_hierarchy!` invocation of the type are preserved, so
+    /// `Interface::cast::<T>()` and raw-vtable callers keep working.
+    ///
+    /// This makes the upstream method surface **opt-in**: a method only
+    /// survives if something the user actually filtered for needs it.
+    /// Use `Ns.Type::Method` (or a broader `--filter Ns.Type`) to
+    /// re-promote a method that bindgen would otherwise demote.
     pub fn minimal(&mut self) -> &mut Self {
         self.minimal = true;
         self
@@ -1016,13 +1033,30 @@ impl Bindgen {
         let derive_str: Vec<&str> = self.derive.iter().map(|s| s.as_str()).collect();
         let implements_str: Vec<&str> = self.implements.iter().map(|s| s.as_str()).collect();
 
-        let filter = Filter::new(&reader, &include, &exclude);
+        let mut filter = Filter::new(&reader, &include, &exclude);
         let references = References::new(&reader, references);
         let types = TypeMap::filter(&reader, &filter, &references);
         let derive = Derive::new(&reader, &types, &derive_str);
         let implements = Implements::new(&implements_str);
         filter.validate_implements(&implements);
         let warnings = WarningBuilder::default();
+
+        // Reachability pruning (B1): in `--minimal` mode, demote methods on
+        // transitively-included interfaces to opaque vtable slots when no
+        // kept method's signature actually mentions them. The existing
+        // per-method demotion path in `Interface::get_methods` /
+        // `CppInterface::get_methods` then drops their `pub fn` forwarders
+        // and replaces the slot with `Slot: usize`, preserving COM offsets.
+        // `--implement` (or any matching `--implements` entry) pins all
+        // methods on a type so its `_Impl` trait keeps mirroring the full
+        // vtable. The `--no-reachability-pruning` escape hatch disables
+        // the pass for diagnosis / staged rollout.
+        if self.minimal {
+            let keep =
+                reachability::compute(&reader, &types, &filter, &implements, self.implement);
+            filter.install_reachability(keep);
+        }
+        let filter = filter;
 
         let config = Config {
             reader: &reader,
