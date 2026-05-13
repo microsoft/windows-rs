@@ -101,7 +101,7 @@ where
         } else {
             CollectionChange::ItemInserted
         };
-        self.fire_changed(change, Some(ref_as_default::<K>(&key).clone()));
+        fire_changed(self, change, Some(ref_as_default::<K>(&key).clone()));
         Ok(replaced)
     }
 
@@ -113,31 +113,35 @@ where
                 return Err(Error::from(E_BOUNDS));
             }
         }
-        self.fire_changed(CollectionChange::ItemRemoved, Some(key_clone));
+        fire_changed(self, CollectionChange::ItemRemoved, Some(key_clone));
         Ok(())
     }
 
     fn Clear(&self) -> Result<()> {
         self.map.write().unwrap().clear();
-        self.fire_changed(CollectionChange::Reset, None);
+        fire_changed(self, CollectionChange::Reset, None);
         Ok(())
     }
 }
 
-impl<K, V> StockObservableMap_Impl<K, V>
-where
+// Free function — see the matching comment in `observable_vector.rs`. Step 2c of
+// `docs/option-d.md` makes `_Impl<K, V>` a type alias for `Outer<…>`, so an inherent
+// impl on `StockObservableMap_Impl<K, V>` is no longer permitted (E0116).
+fn fire_changed<K, V>(
+    this: &StockObservableMap_Impl<K, V>,
+    change: CollectionChange,
+    key: Option<K::Default>,
+) where
     K: RuntimeType,
     V: RuntimeType,
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    fn fire_changed(&self, change: CollectionChange, key: Option<K::Default>) {
-        let observable: IObservableMap<K, V> = self.to_object().into_interface();
-        let args: IMapChangedEventArgs<K> =
-            ComObject::new(StockMapChangedEventArgs { change, key }).into_interface();
-        self.handlers
-            .call(|handler: &MapChangedEventHandler<K, V>| handler.Invoke(&observable, &args));
-    }
+    let observable: IObservableMap<K, V> = this.to_object().into_interface();
+    let args: IMapChangedEventArgs<K> =
+        ComObject::new(StockMapChangedEventArgs { change, key }).into_interface();
+    this.handlers
+        .call(|handler: &MapChangedEventHandler<K, V>| handler.Invoke(&observable, &args));
 }
 
 struct StockMapChangedEventArgs<K>

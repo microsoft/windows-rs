@@ -110,8 +110,23 @@ macro_rules! implement_decl {
     // Generic form: `impl<G, …> Name as Vis Name_Impl : [Iface<…>, …] where …`.
     //
     // Listed before the non-generic arm so that a leading `<` reliably steers here.
-    // The `where` clause is required and is forwarded verbatim to every emitted impl
-    // and to the `Foo_Impl` struct definition.
+    // The `where` clause is required and is forwarded verbatim to every emitted impl.
+    //
+    // Reskinned in Step 2c of `docs/option-d.md`: like the non-generic arm (Step 2b),
+    // `Foo_Impl<G…>` is now a **type alias** for `windows_core::imp::Outer<Foo<G…>,
+    // (IFace1<…>, …)>`, and the foundation provides `IUnknownImpl`, `ComObjectInner`,
+    // `Compose`, identity `From` / `ComObjectInterface` impls, `Deref`, and the QI
+    // dispatch as blanket impls keyed on `T: Implemented`. The generic-arm-specific
+    // helpers (`__implement_decl_g_first_iface`, `__implement_decl_g_struct`,
+    // `__implement_decl_offset_negate`, `__implement_decl_index_plus_two`) have been
+    // retired; only `__implement_decl_g_zip` (interface-list normalisation) and
+    // `__implement_decl_g_per_iface_impls` (orphan-rule-bound per-`IFace` emission)
+    // remain.
+    //
+    // **Behavioural change vs the pre-reskin emission:** same as the non-generic arm —
+    // `GetRuntimeClassName` now returns `IInspectable` rather than the first declared
+    // interface's name. None of the in-tree generic `implement_decl!` consumers
+    // (`windows-collections`, `windows-future`) are activatable runtime classes.
     (
         impl < $($gp:ident),+ $(,)? >
             $name:ident as $impl_vis:vis $impl_name:ident
@@ -120,23 +135,58 @@ macro_rules! implement_decl {
         ]
         where $($wc:tt)+
     ) => {
-        $crate::__implement_decl_g_zip! {
-            @zip
-            ctx: {
-                generics:  [ $($gp),+ ],
-                wc:        { $($wc)+ },
-                vis:       $impl_vis,
-                name:      $name,
-                impl_name: $impl_name,
-            },
-            names: [
-                __iface0  __iface1  __iface2  __iface3
-                __iface4  __iface5  __iface6  __iface7
-                __iface8  __iface9  __iface10 __iface11
-                __iface12 __iface13 __iface14 __iface15
-            ],
-            tys: [ $($ifty),+ ],
-            acc: [ ]
+        // `Foo_Impl<G…>` is a type alias resolving through `Outer<T, L>`, so user
+        // code like `impl<G…> IFoo_Impl<G…> for Foo_Impl<G…> { … }` keeps compiling.
+        //
+        // No `where` clause on the alias itself: stable Rust's type-alias where-clause
+        // handling is "parsed but not enforced" (warning since 1.79+); the bound is
+        // already enforced at every use site by `Outer<T, L>`'s own
+        // `T: Implemented<Interfaces = L>, L: InterfaceList` requirement.
+        #[allow(non_camel_case_types)]
+        $impl_vis type $impl_name< $($gp),+ > = $crate::imp::Outer<
+            $name< $($gp),+ >,
+            ( $($ifty,)+ ),
+        >;
+
+        impl< $($gp),+ > $crate::imp::Implemented for $name< $($gp),+ >
+        where $($wc)+
+        {
+            type Interfaces = ( $($ifty,)+ );
+            type Agility = $crate::imp::Agile;
+        }
+
+        impl< $($gp),+ > $name< $($gp),+ >
+        where $($wc)+
+        {
+            /// Constructs the outer (boxed) representation of this implementer.
+            ///
+            /// This is an implementation detail; user code should normally go
+            /// through [`ComObject::new`](::windows_core::ComObject::new) instead.
+            ///
+            /// `pub const fn` is possible because `Outer::new_generic` is itself
+            /// `const fn` (its body only reads associated constants and calls
+            /// `const fn` ctors). No `into_static` companion: a generic type
+            /// has no fixed layout for static storage.
+            #[doc(hidden)]
+            #[inline(always)]
+            #[allow(non_snake_case)]
+            pub const fn into_outer(self) -> $impl_name< $($gp),+ > {
+                $crate::imp::Outer::new_generic(self)
+            }
+        }
+
+        // Per-declared-interface impls. Walked one at a time by the helper so that
+        // `index`-derived SLOT (= 1 + index) and BACK (= 2 + index) offsets stay in
+        // sync with the foundation layout. See the non-generic helper docstring in
+        // `__implement_decl_per_iface_impls` for the offset rationale.
+        $crate::__implement_decl_g_per_iface_impls! {
+            @walk
+            generics:    [ $($gp),+ ],
+            wc:          { $($wc)+ },
+            name:        $name,
+            impl_name:   $impl_name,
+            index:       [ ],
+            remaining:   [ $( ($ifty) )+ ]
         }
     };
 
@@ -218,76 +268,6 @@ macro_rules! implement_decl {
     };
 }
 
-// --- Offset computation (used by the generic arm only) ---------------------------------
-//
-// The non-generic arm no longer needs this helper because its `Foo_Impl` is now a
-// type alias for `Outer<Foo, (…)>` and the foundation computes vtable offsets
-// internally. The generic arm (`__implement_decl_g_*`) still emits a hand-rolled
-// `Foo_Impl<G…>` struct (Step 2c is the future reskin) and writes each interface
-// vtable as `IFoo_Vtbl::new::<Foo_Impl<G…>, OFFSET>()`. The offsets follow the
-// proc-macro convention: identity is at -1, the first interface chain at -2, the
-// second at -3, and so on.
-//
-// `__implement_decl_offset_negate!()` takes a unary-counted token list and emits
-// the corresponding negative `isize` literal.  Each `()` in the input represents
-// one pointer-sized slot of offset.  The accumulator starts with `[() ()]`
-// (= -2) before any interface is consumed; each interface push adds one more `()`.
-
-#[doc(hidden)]
-#[macro_export]
-macro_rules! __implement_decl_offset_negate {
-    (()) => {
-        -1isize
-    };
-    (() ()) => {
-        -2isize
-    };
-    (() () ()) => {
-        -3isize
-    };
-    (() () () ()) => {
-        -4isize
-    };
-    (() () () () ()) => {
-        -5isize
-    };
-    (() () () () () ()) => {
-        -6isize
-    };
-    (() () () () () () ()) => {
-        -7isize
-    };
-    (() () () () () () () ()) => {
-        -8isize
-    };
-    (() () () () () () () () ()) => {
-        -9isize
-    };
-    (() () () () () () () () () ()) => {
-        -10isize
-    };
-    (() () () () () () () () () () ()) => {
-        -11isize
-    };
-    (() () () () () () () () () () () ()) => {
-        -12isize
-    };
-    (() () () () () () () () () () () () ()) => {
-        -13isize
-    };
-    (() () () () () () () () () () () () () ()) => {
-        -14isize
-    };
-    (() () () () () () () () () () () () () () ()) => {
-        -15isize
-    };
-    (() () () () () () () () () () () () () () () ()) => {
-        -16isize
-    }; // Hand-written implementers rarely declare more than a handful of interfaces;
-       // the hard cap is more than the practical maximum. If you hit this, split your
-       // implementation across multiple objects or use the proc-macro.
-}
-
 // --- Per-interface impls ----------------------------------------------------------------
 //
 // Recursive emission of:
@@ -362,7 +342,7 @@ macro_rules! __implement_decl_per_iface_impls {
                     // 2 + index pointer-slots back from the vtable pointer = start of
                     // Foo_Impl (identity at -1, this chain at -(2 + index)).
                     let this = (this as *mut *mut ::core::ffi::c_void)
-                        .sub($crate::__implement_decl_index_plus_two!($($index)*))
+                        .sub({ $crate::__implement_decl_index_plus_one!($($index)*) } + 1)
                         as *const $impl_name;
                     let inner: &$name = $crate::IUnknownImpl::get_impl(&*this);
                     ::core::ptr::NonNull::new_unchecked(inner as *const $name as *mut $name)
@@ -441,543 +421,67 @@ macro_rules! __implement_decl_index_plus_one {
     };
 }
 
-// `index` is a unary count starting at 0 (empty); emit `2 + index` as a usize literal.
-#[doc(hidden)]
-#[macro_export]
-macro_rules! __implement_decl_index_plus_two {
-    () => {
-        2usize
-    };
-    (()) => {
-        3usize
-    };
-    (() ()) => {
-        4usize
-    };
-    (() () ()) => {
-        5usize
-    };
-    (() () () ()) => {
-        6usize
-    };
-    (() () () () ()) => {
-        7usize
-    };
-    (() () () () () ()) => {
-        8usize
-    };
-    (() () () () () () ()) => {
-        9usize
-    };
-    (() () () () () () () ()) => {
-        10usize
-    };
-    (() () () () () () () () ()) => {
-        11usize
-    };
-    (() () () () () () () () () ()) => {
-        12usize
-    };
-    (() () () () () () () () () () ()) => {
-        13usize
-    };
-    (() () () () () () () () () () () ()) => {
-        14usize
-    };
-    (() () () () () () () () () () () () ()) => {
-        15usize
-    };
-    (() () () () () () () () () () () () () ()) => {
-        16usize
-    };
-    (() () () () () () () () () () () () () () ()) => {
-        17usize
-    };
-}
-
-// --- Zip helper: pair each interface type with a fresh internal field name ---------------
+// --- Per-interface impls (generic arm) -------------------------------------------------
 //
-// The user-facing macro accepts a bare comma-separated list of interface types like
-// `[ IAsyncOperation<T>, IAsyncInfo, ]`. macro_rules! can't tokenize that with a `tt`
-// repetition because of `<`/`>` ambiguity, but `$ty` matches each entry as a single
-// fragment. The zip then pairs each `ty` with an internal ident drawn from a fixed pool
-// so the rest of the pipeline (which uses `(ident : ty)` pairs) is unchanged.
-
-#[doc(hidden)]
-#[macro_export]
-macro_rules! __implement_decl_g_zip {
-    // Step: pop one name and one type.
-    (@zip
-        ctx: $ctx:tt,
-        names: [ $name_head:ident $($name_rest:ident)* ],
-        tys:   [ $ty_head:ty $(, $ty_rest:ty)* $(,)? ],
-        acc:   [ $($acc:tt)* ]
-    ) => {
-        $crate::__implement_decl_g_zip! {
-            @zip
-            ctx:   $ctx,
-            names: [ $($name_rest)* ],
-            tys:   [ $($ty_rest),* ],
-            acc:   [ $($acc)* ($name_head : $ty_head) ]
-        }
-    };
-
-    // Done: dispatch to the existing pipeline.
-    (@zip
-        ctx: {
-            generics:  [ $($gp:ident),+ ],
-            wc:        { $($wc:tt)* },
-            vis:       $impl_vis:vis,
-            name:      $name:ident,
-            impl_name: $impl_name:ident,
-        },
-        names: [ $($unused:ident)* ],
-        tys:   [ ],
-        acc:   [ $( ($iface:ident : $ifty:ty) )+ ]
-    ) => {
-        $crate::__implement_decl_g_first_iface! {
-            @find
-            generics:  [ $($gp),+ ],
-            wc:        { $($wc)* },
-            vis:       $impl_vis,
-            name:      $name,
-            impl_name: $impl_name,
-            remaining: [ $( ($iface : $ifty) )+ ]
-        }
-
-        $crate::__implement_decl_g_per_iface_impls! {
-            generics:   [ $($gp),+ ],
-            wc:         { $($wc)* },
-            name:       $name,
-            impl_name:  $impl_name,
-            interfaces: [ $( ($iface : $ifty) )+ ]
-        }
-    };
-}
-
-// --- Entry helper: capture the first interface, kick off the main walk -----------------
-
-#[doc(hidden)]
-#[macro_export]
-macro_rules! __implement_decl_g_first_iface {
-    (@find
-        generics: [ $($gp:ident),+ ],
-        wc:       { $($wc:tt)* },
-        vis:      $impl_vis:vis,
-        name:     $name:ident,
-        impl_name: $impl_name:ident,
-        remaining: [ ($first_iface:ident : $first_ifty:ty) $($rest:tt)* ]
-    ) => {
-        $crate::__implement_decl_g_struct! {
-            @walk
-            generics:    [ $($gp),+ ],
-            wc:          { $($wc)* },
-            vis:         $impl_vis,
-            name:        $name,
-            impl_name:   $impl_name,
-            first_ifty:  $first_ifty,
-            fields:      { },
-            consts:      { },
-            inits:       { },
-            qi_pairs:    [ ],
-            offset:      [ () () ],
-            remaining:   [ ($first_iface : $first_ifty) $($rest)* ]
-        }
-    };
-}
-
-// --- Main accumulator -------------------------------------------------------------------
+// Same shape as `__implement_decl_per_iface_impls` (non-generic) but with a forwarded
+// `where` clause and `< $($gp),+ >` plumbing on every emitted impl. See the non-generic
+// helper's docstring for the SLOT / BACK offset rationale and orphan-rule justification.
 //
-// Walks the interface list and accumulates:
-//   * struct field declarations (`fields`),
-//   * associated-constant declarations on `Foo_Impl` (`consts`),
-//   * struct field initializers for `into_outer` (`inits`),
-//   * `(field_ident, ifty)` pairs for `QueryInterface` matching (`qi_pairs`),
-//   * a unary-counted offset (`offset`) so the per-chain vtable knows its slot.
-//
-// Hygiene: like `implement_decl!`, the accumulator carries *data* only. References to
-// `self`, `iid`, and the `'found` label are emitted from the single base arm at the end.
-
-#[doc(hidden)]
-#[macro_export]
-macro_rules! __implement_decl_g_struct {
-    // One more interface to consume.
-    (@walk
-        generics:    [ $($gp:ident),+ ],
-        wc:          { $($wc:tt)* },
-        vis:         $impl_vis:vis,
-        name:        $name:ident,
-        impl_name:   $impl_name:ident,
-        first_ifty:  $first_ifty:ty,
-        fields:      { $($fields:tt)* },
-        consts:      { $($consts:tt)* },
-        inits:       { $($inits:tt)* },
-        qi_pairs:    [ $($qi_pairs:tt)* ],
-        offset:      [ $($offset:tt)* ],
-        remaining:   [ ($iface:ident : $ifty:ty) $($rest:tt)* ]
-    ) => {
-        $crate::__implement_decl_g_struct! {
-            @walk
-            generics:    [ $($gp),+ ],
-            wc:          { $($wc)* },
-            vis:         $impl_vis,
-            name:        $name,
-            impl_name:   $impl_name,
-            first_ifty:  $first_ifty,
-            fields: {
-                $($fields)*
-                #[allow(non_snake_case)]
-                pub $iface: &'static <$ifty as $crate::Interface>::Vtable,
-            },
-            consts: {
-                $($consts)*
-                // Per-chain vtable lives as an associated constant on the generic
-                // `impl Foo_Impl<G…>` block. Associated constants are allowed to
-                // reference the outer impl's generic parameters; an in-function
-                // `const C: ... = ...;` would not be (E0401).
-                #[allow(non_upper_case_globals)]
-                const $iface: <$ifty as $crate::Interface>::Vtable =
-                    <<$ifty as $crate::Interface>::Vtable>::new::<
-                        Self,
-                        { $crate::__implement_decl_offset_negate!($($offset)*) },
-                    >();
-            },
-            inits: {
-                $($inits)*
-                $iface: &<$impl_name < $($gp),+ >>::$iface,
-            },
-            qi_pairs: [ $($qi_pairs)* ($iface : $ifty) ],
-            offset: [ $($offset)* () ],
-            remaining: [ $($rest)* ]
-        }
-    };
-
-    // No more interfaces: emit struct + all impls.
-    (@walk
-        generics:    [ $($gp:ident),+ ],
-        wc:          { $($wc:tt)* },
-        vis:         $impl_vis:vis,
-        name:        $name:ident,
-        impl_name:   $impl_name:ident,
-        first_ifty:  $first_ifty:ty,
-        fields:      { $($fields:tt)* },
-        consts:      { $($consts:tt)* },
-        inits:       { $($inits:tt)* },
-        qi_pairs:    [ $(($qi_iface:ident : $qi_ifty:ty))* ],
-        offset:      [ $($offset:tt)* ],
-        remaining:   [ ]
-    ) => {
-        #[repr(C)]
-        #[allow(non_camel_case_types, non_snake_case)]
-        $impl_vis struct $impl_name < $($gp),+ >
-        where $($wc)*
-        {
-            pub base: $crate::ComposeBase,
-            pub identity: &'static $crate::IInspectable_Vtbl,
-            $($fields)*
-            pub this: $name < $($gp),+ >,
-            pub count: $crate::imp::WeakRefCount,
-        }
-
-        impl< $($gp),+ > $impl_name < $($gp),+ >
-        where $($wc)*
-        {
-            // The identity vtable, like the per-interface vtables below, has to live
-            // on an associated constant rather than as an in-function `const C: T`
-            // because the implementer's generic parameters flow into the vtable's
-            // type parameters (via `Self`).
-            #[allow(non_upper_case_globals)]
-            const __VTABLE_IDENTITY: $crate::IInspectable_Vtbl =
-                <$crate::IInspectable_Vtbl>::new::<Self, $first_ifty, -1>();
-
-            $($consts)*
-        }
-
-        impl< $($gp),+ > $name < $($gp),+ >
-        where $($wc)*
-        {
-            /// Constructs the outer (boxed) representation of this implementer.
-            #[doc(hidden)]
-            #[inline(always)]
-            #[allow(non_snake_case)]
-            // Not `const`: a generic `fn` cannot be `const fn` while reading associated
-            // constants whose values depend on `Self`'s type arguments.
-            pub fn into_outer(self) -> $impl_name < $($gp),+ > {
-                $impl_name {
-                    base: $crate::ComposeBase::new(),
-                    identity: &<$impl_name < $($gp),+ >>::__VTABLE_IDENTITY,
-                    $($inits)*
-                    this: self,
-                    count: $crate::imp::WeakRefCount::new(),
-                }
-            }
-        }
-
-        impl< $($gp),+ > ::core::ops::Deref for $impl_name < $($gp),+ >
-        where $($wc)*
-        {
-            type Target = $name < $($gp),+ >;
-            #[inline(always)]
-            fn deref(&self) -> &Self::Target {
-                &self.this
-            }
-        }
-
-        impl< $($gp),+ > $crate::IUnknownImpl for $impl_name < $($gp),+ >
-        where $($wc)*
-        {
-            type Impl = $name < $($gp),+ >;
-
-            #[inline(always)]
-            fn get_impl(&self) -> &Self::Impl {
-                &self.this
-            }
-
-            #[inline(always)]
-            fn get_impl_mut(&mut self) -> &mut Self::Impl {
-                &mut self.this
-            }
-
-            #[inline(always)]
-            fn into_inner(self) -> Self::Impl {
-                self.this
-            }
-
-            #[inline(always)]
-            fn AddRef(&self) -> u32 {
-                self.count.add_ref()
-            }
-
-            #[inline(always)]
-            unsafe fn Release(self_: *mut Self) -> u32 {
-                unsafe {
-                    let remaining = (*self_).count.release();
-                    if remaining == 0 {
-                        _ = $crate::imp::Box::from_raw(self_);
-                    }
-                    remaining
-                }
-            }
-
-            #[inline(always)]
-            fn is_reference_count_one(&self) -> bool {
-                self.count.is_one()
-            }
-
-            unsafe fn GetTrustLevel(&self, value: *mut i32) -> $crate::HRESULT {
-                if value.is_null() {
-                    return $crate::imp::E_POINTER;
-                }
-                unsafe { *value = 0; }
-                $crate::HRESULT(0)
-            }
-
-            fn to_object(&self) -> $crate::ComObject<Self::Impl> {
-                self.count.add_ref();
-                unsafe {
-                    $crate::ComObject::from_raw(
-                        ::core::ptr::NonNull::new_unchecked(self as *const Self as *mut Self),
-                    )
-                }
-            }
-
-            unsafe fn QueryInterface(
-                &self,
-                iid: *const $crate::GUID,
-                interface: *mut *mut ::core::ffi::c_void,
-            ) -> $crate::HRESULT {
-                unsafe {
-                    if iid.is_null() || interface.is_null() {
-                        return $crate::imp::E_POINTER;
-                    }
-                    let iid = *iid;
-                    let interface_ptr: *const ::core::ffi::c_void = 'found: {
-                        if iid == <$crate::IUnknown as $crate::Interface>::IID
-                            || iid == <$crate::IInspectable as $crate::Interface>::IID
-                            || iid == <$crate::imp::IAgileObject as $crate::Interface>::IID
-                        {
-                            break 'found &self.identity as *const _ as *const ::core::ffi::c_void;
-                        }
-                        $(
-                            if <<$qi_ifty as $crate::Interface>::Vtable>::matches(&iid) {
-                                break 'found &self.$qi_iface as *const _ as *const ::core::ffi::c_void;
-                            }
-                        )*
-                        #[cfg(windows)]
-                        if iid == <$crate::imp::IMarshal as $crate::Interface>::IID {
-                            return $crate::imp::marshaler(
-                                <Self as $crate::IUnknownImpl>::to_interface::<$crate::IUnknown>(self),
-                                interface,
-                            );
-                        }
-                        if iid == $crate::DYNAMIC_CAST_IID {
-                            (interface as *mut *const dyn ::core::any::Any)
-                                .write(self as &dyn ::core::any::Any as *const dyn ::core::any::Any);
-                            return $crate::HRESULT(0);
-                        }
-                        let tear_off_ptr = self.count.query(
-                            &iid,
-                            &self.identity as *const _ as *mut _,
-                        );
-                        if !tear_off_ptr.is_null() {
-                            *interface = tear_off_ptr;
-                            return $crate::HRESULT(0);
-                        }
-                        if let ::core::option::Option::Some(base) = self.base.as_option() {
-                            return $crate::Interface::query(
-                                base,
-                                &iid as *const $crate::GUID,
-                                interface,
-                            );
-                        }
-                        *interface = ::core::ptr::null_mut();
-                        return $crate::imp::E_NOINTERFACE;
-                    };
-                    debug_assert!(!interface_ptr.is_null());
-                    *interface = interface_ptr as *mut ::core::ffi::c_void;
-                    self.count.add_ref();
-                    $crate::HRESULT(0)
-                }
-            }
-        }
-
-        impl< $($gp),+ > $crate::ComObjectInner for $name < $($gp),+ >
-        where $($wc)*
-        {
-            type Outer = $impl_name < $($gp),+ >;
-
-            fn into_object(self) -> $crate::ComObject<Self> {
-                let boxed = $crate::imp::Box::<$impl_name < $($gp),+ >>::new(self.into_outer());
-                unsafe {
-                    let ptr = $crate::imp::Box::into_raw(boxed);
-                    $crate::ComObject::from_raw(::core::ptr::NonNull::new_unchecked(ptr))
-                }
-            }
-        }
-
-        impl< $($gp),+ > $crate::Compose for $name < $($gp),+ >
-        where $($wc)*
-        {
-            unsafe fn compose<'a>(
-                implementation: Self,
-            ) -> ($crate::IInspectable, &'a mut ::core::option::Option<$crate::IInspectable>) {
-                unsafe {
-                    let inspectable: $crate::IInspectable = implementation.into();
-                    let identity_ptr: *mut ::core::ffi::c_void = $crate::Interface::as_raw(&inspectable);
-                    let base_ptr = (identity_ptr as *mut *mut ::core::ffi::c_void).sub(1)
-                        as *mut ::core::option::Option<$crate::IInspectable>;
-                    (inspectable, &mut *base_ptr)
-                }
-            }
-        }
-
-        impl< $($gp),+ > ::core::convert::From<$name < $($gp),+ >> for $crate::IUnknown
-        where $($wc)*
-        {
-            #[inline(always)]
-            fn from(this: $name < $($gp),+ >) -> Self {
-                let com_object = $crate::ComObject::new(this);
-                com_object.into_interface()
-            }
-        }
-
-        impl< $($gp),+ > ::core::convert::From<$name < $($gp),+ >> for $crate::IInspectable
-        where $($wc)*
-        {
-            #[inline(always)]
-            fn from(this: $name < $($gp),+ >) -> Self {
-                let com_object = $crate::ComObject::new(this);
-                com_object.into_interface()
-            }
-        }
-
-        impl< $($gp),+ > $crate::ComObjectInterface<$crate::IUnknown> for $impl_name < $($gp),+ >
-        where $($wc)*
-        {
-            #[inline(always)]
-            fn as_interface_ref(&self) -> $crate::InterfaceRef<'_, $crate::IUnknown> {
-                unsafe { ::core::mem::transmute(&self.identity) }
-            }
-        }
-
-        impl< $($gp),+ > $crate::ComObjectInterface<$crate::IInspectable> for $impl_name < $($gp),+ >
-        where $($wc)*
-        {
-            #[inline(always)]
-            fn as_interface_ref(&self) -> $crate::InterfaceRef<'_, $crate::IInspectable> {
-                unsafe { ::core::mem::transmute(&self.identity) }
-            }
-        }
-    };
-}
-
-// --- Per-interface impls ----------------------------------------------------------------
-//
-// Emits `From<Foo<G…>> for IFace`, `ComObjectInterface<IFace> for Foo_Impl<G…>`, and
-// `AsImpl<Foo<G…>> for IFace`, mirroring the per-interface emission in `implement_decl!`.
+// The generic arm dispatches directly into `@walk` (no entry/normalisation arm) — the
+// caller already passes the `index: [ ]` accumulator and `remaining: [ (ifty)+ ]` list.
 
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __implement_decl_g_per_iface_impls {
-    (
-        generics:    [ $($gp:ident),+ ],
-        wc:          { $($wc:tt)* },
-        name:        $name:ident,
-        impl_name:   $impl_name:ident,
-        interfaces:  [ $( ($iface:ident : $ifty:ty) )+ ]
-    ) => {
-        $crate::__implement_decl_g_per_iface_impls! {
-            @walk
-            generics:    [ $($gp),+ ],
-            wc:          { $($wc)* },
-            name:        $name,
-            impl_name:   $impl_name,
-            index:       [ ],
-            remaining:   [ $( ($iface : $ifty) )+ ]
-        }
-    };
-
     (@walk
         generics:    [ $($gp:ident),+ ],
         wc:          { $($wc:tt)* },
         name:        $name:ident,
         impl_name:   $impl_name:ident,
         index:       [ $($index:tt)* ],
-        remaining:   [ ($iface:ident : $ifty:ty) $($rest:tt)* ]
+        remaining:   [ ($ifty:ty) $($rest:tt)* ]
     ) => {
-        impl< $($gp),+ > ::core::convert::From<$name < $($gp),+ >> for $ifty
+        impl< $($gp),+ > ::core::convert::From<$name< $($gp),+ >> for $ifty
         where $($wc)*
         {
             #[inline(always)]
-            fn from(this: $name < $($gp),+ >) -> Self {
+            fn from(this: $name< $($gp),+ >) -> Self {
                 let com_object = $crate::ComObject::new(this);
                 com_object.into_interface()
             }
         }
 
-        impl< $($gp),+ > $crate::ComObjectInterface<$ifty> for $impl_name < $($gp),+ >
+        impl< $($gp),+ > $crate::ComObjectInterface<$ifty> for $impl_name< $($gp),+ >
         where $($wc)*
         {
             #[inline(always)]
             fn as_interface_ref(&self) -> $crate::InterfaceRef<'_, $ifty> {
-                unsafe { ::core::mem::transmute(&self.$iface) }
+                unsafe {
+                    self.as_slot_interface::<
+                        $ifty,
+                        { $crate::__implement_decl_index_plus_one!($($index)*) },
+                    >()
+                }
             }
         }
 
-        impl< $($gp),+ > $crate::AsImpl<$name < $($gp),+ >> for $ifty
+        impl< $($gp),+ > $crate::AsImpl<$name< $($gp),+ >> for $ifty
         where $($wc)*
         {
             #[inline(always)]
-            unsafe fn as_impl_ptr(&self) -> ::core::ptr::NonNull<$name < $($gp),+ >> {
+            unsafe fn as_impl_ptr(&self) -> ::core::ptr::NonNull<$name< $($gp),+ >> {
                 unsafe {
                     let this = $crate::Interface::as_raw(self);
+                    // SLOT + 1 pointer-units back from the vtable pointer = start of
+                    // `Outer<Foo<G…>, …>` (identity at -1, this chain at -(1 + SLOT) =
+                    // -(2 + index)). Reach the user value through the public
+                    // `IUnknownImpl::get_impl` blanket since `Outer.this` is `pub(super)`.
                     let this = (this as *mut *mut ::core::ffi::c_void)
-                        .sub($crate::__implement_decl_index_plus_two!($($index)*))
-                        as *mut $impl_name < $($gp),+ >;
+                        .sub({ $crate::__implement_decl_index_plus_one!($($index)*) } + 1)
+                        as *const $impl_name< $($gp),+ >;
+                    let inner: &$name< $($gp),+ > = $crate::IUnknownImpl::get_impl(&*this);
                     ::core::ptr::NonNull::new_unchecked(
-                        ::core::ptr::addr_of!((*this).this)
-                            as *const $name < $($gp),+ >
-                            as *mut $name < $($gp),+ >,
+                        inner as *const $name< $($gp),+ > as *mut $name< $($gp),+ >,
                     )
                 }
             }

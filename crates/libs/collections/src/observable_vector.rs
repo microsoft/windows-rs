@@ -95,7 +95,7 @@ where
                 .ok_or_else(|| Error::from(E_BOUNDS))?;
             *item = ref_as_default::<T>(&value).clone();
         }
-        self.fire_changed(CollectionChange::ItemChanged, index);
+        fire_changed(self, CollectionChange::ItemChanged, index);
         Ok(())
     }
 
@@ -108,7 +108,7 @@ where
             }
             values.insert(index, ref_as_default::<T>(&value).clone());
         }
-        self.fire_changed(CollectionChange::ItemInserted, index);
+        fire_changed(self, CollectionChange::ItemInserted, index);
         Ok(())
     }
 
@@ -120,7 +120,7 @@ where
             }
             values.remove(index as usize);
         }
-        self.fire_changed(CollectionChange::ItemRemoved, index);
+        fire_changed(self, CollectionChange::ItemRemoved, index);
         Ok(())
     }
 
@@ -130,7 +130,7 @@ where
             values.push(ref_as_default::<T>(&value).clone());
             (values.len() - 1) as u32
         };
-        self.fire_changed(CollectionChange::ItemInserted, index);
+        fire_changed(self, CollectionChange::ItemInserted, index);
         Ok(())
     }
 
@@ -144,13 +144,13 @@ where
             values.pop();
             index
         };
-        self.fire_changed(CollectionChange::ItemRemoved, index);
+        fire_changed(self, CollectionChange::ItemRemoved, index);
         Ok(())
     }
 
     fn Clear(&self) -> Result<()> {
         self.values.write().unwrap().clear();
-        self.fire_changed(CollectionChange::Reset, 0);
+        fire_changed(self, CollectionChange::Reset, 0);
         Ok(())
     }
 
@@ -174,23 +174,28 @@ where
             values.clear();
             values.extend_from_slice(items);
         }
-        self.fire_changed(CollectionChange::Reset, 0);
+        fire_changed(self, CollectionChange::Reset, 0);
         Ok(())
     }
 }
 
-impl<T> StockObservableVector_Impl<T>
+// Free function (rather than an inherent method on `StockObservableVector_Impl<T>`):
+// since Step 2c of `docs/option-d.md` reskinned `implement_decl!` so that
+// `_Impl<T>` is now a type alias for `windows_core::imp::Outer<…>`, an inherent
+// `impl<T> StockObservableVector_Impl<T> { … }` block would be an inherent impl on
+// a foreign generic type and rejected by the orphan rules (E0116). The behaviour
+// and signature are unchanged; call sites switch from `self.fire_changed(...)` to
+// `fire_changed(self, ...)`.
+fn fire_changed<T>(this: &StockObservableVector_Impl<T>, change: CollectionChange, index: u32)
 where
     T: RuntimeType,
     T::Default: Clone + PartialEq,
 {
-    fn fire_changed(&self, change: CollectionChange, index: u32) {
-        let observable: IObservableVector<T> = self.to_object().into_interface();
-        let args: IVectorChangedEventArgs =
-            ComObject::new(StockVectorChangedEventArgs { change, index }).into_interface();
-        self.handlers
-            .call(|handler: &VectorChangedEventHandler<T>| handler.Invoke(&observable, &args));
-    }
+    let observable: IObservableVector<T> = this.to_object().into_interface();
+    let args: IVectorChangedEventArgs =
+        ComObject::new(StockVectorChangedEventArgs { change, index }).into_interface();
+    this.handlers
+        .call(|handler: &VectorChangedEventHandler<T>| handler.Invoke(&observable, &args));
 }
 
 struct StockVectorChangedEventArgs {
