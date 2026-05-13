@@ -35,29 +35,31 @@ impl TypeMap {
                 for (name, types) in &reader[namespace] {
                     if let Some(filter_rule) = filter.includes_type_name(TypeName(namespace, name))
                     {
-                        // if a reference is more specific than the filter, then we shouldn't include the matched type or its dependencies.
-                        if !references
+                        // A longer rule string means a more specific (fully-qualified) path.
+                        // Skip types already owned by a reference whose rule is more specific
+                        // (longer) than the filter rule that matched this type.
+                        if references
                             .matching_rule(TypeName(namespace, name))
-                            .map_or(false, |reference_rule| {
-                                reference_rule.len() > filter_rule.len()
-                            })
+                            .is_some_and(|reference_rule| reference_rule.len() > filter_rule.len())
                         {
-                            let mut item_dependencies = Self::new();
-
-                            for ty in types {
-                                ty.combine(&mut item_dependencies, reader);
-                            }
-
-                            if item_dependencies.excluded(filter, references) {
-                                continue;
-                            }
-
-                            for ty in types {
-                                dependencies.insert(ty.clone());
-                            }
-
-                            dependencies.combine_references(&item_dependencies, references);
+                            continue;
                         }
+
+                        let mut item_dependencies = Self::new();
+
+                        for ty in types {
+                            ty.combine(&mut item_dependencies, reader);
+                        }
+
+                        if item_dependencies.excluded(filter, references) {
+                            continue;
+                        }
+
+                        for ty in types {
+                            dependencies.insert(ty.clone());
+                        }
+
+                        dependencies.combine_references(&item_dependencies, references);
                     }
                 }
             }
