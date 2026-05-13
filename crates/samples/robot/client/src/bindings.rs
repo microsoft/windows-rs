@@ -75,6 +75,12 @@ impl IRobotInterop_Vtbl {
         iid == &<IRobotInterop as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRobotInterop_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IRobotInterop_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IRobotInterop {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

@@ -58,6 +58,15 @@ pub mod Windows {
                 iid == &<IClosable as windows_core::Interface>::IID
             }
         }
+        impl<
+                Identity: windows_core::IUnknownImpl + IClosable_Impl + 'static,
+                const OFFSET: isize,
+            > windows_core::imp::VtableCtor<Identity, OFFSET> for IClosable_Vtbl
+        {
+            const NEW: Self = <Self>::new::<Identity, OFFSET>();
+            const NEW_REF: &'static Self =
+                &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+        }
         #[repr(C)]
         #[doc(hidden)]
         pub struct IClosable_Vtbl {
@@ -142,6 +151,15 @@ pub mod Windows {
             pub fn matches(iid: &windows_core::GUID) -> bool {
                 iid == &<IMemoryBuffer as windows_core::Interface>::IID
             }
+        }
+        impl<
+                Identity: windows_core::IUnknownImpl + IMemoryBuffer_Impl + 'static,
+                const OFFSET: isize,
+            > windows_core::imp::VtableCtor<Identity, OFFSET> for IMemoryBuffer_Vtbl
+        {
+            const NEW: Self = <Self>::new::<Identity, OFFSET>();
+            const NEW_REF: &'static Self =
+                &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
         }
         #[repr(C)]
         #[doc(hidden)]

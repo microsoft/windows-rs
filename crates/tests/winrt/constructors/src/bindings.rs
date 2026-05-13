@@ -216,6 +216,12 @@ impl IActivatable_Vtbl {
         iid == &<IActivatable as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IActivatable_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IActivatable_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivatable_Vtbl {
@@ -270,6 +276,12 @@ impl IActivatableFactory_Vtbl {
         iid == &<IActivatableFactory as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IActivatableFactory_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IActivatableFactory_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivatableFactory_Vtbl {
@@ -321,6 +333,12 @@ impl IComposable_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IComposable as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IComposable_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IComposable_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -419,6 +437,12 @@ impl IComposableFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IComposableFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IComposableFactory_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IComposableFactory_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -66,6 +66,12 @@ impl IStringable_Vtbl {
         iid == &<IStringable as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IStringable_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IStringable_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStringable_Vtbl {

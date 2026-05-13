@@ -182,6 +182,12 @@ impl ICompositor_Vtbl {
         iid == &<ICompositor as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ICompositor_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for ICompositor_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositor_Vtbl {
@@ -235,6 +241,12 @@ impl IContainerVisual_Vtbl {
         iid == &<IContainerVisual as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IContainerVisual_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IContainerVisual_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContainerVisual_Vtbl {
@@ -265,6 +277,12 @@ impl IContainerVisualFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContainerVisualFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IContainerVisualFactory_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IContainerVisualFactory_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -308,6 +326,12 @@ impl ISpriteVisual_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpriteVisual as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ISpriteVisual_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for ISpriteVisual_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -358,6 +382,12 @@ impl IVisual_Vtbl {
         iid == &<IVisual as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IVisual_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IVisual_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisual_Vtbl {
@@ -389,6 +419,12 @@ impl IVisualFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVisualFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IVisualFactory_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IVisualFactory_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -130,6 +130,12 @@ impl IFoo_Vtbl {
         iid == &<IFoo as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IFoo_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IFoo_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFoo_Vtbl {
@@ -217,6 +223,12 @@ impl IFooFactory_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFooFactory as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IFooFactory_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IFooFactory_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

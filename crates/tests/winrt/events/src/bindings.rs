@@ -186,6 +186,12 @@ impl IClass_Vtbl {
         iid == &<IClass as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IClass_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IClass_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClass_Vtbl {
@@ -282,6 +288,12 @@ impl IClassStatics_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IClassStatics as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IClassStatics_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IClassStatics_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

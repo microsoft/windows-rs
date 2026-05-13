@@ -66,6 +66,13 @@ pub mod Test {
             iid == &<IBase as windows_core::Interface>::IID
         }
     }
+    impl<Identity: windows_core::IUnknownImpl + IBase_Impl + 'static, const OFFSET: isize>
+        windows_core::imp::VtableCtor<Identity, OFFSET> for IBase_Vtbl
+    {
+        const NEW: Self = <Self>::new::<Identity, OFFSET>();
+        const NEW_REF: &'static Self =
+            &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+    }
     #[repr(C)]
     #[doc(hidden)]
     pub struct IBase_Vtbl {
@@ -98,6 +105,13 @@ pub mod Test {
         pub fn matches(iid: &windows_core::GUID) -> bool {
             iid == &<IDerived as windows_core::Interface>::IID
         }
+    }
+    impl<Identity: windows_core::IUnknownImpl + IDerived_Impl + 'static, const OFFSET: isize>
+        windows_core::imp::VtableCtor<Identity, OFFSET> for IDerived_Vtbl
+    {
+        const NEW: Self = <Self>::new::<Identity, OFFSET>();
+        const NEW_REF: &'static Self =
+            &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
     }
     #[repr(C)]
     #[doc(hidden)]

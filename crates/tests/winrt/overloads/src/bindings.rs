@@ -382,6 +382,12 @@ impl IA_Vtbl {
         iid == &<IA as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IA_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IA_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IA_Vtbl {
@@ -447,6 +453,12 @@ impl IB_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IB as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IB_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IB_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -514,6 +526,12 @@ impl IC_Vtbl {
         iid == &<IC as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IC_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IC_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IC_Vtbl {
@@ -579,6 +597,12 @@ impl ID_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for ID_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -649,6 +673,12 @@ impl ID2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID2_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for ID2_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -725,6 +755,12 @@ impl IE_Vtbl {
         iid == &<IE as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IE_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IE_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IE_Vtbl {
@@ -794,6 +830,12 @@ impl IE2_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IE2 as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IE2_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IE2_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -88,6 +88,14 @@ impl ID3D12DeviceChild_Vtbl {
             || iid == &<ID3D12Object as windows_core::Interface>::IID
     }
 }
+impl<
+        Identity: windows_core::IUnknownImpl + ID3D12DeviceChild_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D12DeviceChild_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D12DeviceChild {}
 windows_core::imp::define_interface!(
     ID3D12Object,
@@ -291,6 +299,12 @@ impl ID3D12Object_Vtbl {
         iid == &<ID3D12Object as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + ID3D12Object_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D12Object_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for ID3D12Object {}
 windows_core::imp::define_interface!(
     ID3D12Pageable,
@@ -328,6 +342,12 @@ impl ID3D12Pageable_Vtbl {
             || iid == &<ID3D12Object as windows_core::Interface>::IID
             || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ID3D12Pageable_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for ID3D12Pageable_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for ID3D12Pageable {}
 windows_core::imp::define_interface!(

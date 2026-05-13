@@ -223,6 +223,15 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
         iid == &<IIterable<T> as windows_core::Interface>::IID
     }
 }
+impl<
+        T: windows_core::RuntimeType + 'static,
+        Identity: windows_core::IUnknownImpl + IIterable_Impl<T> + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IIterable_Vtbl<T>
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIterable_Vtbl<T>
@@ -441,6 +450,15 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
         iid == &<IIterator<T> as windows_core::Interface>::IID
     }
 }
+impl<
+        T: windows_core::RuntimeType + 'static,
+        Identity: windows_core::IUnknownImpl + IIterator_Impl<T> + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IIterator_Vtbl<T>
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIterator_Vtbl<T>
@@ -601,6 +619,12 @@ impl ITest_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ITest as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + ITest_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for ITest_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

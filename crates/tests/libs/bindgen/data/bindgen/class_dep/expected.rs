@@ -85,6 +85,15 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
         iid == &<IIterable<T> as windows_core::Interface>::IID
     }
 }
+impl<
+        T: windows_core::RuntimeType + 'static,
+        Identity: windows_core::IUnknownImpl + IIterable_Impl<T> + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IIterable_Vtbl<T>
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIterable_Vtbl<T>
@@ -302,6 +311,15 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IIterator<T> as windows_core::Interface>::IID
     }
+}
+impl<
+        T: windows_core::RuntimeType + 'static,
+        Identity: windows_core::IUnknownImpl + IIterator_Impl<T> + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IIterator_Vtbl<T>
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -579,6 +597,15 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
         iid == &<IVectorView<T> as windows_core::Interface>::IID
     }
 }
+impl<
+        T: windows_core::RuntimeType + 'static,
+        Identity: windows_core::IUnknownImpl + IVectorView_Impl<T> + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IVectorView_Vtbl<T>
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVectorView_Vtbl<T>
@@ -702,6 +729,14 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWwwFormUrlDecoderEntry as windows_core::Interface>::IID
     }
+}
+impl<
+        Identity: windows_core::IUnknownImpl + IWwwFormUrlDecoderEntry_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IWwwFormUrlDecoderEntry_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 #[repr(C)]
 #[doc(hidden)]

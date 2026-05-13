@@ -256,6 +256,14 @@ impl IDynamicConceptProviderConcept_Vtbl {
         iid == &<IDynamicConceptProviderConcept as windows_core::Interface>::IID
     }
 }
+impl<
+        Identity: windows_core::IUnknownImpl + IDynamicConceptProviderConcept_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IDynamicConceptProviderConcept_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IDynamicConceptProviderConcept {}
 windows_core::imp::define_interface!(
     IKeyStore,
@@ -492,6 +500,12 @@ impl IKeyStore_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKeyStore as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IKeyStore_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IKeyStore_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IKeyStore {}
 windows_core::imp::define_interface!(

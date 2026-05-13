@@ -51,6 +51,12 @@ impl IRobot_Vtbl {
         iid == &<IRobot as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IRobot_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IRobot_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRobot_Vtbl {
@@ -101,6 +107,12 @@ impl IRobotInterop_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRobotInterop as windows_core::Interface>::IID
     }
+}
+impl<Identity: windows_core::IUnknownImpl + IRobotInterop_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IRobotInterop_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
 }
 impl windows_core::RuntimeName for IRobotInterop {}
 #[repr(transparent)]

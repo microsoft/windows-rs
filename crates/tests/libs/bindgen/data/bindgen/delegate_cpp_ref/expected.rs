@@ -75,6 +75,14 @@ impl IActivationFactory_Vtbl {
         iid == &<IActivationFactory as windows_core::Interface>::IID
     }
 }
+impl<
+        Identity: windows_core::IUnknownImpl + IActivationFactory_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IActivationFactory_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IActivationFactory {}
 pub type PFNGETACTIVATIONFACTORY = Option<
     unsafe extern "system" fn(

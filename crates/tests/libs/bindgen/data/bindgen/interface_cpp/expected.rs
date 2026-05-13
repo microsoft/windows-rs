@@ -63,4 +63,10 @@ impl IPersist_Vtbl {
         iid == &<IPersist as windows_core::Interface>::IID
     }
 }
+impl<Identity: windows_core::IUnknownImpl + IPersist_Impl + 'static, const OFFSET: isize>
+    windows_core::imp::VtableCtor<Identity, OFFSET> for IPersist_Vtbl
+{
+    const NEW: Self = <Self>::new::<Identity, OFFSET>();
+    const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
+}
 impl windows_core::RuntimeName for IPersist {}
