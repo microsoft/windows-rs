@@ -341,7 +341,7 @@ fn register_method_filter(
 
 fn match_type_name(rule: &str, namespace: &str, name: &str) -> bool {
     if rule.len() <= namespace.len() {
-        return namespace_starts_with(namespace, rule);
+        return namespace.starts_with(rule);
     }
 
     if !rule.starts_with(namespace) {
