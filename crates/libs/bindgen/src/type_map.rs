@@ -35,7 +35,9 @@ impl TypeMap {
                 for (name, types) in &reader[namespace] {
                     if let Some(filter_rule) = filter.includes_type_name(TypeName(namespace, name))
                     {
-                        // Skip types whose reference rule is more specific than the filter rule.
+                        // A longer rule string means a more specific (fully-qualified) path.
+                        // Skip types already owned by a reference whose rule is more specific
+                        // (longer) than the filter rule that matched this type.
                         if references
                             .matching_rule(TypeName(namespace, name))
                             .is_some_and(|reference_rule| reference_rule.len() > filter_rule.len())
