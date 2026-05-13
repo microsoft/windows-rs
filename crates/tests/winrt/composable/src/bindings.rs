@@ -241,8 +241,10 @@ impl IContainerVisual_Vtbl {
         iid == &<IContainerVisual as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IContainerVisual_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IContainerVisual_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IContainerVisual_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IContainerVisual_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -278,8 +280,10 @@ impl IContainerVisualFactory_Vtbl {
         iid == &<IContainerVisualFactory as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IContainerVisualFactory_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IContainerVisualFactory_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IContainerVisualFactory_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IContainerVisualFactory_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;

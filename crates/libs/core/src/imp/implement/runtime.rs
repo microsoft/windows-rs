@@ -29,7 +29,7 @@ use super::outer::{Implemented, Outer};
 use super::vtbl::VtableCtor;
 use crate::imp::WeakRefCount;
 use crate::{
-    imp, ComObject, ComObjectInner, ComObjectInterface, ComposeBase, IInspectable,
+    imp, ComObject, ComObjectInner, ComObjectInterface, Compose, ComposeBase, IInspectable,
     IInspectable_Vtbl, IUnknown, IUnknownImpl, Interface, InterfaceRef, GUID, HRESULT,
 };
 use core::ffi::c_void;
@@ -353,5 +353,41 @@ where
     #[inline(always)]
     fn from(this: T) -> Self {
         ComObject::new(this).into_interface()
+    }
+}
+
+// =============================================================================
+// `Compose` — aggregation entry point
+// =============================================================================
+//
+// Mirrors the per-use-site `Compose` impl emitted today by `#[implement]` and
+// `implement_decl!` (see `crates/libs/implement/src/gen.rs:292` and
+// `crates/libs/core/src/implement_macro.rs:456,1061`). The body works on any
+// `Outer<T, L>` because the foundation pins the layout: `base: ComposeBase` is
+// `repr(transparent)` over `Option<IInspectable>` and lives in the pointer-slot
+// immediately before `identity`, so the inner non-delegating slot is reachable
+// at `identity_ptr.sub(1)`.
+//
+// No coherence collision today: macro-emitted types do not implement
+// `Implemented`, so this blanket only fires for hand-written-foundation users.
+// When the macros are reskinned (Step 2/3) to also emit `impl Implemented`,
+// they must drop their per-use-site `Compose` emission and let this blanket
+// apply.
+
+impl<T> Compose for T
+where
+    T: Implemented,
+    T::Interfaces: ListVtables<Outer<T, T::Interfaces>>,
+    IInspectable_Vtbl: VtableCtor<Outer<T, T::Interfaces>, -1>,
+{
+    unsafe fn compose<'a>(implementation: Self) -> (IInspectable, &'a mut Option<IInspectable>) {
+        unsafe {
+            let inspectable: IInspectable = implementation.into();
+            let identity_ptr: *mut c_void = Interface::as_raw(&inspectable);
+            // `base` lives in the pointer-slot immediately before `identity`
+            // (`ComposeBase` is `repr(transparent)` over `Option<IInspectable>`).
+            let base_ptr = (identity_ptr as *mut *mut c_void).sub(1) as *mut Option<IInspectable>;
+            (inspectable, &mut *base_ptr)
+        }
     }
 }

@@ -123,8 +123,10 @@ impl IJsonValidatorFactory_Vtbl {
         iid == &<IJsonValidatorFactory as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IJsonValidatorFactory_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IJsonValidatorFactory_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IJsonValidatorFactory_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IJsonValidatorFactory_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;

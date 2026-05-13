@@ -3704,8 +3704,11 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
         iid == &<ICoreWebView2AcceleratorKeyPressedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2AcceleratorKeyPressedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2AcceleratorKeyPressedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -3817,8 +3820,11 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl {
             || iid == &<ICoreWebView2AcceleratorKeyPressedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2AcceleratorKeyPressedEventArgs2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2AcceleratorKeyPressedEventArgs2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -3899,8 +3905,11 @@ impl ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
         iid == &<ICoreWebView2AcceleratorKeyPressedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2AcceleratorKeyPressedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2AcceleratorKeyPressedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -3980,8 +3989,13 @@ impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
         iid == & < ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -4228,8 +4242,13 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
         iid == &<ICoreWebView2BasicAuthenticationRequestedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -4312,8 +4331,13 @@ impl ICoreWebView2BasicAuthenticationRequestedEventHandler_Vtbl {
         iid == & < ICoreWebView2BasicAuthenticationRequestedEventHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2BasicAuthenticationRequestedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2BasicAuthenticationRequestedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2BasicAuthenticationRequestedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2BasicAuthenticationRequestedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -4476,8 +4500,11 @@ impl ICoreWebView2BasicAuthenticationResponse_Vtbl {
         iid == &<ICoreWebView2BasicAuthenticationResponse as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2BasicAuthenticationResponse_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2BasicAuthenticationResponse_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2BasicAuthenticationResponse_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2BasicAuthenticationResponse_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -4689,8 +4716,10 @@ impl ICoreWebView2BrowserExtension_Vtbl {
         iid == &<ICoreWebView2BrowserExtension as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2BrowserExtension_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2BrowserExtension_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2BrowserExtension_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2BrowserExtension_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -4761,8 +4790,13 @@ impl ICoreWebView2BrowserExtensionEnableCompletedHandler_Vtbl {
         iid == & < ICoreWebView2BrowserExtensionEnableCompletedHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2BrowserExtensionEnableCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2BrowserExtensionEnableCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2BrowserExtensionEnableCompletedHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2BrowserExtensionEnableCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -4872,8 +4906,10 @@ impl ICoreWebView2BrowserExtensionList_Vtbl {
         iid == &<ICoreWebView2BrowserExtensionList as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2BrowserExtensionList_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2BrowserExtensionList_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2BrowserExtensionList_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2BrowserExtensionList_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -4944,8 +4980,13 @@ impl ICoreWebView2BrowserExtensionRemoveCompletedHandler_Vtbl {
         iid == & < ICoreWebView2BrowserExtensionRemoveCompletedHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2BrowserExtensionRemoveCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2BrowserExtensionRemoveCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2BrowserExtensionRemoveCompletedHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2BrowserExtensionRemoveCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -5055,8 +5096,11 @@ impl ICoreWebView2BrowserProcessExitedEventArgs_Vtbl {
         iid == &<ICoreWebView2BrowserProcessExitedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2BrowserProcessExitedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2BrowserProcessExitedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2BrowserProcessExitedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2BrowserProcessExitedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -5137,8 +5181,11 @@ impl ICoreWebView2BrowserProcessExitedEventHandler_Vtbl {
         iid == &<ICoreWebView2BrowserProcessExitedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2BrowserProcessExitedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2BrowserProcessExitedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2BrowserProcessExitedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2BrowserProcessExitedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -5219,8 +5266,11 @@ impl ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2BytesReceivedChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2BytesReceivedChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2BytesReceivedChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2BytesReceivedChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2BytesReceivedChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -5300,8 +5350,13 @@ impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
         iid == & < ICoreWebView2CallDevToolsProtocolMethodCompletedHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -5370,8 +5425,11 @@ impl ICoreWebView2CapturePreviewCompletedHandler_Vtbl {
         iid == &<ICoreWebView2CapturePreviewCompletedHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CapturePreviewCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CapturePreviewCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2CapturePreviewCompletedHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2CapturePreviewCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -5672,8 +5730,10 @@ impl ICoreWebView2Certificate_Vtbl {
         iid == &<ICoreWebView2Certificate as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Certificate_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Certificate_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Certificate_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Certificate_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -5742,8 +5802,11 @@ impl ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
         iid == &<ICoreWebView2ClearBrowsingDataCompletedHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ClearBrowsingDataCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ClearBrowsingDataCompletedHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -5814,8 +5877,13 @@ impl ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl {
         iid == & < ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -6151,8 +6219,10 @@ impl ICoreWebView2ClientCertificate_Vtbl {
         iid == &<ICoreWebView2ClientCertificate as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ClientCertificate_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ClientCertificate_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ClientCertificate_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ClientCertificate_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -6269,8 +6339,11 @@ impl ICoreWebView2ClientCertificateCollection_Vtbl {
         iid == &<ICoreWebView2ClientCertificateCollection as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ClientCertificateCollection_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ClientCertificateCollection_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ClientCertificateCollection_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ClientCertificateCollection_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -6719,8 +6792,13 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
         iid == &<ICoreWebView2ClientCertificateRequestedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ClientCertificateRequestedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2ClientCertificateRequestedEventArgs_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -6803,8 +6881,13 @@ impl ICoreWebView2ClientCertificateRequestedEventHandler_Vtbl {
         iid == & < ICoreWebView2ClientCertificateRequestedEventHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ClientCertificateRequestedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ClientCertificateRequestedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2ClientCertificateRequestedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ClientCertificateRequestedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -7159,8 +7242,10 @@ impl ICoreWebView2CompositionController_Vtbl {
         iid == &<ICoreWebView2CompositionController as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CompositionController_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CompositionController_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2CompositionController_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CompositionController_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -7240,8 +7325,10 @@ impl ICoreWebView2CompositionController2_Vtbl {
             || iid == &<ICoreWebView2CompositionController as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CompositionController2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CompositionController2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2CompositionController2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CompositionController2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -7486,8 +7573,10 @@ impl ICoreWebView2CompositionController3_Vtbl {
             || iid == &<ICoreWebView2CompositionController2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CompositionController3_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CompositionController3_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2CompositionController3_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CompositionController3_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -7710,8 +7799,10 @@ impl ICoreWebView2CompositionController4_Vtbl {
             || iid == &<ICoreWebView2CompositionController3 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CompositionController4_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CompositionController4_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2CompositionController4_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CompositionController4_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -7839,8 +7930,10 @@ impl ICoreWebView2CompositionController5_Vtbl {
             || iid == &<ICoreWebView2CompositionController4 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CompositionController5_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CompositionController5_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2CompositionController5_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CompositionController5_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -7923,8 +8016,13 @@ impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
         iid == & < ICoreWebView2ContainsFullScreenElementChangedEventHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -8027,8 +8125,11 @@ impl ICoreWebView2ContentLoadingEventArgs_Vtbl {
         iid == &<ICoreWebView2ContentLoadingEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ContentLoadingEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ContentLoadingEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ContentLoadingEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ContentLoadingEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -8109,8 +8210,11 @@ impl ICoreWebView2ContentLoadingEventHandler_Vtbl {
         iid == &<ICoreWebView2ContentLoadingEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ContentLoadingEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ContentLoadingEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ContentLoadingEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ContentLoadingEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -8589,8 +8693,10 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
         iid == &<ICoreWebView2ContextMenuItem as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ContextMenuItem_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ContextMenuItem_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ContextMenuItem_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ContextMenuItem_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -8779,8 +8885,11 @@ impl ICoreWebView2ContextMenuItemCollection_Vtbl {
         iid == &<ICoreWebView2ContextMenuItemCollection as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ContextMenuItemCollection_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ContextMenuItemCollection_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ContextMenuItemCollection_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ContextMenuItemCollection_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -9087,8 +9196,11 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
         iid == &<ICoreWebView2ContextMenuRequestedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ContextMenuRequestedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ContextMenuRequestedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ContextMenuRequestedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ContextMenuRequestedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -9169,8 +9281,11 @@ impl ICoreWebView2ContextMenuRequestedEventHandler_Vtbl {
         iid == &<ICoreWebView2ContextMenuRequestedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ContextMenuRequestedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ContextMenuRequestedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ContextMenuRequestedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ContextMenuRequestedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -9644,8 +9759,10 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
         iid == &<ICoreWebView2ContextMenuTarget as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ContextMenuTarget_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ContextMenuTarget_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ContextMenuTarget_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ContextMenuTarget_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -10489,8 +10606,10 @@ impl ICoreWebView2Controller_Vtbl {
         iid == &<ICoreWebView2Controller as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Controller_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Controller_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Controller_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Controller_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -10602,8 +10721,10 @@ impl ICoreWebView2Controller2_Vtbl {
             || iid == &<ICoreWebView2Controller as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Controller2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Controller2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Controller2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Controller2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -10938,8 +11059,10 @@ impl ICoreWebView2Controller3_Vtbl {
             || iid == &<ICoreWebView2Controller2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Controller3_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Controller3_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Controller3_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Controller3_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -11052,8 +11175,10 @@ impl ICoreWebView2Controller4_Vtbl {
             || iid == &<ICoreWebView2Controller3 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Controller4_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Controller4_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Controller4_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Controller4_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -11214,8 +11339,10 @@ impl ICoreWebView2ControllerOptions_Vtbl {
         iid == &<ICoreWebView2ControllerOptions as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ControllerOptions_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ControllerOptions_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ControllerOptions_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ControllerOptions_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -11321,8 +11448,10 @@ impl ICoreWebView2ControllerOptions2_Vtbl {
             || iid == &<ICoreWebView2ControllerOptions as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ControllerOptions2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ControllerOptions2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ControllerOptions2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ControllerOptions2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -11437,8 +11566,10 @@ impl ICoreWebView2ControllerOptions3_Vtbl {
             || iid == &<ICoreWebView2ControllerOptions2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ControllerOptions3_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ControllerOptions3_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ControllerOptions3_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ControllerOptions3_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -11552,8 +11683,10 @@ impl ICoreWebView2ControllerOptions4_Vtbl {
             || iid == &<ICoreWebView2ControllerOptions3 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ControllerOptions4_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ControllerOptions4_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ControllerOptions4_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ControllerOptions4_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -12026,8 +12159,10 @@ impl ICoreWebView2Cookie_Vtbl {
         iid == &<ICoreWebView2Cookie as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Cookie_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Cookie_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Cookie_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Cookie_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -12135,8 +12270,10 @@ impl ICoreWebView2CookieList_Vtbl {
         iid == &<ICoreWebView2CookieList as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CookieList_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CookieList_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2CookieList_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CookieList_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -12511,8 +12648,10 @@ impl ICoreWebView2CookieManager_Vtbl {
         iid == &<ICoreWebView2CookieManager as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CookieManager_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CookieManager_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2CookieManager_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CookieManager_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -12598,8 +12737,13 @@ impl ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl {
         iid == & < ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -12688,8 +12832,13 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
         iid == & < ICoreWebView2CreateCoreWebView2ControllerCompletedHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -12775,8 +12924,13 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
         iid == & < ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -12855,8 +13009,11 @@ impl ICoreWebView2CursorChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2CursorChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CursorChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CursorChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2CursorChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2CursorChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -12937,8 +13094,11 @@ impl ICoreWebView2CustomItemSelectedEventHandler_Vtbl {
         iid == &<ICoreWebView2CustomItemSelectedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CustomItemSelectedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CustomItemSelectedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2CustomItemSelectedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2CustomItemSelectedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -13234,8 +13394,11 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
         iid == &<ICoreWebView2CustomSchemeRegistration as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2CustomSchemeRegistration_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2CustomSchemeRegistration_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2CustomSchemeRegistration_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2CustomSchemeRegistration_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -13303,8 +13466,11 @@ impl ICoreWebView2DOMContentLoadedEventArgs_Vtbl {
         iid == &<ICoreWebView2DOMContentLoadedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2DOMContentLoadedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2DOMContentLoadedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2DOMContentLoadedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2DOMContentLoadedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -13385,8 +13551,11 @@ impl ICoreWebView2DOMContentLoadedEventHandler_Vtbl {
         iid == &<ICoreWebView2DOMContentLoadedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2DOMContentLoadedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2DOMContentLoadedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2DOMContentLoadedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2DOMContentLoadedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -13438,8 +13607,10 @@ impl ICoreWebView2Deferral_Vtbl {
         iid == &<ICoreWebView2Deferral as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Deferral_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Deferral_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Deferral_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Deferral_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -13505,8 +13676,13 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl {
         iid == & < ICoreWebView2DevToolsProtocolEventReceivedEventArgs as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -13586,8 +13762,13 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Vtbl {
         iid == & < ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 as windows_core::Interface >::IID || iid == & < ICoreWebView2DevToolsProtocolEventReceivedEventArgs as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -13670,8 +13851,13 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
         iid == & < ICoreWebView2DevToolsProtocolEventReceivedEventHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -13781,8 +13967,11 @@ impl ICoreWebView2DevToolsProtocolEventReceiver_Vtbl {
         iid == &<ICoreWebView2DevToolsProtocolEventReceiver as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2DevToolsProtocolEventReceiver_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2DevToolsProtocolEventReceiver_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2DevToolsProtocolEventReceiver_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2DevToolsProtocolEventReceiver_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -13863,8 +14052,11 @@ impl ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2DocumentTitleChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2DocumentTitleChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2DocumentTitleChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2DocumentTitleChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2DocumentTitleChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -14530,8 +14722,10 @@ impl ICoreWebView2DownloadOperation_Vtbl {
         iid == &<ICoreWebView2DownloadOperation as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2DownloadOperation_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2DownloadOperation_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2DownloadOperation_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2DownloadOperation_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -14833,8 +15027,11 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
         iid == &<ICoreWebView2DownloadStartingEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2DownloadStartingEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2DownloadStartingEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2DownloadStartingEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2DownloadStartingEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -14915,8 +15112,11 @@ impl ICoreWebView2DownloadStartingEventHandler_Vtbl {
         iid == &<ICoreWebView2DownloadStartingEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2DownloadStartingEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2DownloadStartingEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2DownloadStartingEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2DownloadStartingEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -15153,8 +15353,10 @@ impl ICoreWebView2DragStartingEventArgs_Vtbl {
         iid == &<ICoreWebView2DragStartingEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2DragStartingEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2DragStartingEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2DragStartingEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2DragStartingEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -15233,8 +15435,11 @@ impl ICoreWebView2DragStartingEventHandler_Vtbl {
         iid == &<ICoreWebView2DragStartingEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2DragStartingEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2DragStartingEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2DragStartingEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2DragStartingEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -15493,8 +15698,10 @@ impl ICoreWebView2Environment_Vtbl {
         iid == &<ICoreWebView2Environment as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -15714,8 +15921,10 @@ impl ICoreWebView2Environment10_Vtbl {
             || iid == &<ICoreWebView2Environment9 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment10_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment10_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment10_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment10_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -15808,8 +16017,10 @@ impl ICoreWebView2Environment11_Vtbl {
             || iid == &<ICoreWebView2Environment10 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment11_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment11_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment11_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment11_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -15915,8 +16126,10 @@ impl ICoreWebView2Environment12_Vtbl {
             || iid == &<ICoreWebView2Environment11 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment12_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment12_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment12_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment12_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -16018,8 +16231,10 @@ impl ICoreWebView2Environment13_Vtbl {
             || iid == &<ICoreWebView2Environment12 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment13_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment13_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment13_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment13_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -16247,8 +16462,10 @@ impl ICoreWebView2Environment14_Vtbl {
             || iid == &<ICoreWebView2Environment13 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment14_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment14_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment14_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment14_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -16351,8 +16568,10 @@ impl ICoreWebView2Environment15_Vtbl {
             || iid == &<ICoreWebView2Environment14 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment15_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment15_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment15_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment15_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -16462,8 +16681,10 @@ impl ICoreWebView2Environment2_Vtbl {
             || iid == &<ICoreWebView2Environment as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -16599,8 +16820,10 @@ impl ICoreWebView2Environment3_Vtbl {
             || iid == &<ICoreWebView2Environment2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment3_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment3_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment3_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment3_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -16693,8 +16916,10 @@ impl ICoreWebView2Environment4_Vtbl {
             || iid == &<ICoreWebView2Environment3 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment4_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment4_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment4_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment4_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -16819,8 +17044,10 @@ impl ICoreWebView2Environment5_Vtbl {
             || iid == &<ICoreWebView2Environment4 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment5_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment5_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment5_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment5_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -16905,8 +17132,10 @@ impl ICoreWebView2Environment6_Vtbl {
             || iid == &<ICoreWebView2Environment5 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment6_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment6_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment6_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment6_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -16991,8 +17220,10 @@ impl ICoreWebView2Environment7_Vtbl {
             || iid == &<ICoreWebView2Environment6 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment7_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment7_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment7_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment7_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -17160,8 +17391,10 @@ impl ICoreWebView2Environment8_Vtbl {
             || iid == &<ICoreWebView2Environment7 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment8_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment8_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment8_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment8_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -17279,8 +17512,10 @@ impl ICoreWebView2Environment9_Vtbl {
             || iid == &<ICoreWebView2Environment8 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Environment9_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment9_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Environment9_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Environment9_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -17589,8 +17824,10 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
         iid == &<ICoreWebView2EnvironmentOptions as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -17692,8 +17929,10 @@ impl ICoreWebView2EnvironmentOptions2_Vtbl {
         iid == &<ICoreWebView2EnvironmentOptions2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -17795,8 +18034,10 @@ impl ICoreWebView2EnvironmentOptions3_Vtbl {
         iid == &<ICoreWebView2EnvironmentOptions3 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions3_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions3_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions3_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions3_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -17916,8 +18157,10 @@ impl ICoreWebView2EnvironmentOptions4_Vtbl {
         iid == &<ICoreWebView2EnvironmentOptions4 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions4_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions4_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions4_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions4_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -18016,8 +18259,10 @@ impl ICoreWebView2EnvironmentOptions5_Vtbl {
         iid == &<ICoreWebView2EnvironmentOptions5 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions5_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions5_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions5_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions5_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -18117,8 +18362,10 @@ impl ICoreWebView2EnvironmentOptions6_Vtbl {
         iid == &<ICoreWebView2EnvironmentOptions6 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions6_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions6_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions6_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions6_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -18295,8 +18542,10 @@ impl ICoreWebView2EnvironmentOptions7_Vtbl {
         iid == &<ICoreWebView2EnvironmentOptions7 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions7_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions7_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions7_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions7_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -18398,8 +18647,10 @@ impl ICoreWebView2EnvironmentOptions8_Vtbl {
         iid == &<ICoreWebView2EnvironmentOptions8 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions8_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions8_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2EnvironmentOptions8_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EnvironmentOptions8_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -18482,8 +18733,13 @@ impl ICoreWebView2EstimatedEndTimeChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2EstimatedEndTimeChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2EstimatedEndTimeChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2EstimatedEndTimeChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2EstimatedEndTimeChangedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2EstimatedEndTimeChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -18561,8 +18817,11 @@ impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
         iid == &<ICoreWebView2ExecuteScriptCompletedHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ExecuteScriptCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ExecuteScriptCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ExecuteScriptCompletedHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ExecuteScriptCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -18741,8 +19000,10 @@ impl ICoreWebView2ExecuteScriptResult_Vtbl {
         iid == &<ICoreWebView2ExecuteScriptResult as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ExecuteScriptResult_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ExecuteScriptResult_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ExecuteScriptResult_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ExecuteScriptResult_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -18828,8 +19089,13 @@ impl ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl {
         iid == & < ICoreWebView2ExecuteScriptWithResultCompletedHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ExecuteScriptWithResultCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2ExecuteScriptWithResultCompletedHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -18910,8 +19176,11 @@ impl ICoreWebView2FaviconChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2FaviconChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FaviconChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FaviconChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FaviconChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FaviconChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -18972,8 +19241,10 @@ impl ICoreWebView2File_Vtbl {
         iid == &<ICoreWebView2File as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2File_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2File_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2File_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2File_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -19109,8 +19380,10 @@ impl ICoreWebView2FileSystemHandle_Vtbl {
         iid == &<ICoreWebView2FileSystemHandle as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FileSystemHandle_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FileSystemHandle_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FileSystemHandle_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FileSystemHandle_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -19466,8 +19739,10 @@ impl ICoreWebView2Find_Vtbl {
         iid == &<ICoreWebView2Find as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Find_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Find_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Find_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Find_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -19550,8 +19825,13 @@ impl ICoreWebView2FindActiveMatchIndexChangedEventHandler_Vtbl {
         iid == & < ICoreWebView2FindActiveMatchIndexChangedEventHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FindActiveMatchIndexChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FindActiveMatchIndexChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2FindActiveMatchIndexChangedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FindActiveMatchIndexChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -19632,8 +19912,11 @@ impl ICoreWebView2FindMatchCountChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2FindMatchCountChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FindMatchCountChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FindMatchCountChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FindMatchCountChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FindMatchCountChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -19992,8 +20275,10 @@ impl ICoreWebView2FindOptions_Vtbl {
         iid == &<ICoreWebView2FindOptions as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FindOptions_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FindOptions_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FindOptions_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FindOptions_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -20060,8 +20345,11 @@ impl ICoreWebView2FindStartCompletedHandler_Vtbl {
         iid == &<ICoreWebView2FindStartCompletedHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FindStartCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FindStartCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FindStartCompletedHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FindStartCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -20140,8 +20428,11 @@ impl ICoreWebView2FocusChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2FocusChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FocusChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FocusChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FocusChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FocusChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -20471,8 +20762,10 @@ impl ICoreWebView2Frame_Vtbl {
         iid == &<ICoreWebView2Frame as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Frame_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Frame_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Frame_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Frame_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -21012,8 +21305,10 @@ impl ICoreWebView2Frame2_Vtbl {
             || iid == &<ICoreWebView2Frame as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Frame2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Frame2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Frame2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Frame2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -21134,8 +21429,10 @@ impl ICoreWebView2Frame3_Vtbl {
             || iid == &<ICoreWebView2Frame2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Frame3_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Frame3_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Frame3_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Frame3_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -21234,8 +21531,10 @@ impl ICoreWebView2Frame4_Vtbl {
             || iid == &<ICoreWebView2Frame3 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Frame4_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Frame4_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Frame4_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Frame4_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -21316,8 +21615,10 @@ impl ICoreWebView2Frame5_Vtbl {
             || iid == &<ICoreWebView2Frame4 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Frame5_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Frame5_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Frame5_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Frame5_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -21447,8 +21748,10 @@ impl ICoreWebView2Frame6_Vtbl {
             || iid == &<ICoreWebView2Frame5 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Frame6_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Frame6_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Frame6_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Frame6_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -21577,8 +21880,10 @@ impl ICoreWebView2Frame7_Vtbl {
             || iid == &<ICoreWebView2Frame6 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Frame7_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Frame7_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Frame7_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Frame7_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -21659,8 +21964,11 @@ impl ICoreWebView2FrameChildFrameCreatedEventHandler_Vtbl {
         iid == &<ICoreWebView2FrameChildFrameCreatedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameChildFrameCreatedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameChildFrameCreatedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FrameChildFrameCreatedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FrameChildFrameCreatedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -21741,8 +22049,11 @@ impl ICoreWebView2FrameContentLoadingEventHandler_Vtbl {
         iid == &<ICoreWebView2FrameContentLoadingEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameContentLoadingEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameContentLoadingEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FrameContentLoadingEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FrameContentLoadingEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -21809,8 +22120,10 @@ impl ICoreWebView2FrameCreatedEventArgs_Vtbl {
         iid == &<ICoreWebView2FrameCreatedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameCreatedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameCreatedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FrameCreatedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameCreatedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -21889,8 +22202,11 @@ impl ICoreWebView2FrameCreatedEventHandler_Vtbl {
         iid == &<ICoreWebView2FrameCreatedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameCreatedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameCreatedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FrameCreatedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FrameCreatedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -21971,8 +22287,11 @@ impl ICoreWebView2FrameDOMContentLoadedEventHandler_Vtbl {
         iid == &<ICoreWebView2FrameDOMContentLoadedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameDOMContentLoadedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameDOMContentLoadedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FrameDOMContentLoadedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FrameDOMContentLoadedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -22053,8 +22372,11 @@ impl ICoreWebView2FrameDestroyedEventHandler_Vtbl {
         iid == &<ICoreWebView2FrameDestroyedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameDestroyedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameDestroyedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FrameDestroyedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FrameDestroyedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -22151,8 +22473,10 @@ impl ICoreWebView2FrameInfo_Vtbl {
         iid == &<ICoreWebView2FrameInfo as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameInfo_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameInfo_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FrameInfo_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameInfo_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -22297,8 +22621,10 @@ impl ICoreWebView2FrameInfo2_Vtbl {
             || iid == &<ICoreWebView2FrameInfo as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameInfo2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameInfo2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FrameInfo2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameInfo2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -22367,8 +22693,10 @@ impl ICoreWebView2FrameInfoCollection_Vtbl {
         iid == &<ICoreWebView2FrameInfoCollection as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameInfoCollection_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameInfoCollection_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FrameInfoCollection_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameInfoCollection_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -22510,8 +22838,11 @@ impl ICoreWebView2FrameInfoCollectionIterator_Vtbl {
         iid == &<ICoreWebView2FrameInfoCollectionIterator as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameInfoCollectionIterator_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameInfoCollectionIterator_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FrameInfoCollectionIterator_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FrameInfoCollectionIterator_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -22592,8 +22923,11 @@ impl ICoreWebView2FrameNameChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2FrameNameChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameNameChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameNameChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2FrameNameChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FrameNameChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -22676,8 +23010,13 @@ impl ICoreWebView2FrameNavigationCompletedEventHandler_Vtbl {
         iid == &<ICoreWebView2FrameNavigationCompletedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameNavigationCompletedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameNavigationCompletedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2FrameNavigationCompletedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FrameNavigationCompletedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -22760,8 +23099,13 @@ impl ICoreWebView2FrameNavigationStartingEventHandler_Vtbl {
         iid == &<ICoreWebView2FrameNavigationStartingEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameNavigationStartingEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameNavigationStartingEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2FrameNavigationStartingEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FrameNavigationStartingEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -22844,8 +23188,13 @@ impl ICoreWebView2FramePermissionRequestedEventHandler_Vtbl {
         iid == &<ICoreWebView2FramePermissionRequestedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FramePermissionRequestedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FramePermissionRequestedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2FramePermissionRequestedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FramePermissionRequestedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -22928,8 +23277,13 @@ impl ICoreWebView2FrameScreenCaptureStartingEventHandler_Vtbl {
         iid == & < ICoreWebView2FrameScreenCaptureStartingEventHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameScreenCaptureStartingEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameScreenCaptureStartingEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2FrameScreenCaptureStartingEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FrameScreenCaptureStartingEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -23012,8 +23366,13 @@ impl ICoreWebView2FrameWebMessageReceivedEventHandler_Vtbl {
         iid == &<ICoreWebView2FrameWebMessageReceivedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2FrameWebMessageReceivedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2FrameWebMessageReceivedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2FrameWebMessageReceivedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2FrameWebMessageReceivedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -23097,8 +23456,11 @@ impl ICoreWebView2GetCookiesCompletedHandler_Vtbl {
         iid == &<ICoreWebView2GetCookiesCompletedHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2GetCookiesCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2GetCookiesCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2GetCookiesCompletedHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2GetCookiesCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -23182,8 +23544,11 @@ impl ICoreWebView2GetFaviconCompletedHandler_Vtbl {
         iid == &<ICoreWebView2GetFaviconCompletedHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2GetFaviconCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2GetFaviconCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2GetFaviconCompletedHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2GetFaviconCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -23269,8 +23634,13 @@ impl ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl {
         iid == & < ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -23356,8 +23726,13 @@ impl ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl {
         iid == & < ICoreWebView2GetProcessExtendedInfosCompletedHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2GetProcessExtendedInfosCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2GetProcessExtendedInfosCompletedHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -23438,8 +23813,11 @@ impl ICoreWebView2HistoryChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2HistoryChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2HistoryChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2HistoryChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2HistoryChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2HistoryChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -23586,8 +23964,11 @@ impl ICoreWebView2HttpHeadersCollectionIterator_Vtbl {
         iid == &<ICoreWebView2HttpHeadersCollectionIterator as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2HttpHeadersCollectionIterator_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2HttpHeadersCollectionIterator_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2HttpHeadersCollectionIterator_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2HttpHeadersCollectionIterator_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -23851,8 +24232,10 @@ impl ICoreWebView2HttpRequestHeaders_Vtbl {
         iid == &<ICoreWebView2HttpRequestHeaders as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2HttpRequestHeaders_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2HttpRequestHeaders_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2HttpRequestHeaders_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2HttpRequestHeaders_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -24086,8 +24469,10 @@ impl ICoreWebView2HttpResponseHeaders_Vtbl {
         iid == &<ICoreWebView2HttpResponseHeaders as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2HttpResponseHeaders_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2HttpResponseHeaders_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2HttpResponseHeaders_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2HttpResponseHeaders_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -24170,8 +24555,13 @@ impl ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Vtbl {
         iid == & < ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -24254,8 +24644,13 @@ impl ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Vtbl {
         iid == & < ICoreWebView2IsDocumentPlayingAudioChangedEventHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -24336,8 +24731,11 @@ impl ICoreWebView2IsMutedChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2IsMutedChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2IsMutedChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2IsMutedChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2IsMutedChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2IsMutedChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -24580,8 +24978,13 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
         iid == &<ICoreWebView2LaunchingExternalUriSchemeEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -24664,8 +25067,13 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventHandler_Vtbl {
         iid == & < ICoreWebView2LaunchingExternalUriSchemeEventHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2LaunchingExternalUriSchemeEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2LaunchingExternalUriSchemeEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2LaunchingExternalUriSchemeEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2LaunchingExternalUriSchemeEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -24804,8 +25212,11 @@ impl ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
         iid == &<ICoreWebView2MoveFocusRequestedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2MoveFocusRequestedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2MoveFocusRequestedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2MoveFocusRequestedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2MoveFocusRequestedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -24886,8 +25297,11 @@ impl ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
         iid == &<ICoreWebView2MoveFocusRequestedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2MoveFocusRequestedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2MoveFocusRequestedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2MoveFocusRequestedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2MoveFocusRequestedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -25027,8 +25441,11 @@ impl ICoreWebView2NavigationCompletedEventArgs_Vtbl {
         iid == &<ICoreWebView2NavigationCompletedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NavigationCompletedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NavigationCompletedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NavigationCompletedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NavigationCompletedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -25108,8 +25525,11 @@ impl ICoreWebView2NavigationCompletedEventArgs2_Vtbl {
             || iid == &<ICoreWebView2NavigationCompletedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NavigationCompletedEventArgs2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NavigationCompletedEventArgs2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NavigationCompletedEventArgs2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NavigationCompletedEventArgs2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -25190,8 +25610,11 @@ impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
         iid == &<ICoreWebView2NavigationCompletedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NavigationCompletedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NavigationCompletedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NavigationCompletedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NavigationCompletedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -25466,8 +25889,11 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
         iid == &<ICoreWebView2NavigationStartingEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NavigationStartingEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NavigationStartingEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NavigationStartingEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NavigationStartingEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -25577,8 +26003,11 @@ impl ICoreWebView2NavigationStartingEventArgs2_Vtbl {
             || iid == &<ICoreWebView2NavigationStartingEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NavigationStartingEventArgs2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NavigationStartingEventArgs2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NavigationStartingEventArgs2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NavigationStartingEventArgs2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -25662,8 +26091,11 @@ impl ICoreWebView2NavigationStartingEventArgs3_Vtbl {
             || iid == &<ICoreWebView2NavigationStartingEventArgs2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NavigationStartingEventArgs3_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NavigationStartingEventArgs3_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NavigationStartingEventArgs3_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NavigationStartingEventArgs3_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -25744,8 +26176,11 @@ impl ICoreWebView2NavigationStartingEventHandler_Vtbl {
         iid == &<ICoreWebView2NavigationStartingEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NavigationStartingEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NavigationStartingEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NavigationStartingEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NavigationStartingEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -25828,8 +26263,13 @@ impl ICoreWebView2NewBrowserVersionAvailableEventHandler_Vtbl {
         iid == & < ICoreWebView2NewBrowserVersionAvailableEventHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NewBrowserVersionAvailableEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NewBrowserVersionAvailableEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2NewBrowserVersionAvailableEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NewBrowserVersionAvailableEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -26142,8 +26582,11 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
         iid == &<ICoreWebView2NewWindowRequestedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NewWindowRequestedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NewWindowRequestedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NewWindowRequestedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NewWindowRequestedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -26223,8 +26666,11 @@ impl ICoreWebView2NewWindowRequestedEventArgs2_Vtbl {
             || iid == &<ICoreWebView2NewWindowRequestedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NewWindowRequestedEventArgs2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NewWindowRequestedEventArgs2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NewWindowRequestedEventArgs2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NewWindowRequestedEventArgs2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -26309,8 +26755,11 @@ impl ICoreWebView2NewWindowRequestedEventArgs3_Vtbl {
             || iid == &<ICoreWebView2NewWindowRequestedEventArgs2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NewWindowRequestedEventArgs3_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NewWindowRequestedEventArgs3_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NewWindowRequestedEventArgs3_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NewWindowRequestedEventArgs3_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -26391,8 +26840,11 @@ impl ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
         iid == &<ICoreWebView2NewWindowRequestedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NewWindowRequestedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NewWindowRequestedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NewWindowRequestedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NewWindowRequestedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -26464,8 +26916,11 @@ impl ICoreWebView2NonClientRegionChangedEventArgs_Vtbl {
         iid == &<ICoreWebView2NonClientRegionChangedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NonClientRegionChangedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NonClientRegionChangedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NonClientRegionChangedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NonClientRegionChangedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -26546,8 +27001,11 @@ impl ICoreWebView2NonClientRegionChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2NonClientRegionChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NonClientRegionChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NonClientRegionChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NonClientRegionChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NonClientRegionChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -27172,8 +27630,10 @@ impl ICoreWebView2Notification_Vtbl {
         iid == &<ICoreWebView2Notification as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Notification_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Notification_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Notification_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Notification_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -27256,8 +27716,13 @@ impl ICoreWebView2NotificationCloseRequestedEventHandler_Vtbl {
         iid == & < ICoreWebView2NotificationCloseRequestedEventHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NotificationCloseRequestedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NotificationCloseRequestedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2NotificationCloseRequestedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NotificationCloseRequestedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -27464,8 +27929,11 @@ impl ICoreWebView2NotificationReceivedEventArgs_Vtbl {
         iid == &<ICoreWebView2NotificationReceivedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NotificationReceivedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NotificationReceivedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NotificationReceivedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NotificationReceivedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -27546,8 +28014,11 @@ impl ICoreWebView2NotificationReceivedEventHandler_Vtbl {
         iid == &<ICoreWebView2NotificationReceivedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2NotificationReceivedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2NotificationReceivedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2NotificationReceivedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2NotificationReceivedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -27666,8 +28137,10 @@ impl ICoreWebView2ObjectCollection_Vtbl {
             || iid == &<ICoreWebView2ObjectCollectionView as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ObjectCollection_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ObjectCollection_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ObjectCollection_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ObjectCollection_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -27776,8 +28249,10 @@ impl ICoreWebView2ObjectCollectionView_Vtbl {
         iid == &<ICoreWebView2ObjectCollectionView as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ObjectCollectionView_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ObjectCollectionView_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ObjectCollectionView_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ObjectCollectionView_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -28022,8 +28497,11 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
         iid == &<ICoreWebView2PermissionRequestedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2PermissionRequestedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PermissionRequestedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2PermissionRequestedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2PermissionRequestedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -28137,8 +28615,11 @@ impl ICoreWebView2PermissionRequestedEventArgs2_Vtbl {
             || iid == &<ICoreWebView2PermissionRequestedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2PermissionRequestedEventArgs2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PermissionRequestedEventArgs2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2PermissionRequestedEventArgs2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2PermissionRequestedEventArgs2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -28254,8 +28735,11 @@ impl ICoreWebView2PermissionRequestedEventArgs3_Vtbl {
             || iid == &<ICoreWebView2PermissionRequestedEventArgs2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2PermissionRequestedEventArgs3_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PermissionRequestedEventArgs3_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2PermissionRequestedEventArgs3_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2PermissionRequestedEventArgs3_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -28336,8 +28820,11 @@ impl ICoreWebView2PermissionRequestedEventHandler_Vtbl {
         iid == &<ICoreWebView2PermissionRequestedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2PermissionRequestedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PermissionRequestedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2PermissionRequestedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2PermissionRequestedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -28471,8 +28958,10 @@ impl ICoreWebView2PermissionSetting_Vtbl {
         iid == &<ICoreWebView2PermissionSetting as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2PermissionSetting_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PermissionSetting_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2PermissionSetting_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PermissionSetting_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -28589,8 +29078,11 @@ impl ICoreWebView2PermissionSettingCollectionView_Vtbl {
         iid == &<ICoreWebView2PermissionSettingCollectionView as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2PermissionSettingCollectionView_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PermissionSettingCollectionView_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2PermissionSettingCollectionView_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2PermissionSettingCollectionView_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -30463,8 +30955,10 @@ impl ICoreWebView2PointerInfo_Vtbl {
         iid == &<ICoreWebView2PointerInfo as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2PointerInfo_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PointerInfo_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2PointerInfo_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PointerInfo_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -30540,8 +31034,10 @@ impl ICoreWebView2PrintCompletedHandler_Vtbl {
         iid == &<ICoreWebView2PrintCompletedHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2PrintCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PrintCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2PrintCompletedHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PrintCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -31431,8 +31927,10 @@ impl ICoreWebView2PrintSettings_Vtbl {
         iid == &<ICoreWebView2PrintSettings as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2PrintSettings_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PrintSettings_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2PrintSettings_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PrintSettings_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -31997,8 +32495,10 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             || iid == &<ICoreWebView2PrintSettings as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2PrintSettings2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PrintSettings2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2PrintSettings2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PrintSettings2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -32079,8 +32579,11 @@ impl ICoreWebView2PrintToPdfCompletedHandler_Vtbl {
         iid == &<ICoreWebView2PrintToPdfCompletedHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2PrintToPdfCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PrintToPdfCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2PrintToPdfCompletedHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2PrintToPdfCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -32164,8 +32667,11 @@ impl ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl {
         iid == &<ICoreWebView2PrintToPdfStreamCompletedHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2PrintToPdfStreamCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2PrintToPdfStreamCompletedHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -32269,8 +32775,10 @@ impl ICoreWebView2ProcessExtendedInfo_Vtbl {
         iid == &<ICoreWebView2ProcessExtendedInfo as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessExtendedInfo_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProcessExtendedInfo_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessExtendedInfo_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProcessExtendedInfo_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -32387,8 +32895,11 @@ impl ICoreWebView2ProcessExtendedInfoCollection_Vtbl {
         iid == &<ICoreWebView2ProcessExtendedInfoCollection as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessExtendedInfoCollection_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProcessExtendedInfoCollection_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessExtendedInfoCollection_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ProcessExtendedInfoCollection_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -32460,8 +32971,10 @@ impl ICoreWebView2ProcessFailedEventArgs_Vtbl {
         iid == &<ICoreWebView2ProcessFailedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessFailedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProcessFailedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessFailedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProcessFailedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -32644,8 +33157,11 @@ impl ICoreWebView2ProcessFailedEventArgs2_Vtbl {
             || iid == &<ICoreWebView2ProcessFailedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessFailedEventArgs2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProcessFailedEventArgs2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessFailedEventArgs2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ProcessFailedEventArgs2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -32725,8 +33241,11 @@ impl ICoreWebView2ProcessFailedEventArgs3_Vtbl {
             || iid == &<ICoreWebView2ProcessFailedEventArgs2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessFailedEventArgs3_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProcessFailedEventArgs3_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessFailedEventArgs3_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ProcessFailedEventArgs3_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -32805,8 +33324,11 @@ impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
         iid == &<ICoreWebView2ProcessFailedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessFailedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProcessFailedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessFailedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ProcessFailedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -32905,8 +33427,10 @@ impl ICoreWebView2ProcessInfo_Vtbl {
         iid == &<ICoreWebView2ProcessInfo as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessInfo_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProcessInfo_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessInfo_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProcessInfo_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -33015,8 +33539,10 @@ impl ICoreWebView2ProcessInfoCollection_Vtbl {
         iid == &<ICoreWebView2ProcessInfoCollection as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessInfoCollection_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProcessInfoCollection_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessInfoCollection_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProcessInfoCollection_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -33097,8 +33623,11 @@ impl ICoreWebView2ProcessInfosChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2ProcessInfosChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessInfosChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProcessInfosChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ProcessInfosChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ProcessInfosChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -33368,8 +33897,10 @@ impl ICoreWebView2Profile_Vtbl {
         iid == &<ICoreWebView2Profile as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Profile_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Profile_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -33555,8 +34086,10 @@ impl ICoreWebView2Profile2_Vtbl {
             || iid == &<ICoreWebView2Profile as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Profile2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Profile2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -33681,8 +34214,10 @@ impl ICoreWebView2Profile3_Vtbl {
             || iid == &<ICoreWebView2Profile2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Profile3_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile3_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Profile3_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile3_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -33828,8 +34363,10 @@ impl ICoreWebView2Profile4_Vtbl {
             || iid == &<ICoreWebView2Profile3 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Profile4_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile4_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Profile4_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile4_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -33912,8 +34449,10 @@ impl ICoreWebView2Profile5_Vtbl {
             || iid == &<ICoreWebView2Profile4 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Profile5_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile5_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Profile5_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile5_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -34097,8 +34636,10 @@ impl ICoreWebView2Profile6_Vtbl {
             || iid == &<ICoreWebView2Profile5 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Profile6_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile6_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Profile6_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile6_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -34235,8 +34776,10 @@ impl ICoreWebView2Profile7_Vtbl {
             || iid == &<ICoreWebView2Profile6 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Profile7_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile7_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Profile7_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile7_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -34385,8 +34928,10 @@ impl ICoreWebView2Profile8_Vtbl {
             || iid == &<ICoreWebView2Profile7 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Profile8_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile8_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Profile8_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Profile8_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -34472,8 +35017,13 @@ impl ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl {
         iid == & < ICoreWebView2ProfileAddBrowserExtensionCompletedHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -34554,8 +35104,11 @@ impl ICoreWebView2ProfileDeletedEventHandler_Vtbl {
         iid == &<ICoreWebView2ProfileDeletedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ProfileDeletedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProfileDeletedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ProfileDeletedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ProfileDeletedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -34641,8 +35194,13 @@ impl ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl {
         iid == & < ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -34725,8 +35283,13 @@ impl ICoreWebView2RasterizationScaleChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2RasterizationScaleChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2RasterizationScaleChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2RasterizationScaleChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2RasterizationScaleChangedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2RasterizationScaleChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -34841,8 +35404,11 @@ impl ICoreWebView2RegionRectCollectionView_Vtbl {
         iid == &<ICoreWebView2RegionRectCollectionView as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2RegionRectCollectionView_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2RegionRectCollectionView_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2RegionRectCollectionView_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2RegionRectCollectionView_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -35276,8 +35842,11 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
         iid == &<ICoreWebView2SaveAsUIShowingEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2SaveAsUIShowingEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2SaveAsUIShowingEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2SaveAsUIShowingEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2SaveAsUIShowingEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -35358,8 +35927,11 @@ impl ICoreWebView2SaveAsUIShowingEventHandler_Vtbl {
         iid == &<ICoreWebView2SaveAsUIShowingEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2SaveAsUIShowingEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2SaveAsUIShowingEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2SaveAsUIShowingEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2SaveAsUIShowingEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -35663,8 +36235,13 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
         iid == & < ICoreWebView2SaveFileSecurityCheckStartingEventArgs as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -35747,8 +36324,13 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Vtbl {
         iid == & < ICoreWebView2SaveFileSecurityCheckStartingEventHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -35991,8 +36573,11 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
         iid == &<ICoreWebView2ScreenCaptureStartingEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ScreenCaptureStartingEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ScreenCaptureStartingEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -36073,8 +36658,11 @@ impl ICoreWebView2ScreenCaptureStartingEventHandler_Vtbl {
         iid == &<ICoreWebView2ScreenCaptureStartingEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ScreenCaptureStartingEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ScreenCaptureStartingEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ScreenCaptureStartingEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ScreenCaptureStartingEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -36364,8 +36952,11 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
         iid == &<ICoreWebView2ScriptDialogOpeningEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ScriptDialogOpeningEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ScriptDialogOpeningEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -36446,8 +37037,11 @@ impl ICoreWebView2ScriptDialogOpeningEventHandler_Vtbl {
         iid == &<ICoreWebView2ScriptDialogOpeningEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ScriptDialogOpeningEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ScriptDialogOpeningEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ScriptDialogOpeningEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ScriptDialogOpeningEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -36643,8 +37237,10 @@ impl ICoreWebView2ScriptException_Vtbl {
         iid == &<ICoreWebView2ScriptException as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ScriptException_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ScriptException_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ScriptException_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ScriptException_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -36898,8 +37494,13 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
         iid == & < ICoreWebView2ServerCertificateErrorDetectedEventArgs as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -36982,8 +37583,13 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventHandler_Vtbl {
         iid == & < ICoreWebView2ServerCertificateErrorDetectedEventHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ServerCertificateErrorDetectedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ServerCertificateErrorDetectedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2ServerCertificateErrorDetectedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ServerCertificateErrorDetectedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -37052,8 +37658,11 @@ impl ICoreWebView2SetPermissionStateCompletedHandler_Vtbl {
         iid == &<ICoreWebView2SetPermissionStateCompletedHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2SetPermissionStateCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2SetPermissionStateCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2SetPermissionStateCompletedHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2SetPermissionStateCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -37720,8 +38329,10 @@ impl ICoreWebView2Settings_Vtbl {
         iid == &<ICoreWebView2Settings as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Settings_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Settings_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -37823,8 +38434,10 @@ impl ICoreWebView2Settings2_Vtbl {
             || iid == &<ICoreWebView2Settings as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Settings2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Settings2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -37947,8 +38560,10 @@ impl ICoreWebView2Settings3_Vtbl {
             || iid == &<ICoreWebView2Settings2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Settings3_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings3_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Settings3_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings3_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -38128,8 +38743,10 @@ impl ICoreWebView2Settings4_Vtbl {
             || iid == &<ICoreWebView2Settings3 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Settings4_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings4_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Settings4_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings4_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -38244,8 +38861,10 @@ impl ICoreWebView2Settings5_Vtbl {
             || iid == &<ICoreWebView2Settings4 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Settings5_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings5_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Settings5_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings5_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -38362,8 +38981,10 @@ impl ICoreWebView2Settings6_Vtbl {
             || iid == &<ICoreWebView2Settings5 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Settings6_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings6_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Settings6_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings6_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -38490,8 +39111,10 @@ impl ICoreWebView2Settings7_Vtbl {
             || iid == &<ICoreWebView2Settings6 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Settings7_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings7_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Settings7_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings7_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -38615,8 +39238,10 @@ impl ICoreWebView2Settings8_Vtbl {
             || iid == &<ICoreWebView2Settings7 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Settings8_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings8_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Settings8_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings8_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -38750,8 +39375,10 @@ impl ICoreWebView2Settings9_Vtbl {
             || iid == &<ICoreWebView2Settings8 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2Settings9_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings9_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2Settings9_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2Settings9_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -38941,8 +39568,10 @@ impl ICoreWebView2SharedBuffer_Vtbl {
         iid == &<ICoreWebView2SharedBuffer as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2SharedBuffer_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2SharedBuffer_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2SharedBuffer_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2SharedBuffer_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -39023,8 +39652,11 @@ impl ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl {
         iid == &<ICoreWebView2ShowSaveAsUICompletedHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ShowSaveAsUICompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ShowSaveAsUICompletedHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -39094,8 +39726,10 @@ impl ICoreWebView2SourceChangedEventArgs_Vtbl {
         iid == &<ICoreWebView2SourceChangedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2SourceChangedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2SourceChangedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2SourceChangedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2SourceChangedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -39174,8 +39808,11 @@ impl ICoreWebView2SourceChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2SourceChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2SourceChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2SourceChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2SourceChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2SourceChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -39254,8 +39891,11 @@ impl ICoreWebView2StateChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2StateChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2StateChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2StateChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2StateChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2StateChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -39336,8 +39976,11 @@ impl ICoreWebView2StatusBarTextChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2StatusBarTextChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2StatusBarTextChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2StatusBarTextChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2StatusBarTextChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2StatusBarTextChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -39442,8 +40085,10 @@ impl ICoreWebView2StringCollection_Vtbl {
         iid == &<ICoreWebView2StringCollection as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2StringCollection_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2StringCollection_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2StringCollection_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2StringCollection_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -39524,8 +40169,11 @@ impl ICoreWebView2TrySuspendCompletedHandler_Vtbl {
         iid == &<ICoreWebView2TrySuspendCompletedHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2TrySuspendCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2TrySuspendCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2TrySuspendCompletedHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2TrySuspendCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -39662,8 +40310,11 @@ impl ICoreWebView2WebMessageReceivedEventArgs_Vtbl {
         iid == &<ICoreWebView2WebMessageReceivedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2WebMessageReceivedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WebMessageReceivedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2WebMessageReceivedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2WebMessageReceivedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -39747,8 +40398,11 @@ impl ICoreWebView2WebMessageReceivedEventArgs2_Vtbl {
             || iid == &<ICoreWebView2WebMessageReceivedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2WebMessageReceivedEventArgs2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WebMessageReceivedEventArgs2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2WebMessageReceivedEventArgs2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2WebMessageReceivedEventArgs2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -39829,8 +40483,11 @@ impl ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
         iid == &<ICoreWebView2WebMessageReceivedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2WebMessageReceivedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WebMessageReceivedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2WebMessageReceivedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2WebMessageReceivedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -40092,8 +40749,10 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
         iid == &<ICoreWebView2WebResourceRequest as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceRequest_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WebResourceRequest_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceRequest_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WebResourceRequest_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -40310,8 +40969,11 @@ impl ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
         iid == &<ICoreWebView2WebResourceRequestedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceRequestedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WebResourceRequestedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceRequestedEventArgs_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2WebResourceRequestedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -40397,8 +41059,11 @@ impl ICoreWebView2WebResourceRequestedEventArgs2_Vtbl {
             || iid == &<ICoreWebView2WebResourceRequestedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceRequestedEventArgs2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WebResourceRequestedEventArgs2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceRequestedEventArgs2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2WebResourceRequestedEventArgs2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -40479,8 +41144,11 @@ impl ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
         iid == &<ICoreWebView2WebResourceRequestedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceRequestedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WebResourceRequestedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceRequestedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2WebResourceRequestedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -40746,8 +41414,10 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
         iid == &<ICoreWebView2WebResourceResponse as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceResponse_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WebResourceResponse_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceResponse_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WebResourceResponse_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -40856,8 +41526,13 @@ impl ICoreWebView2WebResourceResponseReceivedEventArgs_Vtbl {
         iid == &<ICoreWebView2WebResourceResponseReceivedEventArgs as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceResponseReceivedEventArgs_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WebResourceResponseReceivedEventArgs_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2WebResourceResponseReceivedEventArgs_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2WebResourceResponseReceivedEventArgs_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -40940,8 +41615,13 @@ impl ICoreWebView2WebResourceResponseReceivedEventHandler_Vtbl {
         iid == & < ICoreWebView2WebResourceResponseReceivedEventHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceResponseReceivedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WebResourceResponseReceivedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2WebResourceResponseReceivedEventHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2WebResourceResponseReceivedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -41115,8 +41795,11 @@ impl ICoreWebView2WebResourceResponseView_Vtbl {
         iid == &<ICoreWebView2WebResourceResponseView as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceResponseView_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WebResourceResponseView_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceResponseView_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2WebResourceResponseView_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -41202,8 +41885,13 @@ impl ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl {
         iid == & < ICoreWebView2WebResourceResponseViewGetContentCompletedHandler as windows_core::Interface >::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl
+            + ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Impl
+            + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -41284,8 +41972,11 @@ impl ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
         iid == &<ICoreWebView2WindowCloseRequestedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2WindowCloseRequestedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WindowCloseRequestedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2WindowCloseRequestedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2WindowCloseRequestedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -41658,8 +42349,10 @@ impl ICoreWebView2WindowFeatures_Vtbl {
         iid == &<ICoreWebView2WindowFeatures as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2WindowFeatures_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WindowFeatures_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2WindowFeatures_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2WindowFeatures_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -41740,8 +42433,11 @@ impl ICoreWebView2ZoomFactorChangedEventHandler_Vtbl {
         iid == &<ICoreWebView2ZoomFactorChangedEventHandler as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2ZoomFactorChangedEventHandler_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2ZoomFactorChangedEventHandler_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2ZoomFactorChangedEventHandler_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET>
+    for ICoreWebView2ZoomFactorChangedEventHandler_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -41885,8 +42581,10 @@ impl ICoreWebView2_10_Vtbl {
             || iid == &<ICoreWebView2_9 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_10_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_10_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_10_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_10_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -42086,8 +42784,10 @@ impl ICoreWebView2_11_Vtbl {
             || iid == &<ICoreWebView2_10 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_11_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_11_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_11_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_11_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -42259,8 +42959,10 @@ impl ICoreWebView2_12_Vtbl {
             || iid == &<ICoreWebView2_11 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_12_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_12_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_12_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_12_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -42356,8 +43058,10 @@ impl ICoreWebView2_13_Vtbl {
             || iid == &<ICoreWebView2_12 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_13_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_13_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_13_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_13_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -42556,8 +43260,10 @@ impl ICoreWebView2_14_Vtbl {
             || iid == &<ICoreWebView2_13 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_14_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_14_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_14_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_14_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -42782,8 +43488,10 @@ impl ICoreWebView2_15_Vtbl {
             || iid == &<ICoreWebView2_14 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_15_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_15_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_15_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_15_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -42980,8 +43688,10 @@ impl ICoreWebView2_16_Vtbl {
             || iid == &<ICoreWebView2_15 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_16_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_16_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_16_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_16_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -43106,8 +43816,10 @@ impl ICoreWebView2_17_Vtbl {
             || iid == &<ICoreWebView2_16 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_17_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_17_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_17_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_17_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -43261,8 +43973,10 @@ impl ICoreWebView2_18_Vtbl {
             || iid == &<ICoreWebView2_17 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_18_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_18_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_18_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_18_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -43415,8 +44129,10 @@ impl ICoreWebView2_19_Vtbl {
             || iid == &<ICoreWebView2_18 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_19_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_19_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_19_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_19_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -43725,8 +44441,10 @@ impl ICoreWebView2_2_Vtbl {
             || iid == &<ICoreWebView2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_2_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_2_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_2_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_2_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -43834,8 +44552,10 @@ impl ICoreWebView2_20_Vtbl {
             || iid == &<ICoreWebView2_19 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_20_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_20_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_20_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_20_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -43962,8 +44682,10 @@ impl ICoreWebView2_21_Vtbl {
             || iid == &<ICoreWebView2_20 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_21_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_21_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_21_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_21_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -44151,8 +44873,10 @@ impl ICoreWebView2_22_Vtbl {
             || iid == &<ICoreWebView2_21 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_22_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_22_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_22_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_22_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -44287,8 +45011,10 @@ impl ICoreWebView2_23_Vtbl {
             || iid == &<ICoreWebView2_22 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_23_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_23_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_23_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_23_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -44451,8 +45177,10 @@ impl ICoreWebView2_24_Vtbl {
             || iid == &<ICoreWebView2_23 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_24_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_24_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_24_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_24_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -44652,8 +45380,10 @@ impl ICoreWebView2_25_Vtbl {
             || iid == &<ICoreWebView2_24 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_25_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_25_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_25_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_25_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -44829,8 +45559,10 @@ impl ICoreWebView2_26_Vtbl {
             || iid == &<ICoreWebView2_25 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_26_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_26_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_26_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_26_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -45002,8 +45734,10 @@ impl ICoreWebView2_27_Vtbl {
             || iid == &<ICoreWebView2_26 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_27_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_27_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_27_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_27_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -45129,8 +45863,10 @@ impl ICoreWebView2_28_Vtbl {
             || iid == &<ICoreWebView2_27 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_28_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_28_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_28_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_28_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -45347,8 +46083,10 @@ impl ICoreWebView2_3_Vtbl {
             || iid == &<ICoreWebView2_2 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_3_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_3_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_3_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_3_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -45545,8 +46283,10 @@ impl ICoreWebView2_4_Vtbl {
             || iid == &<ICoreWebView2_3 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_4_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_4_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_4_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_4_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -45674,8 +46414,10 @@ impl ICoreWebView2_5_Vtbl {
             || iid == &<ICoreWebView2_4 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_5_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_5_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_5_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_5_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -45749,8 +46491,10 @@ impl ICoreWebView2_6_Vtbl {
             || iid == &<ICoreWebView2_5 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_6_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_6_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_6_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_6_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -45856,8 +46600,10 @@ impl ICoreWebView2_7_Vtbl {
             || iid == &<ICoreWebView2_6 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_7_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_7_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_7_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_7_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -46166,8 +46912,10 @@ impl ICoreWebView2_8_Vtbl {
             || iid == &<ICoreWebView2_7 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_8_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_8_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_8_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_8_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -46558,8 +47306,10 @@ impl ICoreWebView2_9_Vtbl {
             || iid == &<ICoreWebView2_8 as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + ICoreWebView2_9_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_9_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + ICoreWebView2_9_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for ICoreWebView2_9_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;

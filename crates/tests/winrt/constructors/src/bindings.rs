@@ -276,8 +276,10 @@ impl IActivatableFactory_Vtbl {
         iid == &<IActivatableFactory as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IActivatableFactory_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IActivatableFactory_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IActivatableFactory_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IActivatableFactory_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
@@ -438,8 +440,10 @@ impl IComposableFactory_Vtbl {
         iid == &<IComposableFactory as windows_core::Interface>::IID
     }
 }
-impl<Identity: windows_core::IUnknownImpl + IComposableFactory_Impl + 'static, const OFFSET: isize>
-    windows_core::imp::VtableCtor<Identity, OFFSET> for IComposableFactory_Vtbl
+impl<
+        Identity: windows_core::IUnknownImpl + IComposableFactory_Impl + 'static,
+        const OFFSET: isize,
+    > windows_core::imp::VtableCtor<Identity, OFFSET> for IComposableFactory_Vtbl
 {
     const NEW: Self = <Self>::new::<Identity, OFFSET>();
     const NEW_REF: &'static Self = &<Self as windows_core::imp::VtableCtor<Identity, OFFSET>>::NEW;
