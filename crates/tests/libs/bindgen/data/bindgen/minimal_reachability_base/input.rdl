@@ -1,0 +1,24 @@
+// Exercises B1 reachability pruning under `--minimal`.
+//
+// Only `Test.IFoo` is in the filter; `IFoo` requires `IBase`, so `IBase`
+// is pulled into the type map as a transitive dependency (its presence
+// is required so the type-level closure stays consistent — base IIDs,
+// `interface_hierarchy!`, etc.). Reachability pruning, however, walks
+// from the explicit `--filter IFoo` root: `IFoo::Direct` is kept (own
+// vtable on the rooted type), nothing in `IFoo`'s signatures mentions
+// `IBase`, so `IBase::Inherited` should demote to an opaque
+// `Inherited: usize` slot — its `pub fn` forwarder is dropped and the
+// `IBase_Impl` trait is omitted with the existing skip warning.
+//
+// Vtable layout for `IBase_Vtbl` is preserved bit-for-bit: the `Inherited`
+// slot stays at the same offset, just typed as a raw `usize`.
+
+#[winrt]
+mod Test {
+    interface IFoo: IBase {
+        fn Direct(&self) -> i32;
+    }
+    interface IBase {
+        fn Inherited(&self) -> i32;
+    }
+}

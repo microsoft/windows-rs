@@ -1,0 +1,38 @@
+// Exercises B1 reachability pruning where the explicit `--filter` root
+// is a class. `Class::required_interfaces` cascades to every interface
+// the class would forward — instance default + base classes — so all
+// of those interfaces' methods are seeded as roots and survive.
+//
+// Concretely:
+//   * `Foo` is the class root.
+//   * `IFoo` is the default instance interface — its `Direct` is kept.
+//   * `IBase` is `IFoo`'s base interface, also returned by
+//     `Class::required_interfaces`, so its `BaseMethod` is **kept**
+//     (this is intentional — class cascade preserves method-level
+//     compatibility on the class's surface, even for inherited methods,
+//     matching the existing class-cascade behavior in
+//     `filter::push_method_filter`).
+//
+// Compare to `minimal_reachability_base`, which filters the interface
+// directly and demotes the base. The contrast demonstrates the
+// asymmetry: filtering a class is a stronger statement than filtering
+// just its default interface, because callers reasonably expect every
+// method visible through the class's required-interface set to be
+// callable on the class.
+
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::Activatable(1)]
+    class Foo {
+        IFoo,
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Foo)]
+    interface IFoo: IBase {
+        fn Direct(&self) -> i32;
+    }
+    interface IBase {
+        fn BaseMethod(&self) -> i32;
+    }
+}
+
+

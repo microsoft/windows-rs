@@ -1,0 +1,22 @@
+// Exercises B1 reachability pruning: `--implements` pins a type so the
+// reachability pass never demotes its methods, even when the type is
+// pulled in only as a transitive dependency (here: a base interface
+// of the explicit `--filter` root).
+//
+// Without `--implements Test.IBase` this would be the same scenario as
+// `minimal_reachability_base` and `IBase::BaseMethod` would demote to
+// `BaseMethod: usize`. The pin keeps the full `pub fn BaseMethod`
+// wrapper, the typed `pub BaseMethod` vtable slot, and the `IBase_Impl`
+// trait — so callers can still implement the base via `#[implement]`.
+// `--implements` therefore acts as a per-type opt-out from reachability
+// pruning, complementing the per-method `Ns.Type::Method` opt-out.
+
+#[winrt]
+mod Test {
+    interface IRoot: IBase {
+        fn Direct(&self) -> i32;
+    }
+    interface IBase {
+        fn BaseMethod(&self) -> i32;
+    }
+}

@@ -1,0 +1,7 @@
+filter = "Test.IRoot"
+implements = ["Test.IBase"]
+no_allow = true
+no_comment = true
+specific_deps = true
+minimal = true
+references = ["../../../libs/bindgen/default"]

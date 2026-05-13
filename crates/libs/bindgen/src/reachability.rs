@@ -63,6 +63,30 @@ pub fn compute(
 
     let pin = |tn: TypeName| pin_all || implements.matches(tn);
 
+    // Pre-populate keep with empty sets for every interface / cpp-interface
+    // in the type map. An interface that is never reached then has an
+    // empty keep set, which `Filter::includes_method` interprets as
+    // "every method demoted to opaque slot". Without this pre-population
+    // a missing entry would fall through to the `true` default and the
+    // pass would silently keep the very methods we want to prune.
+    //
+    // Types where the user supplied a method-level filter
+    // (`MethodFilter::Keep` / `MethodFilter::Exclude`) are skipped: user
+    // intent always wins and `Filter::includes_method` short-circuits
+    // before consulting reachability.
+    for (tn, type_set) in types.iter() {
+        if filter.has_user_methods(tn.namespace(), tn.name()) {
+            continue;
+        }
+        for ty in type_set {
+            if matches!(ty, Type::Interface(_) | Type::CppInterface(_)) {
+                keep.entry((tn.namespace().to_string(), tn.name().to_string()))
+                    .or_default();
+                break;
+            }
+        }
+    }
+
     // Seed roots from explicit filter rules and class cascades.
     for (tn, type_set) in types.iter() {
         let is_explicit = filter.has_explicit_type_rule(*tn);
