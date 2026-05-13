@@ -172,6 +172,23 @@ impl Key {
         self.get_value(name)?.try_into()
     }
 
+    /// Gets the `REG_BINARY` value for the name in the registry key.
+    pub fn get_bytes<T: AsRef<str>>(&self, name: T) -> Result<Vec<u8>> {
+        let name = pcwstr(name);
+        let (ty, len) = unsafe { self.raw_get_info(name.as_raw())? };
+        match ty {
+            Type::Bytes => {
+                let mut value = vec![0; len];
+                unsafe { self.raw_get_bytes(name.as_raw(), &mut value)? };
+                Ok(value)
+            }
+            _ => Err(invalid_data()),
+        }
+    }
+
+    /// Sets the name and value in the registry key.
+    ///
+    /// This method avoids any allocations.
     /// Sets a raw byte sequence for the given name and type, without any allocations.
     ///
     /// # Safety
