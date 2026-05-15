@@ -1,0 +1,6 @@
+filter = "Test"
+no_allow = true
+no_comment = true
+specific_deps = true
+implements = ["Test.ILeaf"]
+references = ["../../../libs/bindgen/default"]

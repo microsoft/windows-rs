@@ -1,0 +1,29 @@
+// Verifies that when `--implements` selects only a derived class's default interface
+// without the base classes', the generated `_Impl` trait does NOT reference the base
+// `_Impl` traits (which would dangle). It falls back to `windows_core::IUnknownImpl`,
+// matching the pre-hierarchy behavior for the unselected bases.
+
+#[winrt]
+mod Test {
+    class Base {
+        IBase,
+    }
+    class Middle: Base {
+        IMiddle,
+    }
+    class Leaf: Middle {
+        ILeaf,
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Base)]
+    interface IBase {
+        fn BaseMethod(&self) -> i32;
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Middle)]
+    interface IMiddle {
+        fn MiddleMethod(&self) -> i32;
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Leaf)]
+    interface ILeaf {
+        fn LeafMethod(&self) -> i32;
+    }
+}

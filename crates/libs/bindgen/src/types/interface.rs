@@ -101,13 +101,21 @@ impl Interface {
         // their `_Impl` traits. This means implementing the default interface of a derived class
         // automatically pulls in the obligation to implement the default interfaces of its base
         // classes, without the caller having to list every base in `#[implement(...)]`.
+        //
+        // Only inherit the bound when the base's `_Impl` trait will also be emitted under the
+        // current config; otherwise the derived `_Impl` would reference a name that doesn't
+        // exist (e.g. `--implements Derived` without including bases).
         for extra in self.base_class_default_interfaces(config.reader) {
-            if !required_interfaces
+            if required_interfaces
                 .iter()
                 .any(|existing| existing.def == extra.def)
             {
-                required_interfaces.push(extra);
+                continue;
             }
+            if !config.should_implement(extra.def.type_name(), !extra.is_exclusive()) {
+                continue;
+            }
+            required_interfaces.push(extra);
         }
         let name = self.write_name(config);
 
