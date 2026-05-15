@@ -20,34 +20,43 @@ pub mod Test {
             }
         }
         pub fn CreateFoo() -> Option<Foo> {
-            Self::IFooFactory(|this| unsafe {
-                let mut result__ = core::mem::zeroed();
-                let hresult__ = (windows_core::Interface::vtable(this).CreateFoo)(
-                    windows_core::Interface::as_raw(this),
-                    &mut result__,
-                );
-                debug_assert!(hresult__.0 == 0);
-                core::mem::transmute(result__)
+            Self::IFooFactory(|this| {
+                Ok(unsafe {
+                    let mut result__ = core::mem::zeroed();
+                    let hresult__ = (windows_core::Interface::vtable(this).CreateFoo)(
+                        windows_core::Interface::as_raw(this),
+                        &mut result__,
+                    );
+                    debug_assert!(hresult__.0 == 0);
+                    core::mem::transmute(result__)
+                })
             })
+            .unwrap()
         }
         pub fn StaticInt() -> i32 {
-            Self::IFooStatics(|this| unsafe {
-                let mut result__ = core::mem::zeroed();
-                let hresult__ = (windows_core::Interface::vtable(this).StaticInt)(
-                    windows_core::Interface::as_raw(this),
-                    &mut result__,
-                );
-                debug_assert!(hresult__.0 == 0);
-                result__
+            Self::IFooStatics(|this| {
+                Ok(unsafe {
+                    let mut result__ = core::mem::zeroed();
+                    let hresult__ = (windows_core::Interface::vtable(this).StaticInt)(
+                        windows_core::Interface::as_raw(this),
+                        &mut result__,
+                    );
+                    debug_assert!(hresult__.0 == 0);
+                    result__
+                })
             })
+            .unwrap()
         }
         pub fn StaticVoid() {
-            Self::IFooStatics(|this| unsafe {
-                let hresult__ = (windows_core::Interface::vtable(this).StaticVoid)(
-                    windows_core::Interface::as_raw(this),
-                );
-                debug_assert!(hresult__.0 == 0);
+            Self::IFooStatics(|this| {
+                Ok(unsafe {
+                    let hresult__ = (windows_core::Interface::vtable(this).StaticVoid)(
+                        windows_core::Interface::as_raw(this),
+                    );
+                    debug_assert!(hresult__.0 == 0);
+                })
             })
+            .unwrap()
         }
         fn IFooFactory<R, F: FnOnce(&IFooFactory) -> windows_result::Result<R>>(
             callback: F,

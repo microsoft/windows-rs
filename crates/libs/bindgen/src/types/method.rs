@@ -597,9 +597,23 @@ impl Method {
             InterfaceKind::Static => {
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
 
-                quote! {
-                    pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
-                        Self::#interface_name(|this| unsafe { #vcall })
+                // For `noexcept` factory/static methods the inner `#vcall`
+                // returns the unwrapped value directly (panicking on
+                // failure). The `Self::IFooFactory(…)` factory-cache helper
+                // still has signature `FnOnce(&IFooFactory) -> Result<R>`
+                // (acquiring the activation factory itself can fail), so
+                // wrap the body in `Ok(…)` and unwrap the outer call.
+                if noexcept {
+                    quote! {
+                        pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
+                            Self::#interface_name(|this| Ok(unsafe { #vcall })).unwrap()
+                        }
+                    }
+                } else {
+                    quote! {
+                        pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
+                            Self::#interface_name(|this| unsafe { #vcall })
+                        }
                     }
                 }
             }
@@ -610,10 +624,24 @@ impl Method {
                 // AddRef/Release on the returned value keeps the outer alive.
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
 
-                quote! {
-                    pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
-                        Self::#interface_name(|this| unsafe { #vcall })
+                // See `InterfaceKind::Static` above for the `noexcept`
+                // factory-helper rationale.
+                let non_aggregating = if noexcept {
+                    quote! {
+                        pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
+                            Self::#interface_name(|this| Ok(unsafe { #vcall })).unwrap()
+                        }
                     }
+                } else {
+                    quote! {
+                        pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
+                            Self::#interface_name(|this| unsafe { #vcall })
+                        }
+                    }
+                };
+
+                quote! {
+                    #non_aggregating
                     pub fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
                         Self::#interface_name(|this| unsafe {
                             let (derived__, base__) = windows_core::Compose::compose(compose);
