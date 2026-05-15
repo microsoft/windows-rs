@@ -333,19 +333,31 @@ impl windows_core::RuntimeType for IA {
 impl windows_core::RuntimeName for IA {
     const NAME: &'static str = "test_overloads.IA";
 }
-pub trait IA_Impl: windows_core::IUnknownImpl {
+pub trait IA_Impl {
     fn Method(&self) -> windows_core::Result<i32>;
     fn Method2(&self, a: i32) -> windows_core::Result<i32>;
 }
 impl IA_Vtbl {
-    pub const fn new<Identity: IA_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Method<Identity: IA_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IA_Impl,
+    {
+        unsafe extern "system" fn Method<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IA_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IA_Impl::Method(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -355,14 +367,23 @@ impl IA_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Method2<Identity: IA_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Method2<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             a: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IA_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IA_Impl::Method2(this, a) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -399,19 +420,31 @@ impl windows_core::RuntimeType for IB {
 impl windows_core::RuntimeName for IB {
     const NAME: &'static str = "test_overloads.IB";
 }
-pub trait IB_Impl: windows_core::IUnknownImpl {
+pub trait IB_Impl {
     fn MethodOne(&self) -> windows_core::Result<i32>;
     fn MethodTwo(&self, a: i32) -> windows_core::Result<i32>;
 }
 impl IB_Vtbl {
-    pub const fn new<Identity: IB_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MethodOne<Identity: IB_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IB_Impl,
+    {
+        unsafe extern "system" fn MethodOne<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IB_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IB_Impl::MethodOne(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -421,14 +454,23 @@ impl IB_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MethodTwo<Identity: IB_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn MethodTwo<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             a: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IB_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IB_Impl::MethodTwo(this, a) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -465,19 +507,31 @@ impl windows_core::RuntimeType for IC {
 impl windows_core::RuntimeName for IC {
     const NAME: &'static str = "test_overloads.IC";
 }
-pub trait IC_Impl: windows_core::IUnknownImpl {
+pub trait IC_Impl {
     fn Method(&self) -> windows_core::Result<i32>;
     fn Method2(&self, a: i32) -> windows_core::Result<i32>;
 }
 impl IC_Vtbl {
-    pub const fn new<Identity: IC_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Method<Identity: IC_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IC_Impl,
+    {
+        unsafe extern "system" fn Method<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IC_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IC_Impl::Method(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -487,14 +541,23 @@ impl IC_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Method2<Identity: IC_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Method2<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             a: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IC_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IC_Impl::Method2(this, a) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -531,19 +594,31 @@ impl windows_core::RuntimeType for ID {
 impl windows_core::RuntimeName for ID {
     const NAME: &'static str = "test_overloads.ID";
 }
-pub trait ID_Impl: windows_core::IUnknownImpl {
+pub trait ID_Impl {
     fn Method(&self) -> windows_core::Result<i32>;
     fn Method2(&self, a: i32) -> windows_core::Result<i32>;
 }
 impl ID_Vtbl {
-    pub const fn new<Identity: ID_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Method<Identity: ID_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ID_Impl,
+    {
+        unsafe extern "system" fn Method<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID_Impl::Method(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -553,14 +628,23 @@ impl ID_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Method2<Identity: ID_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Method2<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             a: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID_Impl::Method2(this, a) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -597,21 +681,33 @@ impl windows_core::RuntimeType for ID2 {
 impl windows_core::RuntimeName for ID2 {
     const NAME: &'static str = "test_overloads.ID2";
 }
-pub trait ID2_Impl: windows_core::IUnknownImpl {
+pub trait ID2_Impl {
     fn Method(&self, a: i32, b: i32) -> windows_core::Result<i32>;
     fn Method2(&self, a: i32, b: i32, c: i32) -> windows_core::Result<i32>;
 }
 impl ID2_Vtbl {
-    pub const fn new<Identity: ID2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Method<Identity: ID2_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ID2_Impl,
+    {
+        unsafe extern "system" fn Method<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             a: i32,
             b: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID2_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID2_Impl::Method(this, a, b) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -621,16 +717,25 @@ impl ID2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Method2<Identity: ID2_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Method2<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             a: i32,
             b: i32,
             c: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID2_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID2_Impl::Method2(this, a, b, c) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -676,19 +781,31 @@ impl windows_core::RuntimeType for IE {
 impl windows_core::RuntimeName for IE {
     const NAME: &'static str = "test_overloads.IE";
 }
-pub trait IE_Impl: windows_core::IUnknownImpl {
+pub trait IE_Impl {
     fn MethodOne(&self) -> windows_core::Result<i32>;
     fn MethodTwo(&self, a: i32) -> windows_core::Result<i32>;
 }
 impl IE_Vtbl {
-    pub const fn new<Identity: IE_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MethodOne<Identity: IE_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IE_Impl,
+    {
+        unsafe extern "system" fn MethodOne<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IE_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IE_Impl::MethodOne(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -698,14 +815,23 @@ impl IE_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MethodTwo<Identity: IE_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn MethodTwo<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             a: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IE_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IE_Impl::MethodTwo(this, a) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -742,21 +868,33 @@ impl windows_core::RuntimeType for IE2 {
 impl windows_core::RuntimeName for IE2 {
     const NAME: &'static str = "test_overloads.IE2";
 }
-pub trait IE2_Impl: windows_core::IUnknownImpl {
+pub trait IE2_Impl {
     fn MethodThree(&self, a: i32, b: i32) -> windows_core::Result<i32>;
     fn MethodFour(&self, a: i32, b: i32, c: i32) -> windows_core::Result<i32>;
 }
 impl IE2_Vtbl {
-    pub const fn new<Identity: IE2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MethodThree<Identity: IE2_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IE2_Impl,
+    {
+        unsafe extern "system" fn MethodThree<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             a: i32,
             b: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IE2_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IE2_Impl::MethodThree(this, a, b) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -766,16 +904,25 @@ impl IE2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MethodFour<Identity: IE2_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn MethodFour<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             a: i32,
             b: i32,
             c: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IE2_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IE2_Impl::MethodFour(this, a, b, c) {
                     Ok(ok__) => {
                         result__.write(ok__);

@@ -18,18 +18,30 @@ impl windows_core::RuntimeType for IInstance {
 impl windows_core::RuntimeName for IInstance {
     const NAME: &'static str = "test_activation.One.IInstance";
 }
-pub trait IInstance_Impl: windows_core::IUnknownImpl {
+pub trait IInstance_Impl {
     fn Property(&self) -> windows_core::Result<i32>;
 }
 impl IInstance_Vtbl {
-    pub const fn new<Identity: IInstance_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Property<Identity: IInstance_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IInstance_Impl,
+    {
+        unsafe extern "system" fn Property<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IInstance_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstance_Impl::Property(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -67,17 +79,29 @@ impl windows_core::RuntimeType for IMissing {
 impl windows_core::RuntimeName for IMissing {
     const NAME: &'static str = "test_activation.One.IMissing";
 }
-pub trait IMissing_Impl: windows_core::IUnknownImpl {
+pub trait IMissing_Impl {
     fn Method(&self) -> windows_core::Result<()>;
 }
 impl IMissing_Vtbl {
-    pub const fn new<Identity: IMissing_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Method<Identity: IMissing_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMissing_Impl,
+    {
+        unsafe extern "system" fn Method<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMissing_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMissing_Impl::Method(this).into()
             }
         }
@@ -108,18 +132,30 @@ impl windows_core::RuntimeType for IStaticStatics {
 impl windows_core::RuntimeName for IStaticStatics {
     const NAME: &'static str = "test_activation.One.Two.Three.Four.IStaticStatics";
 }
-pub trait IStaticStatics_Impl: windows_core::IUnknownImpl {
+pub trait IStaticStatics_Impl {
     fn Property(&self) -> windows_core::Result<i32>;
 }
 impl IStaticStatics_Vtbl {
-    pub const fn new<Identity: IStaticStatics_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Property<Identity: IStaticStatics_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IStaticStatics_Impl,
+    {
+        unsafe extern "system" fn Property<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IStaticStatics_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStaticStatics_Impl::Property(this) {
                     Ok(ok__) => {
                         result__.write(ok__);

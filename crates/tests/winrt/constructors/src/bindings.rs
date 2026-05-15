@@ -186,18 +186,30 @@ impl windows_core::RuntimeType for IActivatable {
 impl windows_core::RuntimeName for IActivatable {
     const NAME: &'static str = "test_constructors.IActivatable";
 }
-pub trait IActivatable_Impl: windows_core::IUnknownImpl {
+pub trait IActivatable_Impl {
     fn Property(&self) -> windows_core::Result<i32>;
 }
 impl IActivatable_Vtbl {
-    pub const fn new<Identity: IActivatable_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Property<Identity: IActivatable_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IActivatable_Impl,
+    {
+        unsafe extern "system" fn Property<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IActivatable_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IActivatable_Impl::Property(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -235,22 +247,31 @@ impl windows_core::RuntimeType for IActivatableFactory {
 impl windows_core::RuntimeName for IActivatableFactory {
     const NAME: &'static str = "test_constructors.IActivatableFactory";
 }
-pub trait IActivatableFactory_Impl: windows_core::IUnknownImpl {
+pub trait IActivatableFactory_Impl {
     fn WithValue(&self, arg: i32) -> windows_core::Result<Activatable>;
 }
 impl IActivatableFactory_Vtbl {
-    pub const fn new<Identity: IActivatableFactory_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IActivatableFactory_Impl,
+    {
         unsafe extern "system" fn WithValue<
-            Identity: IActivatableFactory_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             arg: i32,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IActivatableFactory_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IActivatableFactory_Impl::WithValue(this, arg) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -292,18 +313,30 @@ impl windows_core::RuntimeType for IComposable {
 impl windows_core::RuntimeName for IComposable {
     const NAME: &'static str = "test_constructors.IComposable";
 }
-pub trait IComposable_Impl: windows_core::IUnknownImpl {
+pub trait IComposable_Impl {
     fn Property(&self) -> windows_core::Result<i32>;
 }
 impl IComposable_Vtbl {
-    pub const fn new<Identity: IComposable_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Property<Identity: IComposable_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IComposable_Impl,
+    {
+        unsafe extern "system" fn Property<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IComposable_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IComposable_Impl::Property(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -341,7 +374,7 @@ impl windows_core::RuntimeType for IComposableFactory {
 impl windows_core::RuntimeName for IComposableFactory {
     const NAME: &'static str = "test_constructors.IComposableFactory";
 }
-pub trait IComposableFactory_Impl: windows_core::IUnknownImpl {
+pub trait IComposableFactory_Impl {
     fn CreateInstance(
         &self,
         baseInterface: windows_core::Ref<windows_core::IInspectable>,
@@ -355,19 +388,28 @@ pub trait IComposableFactory_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<Composable>;
 }
 impl IComposableFactory_Vtbl {
-    pub const fn new<Identity: IComposableFactory_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IComposableFactory_Impl,
+    {
         unsafe extern "system" fn CreateInstance<
-            Identity: IComposableFactory_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             baseinterface: *mut core::ffi::c_void,
             innerinterface: *mut *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IComposableFactory_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IComposableFactory_Impl::CreateInstance(
                     this,
                     core::mem::transmute_copy(&baseinterface),
@@ -383,7 +425,7 @@ impl IComposableFactory_Vtbl {
             }
         }
         unsafe extern "system" fn WithValue<
-            Identity: IComposableFactory_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
@@ -391,10 +433,16 @@ impl IComposableFactory_Vtbl {
             baseinterface: *mut core::ffi::c_void,
             innerinterface: *mut *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IComposableFactory_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IComposableFactory_Impl::WithValue(
                     this,
                     arg,

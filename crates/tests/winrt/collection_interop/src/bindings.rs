@@ -63,7 +63,7 @@ impl ITest {
 impl windows_core::RuntimeName for ITest {
     const NAME: &'static str = "Test.ITest";
 }
-pub trait ITest_Impl: windows_core::IUnknownImpl {
+pub trait ITest_Impl {
     fn TestIterable(
         &self,
         collection: windows_core::Ref<windows_collections::IIterable<i32>>,
@@ -81,16 +81,28 @@ pub trait ITest_Impl: windows_core::IUnknownImpl {
     >;
 }
 impl ITest_Vtbl {
-    pub const fn new<Identity: ITest_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TestIterable<Identity: ITest_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
+    {
+        unsafe extern "system" fn TestIterable<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             collection: *mut core::ffi::c_void,
             values_array_size: u32,
             values: *const i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITest_Impl::TestIterable(
                     this,
                     core::mem::transmute_copy(&collection),
@@ -102,15 +114,24 @@ impl ITest_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn GetIterable<Identity: ITest_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn GetIterable<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             values_array_size: u32,
             values: *const i32,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITest_Impl::GetIterable(
                     this,
                     core::slice::from_raw_parts(
@@ -127,15 +148,24 @@ impl ITest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetMapView<Identity: ITest_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn GetMapView<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             values_array_size: u32,
             values: *const i32,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITest_Impl::GetMapView(
                     this,
                     core::slice::from_raw_parts(

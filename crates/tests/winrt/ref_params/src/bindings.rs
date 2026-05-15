@@ -60,22 +60,31 @@ impl ITest {
 impl windows_core::RuntimeName for ITest {
     const NAME: &'static str = "Test.ITest";
 }
-pub trait ITest_Impl: windows_core::IUnknownImpl {
+pub trait ITest_Impl {
     fn Input(&self, input: windows_core::Ref<ITest>) -> windows_core::Result<i32>;
     fn Output(&self, value: i32, output: windows_core::OutRef<ITest>) -> windows_core::Result<()>;
     fn Current(&self) -> windows_core::Result<i32>;
     fn SetCurrent(&self, value: i32) -> windows_core::Result<()>;
 }
 impl ITest_Vtbl {
-    pub const fn new<Identity: ITest_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Input<Identity: ITest_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
+    {
+        unsafe extern "system" fn Input<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             input: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITest_Impl::Input(this, core::mem::transmute_copy(&input)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -85,24 +94,42 @@ impl ITest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Output<Identity: ITest_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Output<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             value: i32,
             output: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITest_Impl::Output(this, value, core::mem::transmute_copy(&output)).into()
             }
         }
-        unsafe extern "system" fn Current<Identity: ITest_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Current<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITest_Impl::Current(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -112,13 +139,22 @@ impl ITest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCurrent<Identity: ITest_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn SetCurrent<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             value: i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITest_Impl::SetCurrent(this, value).into()
             }
         }

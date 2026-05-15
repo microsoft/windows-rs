@@ -124,23 +124,32 @@ impl windows_core::RuntimeType for ICompositor {
 impl windows_core::RuntimeName for ICompositor {
     const NAME: &'static str = "test_composable.ICompositor";
 }
-pub trait ICompositor_Impl: windows_core::IUnknownImpl {
+pub trait ICompositor_Impl {
     fn CreateSpriteVisual(&self, brush: i32) -> windows_core::Result<SpriteVisual>;
     fn CreateContainerVisual(&self, children: i32) -> windows_core::Result<ContainerVisual>;
 }
 impl ICompositor_Vtbl {
-    pub const fn new<Identity: ICompositor_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ICompositor_Impl,
+    {
         unsafe extern "system" fn CreateSpriteVisual<
-            Identity: ICompositor_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             brush: i32,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositor_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICompositor_Impl::CreateSpriteVisual(this, brush) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -152,16 +161,22 @@ impl ICompositor_Vtbl {
             }
         }
         unsafe extern "system" fn CreateContainerVisual<
-            Identity: ICompositor_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             children: i32,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositor_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICompositor_Impl::CreateContainerVisual(this, children) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -209,18 +224,30 @@ impl windows_core::RuntimeType for IContainerVisual {
 impl windows_core::RuntimeName for IContainerVisual {
     const NAME: &'static str = "test_composable.IContainerVisual";
 }
-pub trait IContainerVisual_Impl: windows_core::IUnknownImpl {
+pub trait IContainerVisual_Impl {
     fn Children(&self) -> i32;
 }
 impl IContainerVisual_Vtbl {
-    pub const fn new<Identity: IContainerVisual_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Children<Identity: IContainerVisual_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContainerVisual_Impl,
+    {
+        unsafe extern "system" fn Children<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContainerVisual_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 let ok__ = IContainerVisual_Impl::Children(this);
                 result__.write(ok__);
                 windows_core::HRESULT(0)
@@ -254,9 +281,12 @@ impl windows_core::RuntimeType for IContainerVisualFactory {
 impl windows_core::RuntimeName for IContainerVisualFactory {
     const NAME: &'static str = "test_composable.IContainerVisualFactory";
 }
-pub trait IContainerVisualFactory_Impl: windows_core::IUnknownImpl {}
+pub trait IContainerVisualFactory_Impl {}
 impl IContainerVisualFactory_Vtbl {
-    pub const fn new<Identity: IContainerVisualFactory_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContainerVisualFactory_Impl,
+    {
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IContainerVisualFactory, OFFSET>(
             ),
@@ -283,18 +313,27 @@ impl windows_core::RuntimeType for ISpriteVisual {
 impl windows_core::RuntimeName for ISpriteVisual {
     const NAME: &'static str = "test_composable.ISpriteVisual";
 }
-pub trait ISpriteVisual_Impl: windows_core::IUnknownImpl {
+pub trait ISpriteVisual_Impl {
     fn Brush(&self) -> i32;
 }
 impl ISpriteVisual_Vtbl {
-    pub const fn new<Identity: ISpriteVisual_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Brush<Identity: ISpriteVisual_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISpriteVisual_Impl,
+    {
+        unsafe extern "system" fn Brush<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISpriteVisual_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 let ok__ = ISpriteVisual_Impl::Brush(this);
                 result__.write(ok__);
                 windows_core::HRESULT(0)
@@ -327,18 +366,30 @@ impl windows_core::RuntimeType for IVisual {
 impl windows_core::RuntimeName for IVisual {
     const NAME: &'static str = "test_composable.IVisual";
 }
-pub trait IVisual_Impl: windows_core::IUnknownImpl {
+pub trait IVisual_Impl {
     fn Compositor(&self) -> windows_core::Result<Compositor>;
 }
 impl IVisual_Vtbl {
-    pub const fn new<Identity: IVisual_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Compositor<Identity: IVisual_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVisual_Impl,
+    {
+        unsafe extern "system" fn Compositor<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVisual_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVisual_Impl::Compositor(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -379,9 +430,12 @@ impl windows_core::RuntimeType for IVisualFactory {
 impl windows_core::RuntimeName for IVisualFactory {
     const NAME: &'static str = "test_composable.IVisualFactory";
 }
-pub trait IVisualFactory_Impl: windows_core::IUnknownImpl {}
+pub trait IVisualFactory_Impl {}
 impl IVisualFactory_Vtbl {
-    pub const fn new<Identity: IVisualFactory_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVisualFactory_Impl,
+    {
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IVisualFactory, OFFSET>(),
         }

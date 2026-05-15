@@ -20,22 +20,34 @@ impl windows_core::RuntimeType for IJsonValidator {
 impl windows_core::RuntimeName for IJsonValidator {
     const NAME: &'static str = "Sample.IJsonValidator";
 }
-pub trait IJsonValidator_Impl: windows_core::IUnknownImpl {
+pub trait IJsonValidator_Impl {
     fn Validate(
         &self,
         value: &windows_core::HSTRING,
     ) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IJsonValidator_Vtbl {
-    pub const fn new<Identity: IJsonValidator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Validate<Identity: IJsonValidator_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IJsonValidator_Impl,
+    {
+        unsafe extern "system" fn Validate<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             value: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IJsonValidator_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IJsonValidator_Impl::Validate(this, core::mem::transmute(&value)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -77,23 +89,32 @@ impl windows_core::RuntimeType for IJsonValidatorFactory {
 impl windows_core::RuntimeName for IJsonValidatorFactory {
     const NAME: &'static str = "Sample.IJsonValidatorFactory";
 }
-pub trait IJsonValidatorFactory_Impl: windows_core::IUnknownImpl {
+pub trait IJsonValidatorFactory_Impl {
     fn CreateInstance(&self, schema: &windows_core::HSTRING)
         -> windows_core::Result<JsonValidator>;
 }
 impl IJsonValidatorFactory_Vtbl {
-    pub const fn new<Identity: IJsonValidatorFactory_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IJsonValidatorFactory_Impl,
+    {
         unsafe extern "system" fn CreateInstance<
-            Identity: IJsonValidatorFactory_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             schema: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IJsonValidatorFactory_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IJsonValidatorFactory_Impl::CreateInstance(
                     this,
                     core::mem::transmute(&schema),

@@ -306,17 +306,29 @@ impl IThing {
 impl windows_core::RuntimeName for IThing {
     const NAME: &'static str = "test_component.Nested.IThing";
 }
-pub trait IThing_Impl: windows_core::IUnknownImpl {
+pub trait IThing_Impl {
     fn Method(&self) -> windows_core::Result<()>;
 }
 impl IThing_Vtbl {
-    pub const fn new<Identity: IThing_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Method<Identity: IThing_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IThing_Impl,
+    {
+        unsafe extern "system" fn Method<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IThing_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IThing_Impl::Method(this).into()
             }
         }
