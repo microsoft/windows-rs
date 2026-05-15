@@ -15,3 +15,6 @@ pub use bindings::*;
 
 #[cfg(all(windows, feature = "std"))]
 mod reference;
+
+#[cfg(all(windows, feature = "std"))]
+const E_NOTIMPL: windows_core::HRESULT = windows_core::HRESULT(0x80004001_u32 as _);
