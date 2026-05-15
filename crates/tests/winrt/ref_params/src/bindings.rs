@@ -82,7 +82,6 @@ impl ITest_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITest_Impl::Input(this, core::mem::transmute_copy(&input)) {
@@ -108,7 +107,6 @@ impl ITest_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITest_Impl::Output(this, value, core::mem::transmute_copy(&output)).into()
@@ -127,7 +125,6 @@ impl ITest_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITest_Impl::Current(this) {
@@ -152,7 +149,6 @@ impl ITest_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITest_Impl::SetCurrent(this, value).into()

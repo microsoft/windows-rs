@@ -355,7 +355,6 @@ impl IA_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IA_Impl::Method(this) {
@@ -381,7 +380,6 @@ impl IA_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IA_Impl::Method2(this, a) {
@@ -442,7 +440,6 @@ impl IB_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IB_Impl::MethodOne(this) {
@@ -468,7 +465,6 @@ impl IB_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IB_Impl::MethodTwo(this, a) {
@@ -529,7 +525,6 @@ impl IC_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IC_Impl::Method(this) {
@@ -555,7 +550,6 @@ impl IC_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IC_Impl::Method2(this, a) {
@@ -616,7 +610,6 @@ impl ID_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID_Impl::Method(this) {
@@ -642,7 +635,6 @@ impl ID_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID_Impl::Method2(this, a) {
@@ -705,7 +697,6 @@ impl ID2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID2_Impl::Method(this, a, b) {
@@ -733,7 +724,6 @@ impl ID2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID2_Impl::Method2(this, a, b, c) {
@@ -803,7 +793,6 @@ impl IE_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IE_Impl::MethodOne(this) {
@@ -829,7 +818,6 @@ impl IE_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IE_Impl::MethodTwo(this, a) {
@@ -892,7 +880,6 @@ impl IE2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IE2_Impl::MethodThree(this, a, b) {
@@ -920,7 +907,6 @@ impl IE2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IE2_Impl::MethodFour(this, a, b, c) {

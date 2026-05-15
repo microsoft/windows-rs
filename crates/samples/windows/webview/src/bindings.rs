@@ -2347,7 +2347,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::Settings(this) {
@@ -2372,7 +2371,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::Source(this) {
@@ -2397,7 +2395,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::Navigate(this, core::mem::transmute_copy(&uri)).into()
@@ -2416,7 +2413,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::NavigateToString(this, core::mem::transmute_copy(&htmlcontent))
@@ -2437,7 +2433,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_NavigationStarting(
@@ -2465,7 +2460,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_NavigationStarting(
@@ -2489,7 +2483,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_ContentLoading(
@@ -2517,7 +2510,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_ContentLoading(this, core::mem::transmute_copy(&token))
@@ -2538,7 +2530,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_SourceChanged(
@@ -2566,7 +2557,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_SourceChanged(this, core::mem::transmute_copy(&token))
@@ -2587,7 +2577,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_HistoryChanged(
@@ -2615,7 +2604,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_HistoryChanged(this, core::mem::transmute_copy(&token))
@@ -2636,7 +2624,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_NavigationCompleted(
@@ -2664,7 +2651,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_NavigationCompleted(
@@ -2688,7 +2674,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_FrameNavigationStarting(
@@ -2716,7 +2701,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_FrameNavigationStarting(
@@ -2740,7 +2724,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_FrameNavigationCompleted(
@@ -2768,7 +2751,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_FrameNavigationCompleted(
@@ -2792,7 +2774,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_ScriptDialogOpening(
@@ -2820,7 +2801,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_ScriptDialogOpening(
@@ -2844,7 +2824,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_PermissionRequested(
@@ -2872,7 +2851,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_PermissionRequested(
@@ -2896,7 +2874,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_ProcessFailed(
@@ -2924,7 +2901,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_ProcessFailed(this, core::mem::transmute_copy(&token))
@@ -2945,7 +2921,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::AddScriptToExecuteOnDocumentCreated(
@@ -2969,7 +2944,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::RemoveScriptToExecuteOnDocumentCreated(
@@ -2993,7 +2967,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::ExecuteScript(
@@ -3019,7 +2992,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::CapturePreview(
@@ -3043,7 +3015,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::Reload(this).into()
@@ -3062,7 +3033,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::PostWebMessageAsJson(
@@ -3085,7 +3055,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::PostWebMessageAsString(
@@ -3109,7 +3078,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_WebMessageReceived(
@@ -3137,7 +3105,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_WebMessageReceived(
@@ -3162,7 +3129,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::CallDevToolsProtocolMethod(
@@ -3187,7 +3153,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::BrowserProcessId(this) {
@@ -3212,7 +3177,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::CanGoBack(this) {
@@ -3237,7 +3201,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::CanGoForward(this) {
@@ -3261,7 +3224,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::GoBack(this).into()
@@ -3279,7 +3241,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::GoForward(this).into()
@@ -3299,7 +3260,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::GetDevToolsProtocolEventReceiver(
@@ -3323,7 +3283,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::Stop(this).into()
@@ -3343,7 +3302,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_NewWindowRequested(
@@ -3371,7 +3329,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_NewWindowRequested(
@@ -3395,7 +3352,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_DocumentTitleChanged(
@@ -3423,7 +3379,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_DocumentTitleChanged(
@@ -3446,7 +3401,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::DocumentTitle(this) {
@@ -3472,7 +3426,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::AddHostObjectToScript(
@@ -3496,7 +3449,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::RemoveHostObjectFromScript(
@@ -3518,7 +3470,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::OpenDevToolsWindow(this).into()
@@ -3538,7 +3489,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_ContainsFullScreenElementChanged(
@@ -3566,7 +3516,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_ContainsFullScreenElementChanged(
@@ -3589,7 +3538,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::ContainsFullScreenElement(this) {
@@ -3615,7 +3563,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_WebResourceRequested(
@@ -3643,7 +3590,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_WebResourceRequested(
@@ -3667,7 +3613,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::AddWebResourceRequestedFilter(
@@ -3692,7 +3637,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::RemoveWebResourceRequestedFilter(
@@ -3717,7 +3661,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_Impl::add_WindowCloseRequested(
@@ -3745,7 +3688,6 @@ impl ICoreWebView2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_Impl::remove_WindowCloseRequested(
@@ -3959,7 +3901,6 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::KeyEventKind(this) {
@@ -3985,7 +3926,6 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::VirtualKey(this) {
@@ -4011,7 +3951,6 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::KeyEventLParam(this) {
@@ -4037,7 +3976,6 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::PhysicalKeyStatus(this) {
@@ -4063,7 +4001,6 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::Handled(this) {
@@ -4089,7 +4026,6 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::SetHandled(
@@ -4198,7 +4134,6 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2AcceleratorKeyPressedEventArgs2_Impl:: IsBrowserAcceleratorKeyEnabled ( this , ) { Ok ( ok__ ) => { value . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
@@ -4218,7 +4153,6 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2AcceleratorKeyPressedEventArgs2_Impl:: SetIsBrowserAcceleratorKeyEnabled ( this , core::mem::transmute_copy ( & value ) , ) . into ( )
@@ -4299,7 +4233,6 @@ impl ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2AcceleratorKeyPressedEventHandler_Impl::Invoke(
@@ -4380,7 +4313,6 @@ impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl::Invoke(
@@ -4526,7 +4458,6 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl::Uri(this) {
@@ -4552,7 +4483,6 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl::Challenge(this) {
@@ -4578,7 +4508,6 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl::Response(this) {
@@ -4604,7 +4533,6 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl::Cancel(this) {
@@ -4630,7 +4558,6 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl::SetCancel(
@@ -4654,7 +4581,6 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl::GetDeferral(this) {
@@ -4744,7 +4670,6 @@ impl ICoreWebView2BasicAuthenticationRequestedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2BasicAuthenticationRequestedEventHandler_Impl::Invoke(
@@ -4853,7 +4778,6 @@ impl ICoreWebView2BasicAuthenticationResponse_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2BasicAuthenticationResponse_Impl::UserName(this) {
@@ -4879,7 +4803,6 @@ impl ICoreWebView2BasicAuthenticationResponse_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2BasicAuthenticationResponse_Impl::SetUserName(
@@ -4903,7 +4826,6 @@ impl ICoreWebView2BasicAuthenticationResponse_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2BasicAuthenticationResponse_Impl::Password(this) {
@@ -4929,7 +4851,6 @@ impl ICoreWebView2BasicAuthenticationResponse_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2BasicAuthenticationResponse_Impl::SetPassword(
@@ -5065,7 +4986,6 @@ impl ICoreWebView2BrowserExtension_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2BrowserExtension_Impl::Id(this) {
@@ -5087,7 +5007,6 @@ impl ICoreWebView2BrowserExtension_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2BrowserExtension_Impl::Name(this) {
@@ -5112,7 +5031,6 @@ impl ICoreWebView2BrowserExtension_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2BrowserExtension_Impl::Remove(
@@ -5135,7 +5053,6 @@ impl ICoreWebView2BrowserExtension_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2BrowserExtension_Impl::IsEnabled(this) {
@@ -5161,7 +5078,6 @@ impl ICoreWebView2BrowserExtension_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2BrowserExtension_Impl::Enable(
@@ -5238,7 +5154,6 @@ impl ICoreWebView2BrowserExtensionEnableCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2BrowserExtensionEnableCompletedHandler_Impl::Invoke(
@@ -5322,7 +5237,6 @@ impl ICoreWebView2BrowserExtensionList_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2BrowserExtensionList_Impl::Count(this) {
@@ -5348,7 +5262,6 @@ impl ICoreWebView2BrowserExtensionList_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2BrowserExtensionList_Impl::GetValueAtIndex(
@@ -5426,7 +5339,6 @@ impl ICoreWebView2BrowserExtensionRemoveCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2BrowserExtensionRemoveCompletedHandler_Impl::Invoke(
@@ -5516,7 +5428,6 @@ impl ICoreWebView2BrowserProcessExitedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2BrowserProcessExitedEventArgs_Impl::BrowserProcessExitKind(this)
@@ -5543,7 +5454,6 @@ impl ICoreWebView2BrowserProcessExitedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2BrowserProcessExitedEventArgs_Impl::BrowserProcessId(this) {
@@ -5629,7 +5539,6 @@ impl ICoreWebView2BrowserProcessExitedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2BrowserProcessExitedEventHandler_Impl::Invoke(
@@ -5713,7 +5622,6 @@ impl ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2BytesReceivedChangedEventHandler_Impl::Invoke(
@@ -5794,7 +5702,6 @@ impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl::Invoke(
@@ -5867,7 +5774,6 @@ impl ICoreWebView2CapturePreviewCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CapturePreviewCompletedHandler_Impl::Invoke(
@@ -6030,7 +5936,6 @@ impl ICoreWebView2Certificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Certificate_Impl::Subject(this) {
@@ -6055,7 +5960,6 @@ impl ICoreWebView2Certificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Certificate_Impl::Issuer(this) {
@@ -6080,7 +5984,6 @@ impl ICoreWebView2Certificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Certificate_Impl::ValidFrom(this) {
@@ -6105,7 +6008,6 @@ impl ICoreWebView2Certificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Certificate_Impl::ValidTo(this) {
@@ -6130,7 +6032,6 @@ impl ICoreWebView2Certificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Certificate_Impl::DerEncodedSerialNumber(this) {
@@ -6155,7 +6056,6 @@ impl ICoreWebView2Certificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Certificate_Impl::DisplayName(this) {
@@ -6180,7 +6080,6 @@ impl ICoreWebView2Certificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Certificate_Impl::ToPemEncoding(this) {
@@ -6205,7 +6104,6 @@ impl ICoreWebView2Certificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Certificate_Impl::PemEncodedIssuerCertificateChain(this) {
@@ -6286,7 +6184,6 @@ impl ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ClearBrowsingDataCompletedHandler_Impl::Invoke(
@@ -6358,7 +6255,6 @@ impl ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Impl::Invoke(
@@ -6536,7 +6432,6 @@ impl ICoreWebView2ClientCertificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificate_Impl::Subject(this) {
@@ -6561,7 +6456,6 @@ impl ICoreWebView2ClientCertificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificate_Impl::Issuer(this) {
@@ -6586,7 +6480,6 @@ impl ICoreWebView2ClientCertificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificate_Impl::ValidFrom(this) {
@@ -6611,7 +6504,6 @@ impl ICoreWebView2ClientCertificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificate_Impl::ValidTo(this) {
@@ -6636,7 +6528,6 @@ impl ICoreWebView2ClientCertificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificate_Impl::DerEncodedSerialNumber(this) {
@@ -6661,7 +6552,6 @@ impl ICoreWebView2ClientCertificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificate_Impl::DisplayName(this) {
@@ -6686,7 +6576,6 @@ impl ICoreWebView2ClientCertificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificate_Impl::ToPemEncoding(this) {
@@ -6711,7 +6600,6 @@ impl ICoreWebView2ClientCertificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificate_Impl::PemEncodedIssuerCertificateChain(this) {
@@ -6733,7 +6621,6 @@ impl ICoreWebView2ClientCertificate_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificate_Impl::Kind(this) {
@@ -6834,7 +6721,6 @@ impl ICoreWebView2ClientCertificateCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificateCollection_Impl::Count(this) {
@@ -6861,7 +6747,6 @@ impl ICoreWebView2ClientCertificateCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificateCollection_Impl::GetValueAtIndex(
@@ -7108,7 +6993,6 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificateRequestedEventArgs_Impl::Host(this) {
@@ -7131,7 +7015,6 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificateRequestedEventArgs_Impl::Port(this) {
@@ -7157,7 +7040,6 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificateRequestedEventArgs_Impl::IsProxy(this) {
@@ -7183,7 +7065,6 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificateRequestedEventArgs_Impl:: AllowedCertificateAuthorities ( this , ) { Ok ( ok__ ) => { value . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
@@ -7203,7 +7084,6 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificateRequestedEventArgs_Impl:: MutuallyTrustedCertificates ( this , ) { Ok ( ok__ ) => { value . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
@@ -7223,7 +7103,6 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificateRequestedEventArgs_Impl::SelectedCertificate(
@@ -7251,7 +7130,6 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ClientCertificateRequestedEventArgs_Impl::SetSelectedCertificate(
@@ -7275,7 +7153,6 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificateRequestedEventArgs_Impl::Cancel(this) {
@@ -7301,7 +7178,6 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ClientCertificateRequestedEventArgs_Impl::SetCancel(
@@ -7325,7 +7201,6 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificateRequestedEventArgs_Impl::Handled(this) {
@@ -7351,7 +7226,6 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ClientCertificateRequestedEventArgs_Impl::SetHandled(
@@ -7375,7 +7249,6 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ClientCertificateRequestedEventArgs_Impl::GetDeferral(this) {
@@ -7471,7 +7344,6 @@ impl ICoreWebView2ClientCertificateRequestedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ClientCertificateRequestedEventHandler_Impl::Invoke(
@@ -7684,7 +7556,6 @@ impl ICoreWebView2CompositionController_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CompositionController_Impl::RootVisualTarget(this) {
@@ -7709,7 +7580,6 @@ impl ICoreWebView2CompositionController_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CompositionController_Impl::SetRootVisualTarget(
@@ -7735,7 +7605,6 @@ impl ICoreWebView2CompositionController_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CompositionController_Impl::SendMouseInput(
@@ -7762,7 +7631,6 @@ impl ICoreWebView2CompositionController_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CompositionController_Impl::SendPointerInput(
@@ -7786,7 +7654,6 @@ impl ICoreWebView2CompositionController_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CompositionController_Impl::Cursor(this) {
@@ -7811,7 +7678,6 @@ impl ICoreWebView2CompositionController_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CompositionController_Impl::SystemCursorId(this) {
@@ -7837,7 +7703,6 @@ impl ICoreWebView2CompositionController_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CompositionController_Impl::add_CursorChanged(
@@ -7865,7 +7730,6 @@ impl ICoreWebView2CompositionController_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CompositionController_Impl::remove_CursorChanged(
@@ -7953,7 +7817,6 @@ impl ICoreWebView2CompositionController2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CompositionController2_Impl::AutomationProvider(this) {
@@ -8129,7 +7992,6 @@ impl ICoreWebView2CompositionController3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CompositionController3_Impl::DragEnter(
@@ -8159,7 +8021,6 @@ impl ICoreWebView2CompositionController3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CompositionController3_Impl::DragLeave(this).into()
@@ -8181,7 +8042,6 @@ impl ICoreWebView2CompositionController3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CompositionController3_Impl::DragOver(
@@ -8211,7 +8071,6 @@ impl ICoreWebView2CompositionController3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CompositionController3_Impl::Drop(
@@ -8376,7 +8235,6 @@ impl ICoreWebView2CompositionController4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CompositionController4_Impl::GetNonClientRegionAtPoint(
@@ -8406,7 +8264,6 @@ impl ICoreWebView2CompositionController4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CompositionController4_Impl::QueryNonClientRegion(
@@ -8436,7 +8293,6 @@ impl ICoreWebView2CompositionController4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CompositionController4_Impl::add_NonClientRegionChanged(
@@ -8465,7 +8321,6 @@ impl ICoreWebView2CompositionController4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CompositionController4_Impl::remove_NonClientRegionChanged(
@@ -8576,7 +8431,6 @@ impl ICoreWebView2CompositionController5_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CompositionController5_Impl::add_DragStarting(
@@ -8605,7 +8459,6 @@ impl ICoreWebView2CompositionController5_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CompositionController5_Impl::remove_DragStarting(
@@ -8693,7 +8546,6 @@ impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl::Invoke(
@@ -8779,7 +8631,6 @@ impl ICoreWebView2ContentLoadingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContentLoadingEventArgs_Impl::IsErrorPage(this) {
@@ -8805,7 +8656,6 @@ impl ICoreWebView2ContentLoadingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContentLoadingEventArgs_Impl::NavigationId(this) {
@@ -8891,7 +8741,6 @@ impl ICoreWebView2ContentLoadingEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ContentLoadingEventHandler_Impl::Invoke(
@@ -9132,7 +8981,6 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuItem_Impl::Name(this) {
@@ -9154,7 +9002,6 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuItem_Impl::Label(this) {
@@ -9179,7 +9026,6 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuItem_Impl::CommandId(this) {
@@ -9204,7 +9050,6 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuItem_Impl::ShortcutKeyDescription(this) {
@@ -9226,7 +9071,6 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuItem_Impl::Icon(this) {
@@ -9248,7 +9092,6 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuItem_Impl::Kind(this) {
@@ -9273,7 +9116,6 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ContextMenuItem_Impl::SetIsEnabled(
@@ -9296,7 +9138,6 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuItem_Impl::IsEnabled(this) {
@@ -9321,7 +9162,6 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ContextMenuItem_Impl::SetIsChecked(
@@ -9344,7 +9184,6 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuItem_Impl::IsChecked(this) {
@@ -9369,7 +9208,6 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuItem_Impl::Children(this) {
@@ -9395,7 +9233,6 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuItem_Impl::add_CustomItemSelected(
@@ -9423,7 +9260,6 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ContextMenuItem_Impl::remove_CustomItemSelected(
@@ -9561,7 +9397,6 @@ impl ICoreWebView2ContextMenuItemCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuItemCollection_Impl::Count(this) {
@@ -9588,7 +9423,6 @@ impl ICoreWebView2ContextMenuItemCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuItemCollection_Impl::GetValueAtIndex(
@@ -9617,7 +9451,6 @@ impl ICoreWebView2ContextMenuItemCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ContextMenuItemCollection_Impl::RemoveValueAtIndex(
@@ -9642,7 +9475,6 @@ impl ICoreWebView2ContextMenuItemCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ContextMenuItemCollection_Impl::InsertValueAtIndex(
@@ -9818,7 +9650,6 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuRequestedEventArgs_Impl::MenuItems(this) {
@@ -9844,7 +9675,6 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuRequestedEventArgs_Impl::ContextMenuTarget(this) {
@@ -9870,7 +9700,6 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuRequestedEventArgs_Impl::Location(this) {
@@ -9896,7 +9725,6 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ContextMenuRequestedEventArgs_Impl::SetSelectedCommandId(
@@ -9920,7 +9748,6 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuRequestedEventArgs_Impl::SelectedCommandId(this) {
@@ -9946,7 +9773,6 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ContextMenuRequestedEventArgs_Impl::SetHandled(
@@ -9970,7 +9796,6 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuRequestedEventArgs_Impl::Handled(this) {
@@ -9996,7 +9821,6 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuRequestedEventArgs_Impl::GetDeferral(this) {
@@ -10088,7 +9912,6 @@ impl ICoreWebView2ContextMenuRequestedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ContextMenuRequestedEventHandler_Impl::Invoke(
@@ -10322,7 +10145,6 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuTarget_Impl::Kind(this) {
@@ -10347,7 +10169,6 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuTarget_Impl::IsEditable(this) {
@@ -10372,7 +10193,6 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuTarget_Impl::IsRequestedForMainFrame(this) {
@@ -10397,7 +10217,6 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuTarget_Impl::PageUri(this) {
@@ -10422,7 +10241,6 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuTarget_Impl::FrameUri(this) {
@@ -10447,7 +10265,6 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuTarget_Impl::HasLinkUri(this) {
@@ -10472,7 +10289,6 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuTarget_Impl::LinkUri(this) {
@@ -10497,7 +10313,6 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuTarget_Impl::HasLinkText(this) {
@@ -10522,7 +10337,6 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuTarget_Impl::LinkText(this) {
@@ -10547,7 +10361,6 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuTarget_Impl::HasSourceUri(this) {
@@ -10572,7 +10385,6 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuTarget_Impl::SourceUri(this) {
@@ -10597,7 +10409,6 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuTarget_Impl::HasSelection(this) {
@@ -10622,7 +10433,6 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ContextMenuTarget_Impl::SelectionText(this) {
@@ -11063,7 +10873,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller_Impl::IsVisible(this) {
@@ -11088,7 +10897,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller_Impl::SetIsVisible(
@@ -11111,7 +10919,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller_Impl::Bounds(this) {
@@ -11136,7 +10943,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller_Impl::SetBounds(this, core::mem::transmute(&bounds)).into()
@@ -11155,7 +10961,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller_Impl::ZoomFactor(this) {
@@ -11180,7 +10985,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller_Impl::SetZoomFactor(
@@ -11204,7 +11008,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller_Impl::add_ZoomFactorChanged(
@@ -11232,7 +11035,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller_Impl::remove_ZoomFactorChanged(
@@ -11256,7 +11058,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller_Impl::SetBoundsAndZoomFactor(
@@ -11280,7 +11081,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller_Impl::MoveFocus(this, core::mem::transmute_copy(&reason))
@@ -11301,7 +11101,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller_Impl::add_MoveFocusRequested(
@@ -11329,7 +11128,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller_Impl::remove_MoveFocusRequested(
@@ -11353,7 +11151,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller_Impl::add_GotFocus(
@@ -11381,7 +11178,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller_Impl::remove_GotFocus(
@@ -11405,7 +11201,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller_Impl::add_LostFocus(
@@ -11433,7 +11228,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller_Impl::remove_LostFocus(
@@ -11457,7 +11251,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller_Impl::add_AcceleratorKeyPressed(
@@ -11485,7 +11278,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller_Impl::remove_AcceleratorKeyPressed(
@@ -11508,7 +11300,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller_Impl::ParentWindow(this) {
@@ -11533,7 +11324,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller_Impl::SetParentWindow(
@@ -11555,7 +11345,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller_Impl::NotifyParentWindowPositionChanged(this).into()
@@ -11570,7 +11359,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller_Impl::Close(this).into()
@@ -11589,7 +11377,6 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller_Impl::CoreWebView2(this) {
@@ -11708,7 +11495,6 @@ impl ICoreWebView2Controller2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller2_Impl::DefaultBackgroundColor(this) {
@@ -11733,7 +11519,6 @@ impl ICoreWebView2Controller2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller2_Impl::SetDefaultBackgroundColor(
@@ -11931,7 +11716,6 @@ impl ICoreWebView2Controller3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller3_Impl::RasterizationScale(this) {
@@ -11956,7 +11740,6 @@ impl ICoreWebView2Controller3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller3_Impl::SetRasterizationScale(
@@ -11979,7 +11762,6 @@ impl ICoreWebView2Controller3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller3_Impl::ShouldDetectMonitorScaleChanges(this) {
@@ -12004,7 +11786,6 @@ impl ICoreWebView2Controller3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller3_Impl::SetShouldDetectMonitorScaleChanges(
@@ -12028,7 +11809,6 @@ impl ICoreWebView2Controller3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller3_Impl::add_RasterizationScaleChanged(
@@ -12056,7 +11836,6 @@ impl ICoreWebView2Controller3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller3_Impl::remove_RasterizationScaleChanged(
@@ -12079,7 +11858,6 @@ impl ICoreWebView2Controller3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller3_Impl::BoundsMode(this) {
@@ -12104,7 +11882,6 @@ impl ICoreWebView2Controller3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller3_Impl::SetBoundsMode(
@@ -12210,7 +11987,6 @@ impl ICoreWebView2Controller4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Controller4_Impl::AllowExternalDrop(this) {
@@ -12235,7 +12011,6 @@ impl ICoreWebView2Controller4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Controller4_Impl::SetAllowExternalDrop(
@@ -12346,7 +12121,6 @@ impl ICoreWebView2ControllerOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ControllerOptions_Impl::ProfileName(this) {
@@ -12371,7 +12145,6 @@ impl ICoreWebView2ControllerOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ControllerOptions_Impl::SetProfileName(
@@ -12394,7 +12167,6 @@ impl ICoreWebView2ControllerOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ControllerOptions_Impl::IsInPrivateModeEnabled(this) {
@@ -12419,7 +12191,6 @@ impl ICoreWebView2ControllerOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ControllerOptions_Impl::SetIsInPrivateModeEnabled(
@@ -12510,7 +12281,6 @@ impl ICoreWebView2ControllerOptions2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ControllerOptions2_Impl::ScriptLocale(this) {
@@ -12535,7 +12305,6 @@ impl ICoreWebView2ControllerOptions2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ControllerOptions2_Impl::SetScriptLocale(
@@ -12633,7 +12402,6 @@ impl ICoreWebView2ControllerOptions3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ControllerOptions3_Impl::DefaultBackgroundColor(this) {
@@ -12658,7 +12426,6 @@ impl ICoreWebView2ControllerOptions3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ControllerOptions3_Impl::SetDefaultBackgroundColor(
@@ -12755,7 +12522,6 @@ impl ICoreWebView2ControllerOptions4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ControllerOptions4_Impl::AllowHostInputProcessing(this) {
@@ -12780,7 +12546,6 @@ impl ICoreWebView2ControllerOptions4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ControllerOptions4_Impl::SetAllowHostInputProcessing(
@@ -13028,7 +12793,6 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Cookie_Impl::Name(this) {
@@ -13050,7 +12814,6 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Cookie_Impl::Value(this) {
@@ -13075,7 +12838,6 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Cookie_Impl::SetValue(this, core::mem::transmute_copy(&value)).into()
@@ -13094,7 +12856,6 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Cookie_Impl::Domain(this) {
@@ -13116,7 +12877,6 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Cookie_Impl::Path(this) {
@@ -13141,7 +12901,6 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Cookie_Impl::Expires(this) {
@@ -13166,7 +12925,6 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Cookie_Impl::SetExpires(this, core::mem::transmute_copy(&expires))
@@ -13186,7 +12944,6 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Cookie_Impl::IsHttpOnly(this) {
@@ -13211,7 +12968,6 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Cookie_Impl::SetIsHttpOnly(
@@ -13234,7 +12990,6 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Cookie_Impl::SameSite(this) {
@@ -13259,7 +13014,6 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Cookie_Impl::SetSameSite(this, core::mem::transmute_copy(&samesite))
@@ -13279,7 +13033,6 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Cookie_Impl::IsSecure(this) {
@@ -13304,7 +13057,6 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Cookie_Impl::SetIsSecure(this, core::mem::transmute_copy(&issecure))
@@ -13324,7 +13076,6 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Cookie_Impl::IsSession(this) {
@@ -13422,7 +13173,6 @@ impl ICoreWebView2CookieList_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CookieList_Impl::Count(this) {
@@ -13448,7 +13198,6 @@ impl ICoreWebView2CookieList_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CookieList_Impl::GetValueAtIndex(
@@ -13690,7 +13439,6 @@ impl ICoreWebView2CookieManager_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CookieManager_Impl::CreateCookie(
@@ -13722,7 +13470,6 @@ impl ICoreWebView2CookieManager_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CookieManager_Impl::CopyCookie(
@@ -13751,7 +13498,6 @@ impl ICoreWebView2CookieManager_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CookieManager_Impl::GetCookies(
@@ -13775,7 +13521,6 @@ impl ICoreWebView2CookieManager_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CookieManager_Impl::AddOrUpdateCookie(
@@ -13798,7 +13543,6 @@ impl ICoreWebView2CookieManager_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CookieManager_Impl::DeleteCookie(
@@ -13822,7 +13566,6 @@ impl ICoreWebView2CookieManager_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CookieManager_Impl::DeleteCookies(
@@ -13848,7 +13591,6 @@ impl ICoreWebView2CookieManager_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CookieManager_Impl::DeleteCookiesWithDomainAndPath(
@@ -13872,7 +13614,6 @@ impl ICoreWebView2CookieManager_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CookieManager_Impl::DeleteAllCookies(this).into()
@@ -13961,7 +13702,6 @@ impl ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Impl::Invoke(
@@ -14051,7 +13791,6 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl::Invoke(
@@ -14138,7 +13877,6 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl::Invoke(
@@ -14221,7 +13959,6 @@ impl ICoreWebView2CursorChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CursorChangedEventHandler_Impl::Invoke(
@@ -14305,7 +14042,6 @@ impl ICoreWebView2CustomItemSelectedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CustomItemSelectedEventHandler_Impl::Invoke(
@@ -14488,7 +14224,6 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CustomSchemeRegistration_Impl::SchemeName(this) {
@@ -14514,7 +14249,6 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CustomSchemeRegistration_Impl::TreatAsSecure(this) {
@@ -14540,7 +14274,6 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CustomSchemeRegistration_Impl::SetTreatAsSecure(
@@ -14565,7 +14298,6 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CustomSchemeRegistration_Impl::GetAllowedOrigins(
@@ -14591,7 +14323,6 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CustomSchemeRegistration_Impl::SetAllowedOrigins(
@@ -14616,7 +14347,6 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2CustomSchemeRegistration_Impl::HasAuthorityComponent(this) {
@@ -14642,7 +14372,6 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2CustomSchemeRegistration_Impl::SetHasAuthorityComponent(
@@ -14718,7 +14447,6 @@ impl ICoreWebView2DOMContentLoadedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DOMContentLoadedEventArgs_Impl::NavigationId(this) {
@@ -14803,7 +14531,6 @@ impl ICoreWebView2DOMContentLoadedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DOMContentLoadedEventHandler_Impl::Invoke(
@@ -14864,7 +14591,6 @@ impl ICoreWebView2Deferral_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Deferral_Impl::Complete(this).into()
@@ -14931,7 +14657,6 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Impl:: ParameterObjectAsJson ( this , ) { Ok ( ok__ ) => { value . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
@@ -15007,7 +14732,6 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Impl::SessionId(this) {
@@ -15093,7 +14817,6 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Impl::Invoke(
@@ -15194,7 +14917,6 @@ impl ICoreWebView2DevToolsProtocolEventReceiver_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DevToolsProtocolEventReceiver_Impl:: add_DevToolsProtocolEventReceived ( this , core::mem::transmute_copy ( & eventhandler ) , ) { Ok ( ok__ ) => { token . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
@@ -15214,7 +14936,6 @@ impl ICoreWebView2DevToolsProtocolEventReceiver_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DevToolsProtocolEventReceiver_Impl:: remove_DevToolsProtocolEventReceived ( this , core::mem::transmute_copy ( & token ) , ) . into ( )
@@ -15297,7 +15018,6 @@ impl ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DocumentTitleChangedEventHandler_Impl::Invoke(
@@ -15622,7 +15342,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadOperation_Impl::add_BytesReceivedChanged(
@@ -15650,7 +15369,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DownloadOperation_Impl::remove_BytesReceivedChanged(
@@ -15674,7 +15392,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadOperation_Impl::add_EstimatedEndTimeChanged(
@@ -15702,7 +15419,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DownloadOperation_Impl::remove_EstimatedEndTimeChanged(
@@ -15726,7 +15442,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadOperation_Impl::add_StateChanged(
@@ -15754,7 +15469,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DownloadOperation_Impl::remove_StateChanged(
@@ -15774,7 +15488,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadOperation_Impl::Uri(this) {
@@ -15799,7 +15512,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadOperation_Impl::ContentDisposition(this) {
@@ -15824,7 +15536,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadOperation_Impl::MimeType(this) {
@@ -15849,7 +15560,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadOperation_Impl::TotalBytesToReceive(this) {
@@ -15874,7 +15584,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadOperation_Impl::BytesReceived(this) {
@@ -15899,7 +15608,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadOperation_Impl::EstimatedEndTime(this) {
@@ -15924,7 +15632,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadOperation_Impl::ResultFilePath(this) {
@@ -15946,7 +15653,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadOperation_Impl::State(this) {
@@ -15971,7 +15677,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadOperation_Impl::InterruptReason(this) {
@@ -15995,7 +15700,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DownloadOperation_Impl::Cancel(this).into()
@@ -16010,7 +15714,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DownloadOperation_Impl::Pause(this).into()
@@ -16028,7 +15731,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DownloadOperation_Impl::Resume(this).into()
@@ -16047,7 +15749,6 @@ impl ICoreWebView2DownloadOperation_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadOperation_Impl::CanResume(this) {
@@ -16237,7 +15938,6 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadStartingEventArgs_Impl::DownloadOperation(this) {
@@ -16263,7 +15963,6 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadStartingEventArgs_Impl::Cancel(this) {
@@ -16289,7 +15988,6 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DownloadStartingEventArgs_Impl::SetCancel(
@@ -16313,7 +16011,6 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadStartingEventArgs_Impl::ResultFilePath(this) {
@@ -16339,7 +16036,6 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DownloadStartingEventArgs_Impl::SetResultFilePath(
@@ -16363,7 +16059,6 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadStartingEventArgs_Impl::Handled(this) {
@@ -16389,7 +16084,6 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DownloadStartingEventArgs_Impl::SetHandled(
@@ -16413,7 +16107,6 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DownloadStartingEventArgs_Impl::GetDeferral(this) {
@@ -16505,7 +16198,6 @@ impl ICoreWebView2DownloadStartingEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DownloadStartingEventHandler_Impl::Invoke(
@@ -16646,7 +16338,6 @@ impl ICoreWebView2DragStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DragStartingEventArgs_Impl::AllowedDropEffects(this) {
@@ -16668,7 +16359,6 @@ impl ICoreWebView2DragStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DragStartingEventArgs_Impl::Data(this) {
@@ -16693,7 +16383,6 @@ impl ICoreWebView2DragStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DragStartingEventArgs_Impl::Handled(this) {
@@ -16718,7 +16407,6 @@ impl ICoreWebView2DragStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DragStartingEventArgs_Impl::SetHandled(
@@ -16741,7 +16429,6 @@ impl ICoreWebView2DragStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DragStartingEventArgs_Impl::Position(this) {
@@ -16766,7 +16453,6 @@ impl ICoreWebView2DragStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2DragStartingEventArgs_Impl::GetDeferral(this) {
@@ -16855,7 +16541,6 @@ impl ICoreWebView2DragStartingEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2DragStartingEventHandler_Impl::Invoke(
@@ -17026,7 +16711,6 @@ impl ICoreWebView2Environment_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Environment_Impl::CreateCoreWebView2Controller(
@@ -17054,7 +16738,6 @@ impl ICoreWebView2Environment_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment_Impl::CreateWebResourceResponse(
@@ -17085,7 +16768,6 @@ impl ICoreWebView2Environment_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment_Impl::BrowserVersionString(this) {
@@ -17111,7 +16793,6 @@ impl ICoreWebView2Environment_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment_Impl::add_NewBrowserVersionAvailable(
@@ -17139,7 +16820,6 @@ impl ICoreWebView2Environment_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Environment_Impl::remove_NewBrowserVersionAvailable(
@@ -17305,7 +16985,6 @@ impl ICoreWebView2Environment10_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment10_Impl::CreateCoreWebView2ControllerOptions(this) {
@@ -17332,7 +17011,6 @@ impl ICoreWebView2Environment10_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Environment10_Impl::CreateCoreWebView2ControllerWithOptions(
@@ -17359,7 +17037,6 @@ impl ICoreWebView2Environment10_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Environment10_Impl::CreateCoreWebView2CompositionControllerWithOptions(
@@ -17464,7 +17141,6 @@ impl ICoreWebView2Environment11_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment11_Impl::FailureReportFolderPath(this) {
@@ -17570,7 +17246,6 @@ impl ICoreWebView2Environment12_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment12_Impl::CreateSharedBuffer(
@@ -17680,7 +17355,6 @@ impl ICoreWebView2Environment13_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Environment13_Impl::GetProcessExtendedInfos(
@@ -17850,7 +17524,6 @@ impl ICoreWebView2Environment14_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment14_Impl::CreateWebFileSystemFileHandle(
@@ -17881,7 +17554,6 @@ impl ICoreWebView2Environment14_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment14_Impl::CreateWebFileSystemDirectoryHandle(
@@ -17912,7 +17584,6 @@ impl ICoreWebView2Environment14_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment14_Impl::CreateObjectCollection(
@@ -18027,7 +17698,6 @@ impl ICoreWebView2Environment15_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment15_Impl::CreateFindOptions(this) {
@@ -18148,7 +17818,6 @@ impl ICoreWebView2Environment2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment2_Impl::CreateWebResourceRequest(
@@ -18271,7 +17940,6 @@ impl ICoreWebView2Environment3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Environment3_Impl::CreateCoreWebView2CompositionController(
@@ -18295,7 +17963,6 @@ impl ICoreWebView2Environment3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment3_Impl::CreateCoreWebView2PointerInfo(this) {
@@ -18392,7 +18059,6 @@ impl ICoreWebView2Environment4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment4_Impl::GetAutomationProviderForWindow(
@@ -18502,7 +18168,6 @@ impl ICoreWebView2Environment5_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment5_Impl::add_BrowserProcessExited(
@@ -18530,7 +18195,6 @@ impl ICoreWebView2Environment5_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Environment5_Impl::remove_BrowserProcessExited(
@@ -18617,7 +18281,6 @@ impl ICoreWebView2Environment6_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment6_Impl::CreatePrintSettings(this) {
@@ -18705,7 +18368,6 @@ impl ICoreWebView2Environment7_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment7_Impl::UserDataFolder(this) {
@@ -18835,7 +18497,6 @@ impl ICoreWebView2Environment8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment8_Impl::add_ProcessInfosChanged(
@@ -18863,7 +18524,6 @@ impl ICoreWebView2Environment8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Environment8_Impl::remove_ProcessInfosChanged(
@@ -18886,7 +18546,6 @@ impl ICoreWebView2Environment8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment8_Impl::GetProcessInfos(this) {
@@ -19004,7 +18663,6 @@ impl ICoreWebView2Environment9_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Environment9_Impl::CreateContextMenuItem(
@@ -19189,7 +18847,6 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2EnvironmentOptions_Impl::AdditionalBrowserArguments(this) {
@@ -19214,7 +18871,6 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2EnvironmentOptions_Impl::SetAdditionalBrowserArguments(
@@ -19237,7 +18893,6 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2EnvironmentOptions_Impl::Language(this) {
@@ -19262,7 +18917,6 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2EnvironmentOptions_Impl::SetLanguage(
@@ -19285,7 +18939,6 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2EnvironmentOptions_Impl::TargetCompatibleBrowserVersion(this) {
@@ -19310,7 +18963,6 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2EnvironmentOptions_Impl::SetTargetCompatibleBrowserVersion(
@@ -19333,7 +18985,6 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2EnvironmentOptions_Impl::AllowSingleSignOnUsingOSPrimaryAccount(
@@ -19360,7 +19011,6 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2EnvironmentOptions_Impl::SetAllowSingleSignOnUsingOSPrimaryAccount(
@@ -19458,7 +19108,6 @@ impl ICoreWebView2EnvironmentOptions2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2EnvironmentOptions2_Impl::ExclusiveUserDataFolderAccess(this) {
@@ -19483,7 +19132,6 @@ impl ICoreWebView2EnvironmentOptions2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2EnvironmentOptions2_Impl::SetExclusiveUserDataFolderAccess(
@@ -19569,7 +19217,6 @@ impl ICoreWebView2EnvironmentOptions3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2EnvironmentOptions3_Impl::IsCustomCrashReportingEnabled(this) {
@@ -19594,7 +19241,6 @@ impl ICoreWebView2EnvironmentOptions3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2EnvironmentOptions3_Impl::SetIsCustomCrashReportingEnabled(
@@ -19697,7 +19343,6 @@ impl ICoreWebView2EnvironmentOptions4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2EnvironmentOptions4_Impl::GetCustomSchemeRegistrations(
@@ -19722,7 +19367,6 @@ impl ICoreWebView2EnvironmentOptions4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2EnvironmentOptions4_Impl::SetCustomSchemeRegistrations(
@@ -19806,7 +19450,6 @@ impl ICoreWebView2EnvironmentOptions5_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2EnvironmentOptions5_Impl::EnableTrackingPrevention(this) {
@@ -19831,7 +19474,6 @@ impl ICoreWebView2EnvironmentOptions5_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2EnvironmentOptions5_Impl::SetEnableTrackingPrevention(
@@ -19915,7 +19557,6 @@ impl ICoreWebView2EnvironmentOptions6_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2EnvironmentOptions6_Impl::AreBrowserExtensionsEnabled(this) {
@@ -19940,7 +19581,6 @@ impl ICoreWebView2EnvironmentOptions6_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2EnvironmentOptions6_Impl::SetAreBrowserExtensionsEnabled(
@@ -20063,7 +19703,6 @@ impl ICoreWebView2EnvironmentOptions7_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2EnvironmentOptions7_Impl::ChannelSearchKind(this) {
@@ -20088,7 +19727,6 @@ impl ICoreWebView2EnvironmentOptions7_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2EnvironmentOptions7_Impl::SetChannelSearchKind(
@@ -20111,7 +19749,6 @@ impl ICoreWebView2EnvironmentOptions7_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2EnvironmentOptions7_Impl::ReleaseChannels(this) {
@@ -20136,7 +19773,6 @@ impl ICoreWebView2EnvironmentOptions7_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2EnvironmentOptions7_Impl::SetReleaseChannels(
@@ -20224,7 +19860,6 @@ impl ICoreWebView2EnvironmentOptions8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2EnvironmentOptions8_Impl::ScrollBarStyle(this) {
@@ -20249,7 +19884,6 @@ impl ICoreWebView2EnvironmentOptions8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2EnvironmentOptions8_Impl::SetScrollBarStyle(
@@ -20333,7 +19967,6 @@ impl ICoreWebView2EstimatedEndTimeChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2EstimatedEndTimeChangedEventHandler_Impl::Invoke(
@@ -20414,7 +20047,6 @@ impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ExecuteScriptCompletedHandler_Impl::Invoke(
@@ -20535,7 +20167,6 @@ impl ICoreWebView2ExecuteScriptResult_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ExecuteScriptResult_Impl::Succeeded(this) {
@@ -20560,7 +20191,6 @@ impl ICoreWebView2ExecuteScriptResult_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ExecuteScriptResult_Impl::ResultAsJson(this) {
@@ -20586,7 +20216,6 @@ impl ICoreWebView2ExecuteScriptResult_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ExecuteScriptResult_Impl::TryGetResultAsString(
@@ -20610,7 +20239,6 @@ impl ICoreWebView2ExecuteScriptResult_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ExecuteScriptResult_Impl::Exception(this) {
@@ -20701,7 +20329,6 @@ impl ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ExecuteScriptWithResultCompletedHandler_Impl::Invoke(
@@ -20785,7 +20412,6 @@ impl ICoreWebView2FaviconChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FaviconChangedEventHandler_Impl::Invoke(
@@ -20849,7 +20475,6 @@ impl ICoreWebView2File_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2File_Impl::Path(this) {
@@ -20946,7 +20571,6 @@ impl ICoreWebView2FileSystemHandle_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FileSystemHandle_Impl::Kind(this) {
@@ -20968,7 +20592,6 @@ impl ICoreWebView2FileSystemHandle_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FileSystemHandle_Impl::Path(this) {
@@ -20993,7 +20616,6 @@ impl ICoreWebView2FileSystemHandle_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FileSystemHandle_Impl::Permission(this) {
@@ -21198,7 +20820,6 @@ impl ICoreWebView2Find_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Find_Impl::ActiveMatchIndex(this) {
@@ -21223,7 +20844,6 @@ impl ICoreWebView2Find_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Find_Impl::MatchCount(this) {
@@ -21249,7 +20869,6 @@ impl ICoreWebView2Find_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Find_Impl::add_ActiveMatchIndexChanged(
@@ -21277,7 +20896,6 @@ impl ICoreWebView2Find_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Find_Impl::remove_ActiveMatchIndexChanged(
@@ -21301,7 +20919,6 @@ impl ICoreWebView2Find_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Find_Impl::add_MatchCountChanged(
@@ -21329,7 +20946,6 @@ impl ICoreWebView2Find_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Find_Impl::remove_MatchCountChanged(
@@ -21350,7 +20966,6 @@ impl ICoreWebView2Find_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Find_Impl::Start(
@@ -21373,7 +20988,6 @@ impl ICoreWebView2Find_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Find_Impl::FindNext(this).into()
@@ -21391,7 +21005,6 @@ impl ICoreWebView2Find_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Find_Impl::FindPrevious(this).into()
@@ -21406,7 +21019,6 @@ impl ICoreWebView2Find_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Find_Impl::Stop(this).into()
@@ -21494,7 +21106,6 @@ impl ICoreWebView2FindActiveMatchIndexChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FindActiveMatchIndexChangedEventHandler_Impl::Invoke(
@@ -21578,7 +21189,6 @@ impl ICoreWebView2FindMatchCountChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FindMatchCountChangedEventHandler_Impl::Invoke(
@@ -21773,7 +21383,6 @@ impl ICoreWebView2FindOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FindOptions_Impl::FindTerm(this) {
@@ -21798,7 +21407,6 @@ impl ICoreWebView2FindOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FindOptions_Impl::SetFindTerm(this, core::mem::transmute_copy(&value))
@@ -21818,7 +21426,6 @@ impl ICoreWebView2FindOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FindOptions_Impl::IsCaseSensitive(this) {
@@ -21843,7 +21450,6 @@ impl ICoreWebView2FindOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FindOptions_Impl::SetIsCaseSensitive(
@@ -21866,7 +21472,6 @@ impl ICoreWebView2FindOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FindOptions_Impl::ShouldHighlightAllMatches(this) {
@@ -21891,7 +21496,6 @@ impl ICoreWebView2FindOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FindOptions_Impl::SetShouldHighlightAllMatches(
@@ -21914,7 +21518,6 @@ impl ICoreWebView2FindOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FindOptions_Impl::ShouldMatchWord(this) {
@@ -21939,7 +21542,6 @@ impl ICoreWebView2FindOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FindOptions_Impl::SetShouldMatchWord(
@@ -21962,7 +21564,6 @@ impl ICoreWebView2FindOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FindOptions_Impl::SuppressDefaultFindDialog(this) {
@@ -21987,7 +21588,6 @@ impl ICoreWebView2FindOptions_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FindOptions_Impl::SetSuppressDefaultFindDialog(
@@ -22067,7 +21667,6 @@ impl ICoreWebView2FindStartCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FindStartCompletedHandler_Impl::Invoke(
@@ -22149,7 +21748,6 @@ impl ICoreWebView2FocusChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FocusChangedEventHandler_Impl::Invoke(
@@ -22342,7 +21940,6 @@ impl ICoreWebView2Frame_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Frame_Impl::Name(this) {
@@ -22368,7 +21965,6 @@ impl ICoreWebView2Frame_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Frame_Impl::add_NameChanged(
@@ -22396,7 +21992,6 @@ impl ICoreWebView2Frame_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame_Impl::remove_NameChanged(this, core::mem::transmute_copy(&token))
@@ -22419,7 +22014,6 @@ impl ICoreWebView2Frame_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame_Impl::AddHostObjectToScriptWithOrigins(
@@ -22445,7 +22039,6 @@ impl ICoreWebView2Frame_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame_Impl::RemoveHostObjectFromScript(
@@ -22469,7 +22062,6 @@ impl ICoreWebView2Frame_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Frame_Impl::add_Destroyed(
@@ -22497,7 +22089,6 @@ impl ICoreWebView2Frame_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame_Impl::remove_Destroyed(this, core::mem::transmute_copy(&token))
@@ -22517,7 +22108,6 @@ impl ICoreWebView2Frame_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Frame_Impl::IsDestroyed(this) {
@@ -22822,7 +22412,6 @@ impl ICoreWebView2Frame2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Frame2_Impl::add_NavigationStarting(
@@ -22850,7 +22439,6 @@ impl ICoreWebView2Frame2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame2_Impl::remove_NavigationStarting(
@@ -22874,7 +22462,6 @@ impl ICoreWebView2Frame2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Frame2_Impl::add_ContentLoading(
@@ -22902,7 +22489,6 @@ impl ICoreWebView2Frame2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame2_Impl::remove_ContentLoading(
@@ -22926,7 +22512,6 @@ impl ICoreWebView2Frame2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Frame2_Impl::add_NavigationCompleted(
@@ -22954,7 +22539,6 @@ impl ICoreWebView2Frame2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame2_Impl::remove_NavigationCompleted(
@@ -22978,7 +22562,6 @@ impl ICoreWebView2Frame2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Frame2_Impl::add_DOMContentLoaded(
@@ -23006,7 +22589,6 @@ impl ICoreWebView2Frame2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame2_Impl::remove_DOMContentLoaded(
@@ -23030,7 +22612,6 @@ impl ICoreWebView2Frame2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame2_Impl::ExecuteScript(
@@ -23054,7 +22635,6 @@ impl ICoreWebView2Frame2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame2_Impl::PostWebMessageAsJson(
@@ -23077,7 +22657,6 @@ impl ICoreWebView2Frame2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame2_Impl::PostWebMessageAsString(
@@ -23101,7 +22680,6 @@ impl ICoreWebView2Frame2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Frame2_Impl::add_WebMessageReceived(
@@ -23129,7 +22707,6 @@ impl ICoreWebView2Frame2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame2_Impl::remove_WebMessageReceived(
@@ -23242,7 +22819,6 @@ impl ICoreWebView2Frame3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Frame3_Impl::add_PermissionRequested(
@@ -23270,7 +22846,6 @@ impl ICoreWebView2Frame3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame3_Impl::remove_PermissionRequested(
@@ -23371,7 +22946,6 @@ impl ICoreWebView2Frame4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame4_Impl::PostSharedBufferToScript(
@@ -23455,7 +23029,6 @@ impl ICoreWebView2Frame5_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Frame5_Impl::FrameId(this) {
@@ -23567,7 +23140,6 @@ impl ICoreWebView2Frame6_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Frame6_Impl::add_ScreenCaptureStarting(
@@ -23595,7 +23167,6 @@ impl ICoreWebView2Frame6_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame6_Impl::remove_ScreenCaptureStarting(
@@ -23705,7 +23276,6 @@ impl ICoreWebView2Frame7_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Frame7_Impl::add_FrameCreated(
@@ -23733,7 +23303,6 @@ impl ICoreWebView2Frame7_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Frame7_Impl::remove_FrameCreated(
@@ -23823,7 +23392,6 @@ impl ICoreWebView2FrameChildFrameCreatedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FrameChildFrameCreatedEventHandler_Impl::Invoke(
@@ -23907,7 +23475,6 @@ impl ICoreWebView2FrameContentLoadingEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FrameContentLoadingEventHandler_Impl::Invoke(
@@ -23973,7 +23540,6 @@ impl ICoreWebView2FrameCreatedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FrameCreatedEventArgs_Impl::Frame(this) {
@@ -24057,7 +23623,6 @@ impl ICoreWebView2FrameCreatedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FrameCreatedEventHandler_Impl::Invoke(
@@ -24141,7 +23706,6 @@ impl ICoreWebView2FrameDOMContentLoadedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FrameDOMContentLoadedEventHandler_Impl::Invoke(
@@ -24225,7 +23789,6 @@ impl ICoreWebView2FrameDestroyedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FrameDestroyedEventHandler_Impl::Invoke(
@@ -24302,7 +23865,6 @@ impl ICoreWebView2FrameInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FrameInfo_Impl::Name(this) {
@@ -24327,7 +23889,6 @@ impl ICoreWebView2FrameInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FrameInfo_Impl::Source(this) {
@@ -24436,7 +23997,6 @@ impl ICoreWebView2FrameInfo2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FrameInfo2_Impl::ParentFrameInfo(this) {
@@ -24461,7 +24021,6 @@ impl ICoreWebView2FrameInfo2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FrameInfo2_Impl::FrameId(this) {
@@ -24486,7 +24045,6 @@ impl ICoreWebView2FrameInfo2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FrameInfo2_Impl::FrameKind(this) {
@@ -24561,7 +24119,6 @@ impl ICoreWebView2FrameInfoCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FrameInfoCollection_Impl::GetIterator(this) {
@@ -24666,7 +24223,6 @@ impl ICoreWebView2FrameInfoCollectionIterator_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FrameInfoCollectionIterator_Impl::HasCurrent(this) {
@@ -24692,7 +24248,6 @@ impl ICoreWebView2FrameInfoCollectionIterator_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FrameInfoCollectionIterator_Impl::GetCurrent(this) {
@@ -24718,7 +24273,6 @@ impl ICoreWebView2FrameInfoCollectionIterator_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2FrameInfoCollectionIterator_Impl::MoveNext(this) {
@@ -24805,7 +24359,6 @@ impl ICoreWebView2FrameNameChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FrameNameChangedEventHandler_Impl::Invoke(
@@ -24889,7 +24442,6 @@ impl ICoreWebView2FrameNavigationCompletedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FrameNavigationCompletedEventHandler_Impl::Invoke(
@@ -24973,7 +24525,6 @@ impl ICoreWebView2FrameNavigationStartingEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FrameNavigationStartingEventHandler_Impl::Invoke(
@@ -25057,7 +24608,6 @@ impl ICoreWebView2FramePermissionRequestedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FramePermissionRequestedEventHandler_Impl::Invoke(
@@ -25141,7 +24691,6 @@ impl ICoreWebView2FrameScreenCaptureStartingEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FrameScreenCaptureStartingEventHandler_Impl::Invoke(
@@ -25225,7 +24774,6 @@ impl ICoreWebView2FrameWebMessageReceivedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2FrameWebMessageReceivedEventHandler_Impl::Invoke(
@@ -25312,7 +24860,6 @@ impl ICoreWebView2GetCookiesCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2GetCookiesCompletedHandler_Impl::Invoke(
@@ -25399,7 +24946,6 @@ impl ICoreWebView2GetFaviconCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2GetFaviconCompletedHandler_Impl::Invoke(
@@ -25486,7 +25032,6 @@ impl ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Impl::Invoke(
@@ -25573,7 +25118,6 @@ impl ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2GetProcessExtendedInfosCompletedHandler_Impl::Invoke(
@@ -25657,7 +25201,6 @@ impl ICoreWebView2HistoryChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2HistoryChangedEventHandler_Impl::Invoke(
@@ -25767,7 +25310,6 @@ impl ICoreWebView2HttpHeadersCollectionIterator_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2HttpHeadersCollectionIterator_Impl::GetCurrentHeader(
@@ -25792,7 +25334,6 @@ impl ICoreWebView2HttpHeadersCollectionIterator_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2HttpHeadersCollectionIterator_Impl::HasCurrentHeader(this) {
@@ -25818,7 +25359,6 @@ impl ICoreWebView2HttpHeadersCollectionIterator_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2HttpHeadersCollectionIterator_Impl::MoveNext(this) {
@@ -25978,7 +25518,6 @@ impl ICoreWebView2HttpRequestHeaders_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2HttpRequestHeaders_Impl::GetHeader(
@@ -26007,7 +25546,6 @@ impl ICoreWebView2HttpRequestHeaders_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2HttpRequestHeaders_Impl::GetHeaders(
@@ -26036,7 +25574,6 @@ impl ICoreWebView2HttpRequestHeaders_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2HttpRequestHeaders_Impl::Contains(
@@ -26065,7 +25602,6 @@ impl ICoreWebView2HttpRequestHeaders_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2HttpRequestHeaders_Impl::SetHeader(
@@ -26089,7 +25625,6 @@ impl ICoreWebView2HttpRequestHeaders_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2HttpRequestHeaders_Impl::RemoveHeader(
@@ -26112,7 +25647,6 @@ impl ICoreWebView2HttpRequestHeaders_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2HttpRequestHeaders_Impl::GetIterator(this) {
@@ -26263,7 +25797,6 @@ impl ICoreWebView2HttpResponseHeaders_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2HttpResponseHeaders_Impl::AppendHeader(
@@ -26288,7 +25821,6 @@ impl ICoreWebView2HttpResponseHeaders_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2HttpResponseHeaders_Impl::Contains(
@@ -26317,7 +25849,6 @@ impl ICoreWebView2HttpResponseHeaders_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2HttpResponseHeaders_Impl::GetHeader(
@@ -26346,7 +25877,6 @@ impl ICoreWebView2HttpResponseHeaders_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2HttpResponseHeaders_Impl::GetHeaders(
@@ -26374,7 +25904,6 @@ impl ICoreWebView2HttpResponseHeaders_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2HttpResponseHeaders_Impl::GetIterator(this) {
@@ -26463,7 +25992,6 @@ impl ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Impl::Invoke(
@@ -26547,7 +26075,6 @@ impl ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Impl::Invoke(
@@ -26631,7 +26158,6 @@ impl ICoreWebView2IsMutedChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2IsMutedChangedEventHandler_Impl::Invoke(
@@ -26772,7 +26298,6 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl::Uri(this) {
@@ -26798,7 +26323,6 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl::InitiatingOrigin(this)
@@ -26825,7 +26349,6 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl::IsUserInitiated(this) {
@@ -26851,7 +26374,6 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl::Cancel(this) {
@@ -26877,7 +26399,6 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl::SetCancel(
@@ -26901,7 +26422,6 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl::GetDeferral(this) {
@@ -26991,7 +26511,6 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2LaunchingExternalUriSchemeEventHandler_Impl::Invoke(
@@ -27094,7 +26613,6 @@ impl ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2MoveFocusRequestedEventArgs_Impl::Reason(this) {
@@ -27120,7 +26638,6 @@ impl ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2MoveFocusRequestedEventArgs_Impl::Handled(this) {
@@ -27146,7 +26663,6 @@ impl ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2MoveFocusRequestedEventArgs_Impl::SetHandled(
@@ -27231,7 +26747,6 @@ impl ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2MoveFocusRequestedEventHandler_Impl::Invoke(
@@ -27333,7 +26848,6 @@ impl ICoreWebView2NavigationCompletedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NavigationCompletedEventArgs_Impl::IsSuccess(this) {
@@ -27359,7 +26873,6 @@ impl ICoreWebView2NavigationCompletedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NavigationCompletedEventArgs_Impl::WebErrorStatus(this) {
@@ -27385,7 +26898,6 @@ impl ICoreWebView2NavigationCompletedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NavigationCompletedEventArgs_Impl::NavigationId(this) {
@@ -27469,7 +26981,6 @@ impl ICoreWebView2NavigationCompletedEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NavigationCompletedEventArgs2_Impl::HttpStatusCode(this) {
@@ -27555,7 +27066,6 @@ impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2NavigationCompletedEventHandler_Impl::Invoke(
@@ -27711,7 +27221,6 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NavigationStartingEventArgs_Impl::Uri(this) {
@@ -27737,7 +27246,6 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NavigationStartingEventArgs_Impl::IsUserInitiated(this) {
@@ -27763,7 +27271,6 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NavigationStartingEventArgs_Impl::IsRedirected(this) {
@@ -27789,7 +27296,6 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NavigationStartingEventArgs_Impl::RequestHeaders(this) {
@@ -27815,7 +27321,6 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NavigationStartingEventArgs_Impl::Cancel(this) {
@@ -27841,7 +27346,6 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2NavigationStartingEventArgs_Impl::SetCancel(
@@ -27865,7 +27369,6 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NavigationStartingEventArgs_Impl::NavigationId(this) {
@@ -27968,7 +27471,6 @@ impl ICoreWebView2NavigationStartingEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NavigationStartingEventArgs2_Impl:: AdditionalAllowedFrameAncestors ( this , ) { Ok ( ok__ ) => { value . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
@@ -27988,7 +27490,6 @@ impl ICoreWebView2NavigationStartingEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2NavigationStartingEventArgs2_Impl::SetAdditionalAllowedFrameAncestors(
@@ -28076,7 +27577,6 @@ impl ICoreWebView2NavigationStartingEventArgs3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NavigationStartingEventArgs3_Impl::NavigationKind(this) {
@@ -28163,7 +27663,6 @@ impl ICoreWebView2NavigationStartingEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2NavigationStartingEventHandler_Impl::Invoke(
@@ -28247,7 +27746,6 @@ impl ICoreWebView2NewBrowserVersionAvailableEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2NewBrowserVersionAvailableEventHandler_Impl::Invoke(
@@ -28423,7 +27921,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NewWindowRequestedEventArgs_Impl::Uri(this) {
@@ -28449,7 +27946,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2NewWindowRequestedEventArgs_Impl::SetNewWindow(
@@ -28473,7 +27969,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NewWindowRequestedEventArgs_Impl::NewWindow(this) {
@@ -28499,7 +27994,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2NewWindowRequestedEventArgs_Impl::SetHandled(
@@ -28523,7 +28017,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NewWindowRequestedEventArgs_Impl::Handled(this) {
@@ -28549,7 +28042,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NewWindowRequestedEventArgs_Impl::IsUserInitiated(this) {
@@ -28575,7 +28067,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NewWindowRequestedEventArgs_Impl::GetDeferral(this) {
@@ -28601,7 +28092,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NewWindowRequestedEventArgs_Impl::WindowFeatures(this) {
@@ -28687,7 +28177,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NewWindowRequestedEventArgs2_Impl::Name(this) {
@@ -28773,7 +28262,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NewWindowRequestedEventArgs3_Impl::OriginalSourceFrameInfo(this)
@@ -28861,7 +28349,6 @@ impl ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2NewWindowRequestedEventHandler_Impl::Invoke(
@@ -28935,7 +28422,6 @@ impl ICoreWebView2NonClientRegionChangedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NonClientRegionChangedEventArgs_Impl::RegionKind(this) {
@@ -29020,7 +28506,6 @@ impl ICoreWebView2NonClientRegionChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2NonClientRegionChangedEventHandler_Impl::Invoke(
@@ -29328,7 +28813,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Notification_Impl::add_CloseRequested(
@@ -29356,7 +28840,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Notification_Impl::remove_CloseRequested(
@@ -29378,7 +28861,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Notification_Impl::ReportShown(this).into()
@@ -29396,7 +28878,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Notification_Impl::ReportClicked(this).into()
@@ -29414,7 +28895,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Notification_Impl::ReportClosed(this).into()
@@ -29430,7 +28910,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Notification_Impl::Body(this) {
@@ -29455,7 +28934,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Notification_Impl::Direction(this) {
@@ -29480,7 +28958,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Notification_Impl::Language(this) {
@@ -29502,7 +28979,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Notification_Impl::Tag(this) {
@@ -29527,7 +29003,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Notification_Impl::IconUri(this) {
@@ -29549,7 +29024,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Notification_Impl::Title(this) {
@@ -29574,7 +29048,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Notification_Impl::BadgeUri(this) {
@@ -29599,7 +29072,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Notification_Impl::BodyImageUri(this) {
@@ -29624,7 +29096,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Notification_Impl::ShouldRenotify(this) {
@@ -29649,7 +29120,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Notification_Impl::RequiresInteraction(this) {
@@ -29674,7 +29144,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Notification_Impl::IsSilent(this) {
@@ -29699,7 +29168,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Notification_Impl::Timestamp(this) {
@@ -29725,7 +29193,6 @@ impl ICoreWebView2Notification_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Notification_Impl::GetVibrationPattern(
@@ -29826,7 +29293,6 @@ impl ICoreWebView2NotificationCloseRequestedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2NotificationCloseRequestedEventHandler_Impl::Invoke(
@@ -29957,7 +29423,6 @@ impl ICoreWebView2NotificationReceivedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NotificationReceivedEventArgs_Impl::SenderOrigin(this) {
@@ -29983,7 +29448,6 @@ impl ICoreWebView2NotificationReceivedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NotificationReceivedEventArgs_Impl::Notification(this) {
@@ -30009,7 +29473,6 @@ impl ICoreWebView2NotificationReceivedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2NotificationReceivedEventArgs_Impl::SetHandled(
@@ -30033,7 +29496,6 @@ impl ICoreWebView2NotificationReceivedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NotificationReceivedEventArgs_Impl::Handled(this) {
@@ -30059,7 +29521,6 @@ impl ICoreWebView2NotificationReceivedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2NotificationReceivedEventArgs_Impl::GetDeferral(this) {
@@ -30148,7 +29609,6 @@ impl ICoreWebView2NotificationReceivedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2NotificationReceivedEventHandler_Impl::Invoke(
@@ -30251,7 +29711,6 @@ impl ICoreWebView2ObjectCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ObjectCollection_Impl::RemoveValueAtIndex(
@@ -30275,7 +29734,6 @@ impl ICoreWebView2ObjectCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ObjectCollection_Impl::InsertValueAtIndex(
@@ -30361,7 +29819,6 @@ impl ICoreWebView2ObjectCollectionView_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ObjectCollectionView_Impl::Count(this) {
@@ -30387,7 +29844,6 @@ impl ICoreWebView2ObjectCollectionView_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ObjectCollectionView_Impl::GetValueAtIndex(
@@ -30538,7 +29994,6 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PermissionRequestedEventArgs_Impl::Uri(this) {
@@ -30564,7 +30019,6 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PermissionRequestedEventArgs_Impl::PermissionKind(this) {
@@ -30590,7 +30044,6 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PermissionRequestedEventArgs_Impl::IsUserInitiated(this) {
@@ -30613,7 +30066,6 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PermissionRequestedEventArgs_Impl::State(this) {
@@ -30639,7 +30091,6 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PermissionRequestedEventArgs_Impl::SetState(
@@ -30663,7 +30114,6 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PermissionRequestedEventArgs_Impl::GetDeferral(this) {
@@ -30766,7 +30216,6 @@ impl ICoreWebView2PermissionRequestedEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PermissionRequestedEventArgs2_Impl::Handled(this) {
@@ -30792,7 +30241,6 @@ impl ICoreWebView2PermissionRequestedEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PermissionRequestedEventArgs2_Impl::SetHandled(
@@ -30891,7 +30339,6 @@ impl ICoreWebView2PermissionRequestedEventArgs3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PermissionRequestedEventArgs3_Impl::SavesInProfile(this) {
@@ -30917,7 +30364,6 @@ impl ICoreWebView2PermissionRequestedEventArgs3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PermissionRequestedEventArgs3_Impl::SetSavesInProfile(
@@ -31003,7 +30449,6 @@ impl ICoreWebView2PermissionRequestedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PermissionRequestedEventHandler_Impl::Invoke(
@@ -31100,7 +30545,6 @@ impl ICoreWebView2PermissionSetting_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PermissionSetting_Impl::PermissionKind(this) {
@@ -31125,7 +30569,6 @@ impl ICoreWebView2PermissionSetting_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PermissionSetting_Impl::PermissionOrigin(this) {
@@ -31150,7 +30593,6 @@ impl ICoreWebView2PermissionSetting_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PermissionSetting_Impl::PermissionState(this) {
@@ -31249,7 +30691,6 @@ impl ICoreWebView2PermissionSettingCollectionView_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PermissionSettingCollectionView_Impl::GetValueAtIndex(
@@ -31275,7 +30716,6 @@ impl ICoreWebView2PermissionSettingCollectionView_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PermissionSettingCollectionView_Impl::Count(this) {
@@ -32118,7 +31558,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::PointerKind(this) {
@@ -32143,7 +31582,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetPointerKind(
@@ -32166,7 +31604,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::PointerId(this) {
@@ -32191,7 +31628,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetPointerId(
@@ -32214,7 +31650,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::FrameId(this) {
@@ -32239,7 +31674,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetFrameId(this, core::mem::transmute_copy(&frameid))
@@ -32259,7 +31693,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::PointerFlags(this) {
@@ -32284,7 +31717,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetPointerFlags(
@@ -32307,7 +31739,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::PointerDeviceRect(this) {
@@ -32332,7 +31763,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetPointerDeviceRect(
@@ -32355,7 +31785,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::DisplayRect(this) {
@@ -32380,7 +31809,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetDisplayRect(
@@ -32403,7 +31831,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::PixelLocation(this) {
@@ -32428,7 +31855,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetPixelLocation(
@@ -32451,7 +31877,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::HimetricLocation(this) {
@@ -32476,7 +31901,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetHimetricLocation(
@@ -32499,7 +31923,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::PixelLocationRaw(this) {
@@ -32524,7 +31947,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetPixelLocationRaw(
@@ -32547,7 +31969,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::HimetricLocationRaw(this) {
@@ -32572,7 +31993,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetHimetricLocationRaw(
@@ -32592,7 +32012,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::Time(this) {
@@ -32617,7 +32036,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetTime(this, core::mem::transmute_copy(&time))
@@ -32637,7 +32055,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::HistoryCount(this) {
@@ -32662,7 +32079,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetHistoryCount(
@@ -32685,7 +32101,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::InputData(this) {
@@ -32710,7 +32125,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetInputData(
@@ -32733,7 +32147,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::KeyStates(this) {
@@ -32758,7 +32171,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetKeyStates(
@@ -32781,7 +32193,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::PerformanceCount(this) {
@@ -32806,7 +32217,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetPerformanceCount(
@@ -32829,7 +32239,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::ButtonChangeKind(this) {
@@ -32854,7 +32263,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetButtonChangeKind(
@@ -32877,7 +32285,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::PenFlags(this) {
@@ -32902,7 +32309,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetPenFlags(
@@ -32925,7 +32331,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::PenMask(this) {
@@ -32950,7 +32355,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetPenMask(this, core::mem::transmute_copy(&penmask))
@@ -32970,7 +32374,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::PenPressure(this) {
@@ -32995,7 +32398,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetPenPressure(
@@ -33018,7 +32420,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::PenRotation(this) {
@@ -33043,7 +32444,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetPenRotation(
@@ -33066,7 +32466,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::PenTiltX(this) {
@@ -33091,7 +32490,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetPenTiltX(
@@ -33114,7 +32512,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::PenTiltY(this) {
@@ -33139,7 +32536,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetPenTiltY(
@@ -33162,7 +32558,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::TouchFlags(this) {
@@ -33187,7 +32582,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetTouchFlags(
@@ -33210,7 +32604,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::TouchMask(this) {
@@ -33235,7 +32628,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetTouchMask(
@@ -33258,7 +32650,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::TouchContact(this) {
@@ -33283,7 +32674,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetTouchContact(
@@ -33306,7 +32696,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::TouchContactRaw(this) {
@@ -33331,7 +32720,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetTouchContactRaw(
@@ -33354,7 +32742,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::TouchOrientation(this) {
@@ -33379,7 +32766,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetTouchOrientation(
@@ -33402,7 +32788,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PointerInfo_Impl::TouchPressure(this) {
@@ -33427,7 +32812,6 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PointerInfo_Impl::SetTouchPressure(
@@ -33560,7 +32944,6 @@ impl ICoreWebView2PrintCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintCompletedHandler_Impl::Invoke(
@@ -33979,7 +33362,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings_Impl::Orientation(this) {
@@ -34004,7 +33386,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings_Impl::SetOrientation(
@@ -34027,7 +33408,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings_Impl::ScaleFactor(this) {
@@ -34052,7 +33432,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings_Impl::SetScaleFactor(
@@ -34075,7 +33454,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings_Impl::PageWidth(this) {
@@ -34100,7 +33478,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings_Impl::SetPageWidth(
@@ -34123,7 +33500,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings_Impl::PageHeight(this) {
@@ -34148,7 +33524,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings_Impl::SetPageHeight(
@@ -34171,7 +33546,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings_Impl::MarginTop(this) {
@@ -34196,7 +33570,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings_Impl::SetMarginTop(
@@ -34219,7 +33592,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings_Impl::MarginBottom(this) {
@@ -34244,7 +33616,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings_Impl::SetMarginBottom(
@@ -34267,7 +33638,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings_Impl::MarginLeft(this) {
@@ -34292,7 +33662,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings_Impl::SetMarginLeft(
@@ -34315,7 +33684,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings_Impl::MarginRight(this) {
@@ -34340,7 +33708,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings_Impl::SetMarginRight(
@@ -34363,7 +33730,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings_Impl::ShouldPrintBackgrounds(this) {
@@ -34388,7 +33754,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings_Impl::SetShouldPrintBackgrounds(
@@ -34411,7 +33776,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings_Impl::ShouldPrintSelectionOnly(this) {
@@ -34436,7 +33800,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings_Impl::SetShouldPrintSelectionOnly(
@@ -34459,7 +33822,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings_Impl::ShouldPrintHeaderAndFooter(this) {
@@ -34484,7 +33846,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings_Impl::SetShouldPrintHeaderAndFooter(
@@ -34507,7 +33868,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings_Impl::HeaderTitle(this) {
@@ -34532,7 +33892,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings_Impl::SetHeaderTitle(
@@ -34555,7 +33914,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings_Impl::FooterUri(this) {
@@ -34580,7 +33938,6 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings_Impl::SetFooterUri(
@@ -34893,7 +34250,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings2_Impl::PageRanges(this) {
@@ -34918,7 +34274,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings2_Impl::SetPageRanges(
@@ -34941,7 +34296,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings2_Impl::PagesPerSide(this) {
@@ -34966,7 +34320,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings2_Impl::SetPagesPerSide(
@@ -34989,7 +34342,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings2_Impl::Copies(this) {
@@ -35014,7 +34366,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings2_Impl::SetCopies(this, core::mem::transmute_copy(&value))
@@ -35034,7 +34385,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings2_Impl::Collation(this) {
@@ -35059,7 +34409,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings2_Impl::SetCollation(
@@ -35082,7 +34431,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings2_Impl::ColorMode(this) {
@@ -35107,7 +34455,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings2_Impl::SetColorMode(
@@ -35130,7 +34477,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings2_Impl::Duplex(this) {
@@ -35155,7 +34501,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings2_Impl::SetDuplex(this, core::mem::transmute_copy(&value))
@@ -35175,7 +34520,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings2_Impl::MediaSize(this) {
@@ -35200,7 +34544,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings2_Impl::SetMediaSize(
@@ -35223,7 +34566,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2PrintSettings2_Impl::PrinterName(this) {
@@ -35248,7 +34590,6 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintSettings2_Impl::SetPrinterName(
@@ -35347,7 +34688,6 @@ impl ICoreWebView2PrintToPdfCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintToPdfCompletedHandler_Impl::Invoke(
@@ -35434,7 +34774,6 @@ impl ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2PrintToPdfStreamCompletedHandler_Impl::Invoke(
@@ -35520,7 +34859,6 @@ impl ICoreWebView2ProcessExtendedInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ProcessExtendedInfo_Impl::ProcessInfo(this) {
@@ -35545,7 +34883,6 @@ impl ICoreWebView2ProcessExtendedInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ProcessExtendedInfo_Impl::AssociatedFrameInfos(this) {
@@ -35639,7 +34976,6 @@ impl ICoreWebView2ProcessExtendedInfoCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ProcessExtendedInfoCollection_Impl::Count(this) {
@@ -35666,7 +35002,6 @@ impl ICoreWebView2ProcessExtendedInfoCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ProcessExtendedInfoCollection_Impl::GetValueAtIndex(
@@ -35746,7 +35081,6 @@ impl ICoreWebView2ProcessFailedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ProcessFailedEventArgs_Impl::ProcessFailedKind(this) {
@@ -35872,7 +35206,6 @@ impl ICoreWebView2ProcessFailedEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ProcessFailedEventArgs2_Impl::Reason(this) {
@@ -35898,7 +35231,6 @@ impl ICoreWebView2ProcessFailedEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ProcessFailedEventArgs2_Impl::ExitCode(this) {
@@ -35924,7 +35256,6 @@ impl ICoreWebView2ProcessFailedEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ProcessFailedEventArgs2_Impl::ProcessDescription(this) {
@@ -35950,7 +35281,6 @@ impl ICoreWebView2ProcessFailedEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ProcessFailedEventArgs2_Impl::FrameInfosForFailedProcess(this) {
@@ -36036,7 +35366,6 @@ impl ICoreWebView2ProcessFailedEventArgs3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ProcessFailedEventArgs3_Impl::FailureSourceModulePath(this) {
@@ -36122,7 +35451,6 @@ impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ProcessFailedEventHandler_Impl::Invoke(
@@ -36204,7 +35532,6 @@ impl ICoreWebView2ProcessInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ProcessInfo_Impl::ProcessId(this) {
@@ -36226,7 +35553,6 @@ impl ICoreWebView2ProcessInfo_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ProcessInfo_Impl::Kind(this) {
@@ -36312,7 +35638,6 @@ impl ICoreWebView2ProcessInfoCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ProcessInfoCollection_Impl::Count(this) {
@@ -36338,7 +35663,6 @@ impl ICoreWebView2ProcessInfoCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ProcessInfoCollection_Impl::GetValueAtIndex(
@@ -36427,7 +35751,6 @@ impl ICoreWebView2ProcessInfosChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ProcessInfosChangedEventHandler_Impl::Invoke(
@@ -36584,7 +35907,6 @@ impl ICoreWebView2Profile_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Profile_Impl::ProfileName(this) {
@@ -36609,7 +35931,6 @@ impl ICoreWebView2Profile_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Profile_Impl::IsInPrivateModeEnabled(this) {
@@ -36634,7 +35955,6 @@ impl ICoreWebView2Profile_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Profile_Impl::ProfilePath(this) {
@@ -36659,7 +35979,6 @@ impl ICoreWebView2Profile_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Profile_Impl::DefaultDownloadFolderPath(this) {
@@ -36684,7 +36003,6 @@ impl ICoreWebView2Profile_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Profile_Impl::SetDefaultDownloadFolderPath(
@@ -36707,7 +36025,6 @@ impl ICoreWebView2Profile_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Profile_Impl::PreferredColorScheme(this) {
@@ -36732,7 +36049,6 @@ impl ICoreWebView2Profile_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Profile_Impl::SetPreferredColorScheme(
@@ -36884,7 +36200,6 @@ impl ICoreWebView2Profile2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Profile2_Impl::ClearBrowsingData(
@@ -36911,7 +36226,6 @@ impl ICoreWebView2Profile2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Profile2_Impl::ClearBrowsingDataInTimeRange(
@@ -36937,7 +36251,6 @@ impl ICoreWebView2Profile2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Profile2_Impl::ClearBrowsingDataAll(
@@ -37044,7 +36357,6 @@ impl ICoreWebView2Profile3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Profile3_Impl::PreferredTrackingPreventionLevel(this) {
@@ -37069,7 +36381,6 @@ impl ICoreWebView2Profile3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Profile3_Impl::SetPreferredTrackingPreventionLevel(
@@ -37201,7 +36512,6 @@ impl ICoreWebView2Profile4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Profile4_Impl::SetPermissionState(
@@ -37227,7 +36537,6 @@ impl ICoreWebView2Profile4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Profile4_Impl::GetNonDefaultPermissionSettings(
@@ -37312,7 +36621,6 @@ impl ICoreWebView2Profile5_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Profile5_Impl::CookieManager(this) {
@@ -37443,7 +36751,6 @@ impl ICoreWebView2Profile6_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Profile6_Impl::IsPasswordAutosaveEnabled(this) {
@@ -37468,7 +36775,6 @@ impl ICoreWebView2Profile6_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Profile6_Impl::SetIsPasswordAutosaveEnabled(
@@ -37491,7 +36797,6 @@ impl ICoreWebView2Profile6_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Profile6_Impl::IsGeneralAutofillEnabled(this) {
@@ -37516,7 +36821,6 @@ impl ICoreWebView2Profile6_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Profile6_Impl::SetIsGeneralAutofillEnabled(
@@ -37640,7 +36944,6 @@ impl ICoreWebView2Profile7_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Profile7_Impl::AddBrowserExtension(
@@ -37664,7 +36967,6 @@ impl ICoreWebView2Profile7_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Profile7_Impl::GetBrowserExtensions(
@@ -37782,7 +37084,6 @@ impl ICoreWebView2Profile8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Profile8_Impl::Delete(this).into()
@@ -37802,7 +37103,6 @@ impl ICoreWebView2Profile8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Profile8_Impl::add_Deleted(
@@ -37830,7 +37130,6 @@ impl ICoreWebView2Profile8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Profile8_Impl::remove_Deleted(this, core::mem::transmute_copy(&token))
@@ -37922,7 +37221,6 @@ impl ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Impl::Invoke(
@@ -38006,7 +37304,6 @@ impl ICoreWebView2ProfileDeletedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ProfileDeletedEventHandler_Impl::Invoke(
@@ -38093,7 +37390,6 @@ impl ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Impl::Invoke(
@@ -38177,7 +37473,6 @@ impl ICoreWebView2RasterizationScaleChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2RasterizationScaleChangedEventHandler_Impl::Invoke(
@@ -38268,7 +37563,6 @@ impl ICoreWebView2RegionRectCollectionView_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2RegionRectCollectionView_Impl::Count(this) {
@@ -38295,7 +37589,6 @@ impl ICoreWebView2RegionRectCollectionView_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2RegionRectCollectionView_Impl::GetValueAtIndex(
@@ -38527,7 +37820,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SaveAsUIShowingEventArgs_Impl::ContentMimeType(this) {
@@ -38553,7 +37845,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetCancel(
@@ -38577,7 +37868,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SaveAsUIShowingEventArgs_Impl::Cancel(this) {
@@ -38603,7 +37893,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetSuppressDefaultDialog(
@@ -38627,7 +37916,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SaveAsUIShowingEventArgs_Impl::SuppressDefaultDialog(this) {
@@ -38653,7 +37941,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SaveAsUIShowingEventArgs_Impl::GetDeferral(this) {
@@ -38679,7 +37966,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetSaveAsFilePath(
@@ -38703,7 +37989,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SaveAsUIShowingEventArgs_Impl::SaveAsFilePath(this) {
@@ -38729,7 +38014,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetAllowReplace(
@@ -38753,7 +38037,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SaveAsUIShowingEventArgs_Impl::AllowReplace(this) {
@@ -38779,7 +38062,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetKind(
@@ -38800,7 +38082,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SaveAsUIShowingEventArgs_Impl::Kind(this) {
@@ -38896,7 +38177,6 @@ impl ICoreWebView2SaveAsUIShowingEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2SaveAsUIShowingEventHandler_Impl::Invoke(
@@ -39067,7 +38347,6 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::CancelSave(this) {
@@ -39093,7 +38372,6 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::SetCancelSave(
@@ -39117,7 +38395,6 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::DocumentOriginUri(
@@ -39145,7 +38422,6 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::FileExtension(this)
@@ -39172,7 +38448,6 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::FilePath(this) {
@@ -39198,7 +38473,6 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl:: SuppressDefaultPolicy ( this , ) { Ok ( ok__ ) => { value . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
@@ -39218,7 +38492,6 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::SetSuppressDefaultPolicy(
@@ -39242,7 +38515,6 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::GetDeferral(this) {
@@ -39334,7 +38606,6 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Impl::Invoke(
@@ -39481,7 +38752,6 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScreenCaptureStartingEventArgs_Impl::Cancel(this) {
@@ -39507,7 +38777,6 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ScreenCaptureStartingEventArgs_Impl::SetCancel(
@@ -39531,7 +38800,6 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScreenCaptureStartingEventArgs_Impl::Handled(this) {
@@ -39557,7 +38825,6 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ScreenCaptureStartingEventArgs_Impl::SetHandled(
@@ -39581,7 +38848,6 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScreenCaptureStartingEventArgs_Impl::OriginalSourceFrameInfo(
@@ -39609,7 +38875,6 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScreenCaptureStartingEventArgs_Impl::GetDeferral(this) {
@@ -39699,7 +38964,6 @@ impl ICoreWebView2ScreenCaptureStartingEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ScreenCaptureStartingEventHandler_Impl::Invoke(
@@ -39857,7 +39121,6 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScriptDialogOpeningEventArgs_Impl::Uri(this) {
@@ -39880,7 +39143,6 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScriptDialogOpeningEventArgs_Impl::Kind(this) {
@@ -39906,7 +39168,6 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScriptDialogOpeningEventArgs_Impl::Message(this) {
@@ -39931,7 +39192,6 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ScriptDialogOpeningEventArgs_Impl::Accept(this).into()
@@ -39951,7 +39211,6 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScriptDialogOpeningEventArgs_Impl::DefaultText(this) {
@@ -39977,7 +39236,6 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScriptDialogOpeningEventArgs_Impl::ResultText(this) {
@@ -40003,7 +39261,6 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ScriptDialogOpeningEventArgs_Impl::SetResultText(
@@ -40027,7 +39284,6 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScriptDialogOpeningEventArgs_Impl::GetDeferral(this) {
@@ -40119,7 +39375,6 @@ impl ICoreWebView2ScriptDialogOpeningEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ScriptDialogOpeningEventHandler_Impl::Invoke(
@@ -40238,7 +39493,6 @@ impl ICoreWebView2ScriptException_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScriptException_Impl::LineNumber(this) {
@@ -40263,7 +39517,6 @@ impl ICoreWebView2ScriptException_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScriptException_Impl::ColumnNumber(this) {
@@ -40285,7 +39538,6 @@ impl ICoreWebView2ScriptException_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScriptException_Impl::Name(this) {
@@ -40310,7 +39562,6 @@ impl ICoreWebView2ScriptException_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScriptException_Impl::Message(this) {
@@ -40335,7 +39586,6 @@ impl ICoreWebView2ScriptException_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ScriptException_Impl::ToJson(this) {
@@ -40494,7 +39744,6 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl::ErrorStatus(this) {
@@ -40520,7 +39769,6 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl::RequestUri(this) {
@@ -40546,7 +39794,6 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl::ServerCertificate(
@@ -40574,7 +39821,6 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl::Action(this) {
@@ -40600,7 +39846,6 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl::SetAction(
@@ -40624,7 +39869,6 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl::GetDeferral(this) {
@@ -40714,7 +39958,6 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ServerCertificateErrorDetectedEventHandler_Impl::Invoke(
@@ -40787,7 +40030,6 @@ impl ICoreWebView2SetPermissionStateCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2SetPermissionStateCompletedHandler_Impl::Invoke(
@@ -41134,7 +40376,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings_Impl::IsScriptEnabled(this) {
@@ -41159,7 +40400,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings_Impl::SetIsScriptEnabled(
@@ -41182,7 +40422,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings_Impl::IsWebMessageEnabled(this) {
@@ -41207,7 +40446,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings_Impl::SetIsWebMessageEnabled(
@@ -41230,7 +40468,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings_Impl::AreDefaultScriptDialogsEnabled(this) {
@@ -41255,7 +40492,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings_Impl::SetAreDefaultScriptDialogsEnabled(
@@ -41278,7 +40514,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings_Impl::IsStatusBarEnabled(this) {
@@ -41303,7 +40538,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings_Impl::SetIsStatusBarEnabled(
@@ -41326,7 +40560,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings_Impl::AreDevToolsEnabled(this) {
@@ -41351,7 +40584,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings_Impl::SetAreDevToolsEnabled(
@@ -41374,7 +40606,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings_Impl::AreDefaultContextMenusEnabled(this) {
@@ -41399,7 +40630,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings_Impl::SetAreDefaultContextMenusEnabled(
@@ -41422,7 +40652,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings_Impl::AreHostObjectsAllowed(this) {
@@ -41447,7 +40676,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings_Impl::SetAreHostObjectsAllowed(
@@ -41470,7 +40698,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings_Impl::IsZoomControlEnabled(this) {
@@ -41495,7 +40722,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings_Impl::SetIsZoomControlEnabled(
@@ -41518,7 +40744,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings_Impl::IsBuiltInErrorPageEnabled(this) {
@@ -41543,7 +40768,6 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings_Impl::SetIsBuiltInErrorPageEnabled(
@@ -41648,7 +40872,6 @@ impl ICoreWebView2Settings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings2_Impl::UserAgent(this) {
@@ -41673,7 +40896,6 @@ impl ICoreWebView2Settings2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings2_Impl::SetUserAgent(this, core::mem::transmute_copy(&value))
@@ -41774,7 +40996,6 @@ impl ICoreWebView2Settings3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings3_Impl::AreBrowserAcceleratorKeysEnabled(this) {
@@ -41799,7 +41020,6 @@ impl ICoreWebView2Settings3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings3_Impl::SetAreBrowserAcceleratorKeysEnabled(
@@ -41928,7 +41148,6 @@ impl ICoreWebView2Settings4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings4_Impl::IsPasswordAutosaveEnabled(this) {
@@ -41953,7 +41172,6 @@ impl ICoreWebView2Settings4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings4_Impl::SetIsPasswordAutosaveEnabled(
@@ -41976,7 +41194,6 @@ impl ICoreWebView2Settings4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings4_Impl::IsGeneralAutofillEnabled(this) {
@@ -42001,7 +41218,6 @@ impl ICoreWebView2Settings4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings4_Impl::SetIsGeneralAutofillEnabled(
@@ -42102,7 +41318,6 @@ impl ICoreWebView2Settings5_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings5_Impl::IsPinchZoomEnabled(this) {
@@ -42127,7 +41342,6 @@ impl ICoreWebView2Settings5_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings5_Impl::SetIsPinchZoomEnabled(
@@ -42228,7 +41442,6 @@ impl ICoreWebView2Settings6_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings6_Impl::IsSwipeNavigationEnabled(this) {
@@ -42253,7 +41466,6 @@ impl ICoreWebView2Settings6_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings6_Impl::SetIsSwipeNavigationEnabled(
@@ -42364,7 +41576,6 @@ impl ICoreWebView2Settings7_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings7_Impl::HiddenPdfToolbarItems(this) {
@@ -42389,7 +41600,6 @@ impl ICoreWebView2Settings7_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings7_Impl::SetHiddenPdfToolbarItems(
@@ -42497,7 +41707,6 @@ impl ICoreWebView2Settings8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings8_Impl::IsReputationCheckingRequired(this) {
@@ -42522,7 +41731,6 @@ impl ICoreWebView2Settings8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings8_Impl::SetIsReputationCheckingRequired(
@@ -42637,7 +41845,6 @@ impl ICoreWebView2Settings9_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2Settings9_Impl::IsNonClientRegionSupportEnabled(this) {
@@ -42662,7 +41869,6 @@ impl ICoreWebView2Settings9_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2Settings9_Impl::SetIsNonClientRegionSupportEnabled(
@@ -42790,7 +41996,6 @@ impl ICoreWebView2SharedBuffer_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SharedBuffer_Impl::Size(this) {
@@ -42815,7 +42020,6 @@ impl ICoreWebView2SharedBuffer_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SharedBuffer_Impl::Buffer(this) {
@@ -42840,7 +42044,6 @@ impl ICoreWebView2SharedBuffer_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SharedBuffer_Impl::OpenStream(this) {
@@ -42865,7 +42068,6 @@ impl ICoreWebView2SharedBuffer_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SharedBuffer_Impl::FileMappingHandle(this) {
@@ -42886,7 +42088,6 @@ impl ICoreWebView2SharedBuffer_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2SharedBuffer_Impl::Close(this).into()
@@ -42969,7 +42170,6 @@ impl ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ShowSaveAsUICompletedHandler_Impl::Invoke(
@@ -43042,7 +42242,6 @@ impl ICoreWebView2SourceChangedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2SourceChangedEventArgs_Impl::IsNewDocument(this) {
@@ -43126,7 +42325,6 @@ impl ICoreWebView2SourceChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2SourceChangedEventHandler_Impl::Invoke(
@@ -43209,7 +42407,6 @@ impl ICoreWebView2StateChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2StateChangedEventHandler_Impl::Invoke(
@@ -43293,7 +42490,6 @@ impl ICoreWebView2StatusBarTextChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2StatusBarTextChangedEventHandler_Impl::Invoke(
@@ -43374,7 +42570,6 @@ impl ICoreWebView2StringCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2StringCollection_Impl::Count(this) {
@@ -43400,7 +42595,6 @@ impl ICoreWebView2StringCollection_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2StringCollection_Impl::GetValueAtIndex(
@@ -43489,7 +42683,6 @@ impl ICoreWebView2TrySuspendCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2TrySuspendCompletedHandler_Impl::Invoke(
@@ -43587,7 +42780,6 @@ impl ICoreWebView2WebMessageReceivedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebMessageReceivedEventArgs_Impl::Source(this) {
@@ -43613,7 +42805,6 @@ impl ICoreWebView2WebMessageReceivedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebMessageReceivedEventArgs_Impl::WebMessageAsJson(this) {
@@ -43639,7 +42830,6 @@ impl ICoreWebView2WebMessageReceivedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebMessageReceivedEventArgs_Impl::TryGetWebMessageAsString(this)
@@ -43728,7 +42918,6 @@ impl ICoreWebView2WebMessageReceivedEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebMessageReceivedEventArgs2_Impl::AdditionalObjects(this) {
@@ -43814,7 +43003,6 @@ impl ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2WebMessageReceivedEventHandler_Impl::Invoke(
@@ -43964,7 +43152,6 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceRequest_Impl::Uri(this) {
@@ -43989,7 +43176,6 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2WebResourceRequest_Impl::SetUri(this, core::mem::transmute_copy(&uri))
@@ -44009,7 +43195,6 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceRequest_Impl::Method(this) {
@@ -44034,7 +43219,6 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2WebResourceRequest_Impl::SetMethod(
@@ -44057,7 +43241,6 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceRequest_Impl::Content(this) {
@@ -44082,7 +43265,6 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2WebResourceRequest_Impl::SetContent(
@@ -44105,7 +43287,6 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceRequest_Impl::Headers(this) {
@@ -44253,7 +43434,6 @@ impl ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceRequestedEventArgs_Impl::Request(this) {
@@ -44279,7 +43459,6 @@ impl ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceRequestedEventArgs_Impl::Response(this) {
@@ -44305,7 +43484,6 @@ impl ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2WebResourceRequestedEventArgs_Impl::SetResponse(
@@ -44329,7 +43507,6 @@ impl ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceRequestedEventArgs_Impl::GetDeferral(this) {
@@ -44355,7 +43532,6 @@ impl ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceRequestedEventArgs_Impl::ResourceContext(this) {
@@ -44447,7 +43623,6 @@ impl ICoreWebView2WebResourceRequestedEventArgs2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceRequestedEventArgs2_Impl::RequestedSourceKind(this) {
@@ -44533,7 +43708,6 @@ impl ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2WebResourceRequestedEventHandler_Impl::Invoke(
@@ -44687,7 +43861,6 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceResponse_Impl::Content(this) {
@@ -44712,7 +43885,6 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2WebResourceResponse_Impl::SetContent(
@@ -44735,7 +43907,6 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceResponse_Impl::Headers(this) {
@@ -44760,7 +43931,6 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceResponse_Impl::StatusCode(this) {
@@ -44785,7 +43955,6 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2WebResourceResponse_Impl::SetStatusCode(
@@ -44808,7 +43977,6 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceResponse_Impl::ReasonPhrase(this) {
@@ -44833,7 +44001,6 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2WebResourceResponse_Impl::SetReasonPhrase(
@@ -44927,7 +44094,6 @@ impl ICoreWebView2WebResourceResponseReceivedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceResponseReceivedEventArgs_Impl::Request(this) {
@@ -44953,7 +44119,6 @@ impl ICoreWebView2WebResourceResponseReceivedEventArgs_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceResponseReceivedEventArgs_Impl::Response(this) {
@@ -45039,7 +44204,6 @@ impl ICoreWebView2WebResourceResponseReceivedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2WebResourceResponseReceivedEventHandler_Impl::Invoke(
@@ -45158,7 +44322,6 @@ impl ICoreWebView2WebResourceResponseView_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceResponseView_Impl::Headers(this) {
@@ -45184,7 +44347,6 @@ impl ICoreWebView2WebResourceResponseView_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceResponseView_Impl::StatusCode(this) {
@@ -45210,7 +44372,6 @@ impl ICoreWebView2WebResourceResponseView_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WebResourceResponseView_Impl::ReasonPhrase(this) {
@@ -45236,7 +44397,6 @@ impl ICoreWebView2WebResourceResponseView_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2WebResourceResponseView_Impl::GetContent(
@@ -45325,7 +44485,6 @@ impl ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Impl::Invoke(
@@ -45409,7 +44568,6 @@ impl ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2WindowCloseRequestedEventHandler_Impl::Invoke(
@@ -45605,7 +44763,6 @@ impl ICoreWebView2WindowFeatures_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WindowFeatures_Impl::HasPosition(this) {
@@ -45630,7 +44787,6 @@ impl ICoreWebView2WindowFeatures_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WindowFeatures_Impl::HasSize(this) {
@@ -45652,7 +44808,6 @@ impl ICoreWebView2WindowFeatures_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WindowFeatures_Impl::Left(this) {
@@ -45674,7 +44829,6 @@ impl ICoreWebView2WindowFeatures_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WindowFeatures_Impl::Top(this) {
@@ -45699,7 +44853,6 @@ impl ICoreWebView2WindowFeatures_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WindowFeatures_Impl::Height(this) {
@@ -45721,7 +44874,6 @@ impl ICoreWebView2WindowFeatures_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WindowFeatures_Impl::Width(this) {
@@ -45746,7 +44898,6 @@ impl ICoreWebView2WindowFeatures_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WindowFeatures_Impl::ShouldDisplayMenuBar(this) {
@@ -45771,7 +44922,6 @@ impl ICoreWebView2WindowFeatures_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WindowFeatures_Impl::ShouldDisplayStatus(this) {
@@ -45796,7 +44946,6 @@ impl ICoreWebView2WindowFeatures_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WindowFeatures_Impl::ShouldDisplayToolbar(this) {
@@ -45821,7 +44970,6 @@ impl ICoreWebView2WindowFeatures_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2WindowFeatures_Impl::ShouldDisplayScrollBars(this) {
@@ -45915,7 +45063,6 @@ impl ICoreWebView2ZoomFactorChangedEventHandler_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2ZoomFactorChangedEventHandler_Impl::Invoke(
@@ -46029,7 +45176,6 @@ impl ICoreWebView2_10_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_10_Impl::add_BasicAuthenticationRequested(
@@ -46057,7 +45203,6 @@ impl ICoreWebView2_10_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_10_Impl::remove_BasicAuthenticationRequested(
@@ -46216,7 +45361,6 @@ impl ICoreWebView2_11_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_11_Impl::CallDevToolsProtocolMethodForSession(
@@ -46243,7 +45387,6 @@ impl ICoreWebView2_11_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_11_Impl::add_ContextMenuRequested(
@@ -46271,7 +45414,6 @@ impl ICoreWebView2_11_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_11_Impl::remove_ContextMenuRequested(
@@ -46408,7 +45550,6 @@ impl ICoreWebView2_12_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_12_Impl::add_StatusBarTextChanged(
@@ -46436,7 +45577,6 @@ impl ICoreWebView2_12_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_12_Impl::remove_StatusBarTextChanged(
@@ -46459,7 +45599,6 @@ impl ICoreWebView2_12_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_12_Impl::StatusBarText(this) {
@@ -46563,7 +45702,6 @@ impl ICoreWebView2_13_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_13_Impl::Profile(this) {
@@ -46717,7 +45855,6 @@ impl ICoreWebView2_14_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_14_Impl::add_ServerCertificateErrorDetected(
@@ -46745,7 +45882,6 @@ impl ICoreWebView2_14_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_14_Impl::remove_ServerCertificateErrorDetected(
@@ -46768,7 +45904,6 @@ impl ICoreWebView2_14_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_14_Impl::ClearServerCertificateErrorActions(
@@ -46944,7 +46079,6 @@ impl ICoreWebView2_15_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_15_Impl::add_FaviconChanged(
@@ -46972,7 +46106,6 @@ impl ICoreWebView2_15_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_15_Impl::remove_FaviconChanged(
@@ -46995,7 +46128,6 @@ impl ICoreWebView2_15_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_15_Impl::FaviconUri(this) {
@@ -47021,7 +46153,6 @@ impl ICoreWebView2_15_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_15_Impl::GetFavicon(
@@ -47186,7 +46317,6 @@ impl ICoreWebView2_16_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_16_Impl::Print(
@@ -47210,7 +46340,6 @@ impl ICoreWebView2_16_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_16_Impl::ShowPrintUI(
@@ -47234,7 +46363,6 @@ impl ICoreWebView2_16_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_16_Impl::PrintToPdfStream(
@@ -47363,7 +46491,6 @@ impl ICoreWebView2_17_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_17_Impl::PostSharedBufferToScript(
@@ -47499,7 +46626,6 @@ impl ICoreWebView2_18_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_18_Impl::add_LaunchingExternalUriScheme(
@@ -47527,7 +46653,6 @@ impl ICoreWebView2_18_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_18_Impl::remove_LaunchingExternalUriScheme(
@@ -47664,7 +46789,6 @@ impl ICoreWebView2_19_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_19_Impl::MemoryUsageTargetLevel(this) {
@@ -47689,7 +46813,6 @@ impl ICoreWebView2_19_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_19_Impl::SetMemoryUsageTargetLevel(
@@ -47894,7 +47017,6 @@ impl ICoreWebView2_2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_2_Impl::add_WebResourceResponseReceived(
@@ -47922,7 +47044,6 @@ impl ICoreWebView2_2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_2_Impl::remove_WebResourceResponseReceived(
@@ -47945,7 +47066,6 @@ impl ICoreWebView2_2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_2_Impl::NavigateWithWebResourceRequest(
@@ -47969,7 +47089,6 @@ impl ICoreWebView2_2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_2_Impl::add_DOMContentLoaded(
@@ -47997,7 +47116,6 @@ impl ICoreWebView2_2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_2_Impl::remove_DOMContentLoaded(
@@ -48020,7 +47138,6 @@ impl ICoreWebView2_2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_2_Impl::CookieManager(this) {
@@ -48045,7 +47162,6 @@ impl ICoreWebView2_2_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_2_Impl::Environment(this) {
@@ -48151,7 +47267,6 @@ impl ICoreWebView2_20_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_20_Impl::FrameId(this) {
@@ -48282,7 +47397,6 @@ impl ICoreWebView2_21_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_21_Impl::ExecuteScriptWithResult(
@@ -48448,7 +47562,6 @@ impl ICoreWebView2_22_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_22_Impl::AddWebResourceRequestedFilterWithRequestSourceKinds(
@@ -48475,7 +47588,6 @@ impl ICoreWebView2_22_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_22_Impl::RemoveWebResourceRequestedFilterWithRequestSourceKinds(
@@ -48614,7 +47726,6 @@ impl ICoreWebView2_23_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_23_Impl::PostWebMessageAsJsonWithAdditionalObjects(
@@ -48761,7 +47872,6 @@ impl ICoreWebView2_24_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_24_Impl::add_NotificationReceived(
@@ -48789,7 +47899,6 @@ impl ICoreWebView2_24_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_24_Impl::remove_NotificationReceived(
@@ -48955,7 +48064,6 @@ impl ICoreWebView2_25_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_25_Impl::add_SaveAsUIShowing(
@@ -48983,7 +48091,6 @@ impl ICoreWebView2_25_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_25_Impl::remove_SaveAsUIShowing(
@@ -49006,7 +48113,6 @@ impl ICoreWebView2_25_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_25_Impl::ShowSaveAsUI(this, core::mem::transmute_copy(&handler))
@@ -49158,7 +48264,6 @@ impl ICoreWebView2_26_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_26_Impl::add_SaveFileSecurityCheckStarting(
@@ -49186,7 +48291,6 @@ impl ICoreWebView2_26_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_26_Impl::remove_SaveFileSecurityCheckStarting(
@@ -49342,7 +48446,6 @@ impl ICoreWebView2_27_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_27_Impl::add_ScreenCaptureStarting(
@@ -49370,7 +48473,6 @@ impl ICoreWebView2_27_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_27_Impl::remove_ScreenCaptureStarting(
@@ -49498,7 +48600,6 @@ impl ICoreWebView2_28_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_28_Impl::Find(this) {
@@ -49677,7 +48778,6 @@ impl ICoreWebView2_3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_3_Impl::TrySuspend(this, core::mem::transmute_copy(&handler)).into()
@@ -49695,7 +48795,6 @@ impl ICoreWebView2_3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_3_Impl::Resume(this).into()
@@ -49714,7 +48813,6 @@ impl ICoreWebView2_3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_3_Impl::IsSuspended(this) {
@@ -49741,7 +48839,6 @@ impl ICoreWebView2_3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_3_Impl::SetVirtualHostNameToFolderMapping(
@@ -49766,7 +48863,6 @@ impl ICoreWebView2_3_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_3_Impl::ClearVirtualHostNameToFolderMapping(
@@ -49911,7 +49007,6 @@ impl ICoreWebView2_4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_4_Impl::add_FrameCreated(
@@ -49939,7 +49034,6 @@ impl ICoreWebView2_4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_4_Impl::remove_FrameCreated(this, core::mem::transmute_copy(&token))
@@ -49960,7 +49054,6 @@ impl ICoreWebView2_4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_4_Impl::add_DownloadStarting(
@@ -49988,7 +49081,6 @@ impl ICoreWebView2_4_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_4_Impl::remove_DownloadStarting(
@@ -50099,7 +49191,6 @@ impl ICoreWebView2_5_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_5_Impl::add_ClientCertificateRequested(
@@ -50127,7 +49218,6 @@ impl ICoreWebView2_5_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_5_Impl::remove_ClientCertificateRequested(
@@ -50209,7 +49299,6 @@ impl ICoreWebView2_6_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_6_Impl::OpenTaskManagerWindow(this).into()
@@ -50312,7 +49401,6 @@ impl ICoreWebView2_7_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_7_Impl::PrintToPdf(
@@ -50510,7 +49598,6 @@ impl ICoreWebView2_8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_8_Impl::add_IsMutedChanged(
@@ -50538,7 +49625,6 @@ impl ICoreWebView2_8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_8_Impl::remove_IsMutedChanged(this, core::mem::transmute_copy(&token))
@@ -50558,7 +49644,6 @@ impl ICoreWebView2_8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_8_Impl::IsMuted(this) {
@@ -50583,7 +49668,6 @@ impl ICoreWebView2_8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_8_Impl::SetIsMuted(this, core::mem::transmute_copy(&value)).into()
@@ -50603,7 +49687,6 @@ impl ICoreWebView2_8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_8_Impl::add_IsDocumentPlayingAudioChanged(
@@ -50631,7 +49714,6 @@ impl ICoreWebView2_8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_8_Impl::remove_IsDocumentPlayingAudioChanged(
@@ -50654,7 +49736,6 @@ impl ICoreWebView2_8_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_8_Impl::IsDocumentPlayingAudio(this) {
@@ -50902,7 +49983,6 @@ impl ICoreWebView2_9_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_9_Impl::add_IsDefaultDownloadDialogOpenChanged(
@@ -50930,7 +50010,6 @@ impl ICoreWebView2_9_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_9_Impl::remove_IsDefaultDownloadDialogOpenChanged(
@@ -50953,7 +50032,6 @@ impl ICoreWebView2_9_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_9_Impl::IsDefaultDownloadDialogOpen(this) {
@@ -50977,7 +50055,6 @@ impl ICoreWebView2_9_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_9_Impl::OpenDefaultDownloadDialog(this).into()
@@ -50995,7 +50072,6 @@ impl ICoreWebView2_9_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_9_Impl::CloseDefaultDownloadDialog(this).into()
@@ -51014,7 +50090,6 @@ impl ICoreWebView2_9_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_9_Impl::DefaultDownloadDialogCornerAlignment(this) {
@@ -51039,7 +50114,6 @@ impl ICoreWebView2_9_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_9_Impl::SetDefaultDownloadDialogCornerAlignment(
@@ -51062,7 +50136,6 @@ impl ICoreWebView2_9_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreWebView2_9_Impl::DefaultDownloadDialogMargin(this) {
@@ -51087,7 +50160,6 @@ impl ICoreWebView2_9_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreWebView2_9_Impl::SetDefaultDownloadDialogMargin(

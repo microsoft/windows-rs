@@ -294,7 +294,6 @@ impl IClass_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IClass_Impl::Property(this) {
@@ -319,7 +318,6 @@ impl IClass_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IClass_Impl::SetProperty(this, value).into()
@@ -335,7 +333,6 @@ impl IClass_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IClass_Impl::Flags(this) {
@@ -367,7 +364,6 @@ impl IClass_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IClass_Impl::Int32Array(
@@ -415,7 +411,6 @@ impl IClass_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IClass_Impl::StringArray(
@@ -456,7 +451,6 @@ impl IClass_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IClass_Impl::Input(
@@ -560,7 +554,6 @@ impl IThing_Vtbl {
             unsafe {
                 let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
                     <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IThing_Impl::Method(this).into()
