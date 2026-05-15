@@ -646,19 +646,46 @@ impl Method {
                     }
                 };
 
+                // The aggregating `_compose` arm follows the same
+                // factory-cache rationale: when `noexcept`, the closure body
+                // is wrapped in `Ok(…)` and the outer call is `.unwrap()`ed.
+                // The inner vcall uses `debug_assert!` for the HRESULT (a
+                // failing HRESULT silently yields the zeroed out-param in
+                // release), matching the rest of the noexcept emission.
+                let aggregating = if noexcept {
+                    quote! {
+                        pub fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
+                            Self::#interface_name(|this| Ok(unsafe {
+                                let (derived__, base__) = windows_core::Compose::compose(compose);
+                                let mut result__ = core::mem::zeroed();
+                                let hresult__ = (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #compose_args);
+                                debug_assert!(hresult__.0 == 0);
+                                // Keep `derived__` alive until the factory returns; its owning
+                                // ref is replaced by the delegating ref in `result__`.
+                                let _ = &derived__;
+                                core::mem::transmute(result__)
+                            })).unwrap()
+                        }
+                    }
+                } else {
+                    quote! {
+                        pub fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
+                            Self::#interface_name(|this| unsafe {
+                                let (derived__, base__) = windows_core::Compose::compose(compose);
+                                let mut result__ = core::mem::zeroed();
+                                (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #compose_args).ok()?;
+                                // Keep `derived__` alive until the factory returns; its owning
+                                // ref is replaced by the delegating ref in `result__`.
+                                let _ = &derived__;
+                                windows_core::Type::from_abi(result__)
+                            })
+                        }
+                    }
+                };
+
                 quote! {
                     #non_aggregating
-                    pub fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
-                        Self::#interface_name(|this| unsafe {
-                            let (derived__, base__) = windows_core::Compose::compose(compose);
-                            let mut result__ = core::mem::zeroed();
-                            (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #compose_args).ok()?;
-                            // Keep `derived__` alive until the factory returns; its owning
-                            // ref is replaced by the delegating ref in `result__`.
-                            let _ = &derived__;
-                            windows_core::Type::from_abi(result__)
-                        })
-                    }
+                    #aggregating
                 }
             }
         }

@@ -29,20 +29,23 @@ pub mod Test {
         where
             T: windows_core::Compose,
         {
-            Self::IFooFactory(|this| unsafe {
-                let (derived__, base__) = windows_core::Compose::compose(compose);
-                let mut result__ = core::mem::zeroed();
-                (windows_core::Interface::vtable(this).CreateInstance)(
-                    windows_core::Interface::as_raw(this),
-                    name,
-                    core::mem::transmute_copy(&derived__),
-                    base__ as *mut _ as _,
-                    &mut result__,
-                )
-                .ok()?;
-                let _ = &derived__;
-                windows_core::Type::from_abi(result__)
+            Self::IFooFactory(|this| {
+                Ok(unsafe {
+                    let (derived__, base__) = windows_core::Compose::compose(compose);
+                    let mut result__ = core::mem::zeroed();
+                    let hresult__ = (windows_core::Interface::vtable(this).CreateInstance)(
+                        windows_core::Interface::as_raw(this),
+                        name,
+                        core::mem::transmute_copy(&derived__),
+                        base__ as *mut _ as _,
+                        &mut result__,
+                    );
+                    debug_assert!(hresult__.0 == 0);
+                    let _ = &derived__;
+                    core::mem::transmute(result__)
+                })
             })
+            .unwrap()
         }
         fn IFooFactory<R, F: FnOnce(&IFooFactory) -> windows_result::Result<R>>(
             callback: F,

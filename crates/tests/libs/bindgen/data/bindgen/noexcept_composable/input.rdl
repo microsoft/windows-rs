@@ -1,19 +1,17 @@
-// Coverage for the non-aggregating arm of `InterfaceKind::Composable` when
-// the composable factory method is marked
-// `#[Windows::Foundation::Metadata::NoException]`. Sibling of the
-// `noexcept_factory` fixture which covers the Activatable / Static arms.
+// Coverage for `InterfaceKind::Composable` (both arms) when the composable
+// factory method is marked `#[Windows::Foundation::Metadata::NoException]`.
+// Sibling of the `noexcept_factory` fixture which covers the Activatable /
+// Static arms.
 //
-// The non-aggregating entry (here `Foo::CreateInstance`) goes through the
-// `Self::IFooFactory(|this| Ok(unsafe { … })).unwrap()` shape — closure must
-// return `Result<R>` to satisfy the factory-cache helper, even though the
-// `noexcept` method itself returns a non-`Result` value.
+// `InterfaceKind::Composable` always emits two methods per factory call:
+//   * a non-aggregating `Foo::CreateInstance(...)`, and
+//   * an aggregating `Foo::CreateInstance_compose<T: Compose>(..., compose: T)`.
 //
-// The aggregating `_compose` arm is intentionally not exercised here:
-// `[NoException]` paired with composition isn't a realistic combination in
-// shipping WinRT metadata. If a future scenario needs it, the
-// `InterfaceKind::Composable` `_compose` arm in
-// `crates/libs/bindgen/src/types/method.rs` will need its own noexcept
-// branch.
+// Both go through the `Self::IFooFactory(|this| Ok(unsafe { … })).unwrap()`
+// shape under `[NoException]`: the closure must return `Result<R>` to
+// satisfy the factory-cache helper, even though the `noexcept` method
+// itself returns a non-`Result` value, and the inner vcall only checks the
+// HRESULT with `debug_assert!`.
 
 #[winrt]
 mod Test {
