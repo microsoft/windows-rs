@@ -1,0 +1,26 @@
+// Verifies that a method-level `--filter` exclusion on a base (required)
+// interface does *not* prevent the derived interface from emitting its
+// `_Impl` trait. Under the old behaviour, any demoted slot anywhere in the
+// required hierarchy poisoned the derived `_Impl` (a derived `_Impl` cannot
+// reference a base `_Impl` that wasn't emitted). With option 1, the base
+// retains its `_Impl` trait (sans the filtered method) and a synthesised
+// stub thunk for the filtered slot, so the derived interface's `_Impl`
+// trait can still bind to it.
+//
+//   * `IBase::FilteredOut` is excluded — its `IBase_Impl` trait drops it,
+//     and `IBase_Vtbl::new` installs an `E_NOTIMPL` stub thunk.
+//   * `IBase::KeepBase` stays as a regular trait method + real thunk.
+//   * `IDerived: IBase` adds `KeepDerived`. `IDerived_Impl` is still
+//     emitted with `KeepDerived` as its only declared method and an
+//     `IBase_Impl` super-trait bound.
+
+#[winrt]
+mod Test {
+    interface IBase {
+        fn KeepBase(&self) -> i32;
+        fn FilteredOut(&self) -> i32;
+    }
+    interface IDerived: IBase {
+        fn KeepDerived(&self) -> i32;
+    }
+}

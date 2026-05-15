@@ -1,10 +1,15 @@
 // Exercises method-level `--filter` property/event sugar.
 //
 //   * `Test.IFoo::Value` (denylist) expands at parse time to
-//     `get_Value` + `put_Value` (the property accessors), demoting both
-//     vtable slots while keeping `add_Changed` / `remove_Changed` alive.
+//     `get_Value` + `put_Value` (the property accessors), excluding both
+//     vtable slots from the user-facing surface while keeping
+//     `add_Changed` / `remove_Changed` alive.
 //   * `Test.IFoo::Changed` (denylist) expands to `add_Changed` +
-//     `remove_Changed` (the event accessors), demoting both event slots.
+//     `remove_Changed` (the event accessors), excluding both event slots.
+//
+// With option 1, excluded slots keep their typed (private) vtable entry
+// and `IFoo_Vtbl::new` installs synthesised `E_NOTIMPL` stub thunks for
+// each.
 
 #[winrt]
 mod Test {
