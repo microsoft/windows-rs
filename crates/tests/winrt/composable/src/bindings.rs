@@ -209,7 +209,7 @@ impl windows_core::RuntimeType for IContainerVisual {
 impl windows_core::RuntimeName for IContainerVisual {
     const NAME: &'static str = "test_composable.IContainerVisual";
 }
-pub trait IContainerVisual_Impl: windows_core::IUnknownImpl {
+pub trait IContainerVisual_Impl: IVisual_Impl {
     fn Children(&self) -> i32;
 }
 impl IContainerVisual_Vtbl {
@@ -283,7 +283,7 @@ impl windows_core::RuntimeType for ISpriteVisual {
 impl windows_core::RuntimeName for ISpriteVisual {
     const NAME: &'static str = "test_composable.ISpriteVisual";
 }
-pub trait ISpriteVisual_Impl: windows_core::IUnknownImpl {
+pub trait ISpriteVisual_Impl: IContainerVisual_Impl + IVisual_Impl {
     fn Brush(&self) -> i32;
 }
 impl ISpriteVisual_Vtbl {
