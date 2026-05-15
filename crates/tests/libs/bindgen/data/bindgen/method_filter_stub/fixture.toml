@@ -1,0 +1,6 @@
+filter = "Test"
+filters = ["!Test.IFoo::GetBaz"]
+no_allow = true
+no_comment = true
+specific_deps = true
+references = ["../../../libs/bindgen/default"]

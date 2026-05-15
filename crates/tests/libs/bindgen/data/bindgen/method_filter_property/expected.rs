@@ -97,14 +97,83 @@ pub mod Test {
     impl windows_core::RuntimeName for IFoo {
         const NAME: &'static str = "Test.IFoo";
     }
+    pub trait IFoo_Impl: windows_core::IUnknownImpl {
+        fn Keep(&self) -> windows_result::Result<i32>;
+    }
+    impl IFoo_Vtbl {
+        pub const fn new<Identity: IFoo_Impl, const OFFSET: isize>() -> Self {
+            #[allow(unused_variables)]
+            unsafe extern "system" fn Value<Identity: IFoo_Impl, const OFFSET: isize>(
+                this: *mut core::ffi::c_void,
+                result__: *mut i32,
+            ) -> windows_core::HRESULT {
+                windows_core::HRESULT(0x80004001_u32 as i32)
+            }
+            #[allow(unused_variables)]
+            unsafe extern "system" fn SetValue<Identity: IFoo_Impl, const OFFSET: isize>(
+                this: *mut core::ffi::c_void,
+                value: i32,
+            ) -> windows_core::HRESULT {
+                windows_core::HRESULT(0x80004001_u32 as i32)
+            }
+            #[allow(unused_variables)]
+            unsafe extern "system" fn Changed<Identity: IFoo_Impl, const OFFSET: isize>(
+                this: *mut core::ffi::c_void,
+                handler: *mut core::ffi::c_void,
+                result__: *mut i64,
+            ) -> windows_core::HRESULT {
+                windows_core::HRESULT(0x80004001_u32 as i32)
+            }
+            #[allow(unused_variables)]
+            unsafe extern "system" fn RemoveChanged<Identity: IFoo_Impl, const OFFSET: isize>(
+                this: *mut core::ffi::c_void,
+                token: i64,
+            ) -> windows_core::HRESULT {
+                windows_core::HRESULT(0x80004001_u32 as i32)
+            }
+            unsafe extern "system" fn Keep<Identity: IFoo_Impl, const OFFSET: isize>(
+                this: *mut core::ffi::c_void,
+                result__: *mut i32,
+            ) -> windows_core::HRESULT {
+                unsafe {
+                    let this: &Identity =
+                        &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                    match IFoo_Impl::Keep(this) {
+                        Ok(ok__) => {
+                            result__.write(ok__);
+                            windows_core::HRESULT(0)
+                        }
+                        Err(err) => err.into(),
+                    }
+                }
+            }
+            Self {
+                base__: windows_core::IInspectable_Vtbl::new::<Identity, IFoo, OFFSET>(),
+                Value: Value::<Identity, OFFSET>,
+                SetValue: SetValue::<Identity, OFFSET>,
+                Changed: Changed::<Identity, OFFSET>,
+                RemoveChanged: RemoveChanged::<Identity, OFFSET>,
+                Keep: Keep::<Identity, OFFSET>,
+            }
+        }
+        pub fn matches(iid: &windows_core::GUID) -> bool {
+            iid == &<IFoo as windows_core::Interface>::IID
+        }
+    }
     #[repr(C)]
     #[doc(hidden)]
     pub struct IFoo_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
-        Value: usize,
-        SetValue: usize,
-        Changed: usize,
-        RemoveChanged: usize,
+        Value:
+            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
+        SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_result::HRESULT,
+        Changed: unsafe extern "system" fn(
+            *mut core::ffi::c_void,
+            *mut core::ffi::c_void,
+            *mut i64,
+        ) -> windows_result::HRESULT,
+        RemoveChanged:
+            unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_result::HRESULT,
         pub Keep:
             unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
     }

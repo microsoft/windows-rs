@@ -1,0 +1,26 @@
+// Exercises option 1 for method-level `--filter` exclusions: instead of
+// poisoning the entire interface's `_Impl` trait (the old behaviour, which
+// only emitted a `Slot: usize` placeholder and dropped `_Impl` + `Vtbl::new`
+// entirely), bindgen now emits a synthesised `E_NOTIMPL` stub thunk for the
+// filtered slot and keeps `_Impl` / `Vtbl::new` available so the interface
+// can still be implemented from Rust.
+//
+//   * `IFoo::Keep` is implementable as usual (regular thunk dispatching to
+//     `IFoo_Impl::Keep`).
+//   * `IFoo::GetBaz` is filtered out (`!Test.IFoo::GetBaz`). It drops from
+//     `impl IFoo` (no callable wrapper) and from the `IFoo_Impl` trait, but
+//     `IFoo_Vtbl` still exposes the typed ABI slot and `IFoo_Vtbl::new`
+//     installs a stub that returns `E_NOTIMPL`. The `Baz` struct dependency
+//     is still in scope, so the stub's signature uses the real type.
+
+#[winrt]
+mod Test {
+    struct Baz {
+        Width: f32,
+        Height: f32,
+    }
+    interface IFoo {
+        fn Keep(&self) -> i32;
+        fn GetBaz(&self) -> Baz;
+    }
+}

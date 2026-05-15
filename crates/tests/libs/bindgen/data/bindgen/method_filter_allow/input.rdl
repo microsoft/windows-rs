@@ -1,12 +1,15 @@
 // Exercises method-level `--filter` allowlist support: `Ns.Type::Method`
 // flips the type into allowlist mode — only listed methods are kept; the
-// rest demote to opaque `Slot: usize` entries at their original vtable
-// offset.
+// rest are excluded from the user-facing surface. With option 1, excluded
+// slots retain their real ABI signature in `_Vtbl` and get a synthesised
+// `E_NOTIMPL` stub thunk in `_Vtbl::new`.
 //
 //   * The first include entry is the type itself (`Test`), required to
 //     keep `IFoo` in the type set.
-//   * `Test.IFoo::Keep` is the only method allowed; `Drop` and `AlsoDrop`
-//     demote to `Drop: usize,` / `AlsoDrop: usize,` slots.
+//   * `Test.IFoo::Keep` is the only allowed method; `Drop` and `AlsoDrop`
+//     drop from the callable surface and from `IFoo_Impl`, but their
+//     vtable slots stay typed and `IFoo_Vtbl::new` installs `E_NOTIMPL`
+//     stubs for both.
 
 #[winrt]
 mod Test {

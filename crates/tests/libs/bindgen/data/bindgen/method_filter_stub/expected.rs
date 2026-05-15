@@ -1,5 +1,18 @@
 pub mod Test {
-    windows_core::imp::define_interface!(IFoo, IFoo_Vtbl, 0x83d4b8f5_8092_582f_b665_ad5b52131af1);
+    #[repr(C)]
+    #[derive(Clone, Copy, Debug, Default, PartialEq)]
+    pub struct Baz {
+        pub Width: f32,
+        pub Height: f32,
+    }
+    impl windows_core::TypeKind for Baz {
+        type TypeKind = windows_core::CopyType;
+    }
+    impl windows_core::RuntimeType for Baz {
+        const SIGNATURE: windows_core::imp::ConstBuffer =
+            windows_core::imp::ConstBuffer::from_slice(b"struct(Test.Baz;f4;f4)");
+    }
+    windows_core::imp::define_interface!(IFoo, IFoo_Vtbl, 0x5dcafa36_d2c1_5ce7_ac1f_f53c18e6d978);
     impl windows_core::RuntimeType for IFoo {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -46,24 +59,16 @@ pub mod Test {
                 }
             }
             #[allow(unused_variables)]
-            unsafe extern "system" fn Drop<Identity: IFoo_Impl, const OFFSET: isize>(
+            unsafe extern "system" fn GetBaz<Identity: IFoo_Impl, const OFFSET: isize>(
                 this: *mut core::ffi::c_void,
-                result__: *mut i32,
-            ) -> windows_core::HRESULT {
-                windows_core::HRESULT(0x80004001_u32 as i32)
-            }
-            #[allow(unused_variables)]
-            unsafe extern "system" fn AlsoDrop<Identity: IFoo_Impl, const OFFSET: isize>(
-                this: *mut core::ffi::c_void,
-                result__: *mut i32,
+                result__: *mut Baz,
             ) -> windows_core::HRESULT {
                 windows_core::HRESULT(0x80004001_u32 as i32)
             }
             Self {
                 base__: windows_core::IInspectable_Vtbl::new::<Identity, IFoo, OFFSET>(),
                 Keep: Keep::<Identity, OFFSET>,
-                Drop: Drop::<Identity, OFFSET>,
-                AlsoDrop: AlsoDrop::<Identity, OFFSET>,
+                GetBaz: GetBaz::<Identity, OFFSET>,
             }
         }
         pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -76,9 +81,7 @@ pub mod Test {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Keep:
             unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
-        Drop:
-            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
-        AlsoDrop:
-            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
+        GetBaz:
+            unsafe extern "system" fn(*mut core::ffi::c_void, *mut Baz) -> windows_result::HRESULT,
     }
 }

@@ -11,8 +11,19 @@ pub enum InterfaceKind {
 
 #[derive(Clone, Debug)]
 pub enum MethodOrName {
+    /// Method is fully described and emitted into the public surface.
     Method(Method),
+    /// Method was demoted to an opaque `Slot: usize` because one or more
+    /// dependent types are not part of the binding set. The `_Impl` trait
+    /// and `Vtbl::new` are not emitted because we cannot describe the slot.
     Name(MethodDef),
+    /// Method was explicitly excluded via the user's `--filter` rules. The
+    /// slot is omitted from the callable surface, but the original ABI
+    /// signature is still known (all dependencies remain in scope), so we
+    /// emit a real vtable slot and a synthesised stub thunk that returns
+    /// `E_NOTIMPL`. This keeps `_Impl` and `Vtbl::new` available so the
+    /// interface can still be implemented from Rust.
+    Filtered(Method),
 }
 
 #[derive(Clone, Debug)]
@@ -65,8 +76,10 @@ impl Interface {
                         .skip_method(method.def, &method.dependencies, config);
                     MethodOrName::Name(method.def)
                 } else if !config.filter.includes_method(type_name, def.name()) {
-                    // Method-level `--filter` demoted this slot to opaque.
-                    MethodOrName::Name(method.def)
+                    // Method-level `--filter` excluded this slot. All dependencies
+                    // are in scope, so we can still describe the slot and synthesise
+                    // an `E_NOTIMPL` stub thunk in `Vtbl::new` (option 1).
+                    MethodOrName::Filtered(method)
                 } else {
                     MethodOrName::Method(method)
                 }
@@ -77,13 +90,13 @@ impl Interface {
     // Returns `true` if any of this interface's own methods would be skipped due to
     // missing dependencies. Used (transitively across required interfaces) to decide
     // whether to emit the `_Impl` trait, since a derived `_Impl` cannot reference a
-    // base `_Impl` that wasn't emitted.
+    // base `_Impl` that wasn't emitted. Method-level `--filter` exclusions do NOT
+    // poison `_Impl` emission: filtered methods are stubbed with `E_NOTIMPL` thunks
+    // in the generated `Vtbl::new` instead.
     pub fn has_skipped_methods(&self, config: &Config) -> bool {
-        let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = Method::new(def, &self.generics, config.reader);
             !method.dependencies.included(config)
-                || !config.filter.includes_method(type_name, def.name())
         })
     }
 
@@ -130,6 +143,17 @@ impl Interface {
                             #no
                             #name: usize,
                         }
+                    }
+                }
+                MethodOrName::Filtered(method) => {
+                    // Filtered methods get a real (private) ABI slot. There is no
+                    // public Rust caller, but the slot is targeted by the stub
+                    // thunk that `Vtbl::new` installs so the layout is preserved
+                    // and `E_NOTIMPL` is returned at runtime.
+                    let name = virtual_names.add(method.def);
+                    let vtbl = method.write_abi(config, false);
+                    quote! {
+                        #name: unsafe extern "system" fn(#vtbl) -> #result HRESULT,
                     }
                 }
                 MethodOrName::Name(method) => {
@@ -405,6 +429,10 @@ impl Interface {
                 // partial vtable with null function pointer slots. Also propagate the omission
                 // when any required (base) interface had its `_Impl` trait omitted, since a
                 // derived `_Impl` cannot reference a base `_Impl` that wasn't emitted.
+                //
+                // Method-level `--filter` exclusions do NOT poison `_Impl` emission: the
+                // corresponding slots get synthesised `E_NOTIMPL` stub thunks below so the
+                // vtable layout stays correct without forcing the user to implement them.
                 let has_skipped_methods = methods
                     .iter()
                     .any(|method| matches!(method, MethodOrName::Name(_)))
@@ -421,6 +449,10 @@ impl Interface {
                         .iter()
                         .map(|method| match method {
                             MethodOrName::Method(method) => {
+                                let name = names.add(method.def);
+                                quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
+                            }
+                            MethodOrName::Filtered(method) => {
                                 let name = names.add(method.def);
                                 quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
                             }
@@ -449,6 +481,20 @@ impl Interface {
                         }
                     }
                 }
+                MethodOrName::Filtered(method) => {
+                    // Synthesised stub for a `--filter`-excluded slot. The ABI
+                    // signature matches the original method (all dependencies
+                    // are in scope), but the body simply returns `E_NOTIMPL`
+                    // without invoking any user code. Parameters are unused.
+                    let name = names.add(method.def);
+                    let signature = method.write_abi(config, true);
+                    quote! {
+                        #[allow(unused_variables)]
+                        unsafe extern "system" fn #name<#constraints Identity: #impl_name <#(#generics,)*>, const OFFSET: isize> (#signature) -> windows_core::HRESULT {
+                            windows_core::HRESULT(0x80004001_u32 as i32)
+                        }
+                    }
+                }
                 _ => quote! {},
             }).collect();
 
@@ -461,6 +507,12 @@ impl Interface {
                                 let name = names.add(method.def);
                                 let signature = method.write_impl_signature(config, true, true);
                                 quote! { fn #name #signature; }
+                            }
+                            MethodOrName::Filtered(method) => {
+                                // Reserve the name so subsequent overload numbering matches
+                                // the vtable order, but emit nothing in the trait.
+                                let _ = names.add(method.def);
+                                quote! {}
                             }
                             _ => quote! {},
                         })

@@ -9,6 +9,22 @@ pub struct Filter {
 
 /// Per-type method filter. Entries are exact method names (after sugar
 /// expansion, e.g. `Property` -> `get_Property` + `put_Property`).
+///
+/// Emission semantics for excluded methods differ between WinRT and COM/Win32
+/// (C++) interfaces:
+///
+/// * **WinRT interfaces** (`crates/libs/bindgen/src/types/interface.rs`):
+///   excluded slots keep their real ABI signature in the `_Vtbl` struct and
+///   `_Vtbl::new` installs a synthesised `E_NOTIMPL` stub thunk. The `_Impl`
+///   trait drops the excluded method, but is still emitted, so the interface
+///   can be implemented from Rust. WinRT's `HRESULT`-returning, well-typed
+///   methods make `E_NOTIMPL` a safe default for any signature.
+///
+/// * **COM/Win32 interfaces** (`crates/libs/bindgen/src/types/cpp_interface.rs`):
+///   excluded slots demote to an opaque `Slot: usize` placeholder and the
+///   `_Impl` trait + `_Vtbl::new` are omitted entirely. C++ COM has a much
+///   richer set of in-by-value/return-by-value ABI conventions where blanket
+///   `E_NOTIMPL` substitution is unsound.
 #[derive(Debug)]
 pub enum MethodFilter {
     /// Allowlist: only the listed methods are kept; others demote to `Slot: usize`.

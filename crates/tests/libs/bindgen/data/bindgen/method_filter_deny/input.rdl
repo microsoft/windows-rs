@@ -1,14 +1,16 @@
 // Exercises method-level `--filter` denylist support: `!Ns.Type::Method`
-// demotes a single method to an opaque `Slot: usize` while leaving the
-// rest of the interface intact.
+// excludes a single method from the user-facing surface. With option 1,
+// the slot retains its real ABI signature in `_Vtbl` and `_Vtbl::new`
+// installs a synthesised `E_NOTIMPL` stub thunk, so the interface remains
+// implementable from Rust.
 //
-//   * `IFoo::Keep` should still emit a typed vtable slot (`pub Keep:
-//     unsafe extern "system" fn(...)`) and an `impl IFoo { pub fn Keep
-//     ... }` wrapper.
-//   * `IFoo::Drop` should demote to a plain `Drop: usize,` slot at the
-//     same vtable offset, with no wrapper method emitted.
-//   * The `_Impl` trait must be omitted (it cannot describe a partial
-//     vtable), matching the existing dependency-skip path.
+//   * `IFoo::Keep` should emit a typed vtable slot, a callable
+//     `impl IFoo { pub fn Keep ... }` wrapper, an `IFoo_Impl::Keep`
+//     trait method, and a normal upcall thunk in `IFoo_Vtbl::new`.
+//   * `IFoo::Drop` should keep its typed (private) vtable slot, but lose
+//     its `impl IFoo` wrapper and its `IFoo_Impl` trait method. Its slot
+//     in `IFoo_Vtbl::new` is populated by a synthesised stub that returns
+//     `windows_core::HRESULT(0x80004001)` (`E_NOTIMPL`).
 
 #[winrt]
 mod Test {
