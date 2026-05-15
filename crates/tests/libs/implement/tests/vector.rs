@@ -32,24 +32,18 @@ where
     fn new(vec: Vec<T::Default>) -> Self {
         Self(RwLock::new(vec))
     }
-}
 
-impl<T> Vector_Impl<T>
-where
-    T: RuntimeType + 'static,
-    <T as Type<T>>::Default: PartialEq + Clone,
-{
     // Methods common to IVector and IVectorView:
-    fn GetAt(&self, index: u32) -> Result<T> {
+    fn get_at(&self, index: u32) -> Result<T> {
         let reader = self.0.read().unwrap();
         let item = reader.get(index as usize).ok_or_else(err_bounds)?;
         T::from_default(item)
     }
-    fn Size(&self) -> Result<u32> {
+    fn size(&self) -> Result<u32> {
         let reader = self.0.read().unwrap();
         Ok(reader.len() as u32)
     }
-    fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {
+    fn index_of(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {
         let reader = self.0.read().unwrap();
         match reader
             .iter()
@@ -62,7 +56,7 @@ where
             None => Ok(false),
         }
     }
-    fn GetMany(&self, _startindex: u32, _items: &mut [T::Default]) -> Result<u32> {
+    fn get_many(&self, _startindex: u32, _items: &mut [T::Default]) -> Result<u32> {
         unimplemented!();
     }
 }
@@ -73,16 +67,16 @@ where
     <T as Type<T>>::Default: PartialEq + Clone,
 {
     fn GetAt(&self, index: u32) -> Result<T> {
-        self.GetAt(index)
+        self.get_at(index)
     }
     fn Size(&self) -> Result<u32> {
-        self.Size()
+        self.size()
     }
     fn GetView(&self) -> Result<IVectorView<T>> {
         Ok(self.to_interface())
     }
     fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {
-        self.IndexOf(value, result)
+        self.index_of(value, result)
     }
     fn SetAt(&self, index: u32, value: Ref<T>) -> Result<()> {
         let mut writer = self.0.write().unwrap();
@@ -133,7 +127,7 @@ where
         Ok(())
     }
     fn GetMany(&self, startindex: u32, items: &mut [T::Default]) -> Result<u32> {
-        self.GetMany(startindex, items)
+        self.get_many(startindex, items)
     }
     fn ReplaceAll(&self, items: &[T::Default]) -> Result<()> {
         let mut writer = self.0.write().unwrap();
@@ -153,16 +147,16 @@ where
     <T as Type<T>>::Default: PartialEq + Clone,
 {
     fn GetAt(&self, index: u32) -> Result<T> {
-        self.GetAt(index)
+        self.get_at(index)
     }
     fn Size(&self) -> Result<u32> {
-        self.Size()
+        self.size()
     }
     fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {
-        self.IndexOf(value, result)
+        self.index_of(value, result)
     }
     fn GetMany(&self, startindex: u32, items: &mut [T::Default]) -> Result<u32> {
-        self.GetMany(startindex, items)
+        self.get_many(startindex, items)
     }
 }
 
