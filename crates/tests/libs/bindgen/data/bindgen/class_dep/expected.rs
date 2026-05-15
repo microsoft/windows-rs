@@ -69,10 +69,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IIterable_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIterable_Impl::First(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -224,10 +224,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IIterator_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIterator_Impl::Current(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -250,10 +250,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IIterator_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIterator_Impl::HasCurrent(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -275,10 +275,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IIterator_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIterator_Impl::MoveNext(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -302,10 +302,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IIterator_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIterator_Impl::GetMany(
                     this,
                     core::slice::from_raw_parts_mut(
@@ -515,10 +515,10 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVectorView_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVectorView_Impl::GetAt(this, index) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -541,10 +541,10 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVectorView_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVectorView_Impl::Size(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -568,10 +568,10 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVectorView_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVectorView_Impl::IndexOf(
                     this,
                     core::mem::transmute_copy(&value),
@@ -600,10 +600,10 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVectorView_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVectorView_Impl::GetMany(
                     this,
                     startindex,
@@ -717,10 +717,10 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWwwFormUrlDecoderEntry_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWwwFormUrlDecoderEntry_Impl::Name(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -739,10 +739,10 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWwwFormUrlDecoderEntry_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWwwFormUrlDecoderEntry_Impl::Value(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

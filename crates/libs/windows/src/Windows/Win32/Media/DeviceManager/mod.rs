@@ -35,8 +35,8 @@ impl IComponentAuthenticate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IComponentAuthenticate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IComponentAuthenticate_Impl::SACAuth(this, core::mem::transmute_copy(&dwprotocolid), core::mem::transmute_copy(&dwpass), core::mem::transmute_copy(&pbdatain), core::mem::transmute_copy(&dwdatainlen), core::mem::transmute_copy(&ppbdataout), core::mem::transmute_copy(&pdwdataoutlen)).into()
             }
         }
@@ -45,8 +45,8 @@ impl IComponentAuthenticate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IComponentAuthenticate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IComponentAuthenticate_Impl::SACGetProtocols(this, core::mem::transmute_copy(&ppdwprotocols), core::mem::transmute_copy(&pdwprotocolcount)).into()
             }
         }
@@ -158,8 +158,8 @@ impl IMDSPDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDevice_Impl::GetName(this, core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
             }
         }
@@ -168,8 +168,8 @@ impl IMDSPDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDevice_Impl::GetManufacturer(this, core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
             }
         }
@@ -178,8 +178,8 @@ impl IMDSPDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPDevice_Impl::GetVersion(this) {
                     Ok(ok__) => {
                         pdwversion.write(core::mem::transmute(ok__));
@@ -194,8 +194,8 @@ impl IMDSPDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPDevice_Impl::GetType(this) {
                     Ok(ok__) => {
                         pdwtype.write(core::mem::transmute(ok__));
@@ -210,8 +210,8 @@ impl IMDSPDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDevice_Impl::GetSerialNumber(this, core::mem::transmute_copy(&pserialnumber), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -220,8 +220,8 @@ impl IMDSPDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDevice_Impl::GetPowerSource(this, core::mem::transmute_copy(&pdwpowersource), core::mem::transmute_copy(&pdwpercentremaining)).into()
             }
         }
@@ -230,8 +230,8 @@ impl IMDSPDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPDevice_Impl::GetStatus(this) {
                     Ok(ok__) => {
                         pdwstatus.write(core::mem::transmute(ok__));
@@ -246,8 +246,8 @@ impl IMDSPDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPDevice_Impl::GetDeviceIcon(this) {
                     Ok(ok__) => {
                         hicon.write(core::mem::transmute(ok__));
@@ -262,8 +262,8 @@ impl IMDSPDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPDevice_Impl::EnumStorage(this) {
                     Ok(ok__) => {
                         ppenumstorage.write(core::mem::transmute(ok__));
@@ -278,8 +278,8 @@ impl IMDSPDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDevice_Impl::GetFormatSupport(this, core::mem::transmute_copy(&pformatex), core::mem::transmute_copy(&pnformatcount), core::mem::transmute_copy(&pppwszmimetype), core::mem::transmute_copy(&pnmimetypecount)).into()
             }
         }
@@ -288,8 +288,8 @@ impl IMDSPDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDevice_Impl::SendOpaqueCommand(this, core::mem::transmute_copy(&pcommand)).into()
             }
         }
@@ -377,8 +377,8 @@ impl IMDSPDevice2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPDevice2_Impl::GetStorage(this, core::mem::transmute(&pszstoragename)) {
                     Ok(ok__) => {
                         ppstorage.write(core::mem::transmute(ok__));
@@ -393,8 +393,8 @@ impl IMDSPDevice2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDevice2_Impl::GetFormatSupport2(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ppaudioformatex), core::mem::transmute_copy(&pnaudioformatcount), core::mem::transmute_copy(&ppvideoformatex), core::mem::transmute_copy(&pnvideoformatcount), core::mem::transmute_copy(&ppfiletype), core::mem::transmute_copy(&pnfiletypecount)).into()
             }
         }
@@ -403,8 +403,8 @@ impl IMDSPDevice2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDevice2_Impl::GetSpecifyPropertyPages(this, core::mem::transmute_copy(&ppspecifyproppages), core::mem::transmute_copy(&pppunknowns), core::mem::transmute_copy(&pcunks)).into()
             }
         }
@@ -413,8 +413,8 @@ impl IMDSPDevice2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDevice2_Impl::GetCanonicalName(this, core::mem::transmute_copy(&pwszpnpname), core::mem::transmute_copy(&nmaxchars)).into()
             }
         }
@@ -516,8 +516,8 @@ impl IMDSPDevice3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPDevice3_Impl::GetProperty(this, core::mem::transmute(&pwszpropname)) {
                     Ok(ok__) => {
                         pvalue.write(core::mem::transmute(ok__));
@@ -532,8 +532,8 @@ impl IMDSPDevice3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDevice3_Impl::SetProperty(this, core::mem::transmute(&pwszpropname), core::mem::transmute_copy(&pvalue)).into()
             }
         }
@@ -542,8 +542,8 @@ impl IMDSPDevice3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPDevice3_Impl::GetFormatCapability(this, core::mem::transmute_copy(&format)) {
                     Ok(ok__) => {
                         pformatsupport.write(core::mem::transmute(ok__));
@@ -558,8 +558,8 @@ impl IMDSPDevice3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDevice3_Impl::DeviceIoControl(this, core::mem::transmute_copy(&dwiocontrolcode), core::mem::transmute_copy(&lpinbuffer), core::mem::transmute_copy(&ninbuffersize), core::mem::transmute_copy(&lpoutbuffer), core::mem::transmute_copy(&pnoutbuffersize)).into()
             }
         }
@@ -568,8 +568,8 @@ impl IMDSPDevice3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDevice3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPDevice3_Impl::FindStorage(this, core::mem::transmute_copy(&findscope), core::mem::transmute(&pwszuniqueid)) {
                     Ok(ok__) => {
                         ppstorage.write(core::mem::transmute(ok__));
@@ -667,8 +667,8 @@ impl IMDSPDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPDeviceControl_Impl::GetDCStatus(this) {
                     Ok(ok__) => {
                         pdwstatus.write(core::mem::transmute(ok__));
@@ -683,8 +683,8 @@ impl IMDSPDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPDeviceControl_Impl::GetCapabilities(this) {
                     Ok(ok__) => {
                         pdwcapabilitiesmask.write(core::mem::transmute(ok__));
@@ -699,8 +699,8 @@ impl IMDSPDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDeviceControl_Impl::Play(this).into()
             }
         }
@@ -709,8 +709,8 @@ impl IMDSPDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDeviceControl_Impl::Record(this, core::mem::transmute_copy(&pformat)).into()
             }
         }
@@ -719,8 +719,8 @@ impl IMDSPDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDeviceControl_Impl::Pause(this).into()
             }
         }
@@ -729,8 +729,8 @@ impl IMDSPDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDeviceControl_Impl::Resume(this).into()
             }
         }
@@ -739,8 +739,8 @@ impl IMDSPDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDeviceControl_Impl::Stop(this).into()
             }
         }
@@ -749,8 +749,8 @@ impl IMDSPDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPDeviceControl_Impl::Seek(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&noffset)).into()
             }
         }
@@ -808,8 +808,8 @@ impl IMDSPDirectTransfer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPDirectTransfer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPDirectTransfer_Impl::TransferToDevice(this, core::mem::transmute(&pwszsourcefilepath), core::mem::transmute_copy(&psourceoperation), core::mem::transmute_copy(&fuflags), core::mem::transmute(&pwszdestinationname), core::mem::transmute_copy(&psourcemetadata), core::mem::transmute_copy(&ptransferprogress)) {
                     Ok(ok__) => {
                         ppnewobject.write(core::mem::transmute(ok__));
@@ -873,8 +873,8 @@ impl IMDSPEnumDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPEnumDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPEnumDevice_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppdevice), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
@@ -883,8 +883,8 @@ impl IMDSPEnumDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPEnumDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPEnumDevice_Impl::Skip(this, core::mem::transmute_copy(&celt)) {
                     Ok(ok__) => {
                         pceltfetched.write(core::mem::transmute(ok__));
@@ -899,8 +899,8 @@ impl IMDSPEnumDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPEnumDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPEnumDevice_Impl::Reset(this).into()
             }
         }
@@ -909,8 +909,8 @@ impl IMDSPEnumDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPEnumDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPEnumDevice_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenumdevice.write(core::mem::transmute(ok__));
@@ -980,8 +980,8 @@ impl IMDSPEnumStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPEnumStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPEnumStorage_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppstorage), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
@@ -990,8 +990,8 @@ impl IMDSPEnumStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPEnumStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPEnumStorage_Impl::Skip(this, core::mem::transmute_copy(&celt)) {
                     Ok(ok__) => {
                         pceltfetched.write(core::mem::transmute(ok__));
@@ -1006,8 +1006,8 @@ impl IMDSPEnumStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPEnumStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPEnumStorage_Impl::Reset(this).into()
             }
         }
@@ -1016,8 +1016,8 @@ impl IMDSPEnumStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPEnumStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPEnumStorage_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenumstorage.write(core::mem::transmute(ok__));
@@ -1112,8 +1112,8 @@ impl IMDSPObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPObject_Impl::Open(this, core::mem::transmute_copy(&fumode)).into()
             }
         }
@@ -1122,8 +1122,8 @@ impl IMDSPObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPObject_Impl::Read(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -1132,8 +1132,8 @@ impl IMDSPObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPObject_Impl::Write(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -1142,8 +1142,8 @@ impl IMDSPObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPObject_Impl::Delete(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&pprogress)).into()
             }
         }
@@ -1152,8 +1152,8 @@ impl IMDSPObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPObject_Impl::Seek(this, core::mem::transmute_copy(&fuflags), core::mem::transmute_copy(&dwoffset)).into()
             }
         }
@@ -1162,8 +1162,8 @@ impl IMDSPObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPObject_Impl::Rename(this, core::mem::transmute(&pwsznewname), core::mem::transmute_copy(&pprogress)).into()
             }
         }
@@ -1172,8 +1172,8 @@ impl IMDSPObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPObject_Impl::Move(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&pprogress), core::mem::transmute_copy(&ptarget)).into()
             }
         }
@@ -1182,8 +1182,8 @@ impl IMDSPObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPObject_Impl::Close(this).into()
             }
         }
@@ -1241,8 +1241,8 @@ impl IMDSPObject2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObject2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPObject2_Impl::ReadOnClearChannel(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize)).into()
             }
         }
@@ -1251,8 +1251,8 @@ impl IMDSPObject2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObject2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPObject2_Impl::WriteOnClearChannel(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize)).into()
             }
         }
@@ -1338,8 +1338,8 @@ impl IMDSPObjectInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObjectInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPObjectInfo_Impl::GetPlayLength(this) {
                     Ok(ok__) => {
                         pdwlength.write(core::mem::transmute(ok__));
@@ -1354,8 +1354,8 @@ impl IMDSPObjectInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObjectInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPObjectInfo_Impl::SetPlayLength(this, core::mem::transmute_copy(&dwlength)).into()
             }
         }
@@ -1364,8 +1364,8 @@ impl IMDSPObjectInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObjectInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPObjectInfo_Impl::GetPlayOffset(this) {
                     Ok(ok__) => {
                         pdwoffset.write(core::mem::transmute(ok__));
@@ -1380,8 +1380,8 @@ impl IMDSPObjectInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObjectInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPObjectInfo_Impl::SetPlayOffset(this, core::mem::transmute_copy(&dwoffset)).into()
             }
         }
@@ -1390,8 +1390,8 @@ impl IMDSPObjectInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObjectInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPObjectInfo_Impl::GetTotalLength(this) {
                     Ok(ok__) => {
                         pdwlength.write(core::mem::transmute(ok__));
@@ -1406,8 +1406,8 @@ impl IMDSPObjectInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObjectInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPObjectInfo_Impl::GetLastPlayPosition(this) {
                     Ok(ok__) => {
                         pdwlastpos.write(core::mem::transmute(ok__));
@@ -1422,8 +1422,8 @@ impl IMDSPObjectInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPObjectInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPObjectInfo_Impl::GetLongestPlayPosition(this) {
                     Ok(ok__) => {
                         pdwlongestpos.write(core::mem::transmute(ok__));
@@ -1475,8 +1475,8 @@ impl IMDSPRevoked_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPRevoked_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPRevoked_Impl::GetRevocationURL(this, core::mem::transmute_copy(&ppwszrevocationurl), core::mem::transmute_copy(&pdwbufferlen)).into()
             }
         }
@@ -1587,8 +1587,8 @@ impl IMDSPStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorage_Impl::SetAttributes(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&pformat)).into()
             }
         }
@@ -1597,8 +1597,8 @@ impl IMDSPStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPStorage_Impl::GetStorageGlobals(this) {
                     Ok(ok__) => {
                         ppstorageglobals.write(core::mem::transmute(ok__));
@@ -1613,8 +1613,8 @@ impl IMDSPStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorage_Impl::GetAttributes(this, core::mem::transmute_copy(&pdwattributes), core::mem::transmute_copy(&pformat)).into()
             }
         }
@@ -1623,8 +1623,8 @@ impl IMDSPStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorage_Impl::GetName(this, core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
             }
         }
@@ -1633,8 +1633,8 @@ impl IMDSPStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPStorage_Impl::GetDate(this) {
                     Ok(ok__) => {
                         pdatetimeutc.write(core::mem::transmute(ok__));
@@ -1649,8 +1649,8 @@ impl IMDSPStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorage_Impl::GetSize(this, core::mem::transmute_copy(&pdwsizelow), core::mem::transmute_copy(&pdwsizehigh)).into()
             }
         }
@@ -1659,8 +1659,8 @@ impl IMDSPStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorage_Impl::GetRights(this, core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -1669,8 +1669,8 @@ impl IMDSPStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPStorage_Impl::CreateStorage(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&pformat), core::mem::transmute(&pwszname)) {
                     Ok(ok__) => {
                         ppnewstorage.write(core::mem::transmute(ok__));
@@ -1685,8 +1685,8 @@ impl IMDSPStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPStorage_Impl::EnumStorage(this) {
                     Ok(ok__) => {
                         ppenumstorage.write(core::mem::transmute(ok__));
@@ -1701,8 +1701,8 @@ impl IMDSPStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorage_Impl::SendOpaqueCommand(this, core::mem::transmute_copy(&pcommand)).into()
             }
         }
@@ -1799,8 +1799,8 @@ impl IMDSPStorage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPStorage2_Impl::GetStorage(this, core::mem::transmute(&pszstoragename)) {
                     Ok(ok__) => {
                         ppstorage.write(core::mem::transmute(ok__));
@@ -1815,8 +1815,8 @@ impl IMDSPStorage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPStorage2_Impl::CreateStorage2(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&dwattributesex), core::mem::transmute_copy(&paudioformat), core::mem::transmute_copy(&pvideoformat), core::mem::transmute(&pwszname), core::mem::transmute_copy(&qwfilesize)) {
                     Ok(ok__) => {
                         ppnewstorage.write(core::mem::transmute(ok__));
@@ -1831,8 +1831,8 @@ impl IMDSPStorage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorage2_Impl::SetAttributes2(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&dwattributesex), core::mem::transmute_copy(&paudioformat), core::mem::transmute_copy(&pvideoformat)).into()
             }
         }
@@ -1841,8 +1841,8 @@ impl IMDSPStorage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorage2_Impl::GetAttributes2(this, core::mem::transmute_copy(&pdwattributes), core::mem::transmute_copy(&pdwattributesex), core::mem::transmute_copy(&paudioformat), core::mem::transmute_copy(&pvideoformat)).into()
             }
         }
@@ -1905,8 +1905,8 @@ impl IMDSPStorage3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorage3_Impl::GetMetadata(this, core::mem::transmute_copy(&pmetadata)).into()
             }
         }
@@ -1915,8 +1915,8 @@ impl IMDSPStorage3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorage3_Impl::SetMetadata(this, core::mem::transmute_copy(&pmetadata)).into()
             }
         }
@@ -2010,8 +2010,8 @@ impl IMDSPStorage4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorage4_Impl::SetReferences(this, core::mem::transmute_copy(&dwrefs), core::mem::transmute_copy(&ppispstorage)).into()
             }
         }
@@ -2020,8 +2020,8 @@ impl IMDSPStorage4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorage4_Impl::GetReferences(this, core::mem::transmute_copy(&pdwrefs), core::mem::transmute_copy(&pppispstorage)).into()
             }
         }
@@ -2030,8 +2030,8 @@ impl IMDSPStorage4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPStorage4_Impl::CreateStorageWithMetadata(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute(&pwszname), core::mem::transmute_copy(&pmetadata), core::mem::transmute_copy(&qwfilesize)) {
                     Ok(ok__) => {
                         ppnewstorage.write(core::mem::transmute(ok__));
@@ -2046,8 +2046,8 @@ impl IMDSPStorage4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorage4_Impl::GetSpecifiedMetadata(this, core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppwszpropnames), core::mem::transmute_copy(&pmetadata)).into()
             }
         }
@@ -2056,8 +2056,8 @@ impl IMDSPStorage4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPStorage4_Impl::FindStorage(this, core::mem::transmute_copy(&findscope), core::mem::transmute(&pwszuniqueid)) {
                     Ok(ok__) => {
                         ppstorage.write(core::mem::transmute(ok__));
@@ -2072,8 +2072,8 @@ impl IMDSPStorage4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorage4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPStorage4_Impl::GetParent(this) {
                     Ok(ok__) => {
                         ppstorage.write(core::mem::transmute(ok__));
@@ -2180,8 +2180,8 @@ impl IMDSPStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPStorageGlobals_Impl::GetCapabilities(this) {
                     Ok(ok__) => {
                         pdwcapabilities.write(core::mem::transmute(ok__));
@@ -2196,8 +2196,8 @@ impl IMDSPStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorageGlobals_Impl::GetSerialNumber(this, core::mem::transmute_copy(&pserialnum), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -2206,8 +2206,8 @@ impl IMDSPStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorageGlobals_Impl::GetTotalSize(this, core::mem::transmute_copy(&pdwtotalsizelow), core::mem::transmute_copy(&pdwtotalsizehigh)).into()
             }
         }
@@ -2216,8 +2216,8 @@ impl IMDSPStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorageGlobals_Impl::GetTotalFree(this, core::mem::transmute_copy(&pdwfreelow), core::mem::transmute_copy(&pdwfreehigh)).into()
             }
         }
@@ -2226,8 +2226,8 @@ impl IMDSPStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorageGlobals_Impl::GetTotalBad(this, core::mem::transmute_copy(&pdwbadlow), core::mem::transmute_copy(&pdwbadhigh)).into()
             }
         }
@@ -2236,8 +2236,8 @@ impl IMDSPStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPStorageGlobals_Impl::GetStatus(this) {
                     Ok(ok__) => {
                         pdwstatus.write(core::mem::transmute(ok__));
@@ -2252,8 +2252,8 @@ impl IMDSPStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDSPStorageGlobals_Impl::Initialize(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&pprogress)).into()
             }
         }
@@ -2262,8 +2262,8 @@ impl IMDSPStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPStorageGlobals_Impl::GetDevice(this) {
                     Ok(ok__) => {
                         ppdevice.write(core::mem::transmute(ok__));
@@ -2278,8 +2278,8 @@ impl IMDSPStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDSPStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDSPStorageGlobals_Impl::GetRootStorage(this) {
                     Ok(ok__) => {
                         pproot.write(core::mem::transmute(ok__));
@@ -2344,8 +2344,8 @@ impl IMDServiceProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDServiceProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDServiceProvider_Impl::GetDeviceCount(this) {
                     Ok(ok__) => {
                         pdwcount.write(core::mem::transmute(ok__));
@@ -2360,8 +2360,8 @@ impl IMDServiceProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDServiceProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMDServiceProvider_Impl::EnumDevices(this) {
                     Ok(ok__) => {
                         ppenumdevice.write(core::mem::transmute(ok__));
@@ -2417,8 +2417,8 @@ impl IMDServiceProvider2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDServiceProvider2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDServiceProvider2_Impl::CreateDevice(this, core::mem::transmute(&pwszdevicepath), core::mem::transmute_copy(&pdwcount), core::mem::transmute_copy(&pppdevicearray)).into()
             }
         }
@@ -2461,8 +2461,8 @@ impl IMDServiceProvider3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMDServiceProvider3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMDServiceProvider3_Impl::SetDeviceEnumPreference(this, core::mem::transmute_copy(&dwenumpref)).into()
             }
         }
@@ -2503,8 +2503,8 @@ impl ISCPSecureAuthenticate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureAuthenticate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISCPSecureAuthenticate_Impl::GetSecureQuery(this) {
                     Ok(ok__) => {
                         ppsecurequery.write(core::mem::transmute(ok__));
@@ -2556,8 +2556,8 @@ impl ISCPSecureAuthenticate2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureAuthenticate2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISCPSecureAuthenticate2_Impl::GetSCPSession(this) {
                     Ok(ok__) => {
                         ppscpsession.write(core::mem::transmute(ok__));
@@ -2610,8 +2610,8 @@ impl ISCPSecureExchange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureExchange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSecureExchange_Impl::TransferContainerData(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pfureadyflags), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -2620,8 +2620,8 @@ impl ISCPSecureExchange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureExchange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSecureExchange_Impl::ObjectData(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -2630,8 +2630,8 @@ impl ISCPSecureExchange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureExchange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSecureExchange_Impl::TransferComplete(this).into()
             }
         }
@@ -2682,8 +2682,8 @@ impl ISCPSecureExchange2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureExchange2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSecureExchange2_Impl::TransferContainerData2(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pprogresscallback), core::mem::transmute_copy(&pfureadyflags), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -2749,8 +2749,8 @@ impl ISCPSecureExchange3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureExchange3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISCPSecureExchange3_Impl::TransferContainerDataOnClearChannel(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pprogresscallback)) {
                     Ok(ok__) => {
                         pfureadyflags.write(core::mem::transmute(ok__));
@@ -2765,8 +2765,8 @@ impl ISCPSecureExchange3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureExchange3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSecureExchange3_Impl::GetObjectDataOnClearChannel(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize)).into()
             }
         }
@@ -2775,8 +2775,8 @@ impl ISCPSecureExchange3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureExchange3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSecureExchange3_Impl::TransferCompleteForDevice(this, core::mem::transmute_copy(&pdevice)).into()
             }
         }
@@ -2842,8 +2842,8 @@ impl ISCPSecureQuery_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureQuery_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSecureQuery_Impl::GetDataDemands(this, core::mem::transmute_copy(&pfuflags), core::mem::transmute_copy(&pdwminrightsdata), core::mem::transmute_copy(&pdwminexaminedata), core::mem::transmute_copy(&pdwmindecidedata), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -2852,8 +2852,8 @@ impl ISCPSecureQuery_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureQuery_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSecureQuery_Impl::ExamineData(this, core::mem::transmute_copy(&fuflags), core::mem::transmute(&pwszextension), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -2862,8 +2862,8 @@ impl ISCPSecureQuery_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureQuery_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSecureQuery_Impl::MakeDecision(this, core::mem::transmute_copy(&fuflags), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&dwappsec), core::mem::transmute_copy(&pbspsessionkey), core::mem::transmute_copy(&dwsessionkeylen), core::mem::transmute_copy(&pstorageglobals), core::mem::transmute_copy(&ppexchange), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -2872,8 +2872,8 @@ impl ISCPSecureQuery_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureQuery_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSecureQuery_Impl::GetRights(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pbspsessionkey), core::mem::transmute_copy(&dwsessionkeylen), core::mem::transmute_copy(&pstgglobals), core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -2949,8 +2949,8 @@ impl ISCPSecureQuery2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureQuery2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSecureQuery2_Impl::MakeDecision2(
                     this,
                     core::mem::transmute_copy(&fuflags),
@@ -3051,8 +3051,8 @@ impl ISCPSecureQuery3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureQuery3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSecureQuery3_Impl::GetRightsOnClearChannel(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pbspsessionkey), core::mem::transmute_copy(&dwsessionkeylen), core::mem::transmute_copy(&pstgglobals), core::mem::transmute_copy(&pprogresscallback), core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount)).into()
             }
         }
@@ -3061,8 +3061,8 @@ impl ISCPSecureQuery3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSecureQuery3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSecureQuery3_Impl::MakeDecisionOnClearChannel(
                     this,
                     core::mem::transmute_copy(&fuflags),
@@ -3140,8 +3140,8 @@ impl ISCPSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSession_Impl::BeginSession(this, core::mem::transmute_copy(&pidevice), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&dwsizectx)).into()
             }
         }
@@ -3150,8 +3150,8 @@ impl ISCPSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISCPSession_Impl::EndSession(this, core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&dwsizectx)).into()
             }
         }
@@ -3160,8 +3160,8 @@ impl ISCPSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISCPSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISCPSession_Impl::GetSecureQuery(this) {
                     Ok(ok__) => {
                         ppsecurequery.write(core::mem::transmute(ok__));
@@ -3280,8 +3280,8 @@ impl IWMDMDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDevice_Impl::GetName(this, core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
             }
         }
@@ -3290,8 +3290,8 @@ impl IWMDMDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDevice_Impl::GetManufacturer(this, core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
             }
         }
@@ -3300,8 +3300,8 @@ impl IWMDMDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMDevice_Impl::GetVersion(this) {
                     Ok(ok__) => {
                         pdwversion.write(core::mem::transmute(ok__));
@@ -3316,8 +3316,8 @@ impl IWMDMDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMDevice_Impl::GetType(this) {
                     Ok(ok__) => {
                         pdwtype.write(core::mem::transmute(ok__));
@@ -3332,8 +3332,8 @@ impl IWMDMDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDevice_Impl::GetSerialNumber(this, core::mem::transmute_copy(&pserialnumber), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -3342,8 +3342,8 @@ impl IWMDMDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDevice_Impl::GetPowerSource(this, core::mem::transmute_copy(&pdwpowersource), core::mem::transmute_copy(&pdwpercentremaining)).into()
             }
         }
@@ -3352,8 +3352,8 @@ impl IWMDMDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMDevice_Impl::GetStatus(this) {
                     Ok(ok__) => {
                         pdwstatus.write(core::mem::transmute(ok__));
@@ -3368,8 +3368,8 @@ impl IWMDMDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMDevice_Impl::GetDeviceIcon(this) {
                     Ok(ok__) => {
                         hicon.write(core::mem::transmute(ok__));
@@ -3384,8 +3384,8 @@ impl IWMDMDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMDevice_Impl::EnumStorage(this) {
                     Ok(ok__) => {
                         ppenumstorage.write(core::mem::transmute(ok__));
@@ -3400,8 +3400,8 @@ impl IWMDMDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDevice_Impl::GetFormatSupport(this, core::mem::transmute_copy(&ppformatex), core::mem::transmute_copy(&pnformatcount), core::mem::transmute_copy(&pppwszmimetype), core::mem::transmute_copy(&pnmimetypecount)).into()
             }
         }
@@ -3410,8 +3410,8 @@ impl IWMDMDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDevice_Impl::SendOpaqueCommand(this, core::mem::transmute_copy(&pcommand)).into()
             }
         }
@@ -3499,8 +3499,8 @@ impl IWMDMDevice2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMDevice2_Impl::GetStorage(this, core::mem::transmute(&pszstoragename)) {
                     Ok(ok__) => {
                         ppstorage.write(core::mem::transmute(ok__));
@@ -3515,8 +3515,8 @@ impl IWMDMDevice2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDevice2_Impl::GetFormatSupport2(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ppaudioformatex), core::mem::transmute_copy(&pnaudioformatcount), core::mem::transmute_copy(&ppvideoformatex), core::mem::transmute_copy(&pnvideoformatcount), core::mem::transmute_copy(&ppfiletype), core::mem::transmute_copy(&pnfiletypecount)).into()
             }
         }
@@ -3525,8 +3525,8 @@ impl IWMDMDevice2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDevice2_Impl::GetSpecifyPropertyPages(this, core::mem::transmute_copy(&ppspecifyproppages), core::mem::transmute_copy(&pppunknowns), core::mem::transmute_copy(&pcunks)).into()
             }
         }
@@ -3535,8 +3535,8 @@ impl IWMDMDevice2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDevice2_Impl::GetCanonicalName(this, core::mem::transmute_copy(&pwszpnpname), core::mem::transmute_copy(&nmaxchars)).into()
             }
         }
@@ -3638,8 +3638,8 @@ impl IWMDMDevice3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMDevice3_Impl::GetProperty(this, core::mem::transmute(&pwszpropname)) {
                     Ok(ok__) => {
                         pvalue.write(core::mem::transmute(ok__));
@@ -3654,8 +3654,8 @@ impl IWMDMDevice3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDevice3_Impl::SetProperty(this, core::mem::transmute(&pwszpropname), core::mem::transmute_copy(&pvalue)).into()
             }
         }
@@ -3664,8 +3664,8 @@ impl IWMDMDevice3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMDevice3_Impl::GetFormatCapability(this, core::mem::transmute_copy(&format)) {
                     Ok(ok__) => {
                         pformatsupport.write(core::mem::transmute(ok__));
@@ -3680,8 +3680,8 @@ impl IWMDMDevice3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDevice3_Impl::DeviceIoControl(this, core::mem::transmute_copy(&dwiocontrolcode), core::mem::transmute_copy(&lpinbuffer), core::mem::transmute_copy(&ninbuffersize), core::mem::transmute_copy(&lpoutbuffer), core::mem::transmute_copy(&pnoutbuffersize)).into()
             }
         }
@@ -3690,8 +3690,8 @@ impl IWMDMDevice3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDevice3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMDevice3_Impl::FindStorage(this, core::mem::transmute_copy(&findscope), core::mem::transmute(&pwszuniqueid)) {
                     Ok(ok__) => {
                         ppstorage.write(core::mem::transmute(ok__));
@@ -3789,8 +3789,8 @@ impl IWMDMDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMDeviceControl_Impl::GetStatus(this) {
                     Ok(ok__) => {
                         pdwstatus.write(core::mem::transmute(ok__));
@@ -3805,8 +3805,8 @@ impl IWMDMDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMDeviceControl_Impl::GetCapabilities(this) {
                     Ok(ok__) => {
                         pdwcapabilitiesmask.write(core::mem::transmute(ok__));
@@ -3821,8 +3821,8 @@ impl IWMDMDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDeviceControl_Impl::Play(this).into()
             }
         }
@@ -3831,8 +3831,8 @@ impl IWMDMDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDeviceControl_Impl::Record(this, core::mem::transmute_copy(&pformat)).into()
             }
         }
@@ -3841,8 +3841,8 @@ impl IWMDMDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDeviceControl_Impl::Pause(this).into()
             }
         }
@@ -3851,8 +3851,8 @@ impl IWMDMDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDeviceControl_Impl::Resume(this).into()
             }
         }
@@ -3861,8 +3861,8 @@ impl IWMDMDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDeviceControl_Impl::Stop(this).into()
             }
         }
@@ -3871,8 +3871,8 @@ impl IWMDMDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDeviceControl_Impl::Seek(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&noffset)).into()
             }
         }
@@ -3925,8 +3925,8 @@ impl IWMDMDeviceSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDeviceSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDeviceSession_Impl::BeginSession(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&dwsizectx)).into()
             }
         }
@@ -3935,8 +3935,8 @@ impl IWMDMDeviceSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMDeviceSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMDeviceSession_Impl::EndSession(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&dwsizectx)).into()
             }
         }
@@ -3998,8 +3998,8 @@ impl IWMDMEnumDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMEnumDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMEnumDevice_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppdevice), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
@@ -4008,8 +4008,8 @@ impl IWMDMEnumDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMEnumDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMEnumDevice_Impl::Skip(this, core::mem::transmute_copy(&celt)) {
                     Ok(ok__) => {
                         pceltfetched.write(core::mem::transmute(ok__));
@@ -4024,8 +4024,8 @@ impl IWMDMEnumDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMEnumDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMEnumDevice_Impl::Reset(this).into()
             }
         }
@@ -4034,8 +4034,8 @@ impl IWMDMEnumDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMEnumDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMEnumDevice_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenumdevice.write(core::mem::transmute(ok__));
@@ -4105,8 +4105,8 @@ impl IWMDMEnumStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMEnumStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMEnumStorage_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppstorage), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
@@ -4115,8 +4115,8 @@ impl IWMDMEnumStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMEnumStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMEnumStorage_Impl::Skip(this, core::mem::transmute_copy(&celt)) {
                     Ok(ok__) => {
                         pceltfetched.write(core::mem::transmute(ok__));
@@ -4131,8 +4131,8 @@ impl IWMDMEnumStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMEnumStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMEnumStorage_Impl::Reset(this).into()
             }
         }
@@ -4141,8 +4141,8 @@ impl IWMDMEnumStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMEnumStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMEnumStorage_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenumstorage.write(core::mem::transmute(ok__));
@@ -4245,8 +4245,8 @@ impl IWMDMLogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMLogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMLogger_Impl::IsEnabled(this) {
                     Ok(ok__) => {
                         pfenabled.write(core::mem::transmute(ok__));
@@ -4261,8 +4261,8 @@ impl IWMDMLogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMLogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMLogger_Impl::Enable(this, core::mem::transmute_copy(&fenable)).into()
             }
         }
@@ -4271,8 +4271,8 @@ impl IWMDMLogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMLogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMLogger_Impl::GetLogFileName(this, core::mem::transmute_copy(&pszfilename), core::mem::transmute_copy(&nmaxchars)).into()
             }
         }
@@ -4281,8 +4281,8 @@ impl IWMDMLogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMLogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMLogger_Impl::SetLogFileName(this, core::mem::transmute(&pszfilename)).into()
             }
         }
@@ -4291,8 +4291,8 @@ impl IWMDMLogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMLogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMLogger_Impl::LogString(this, core::mem::transmute_copy(&dwflags), core::mem::transmute(&pszsrcname), core::mem::transmute(&pszlog)).into()
             }
         }
@@ -4301,8 +4301,8 @@ impl IWMDMLogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMLogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMLogger_Impl::LogDword(this, core::mem::transmute_copy(&dwflags), core::mem::transmute(&pszsrcname), core::mem::transmute(&pszlogformat), core::mem::transmute_copy(&dwlog)).into()
             }
         }
@@ -4311,8 +4311,8 @@ impl IWMDMLogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMLogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMLogger_Impl::Reset(this).into()
             }
         }
@@ -4321,8 +4321,8 @@ impl IWMDMLogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMLogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMLogger_Impl::GetSizeParams(this, core::mem::transmute_copy(&pdwmaxsize), core::mem::transmute_copy(&pdwshrinktosize)).into()
             }
         }
@@ -4331,8 +4331,8 @@ impl IWMDMLogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMLogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMLogger_Impl::SetSizeParams(this, core::mem::transmute_copy(&dwmaxsize), core::mem::transmute_copy(&dwshrinktosize)).into()
             }
         }
@@ -4404,8 +4404,8 @@ impl IWMDMMetaData_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMMetaData_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMMetaData_Impl::AddItem(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&pwsztagname), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&ilength)).into()
             }
         }
@@ -4414,8 +4414,8 @@ impl IWMDMMetaData_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMMetaData_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMMetaData_Impl::QueryByName(this, core::mem::transmute(&pwsztagname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength)).into()
             }
         }
@@ -4424,8 +4424,8 @@ impl IWMDMMetaData_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMMetaData_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMMetaData_Impl::QueryByIndex(this, core::mem::transmute_copy(&iindex), core::mem::transmute_copy(&ppwszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&ppvalue), core::mem::transmute_copy(&pcblength)).into()
             }
         }
@@ -4434,8 +4434,8 @@ impl IWMDMMetaData_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMMetaData_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMMetaData_Impl::GetItemCount(this) {
                     Ok(ok__) => {
                         icount.write(core::mem::transmute(ok__));
@@ -4487,8 +4487,8 @@ impl IWMDMNotification_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMNotification_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMNotification_Impl::WMDMMessage(this, core::mem::transmute_copy(&dwmessagetype), core::mem::transmute(&pwszcanonicalname)).into()
             }
         }
@@ -4570,8 +4570,8 @@ impl IWMDMObjectInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMObjectInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMObjectInfo_Impl::GetPlayLength(this) {
                     Ok(ok__) => {
                         pdwlength.write(core::mem::transmute(ok__));
@@ -4586,8 +4586,8 @@ impl IWMDMObjectInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMObjectInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMObjectInfo_Impl::SetPlayLength(this, core::mem::transmute_copy(&dwlength)).into()
             }
         }
@@ -4596,8 +4596,8 @@ impl IWMDMObjectInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMObjectInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMObjectInfo_Impl::GetPlayOffset(this) {
                     Ok(ok__) => {
                         pdwoffset.write(core::mem::transmute(ok__));
@@ -4612,8 +4612,8 @@ impl IWMDMObjectInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMObjectInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMObjectInfo_Impl::SetPlayOffset(this, core::mem::transmute_copy(&dwoffset)).into()
             }
         }
@@ -4622,8 +4622,8 @@ impl IWMDMObjectInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMObjectInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMObjectInfo_Impl::GetTotalLength(this) {
                     Ok(ok__) => {
                         pdwlength.write(core::mem::transmute(ok__));
@@ -4638,8 +4638,8 @@ impl IWMDMObjectInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMObjectInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMObjectInfo_Impl::GetLastPlayPosition(this) {
                     Ok(ok__) => {
                         pdwlastpos.write(core::mem::transmute(ok__));
@@ -4654,8 +4654,8 @@ impl IWMDMObjectInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMObjectInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMObjectInfo_Impl::GetLongestPlayPosition(this) {
                     Ok(ok__) => {
                         pdwlongestpos.write(core::mem::transmute(ok__));
@@ -4765,8 +4765,8 @@ impl IWMDMOperation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMOperation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMOperation_Impl::BeginRead(this).into()
             }
         }
@@ -4775,8 +4775,8 @@ impl IWMDMOperation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMOperation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMOperation_Impl::BeginWrite(this).into()
             }
         }
@@ -4785,8 +4785,8 @@ impl IWMDMOperation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMOperation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMOperation_Impl::GetObjectName(this, core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
             }
         }
@@ -4795,8 +4795,8 @@ impl IWMDMOperation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMOperation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMOperation_Impl::SetObjectName(this, core::mem::transmute(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
             }
         }
@@ -4805,8 +4805,8 @@ impl IWMDMOperation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMOperation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMOperation_Impl::GetObjectAttributes(this, core::mem::transmute_copy(&pdwattributes), core::mem::transmute_copy(&pformat)).into()
             }
         }
@@ -4815,8 +4815,8 @@ impl IWMDMOperation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMOperation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMOperation_Impl::SetObjectAttributes(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&pformat)).into()
             }
         }
@@ -4825,8 +4825,8 @@ impl IWMDMOperation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMOperation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMOperation_Impl::GetObjectTotalSize(this, core::mem::transmute_copy(&pdwsize), core::mem::transmute_copy(&pdwsizehigh)).into()
             }
         }
@@ -4835,8 +4835,8 @@ impl IWMDMOperation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMOperation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMOperation_Impl::SetObjectTotalSize(this, core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&dwsizehigh)).into()
             }
         }
@@ -4845,8 +4845,8 @@ impl IWMDMOperation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMOperation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMOperation_Impl::TransferObjectData(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -4855,8 +4855,8 @@ impl IWMDMOperation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMOperation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMOperation_Impl::End(this, core::mem::transmute_copy(&phcompletioncode), core::mem::transmute_copy(&pnewobject)).into()
             }
         }
@@ -4927,8 +4927,8 @@ impl IWMDMOperation2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMOperation2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMOperation2_Impl::SetObjectAttributes2(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&dwattributesex), core::mem::transmute_copy(&pformat), core::mem::transmute_copy(&pvideoformat)).into()
             }
         }
@@ -4937,8 +4937,8 @@ impl IWMDMOperation2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMOperation2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMOperation2_Impl::GetObjectAttributes2(this, core::mem::transmute_copy(&pdwattributes), core::mem::transmute_copy(&pdwattributesex), core::mem::transmute_copy(&paudioformat), core::mem::transmute_copy(&pvideoformat)).into()
             }
         }
@@ -4988,8 +4988,8 @@ impl IWMDMOperation3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMOperation3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMOperation3_Impl::TransferObjectDataOnClearChannel(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize)).into()
             }
         }
@@ -5037,8 +5037,8 @@ impl IWMDMProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMProgress_Impl::Begin(this, core::mem::transmute_copy(&dwestimatedticks)).into()
             }
         }
@@ -5047,8 +5047,8 @@ impl IWMDMProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMProgress_Impl::Progress(this, core::mem::transmute_copy(&dwtranspiredticks)).into()
             }
         }
@@ -5057,8 +5057,8 @@ impl IWMDMProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMProgress_Impl::End(this).into()
             }
         }
@@ -5106,8 +5106,8 @@ impl IWMDMProgress2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMProgress2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMProgress2_Impl::End2(this, core::mem::transmute_copy(&hrcompletioncode)).into()
             }
         }
@@ -5160,8 +5160,8 @@ impl IWMDMProgress3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMProgress3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMProgress3_Impl::Begin3(this, core::mem::transmute(&eventid), core::mem::transmute_copy(&dwestimatedticks), core::mem::transmute_copy(&pcontext)).into()
             }
         }
@@ -5170,8 +5170,8 @@ impl IWMDMProgress3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMProgress3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMProgress3_Impl::Progress3(this, core::mem::transmute(&eventid), core::mem::transmute_copy(&dwtranspiredticks), core::mem::transmute_copy(&pcontext)).into()
             }
         }
@@ -5180,8 +5180,8 @@ impl IWMDMProgress3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMProgress3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMProgress3_Impl::End3(this, core::mem::transmute(&eventid), core::mem::transmute_copy(&hrcompletioncode), core::mem::transmute_copy(&pcontext)).into()
             }
         }
@@ -5223,8 +5223,8 @@ impl IWMDMRevoked_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMRevoked_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMRevoked_Impl::GetRevocationURL(this, core::mem::transmute_copy(&ppwszrevocationurl), core::mem::transmute_copy(&pdwbufferlen), core::mem::transmute_copy(&pdwrevokedbitflag)).into()
             }
         }
@@ -5320,8 +5320,8 @@ impl IWMDMStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorage_Impl::SetAttributes(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&pformat)).into()
             }
         }
@@ -5330,8 +5330,8 @@ impl IWMDMStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMStorage_Impl::GetStorageGlobals(this) {
                     Ok(ok__) => {
                         ppstorageglobals.write(core::mem::transmute(ok__));
@@ -5346,8 +5346,8 @@ impl IWMDMStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorage_Impl::GetAttributes(this, core::mem::transmute_copy(&pdwattributes), core::mem::transmute_copy(&pformat)).into()
             }
         }
@@ -5356,8 +5356,8 @@ impl IWMDMStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorage_Impl::GetName(this, core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
             }
         }
@@ -5366,8 +5366,8 @@ impl IWMDMStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMStorage_Impl::GetDate(this) {
                     Ok(ok__) => {
                         pdatetimeutc.write(core::mem::transmute(ok__));
@@ -5382,8 +5382,8 @@ impl IWMDMStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorage_Impl::GetSize(this, core::mem::transmute_copy(&pdwsizelow), core::mem::transmute_copy(&pdwsizehigh)).into()
             }
         }
@@ -5392,8 +5392,8 @@ impl IWMDMStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorage_Impl::GetRights(this, core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -5402,8 +5402,8 @@ impl IWMDMStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMStorage_Impl::EnumStorage(this) {
                     Ok(ok__) => {
                         penumstorage.write(core::mem::transmute(ok__));
@@ -5418,8 +5418,8 @@ impl IWMDMStorage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorage_Impl::SendOpaqueCommand(this, core::mem::transmute_copy(&pcommand)).into()
             }
         }
@@ -5500,8 +5500,8 @@ impl IWMDMStorage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMStorage2_Impl::GetStorage(this, core::mem::transmute(&pszstoragename)) {
                     Ok(ok__) => {
                         ppstorage.write(core::mem::transmute(ok__));
@@ -5516,8 +5516,8 @@ impl IWMDMStorage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorage2_Impl::SetAttributes2(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&dwattributesex), core::mem::transmute_copy(&pformat), core::mem::transmute_copy(&pvideoformat)).into()
             }
         }
@@ -5526,8 +5526,8 @@ impl IWMDMStorage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorage2_Impl::GetAttributes2(this, core::mem::transmute_copy(&pdwattributes), core::mem::transmute_copy(&pdwattributesex), core::mem::transmute_copy(&paudioformat), core::mem::transmute_copy(&pvideoformat)).into()
             }
         }
@@ -5602,8 +5602,8 @@ impl IWMDMStorage3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMStorage3_Impl::GetMetadata(this) {
                     Ok(ok__) => {
                         ppmetadata.write(core::mem::transmute(ok__));
@@ -5618,8 +5618,8 @@ impl IWMDMStorage3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorage3_Impl::SetMetadata(this, core::mem::transmute_copy(&pmetadata)).into()
             }
         }
@@ -5628,8 +5628,8 @@ impl IWMDMStorage3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMStorage3_Impl::CreateEmptyMetadataObject(this) {
                     Ok(ok__) => {
                         ppmetadata.write(core::mem::transmute(ok__));
@@ -5644,8 +5644,8 @@ impl IWMDMStorage3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorage3_Impl::SetEnumPreference(this, core::mem::transmute_copy(&pmode), core::mem::transmute_copy(&nviews), core::mem::transmute_copy(&pviews)).into()
             }
         }
@@ -5737,8 +5737,8 @@ impl IWMDMStorage4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorage4_Impl::SetReferences(this, core::mem::transmute_copy(&dwrefs), core::mem::transmute_copy(&ppiwmdmstorage)).into()
             }
         }
@@ -5747,8 +5747,8 @@ impl IWMDMStorage4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorage4_Impl::GetReferences(this, core::mem::transmute_copy(&pdwrefs), core::mem::transmute_copy(&pppiwmdmstorage)).into()
             }
         }
@@ -5757,8 +5757,8 @@ impl IWMDMStorage4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorage4_Impl::GetRightsWithProgress(this, core::mem::transmute_copy(&piprogresscallback), core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount)).into()
             }
         }
@@ -5767,8 +5767,8 @@ impl IWMDMStorage4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMStorage4_Impl::GetSpecifiedMetadata(this, core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppwszpropnames)) {
                     Ok(ok__) => {
                         ppmetadata.write(core::mem::transmute(ok__));
@@ -5783,8 +5783,8 @@ impl IWMDMStorage4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMStorage4_Impl::FindStorage(this, core::mem::transmute_copy(&findscope), core::mem::transmute(&pwszuniqueid)) {
                     Ok(ok__) => {
                         ppstorage.write(core::mem::transmute(ok__));
@@ -5799,8 +5799,8 @@ impl IWMDMStorage4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorage4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMStorage4_Impl::GetParent(this) {
                     Ok(ok__) => {
                         ppstorage.write(core::mem::transmute(ok__));
@@ -5896,8 +5896,8 @@ impl IWMDMStorageControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorageControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMStorageControl_Impl::Insert(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwszfile), core::mem::transmute_copy(&poperation), core::mem::transmute_copy(&pprogress)) {
                     Ok(ok__) => {
                         ppnewobject.write(core::mem::transmute(ok__));
@@ -5912,8 +5912,8 @@ impl IWMDMStorageControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorageControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorageControl_Impl::Delete(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&pprogress)).into()
             }
         }
@@ -5922,8 +5922,8 @@ impl IWMDMStorageControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorageControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorageControl_Impl::Rename(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwsznewname), core::mem::transmute_copy(&pprogress)).into()
             }
         }
@@ -5932,8 +5932,8 @@ impl IWMDMStorageControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorageControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorageControl_Impl::Read(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwszfile), core::mem::transmute_copy(&pprogress), core::mem::transmute_copy(&poperation)).into()
             }
         }
@@ -5942,8 +5942,8 @@ impl IWMDMStorageControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorageControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorageControl_Impl::Move(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&ptargetobject), core::mem::transmute_copy(&pprogress)).into()
             }
         }
@@ -6000,8 +6000,8 @@ impl IWMDMStorageControl2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorageControl2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorageControl2_Impl::Insert2(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwszfilesource), core::mem::transmute(&pwszfiledest), core::mem::transmute_copy(&poperation), core::mem::transmute_copy(&pprogress), core::mem::transmute_copy(&punknown), core::mem::transmute_copy(&ppnewobject)).into()
             }
         }
@@ -6052,8 +6052,8 @@ impl IWMDMStorageControl3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorageControl3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorageControl3_Impl::Insert3(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&futype), core::mem::transmute(&pwszfilesource), core::mem::transmute(&pwszfiledest), core::mem::transmute_copy(&poperation), core::mem::transmute_copy(&pprogress), core::mem::transmute_copy(&pmetadata), core::mem::transmute_copy(&punknown), core::mem::transmute_copy(&ppnewobject)).into()
             }
         }
@@ -6129,8 +6129,8 @@ impl IWMDMStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMStorageGlobals_Impl::GetCapabilities(this) {
                     Ok(ok__) => {
                         pdwcapabilities.write(core::mem::transmute(ok__));
@@ -6145,8 +6145,8 @@ impl IWMDMStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorageGlobals_Impl::GetSerialNumber(this, core::mem::transmute_copy(&pserialnum), core::mem::transmute_copy(&abmac)).into()
             }
         }
@@ -6155,8 +6155,8 @@ impl IWMDMStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorageGlobals_Impl::GetTotalSize(this, core::mem::transmute_copy(&pdwtotalsizelow), core::mem::transmute_copy(&pdwtotalsizehigh)).into()
             }
         }
@@ -6165,8 +6165,8 @@ impl IWMDMStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorageGlobals_Impl::GetTotalFree(this, core::mem::transmute_copy(&pdwfreelow), core::mem::transmute_copy(&pdwfreehigh)).into()
             }
         }
@@ -6175,8 +6175,8 @@ impl IWMDMStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorageGlobals_Impl::GetTotalBad(this, core::mem::transmute_copy(&pdwbadlow), core::mem::transmute_copy(&pdwbadhigh)).into()
             }
         }
@@ -6185,8 +6185,8 @@ impl IWMDMStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDMStorageGlobals_Impl::GetStatus(this) {
                     Ok(ok__) => {
                         pdwstatus.write(core::mem::transmute(ok__));
@@ -6201,8 +6201,8 @@ impl IWMDMStorageGlobals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDMStorageGlobals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDMStorageGlobals_Impl::Initialize(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&pprogress)).into()
             }
         }
@@ -6267,8 +6267,8 @@ impl IWMDeviceManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDeviceManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDeviceManager_Impl::GetRevision(this) {
                     Ok(ok__) => {
                         pdwrevision.write(core::mem::transmute(ok__));
@@ -6283,8 +6283,8 @@ impl IWMDeviceManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDeviceManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDeviceManager_Impl::GetDeviceCount(this) {
                     Ok(ok__) => {
                         pdwcount.write(core::mem::transmute(ok__));
@@ -6299,8 +6299,8 @@ impl IWMDeviceManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDeviceManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDeviceManager_Impl::EnumDevices(this) {
                     Ok(ok__) => {
                         ppenumdevice.write(core::mem::transmute(ok__));
@@ -6373,8 +6373,8 @@ impl IWMDeviceManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDeviceManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDeviceManager2_Impl::GetDeviceFromCanonicalName(this, core::mem::transmute(&pwszcanonicalname)) {
                     Ok(ok__) => {
                         ppdevice.write(core::mem::transmute(ok__));
@@ -6389,8 +6389,8 @@ impl IWMDeviceManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDeviceManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWMDeviceManager2_Impl::EnumDevices2(this) {
                     Ok(ok__) => {
                         ppenumdevice.write(core::mem::transmute(ok__));
@@ -6405,8 +6405,8 @@ impl IWMDeviceManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDeviceManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDeviceManager2_Impl::Reinitialize(this).into()
             }
         }
@@ -6454,8 +6454,8 @@ impl IWMDeviceManager3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWMDeviceManager3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWMDeviceManager3_Impl::SetDeviceEnumPreference(this, core::mem::transmute_copy(&dwenumpref)).into()
             }
         }

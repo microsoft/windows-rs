@@ -847,8 +847,8 @@ impl IEnteredBackgroundEventArgs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IEnteredBackgroundEventArgs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IEnteredBackgroundEventArgs_Impl::GetDeferral(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -964,8 +964,8 @@ impl ILeavingBackgroundEventArgs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILeavingBackgroundEventArgs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILeavingBackgroundEventArgs_Impl::GetDeferral(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1298,8 +1298,8 @@ impl IPackageCatalogStatics2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPackageCatalogStatics2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPackageCatalogStatics2_Impl::OpenForPackage(this, core::mem::transmute_copy(&package)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1573,8 +1573,8 @@ impl ISuspendingDeferral_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISuspendingDeferral_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISuspendingDeferral_Impl::Complete(this).into()
             }
         }
@@ -1619,8 +1619,8 @@ impl ISuspendingEventArgs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISuspendingEventArgs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISuspendingEventArgs_Impl::SuspendingOperation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1682,8 +1682,8 @@ impl ISuspendingOperation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISuspendingOperation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISuspendingOperation_Impl::GetDeferral(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1699,8 +1699,8 @@ impl ISuspendingOperation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISuspendingOperation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISuspendingOperation_Impl::Deadline(this) {
                     Ok(ok__) => {
                         result__.write(ok__);

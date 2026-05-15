@@ -43,8 +43,8 @@ impl IGraphicsCaptureItemInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsCaptureItemInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGraphicsCaptureItemInterop_Impl::CreateForWindow(this, core::mem::transmute_copy(&window), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&result)).into()
             }
         }
@@ -53,8 +53,8 @@ impl IGraphicsCaptureItemInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsCaptureItemInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGraphicsCaptureItemInterop_Impl::CreateForMonitor(this, core::mem::transmute_copy(&monitor), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&result)).into()
             }
         }
@@ -102,8 +102,8 @@ impl IMonitorGraphicsCaptureItemInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMonitorGraphicsCaptureItemInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMonitorGraphicsCaptureItemInterop_Impl::GetMonitor(this, core::mem::transmute_copy(&monitor)).into()
             }
         }
@@ -141,8 +141,8 @@ impl IWindowGraphicsCaptureItemInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowGraphicsCaptureItemInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowGraphicsCaptureItemInterop_Impl::GetWindow(this, core::mem::transmute_copy(&window)).into()
             }
         }

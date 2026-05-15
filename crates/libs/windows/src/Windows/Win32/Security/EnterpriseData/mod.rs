@@ -184,8 +184,8 @@ impl IProtectionPolicyManagerInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProtectionPolicyManagerInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProtectionPolicyManagerInterop_Impl::RequestAccessForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute(&sourceidentity), core::mem::transmute(&targetidentity), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }
@@ -194,8 +194,8 @@ impl IProtectionPolicyManagerInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProtectionPolicyManagerInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProtectionPolicyManagerInterop_Impl::GetForWindow(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&result)).into()
             }
         }
@@ -280,8 +280,8 @@ impl IProtectionPolicyManagerInterop2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProtectionPolicyManagerInterop2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProtectionPolicyManagerInterop2_Impl::RequestAccessForAppWithWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute(&sourceidentity), core::mem::transmute(&apppackagefamilyname), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }
@@ -290,8 +290,8 @@ impl IProtectionPolicyManagerInterop2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProtectionPolicyManagerInterop2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProtectionPolicyManagerInterop2_Impl::RequestAccessWithAuditingInfoForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute(&sourceidentity), core::mem::transmute(&targetidentity), core::mem::transmute_copy(&auditinfounk), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }
@@ -300,8 +300,8 @@ impl IProtectionPolicyManagerInterop2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProtectionPolicyManagerInterop2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProtectionPolicyManagerInterop2_Impl::RequestAccessWithMessageForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute(&sourceidentity), core::mem::transmute(&targetidentity), core::mem::transmute_copy(&auditinfounk), core::mem::transmute(&messagefromapp), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }
@@ -310,8 +310,8 @@ impl IProtectionPolicyManagerInterop2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProtectionPolicyManagerInterop2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProtectionPolicyManagerInterop2_Impl::RequestAccessForAppWithAuditingInfoForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute(&sourceidentity), core::mem::transmute(&apppackagefamilyname), core::mem::transmute_copy(&auditinfounk), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }
@@ -320,8 +320,8 @@ impl IProtectionPolicyManagerInterop2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProtectionPolicyManagerInterop2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProtectionPolicyManagerInterop2_Impl::RequestAccessForAppWithMessageForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute(&sourceidentity), core::mem::transmute(&apppackagefamilyname), core::mem::transmute_copy(&auditinfounk), core::mem::transmute(&messagefromapp), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }
@@ -424,8 +424,8 @@ impl IProtectionPolicyManagerInterop3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProtectionPolicyManagerInterop3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProtectionPolicyManagerInterop3_Impl::RequestAccessWithBehaviorForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute(&sourceidentity), core::mem::transmute(&targetidentity), core::mem::transmute_copy(&auditinfounk), core::mem::transmute(&messagefromapp), core::mem::transmute_copy(&behavior), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }
@@ -434,8 +434,8 @@ impl IProtectionPolicyManagerInterop3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProtectionPolicyManagerInterop3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProtectionPolicyManagerInterop3_Impl::RequestAccessForAppWithBehaviorForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute(&sourceidentity), core::mem::transmute(&apppackagefamilyname), core::mem::transmute_copy(&auditinfounk), core::mem::transmute(&messagefromapp), core::mem::transmute_copy(&behavior), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }
@@ -444,8 +444,8 @@ impl IProtectionPolicyManagerInterop3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProtectionPolicyManagerInterop3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProtectionPolicyManagerInterop3_Impl::RequestAccessToFilesForAppForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&sourceitemlistunk), core::mem::transmute(&apppackagefamilyname), core::mem::transmute_copy(&auditinfounk), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }
@@ -454,8 +454,8 @@ impl IProtectionPolicyManagerInterop3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProtectionPolicyManagerInterop3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProtectionPolicyManagerInterop3_Impl::RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&sourceitemlistunk), core::mem::transmute(&apppackagefamilyname), core::mem::transmute_copy(&auditinfounk), core::mem::transmute(&messagefromapp), core::mem::transmute_copy(&behavior), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }
@@ -464,8 +464,8 @@ impl IProtectionPolicyManagerInterop3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProtectionPolicyManagerInterop3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProtectionPolicyManagerInterop3_Impl::RequestAccessToFilesForProcessForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&sourceitemlistunk), core::mem::transmute_copy(&processid), core::mem::transmute_copy(&auditinfounk), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }
@@ -474,8 +474,8 @@ impl IProtectionPolicyManagerInterop3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProtectionPolicyManagerInterop3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProtectionPolicyManagerInterop3_Impl::RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&sourceitemlistunk), core::mem::transmute_copy(&processid), core::mem::transmute_copy(&auditinfounk), core::mem::transmute(&messagefromapp), core::mem::transmute_copy(&behavior), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }

@@ -226,8 +226,8 @@ impl IPropertyAnimation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPropertyAnimation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPropertyAnimation_Impl::Type(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -242,8 +242,8 @@ impl IPropertyAnimation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPropertyAnimation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPropertyAnimation_Impl::Delay(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -258,8 +258,8 @@ impl IPropertyAnimation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPropertyAnimation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPropertyAnimation_Impl::Duration(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -274,8 +274,8 @@ impl IPropertyAnimation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPropertyAnimation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPropertyAnimation_Impl::Control1(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -290,8 +290,8 @@ impl IPropertyAnimation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPropertyAnimation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPropertyAnimation_Impl::Control2(this) {
                     Ok(ok__) => {
                         result__.write(ok__);

@@ -107,8 +107,8 @@ impl IAutomaticUpdates_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdates_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAutomaticUpdates_Impl::DetectNow(this).into()
             }
         }
@@ -117,8 +117,8 @@ impl IAutomaticUpdates_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdates_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAutomaticUpdates_Impl::Pause(this).into()
             }
         }
@@ -127,8 +127,8 @@ impl IAutomaticUpdates_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdates_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAutomaticUpdates_Impl::Resume(this).into()
             }
         }
@@ -137,8 +137,8 @@ impl IAutomaticUpdates_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdates_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAutomaticUpdates_Impl::ShowSettingsDialog(this).into()
             }
         }
@@ -147,8 +147,8 @@ impl IAutomaticUpdates_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdates_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAutomaticUpdates_Impl::Settings(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -163,8 +163,8 @@ impl IAutomaticUpdates_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdates_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAutomaticUpdates_Impl::ServiceEnabled(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -179,8 +179,8 @@ impl IAutomaticUpdates_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdates_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAutomaticUpdates_Impl::EnableService(this).into()
             }
         }
@@ -243,8 +243,8 @@ impl IAutomaticUpdates2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdates2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAutomaticUpdates2_Impl::Results(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -320,8 +320,8 @@ impl IAutomaticUpdatesResults_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesResults_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAutomaticUpdatesResults_Impl::LastSearchSuccessDate(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -336,8 +336,8 @@ impl IAutomaticUpdatesResults_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesResults_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAutomaticUpdatesResults_Impl::LastInstallationSuccessDate(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -458,8 +458,8 @@ impl IAutomaticUpdatesSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAutomaticUpdatesSettings_Impl::NotificationLevel(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -474,8 +474,8 @@ impl IAutomaticUpdatesSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAutomaticUpdatesSettings_Impl::SetNotificationLevel(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -484,8 +484,8 @@ impl IAutomaticUpdatesSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAutomaticUpdatesSettings_Impl::ReadOnly(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -500,8 +500,8 @@ impl IAutomaticUpdatesSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAutomaticUpdatesSettings_Impl::Required(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -516,8 +516,8 @@ impl IAutomaticUpdatesSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAutomaticUpdatesSettings_Impl::ScheduledInstallationDay(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -532,8 +532,8 @@ impl IAutomaticUpdatesSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAutomaticUpdatesSettings_Impl::SetScheduledInstallationDay(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -542,8 +542,8 @@ impl IAutomaticUpdatesSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAutomaticUpdatesSettings_Impl::ScheduledInstallationTime(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -558,8 +558,8 @@ impl IAutomaticUpdatesSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAutomaticUpdatesSettings_Impl::SetScheduledInstallationTime(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -568,8 +568,8 @@ impl IAutomaticUpdatesSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAutomaticUpdatesSettings_Impl::Refresh(this).into()
             }
         }
@@ -578,8 +578,8 @@ impl IAutomaticUpdatesSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAutomaticUpdatesSettings_Impl::Save(this).into()
             }
         }
@@ -658,8 +658,8 @@ impl IAutomaticUpdatesSettings2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAutomaticUpdatesSettings2_Impl::IncludeRecommendedUpdates(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -674,8 +674,8 @@ impl IAutomaticUpdatesSettings2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAutomaticUpdatesSettings2_Impl::SetIncludeRecommendedUpdates(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -684,8 +684,8 @@ impl IAutomaticUpdatesSettings2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAutomaticUpdatesSettings2_Impl::CheckPermission(this, core::mem::transmute_copy(&usertype), core::mem::transmute_copy(&permissiontype)) {
                     Ok(ok__) => {
                         userhaspermission.write(core::mem::transmute(ok__));
@@ -768,8 +768,8 @@ impl IAutomaticUpdatesSettings3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAutomaticUpdatesSettings3_Impl::NonAdministratorsElevated(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -784,8 +784,8 @@ impl IAutomaticUpdatesSettings3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAutomaticUpdatesSettings3_Impl::SetNonAdministratorsElevated(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -794,8 +794,8 @@ impl IAutomaticUpdatesSettings3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAutomaticUpdatesSettings3_Impl::FeaturedUpdatesEnabled(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -810,8 +810,8 @@ impl IAutomaticUpdatesSettings3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAutomaticUpdatesSettings3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAutomaticUpdatesSettings3_Impl::SetFeaturedUpdatesEnabled(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -935,8 +935,8 @@ impl ICategory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICategory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICategory_Impl::Name(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -951,8 +951,8 @@ impl ICategory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICategory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICategory_Impl::CategoryID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -967,8 +967,8 @@ impl ICategory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICategory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICategory_Impl::Children(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -983,8 +983,8 @@ impl ICategory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICategory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICategory_Impl::Description(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -999,8 +999,8 @@ impl ICategory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICategory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICategory_Impl::Image(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1015,8 +1015,8 @@ impl ICategory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICategory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICategory_Impl::Order(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1031,8 +1031,8 @@ impl ICategory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICategory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICategory_Impl::Parent(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1047,8 +1047,8 @@ impl ICategory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICategory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICategory_Impl::Type(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1063,8 +1063,8 @@ impl ICategory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICategory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICategory_Impl::Updates(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1151,8 +1151,8 @@ impl ICategoryCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICategoryCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICategoryCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1167,8 +1167,8 @@ impl ICategoryCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICategoryCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICategoryCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1183,8 +1183,8 @@ impl ICategoryCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICategoryCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICategoryCollection_Impl::Count(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1243,8 +1243,8 @@ impl IDownloadCompletedCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadCompletedCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDownloadCompletedCallback_Impl::Invoke(this, core::mem::transmute_copy(&downloadjob), core::mem::transmute_copy(&callbackargs)).into()
             }
         }
@@ -1369,8 +1369,8 @@ impl IDownloadJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadJob_Impl::AsyncState(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1385,8 +1385,8 @@ impl IDownloadJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadJob_Impl::IsCompleted(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1401,8 +1401,8 @@ impl IDownloadJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadJob_Impl::Updates(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1417,8 +1417,8 @@ impl IDownloadJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDownloadJob_Impl::CleanUp(this).into()
             }
         }
@@ -1427,8 +1427,8 @@ impl IDownloadJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadJob_Impl::GetProgress(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1443,8 +1443,8 @@ impl IDownloadJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDownloadJob_Impl::RequestAbort(this).into()
             }
         }
@@ -1570,8 +1570,8 @@ impl IDownloadProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadProgress_Impl::CurrentUpdateBytesDownloaded(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1586,8 +1586,8 @@ impl IDownloadProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadProgress_Impl::CurrentUpdateBytesToDownload(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1602,8 +1602,8 @@ impl IDownloadProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadProgress_Impl::CurrentUpdateIndex(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1618,8 +1618,8 @@ impl IDownloadProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadProgress_Impl::PercentComplete(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1634,8 +1634,8 @@ impl IDownloadProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadProgress_Impl::TotalBytesDownloaded(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1650,8 +1650,8 @@ impl IDownloadProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadProgress_Impl::TotalBytesToDownload(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1666,8 +1666,8 @@ impl IDownloadProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadProgress_Impl::GetUpdateResult(this, core::mem::transmute_copy(&updateindex)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1682,8 +1682,8 @@ impl IDownloadProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadProgress_Impl::CurrentUpdateDownloadPhase(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1698,8 +1698,8 @@ impl IDownloadProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadProgress_Impl::CurrentUpdatePercentComplete(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1764,8 +1764,8 @@ impl IDownloadProgressChangedCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadProgressChangedCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDownloadProgressChangedCallback_Impl::Invoke(this, core::mem::transmute_copy(&downloadjob), core::mem::transmute_copy(&callbackargs)).into()
             }
         }
@@ -1819,8 +1819,8 @@ impl IDownloadProgressChangedCallbackArgs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadProgressChangedCallbackArgs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadProgressChangedCallbackArgs_Impl::Progress(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1896,8 +1896,8 @@ impl IDownloadResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadResult_Impl::HResult(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1912,8 +1912,8 @@ impl IDownloadResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadResult_Impl::ResultCode(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -1928,8 +1928,8 @@ impl IDownloadResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDownloadResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDownloadResult_Impl::GetUpdateResult(this, core::mem::transmute_copy(&updateindex)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2018,8 +2018,8 @@ impl IImageInformation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageInformation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageInformation_Impl::AltText(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2034,8 +2034,8 @@ impl IImageInformation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageInformation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageInformation_Impl::Height(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2050,8 +2050,8 @@ impl IImageInformation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageInformation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageInformation_Impl::Source(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2066,8 +2066,8 @@ impl IImageInformation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageInformation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageInformation_Impl::Width(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2133,8 +2133,8 @@ impl IInstallationAgent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationAgent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInstallationAgent_Impl::RecordInstallationResult(this, core::mem::transmute(&installationresultcookie), core::mem::transmute_copy(&hresult), core::mem::transmute_copy(&extendedreportingdata)).into()
             }
         }
@@ -2212,8 +2212,8 @@ impl IInstallationBehavior_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationBehavior_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationBehavior_Impl::CanRequestUserInput(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2228,8 +2228,8 @@ impl IInstallationBehavior_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationBehavior_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationBehavior_Impl::Impact(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2244,8 +2244,8 @@ impl IInstallationBehavior_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationBehavior_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationBehavior_Impl::RebootBehavior(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2260,8 +2260,8 @@ impl IInstallationBehavior_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationBehavior_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationBehavior_Impl::RequiresNetworkConnectivity(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2321,8 +2321,8 @@ impl IInstallationCompletedCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationCompletedCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInstallationCompletedCallback_Impl::Invoke(this, core::mem::transmute_copy(&installationjob), core::mem::transmute_copy(&callbackargs)).into()
             }
         }
@@ -2447,8 +2447,8 @@ impl IInstallationJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationJob_Impl::AsyncState(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2463,8 +2463,8 @@ impl IInstallationJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationJob_Impl::IsCompleted(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2479,8 +2479,8 @@ impl IInstallationJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationJob_Impl::Updates(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2495,8 +2495,8 @@ impl IInstallationJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInstallationJob_Impl::CleanUp(this).into()
             }
         }
@@ -2505,8 +2505,8 @@ impl IInstallationJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationJob_Impl::GetProgress(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2521,8 +2521,8 @@ impl IInstallationJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInstallationJob_Impl::RequestAbort(this).into()
             }
         }
@@ -2608,8 +2608,8 @@ impl IInstallationProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationProgress_Impl::CurrentUpdateIndex(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2624,8 +2624,8 @@ impl IInstallationProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationProgress_Impl::CurrentUpdatePercentComplete(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2640,8 +2640,8 @@ impl IInstallationProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationProgress_Impl::PercentComplete(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2656,8 +2656,8 @@ impl IInstallationProgress_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationProgress_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationProgress_Impl::GetUpdateResult(this, core::mem::transmute_copy(&updateindex)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2717,8 +2717,8 @@ impl IInstallationProgressChangedCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationProgressChangedCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInstallationProgressChangedCallback_Impl::Invoke(this, core::mem::transmute_copy(&installationjob), core::mem::transmute_copy(&callbackargs)).into()
             }
         }
@@ -2772,8 +2772,8 @@ impl IInstallationProgressChangedCallbackArgs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationProgressChangedCallbackArgs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationProgressChangedCallbackArgs_Impl::Progress(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2857,8 +2857,8 @@ impl IInstallationResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationResult_Impl::HResult(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2873,8 +2873,8 @@ impl IInstallationResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationResult_Impl::RebootRequired(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2889,8 +2889,8 @@ impl IInstallationResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationResult_Impl::ResultCode(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2905,8 +2905,8 @@ impl IInstallationResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInstallationResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInstallationResult_Impl::GetUpdateResult(this, core::mem::transmute_copy(&updateindex)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2972,8 +2972,8 @@ impl IInvalidProductLicenseException_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInvalidProductLicenseException_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInvalidProductLicenseException_Impl::Product(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -3027,8 +3027,8 @@ impl ISearchCompletedCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISearchCompletedCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISearchCompletedCallback_Impl::Invoke(this, core::mem::transmute_copy(&searchjob), core::mem::transmute_copy(&callbackargs)).into()
             }
         }
@@ -3137,8 +3137,8 @@ impl ISearchJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISearchJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISearchJob_Impl::AsyncState(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -3153,8 +3153,8 @@ impl ISearchJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISearchJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISearchJob_Impl::IsCompleted(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -3169,8 +3169,8 @@ impl ISearchJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISearchJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISearchJob_Impl::CleanUp(this).into()
             }
         }
@@ -3179,8 +3179,8 @@ impl ISearchJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISearchJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISearchJob_Impl::RequestAbort(this).into()
             }
         }
@@ -3264,8 +3264,8 @@ impl ISearchResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISearchResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISearchResult_Impl::ResultCode(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -3280,8 +3280,8 @@ impl ISearchResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISearchResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISearchResult_Impl::RootCategories(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -3296,8 +3296,8 @@ impl ISearchResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISearchResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISearchResult_Impl::Updates(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -3312,8 +3312,8 @@ impl ISearchResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISearchResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISearchResult_Impl::Warnings(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -3439,8 +3439,8 @@ impl IStringCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStringCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStringCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -3455,8 +3455,8 @@ impl IStringCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStringCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStringCollection_Impl::put_Item(this, core::mem::transmute_copy(&index), core::mem::transmute(&value)).into()
             }
         }
@@ -3465,8 +3465,8 @@ impl IStringCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStringCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStringCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -3481,8 +3481,8 @@ impl IStringCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStringCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStringCollection_Impl::Count(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -3497,8 +3497,8 @@ impl IStringCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStringCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStringCollection_Impl::ReadOnly(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -3513,8 +3513,8 @@ impl IStringCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStringCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStringCollection_Impl::Add(this, core::mem::transmute(&value)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -3529,8 +3529,8 @@ impl IStringCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStringCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStringCollection_Impl::Clear(this).into()
             }
         }
@@ -3539,8 +3539,8 @@ impl IStringCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStringCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStringCollection_Impl::Copy(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -3555,8 +3555,8 @@ impl IStringCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStringCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStringCollection_Impl::Insert(this, core::mem::transmute_copy(&index), core::mem::transmute(&value)).into()
             }
         }
@@ -3565,8 +3565,8 @@ impl IStringCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStringCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStringCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
             }
         }
@@ -3640,8 +3640,8 @@ impl ISystemInformation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISystemInformation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISystemInformation_Impl::OemHardwareSupportLink(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -3656,8 +3656,8 @@ impl ISystemInformation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISystemInformation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISystemInformation_Impl::RebootRequired(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4068,8 +4068,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::Title(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4084,8 +4084,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::AutoSelectOnWebSites(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4100,8 +4100,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::BundledUpdates(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4116,8 +4116,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::CanRequireSource(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4132,8 +4132,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::Categories(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4148,8 +4148,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::Deadline(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4164,8 +4164,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::DeltaCompressedContentAvailable(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4180,8 +4180,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::DeltaCompressedContentPreferred(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4196,8 +4196,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::Description(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4212,8 +4212,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::EulaAccepted(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4228,8 +4228,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::EulaText(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4244,8 +4244,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::HandlerID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4260,8 +4260,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::Identity(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4276,8 +4276,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::Image(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4292,8 +4292,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::InstallationBehavior(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4308,8 +4308,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::IsBeta(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4324,8 +4324,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::IsDownloaded(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4340,8 +4340,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::IsHidden(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4356,8 +4356,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdate_Impl::SetIsHidden(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -4366,8 +4366,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::IsInstalled(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4382,8 +4382,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::IsMandatory(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4398,8 +4398,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::IsUninstallable(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4414,8 +4414,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::Languages(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4430,8 +4430,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::LastDeploymentChangeTime(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4446,8 +4446,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::MaxDownloadSize(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4462,8 +4462,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::MinDownloadSize(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4478,8 +4478,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::MoreInfoUrls(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4494,8 +4494,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::MsrcSeverity(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4510,8 +4510,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::RecommendedCpuSpeed(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4526,8 +4526,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::RecommendedHardDiskSpace(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4542,8 +4542,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::RecommendedMemory(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4558,8 +4558,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::ReleaseNotes(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4574,8 +4574,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::SecurityBulletinIDs(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4590,8 +4590,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::SupersededUpdateIDs(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4606,8 +4606,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::SupportUrl(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4622,8 +4622,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::Type(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4638,8 +4638,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::UninstallationNotes(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4654,8 +4654,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::UninstallationBehavior(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4670,8 +4670,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::UninstallationSteps(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4686,8 +4686,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::KBArticleIDs(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4702,8 +4702,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdate_Impl::AcceptEula(this).into()
             }
         }
@@ -4712,8 +4712,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::DeploymentAction(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4728,8 +4728,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdate_Impl::CopyFromCache(this, core::mem::transmute(&path), core::mem::transmute_copy(&toextractcabfiles)).into()
             }
         }
@@ -4738,8 +4738,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::DownloadPriority(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4754,8 +4754,8 @@ impl IUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate_Impl::DownloadContents(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4886,8 +4886,8 @@ impl IUpdate2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate2_Impl::RebootRequired(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4902,8 +4902,8 @@ impl IUpdate2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate2_Impl::IsPresent(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4918,8 +4918,8 @@ impl IUpdate2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate2_Impl::CveIDs(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -4934,8 +4934,8 @@ impl IUpdate2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdate2_Impl::CopyToCache(this, core::mem::transmute_copy(&pfiles)).into()
             }
         }
@@ -4995,8 +4995,8 @@ impl IUpdate3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate3_Impl::BrowseOnly(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5056,8 +5056,8 @@ impl IUpdate4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate4_Impl::PerUser(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5125,8 +5125,8 @@ impl IUpdate5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate5_Impl::AutoSelection(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5141,8 +5141,8 @@ impl IUpdate5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdate5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdate5_Impl::AutoDownload(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5275,8 +5275,8 @@ impl IUpdateCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5291,8 +5291,8 @@ impl IUpdateCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateCollection_Impl::put_Item(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
             }
         }
@@ -5301,8 +5301,8 @@ impl IUpdateCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5317,8 +5317,8 @@ impl IUpdateCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateCollection_Impl::Count(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5333,8 +5333,8 @@ impl IUpdateCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateCollection_Impl::ReadOnly(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5349,8 +5349,8 @@ impl IUpdateCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateCollection_Impl::Add(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5365,8 +5365,8 @@ impl IUpdateCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateCollection_Impl::Clear(this).into()
             }
         }
@@ -5375,8 +5375,8 @@ impl IUpdateCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateCollection_Impl::Copy(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5391,8 +5391,8 @@ impl IUpdateCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateCollection_Impl::Insert(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
             }
         }
@@ -5401,8 +5401,8 @@ impl IUpdateCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
             }
         }
@@ -5468,8 +5468,8 @@ impl IUpdateDownloadContent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloadContent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloadContent_Impl::DownloadUrl(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5529,8 +5529,8 @@ impl IUpdateDownloadContent2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloadContent2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloadContent2_Impl::IsDeltaCompressedContent(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5606,8 +5606,8 @@ impl IUpdateDownloadContentCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloadContentCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloadContentCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5622,8 +5622,8 @@ impl IUpdateDownloadContentCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloadContentCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloadContentCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5638,8 +5638,8 @@ impl IUpdateDownloadContentCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloadContentCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloadContentCollection_Impl::Count(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5712,8 +5712,8 @@ impl IUpdateDownloadResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloadResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloadResult_Impl::HResult(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5728,8 +5728,8 @@ impl IUpdateDownloadResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloadResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloadResult_Impl::ResultCode(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5871,8 +5871,8 @@ impl IUpdateDownloader_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloader_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloader_Impl::ClientApplicationID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5887,8 +5887,8 @@ impl IUpdateDownloader_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloader_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateDownloader_Impl::SetClientApplicationID(this, core::mem::transmute(&value)).into()
             }
         }
@@ -5897,8 +5897,8 @@ impl IUpdateDownloader_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloader_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloader_Impl::IsForced(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5913,8 +5913,8 @@ impl IUpdateDownloader_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloader_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateDownloader_Impl::SetIsForced(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -5923,8 +5923,8 @@ impl IUpdateDownloader_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloader_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloader_Impl::Priority(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5939,8 +5939,8 @@ impl IUpdateDownloader_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloader_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateDownloader_Impl::SetPriority(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -5949,8 +5949,8 @@ impl IUpdateDownloader_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloader_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloader_Impl::Updates(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5965,8 +5965,8 @@ impl IUpdateDownloader_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloader_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateDownloader_Impl::SetUpdates(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -5975,8 +5975,8 @@ impl IUpdateDownloader_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloader_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloader_Impl::BeginDownload(this, core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5991,8 +5991,8 @@ impl IUpdateDownloader_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloader_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloader_Impl::Download(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6007,8 +6007,8 @@ impl IUpdateDownloader_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloader_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloader_Impl::EndDownload(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6097,8 +6097,8 @@ impl IUpdateDownloaderEx_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloaderEx_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloaderEx_Impl::BeginDownload2(this, core::mem::transmute_copy(&downloadtype), core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6113,8 +6113,8 @@ impl IUpdateDownloaderEx_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateDownloaderEx_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateDownloaderEx_Impl::Download2(this, core::mem::transmute_copy(&downloadtype)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6194,8 +6194,8 @@ impl IUpdateEx_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateEx_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateEx_Impl::get_ExtendedStaticProperty(this, core::mem::transmute(&propertyname)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6210,8 +6210,8 @@ impl IUpdateEx_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateEx_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateEx_Impl::EvaluateExtendedDynamicProperty(this, core::mem::transmute(&propertyname)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6291,8 +6291,8 @@ impl IUpdateException_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateException_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateException_Impl::Message(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6307,8 +6307,8 @@ impl IUpdateException_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateException_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateException_Impl::HResult(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6323,8 +6323,8 @@ impl IUpdateException_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateException_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateException_Impl::Context(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6405,8 +6405,8 @@ impl IUpdateExceptionCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateExceptionCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateExceptionCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6421,8 +6421,8 @@ impl IUpdateExceptionCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateExceptionCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateExceptionCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6437,8 +6437,8 @@ impl IUpdateExceptionCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateExceptionCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateExceptionCollection_Impl::Count(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6607,8 +6607,8 @@ impl IUpdateHistoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry_Impl::Operation(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6623,8 +6623,8 @@ impl IUpdateHistoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry_Impl::ResultCode(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6639,8 +6639,8 @@ impl IUpdateHistoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry_Impl::HResult(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6655,8 +6655,8 @@ impl IUpdateHistoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry_Impl::Date(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6671,8 +6671,8 @@ impl IUpdateHistoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry_Impl::UpdateIdentity(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6687,8 +6687,8 @@ impl IUpdateHistoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry_Impl::Title(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6703,8 +6703,8 @@ impl IUpdateHistoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry_Impl::Description(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6719,8 +6719,8 @@ impl IUpdateHistoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry_Impl::UnmappedResultCode(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6735,8 +6735,8 @@ impl IUpdateHistoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry_Impl::ClientApplicationID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6751,8 +6751,8 @@ impl IUpdateHistoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry_Impl::ServerSelection(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6767,8 +6767,8 @@ impl IUpdateHistoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry_Impl::ServiceID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6783,8 +6783,8 @@ impl IUpdateHistoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry_Impl::UninstallationSteps(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6799,8 +6799,8 @@ impl IUpdateHistoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry_Impl::UninstallationNotes(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6815,8 +6815,8 @@ impl IUpdateHistoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry_Impl::SupportUrl(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6892,8 +6892,8 @@ impl IUpdateHistoryEntry2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntry2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntry2_Impl::Categories(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6969,8 +6969,8 @@ impl IUpdateHistoryEntryCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntryCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntryCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6985,8 +6985,8 @@ impl IUpdateHistoryEntryCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntryCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntryCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7001,8 +7001,8 @@ impl IUpdateHistoryEntryCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateHistoryEntryCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateHistoryEntryCollection_Impl::Count(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7075,8 +7075,8 @@ impl IUpdateIdentity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateIdentity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateIdentity_Impl::RevisionNumber(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7091,8 +7091,8 @@ impl IUpdateIdentity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateIdentity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateIdentity_Impl::UpdateID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7172,8 +7172,8 @@ impl IUpdateInstallationResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstallationResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstallationResult_Impl::HResult(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7188,8 +7188,8 @@ impl IUpdateInstallationResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstallationResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstallationResult_Impl::RebootRequired(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7204,8 +7204,8 @@ impl IUpdateInstallationResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstallationResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstallationResult_Impl::ResultCode(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7440,8 +7440,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::ClientApplicationID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7456,8 +7456,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateInstaller_Impl::SetClientApplicationID(this, core::mem::transmute(&value)).into()
             }
         }
@@ -7466,8 +7466,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::IsForced(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7482,8 +7482,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateInstaller_Impl::SetIsForced(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -7492,8 +7492,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::ParentHwnd(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7508,8 +7508,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateInstaller_Impl::SetParentHwnd(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -7518,8 +7518,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateInstaller_Impl::SetParentWindow(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -7528,8 +7528,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::ParentWindow(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7544,8 +7544,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::Updates(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7560,8 +7560,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateInstaller_Impl::SetUpdates(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -7570,8 +7570,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::BeginInstall(this, core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7586,8 +7586,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::BeginUninstall(this, core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7602,8 +7602,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::EndInstall(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7618,8 +7618,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::EndUninstall(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7634,8 +7634,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::Install(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7650,8 +7650,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::RunWizard(this, core::mem::transmute(&dialogtitle)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7666,8 +7666,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::IsBusy(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7682,8 +7682,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::Uninstall(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7698,8 +7698,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::AllowSourcePrompts(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7714,8 +7714,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateInstaller_Impl::SetAllowSourcePrompts(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -7724,8 +7724,8 @@ impl IUpdateInstaller_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller_Impl::RebootRequiredBeforeInstallation(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7813,8 +7813,8 @@ impl IUpdateInstaller2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller2_Impl::ForceQuiet(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7829,8 +7829,8 @@ impl IUpdateInstaller2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateInstaller2_Impl::SetForceQuiet(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -7893,8 +7893,8 @@ impl IUpdateInstaller3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateInstaller3_Impl::AttemptCloseAppsIfNecessary(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -7909,8 +7909,8 @@ impl IUpdateInstaller3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateInstaller3_Impl::SetAttemptCloseAppsIfNecessary(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -7965,8 +7965,8 @@ impl IUpdateInstaller4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateInstaller4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateInstaller4_Impl::Commit(this, core::mem::transmute_copy(&dwflags)).into()
             }
         }
@@ -8004,8 +8004,8 @@ impl IUpdateLockdown_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateLockdown_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateLockdown_Impl::LockDown(this, core::mem::transmute_copy(&flags)).into()
             }
         }
@@ -8186,8 +8186,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSearcher_Impl::CanAutomaticallyUpgradeService(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8202,8 +8202,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateSearcher_Impl::SetCanAutomaticallyUpgradeService(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -8212,8 +8212,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSearcher_Impl::ClientApplicationID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8228,8 +8228,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateSearcher_Impl::SetClientApplicationID(this, core::mem::transmute(&value)).into()
             }
         }
@@ -8238,8 +8238,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSearcher_Impl::IncludePotentiallySupersededUpdates(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8254,8 +8254,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateSearcher_Impl::SetIncludePotentiallySupersededUpdates(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -8264,8 +8264,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSearcher_Impl::ServerSelection(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8280,8 +8280,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateSearcher_Impl::SetServerSelection(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -8290,8 +8290,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSearcher_Impl::BeginSearch(this, core::mem::transmute(&criteria), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8306,8 +8306,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSearcher_Impl::EndSearch(this, core::mem::transmute_copy(&searchjob)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8322,8 +8322,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSearcher_Impl::EscapeString(this, core::mem::transmute(&unescaped)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8338,8 +8338,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSearcher_Impl::QueryHistory(this, core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8354,8 +8354,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSearcher_Impl::Search(this, core::mem::transmute(&criteria)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8370,8 +8370,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSearcher_Impl::Online(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8386,8 +8386,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateSearcher_Impl::SetOnline(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -8396,8 +8396,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSearcher_Impl::GetTotalHistoryCount(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8412,8 +8412,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSearcher_Impl::ServiceID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8428,8 +8428,8 @@ impl IUpdateSearcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateSearcher_Impl::SetServiceID(this, core::mem::transmute(&value)).into()
             }
         }
@@ -8508,8 +8508,8 @@ impl IUpdateSearcher2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSearcher2_Impl::IgnoreDownloadPriority(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8524,8 +8524,8 @@ impl IUpdateSearcher2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateSearcher2_Impl::SetIgnoreDownloadPriority(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -8588,8 +8588,8 @@ impl IUpdateSearcher3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSearcher3_Impl::SearchScope(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8604,8 +8604,8 @@ impl IUpdateSearcher3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSearcher3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateSearcher3_Impl::SetSearchScope(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -8763,8 +8763,8 @@ impl IUpdateService_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateService_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateService_Impl::Name(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8779,8 +8779,8 @@ impl IUpdateService_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateService_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateService_Impl::ContentValidationCert(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8795,8 +8795,8 @@ impl IUpdateService_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateService_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateService_Impl::ExpirationDate(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8811,8 +8811,8 @@ impl IUpdateService_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateService_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateService_Impl::IsManaged(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8827,8 +8827,8 @@ impl IUpdateService_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateService_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateService_Impl::IsRegisteredWithAU(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8843,8 +8843,8 @@ impl IUpdateService_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateService_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateService_Impl::IssueDate(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8859,8 +8859,8 @@ impl IUpdateService_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateService_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateService_Impl::OffersWindowsUpdates(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8875,8 +8875,8 @@ impl IUpdateService_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateService_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateService_Impl::RedirectUrls(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8891,8 +8891,8 @@ impl IUpdateService_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateService_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateService_Impl::ServiceID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8907,8 +8907,8 @@ impl IUpdateService_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateService_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateService_Impl::IsScanPackageService(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8923,8 +8923,8 @@ impl IUpdateService_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateService_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateService_Impl::CanRegisterWithAU(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8939,8 +8939,8 @@ impl IUpdateService_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateService_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateService_Impl::ServiceUrl(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -8955,8 +8955,8 @@ impl IUpdateService_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateService_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateService_Impl::SetupPrefix(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9031,8 +9031,8 @@ impl IUpdateService2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateService2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateService2_Impl::IsDefaultAUService(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9108,8 +9108,8 @@ impl IUpdateServiceCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateServiceCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9124,8 +9124,8 @@ impl IUpdateServiceCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateServiceCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9140,8 +9140,8 @@ impl IUpdateServiceCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateServiceCollection_Impl::Count(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9246,8 +9246,8 @@ impl IUpdateServiceManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateServiceManager_Impl::Services(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9262,8 +9262,8 @@ impl IUpdateServiceManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateServiceManager_Impl::AddService(this, core::mem::transmute(&serviceid), core::mem::transmute(&authorizationcabpath)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9278,8 +9278,8 @@ impl IUpdateServiceManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateServiceManager_Impl::RegisterServiceWithAU(this, core::mem::transmute(&serviceid)).into()
             }
         }
@@ -9288,8 +9288,8 @@ impl IUpdateServiceManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateServiceManager_Impl::RemoveService(this, core::mem::transmute(&serviceid)).into()
             }
         }
@@ -9298,8 +9298,8 @@ impl IUpdateServiceManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateServiceManager_Impl::UnregisterServiceWithAU(this, core::mem::transmute(&serviceid)).into()
             }
         }
@@ -9308,8 +9308,8 @@ impl IUpdateServiceManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateServiceManager_Impl::AddScanPackageService(this, core::mem::transmute(&servicename), core::mem::transmute(&scanfilelocation), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
                         ppservice.write(core::mem::transmute(ok__));
@@ -9324,8 +9324,8 @@ impl IUpdateServiceManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateServiceManager_Impl::SetOption(this, core::mem::transmute(&optionname), core::mem::transmute(&optionvalue)).into()
             }
         }
@@ -9409,8 +9409,8 @@ impl IUpdateServiceManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateServiceManager2_Impl::ClientApplicationID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9425,8 +9425,8 @@ impl IUpdateServiceManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateServiceManager2_Impl::SetClientApplicationID(this, core::mem::transmute(&value)).into()
             }
         }
@@ -9435,8 +9435,8 @@ impl IUpdateServiceManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateServiceManager2_Impl::QueryServiceRegistration(this, core::mem::transmute(&serviceid)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9451,8 +9451,8 @@ impl IUpdateServiceManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateServiceManager2_Impl::AddService2(this, core::mem::transmute(&serviceid), core::mem::transmute_copy(&flags), core::mem::transmute(&authorizationcabpath)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9542,8 +9542,8 @@ impl IUpdateServiceRegistration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceRegistration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateServiceRegistration_Impl::RegistrationState(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9558,8 +9558,8 @@ impl IUpdateServiceRegistration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceRegistration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateServiceRegistration_Impl::ServiceID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9574,8 +9574,8 @@ impl IUpdateServiceRegistration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceRegistration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateServiceRegistration_Impl::IsPendingRegistrationWithAU(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9590,8 +9590,8 @@ impl IUpdateServiceRegistration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateServiceRegistration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateServiceRegistration_Impl::Service(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9710,8 +9710,8 @@ impl IUpdateSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSession_Impl::ClientApplicationID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9726,8 +9726,8 @@ impl IUpdateSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateSession_Impl::SetClientApplicationID(this, core::mem::transmute(&value)).into()
             }
         }
@@ -9736,8 +9736,8 @@ impl IUpdateSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSession_Impl::ReadOnly(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9752,8 +9752,8 @@ impl IUpdateSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSession_Impl::WebProxy(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9768,8 +9768,8 @@ impl IUpdateSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateSession_Impl::SetWebProxy(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -9778,8 +9778,8 @@ impl IUpdateSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSession_Impl::CreateUpdateSearcher(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9794,8 +9794,8 @@ impl IUpdateSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSession_Impl::CreateUpdateDownloader(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9810,8 +9810,8 @@ impl IUpdateSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSession_Impl::CreateUpdateInstaller(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9886,8 +9886,8 @@ impl IUpdateSession2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSession2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSession2_Impl::UserLocale(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9902,8 +9902,8 @@ impl IUpdateSession2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSession2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUpdateSession2_Impl::SetUserLocale(this, core::mem::transmute_copy(&lcid)).into()
             }
         }
@@ -9969,8 +9969,8 @@ impl IUpdateSession3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSession3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSession3_Impl::CreateUpdateServiceManager(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -9985,8 +9985,8 @@ impl IUpdateSession3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUpdateSession3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUpdateSession3_Impl::QueryHistory(this, core::mem::transmute(&criteria), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10136,8 +10136,8 @@ impl IWebProxy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebProxy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWebProxy_Impl::Address(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10152,8 +10152,8 @@ impl IWebProxy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebProxy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWebProxy_Impl::SetAddress(this, core::mem::transmute(&value)).into()
             }
         }
@@ -10162,8 +10162,8 @@ impl IWebProxy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebProxy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWebProxy_Impl::BypassList(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10178,8 +10178,8 @@ impl IWebProxy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebProxy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWebProxy_Impl::SetBypassList(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -10188,8 +10188,8 @@ impl IWebProxy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebProxy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWebProxy_Impl::BypassProxyOnLocal(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10204,8 +10204,8 @@ impl IWebProxy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebProxy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWebProxy_Impl::SetBypassProxyOnLocal(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -10214,8 +10214,8 @@ impl IWebProxy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebProxy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWebProxy_Impl::ReadOnly(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10230,8 +10230,8 @@ impl IWebProxy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebProxy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWebProxy_Impl::UserName(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10246,8 +10246,8 @@ impl IWebProxy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebProxy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWebProxy_Impl::SetUserName(this, core::mem::transmute(&value)).into()
             }
         }
@@ -10256,8 +10256,8 @@ impl IWebProxy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebProxy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWebProxy_Impl::SetPassword(this, core::mem::transmute(&value)).into()
             }
         }
@@ -10266,8 +10266,8 @@ impl IWebProxy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebProxy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWebProxy_Impl::PromptForCredentials(this, core::mem::transmute_copy(&parentwindow), core::mem::transmute(&title)).into()
             }
         }
@@ -10276,8 +10276,8 @@ impl IWebProxy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebProxy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWebProxy_Impl::PromptForCredentialsFromHwnd(this, core::mem::transmute_copy(&parentwindow), core::mem::transmute(&title)).into()
             }
         }
@@ -10286,8 +10286,8 @@ impl IWebProxy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebProxy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWebProxy_Impl::AutoDetect(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10302,8 +10302,8 @@ impl IWebProxy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebProxy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWebProxy_Impl::SetAutoDetect(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -10429,8 +10429,8 @@ impl IWindowsDriverUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate_Impl::DriverClass(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10445,8 +10445,8 @@ impl IWindowsDriverUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate_Impl::DriverHardwareID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10461,8 +10461,8 @@ impl IWindowsDriverUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate_Impl::DriverManufacturer(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10477,8 +10477,8 @@ impl IWindowsDriverUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate_Impl::DriverModel(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10493,8 +10493,8 @@ impl IWindowsDriverUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate_Impl::DriverProvider(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10509,8 +10509,8 @@ impl IWindowsDriverUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate_Impl::DriverVerDate(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10525,8 +10525,8 @@ impl IWindowsDriverUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate_Impl::DeviceProblemNumber(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10541,8 +10541,8 @@ impl IWindowsDriverUpdate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate_Impl::DeviceStatus(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10636,8 +10636,8 @@ impl IWindowsDriverUpdate2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate2_Impl::RebootRequired(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10652,8 +10652,8 @@ impl IWindowsDriverUpdate2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate2_Impl::IsPresent(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10668,8 +10668,8 @@ impl IWindowsDriverUpdate2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate2_Impl::CveIDs(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10684,8 +10684,8 @@ impl IWindowsDriverUpdate2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowsDriverUpdate2_Impl::CopyToCache(this, core::mem::transmute_copy(&pfiles)).into()
             }
         }
@@ -10745,8 +10745,8 @@ impl IWindowsDriverUpdate3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate3_Impl::BrowseOnly(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10814,8 +10814,8 @@ impl IWindowsDriverUpdate4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate4_Impl::WindowsDriverUpdateEntries(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10830,8 +10830,8 @@ impl IWindowsDriverUpdate4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate4_Impl::PerUser(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10903,8 +10903,8 @@ impl IWindowsDriverUpdate5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate5_Impl::AutoSelection(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10919,8 +10919,8 @@ impl IWindowsDriverUpdate5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdate5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdate5_Impl::AutoDownload(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11040,8 +11040,8 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdateEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdateEntry_Impl::DriverClass(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11056,8 +11056,8 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdateEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdateEntry_Impl::DriverHardwareID(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11072,8 +11072,8 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdateEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdateEntry_Impl::DriverManufacturer(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11088,8 +11088,8 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdateEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdateEntry_Impl::DriverModel(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11104,8 +11104,8 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdateEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdateEntry_Impl::DriverProvider(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11120,8 +11120,8 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdateEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdateEntry_Impl::DriverVerDate(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11136,8 +11136,8 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdateEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdateEntry_Impl::DeviceProblemNumber(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11152,8 +11152,8 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdateEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdateEntry_Impl::DeviceStatus(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11239,8 +11239,8 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdateEntryCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdateEntryCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11255,8 +11255,8 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdateEntryCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdateEntryCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11271,8 +11271,8 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsDriverUpdateEntryCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsDriverUpdateEntryCollection_Impl::Count(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11341,8 +11341,8 @@ impl IWindowsUpdateAgentInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsUpdateAgentInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsUpdateAgentInfo_Impl::GetInfo(this, core::mem::transmute(&varinfoidentifier)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));

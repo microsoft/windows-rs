@@ -85,8 +85,12 @@ macro_rules! interface_decl {
         }
 
         // Implementation trait (inside `trait { ... }`, item-position).
+        //
+        // No `IUnknownImpl` supertrait: the implementer trait is meant to be implemented
+        // directly on the user's value type (`impl IFoo_Impl for Foo`). The COM machinery
+        // (refcount/QI/identity vtable) lives on the macro-generated outer wrapper.
         #[allow(non_camel_case_types)]
-        pub trait $impl_trait: Sized + $crate::IUnknownImpl {
+        pub trait $impl_trait: Sized {
             $crate::__interface_decl_trait_methods!($($methods)*);
         }
 
@@ -248,17 +252,20 @@ macro_rules! __interface_decl_vtbl {
             },
             thunks: {
                 $($thunks)*
-                unsafe extern "system" fn $mname<Identity, const OFFSET: isize>(
+                unsafe extern "system" fn $mname<Identity: $crate::IUnknownImpl, const OFFSET: isize>(
                     this: *mut ::core::ffi::c_void
                     $(, $aname: $aty)*
                 ) -> $crate::HRESULT
                 where
-                    Identity: $impl_trait,
+                    <Identity as $crate::IUnknownImpl>::Impl: $impl_trait,
                 {
                     let this_outer: &Identity = unsafe {
                         &*((this as *const *const ()).offset(OFFSET) as *const Identity)
                     };
-                    unsafe { <Identity as $impl_trait>::$mname(this_outer $(, $aname)*) }.into()
+                    let this_inner: &<Identity as $crate::IUnknownImpl>::Impl = unsafe {
+                        <Identity as $crate::IUnknownImpl>::get_impl(this_outer)
+                    };
+                    unsafe { <<Identity as $crate::IUnknownImpl>::Impl as $impl_trait>::$mname(this_inner $(, $aname)*) }.into()
                 }
             },
             rest: { $($more)* }
@@ -298,17 +305,20 @@ macro_rules! __interface_decl_vtbl {
             },
             thunks: {
                 $($thunks)*
-                unsafe extern "system" fn $mname<Identity, const OFFSET: isize>(
+                unsafe extern "system" fn $mname<Identity: $crate::IUnknownImpl, const OFFSET: isize>(
                     this: *mut ::core::ffi::c_void
                     $(, $aname: $aty)*
                 )
                 where
-                    Identity: $impl_trait,
+                    <Identity as $crate::IUnknownImpl>::Impl: $impl_trait,
                 {
                     let this_outer: &Identity = unsafe {
                         &*((this as *const *const ()).offset(OFFSET) as *const Identity)
                     };
-                    unsafe { <Identity as $impl_trait>::$mname(this_outer $(, $aname)*) }
+                    let this_inner: &<Identity as $crate::IUnknownImpl>::Impl = unsafe {
+                        <Identity as $crate::IUnknownImpl>::get_impl(this_outer)
+                    };
+                    unsafe { <<Identity as $crate::IUnknownImpl>::Impl as $impl_trait>::$mname(this_inner $(, $aname)*) }
                 }
             },
             rest: { $($more)* }
@@ -349,17 +359,20 @@ macro_rules! __interface_decl_vtbl {
             },
             thunks: {
                 $($thunks)*
-                unsafe extern "system" fn $mname<Identity, const OFFSET: isize>(
+                unsafe extern "system" fn $mname<Identity: $crate::IUnknownImpl, const OFFSET: isize>(
                     this: *mut ::core::ffi::c_void
                     $(, $aname: $aty)*
                 ) -> $rty
                 where
-                    Identity: $impl_trait,
+                    <Identity as $crate::IUnknownImpl>::Impl: $impl_trait,
                 {
                     let this_outer: &Identity = unsafe {
                         &*((this as *const *const ()).offset(OFFSET) as *const Identity)
                     };
-                    unsafe { <Identity as $impl_trait>::$mname(this_outer $(, $aname)*) }
+                    let this_inner: &<Identity as $crate::IUnknownImpl>::Impl = unsafe {
+                        <Identity as $crate::IUnknownImpl>::get_impl(this_outer)
+                    };
+                    unsafe { <<Identity as $crate::IUnknownImpl>::Impl as $impl_trait>::$mname(this_inner $(, $aname)*) }
                 }
             },
             rest: { $($more)* }
@@ -385,9 +398,9 @@ macro_rules! __interface_decl_vtbl {
         }
 
         impl $vtbl {
-            pub const fn new<Identity, const OFFSET: isize>() -> Self
+            pub const fn new<Identity: $crate::IUnknownImpl, const OFFSET: isize>() -> Self
             where
-                Identity: $impl_trait,
+                <Identity as $crate::IUnknownImpl>::Impl: $impl_trait,
             {
                 $($thunks)*
                 Self {

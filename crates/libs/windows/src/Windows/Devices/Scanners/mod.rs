@@ -110,8 +110,8 @@ impl IImageScannerFormatConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerFormatConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerFormatConfiguration_Impl::DefaultFormat(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -126,8 +126,8 @@ impl IImageScannerFormatConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerFormatConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerFormatConfiguration_Impl::Format(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -142,8 +142,8 @@ impl IImageScannerFormatConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerFormatConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IImageScannerFormatConfiguration_Impl::SetFormat(this, value).into()
             }
         }
@@ -152,8 +152,8 @@ impl IImageScannerFormatConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerFormatConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerFormatConfiguration_Impl::IsFormatSupported(this, value) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -441,8 +441,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::MinScanArea(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -457,8 +457,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::MaxScanArea(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -473,8 +473,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::SelectedScanRegion(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -489,8 +489,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IImageScannerSourceConfiguration_Impl::SetSelectedScanRegion(this, core::mem::transmute(&value)).into()
             }
         }
@@ -499,8 +499,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::AutoCroppingMode(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -515,8 +515,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IImageScannerSourceConfiguration_Impl::SetAutoCroppingMode(this, value).into()
             }
         }
@@ -525,8 +525,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::IsAutoCroppingModeSupported(this, value) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -541,8 +541,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::MinResolution(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -557,8 +557,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::MaxResolution(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -573,8 +573,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::OpticalResolution(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -589,8 +589,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::DesiredResolution(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -605,8 +605,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IImageScannerSourceConfiguration_Impl::SetDesiredResolution(this, core::mem::transmute(&value)).into()
             }
         }
@@ -615,8 +615,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::ActualResolution(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -631,8 +631,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::DefaultColorMode(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -647,8 +647,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::ColorMode(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -663,8 +663,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IImageScannerSourceConfiguration_Impl::SetColorMode(this, value).into()
             }
         }
@@ -673,8 +673,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::IsColorModeSupported(this, value) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -689,8 +689,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::MinBrightness(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -705,8 +705,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::MaxBrightness(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -721,8 +721,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::BrightnessStep(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -737,8 +737,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::DefaultBrightness(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -753,8 +753,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::Brightness(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -769,8 +769,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IImageScannerSourceConfiguration_Impl::SetBrightness(this, value).into()
             }
         }
@@ -779,8 +779,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::MinContrast(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -795,8 +795,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::MaxContrast(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -811,8 +811,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::ContrastStep(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -827,8 +827,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::DefaultContrast(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -843,8 +843,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IImageScannerSourceConfiguration_Impl::Contrast(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -859,8 +859,8 @@ impl IImageScannerSourceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IImageScannerSourceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IImageScannerSourceConfiguration_Impl::SetContrast(this, value).into()
             }
         }

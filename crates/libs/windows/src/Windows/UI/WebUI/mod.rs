@@ -397,8 +397,8 @@ impl IActivatedEventArgsDeferral_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IActivatedEventArgsDeferral_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IActivatedEventArgsDeferral_Impl::ActivatedOperation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -592,8 +592,8 @@ impl IWebUIBackgroundTaskInstance_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebUIBackgroundTaskInstance_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWebUIBackgroundTaskInstance_Impl::Succeeded(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -608,8 +608,8 @@ impl IWebUIBackgroundTaskInstance_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebUIBackgroundTaskInstance_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWebUIBackgroundTaskInstance_Impl::SetSucceeded(this, succeeded).into()
             }
         }
@@ -679,8 +679,8 @@ impl IWebUINavigatedEventArgs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWebUINavigatedEventArgs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWebUINavigatedEventArgs_Impl::NavigatedOperation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

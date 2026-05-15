@@ -71,8 +71,8 @@ impl IWSCDefaultProduct_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWSCDefaultProduct_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWSCDefaultProduct_Impl::SetDefaultProduct(this, core::mem::transmute_copy(&etype), core::mem::transmute(&pguid)).into()
             }
         }
@@ -139,8 +139,8 @@ impl IWSCProductList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWSCProductList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWSCProductList_Impl::Initialize(this, core::mem::transmute(&provider)).into()
             }
         }
@@ -149,8 +149,8 @@ impl IWSCProductList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWSCProductList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWSCProductList_Impl::Count(this) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -165,8 +165,8 @@ impl IWSCProductList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWSCProductList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWSCProductList_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -279,8 +279,8 @@ impl IWscProduct_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWscProduct_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWscProduct_Impl::ProductName(this) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -295,8 +295,8 @@ impl IWscProduct_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWscProduct_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWscProduct_Impl::ProductState(this) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -311,8 +311,8 @@ impl IWscProduct_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWscProduct_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWscProduct_Impl::SignatureStatus(this) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -327,8 +327,8 @@ impl IWscProduct_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWscProduct_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWscProduct_Impl::RemediationPath(this) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -343,8 +343,8 @@ impl IWscProduct_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWscProduct_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWscProduct_Impl::ProductStateTimestamp(this) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -359,8 +359,8 @@ impl IWscProduct_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWscProduct_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWscProduct_Impl::ProductGuid(this) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -375,8 +375,8 @@ impl IWscProduct_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWscProduct_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWscProduct_Impl::ProductIsDefault(this) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -485,8 +485,8 @@ impl IWscProduct2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWscProduct2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWscProduct2_Impl::AntivirusScanSubstatus(this) {
                     Ok(ok__) => {
                         pestatus.write(core::mem::transmute(ok__));
@@ -501,8 +501,8 @@ impl IWscProduct2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWscProduct2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWscProduct2_Impl::AntivirusSettingsSubstatus(this) {
                     Ok(ok__) => {
                         pestatus.write(core::mem::transmute(ok__));
@@ -517,8 +517,8 @@ impl IWscProduct2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWscProduct2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWscProduct2_Impl::AntivirusProtectionUpdateSubstatus(this) {
                     Ok(ok__) => {
                         pestatus.write(core::mem::transmute(ok__));
@@ -533,8 +533,8 @@ impl IWscProduct2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWscProduct2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWscProduct2_Impl::FirewallDomainProfileSubstatus(this) {
                     Ok(ok__) => {
                         pestatus.write(core::mem::transmute(ok__));
@@ -549,8 +549,8 @@ impl IWscProduct2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWscProduct2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWscProduct2_Impl::FirewallPrivateProfileSubstatus(this) {
                     Ok(ok__) => {
                         pestatus.write(core::mem::transmute(ok__));
@@ -565,8 +565,8 @@ impl IWscProduct2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWscProduct2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWscProduct2_Impl::FirewallPublicProfileSubstatus(this) {
                     Ok(ok__) => {
                         pestatus.write(core::mem::transmute(ok__));
@@ -634,8 +634,8 @@ impl IWscProduct3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWscProduct3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWscProduct3_Impl::AntivirusDaysUntilExpired(this) {
                     Ok(ok__) => {
                         pdwdays.write(core::mem::transmute(ok__));

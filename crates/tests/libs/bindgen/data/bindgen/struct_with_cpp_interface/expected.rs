@@ -74,10 +74,10 @@ impl ID3D12DeviceChild_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceChild_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceChild_Impl::GetDevice(
                     this,
                     core::mem::transmute_copy(&riid),
@@ -232,10 +232,10 @@ impl ID3D12Object_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Object_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Object_Impl::GetPrivateData(
                     this,
                     core::mem::transmute_copy(&guid),
@@ -258,10 +258,10 @@ impl ID3D12Object_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Object_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Object_Impl::SetPrivateData(
                     this,
                     core::mem::transmute_copy(&guid),
@@ -283,10 +283,10 @@ impl ID3D12Object_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Object_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Object_Impl::SetPrivateDataInterface(
                     this,
                     core::mem::transmute_copy(&guid),
@@ -306,10 +306,10 @@ impl ID3D12Object_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Object_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Object_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }

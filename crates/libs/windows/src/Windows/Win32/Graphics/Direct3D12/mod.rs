@@ -8722,8 +8722,8 @@ impl ID3D12CommandAllocator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandAllocator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandAllocator_Impl::Reset(this).into()
             }
         }
@@ -8768,8 +8768,8 @@ impl ID3D12CommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandList_Impl::GetType(this)
             }
         }
@@ -8885,8 +8885,8 @@ impl ID3D12CommandQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandQueue_Impl::UpdateTileMappings(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&numresourceregions), core::mem::transmute_copy(&presourceregionstartcoordinates), core::mem::transmute_copy(&presourceregionsizes), core::mem::transmute_copy(&pheap), core::mem::transmute_copy(&numranges), core::mem::transmute_copy(&prangeflags), core::mem::transmute_copy(&pheaprangestartoffsets), core::mem::transmute_copy(&prangetilecounts), core::mem::transmute_copy(&flags))
             }
         }
@@ -8895,8 +8895,8 @@ impl ID3D12CommandQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandQueue_Impl::CopyTileMappings(this, core::mem::transmute_copy(&pdstresource), core::mem::transmute_copy(&pdstregionstartcoordinate), core::mem::transmute_copy(&psrcresource), core::mem::transmute_copy(&psrcregionstartcoordinate), core::mem::transmute_copy(&pregionsize), core::mem::transmute_copy(&flags))
             }
         }
@@ -8905,8 +8905,8 @@ impl ID3D12CommandQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandQueue_Impl::ExecuteCommandLists(this, core::mem::transmute_copy(&numcommandlists), core::mem::transmute_copy(&ppcommandlists))
             }
         }
@@ -8915,8 +8915,8 @@ impl ID3D12CommandQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandQueue_Impl::SetMarker(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size))
             }
         }
@@ -8925,8 +8925,8 @@ impl ID3D12CommandQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandQueue_Impl::BeginEvent(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size))
             }
         }
@@ -8935,8 +8935,8 @@ impl ID3D12CommandQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandQueue_Impl::EndEvent(this)
             }
         }
@@ -8945,8 +8945,8 @@ impl ID3D12CommandQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandQueue_Impl::Signal(this, core::mem::transmute_copy(&pfence), core::mem::transmute_copy(&value)).into()
             }
         }
@@ -8955,8 +8955,8 @@ impl ID3D12CommandQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandQueue_Impl::Wait(this, core::mem::transmute_copy(&pfence), core::mem::transmute_copy(&value)).into()
             }
         }
@@ -8965,8 +8965,8 @@ impl ID3D12CommandQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12CommandQueue_Impl::GetTimestampFrequency(this) {
                     Ok(ok__) => {
                         pfrequency.write(core::mem::transmute(ok__));
@@ -8981,8 +8981,8 @@ impl ID3D12CommandQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandQueue_Impl::GetClockCalibration(this, core::mem::transmute_copy(&pgputimestamp), core::mem::transmute_copy(&pcputimestamp)).into()
             }
         }
@@ -8991,8 +8991,8 @@ impl ID3D12CommandQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12CommandQueue_Impl::GetDesc(this)
             }
         }
@@ -9065,8 +9065,8 @@ impl ID3D12CommandQueue1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandQueue1_Impl::SetProcessPriority(this, core::mem::transmute_copy(&priority)).into()
             }
         }
@@ -9075,8 +9075,8 @@ impl ID3D12CommandQueue1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandQueue1_Impl::GetProcessPriority(this, core::mem::transmute_copy(&poutvalue)).into()
             }
         }
@@ -9085,8 +9085,8 @@ impl ID3D12CommandQueue1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandQueue1_Impl::SetGlobalPriority(this, core::mem::transmute_copy(&priority)).into()
             }
         }
@@ -9095,8 +9095,8 @@ impl ID3D12CommandQueue1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CommandQueue1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CommandQueue1_Impl::GetGlobalPriority(this, core::mem::transmute_copy(&poutvalue)).into()
             }
         }
@@ -9203,8 +9203,8 @@ impl ID3D12Compiler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Compiler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Compiler_Impl::CompilePipelineState(this, core::mem::transmute_copy(&pgroupkey), core::mem::transmute_copy(&groupversion), core::mem::transmute_copy(&pdesc)).into()
             }
         }
@@ -9213,8 +9213,8 @@ impl ID3D12Compiler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Compiler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Compiler_Impl::CompileStateObject(this, core::mem::transmute_copy(&pgroupkey), core::mem::transmute_copy(&groupversion), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcompilerstateobject)).into()
             }
         }
@@ -9223,8 +9223,8 @@ impl ID3D12Compiler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Compiler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Compiler_Impl::CompileAddToStateObject(this, core::mem::transmute_copy(&pgroupkey), core::mem::transmute_copy(&groupversion), core::mem::transmute_copy(&paddition), core::mem::transmute_copy(&pcompilerstateobjecttogrowfrom), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppnewcompilerstateobject)).into()
             }
         }
@@ -9233,8 +9233,8 @@ impl ID3D12Compiler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Compiler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Compiler_Impl::GetCacheSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcompilercachesession)).into()
             }
         }
@@ -9329,8 +9329,8 @@ impl ID3D12CompilerCacheSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerCacheSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CompilerCacheSession_Impl::FindGroup(this, core::mem::transmute_copy(&pgroupkey), core::mem::transmute_copy(&pgroupversion)).into()
             }
         }
@@ -9339,8 +9339,8 @@ impl ID3D12CompilerCacheSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerCacheSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CompilerCacheSession_Impl::FindGroupValueKeys(this, core::mem::transmute_copy(&pgroupkey), core::mem::transmute_copy(&pexpectedgroupversion), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&pcontext)).into()
             }
         }
@@ -9349,8 +9349,8 @@ impl ID3D12CompilerCacheSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerCacheSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CompilerCacheSession_Impl::FindGroupValues(this, core::mem::transmute_copy(&pgroupkey), core::mem::transmute_copy(&pexpectedgroupversion), core::mem::transmute_copy(&valuetypeflags), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&pcontext)).into()
             }
         }
@@ -9359,8 +9359,8 @@ impl ID3D12CompilerCacheSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerCacheSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CompilerCacheSession_Impl::FindValue(this, core::mem::transmute_copy(&pvaluekey), core::mem::transmute_copy(&ptypedvalues), core::mem::transmute_copy(&numtypedvalues), core::mem::transmute_copy(&pcallbackfunc), core::mem::transmute_copy(&pcontext)).into()
             }
         }
@@ -9369,8 +9369,8 @@ impl ID3D12CompilerCacheSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerCacheSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CompilerCacheSession_Impl::GetApplicationDesc(this)
             }
         }
@@ -9379,8 +9379,8 @@ impl ID3D12CompilerCacheSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerCacheSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12CompilerCacheSession_Impl::GetCompilerTarget(this)
             }
         }
@@ -9389,8 +9389,8 @@ impl ID3D12CompilerCacheSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerCacheSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CompilerCacheSession_Impl::GetValueTypes(this)
             }
         }
@@ -9399,8 +9399,8 @@ impl ID3D12CompilerCacheSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerCacheSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CompilerCacheSession_Impl::StoreGroupValueKeys(this, core::mem::transmute_copy(&pgroupkey), core::mem::transmute_copy(&groupversion), core::mem::transmute_copy(&pvaluekeys), core::mem::transmute_copy(&numvaluekeys)).into()
             }
         }
@@ -9409,8 +9409,8 @@ impl ID3D12CompilerCacheSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerCacheSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CompilerCacheSession_Impl::StoreValue(this, core::mem::transmute_copy(&pvaluekey), core::mem::transmute_copy(&ptypedvalues), core::mem::transmute_copy(&numtypedvalues)).into()
             }
         }
@@ -9500,8 +9500,8 @@ impl ID3D12CompilerFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CompilerFactory_Impl::EnumerateAdapterFamilies(this, core::mem::transmute_copy(&adapterfamilyindex), core::mem::transmute_copy(&padapterfamily)).into()
             }
         }
@@ -9510,8 +9510,8 @@ impl ID3D12CompilerFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CompilerFactory_Impl::EnumerateAdapterFamilyABIVersions(this, core::mem::transmute_copy(&adapterfamilyindex), core::mem::transmute_copy(&pnumabiversions), core::mem::transmute_copy(&pabiversions)).into()
             }
         }
@@ -9520,8 +9520,8 @@ impl ID3D12CompilerFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12CompilerFactory_Impl::EnumerateAdapterFamilyCompilerVersion(this, core::mem::transmute_copy(&adapterfamilyindex)) {
                     Ok(ok__) => {
                         pcompilerversion.write(core::mem::transmute(ok__));
@@ -9536,8 +9536,8 @@ impl ID3D12CompilerFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12CompilerFactory_Impl::GetApplicationProfileVersion(this, core::mem::transmute_copy(&ptarget), core::mem::transmute_copy(&papplicationdesc)) {
                     Ok(ok__) => {
                         papplicationprofileversion.write(core::mem::transmute(ok__));
@@ -9552,8 +9552,8 @@ impl ID3D12CompilerFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CompilerFactory_Impl::CreateCompilerCacheSession(this, core::mem::transmute_copy(&ppaths), core::mem::transmute_copy(&numpaths), core::mem::transmute_copy(&ptarget), core::mem::transmute_copy(&papplicationdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcompilercachesession)).into()
             }
         }
@@ -9562,8 +9562,8 @@ impl ID3D12CompilerFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CompilerFactory_Impl::CreateCompiler(this, core::mem::transmute_copy(&pcompilercachesession), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcompiler)).into()
             }
         }
@@ -9614,8 +9614,8 @@ impl ID3D12CompilerFactoryChild_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerFactoryChild_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CompilerFactoryChild_Impl::GetFactory(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcompilerfactory)).into()
             }
         }
@@ -9658,8 +9658,8 @@ impl ID3D12CompilerStateObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12CompilerStateObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12CompilerStateObject_Impl::GetCompiler(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcompiler)).into()
             }
         }
@@ -9703,8 +9703,8 @@ impl ID3D12DSRDeviceFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DSRDeviceFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DSRDeviceFactory_Impl::CreateDSRDevice(this, core::mem::transmute_copy(&pd3d12device), core::mem::transmute_copy(&nodemask), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvdsrdevice)).into()
             }
         }
@@ -9743,8 +9743,8 @@ impl ID3D12Debug_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Debug_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Debug_Impl::EnableDebugLayer(this)
             }
         }
@@ -9793,8 +9793,8 @@ impl ID3D12Debug1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Debug1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Debug1_Impl::EnableDebugLayer(this)
             }
         }
@@ -9803,8 +9803,8 @@ impl ID3D12Debug1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Debug1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Debug1_Impl::SetEnableGPUBasedValidation(this, core::mem::transmute_copy(&enable))
             }
         }
@@ -9813,8 +9813,8 @@ impl ID3D12Debug1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Debug1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Debug1_Impl::SetEnableSynchronizedCommandQueueValidation(this, core::mem::transmute_copy(&enable))
             }
         }
@@ -9858,8 +9858,8 @@ impl ID3D12Debug2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Debug2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Debug2_Impl::SetGPUBasedValidationFlags(this, core::mem::transmute_copy(&flags))
             }
         }
@@ -9914,8 +9914,8 @@ impl ID3D12Debug3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Debug3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Debug3_Impl::SetEnableGPUBasedValidation(this, core::mem::transmute_copy(&enable))
             }
         }
@@ -9924,8 +9924,8 @@ impl ID3D12Debug3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Debug3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Debug3_Impl::SetEnableSynchronizedCommandQueueValidation(this, core::mem::transmute_copy(&enable))
             }
         }
@@ -9934,8 +9934,8 @@ impl ID3D12Debug3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Debug3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Debug3_Impl::SetGPUBasedValidationFlags(this, core::mem::transmute_copy(&flags))
             }
         }
@@ -9985,8 +9985,8 @@ impl ID3D12Debug4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Debug4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Debug4_Impl::DisableDebugLayer(this)
             }
         }
@@ -10031,8 +10031,8 @@ impl ID3D12Debug5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Debug5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Debug5_Impl::SetEnableAutoName(this, core::mem::transmute_copy(&enable))
             }
         }
@@ -10077,8 +10077,8 @@ impl ID3D12Debug6_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Debug6_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Debug6_Impl::SetForceLegacyBarrierValidation(this, core::mem::transmute_copy(&enable))
             }
         }
@@ -10130,8 +10130,8 @@ impl ID3D12DebugCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugCommandList_Impl::AssertResourceState(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&state))
             }
         }
@@ -10140,8 +10140,8 @@ impl ID3D12DebugCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugCommandList_Impl::SetFeatureMask(this, core::mem::transmute_copy(&mask)).into()
             }
         }
@@ -10150,8 +10150,8 @@ impl ID3D12DebugCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugCommandList_Impl::GetFeatureMask(this)
             }
         }
@@ -10208,8 +10208,8 @@ impl ID3D12DebugCommandList1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugCommandList1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugCommandList1_Impl::AssertResourceState(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&state))
             }
         }
@@ -10218,8 +10218,8 @@ impl ID3D12DebugCommandList1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugCommandList1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugCommandList1_Impl::SetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
             }
         }
@@ -10228,8 +10228,8 @@ impl ID3D12DebugCommandList1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugCommandList1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugCommandList1_Impl::GetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
             }
         }
@@ -10284,8 +10284,8 @@ impl ID3D12DebugCommandList2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugCommandList2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugCommandList2_Impl::SetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
             }
         }
@@ -10294,8 +10294,8 @@ impl ID3D12DebugCommandList2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugCommandList2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugCommandList2_Impl::GetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
             }
         }
@@ -10355,8 +10355,8 @@ impl ID3D12DebugCommandList3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugCommandList3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugCommandList3_Impl::AssertResourceAccess(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&access))
             }
         }
@@ -10365,8 +10365,8 @@ impl ID3D12DebugCommandList3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugCommandList3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugCommandList3_Impl::AssertTextureLayout(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&layout))
             }
         }
@@ -10412,8 +10412,8 @@ impl ID3D12DebugCommandQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugCommandQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugCommandQueue_Impl::AssertResourceState(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&state))
             }
         }
@@ -10469,8 +10469,8 @@ impl ID3D12DebugCommandQueue1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugCommandQueue1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugCommandQueue1_Impl::AssertResourceAccess(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&access))
             }
         }
@@ -10479,8 +10479,8 @@ impl ID3D12DebugCommandQueue1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugCommandQueue1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugCommandQueue1_Impl::AssertTextureLayout(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&layout))
             }
         }
@@ -10533,8 +10533,8 @@ impl ID3D12DebugDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugDevice_Impl::SetFeatureMask(this, core::mem::transmute_copy(&mask)).into()
             }
         }
@@ -10543,8 +10543,8 @@ impl ID3D12DebugDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugDevice_Impl::GetFeatureMask(this)
             }
         }
@@ -10553,8 +10553,8 @@ impl ID3D12DebugDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugDevice_Impl::ReportLiveDeviceObjects(this, core::mem::transmute_copy(&flags)).into()
             }
         }
@@ -10608,8 +10608,8 @@ impl ID3D12DebugDevice1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugDevice1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugDevice1_Impl::SetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
             }
         }
@@ -10618,8 +10618,8 @@ impl ID3D12DebugDevice1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugDevice1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugDevice1_Impl::GetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
             }
         }
@@ -10628,8 +10628,8 @@ impl ID3D12DebugDevice1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugDevice1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugDevice1_Impl::ReportLiveDeviceObjects(this, core::mem::transmute_copy(&flags)).into()
             }
         }
@@ -10684,8 +10684,8 @@ impl ID3D12DebugDevice2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugDevice2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugDevice2_Impl::SetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
             }
         }
@@ -10694,8 +10694,8 @@ impl ID3D12DebugDevice2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DebugDevice2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DebugDevice2_Impl::GetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
             }
         }
@@ -10766,8 +10766,8 @@ impl ID3D12DescriptorHeap_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DescriptorHeap_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12DescriptorHeap_Impl::GetDesc(this)
             }
         }
@@ -10776,8 +10776,8 @@ impl ID3D12DescriptorHeap_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DescriptorHeap_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12DescriptorHeap_Impl::GetCPUDescriptorHandleForHeapStart(this)
             }
         }
@@ -10786,8 +10786,8 @@ impl ID3D12DescriptorHeap_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DescriptorHeap_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12DescriptorHeap_Impl::GetGPUDescriptorHandleForHeapStart(this)
             }
         }
@@ -11161,8 +11161,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::GetNodeCount(this)
             }
         }
@@ -11171,8 +11171,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateCommandQueue(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcommandqueue)).into()
             }
         }
@@ -11181,8 +11181,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateCommandAllocator(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcommandallocator)).into()
             }
         }
@@ -11191,8 +11191,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateGraphicsPipelineState(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pppipelinestate)).into()
             }
         }
@@ -11201,8 +11201,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateComputePipelineState(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pppipelinestate)).into()
             }
         }
@@ -11211,8 +11211,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateCommandList(this, core::mem::transmute_copy(&nodemask), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pcommandallocator), core::mem::transmute_copy(&pinitialstate), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcommandlist)).into()
             }
         }
@@ -11221,8 +11221,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CheckFeatureSupport(this, core::mem::transmute_copy(&feature), core::mem::transmute_copy(&pfeaturesupportdata), core::mem::transmute_copy(&featuresupportdatasize)).into()
             }
         }
@@ -11231,8 +11231,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateDescriptorHeap(this, core::mem::transmute_copy(&pdescriptorheapdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvheap)).into()
             }
         }
@@ -11241,8 +11241,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::GetDescriptorHandleIncrementSize(this, core::mem::transmute_copy(&descriptorheaptype))
             }
         }
@@ -11251,8 +11251,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateRootSignature(this, core::mem::transmute_copy(&nodemask), core::mem::transmute_copy(&pblobwithrootsignature), core::mem::transmute_copy(&bloblengthinbytes), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvrootsignature)).into()
             }
         }
@@ -11261,8 +11261,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateConstantBufferView(this, core::mem::transmute_copy(&pdesc), core::mem::transmute(&destdescriptor))
             }
         }
@@ -11271,8 +11271,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateShaderResourceView(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute(&destdescriptor))
             }
         }
@@ -11281,8 +11281,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateUnorderedAccessView(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pcounterresource), core::mem::transmute_copy(&pdesc), core::mem::transmute(&destdescriptor))
             }
         }
@@ -11291,8 +11291,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateRenderTargetView(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute(&destdescriptor))
             }
         }
@@ -11301,8 +11301,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateDepthStencilView(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute(&destdescriptor))
             }
         }
@@ -11311,8 +11311,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateSampler(this, core::mem::transmute_copy(&pdesc), core::mem::transmute(&destdescriptor))
             }
         }
@@ -11321,8 +11321,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CopyDescriptors(this, core::mem::transmute_copy(&numdestdescriptorranges), core::mem::transmute_copy(&pdestdescriptorrangestarts), core::mem::transmute_copy(&pdestdescriptorrangesizes), core::mem::transmute_copy(&numsrcdescriptorranges), core::mem::transmute_copy(&psrcdescriptorrangestarts), core::mem::transmute_copy(&psrcdescriptorrangesizes), core::mem::transmute_copy(&descriptorheapstype))
             }
         }
@@ -11331,8 +11331,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CopyDescriptorsSimple(this, core::mem::transmute_copy(&numdescriptors), core::mem::transmute(&destdescriptorrangestart), core::mem::transmute(&srcdescriptorrangestart), core::mem::transmute_copy(&descriptorheapstype))
             }
         }
@@ -11341,8 +11341,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12Device_Impl::GetResourceAllocationInfo(this, core::mem::transmute_copy(&visiblemask), core::mem::transmute_copy(&numresourcedescs), core::mem::transmute_copy(&presourcedescs))
             }
         }
@@ -11351,8 +11351,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12Device_Impl::GetCustomHeapProperties(this, core::mem::transmute_copy(&nodemask), core::mem::transmute_copy(&heaptype))
             }
         }
@@ -11361,8 +11361,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateCommittedResource(this, core::mem::transmute_copy(&pheapproperties), core::mem::transmute_copy(&heapflags), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&initialresourcestate), core::mem::transmute_copy(&poptimizedclearvalue), core::mem::transmute_copy(&riidresource), core::mem::transmute_copy(&ppvresource)).into()
             }
         }
@@ -11371,8 +11371,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateHeap(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvheap)).into()
             }
         }
@@ -11381,8 +11381,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreatePlacedResource(this, core::mem::transmute_copy(&pheap), core::mem::transmute_copy(&heapoffset), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&initialstate), core::mem::transmute_copy(&poptimizedclearvalue), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvresource)).into()
             }
         }
@@ -11391,8 +11391,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateReservedResource(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&initialstate), core::mem::transmute_copy(&poptimizedclearvalue), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvresource)).into()
             }
         }
@@ -11401,8 +11401,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12Device_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&pattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         phandle.write(core::mem::transmute(ok__));
@@ -11417,8 +11417,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::OpenSharedHandle(this, core::mem::transmute_copy(&nthandle), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
             }
         }
@@ -11427,8 +11427,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12Device_Impl::OpenSharedHandleByName(this, core::mem::transmute(&name), core::mem::transmute_copy(&access)) {
                     Ok(ok__) => {
                         pnthandle.write(core::mem::transmute(ok__));
@@ -11443,8 +11443,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::MakeResident(this, core::mem::transmute_copy(&numobjects), core::mem::transmute_copy(&ppobjects)).into()
             }
         }
@@ -11453,8 +11453,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::Evict(this, core::mem::transmute_copy(&numobjects), core::mem::transmute_copy(&ppobjects)).into()
             }
         }
@@ -11463,8 +11463,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateFence(this, core::mem::transmute_copy(&initialvalue), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppfence)).into()
             }
         }
@@ -11473,8 +11473,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::GetDeviceRemovedReason(this).into()
             }
         }
@@ -11483,8 +11483,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::GetCopyableFootprints(this, core::mem::transmute_copy(&presourcedesc), core::mem::transmute_copy(&firstsubresource), core::mem::transmute_copy(&numsubresources), core::mem::transmute_copy(&baseoffset), core::mem::transmute_copy(&playouts), core::mem::transmute_copy(&pnumrows), core::mem::transmute_copy(&prowsizeinbytes), core::mem::transmute_copy(&ptotalbytes))
             }
         }
@@ -11493,8 +11493,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateQueryHeap(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvheap)).into()
             }
         }
@@ -11503,8 +11503,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::SetStablePowerState(this, core::mem::transmute_copy(&enable)).into()
             }
         }
@@ -11513,8 +11513,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::CreateCommandSignature(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&prootsignature), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvcommandsignature)).into()
             }
         }
@@ -11523,8 +11523,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device_Impl::GetResourceTiling(this, core::mem::transmute_copy(&ptiledresource), core::mem::transmute_copy(&pnumtilesforentireresource), core::mem::transmute_copy(&ppackedmipdesc), core::mem::transmute_copy(&pstandardtileshapefornonpackedmips), core::mem::transmute_copy(&pnumsubresourcetilings), core::mem::transmute_copy(&firstsubresourcetilingtoget), core::mem::transmute_copy(&psubresourcetilingsfornonpackedmips))
             }
         }
@@ -11533,8 +11533,8 @@ impl ID3D12Device_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12Device_Impl::GetAdapterLuid(this)
             }
         }
@@ -11635,8 +11635,8 @@ impl ID3D12Device1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device1_Impl::CreatePipelineLibrary(this, core::mem::transmute_copy(&plibraryblob), core::mem::transmute_copy(&bloblength), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pppipelinelibrary)).into()
             }
         }
@@ -11645,8 +11645,8 @@ impl ID3D12Device1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device1_Impl::SetEventOnMultipleFenceCompletion(this, core::mem::transmute_copy(&ppfences), core::mem::transmute_copy(&pfencevalues), core::mem::transmute_copy(&numfences), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&hevent)).into()
             }
         }
@@ -11655,8 +11655,8 @@ impl ID3D12Device1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device1_Impl::SetResidencyPriority(this, core::mem::transmute_copy(&numobjects), core::mem::transmute_copy(&ppobjects), core::mem::transmute_copy(&ppriorities)).into()
             }
         }
@@ -11743,8 +11743,8 @@ impl ID3D12Device10_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device10_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device10_Impl::CreateCommittedResource3(this, core::mem::transmute_copy(&pheapproperties), core::mem::transmute_copy(&heapflags), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&initiallayout), core::mem::transmute_copy(&poptimizedclearvalue), core::mem::transmute_copy(&pprotectedsession), core::mem::transmute_copy(&numcastableformats), core::mem::transmute_copy(&pcastableformats), core::mem::transmute_copy(&riidresource), core::mem::transmute_copy(&ppvresource)).into()
             }
         }
@@ -11753,8 +11753,8 @@ impl ID3D12Device10_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device10_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device10_Impl::CreatePlacedResource2(this, core::mem::transmute_copy(&pheap), core::mem::transmute_copy(&heapoffset), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&initiallayout), core::mem::transmute_copy(&poptimizedclearvalue), core::mem::transmute_copy(&numcastableformats), core::mem::transmute_copy(&pcastableformats), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvresource)).into()
             }
         }
@@ -11763,8 +11763,8 @@ impl ID3D12Device10_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device10_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device10_Impl::CreateReservedResource2(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&initiallayout), core::mem::transmute_copy(&poptimizedclearvalue), core::mem::transmute_copy(&pprotectedsession), core::mem::transmute_copy(&numcastableformats), core::mem::transmute_copy(&pcastableformats), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvresource)).into()
             }
         }
@@ -11817,8 +11817,8 @@ impl ID3D12Device11_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device11_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device11_Impl::CreateSampler2(this, core::mem::transmute_copy(&pdesc), core::mem::transmute(&destdescriptor))
             }
         }
@@ -11874,8 +11874,8 @@ impl ID3D12Device12_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device12_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12Device12_Impl::GetResourceAllocationInfo3(this, core::mem::transmute_copy(&visiblemask), core::mem::transmute_copy(&numresourcedescs), core::mem::transmute_copy(&presourcedescs), core::mem::transmute_copy(&pnumcastableformats), core::mem::transmute_copy(&ppcastableformats), core::mem::transmute_copy(&presourceallocationinfo1))
             }
         }
@@ -11940,8 +11940,8 @@ impl ID3D12Device13_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device13_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device13_Impl::OpenExistingHeapFromAddress1(this, core::mem::transmute_copy(&paddress), core::mem::transmute_copy(&size), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvheap)).into()
             }
         }
@@ -12008,8 +12008,8 @@ impl ID3D12Device14_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device14_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device14_Impl::CreateRootSignatureFromSubobjectInLibrary(this, core::mem::transmute_copy(&nodemask), core::mem::transmute_copy(&plibraryblob), core::mem::transmute_copy(&bloblengthinbytes), core::mem::transmute(&subobjectname), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvrootsignature)).into()
             }
         }
@@ -12079,8 +12079,8 @@ impl ID3D12Device2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device2_Impl::CreatePipelineState(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pppipelinestate)).into()
             }
         }
@@ -12149,8 +12149,8 @@ impl ID3D12Device3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device3_Impl::OpenExistingHeapFromAddress(this, core::mem::transmute_copy(&paddress), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvheap)).into()
             }
         }
@@ -12159,8 +12159,8 @@ impl ID3D12Device3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device3_Impl::OpenExistingHeapFromFileMapping(this, core::mem::transmute_copy(&hfilemapping), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvheap)).into()
             }
         }
@@ -12169,8 +12169,8 @@ impl ID3D12Device3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device3_Impl::EnqueueMakeResident(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&numobjects), core::mem::transmute_copy(&ppobjects), core::mem::transmute_copy(&pfencetosignal), core::mem::transmute_copy(&fencevaluetosignal)).into()
             }
         }
@@ -12284,8 +12284,8 @@ impl ID3D12Device4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device4_Impl::CreateCommandList1(this, core::mem::transmute_copy(&nodemask), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcommandlist)).into()
             }
         }
@@ -12294,8 +12294,8 @@ impl ID3D12Device4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device4_Impl::CreateProtectedResourceSession(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppsession)).into()
             }
         }
@@ -12304,8 +12304,8 @@ impl ID3D12Device4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device4_Impl::CreateCommittedResource1(this, core::mem::transmute_copy(&pheapproperties), core::mem::transmute_copy(&heapflags), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&initialresourcestate), core::mem::transmute_copy(&poptimizedclearvalue), core::mem::transmute_copy(&pprotectedsession), core::mem::transmute_copy(&riidresource), core::mem::transmute_copy(&ppvresource)).into()
             }
         }
@@ -12314,8 +12314,8 @@ impl ID3D12Device4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device4_Impl::CreateHeap1(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pprotectedsession), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvheap)).into()
             }
         }
@@ -12324,8 +12324,8 @@ impl ID3D12Device4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device4_Impl::CreateReservedResource1(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&initialstate), core::mem::transmute_copy(&poptimizedclearvalue), core::mem::transmute_copy(&pprotectedsession), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvresource)).into()
             }
         }
@@ -12334,8 +12334,8 @@ impl ID3D12Device4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12Device4_Impl::GetResourceAllocationInfo1(this, core::mem::transmute_copy(&visiblemask), core::mem::transmute_copy(&numresourcedescs), core::mem::transmute_copy(&presourcedescs), core::mem::transmute_copy(&presourceallocationinfo1))
             }
         }
@@ -12443,8 +12443,8 @@ impl ID3D12Device5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device5_Impl::CreateLifetimeTracker(this, core::mem::transmute_copy(&powner), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvtracker)).into()
             }
         }
@@ -12453,8 +12453,8 @@ impl ID3D12Device5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device5_Impl::RemoveDevice(this)
             }
         }
@@ -12463,8 +12463,8 @@ impl ID3D12Device5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device5_Impl::EnumerateMetaCommands(this, core::mem::transmute_copy(&pnummetacommands), core::mem::transmute_copy(&pdescs)).into()
             }
         }
@@ -12473,8 +12473,8 @@ impl ID3D12Device5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device5_Impl::EnumerateMetaCommandParameters(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&stage), core::mem::transmute_copy(&ptotalstructuresizeinbytes), core::mem::transmute_copy(&pparametercount), core::mem::transmute_copy(&pparameterdescs)).into()
             }
         }
@@ -12483,8 +12483,8 @@ impl ID3D12Device5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device5_Impl::CreateMetaCommand(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&nodemask), core::mem::transmute_copy(&pcreationparametersdata), core::mem::transmute_copy(&creationparametersdatasizeinbytes), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppmetacommand)).into()
             }
         }
@@ -12493,8 +12493,8 @@ impl ID3D12Device5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device5_Impl::CreateStateObject(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppstateobject)).into()
             }
         }
@@ -12503,8 +12503,8 @@ impl ID3D12Device5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device5_Impl::GetRaytracingAccelerationStructurePrebuildInfo(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pinfo))
             }
         }
@@ -12513,8 +12513,8 @@ impl ID3D12Device5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device5_Impl::CheckDriverMatchingIdentifier(this, core::mem::transmute_copy(&serializeddatatype), core::mem::transmute_copy(&pidentifiertocheck))
             }
         }
@@ -12572,8 +12572,8 @@ impl ID3D12Device6_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device6_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device6_Impl::SetBackgroundProcessingMode(this, core::mem::transmute_copy(&mode), core::mem::transmute_copy(&measurementsaction), core::mem::transmute_copy(&heventtosignaluponcompletion), core::mem::transmute_copy(&pbfurthermeasurementsdesired)).into()
             }
         }
@@ -12635,8 +12635,8 @@ impl ID3D12Device7_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device7_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device7_Impl::AddToStateObject(this, core::mem::transmute_copy(&paddition), core::mem::transmute_copy(&pstateobjecttogrowfrom), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppnewstateobject)).into()
             }
         }
@@ -12645,8 +12645,8 @@ impl ID3D12Device7_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device7_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device7_Impl::CreateProtectedResourceSession1(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppsession)).into()
             }
         }
@@ -12750,8 +12750,8 @@ impl ID3D12Device8_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device8_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12Device8_Impl::GetResourceAllocationInfo2(this, core::mem::transmute_copy(&visiblemask), core::mem::transmute_copy(&numresourcedescs), core::mem::transmute_copy(&presourcedescs), core::mem::transmute_copy(&presourceallocationinfo1))
             }
         }
@@ -12760,8 +12760,8 @@ impl ID3D12Device8_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device8_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device8_Impl::CreateCommittedResource2(this, core::mem::transmute_copy(&pheapproperties), core::mem::transmute_copy(&heapflags), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&initialresourcestate), core::mem::transmute_copy(&poptimizedclearvalue), core::mem::transmute_copy(&pprotectedsession), core::mem::transmute_copy(&riidresource), core::mem::transmute_copy(&ppvresource)).into()
             }
         }
@@ -12770,8 +12770,8 @@ impl ID3D12Device8_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device8_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device8_Impl::CreatePlacedResource1(this, core::mem::transmute_copy(&pheap), core::mem::transmute_copy(&heapoffset), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&initialstate), core::mem::transmute_copy(&poptimizedclearvalue), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvresource)).into()
             }
         }
@@ -12780,8 +12780,8 @@ impl ID3D12Device8_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device8_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device8_Impl::CreateSamplerFeedbackUnorderedAccessView(this, core::mem::transmute_copy(&ptargetedresource), core::mem::transmute_copy(&pfeedbackresource), core::mem::transmute(&destdescriptor))
             }
         }
@@ -12790,8 +12790,8 @@ impl ID3D12Device8_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device8_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device8_Impl::GetCopyableFootprints1(this, core::mem::transmute_copy(&presourcedesc), core::mem::transmute_copy(&firstsubresource), core::mem::transmute_copy(&numsubresources), core::mem::transmute_copy(&baseoffset), core::mem::transmute_copy(&playouts), core::mem::transmute_copy(&pnumrows), core::mem::transmute_copy(&prowsizeinbytes), core::mem::transmute_copy(&ptotalbytes))
             }
         }
@@ -12863,8 +12863,8 @@ impl ID3D12Device9_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device9_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device9_Impl::CreateShaderCacheSession(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvsession)).into()
             }
         }
@@ -12873,8 +12873,8 @@ impl ID3D12Device9_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device9_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device9_Impl::ShaderCacheControl(this, core::mem::transmute_copy(&kinds), core::mem::transmute_copy(&control)).into()
             }
         }
@@ -12883,8 +12883,8 @@ impl ID3D12Device9_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Device9_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Device9_Impl::CreateCommandQueue1(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&creatorid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcommandqueue)).into()
             }
         }
@@ -12938,8 +12938,8 @@ impl ID3D12DeviceChild_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceChild_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceChild_Impl::GetDevice(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvdevice)).into()
             }
         }
@@ -13007,8 +13007,8 @@ impl ID3D12DeviceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12DeviceConfiguration_Impl::GetDesc(this)
             }
         }
@@ -13017,8 +13017,8 @@ impl ID3D12DeviceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceConfiguration_Impl::GetEnabledExperimentalFeatures(this, core::mem::transmute_copy(&pguids), core::mem::transmute_copy(&numguids)).into()
             }
         }
@@ -13027,8 +13027,8 @@ impl ID3D12DeviceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceConfiguration_Impl::SerializeVersionedRootSignature(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppresult), core::mem::transmute_copy(&pperror)).into()
             }
         }
@@ -13037,8 +13037,8 @@ impl ID3D12DeviceConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceConfiguration_Impl::CreateVersionedRootSignatureDeserializer(this, core::mem::transmute_copy(&pblob), core::mem::transmute_copy(&size), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvdeserializer)).into()
             }
         }
@@ -13097,8 +13097,8 @@ impl ID3D12DeviceConfiguration1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceConfiguration1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceConfiguration1_Impl::CreateVersionedRootSignatureDeserializerFromSubobjectInLibrary(this, core::mem::transmute_copy(&plibraryblob), core::mem::transmute_copy(&size), core::mem::transmute(&rootsignaturesubobjectname), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvdeserializer)).into()
             }
         }
@@ -13185,8 +13185,8 @@ impl ID3D12DeviceFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceFactory_Impl::InitializeFromGlobalState(this).into()
             }
         }
@@ -13195,8 +13195,8 @@ impl ID3D12DeviceFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceFactory_Impl::ApplyToGlobalState(this).into()
             }
         }
@@ -13205,8 +13205,8 @@ impl ID3D12DeviceFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceFactory_Impl::SetFlags(this, core::mem::transmute_copy(&flags)).into()
             }
         }
@@ -13215,8 +13215,8 @@ impl ID3D12DeviceFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceFactory_Impl::GetFlags(this)
             }
         }
@@ -13225,8 +13225,8 @@ impl ID3D12DeviceFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceFactory_Impl::GetConfigurationInterface(this, core::mem::transmute_copy(&clsid), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppv)).into()
             }
         }
@@ -13235,8 +13235,8 @@ impl ID3D12DeviceFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceFactory_Impl::EnableExperimentalFeatures(this, core::mem::transmute_copy(&numfeatures), core::mem::transmute_copy(&piids), core::mem::transmute_copy(&pconfigurationstructs), core::mem::transmute_copy(&pconfigurationstructsizes)).into()
             }
         }
@@ -13245,8 +13245,8 @@ impl ID3D12DeviceFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceFactory_Impl::CreateDevice(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&featurelevel), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvdevice)).into()
             }
         }
@@ -13306,8 +13306,8 @@ impl ID3D12DeviceRemovedExtendedData_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceRemovedExtendedData_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12DeviceRemovedExtendedData_Impl::GetAutoBreadcrumbsOutput(this) {
                     Ok(ok__) => {
                         poutput.write(core::mem::transmute(ok__));
@@ -13322,8 +13322,8 @@ impl ID3D12DeviceRemovedExtendedData_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceRemovedExtendedData_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12DeviceRemovedExtendedData_Impl::GetPageFaultAllocationOutput(this) {
                     Ok(ok__) => {
                         poutput.write(core::mem::transmute(ok__));
@@ -13389,8 +13389,8 @@ impl ID3D12DeviceRemovedExtendedData1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceRemovedExtendedData1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12DeviceRemovedExtendedData1_Impl::GetAutoBreadcrumbsOutput1(this) {
                     Ok(ok__) => {
                         poutput.write(core::mem::transmute(ok__));
@@ -13405,8 +13405,8 @@ impl ID3D12DeviceRemovedExtendedData1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceRemovedExtendedData1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12DeviceRemovedExtendedData1_Impl::GetPageFaultAllocationOutput1(this) {
                     Ok(ok__) => {
                         poutput.write(core::mem::transmute(ok__));
@@ -13466,8 +13466,8 @@ impl ID3D12DeviceRemovedExtendedData2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceRemovedExtendedData2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceRemovedExtendedData2_Impl::GetPageFaultAllocationOutput2(this, core::mem::transmute_copy(&poutput)).into()
             }
         }
@@ -13476,8 +13476,8 @@ impl ID3D12DeviceRemovedExtendedData2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceRemovedExtendedData2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceRemovedExtendedData2_Impl::GetDeviceState(this)
             }
         }
@@ -13530,8 +13530,8 @@ impl ID3D12DeviceRemovedExtendedDataSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceRemovedExtendedDataSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceRemovedExtendedDataSettings_Impl::SetAutoBreadcrumbsEnablement(this, core::mem::transmute_copy(&enablement))
             }
         }
@@ -13540,8 +13540,8 @@ impl ID3D12DeviceRemovedExtendedDataSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceRemovedExtendedDataSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceRemovedExtendedDataSettings_Impl::SetPageFaultEnablement(this, core::mem::transmute_copy(&enablement))
             }
         }
@@ -13550,8 +13550,8 @@ impl ID3D12DeviceRemovedExtendedDataSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceRemovedExtendedDataSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceRemovedExtendedDataSettings_Impl::SetWatsonDumpEnablement(this, core::mem::transmute_copy(&enablement))
             }
         }
@@ -13601,8 +13601,8 @@ impl ID3D12DeviceRemovedExtendedDataSettings1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceRemovedExtendedDataSettings1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceRemovedExtendedDataSettings1_Impl::SetBreadcrumbContextEnablement(this, core::mem::transmute_copy(&enablement))
             }
         }
@@ -13650,8 +13650,8 @@ impl ID3D12DeviceRemovedExtendedDataSettings2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceRemovedExtendedDataSettings2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceRemovedExtendedDataSettings2_Impl::UseMarkersOnlyAutoBreadcrumbs(this, core::mem::transmute_copy(&markersonly))
             }
         }
@@ -13693,8 +13693,8 @@ impl ID3D12DeviceTools_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceTools_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceTools_Impl::SetNextAllocationAddress(this, core::mem::transmute_copy(&nextallocationvirtualaddress))
             }
         }
@@ -13753,8 +13753,8 @@ impl ID3D12DeviceTools1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceTools1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12DeviceTools1_Impl::GetApplicationSpecificDriverState(this) {
                     Ok(ok__) => {
                         ppblob.write(core::mem::transmute(ok__));
@@ -13769,8 +13769,8 @@ impl ID3D12DeviceTools1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceTools1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12DeviceTools1_Impl::GetApplicationSpecificDriverBlobStatus(this)
             }
         }
@@ -13830,8 +13830,8 @@ impl ID3D12Fence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Fence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Fence_Impl::GetCompletedValue(this)
             }
         }
@@ -13840,8 +13840,8 @@ impl ID3D12Fence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Fence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Fence_Impl::SetEventOnCompletion(this, core::mem::transmute_copy(&value), core::mem::transmute_copy(&hevent)).into()
             }
         }
@@ -13850,8 +13850,8 @@ impl ID3D12Fence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Fence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Fence_Impl::Signal(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -13901,8 +13901,8 @@ impl ID3D12Fence1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Fence1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Fence1_Impl::GetCreationFlags(this)
             }
         }
@@ -14183,8 +14183,8 @@ impl ID3D12GBVDiagnostics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GBVDiagnostics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GBVDiagnostics_Impl::GetGBVEntireSubresourceStatesData(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
             }
         }
@@ -14193,8 +14193,8 @@ impl ID3D12GBVDiagnostics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GBVDiagnostics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12GBVDiagnostics_Impl::GetGBVSubresourceState(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource)) {
                     Ok(ok__) => {
                         pdata.write(core::mem::transmute(ok__));
@@ -14209,8 +14209,8 @@ impl ID3D12GBVDiagnostics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GBVDiagnostics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12GBVDiagnostics_Impl::GetGBVResourceUniformState(this, core::mem::transmute_copy(&presource)) {
                     Ok(ok__) => {
                         pdata.write(core::mem::transmute(ok__));
@@ -14225,8 +14225,8 @@ impl ID3D12GBVDiagnostics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GBVDiagnostics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GBVDiagnostics_Impl::GetGBVResourceInfo(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&presourcedesc), core::mem::transmute_copy(&presourcehash), core::mem::transmute_copy(&psubresourcestatesbyteoffset)).into()
             }
         }
@@ -14235,8 +14235,8 @@ impl ID3D12GBVDiagnostics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GBVDiagnostics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GBVDiagnostics_Impl::GBVReserved0(this)
             }
         }
@@ -14245,8 +14245,8 @@ impl ID3D12GBVDiagnostics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GBVDiagnostics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GBVDiagnostics_Impl::GBVReserved1(this)
             }
         }
@@ -14630,8 +14630,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::Close(this).into()
             }
         }
@@ -14640,8 +14640,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::Reset(this, core::mem::transmute_copy(&pallocator), core::mem::transmute_copy(&pinitialstate)).into()
             }
         }
@@ -14650,8 +14650,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::ClearState(this, core::mem::transmute_copy(&ppipelinestate))
             }
         }
@@ -14660,8 +14660,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::DrawInstanced(this, core::mem::transmute_copy(&vertexcountperinstance), core::mem::transmute_copy(&instancecount), core::mem::transmute_copy(&startvertexlocation), core::mem::transmute_copy(&startinstancelocation))
             }
         }
@@ -14670,8 +14670,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::DrawIndexedInstanced(this, core::mem::transmute_copy(&indexcountperinstance), core::mem::transmute_copy(&instancecount), core::mem::transmute_copy(&startindexlocation), core::mem::transmute_copy(&basevertexlocation), core::mem::transmute_copy(&startinstancelocation))
             }
         }
@@ -14680,8 +14680,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::Dispatch(this, core::mem::transmute_copy(&threadgroupcountx), core::mem::transmute_copy(&threadgroupcounty), core::mem::transmute_copy(&threadgroupcountz))
             }
         }
@@ -14690,8 +14690,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::CopyBufferRegion(this, core::mem::transmute_copy(&pdstbuffer), core::mem::transmute_copy(&dstoffset), core::mem::transmute_copy(&psrcbuffer), core::mem::transmute_copy(&srcoffset), core::mem::transmute_copy(&numbytes))
             }
         }
@@ -14700,8 +14700,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::CopyTextureRegion(this, core::mem::transmute_copy(&pdst), core::mem::transmute_copy(&dstx), core::mem::transmute_copy(&dsty), core::mem::transmute_copy(&dstz), core::mem::transmute_copy(&psrc), core::mem::transmute_copy(&psrcbox))
             }
         }
@@ -14710,8 +14710,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::CopyResource(this, core::mem::transmute_copy(&pdstresource), core::mem::transmute_copy(&psrcresource))
             }
         }
@@ -14720,8 +14720,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::CopyTiles(this, core::mem::transmute_copy(&ptiledresource), core::mem::transmute_copy(&ptileregionstartcoordinate), core::mem::transmute_copy(&ptileregionsize), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&bufferstartoffsetinbytes), core::mem::transmute_copy(&flags))
             }
         }
@@ -14730,8 +14730,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::ResolveSubresource(this, core::mem::transmute_copy(&pdstresource), core::mem::transmute_copy(&dstsubresource), core::mem::transmute_copy(&psrcresource), core::mem::transmute_copy(&srcsubresource), core::mem::transmute_copy(&format))
             }
         }
@@ -14740,8 +14740,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::IASetPrimitiveTopology(this, core::mem::transmute_copy(&primitivetopology))
             }
         }
@@ -14750,8 +14750,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::RSSetViewports(this, core::mem::transmute_copy(&numviewports), core::mem::transmute_copy(&pviewports))
             }
         }
@@ -14760,8 +14760,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::RSSetScissorRects(this, core::mem::transmute_copy(&numrects), core::mem::transmute_copy(&prects))
             }
         }
@@ -14770,8 +14770,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::OMSetBlendFactor(this, core::mem::transmute_copy(&blendfactor))
             }
         }
@@ -14780,8 +14780,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::OMSetStencilRef(this, core::mem::transmute_copy(&stencilref))
             }
         }
@@ -14790,8 +14790,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetPipelineState(this, core::mem::transmute_copy(&ppipelinestate))
             }
         }
@@ -14800,8 +14800,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::ResourceBarrier(this, core::mem::transmute_copy(&numbarriers), core::mem::transmute_copy(&pbarriers))
             }
         }
@@ -14810,8 +14810,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::ExecuteBundle(this, core::mem::transmute_copy(&pcommandlist))
             }
         }
@@ -14820,8 +14820,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetDescriptorHeaps(this, core::mem::transmute_copy(&numdescriptorheaps), core::mem::transmute_copy(&ppdescriptorheaps))
             }
         }
@@ -14830,8 +14830,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetComputeRootSignature(this, core::mem::transmute_copy(&prootsignature))
             }
         }
@@ -14840,8 +14840,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetGraphicsRootSignature(this, core::mem::transmute_copy(&prootsignature))
             }
         }
@@ -14850,8 +14850,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetComputeRootDescriptorTable(this, core::mem::transmute_copy(&rootparameterindex), core::mem::transmute(&basedescriptor))
             }
         }
@@ -14860,8 +14860,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetGraphicsRootDescriptorTable(this, core::mem::transmute_copy(&rootparameterindex), core::mem::transmute(&basedescriptor))
             }
         }
@@ -14870,8 +14870,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetComputeRoot32BitConstant(this, core::mem::transmute_copy(&rootparameterindex), core::mem::transmute_copy(&srcdata), core::mem::transmute_copy(&destoffsetin32bitvalues))
             }
         }
@@ -14880,8 +14880,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetGraphicsRoot32BitConstant(this, core::mem::transmute_copy(&rootparameterindex), core::mem::transmute_copy(&srcdata), core::mem::transmute_copy(&destoffsetin32bitvalues))
             }
         }
@@ -14890,8 +14890,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetComputeRoot32BitConstants(this, core::mem::transmute_copy(&rootparameterindex), core::mem::transmute_copy(&num32bitvaluestoset), core::mem::transmute_copy(&psrcdata), core::mem::transmute_copy(&destoffsetin32bitvalues))
             }
         }
@@ -14900,8 +14900,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetGraphicsRoot32BitConstants(this, core::mem::transmute_copy(&rootparameterindex), core::mem::transmute_copy(&num32bitvaluestoset), core::mem::transmute_copy(&psrcdata), core::mem::transmute_copy(&destoffsetin32bitvalues))
             }
         }
@@ -14910,8 +14910,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetComputeRootConstantBufferView(this, core::mem::transmute_copy(&rootparameterindex), core::mem::transmute_copy(&bufferlocation))
             }
         }
@@ -14920,8 +14920,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetGraphicsRootConstantBufferView(this, core::mem::transmute_copy(&rootparameterindex), core::mem::transmute_copy(&bufferlocation))
             }
         }
@@ -14930,8 +14930,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetComputeRootShaderResourceView(this, core::mem::transmute_copy(&rootparameterindex), core::mem::transmute_copy(&bufferlocation))
             }
         }
@@ -14940,8 +14940,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetGraphicsRootShaderResourceView(this, core::mem::transmute_copy(&rootparameterindex), core::mem::transmute_copy(&bufferlocation))
             }
         }
@@ -14950,8 +14950,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetComputeRootUnorderedAccessView(this, core::mem::transmute_copy(&rootparameterindex), core::mem::transmute_copy(&bufferlocation))
             }
         }
@@ -14960,8 +14960,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetGraphicsRootUnorderedAccessView(this, core::mem::transmute_copy(&rootparameterindex), core::mem::transmute_copy(&bufferlocation))
             }
         }
@@ -14970,8 +14970,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::IASetIndexBuffer(this, core::mem::transmute_copy(&pview))
             }
         }
@@ -14980,8 +14980,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::IASetVertexBuffers(this, core::mem::transmute_copy(&startslot), core::mem::transmute_copy(&numviews), core::mem::transmute_copy(&pviews))
             }
         }
@@ -14990,8 +14990,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SOSetTargets(this, core::mem::transmute_copy(&startslot), core::mem::transmute_copy(&numviews), core::mem::transmute_copy(&pviews))
             }
         }
@@ -15000,8 +15000,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::OMSetRenderTargets(this, core::mem::transmute_copy(&numrendertargetdescriptors), core::mem::transmute_copy(&prendertargetdescriptors), core::mem::transmute_copy(&rtssinglehandletodescriptorrange), core::mem::transmute_copy(&pdepthstencildescriptor))
             }
         }
@@ -15010,8 +15010,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::ClearDepthStencilView(this, core::mem::transmute(&depthstencilview), core::mem::transmute_copy(&clearflags), core::mem::transmute_copy(&depth), core::mem::transmute_copy(&stencil), core::mem::transmute_copy(&numrects), core::mem::transmute_copy(&prects))
             }
         }
@@ -15020,8 +15020,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::ClearRenderTargetView(this, core::mem::transmute(&rendertargetview), core::mem::transmute_copy(&colorrgba), core::mem::transmute_copy(&numrects), core::mem::transmute_copy(&prects))
             }
         }
@@ -15030,8 +15030,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::ClearUnorderedAccessViewUint(this, core::mem::transmute(&viewgpuhandleincurrentheap), core::mem::transmute(&viewcpuhandle), core::mem::transmute_copy(&presource), core::mem::transmute_copy(&values), core::mem::transmute_copy(&numrects), core::mem::transmute_copy(&prects))
             }
         }
@@ -15040,8 +15040,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::ClearUnorderedAccessViewFloat(this, core::mem::transmute(&viewgpuhandleincurrentheap), core::mem::transmute(&viewcpuhandle), core::mem::transmute_copy(&presource), core::mem::transmute_copy(&values), core::mem::transmute_copy(&numrects), core::mem::transmute_copy(&prects))
             }
         }
@@ -15050,8 +15050,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::DiscardResource(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pregion))
             }
         }
@@ -15060,8 +15060,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::BeginQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index))
             }
         }
@@ -15070,8 +15070,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::EndQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index))
             }
         }
@@ -15080,8 +15080,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::ResolveQueryData(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&numqueries), core::mem::transmute_copy(&pdestinationbuffer), core::mem::transmute_copy(&aligneddestinationbufferoffset))
             }
         }
@@ -15090,8 +15090,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetPredication(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&alignedbufferoffset), core::mem::transmute_copy(&operation))
             }
         }
@@ -15100,8 +15100,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::SetMarker(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size))
             }
         }
@@ -15110,8 +15110,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::BeginEvent(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size))
             }
         }
@@ -15120,8 +15120,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::EndEvent(this)
             }
         }
@@ -15130,8 +15130,8 @@ impl ID3D12GraphicsCommandList_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList_Impl::ExecuteIndirect(this, core::mem::transmute_copy(&pcommandsignature), core::mem::transmute_copy(&maxcommandcount), core::mem::transmute_copy(&pargumentbuffer), core::mem::transmute_copy(&argumentbufferoffset), core::mem::transmute_copy(&pcountbuffer), core::mem::transmute_copy(&countbufferoffset))
             }
         }
@@ -15273,8 +15273,8 @@ impl ID3D12GraphicsCommandList1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList1_Impl::AtomicCopyBufferUINT(this, core::mem::transmute_copy(&pdstbuffer), core::mem::transmute_copy(&dstoffset), core::mem::transmute_copy(&psrcbuffer), core::mem::transmute_copy(&srcoffset), core::mem::transmute_copy(&dependencies), core::mem::transmute_copy(&ppdependentresources), core::mem::transmute_copy(&pdependentsubresourceranges))
             }
         }
@@ -15283,8 +15283,8 @@ impl ID3D12GraphicsCommandList1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList1_Impl::AtomicCopyBufferUINT64(this, core::mem::transmute_copy(&pdstbuffer), core::mem::transmute_copy(&dstoffset), core::mem::transmute_copy(&psrcbuffer), core::mem::transmute_copy(&srcoffset), core::mem::transmute_copy(&dependencies), core::mem::transmute_copy(&ppdependentresources), core::mem::transmute_copy(&pdependentsubresourceranges))
             }
         }
@@ -15293,8 +15293,8 @@ impl ID3D12GraphicsCommandList1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList1_Impl::OMSetDepthBounds(this, core::mem::transmute_copy(&min), core::mem::transmute_copy(&max))
             }
         }
@@ -15303,8 +15303,8 @@ impl ID3D12GraphicsCommandList1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList1_Impl::SetSamplePositions(this, core::mem::transmute_copy(&numsamplesperpixel), core::mem::transmute_copy(&numpixels), core::mem::transmute_copy(&psamplepositions))
             }
         }
@@ -15313,8 +15313,8 @@ impl ID3D12GraphicsCommandList1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList1_Impl::ResolveSubresourceRegion(this, core::mem::transmute_copy(&pdstresource), core::mem::transmute_copy(&dstsubresource), core::mem::transmute_copy(&dstx), core::mem::transmute_copy(&dsty), core::mem::transmute_copy(&psrcresource), core::mem::transmute_copy(&srcsubresource), core::mem::transmute_copy(&psrcrect), core::mem::transmute_copy(&format), core::mem::transmute_copy(&resolvemode))
             }
         }
@@ -15323,8 +15323,8 @@ impl ID3D12GraphicsCommandList1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList1_Impl::SetViewInstanceMask(this, core::mem::transmute_copy(&mask))
             }
         }
@@ -15385,8 +15385,8 @@ impl ID3D12GraphicsCommandList10_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList10_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList10_Impl::SetProgram(this, core::mem::transmute_copy(&pdesc))
             }
         }
@@ -15395,8 +15395,8 @@ impl ID3D12GraphicsCommandList10_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList10_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList10_Impl::DispatchGraph(this, core::mem::transmute_copy(&pdesc))
             }
         }
@@ -15461,8 +15461,8 @@ impl ID3D12GraphicsCommandList2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList2_Impl::WriteBufferImmediate(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&pmodes))
             }
         }
@@ -15513,8 +15513,8 @@ impl ID3D12GraphicsCommandList3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList3_Impl::SetProtectedResourceSession(this, core::mem::transmute_copy(&pprotectedresourcesession))
             }
         }
@@ -15619,8 +15619,8 @@ impl ID3D12GraphicsCommandList4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList4_Impl::BeginRenderPass(this, core::mem::transmute_copy(&numrendertargets), core::mem::transmute_copy(&prendertargets), core::mem::transmute_copy(&pdepthstencil), core::mem::transmute_copy(&flags))
             }
         }
@@ -15629,8 +15629,8 @@ impl ID3D12GraphicsCommandList4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList4_Impl::EndRenderPass(this)
             }
         }
@@ -15639,8 +15639,8 @@ impl ID3D12GraphicsCommandList4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList4_Impl::InitializeMetaCommand(this, core::mem::transmute_copy(&pmetacommand), core::mem::transmute_copy(&pinitializationparametersdata), core::mem::transmute_copy(&initializationparametersdatasizeinbytes))
             }
         }
@@ -15649,8 +15649,8 @@ impl ID3D12GraphicsCommandList4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList4_Impl::ExecuteMetaCommand(this, core::mem::transmute_copy(&pmetacommand), core::mem::transmute_copy(&pexecutionparametersdata), core::mem::transmute_copy(&executionparametersdatasizeinbytes))
             }
         }
@@ -15659,8 +15659,8 @@ impl ID3D12GraphicsCommandList4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList4_Impl::BuildRaytracingAccelerationStructure(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&numpostbuildinfodescs), core::mem::transmute_copy(&ppostbuildinfodescs))
             }
         }
@@ -15669,8 +15669,8 @@ impl ID3D12GraphicsCommandList4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList4_Impl::EmitRaytracingAccelerationStructurePostbuildInfo(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&numsourceaccelerationstructures), core::mem::transmute_copy(&psourceaccelerationstructuredata))
             }
         }
@@ -15679,8 +15679,8 @@ impl ID3D12GraphicsCommandList4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList4_Impl::CopyRaytracingAccelerationStructure(this, core::mem::transmute_copy(&destaccelerationstructuredata), core::mem::transmute_copy(&sourceaccelerationstructuredata), core::mem::transmute_copy(&mode))
             }
         }
@@ -15689,8 +15689,8 @@ impl ID3D12GraphicsCommandList4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList4_Impl::SetPipelineState1(this, core::mem::transmute_copy(&pstateobject))
             }
         }
@@ -15699,8 +15699,8 @@ impl ID3D12GraphicsCommandList4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList4_Impl::DispatchRays(this, core::mem::transmute_copy(&pdesc))
             }
         }
@@ -15767,8 +15767,8 @@ impl ID3D12GraphicsCommandList5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList5_Impl::RSSetShadingRate(this, core::mem::transmute_copy(&baseshadingrate), core::mem::transmute_copy(&combiners))
             }
         }
@@ -15777,8 +15777,8 @@ impl ID3D12GraphicsCommandList5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList5_Impl::RSSetShadingRateImage(this, core::mem::transmute_copy(&shadingrateimage))
             }
         }
@@ -15830,8 +15830,8 @@ impl ID3D12GraphicsCommandList6_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList6_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList6_Impl::DispatchMesh(this, core::mem::transmute_copy(&threadgroupcountx), core::mem::transmute_copy(&threadgroupcounty), core::mem::transmute_copy(&threadgroupcountz))
             }
         }
@@ -15879,8 +15879,8 @@ impl ID3D12GraphicsCommandList7_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList7_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList7_Impl::Barrier(this, core::mem::transmute_copy(&numbarriergroups), core::mem::transmute_copy(&pbarriergroups))
             }
         }
@@ -15928,8 +15928,8 @@ impl ID3D12GraphicsCommandList8_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList8_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList8_Impl::OMSetFrontAndBackStencilRef(this, core::mem::transmute_copy(&frontstencilref), core::mem::transmute_copy(&backstencilref))
             }
         }
@@ -15993,8 +15993,8 @@ impl ID3D12GraphicsCommandList9_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList9_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList9_Impl::RSSetDepthBias(this, core::mem::transmute_copy(&depthbias), core::mem::transmute_copy(&depthbiasclamp), core::mem::transmute_copy(&slopescaleddepthbias))
             }
         }
@@ -16003,8 +16003,8 @@ impl ID3D12GraphicsCommandList9_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12GraphicsCommandList9_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12GraphicsCommandList9_Impl::IASetIndexBufferStripCutValue(this, core::mem::transmute_copy(&ibstripcutvalue))
             }
         }
@@ -16070,8 +16070,8 @@ impl ID3D12Heap_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Heap_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12Heap_Impl::GetDesc(this)
             }
         }
@@ -16119,8 +16119,8 @@ impl ID3D12Heap1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Heap1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Heap1_Impl::GetProtectedResourceSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppprotectedsession)).into()
             }
         }
@@ -16335,8 +16335,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::SetMessageCountLimit(this, core::mem::transmute_copy(&messagecountlimit)).into()
             }
         }
@@ -16345,8 +16345,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::ClearStoredMessages(this)
             }
         }
@@ -16355,8 +16355,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetMessage(this, core::mem::transmute_copy(&messageindex), core::mem::transmute_copy(&pmessage), core::mem::transmute_copy(&pmessagebytelength)).into()
             }
         }
@@ -16365,8 +16365,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetNumMessagesAllowedByStorageFilter(this)
             }
         }
@@ -16375,8 +16375,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetNumMessagesDeniedByStorageFilter(this)
             }
         }
@@ -16385,8 +16385,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetNumStoredMessages(this)
             }
         }
@@ -16395,8 +16395,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetNumStoredMessagesAllowedByRetrievalFilter(this)
             }
         }
@@ -16405,8 +16405,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetNumMessagesDiscardedByMessageCountLimit(this)
             }
         }
@@ -16415,8 +16415,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetMessageCountLimit(this)
             }
         }
@@ -16425,8 +16425,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::AddStorageFilterEntries(this, core::mem::transmute_copy(&pfilter)).into()
             }
         }
@@ -16435,8 +16435,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetStorageFilter(this, core::mem::transmute_copy(&pfilter), core::mem::transmute_copy(&pfilterbytelength)).into()
             }
         }
@@ -16445,8 +16445,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::ClearStorageFilter(this)
             }
         }
@@ -16455,8 +16455,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::PushEmptyStorageFilter(this).into()
             }
         }
@@ -16465,8 +16465,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::PushCopyOfStorageFilter(this).into()
             }
         }
@@ -16475,8 +16475,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::PushStorageFilter(this, core::mem::transmute_copy(&pfilter)).into()
             }
         }
@@ -16485,8 +16485,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::PopStorageFilter(this)
             }
         }
@@ -16495,8 +16495,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetStorageFilterStackSize(this)
             }
         }
@@ -16505,8 +16505,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::AddRetrievalFilterEntries(this, core::mem::transmute_copy(&pfilter)).into()
             }
         }
@@ -16515,8 +16515,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetRetrievalFilter(this, core::mem::transmute_copy(&pfilter), core::mem::transmute_copy(&pfilterbytelength)).into()
             }
         }
@@ -16525,8 +16525,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::ClearRetrievalFilter(this)
             }
         }
@@ -16535,8 +16535,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::PushEmptyRetrievalFilter(this).into()
             }
         }
@@ -16545,8 +16545,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::PushCopyOfRetrievalFilter(this).into()
             }
         }
@@ -16555,8 +16555,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::PushRetrievalFilter(this, core::mem::transmute_copy(&pfilter)).into()
             }
         }
@@ -16565,8 +16565,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::PopRetrievalFilter(this)
             }
         }
@@ -16575,8 +16575,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetRetrievalFilterStackSize(this)
             }
         }
@@ -16585,8 +16585,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::AddMessage(this, core::mem::transmute_copy(&category), core::mem::transmute_copy(&severity), core::mem::transmute_copy(&id), core::mem::transmute(&pdescription)).into()
             }
         }
@@ -16595,8 +16595,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::AddApplicationMessage(this, core::mem::transmute_copy(&severity), core::mem::transmute(&pdescription)).into()
             }
         }
@@ -16605,8 +16605,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::SetBreakOnCategory(this, core::mem::transmute_copy(&category), core::mem::transmute_copy(&benable)).into()
             }
         }
@@ -16615,8 +16615,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::SetBreakOnSeverity(this, core::mem::transmute_copy(&severity), core::mem::transmute_copy(&benable)).into()
             }
         }
@@ -16625,8 +16625,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::SetBreakOnID(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&benable)).into()
             }
         }
@@ -16635,8 +16635,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetBreakOnCategory(this, core::mem::transmute_copy(&category))
             }
         }
@@ -16645,8 +16645,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetBreakOnSeverity(this, core::mem::transmute_copy(&severity))
             }
         }
@@ -16655,8 +16655,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetBreakOnID(this, core::mem::transmute_copy(&id))
             }
         }
@@ -16665,8 +16665,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::SetMuteDebugOutput(this, core::mem::transmute_copy(&bmute))
             }
         }
@@ -16675,8 +16675,8 @@ impl ID3D12InfoQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue_Impl::GetMuteDebugOutput(this)
             }
         }
@@ -16763,8 +16763,8 @@ impl ID3D12InfoQueue1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue1_Impl::RegisterMessageCallback(this, core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&callbackfilterflags), core::mem::transmute_copy(&pcontext), core::mem::transmute_copy(&pcallbackcookie)).into()
             }
         }
@@ -16773,8 +16773,8 @@ impl ID3D12InfoQueue1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12InfoQueue1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12InfoQueue1_Impl::UnregisterMessageCallback(this, core::mem::transmute_copy(&callbackcookie)).into()
             }
         }
@@ -16825,8 +16825,8 @@ impl ID3D12LibraryReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12LibraryReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12LibraryReflection_Impl::GetDesc(this) {
                     Ok(ok__) => {
                         pdesc.write(core::mem::transmute(ok__));
@@ -16841,8 +16841,8 @@ impl ID3D12LibraryReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12LibraryReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12LibraryReflection_Impl::GetFunctionByIndex(this, core::mem::transmute_copy(&functionindex))
             }
         }
@@ -16885,8 +16885,8 @@ impl ID3D12LifetimeOwner_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12LifetimeOwner_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12LifetimeOwner_Impl::LifetimeStateUpdated(this, core::mem::transmute_copy(&newstate))
             }
         }
@@ -16934,8 +16934,8 @@ impl ID3D12LifetimeTracker_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12LifetimeTracker_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12LifetimeTracker_Impl::DestroyOwnedObject(this, core::mem::transmute_copy(&pobject)).into()
             }
         }
@@ -16974,8 +16974,8 @@ impl ID3D12ManualWriteTrackingResource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ManualWriteTrackingResource_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ManualWriteTrackingResource_Impl::TrackWrite(this, core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&pwrittenrange))
             }
         }
@@ -17020,8 +17020,8 @@ impl ID3D12MetaCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12MetaCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12MetaCommand_Impl::GetRequiredParameterResourceSize(this, core::mem::transmute_copy(&stage), core::mem::transmute_copy(&parameterindex))
             }
         }
@@ -17081,8 +17081,8 @@ impl ID3D12Object_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Object_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Object_Impl::GetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pdatasize), core::mem::transmute_copy(&pdata)).into()
             }
         }
@@ -17091,8 +17091,8 @@ impl ID3D12Object_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Object_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Object_Impl::SetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&pdata)).into()
             }
         }
@@ -17101,8 +17101,8 @@ impl ID3D12Object_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Object_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Object_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pdata)).into()
             }
         }
@@ -17111,8 +17111,8 @@ impl ID3D12Object_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Object_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Object_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }
@@ -17188,8 +17188,8 @@ impl ID3D12PageableTools_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12PageableTools_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12PageableTools_Impl::GetAllocation(this) {
                     Ok(ok__) => {
                         pallocation.write(core::mem::transmute(ok__));
@@ -17280,8 +17280,8 @@ impl ID3D12PipelineLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12PipelineLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12PipelineLibrary_Impl::StorePipeline(this, core::mem::transmute(&pname), core::mem::transmute_copy(&ppipeline)).into()
             }
         }
@@ -17290,8 +17290,8 @@ impl ID3D12PipelineLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12PipelineLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12PipelineLibrary_Impl::LoadGraphicsPipeline(this, core::mem::transmute(&pname), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pppipelinestate)).into()
             }
         }
@@ -17300,8 +17300,8 @@ impl ID3D12PipelineLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12PipelineLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12PipelineLibrary_Impl::LoadComputePipeline(this, core::mem::transmute(&pname), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pppipelinestate)).into()
             }
         }
@@ -17310,8 +17310,8 @@ impl ID3D12PipelineLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12PipelineLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12PipelineLibrary_Impl::GetSerializedSize(this)
             }
         }
@@ -17320,8 +17320,8 @@ impl ID3D12PipelineLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12PipelineLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12PipelineLibrary_Impl::Serialize(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasizeinbytes)).into()
             }
         }
@@ -17381,8 +17381,8 @@ impl ID3D12PipelineLibrary1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12PipelineLibrary1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12PipelineLibrary1_Impl::LoadPipeline(this, core::mem::transmute(&pname), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pppipelinestate)).into()
             }
         }
@@ -17437,8 +17437,8 @@ impl ID3D12PipelineState_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12PipelineState_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12PipelineState_Impl::GetCachedBlob(this) {
                     Ok(ok__) => {
                         ppblob.write(core::mem::transmute(ok__));
@@ -17496,8 +17496,8 @@ impl ID3D12PipelineState1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12PipelineState1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12PipelineState1_Impl::GetRootSignature(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvrootsignature)).into()
             }
         }
@@ -17547,8 +17547,8 @@ impl ID3D12ProtectedResourceSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ProtectedResourceSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12ProtectedResourceSession_Impl::GetDesc(this)
             }
         }
@@ -17597,8 +17597,8 @@ impl ID3D12ProtectedResourceSession1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ProtectedResourceSession1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12ProtectedResourceSession1_Impl::GetDesc1(this)
             }
         }
@@ -17651,8 +17651,8 @@ impl ID3D12ProtectedSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ProtectedSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ProtectedSession_Impl::GetStatusFence(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppfence)).into()
             }
         }
@@ -17661,8 +17661,8 @@ impl ID3D12ProtectedSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ProtectedSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ProtectedSession_Impl::GetSessionStatus(this)
             }
         }
@@ -17779,8 +17779,8 @@ impl ID3D12Resource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Resource_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Resource_Impl::Map(this, core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&preadrange), core::mem::transmute_copy(&ppdata)).into()
             }
         }
@@ -17789,8 +17789,8 @@ impl ID3D12Resource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Resource_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Resource_Impl::Unmap(this, core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&pwrittenrange))
             }
         }
@@ -17799,8 +17799,8 @@ impl ID3D12Resource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Resource_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12Resource_Impl::GetDesc(this)
             }
         }
@@ -17809,8 +17809,8 @@ impl ID3D12Resource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Resource_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Resource_Impl::GetGPUVirtualAddress(this)
             }
         }
@@ -17819,8 +17819,8 @@ impl ID3D12Resource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Resource_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Resource_Impl::WriteToSubresource(this, core::mem::transmute_copy(&dstsubresource), core::mem::transmute_copy(&pdstbox), core::mem::transmute_copy(&psrcdata), core::mem::transmute_copy(&srcrowpitch), core::mem::transmute_copy(&srcdepthpitch)).into()
             }
         }
@@ -17829,8 +17829,8 @@ impl ID3D12Resource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Resource_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Resource_Impl::ReadFromSubresource(this, core::mem::transmute_copy(&pdstdata), core::mem::transmute_copy(&dstrowpitch), core::mem::transmute_copy(&dstdepthpitch), core::mem::transmute_copy(&srcsubresource), core::mem::transmute_copy(&psrcbox)).into()
             }
         }
@@ -17839,8 +17839,8 @@ impl ID3D12Resource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Resource_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Resource_Impl::GetHeapProperties(this, core::mem::transmute_copy(&pheapproperties), core::mem::transmute_copy(&pheapflags)).into()
             }
         }
@@ -17900,8 +17900,8 @@ impl ID3D12Resource1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Resource1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Resource1_Impl::GetProtectedResourceSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppprotectedsession)).into()
             }
         }
@@ -17957,8 +17957,8 @@ impl ID3D12Resource2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Resource2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12Resource2_Impl::GetDesc1(this)
             }
         }
@@ -18026,8 +18026,8 @@ impl ID3D12RootSignatureDeserializer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12RootSignatureDeserializer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12RootSignatureDeserializer_Impl::GetRootSignatureDesc(this)
             }
         }
@@ -18069,8 +18069,8 @@ impl ID3D12SDKConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12SDKConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12SDKConfiguration_Impl::SetSDKVersion(this, core::mem::transmute_copy(&sdkversion), core::mem::transmute(&sdkpath)).into()
             }
         }
@@ -18125,8 +18125,8 @@ impl ID3D12SDKConfiguration1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12SDKConfiguration1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12SDKConfiguration1_Impl::CreateDeviceFactory(this, core::mem::transmute_copy(&sdkversion), core::mem::transmute(&sdkpath), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvfactory)).into()
             }
         }
@@ -18135,8 +18135,8 @@ impl ID3D12SDKConfiguration1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12SDKConfiguration1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12SDKConfiguration1_Impl::FreeUnusedSDKs(this)
             }
         }
@@ -18204,8 +18204,8 @@ impl ID3D12ShaderCacheSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderCacheSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderCacheSession_Impl::FindValue(this, core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&keysize), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pvaluesize)).into()
             }
         }
@@ -18214,8 +18214,8 @@ impl ID3D12ShaderCacheSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderCacheSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderCacheSession_Impl::StoreValue(this, core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&keysize), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&valuesize)).into()
             }
         }
@@ -18224,8 +18224,8 @@ impl ID3D12ShaderCacheSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderCacheSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderCacheSession_Impl::SetDeleteOnDestroy(this)
             }
         }
@@ -18234,8 +18234,8 @@ impl ID3D12ShaderCacheSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderCacheSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12ShaderCacheSession_Impl::GetDesc(this)
             }
         }
@@ -18416,8 +18416,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
             }
         }
@@ -18426,8 +18426,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetConstantBufferByIndex(this, core::mem::transmute_copy(&index))
             }
         }
@@ -18436,8 +18436,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetConstantBufferByName(this, core::mem::transmute(&name))
             }
         }
@@ -18446,8 +18446,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetResourceBindingDesc(this, core::mem::transmute_copy(&resourceindex), core::mem::transmute_copy(&pdesc)).into()
             }
         }
@@ -18456,8 +18456,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetInputParameterDesc(this, core::mem::transmute_copy(&parameterindex), core::mem::transmute_copy(&pdesc)).into()
             }
         }
@@ -18466,8 +18466,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetOutputParameterDesc(this, core::mem::transmute_copy(&parameterindex), core::mem::transmute_copy(&pdesc)).into()
             }
         }
@@ -18476,8 +18476,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetPatchConstantParameterDesc(this, core::mem::transmute_copy(&parameterindex), core::mem::transmute_copy(&pdesc)).into()
             }
         }
@@ -18486,8 +18486,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetVariableByName(this, core::mem::transmute(&name))
             }
         }
@@ -18496,8 +18496,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetResourceBindingDescByName(this, core::mem::transmute(&name), core::mem::transmute_copy(&pdesc)).into()
             }
         }
@@ -18506,8 +18506,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetMovInstructionCount(this)
             }
         }
@@ -18516,8 +18516,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetMovcInstructionCount(this)
             }
         }
@@ -18526,8 +18526,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetConversionInstructionCount(this)
             }
         }
@@ -18536,8 +18536,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetBitwiseInstructionCount(this)
             }
         }
@@ -18546,8 +18546,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetGSInputPrimitive(this)
             }
         }
@@ -18556,8 +18556,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::IsSampleFrequencyShader(this)
             }
         }
@@ -18566,8 +18566,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetNumInterfaceSlots(this)
             }
         }
@@ -18576,8 +18576,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12ShaderReflection_Impl::GetMinFeatureLevel(this) {
                     Ok(ok__) => {
                         plevel.write(core::mem::transmute(ok__));
@@ -18592,8 +18592,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetThreadGroupSize(this, core::mem::transmute_copy(&psizex), core::mem::transmute_copy(&psizey), core::mem::transmute_copy(&psizez))
             }
         }
@@ -18602,8 +18602,8 @@ impl ID3D12ShaderReflection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12ShaderReflection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12ShaderReflection_Impl::GetRequiresFlags(this)
             }
         }
@@ -19027,8 +19027,8 @@ impl ID3D12SharingContract_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12SharingContract_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12SharingContract_Impl::Present(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&window))
             }
         }
@@ -19037,8 +19037,8 @@ impl ID3D12SharingContract_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12SharingContract_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12SharingContract_Impl::SharedFenceSignal(this, core::mem::transmute_copy(&pfence), core::mem::transmute_copy(&fencevalue))
             }
         }
@@ -19047,8 +19047,8 @@ impl ID3D12SharingContract_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12SharingContract_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12SharingContract_Impl::BeginCapturableWork(this, core::mem::transmute_copy(&guid))
             }
         }
@@ -19057,8 +19057,8 @@ impl ID3D12SharingContract_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12SharingContract_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12SharingContract_Impl::EndCapturableWork(this, core::mem::transmute_copy(&guid))
             }
         }
@@ -19164,8 +19164,8 @@ impl ID3D12StateObjectDatabase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectDatabase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12StateObjectDatabase_Impl::SetApplicationDesc(this, core::mem::transmute_copy(&papplicationdesc)).into()
             }
         }
@@ -19174,8 +19174,8 @@ impl ID3D12StateObjectDatabase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectDatabase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12StateObjectDatabase_Impl::GetApplicationDesc(this, core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&pcontext)).into()
             }
         }
@@ -19184,8 +19184,8 @@ impl ID3D12StateObjectDatabase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectDatabase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12StateObjectDatabase_Impl::StorePipelineStateDesc(this, core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&keysize), core::mem::transmute_copy(&version), core::mem::transmute_copy(&pdesc)).into()
             }
         }
@@ -19194,8 +19194,8 @@ impl ID3D12StateObjectDatabase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectDatabase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12StateObjectDatabase_Impl::FindPipelineStateDesc(this, core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&keysize), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&pcontext)).into()
             }
         }
@@ -19204,8 +19204,8 @@ impl ID3D12StateObjectDatabase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectDatabase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12StateObjectDatabase_Impl::StoreStateObjectDesc(this, core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&keysize), core::mem::transmute_copy(&version), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pstateobjecttogrowfromkey), core::mem::transmute_copy(&stateobjecttogrowfromkeysize)).into()
             }
         }
@@ -19214,8 +19214,8 @@ impl ID3D12StateObjectDatabase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectDatabase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12StateObjectDatabase_Impl::FindStateObjectDesc(this, core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&keysize), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&pcontext)).into()
             }
         }
@@ -19224,8 +19224,8 @@ impl ID3D12StateObjectDatabase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectDatabase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12StateObjectDatabase_Impl::FindObjectVersion(this, core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&keysize)) {
                     Ok(ok__) => {
                         pversion.write(core::mem::transmute(ok__));
@@ -19284,8 +19284,8 @@ impl ID3D12StateObjectDatabaseFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectDatabaseFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12StateObjectDatabaseFactory_Impl::CreateStateObjectDatabaseFromFile(this, core::mem::transmute(&pdatabasefile), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvstateobjectdatabase)).into()
             }
         }
@@ -19348,8 +19348,8 @@ impl ID3D12StateObjectProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12StateObjectProperties_Impl::GetShaderIdentifier(this, core::mem::transmute(&pexportname))
             }
         }
@@ -19358,8 +19358,8 @@ impl ID3D12StateObjectProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12StateObjectProperties_Impl::GetShaderStackSize(this, core::mem::transmute(&pexportname))
             }
         }
@@ -19368,8 +19368,8 @@ impl ID3D12StateObjectProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12StateObjectProperties_Impl::GetPipelineStackSize(this)
             }
         }
@@ -19378,8 +19378,8 @@ impl ID3D12StateObjectProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12StateObjectProperties_Impl::SetPipelineStackSize(this, core::mem::transmute_copy(&pipelinestacksizeinbytes))
             }
         }
@@ -19437,8 +19437,8 @@ impl ID3D12StateObjectProperties1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectProperties1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12StateObjectProperties1_Impl::GetProgramIdentifier(this, core::mem::transmute(&pprogramname))
             }
         }
@@ -19498,8 +19498,8 @@ impl ID3D12StateObjectProperties2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectProperties2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12StateObjectProperties2_Impl::GetGlobalRootSignatureForProgram(this, core::mem::transmute(&pprogramname), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvrootsignature)).into()
             }
         }
@@ -19508,8 +19508,8 @@ impl ID3D12StateObjectProperties2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12StateObjectProperties2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12StateObjectProperties2_Impl::GetGlobalRootSignatureForShader(this, core::mem::transmute(&pexportname), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvrootsignature)).into()
             }
         }
@@ -19579,8 +19579,8 @@ impl ID3D12SwapChainAssistant_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12SwapChainAssistant_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12SwapChainAssistant_Impl::GetLUID(this)
             }
         }
@@ -19589,8 +19589,8 @@ impl ID3D12SwapChainAssistant_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12SwapChainAssistant_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12SwapChainAssistant_Impl::GetSwapChainObject(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
@@ -19599,8 +19599,8 @@ impl ID3D12SwapChainAssistant_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12SwapChainAssistant_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12SwapChainAssistant_Impl::GetCurrentResourceAndCommandQueue(this, core::mem::transmute_copy(&riidresource), core::mem::transmute_copy(&ppvresource), core::mem::transmute_copy(&riidqueue), core::mem::transmute_copy(&ppvqueue)).into()
             }
         }
@@ -19609,8 +19609,8 @@ impl ID3D12SwapChainAssistant_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12SwapChainAssistant_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12SwapChainAssistant_Impl::InsertImplicitSync(this).into()
             }
         }
@@ -19660,8 +19660,8 @@ impl ID3D12Tools_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Tools_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Tools_Impl::EnableShaderInstrumentation(this, core::mem::transmute_copy(&benable))
             }
         }
@@ -19670,8 +19670,8 @@ impl ID3D12Tools_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Tools_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Tools_Impl::ShaderInstrumentationEnabled(this)
             }
         }
@@ -19725,8 +19725,8 @@ impl ID3D12Tools1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Tools1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Tools1_Impl::ReserveGPUVARangesAtCreate(this, core::mem::transmute_copy(&pranges), core::mem::transmute_copy(&uinumranges)).into()
             }
         }
@@ -19735,8 +19735,8 @@ impl ID3D12Tools1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Tools1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Tools1_Impl::ClearReservedGPUVARangesList(this)
             }
         }
@@ -19795,8 +19795,8 @@ impl ID3D12Tools2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Tools2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12Tools2_Impl::SetApplicationSpecificDriverState(this, core::mem::transmute_copy(&padapter), core::mem::transmute_copy(&pblob)).into()
             }
         }
@@ -19844,8 +19844,8 @@ impl ID3D12VersionedRootSignatureDeserializer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12VersionedRootSignatureDeserializer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12VersionedRootSignatureDeserializer_Impl::GetRootSignatureDescAtVersion(this, core::mem::transmute_copy(&converttoversion)) {
                     Ok(ok__) => {
                         ppdesc.write(core::mem::transmute(ok__));
@@ -19860,8 +19860,8 @@ impl ID3D12VersionedRootSignatureDeserializer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12VersionedRootSignatureDeserializer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12VersionedRootSignatureDeserializer_Impl::GetUnconvertedRootSignatureDesc(this)
             }
         }
@@ -19921,8 +19921,8 @@ impl ID3D12VirtualizationGuestDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12VirtualizationGuestDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12VirtualizationGuestDevice_Impl::ShareWithHost(this, core::mem::transmute_copy(&pobject)) {
                     Ok(ok__) => {
                         phandle.write(core::mem::transmute(ok__));
@@ -19937,8 +19937,8 @@ impl ID3D12VirtualizationGuestDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12VirtualizationGuestDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ID3D12VirtualizationGuestDevice_Impl::CreateFenceFd(this, core::mem::transmute_copy(&pfence), core::mem::transmute_copy(&fencevalue)) {
                     Ok(ok__) => {
                         pfencefd.write(core::mem::transmute(ok__));
@@ -20058,8 +20058,8 @@ impl ID3D12WorkGraphProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12WorkGraphProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12WorkGraphProperties_Impl::GetNumWorkGraphs(this)
             }
         }
@@ -20068,8 +20068,8 @@ impl ID3D12WorkGraphProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12WorkGraphProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12WorkGraphProperties_Impl::GetProgramName(this, core::mem::transmute_copy(&workgraphindex))
             }
         }
@@ -20078,8 +20078,8 @@ impl ID3D12WorkGraphProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12WorkGraphProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12WorkGraphProperties_Impl::GetWorkGraphIndex(this, core::mem::transmute(&pprogramname))
             }
         }
@@ -20088,8 +20088,8 @@ impl ID3D12WorkGraphProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12WorkGraphProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12WorkGraphProperties_Impl::GetNumNodes(this, core::mem::transmute_copy(&workgraphindex))
             }
         }
@@ -20098,8 +20098,8 @@ impl ID3D12WorkGraphProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12WorkGraphProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12WorkGraphProperties_Impl::GetNodeID(this, core::mem::transmute_copy(&workgraphindex), core::mem::transmute_copy(&nodeindex))
             }
         }
@@ -20108,8 +20108,8 @@ impl ID3D12WorkGraphProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12WorkGraphProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12WorkGraphProperties_Impl::GetNodeIndex(this, core::mem::transmute_copy(&workgraphindex), core::mem::transmute(&nodeid))
             }
         }
@@ -20118,8 +20118,8 @@ impl ID3D12WorkGraphProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12WorkGraphProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12WorkGraphProperties_Impl::GetNodeLocalRootArgumentsTableIndex(this, core::mem::transmute_copy(&workgraphindex), core::mem::transmute_copy(&nodeindex))
             }
         }
@@ -20128,8 +20128,8 @@ impl ID3D12WorkGraphProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12WorkGraphProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12WorkGraphProperties_Impl::GetNumEntrypoints(this, core::mem::transmute_copy(&workgraphindex))
             }
         }
@@ -20138,8 +20138,8 @@ impl ID3D12WorkGraphProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12WorkGraphProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = ID3D12WorkGraphProperties_Impl::GetEntrypointID(this, core::mem::transmute_copy(&workgraphindex), core::mem::transmute_copy(&entrypointindex))
             }
         }
@@ -20148,8 +20148,8 @@ impl ID3D12WorkGraphProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12WorkGraphProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12WorkGraphProperties_Impl::GetEntrypointIndex(this, core::mem::transmute_copy(&workgraphindex), core::mem::transmute(&nodeid))
             }
         }
@@ -20158,8 +20158,8 @@ impl ID3D12WorkGraphProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12WorkGraphProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12WorkGraphProperties_Impl::GetEntrypointRecordSizeInBytes(this, core::mem::transmute_copy(&workgraphindex), core::mem::transmute_copy(&entrypointindex))
             }
         }
@@ -20168,8 +20168,8 @@ impl ID3D12WorkGraphProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12WorkGraphProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12WorkGraphProperties_Impl::GetWorkGraphMemoryRequirements(this, core::mem::transmute_copy(&workgraphindex), core::mem::transmute_copy(&pworkgraphmemoryrequirements))
             }
         }
@@ -20178,8 +20178,8 @@ impl ID3D12WorkGraphProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ID3D12WorkGraphProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ID3D12WorkGraphProperties_Impl::GetEntrypointRecordAlignmentInBytes(this, core::mem::transmute_copy(&workgraphindex), core::mem::transmute_copy(&entrypointindex))
             }
         }

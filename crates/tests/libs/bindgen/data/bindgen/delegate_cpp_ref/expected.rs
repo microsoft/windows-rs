@@ -61,10 +61,10 @@ impl IActivationFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IActivationFactory_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IActivationFactory_Impl::ActivateInstance(this) {
                     Ok(ok__) => {
                         instance.write(core::mem::transmute(ok__));

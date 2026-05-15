@@ -1306,8 +1306,8 @@ impl IAccIdentity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccIdentity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccIdentity_Impl::GetIdentityString(this, core::mem::transmute_copy(&dwidchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen)).into()
             }
         }
@@ -1350,8 +1350,8 @@ impl IAccPropServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServer_Impl::GetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&pfhasprop)).into()
             }
         }
@@ -1508,8 +1508,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::SetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
             }
         }
@@ -1518,8 +1518,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::SetPropServer(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), core::mem::transmute_copy(&pserver), core::mem::transmute_copy(&annoscope)).into()
             }
         }
@@ -1528,8 +1528,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::ClearProps(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops)).into()
             }
         }
@@ -1538,8 +1538,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::SetHwndProp(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
             }
         }
@@ -1548,8 +1548,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::SetHwndPropStr(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&str)).into()
             }
         }
@@ -1558,8 +1558,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::SetHwndPropServer(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), core::mem::transmute_copy(&pserver), core::mem::transmute_copy(&annoscope)).into()
             }
         }
@@ -1568,8 +1568,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::ClearHwndProps(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops)).into()
             }
         }
@@ -1578,8 +1578,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::ComposeHwndIdentityString(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen)).into()
             }
         }
@@ -1588,8 +1588,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::DecomposeHwndIdentityString(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&phwnd), core::mem::transmute_copy(&pidobject), core::mem::transmute_copy(&pidchild)).into()
             }
         }
@@ -1598,8 +1598,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::SetHmenuProp(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
             }
         }
@@ -1608,8 +1608,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::SetHmenuPropStr(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&str)).into()
             }
         }
@@ -1618,8 +1618,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::SetHmenuPropServer(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), core::mem::transmute_copy(&pserver), core::mem::transmute_copy(&annoscope)).into()
             }
         }
@@ -1628,8 +1628,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::ClearHmenuProps(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops)).into()
             }
         }
@@ -1638,8 +1638,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::ComposeHmenuIdentityString(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen)).into()
             }
         }
@@ -1648,8 +1648,8 @@ impl IAccPropServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccPropServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccPropServices_Impl::DecomposeHmenuIdentityString(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&phmenu), core::mem::transmute_copy(&pidchild)).into()
             }
         }
@@ -1941,8 +1941,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::accParent(this) {
                     Ok(ok__) => {
                         ppdispparent.write(core::mem::transmute(ok__));
@@ -1957,8 +1957,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::accChildCount(this) {
                     Ok(ok__) => {
                         pcountchildren.write(core::mem::transmute(ok__));
@@ -1973,8 +1973,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::get_accChild(this, core::mem::transmute(&varchild)) {
                     Ok(ok__) => {
                         ppdispchild.write(core::mem::transmute(ok__));
@@ -1989,8 +1989,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::get_accName(this, core::mem::transmute(&varchild)) {
                     Ok(ok__) => {
                         pszname.write(core::mem::transmute(ok__));
@@ -2005,8 +2005,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::get_accValue(this, core::mem::transmute(&varchild)) {
                     Ok(ok__) => {
                         pszvalue.write(core::mem::transmute(ok__));
@@ -2021,8 +2021,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::get_accDescription(this, core::mem::transmute(&varchild)) {
                     Ok(ok__) => {
                         pszdescription.write(core::mem::transmute(ok__));
@@ -2037,8 +2037,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::get_accRole(this, core::mem::transmute(&varchild)) {
                     Ok(ok__) => {
                         pvarrole.write(core::mem::transmute(ok__));
@@ -2053,8 +2053,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::get_accState(this, core::mem::transmute(&varchild)) {
                     Ok(ok__) => {
                         pvarstate.write(core::mem::transmute(ok__));
@@ -2069,8 +2069,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::get_accHelp(this, core::mem::transmute(&varchild)) {
                     Ok(ok__) => {
                         pszhelp.write(core::mem::transmute(ok__));
@@ -2085,8 +2085,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::get_accHelpTopic(this, core::mem::transmute_copy(&pszhelpfile), core::mem::transmute(&varchild)) {
                     Ok(ok__) => {
                         pidtopic.write(core::mem::transmute(ok__));
@@ -2101,8 +2101,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::get_accKeyboardShortcut(this, core::mem::transmute(&varchild)) {
                     Ok(ok__) => {
                         pszkeyboardshortcut.write(core::mem::transmute(ok__));
@@ -2117,8 +2117,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::accFocus(this) {
                     Ok(ok__) => {
                         pvarchild.write(core::mem::transmute(ok__));
@@ -2133,8 +2133,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::accSelection(this) {
                     Ok(ok__) => {
                         pvarchildren.write(core::mem::transmute(ok__));
@@ -2149,8 +2149,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::get_accDefaultAction(this, core::mem::transmute(&varchild)) {
                     Ok(ok__) => {
                         pszdefaultaction.write(core::mem::transmute(ok__));
@@ -2165,8 +2165,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccessible_Impl::accSelect(this, core::mem::transmute_copy(&flagsselect), core::mem::transmute(&varchild)).into()
             }
         }
@@ -2175,8 +2175,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccessible_Impl::accLocation(this, core::mem::transmute_copy(&pxleft), core::mem::transmute_copy(&pytop), core::mem::transmute_copy(&pcxwidth), core::mem::transmute_copy(&pcyheight), core::mem::transmute(&varchild)).into()
             }
         }
@@ -2185,8 +2185,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::accNavigate(this, core::mem::transmute_copy(&navdir), core::mem::transmute(&varstart)) {
                     Ok(ok__) => {
                         pvarendupat.write(core::mem::transmute(ok__));
@@ -2201,8 +2201,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessible_Impl::accHitTest(this, core::mem::transmute_copy(&xleft), core::mem::transmute_copy(&ytop)) {
                     Ok(ok__) => {
                         pvarchild.write(core::mem::transmute(ok__));
@@ -2217,8 +2217,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccessible_Impl::accDoDefaultAction(this, core::mem::transmute(&varchild)).into()
             }
         }
@@ -2227,8 +2227,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccessible_Impl::put_accName(this, core::mem::transmute(&varchild), core::mem::transmute(&szname)).into()
             }
         }
@@ -2237,8 +2237,8 @@ impl IAccessible_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessible_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccessible_Impl::put_accValue(this, core::mem::transmute(&varchild), core::mem::transmute(&szvalue)).into()
             }
         }
@@ -2336,8 +2336,8 @@ impl IAccessibleEx_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessibleEx_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessibleEx_Impl::GetObjectForChild(this, core::mem::transmute_copy(&idchild)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -2352,8 +2352,8 @@ impl IAccessibleEx_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessibleEx_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccessibleEx_Impl::GetIAccessiblePair(this, core::mem::transmute_copy(&ppacc), core::mem::transmute_copy(&pidchild)).into()
             }
         }
@@ -2362,8 +2362,8 @@ impl IAccessibleEx_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessibleEx_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessibleEx_Impl::GetRuntimeId(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -2378,8 +2378,8 @@ impl IAccessibleEx_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessibleEx_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessibleEx_Impl::ConvertReturnedElement(this, core::mem::transmute_copy(&pin)) {
                     Ok(ok__) => {
                         ppretvalout.write(core::mem::transmute(ok__));
@@ -2438,8 +2438,8 @@ impl IAccessibleHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessibleHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessibleHandler_Impl::AccessibleObjectFromID(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&lobjectid)) {
                     Ok(ok__) => {
                         piaccessible.write(core::mem::transmute(ok__));
@@ -2503,8 +2503,8 @@ impl IAccessibleHostingElementProviders_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessibleHostingElementProviders_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessibleHostingElementProviders_Impl::GetEmbeddedFragmentRoots(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -2519,8 +2519,8 @@ impl IAccessibleHostingElementProviders_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessibleHostingElementProviders_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessibleHostingElementProviders_Impl::GetObjectIdForProvider(this, core::mem::transmute_copy(&pprovider)) {
                     Ok(ok__) => {
                         pidobject.write(core::mem::transmute(ok__));
@@ -2611,8 +2611,8 @@ impl IAccessibleWindowlessSite_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessibleWindowlessSite_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessibleWindowlessSite_Impl::AcquireObjectIdRange(this, core::mem::transmute_copy(&rangesize), core::mem::transmute_copy(&prangeowner)) {
                     Ok(ok__) => {
                         prangebase.write(core::mem::transmute(ok__));
@@ -2627,8 +2627,8 @@ impl IAccessibleWindowlessSite_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessibleWindowlessSite_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccessibleWindowlessSite_Impl::ReleaseObjectIdRange(this, core::mem::transmute_copy(&rangebase), core::mem::transmute_copy(&prangeowner)).into()
             }
         }
@@ -2637,8 +2637,8 @@ impl IAccessibleWindowlessSite_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessibleWindowlessSite_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessibleWindowlessSite_Impl::QueryObjectIdRanges(this, core::mem::transmute_copy(&prangesowner)) {
                     Ok(ok__) => {
                         psaranges.write(core::mem::transmute(ok__));
@@ -2653,8 +2653,8 @@ impl IAccessibleWindowlessSite_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessibleWindowlessSite_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAccessibleWindowlessSite_Impl::GetParentAccessible(this) {
                     Ok(ok__) => {
                         ppparent.write(core::mem::transmute(ok__));
@@ -2739,8 +2739,8 @@ impl IAnnotationProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAnnotationProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAnnotationProvider_Impl::AnnotationTypeId(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2755,8 +2755,8 @@ impl IAnnotationProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAnnotationProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAnnotationProvider_Impl::AnnotationTypeName(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2771,8 +2771,8 @@ impl IAnnotationProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAnnotationProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAnnotationProvider_Impl::Author(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2787,8 +2787,8 @@ impl IAnnotationProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAnnotationProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAnnotationProvider_Impl::DateTime(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2803,8 +2803,8 @@ impl IAnnotationProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAnnotationProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAnnotationProvider_Impl::Target(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -2857,8 +2857,8 @@ impl ICustomNavigationProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICustomNavigationProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICustomNavigationProvider_Impl::Navigate(this, core::mem::transmute_copy(&direction)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -2909,8 +2909,8 @@ impl IDockProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDockProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDockProvider_Impl::SetDockPosition(this, core::mem::transmute_copy(&dockposition)).into()
             }
         }
@@ -2919,8 +2919,8 @@ impl IDockProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDockProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDockProvider_Impl::DockPosition(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3004,8 +3004,8 @@ impl IDragProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDragProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDragProvider_Impl::IsGrabbed(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3020,8 +3020,8 @@ impl IDragProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDragProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDragProvider_Impl::DropEffect(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3036,8 +3036,8 @@ impl IDragProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDragProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDragProvider_Impl::DropEffects(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3052,8 +3052,8 @@ impl IDragProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDragProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDragProvider_Impl::GetGrabbedItems(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3120,8 +3120,8 @@ impl IDropTargetProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDropTargetProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDropTargetProvider_Impl::DropTargetEffect(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3136,8 +3136,8 @@ impl IDropTargetProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDropTargetProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDropTargetProvider_Impl::DropTargetEffects(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3198,8 +3198,8 @@ impl IExpandCollapseProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IExpandCollapseProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IExpandCollapseProvider_Impl::Expand(this).into()
             }
         }
@@ -3208,8 +3208,8 @@ impl IExpandCollapseProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IExpandCollapseProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IExpandCollapseProvider_Impl::Collapse(this).into()
             }
         }
@@ -3218,8 +3218,8 @@ impl IExpandCollapseProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IExpandCollapseProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IExpandCollapseProvider_Impl::ExpandCollapseState(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3302,8 +3302,8 @@ impl IGridItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGridItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGridItemProvider_Impl::Row(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3318,8 +3318,8 @@ impl IGridItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGridItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGridItemProvider_Impl::Column(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3334,8 +3334,8 @@ impl IGridItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGridItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGridItemProvider_Impl::RowSpan(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3350,8 +3350,8 @@ impl IGridItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGridItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGridItemProvider_Impl::ColumnSpan(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3366,8 +3366,8 @@ impl IGridItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGridItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGridItemProvider_Impl::ContainingGrid(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3436,8 +3436,8 @@ impl IGridProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGridProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGridProvider_Impl::GetItem(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3452,8 +3452,8 @@ impl IGridProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGridProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGridProvider_Impl::RowCount(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3468,8 +3468,8 @@ impl IGridProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGridProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGridProvider_Impl::ColumnCount(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3519,8 +3519,8 @@ impl IInvokeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInvokeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInvokeProvider_Impl::Invoke(this).into()
             }
         }
@@ -3569,8 +3569,8 @@ impl IItemContainerProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IItemContainerProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IItemContainerProvider_Impl::FindItemByProperty(this, core::mem::transmute_copy(&pstartafter), core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
                     Ok(ok__) => {
                         pfound.write(core::mem::transmute(ok__));
@@ -3725,8 +3725,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILegacyIAccessibleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ILegacyIAccessibleProvider_Impl::Select(this, core::mem::transmute_copy(&flagsselect)).into()
             }
         }
@@ -3735,8 +3735,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILegacyIAccessibleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ILegacyIAccessibleProvider_Impl::DoDefaultAction(this).into()
             }
         }
@@ -3745,8 +3745,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILegacyIAccessibleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ILegacyIAccessibleProvider_Impl::SetValue(this, core::mem::transmute(&szvalue)).into()
             }
         }
@@ -3755,8 +3755,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILegacyIAccessibleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILegacyIAccessibleProvider_Impl::GetIAccessible(this) {
                     Ok(ok__) => {
                         ppaccessible.write(core::mem::transmute(ok__));
@@ -3771,8 +3771,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILegacyIAccessibleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILegacyIAccessibleProvider_Impl::ChildId(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -3787,8 +3787,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILegacyIAccessibleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILegacyIAccessibleProvider_Impl::Name(this) {
                     Ok(ok__) => {
                         pszname.write(core::mem::transmute(ok__));
@@ -3803,8 +3803,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILegacyIAccessibleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILegacyIAccessibleProvider_Impl::Value(this) {
                     Ok(ok__) => {
                         pszvalue.write(core::mem::transmute(ok__));
@@ -3819,8 +3819,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILegacyIAccessibleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILegacyIAccessibleProvider_Impl::Description(this) {
                     Ok(ok__) => {
                         pszdescription.write(core::mem::transmute(ok__));
@@ -3835,8 +3835,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILegacyIAccessibleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILegacyIAccessibleProvider_Impl::Role(this) {
                     Ok(ok__) => {
                         pdwrole.write(core::mem::transmute(ok__));
@@ -3851,8 +3851,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILegacyIAccessibleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILegacyIAccessibleProvider_Impl::State(this) {
                     Ok(ok__) => {
                         pdwstate.write(core::mem::transmute(ok__));
@@ -3867,8 +3867,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILegacyIAccessibleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILegacyIAccessibleProvider_Impl::Help(this) {
                     Ok(ok__) => {
                         pszhelp.write(core::mem::transmute(ok__));
@@ -3883,8 +3883,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILegacyIAccessibleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILegacyIAccessibleProvider_Impl::KeyboardShortcut(this) {
                     Ok(ok__) => {
                         pszkeyboardshortcut.write(core::mem::transmute(ok__));
@@ -3899,8 +3899,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILegacyIAccessibleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILegacyIAccessibleProvider_Impl::GetSelection(this) {
                     Ok(ok__) => {
                         pvarselectedchildren.write(core::mem::transmute(ok__));
@@ -3915,8 +3915,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILegacyIAccessibleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILegacyIAccessibleProvider_Impl::DefaultAction(this) {
                     Ok(ok__) => {
                         pszdefaultaction.write(core::mem::transmute(ok__));
@@ -4006,8 +4006,8 @@ impl IMultipleViewProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMultipleViewProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMultipleViewProvider_Impl::GetViewName(this, core::mem::transmute_copy(&viewid)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4022,8 +4022,8 @@ impl IMultipleViewProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMultipleViewProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMultipleViewProvider_Impl::SetCurrentView(this, core::mem::transmute_copy(&viewid)).into()
             }
         }
@@ -4032,8 +4032,8 @@ impl IMultipleViewProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMultipleViewProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMultipleViewProvider_Impl::CurrentView(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4048,8 +4048,8 @@ impl IMultipleViewProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMultipleViewProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMultipleViewProvider_Impl::GetSupportedViews(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4102,8 +4102,8 @@ impl IObjectModelProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IObjectModelProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IObjectModelProvider_Impl::GetUnderlyingObjectModel(this) {
                     Ok(ok__) => {
                         ppunknown.write(core::mem::transmute(ok__));
@@ -4149,8 +4149,8 @@ impl IProxyProviderWinEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProxyProviderWinEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProxyProviderWinEventHandler_Impl::RespondToWinEvent(this, core::mem::transmute_copy(&idwinevent), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&psink)).into()
             }
         }
@@ -4216,8 +4216,8 @@ impl IProxyProviderWinEventSink_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProxyProviderWinEventSink_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProxyProviderWinEventSink_Impl::AddAutomationPropertyChangedEvent(this, core::mem::transmute_copy(&pprovider), core::mem::transmute_copy(&id), core::mem::transmute(&newvalue)).into()
             }
         }
@@ -4226,8 +4226,8 @@ impl IProxyProviderWinEventSink_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProxyProviderWinEventSink_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProxyProviderWinEventSink_Impl::AddAutomationEvent(this, core::mem::transmute_copy(&pprovider), core::mem::transmute_copy(&id)).into()
             }
         }
@@ -4236,8 +4236,8 @@ impl IProxyProviderWinEventSink_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProxyProviderWinEventSink_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProxyProviderWinEventSink_Impl::AddStructureChangedEvent(this, core::mem::transmute_copy(&pprovider), core::mem::transmute_copy(&structurechangetype), core::mem::transmute_copy(&runtimeid)).into()
             }
         }
@@ -4328,8 +4328,8 @@ impl IRangeValueProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRangeValueProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRangeValueProvider_Impl::SetValue(this, core::mem::transmute_copy(&val)).into()
             }
         }
@@ -4338,8 +4338,8 @@ impl IRangeValueProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRangeValueProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRangeValueProvider_Impl::Value(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4354,8 +4354,8 @@ impl IRangeValueProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRangeValueProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRangeValueProvider_Impl::IsReadOnly(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4370,8 +4370,8 @@ impl IRangeValueProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRangeValueProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRangeValueProvider_Impl::Maximum(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4386,8 +4386,8 @@ impl IRangeValueProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRangeValueProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRangeValueProvider_Impl::Minimum(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4402,8 +4402,8 @@ impl IRangeValueProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRangeValueProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRangeValueProvider_Impl::LargeChange(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4418,8 +4418,8 @@ impl IRangeValueProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRangeValueProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRangeValueProvider_Impl::SmallChange(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4486,8 +4486,8 @@ impl IRawElementProviderAdviseEvents_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderAdviseEvents_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRawElementProviderAdviseEvents_Impl::AdviseEventAdded(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&propertyids)).into()
             }
         }
@@ -4496,8 +4496,8 @@ impl IRawElementProviderAdviseEvents_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderAdviseEvents_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRawElementProviderAdviseEvents_Impl::AdviseEventRemoved(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&propertyids)).into()
             }
         }
@@ -4589,8 +4589,8 @@ impl IRawElementProviderFragment_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderFragment_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderFragment_Impl::Navigate(this, core::mem::transmute_copy(&direction)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4605,8 +4605,8 @@ impl IRawElementProviderFragment_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderFragment_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderFragment_Impl::GetRuntimeId(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4621,8 +4621,8 @@ impl IRawElementProviderFragment_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderFragment_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderFragment_Impl::BoundingRectangle(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4637,8 +4637,8 @@ impl IRawElementProviderFragment_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderFragment_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderFragment_Impl::GetEmbeddedFragmentRoots(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4653,8 +4653,8 @@ impl IRawElementProviderFragment_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderFragment_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRawElementProviderFragment_Impl::SetFocus(this).into()
             }
         }
@@ -4663,8 +4663,8 @@ impl IRawElementProviderFragment_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderFragment_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderFragment_Impl::FragmentRoot(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4727,8 +4727,8 @@ impl IRawElementProviderFragmentRoot_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderFragmentRoot_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderFragmentRoot_Impl::ElementProviderFromPoint(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4743,8 +4743,8 @@ impl IRawElementProviderFragmentRoot_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderFragmentRoot_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderFragmentRoot_Impl::GetFocus(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4800,8 +4800,8 @@ impl IRawElementProviderHostingAccessibles_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderHostingAccessibles_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderHostingAccessibles_Impl::GetEmbeddedAccessibles(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4848,8 +4848,8 @@ impl IRawElementProviderHwndOverride_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderHwndOverride_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderHwndOverride_Impl::GetOverrideProviderForHwnd(this, core::mem::transmute_copy(&hwnd)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4925,8 +4925,8 @@ impl IRawElementProviderSimple_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderSimple_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderSimple_Impl::ProviderOptions(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4941,8 +4941,8 @@ impl IRawElementProviderSimple_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderSimple_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderSimple_Impl::GetPatternProvider(this, core::mem::transmute_copy(&patternid)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4957,8 +4957,8 @@ impl IRawElementProviderSimple_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderSimple_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderSimple_Impl::GetPropertyValue(this, core::mem::transmute_copy(&propertyid)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -4973,8 +4973,8 @@ impl IRawElementProviderSimple_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderSimple_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderSimple_Impl::HostRawElementProvider(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5032,8 +5032,8 @@ impl IRawElementProviderSimple2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderSimple2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRawElementProviderSimple2_Impl::ShowContextMenu(this).into()
             }
         }
@@ -5086,8 +5086,8 @@ impl IRawElementProviderSimple3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderSimple3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderSimple3_Impl::GetMetadataValue(this, core::mem::transmute_copy(&targetid), core::mem::transmute_copy(&metadataid)) {
                     Ok(ok__) => {
                         returnval.write(core::mem::transmute(ok__));
@@ -5148,8 +5148,8 @@ impl IRawElementProviderWindowlessSite_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderWindowlessSite_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderWindowlessSite_Impl::GetAdjacentFragment(this, core::mem::transmute_copy(&direction)) {
                     Ok(ok__) => {
                         ppparent.write(core::mem::transmute(ok__));
@@ -5164,8 +5164,8 @@ impl IRawElementProviderWindowlessSite_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRawElementProviderWindowlessSite_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRawElementProviderWindowlessSite_Impl::GetRuntimeIdPrefix(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5218,8 +5218,8 @@ impl IRichEditUiaInformation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRichEditUiaInformation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRichEditUiaInformation_Impl::GetBoundaryRectangle(this, core::mem::transmute_copy(&puiarect)).into()
             }
         }
@@ -5228,8 +5228,8 @@ impl IRichEditUiaInformation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRichEditUiaInformation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRichEditUiaInformation_Impl::IsVisible(this).into()
             }
         }
@@ -5276,8 +5276,8 @@ impl IRicheditWindowlessAccessibility_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRicheditWindowlessAccessibility_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRicheditWindowlessAccessibility_Impl::CreateProvider(this, core::mem::transmute_copy(&psite)) {
                     Ok(ok__) => {
                         ppprovider.write(core::mem::transmute(ok__));
@@ -5320,8 +5320,8 @@ impl IScrollItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IScrollItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IScrollItemProvider_Impl::ScrollIntoView(this).into()
             }
         }
@@ -5411,8 +5411,8 @@ impl IScrollProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IScrollProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IScrollProvider_Impl::Scroll(this, core::mem::transmute_copy(&horizontalamount), core::mem::transmute_copy(&verticalamount)).into()
             }
         }
@@ -5421,8 +5421,8 @@ impl IScrollProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IScrollProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IScrollProvider_Impl::SetScrollPercent(this, core::mem::transmute_copy(&horizontalpercent), core::mem::transmute_copy(&verticalpercent)).into()
             }
         }
@@ -5431,8 +5431,8 @@ impl IScrollProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IScrollProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IScrollProvider_Impl::HorizontalScrollPercent(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5447,8 +5447,8 @@ impl IScrollProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IScrollProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IScrollProvider_Impl::VerticalScrollPercent(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5463,8 +5463,8 @@ impl IScrollProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IScrollProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IScrollProvider_Impl::HorizontalViewSize(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5479,8 +5479,8 @@ impl IScrollProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IScrollProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IScrollProvider_Impl::VerticalViewSize(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5495,8 +5495,8 @@ impl IScrollProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IScrollProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IScrollProvider_Impl::HorizontallyScrollable(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5511,8 +5511,8 @@ impl IScrollProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IScrollProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IScrollProvider_Impl::VerticallyScrollable(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5591,8 +5591,8 @@ impl ISelectionItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISelectionItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISelectionItemProvider_Impl::Select(this).into()
             }
         }
@@ -5601,8 +5601,8 @@ impl ISelectionItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISelectionItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISelectionItemProvider_Impl::AddToSelection(this).into()
             }
         }
@@ -5611,8 +5611,8 @@ impl ISelectionItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISelectionItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISelectionItemProvider_Impl::RemoveFromSelection(this).into()
             }
         }
@@ -5621,8 +5621,8 @@ impl ISelectionItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISelectionItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISelectionItemProvider_Impl::IsSelected(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5637,8 +5637,8 @@ impl ISelectionItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISelectionItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISelectionItemProvider_Impl::SelectionContainer(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5713,8 +5713,8 @@ impl ISelectionProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISelectionProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISelectionProvider_Impl::GetSelection(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5729,8 +5729,8 @@ impl ISelectionProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISelectionProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISelectionProvider_Impl::CanSelectMultiple(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5745,8 +5745,8 @@ impl ISelectionProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISelectionProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISelectionProvider_Impl::IsSelectionRequired(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5830,8 +5830,8 @@ impl ISelectionProvider2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISelectionProvider2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISelectionProvider2_Impl::FirstSelectedItem(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5846,8 +5846,8 @@ impl ISelectionProvider2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISelectionProvider2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISelectionProvider2_Impl::LastSelectedItem(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5862,8 +5862,8 @@ impl ISelectionProvider2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISelectionProvider2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISelectionProvider2_Impl::CurrentSelectedItem(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5878,8 +5878,8 @@ impl ISelectionProvider2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISelectionProvider2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISelectionProvider2_Impl::ItemCount(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -5958,8 +5958,8 @@ impl ISpreadsheetItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISpreadsheetItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISpreadsheetItemProvider_Impl::Formula(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5974,8 +5974,8 @@ impl ISpreadsheetItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISpreadsheetItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISpreadsheetItemProvider_Impl::GetAnnotationObjects(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -5990,8 +5990,8 @@ impl ISpreadsheetItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISpreadsheetItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISpreadsheetItemProvider_Impl::GetAnnotationTypes(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6046,8 +6046,8 @@ impl ISpreadsheetProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISpreadsheetProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISpreadsheetProvider_Impl::GetItemByName(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6141,8 +6141,8 @@ impl IStylesProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStylesProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStylesProvider_Impl::StyleId(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6157,8 +6157,8 @@ impl IStylesProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStylesProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStylesProvider_Impl::StyleName(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6173,8 +6173,8 @@ impl IStylesProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStylesProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStylesProvider_Impl::FillColor(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6189,8 +6189,8 @@ impl IStylesProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStylesProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStylesProvider_Impl::FillPatternStyle(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6205,8 +6205,8 @@ impl IStylesProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStylesProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStylesProvider_Impl::Shape(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6221,8 +6221,8 @@ impl IStylesProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStylesProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStylesProvider_Impl::FillPatternColor(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6237,8 +6237,8 @@ impl IStylesProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStylesProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStylesProvider_Impl::ExtendedProperties(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -6295,8 +6295,8 @@ impl ISynchronizedInputProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISynchronizedInputProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISynchronizedInputProvider_Impl::StartListening(this, core::mem::transmute_copy(&inputtype)).into()
             }
         }
@@ -6305,8 +6305,8 @@ impl ISynchronizedInputProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISynchronizedInputProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISynchronizedInputProvider_Impl::Cancel(this).into()
             }
         }
@@ -6368,8 +6368,8 @@ impl ITableItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITableItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITableItemProvider_Impl::GetRowHeaderItems(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6384,8 +6384,8 @@ impl ITableItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITableItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITableItemProvider_Impl::GetColumnHeaderItems(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6462,8 +6462,8 @@ impl ITableProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITableProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITableProvider_Impl::GetRowHeaders(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6478,8 +6478,8 @@ impl ITableProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITableProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITableProvider_Impl::GetColumnHeaders(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6494,8 +6494,8 @@ impl ITableProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITableProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITableProvider_Impl::RowOrColumnMajor(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6555,8 +6555,8 @@ impl ITextChildProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextChildProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextChildProvider_Impl::TextContainer(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6571,8 +6571,8 @@ impl ITextChildProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextChildProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextChildProvider_Impl::TextRange(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6638,8 +6638,8 @@ impl ITextEditProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextEditProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextEditProvider_Impl::GetActiveComposition(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6654,8 +6654,8 @@ impl ITextEditProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextEditProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextEditProvider_Impl::GetConversionTarget(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6759,8 +6759,8 @@ impl ITextProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextProvider_Impl::GetSelection(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6775,8 +6775,8 @@ impl ITextProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextProvider_Impl::GetVisibleRanges(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6791,8 +6791,8 @@ impl ITextProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextProvider_Impl::RangeFromChild(this, core::mem::transmute_copy(&childelement)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6807,8 +6807,8 @@ impl ITextProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextProvider_Impl::RangeFromPoint(this, core::mem::transmute(&point)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6823,8 +6823,8 @@ impl ITextProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextProvider_Impl::DocumentRange(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6839,8 +6839,8 @@ impl ITextProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextProvider_Impl::SupportedTextSelection(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6914,8 +6914,8 @@ impl ITextProvider2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextProvider2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextProvider2_Impl::RangeFromAnnotation(this, core::mem::transmute_copy(&annotationelement)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -6930,8 +6930,8 @@ impl ITextProvider2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextProvider2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextProvider2_Impl::GetCaretRange(this, core::mem::transmute_copy(&isactive)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7127,8 +7127,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRangeProvider_Impl::Clone(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7143,8 +7143,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRangeProvider_Impl::Compare(this, core::mem::transmute_copy(&range)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7159,8 +7159,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRangeProvider_Impl::CompareEndpoints(this, core::mem::transmute_copy(&endpoint), core::mem::transmute_copy(&targetrange), core::mem::transmute_copy(&targetendpoint)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7175,8 +7175,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRangeProvider_Impl::ExpandToEnclosingUnit(this, core::mem::transmute_copy(&unit)).into()
             }
         }
@@ -7185,8 +7185,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRangeProvider_Impl::FindAttribute(this, core::mem::transmute_copy(&attributeid), core::mem::transmute(&val), core::mem::transmute_copy(&backward)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7201,8 +7201,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRangeProvider_Impl::FindText(this, core::mem::transmute(&text), core::mem::transmute_copy(&backward), core::mem::transmute_copy(&ignorecase)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7217,8 +7217,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRangeProvider_Impl::GetAttributeValue(this, core::mem::transmute_copy(&attributeid)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7233,8 +7233,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRangeProvider_Impl::GetBoundingRectangles(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7249,8 +7249,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRangeProvider_Impl::GetEnclosingElement(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7265,8 +7265,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRangeProvider_Impl::GetText(this, core::mem::transmute_copy(&maxlength)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7281,8 +7281,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRangeProvider_Impl::Move(this, core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7297,8 +7297,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRangeProvider_Impl::MoveEndpointByUnit(this, core::mem::transmute_copy(&endpoint), core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7313,8 +7313,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRangeProvider_Impl::MoveEndpointByRange(this, core::mem::transmute_copy(&endpoint), core::mem::transmute_copy(&targetrange), core::mem::transmute_copy(&targetendpoint)).into()
             }
         }
@@ -7323,8 +7323,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRangeProvider_Impl::Select(this).into()
             }
         }
@@ -7333,8 +7333,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRangeProvider_Impl::AddToSelection(this).into()
             }
         }
@@ -7343,8 +7343,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRangeProvider_Impl::RemoveFromSelection(this).into()
             }
         }
@@ -7353,8 +7353,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRangeProvider_Impl::ScrollIntoView(this, core::mem::transmute_copy(&aligntotop)).into()
             }
         }
@@ -7363,8 +7363,8 @@ impl ITextRangeProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRangeProvider_Impl::GetChildren(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7436,8 +7436,8 @@ impl ITextRangeProvider2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRangeProvider2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRangeProvider2_Impl::ShowContextMenu(this).into()
             }
         }
@@ -7483,8 +7483,8 @@ impl IToggleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IToggleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IToggleProvider_Impl::Toggle(this).into()
             }
         }
@@ -7493,8 +7493,8 @@ impl IToggleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IToggleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IToggleProvider_Impl::ToggleState(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7571,8 +7571,8 @@ impl ITransformProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITransformProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITransformProvider_Impl::Move(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
             }
         }
@@ -7581,8 +7581,8 @@ impl ITransformProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITransformProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITransformProvider_Impl::Resize(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
             }
         }
@@ -7591,8 +7591,8 @@ impl ITransformProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITransformProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITransformProvider_Impl::Rotate(this, core::mem::transmute_copy(&degrees)).into()
             }
         }
@@ -7601,8 +7601,8 @@ impl ITransformProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITransformProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITransformProvider_Impl::CanMove(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7617,8 +7617,8 @@ impl ITransformProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITransformProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITransformProvider_Impl::CanResize(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7633,8 +7633,8 @@ impl ITransformProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITransformProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITransformProvider_Impl::CanRotate(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7728,8 +7728,8 @@ impl ITransformProvider2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITransformProvider2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITransformProvider2_Impl::Zoom(this, core::mem::transmute_copy(&zoom)).into()
             }
         }
@@ -7738,8 +7738,8 @@ impl ITransformProvider2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITransformProvider2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITransformProvider2_Impl::CanZoom(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7754,8 +7754,8 @@ impl ITransformProvider2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITransformProvider2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITransformProvider2_Impl::ZoomLevel(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7770,8 +7770,8 @@ impl ITransformProvider2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITransformProvider2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITransformProvider2_Impl::ZoomMinimum(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7786,8 +7786,8 @@ impl ITransformProvider2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITransformProvider2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITransformProvider2_Impl::ZoomMaximum(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -7802,8 +7802,8 @@ impl ITransformProvider2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITransformProvider2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITransformProvider2_Impl::ZoomByUnit(this, core::mem::transmute_copy(&zoomunit)).into()
             }
         }
@@ -8398,8 +8398,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CompareElements(this, core::mem::transmute_copy(&el1), core::mem::transmute_copy(&el2)) {
                     Ok(ok__) => {
                         aresame.write(core::mem::transmute(ok__));
@@ -8414,8 +8414,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CompareRuntimeIds(this, core::mem::transmute_copy(&runtimeid1), core::mem::transmute_copy(&runtimeid2)) {
                     Ok(ok__) => {
                         aresame.write(core::mem::transmute(ok__));
@@ -8430,8 +8430,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::GetRootElement(this) {
                     Ok(ok__) => {
                         root.write(core::mem::transmute(ok__));
@@ -8446,8 +8446,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::ElementFromHandle(this, core::mem::transmute_copy(&hwnd)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
@@ -8462,8 +8462,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::ElementFromPoint(this, core::mem::transmute(&pt)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
@@ -8478,8 +8478,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::GetFocusedElement(this) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
@@ -8494,8 +8494,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::GetRootElementBuildCache(this, core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         root.write(core::mem::transmute(ok__));
@@ -8510,8 +8510,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::ElementFromHandleBuildCache(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
@@ -8526,8 +8526,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::ElementFromPointBuildCache(this, core::mem::transmute(&pt), core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
@@ -8542,8 +8542,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::GetFocusedElementBuildCache(this, core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
@@ -8558,8 +8558,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CreateTreeWalker(this, core::mem::transmute_copy(&pcondition)) {
                     Ok(ok__) => {
                         walker.write(core::mem::transmute(ok__));
@@ -8574,8 +8574,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::ControlViewWalker(this) {
                     Ok(ok__) => {
                         walker.write(core::mem::transmute(ok__));
@@ -8590,8 +8590,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::ContentViewWalker(this) {
                     Ok(ok__) => {
                         walker.write(core::mem::transmute(ok__));
@@ -8606,8 +8606,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::RawViewWalker(this) {
                     Ok(ok__) => {
                         walker.write(core::mem::transmute(ok__));
@@ -8622,8 +8622,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::RawViewCondition(this) {
                     Ok(ok__) => {
                         condition.write(core::mem::transmute(ok__));
@@ -8638,8 +8638,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::ControlViewCondition(this) {
                     Ok(ok__) => {
                         condition.write(core::mem::transmute(ok__));
@@ -8654,8 +8654,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::ContentViewCondition(this) {
                     Ok(ok__) => {
                         condition.write(core::mem::transmute(ok__));
@@ -8670,8 +8670,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CreateCacheRequest(this) {
                     Ok(ok__) => {
                         cacherequest.write(core::mem::transmute(ok__));
@@ -8686,8 +8686,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CreateTrueCondition(this) {
                     Ok(ok__) => {
                         newcondition.write(core::mem::transmute(ok__));
@@ -8702,8 +8702,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CreateFalseCondition(this) {
                     Ok(ok__) => {
                         newcondition.write(core::mem::transmute(ok__));
@@ -8718,8 +8718,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CreatePropertyCondition(this, core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
                     Ok(ok__) => {
                         newcondition.write(core::mem::transmute(ok__));
@@ -8734,8 +8734,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CreatePropertyConditionEx(this, core::mem::transmute_copy(&propertyid), core::mem::transmute(&value), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
                         newcondition.write(core::mem::transmute(ok__));
@@ -8750,8 +8750,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CreateAndCondition(this, core::mem::transmute_copy(&condition1), core::mem::transmute_copy(&condition2)) {
                     Ok(ok__) => {
                         newcondition.write(core::mem::transmute(ok__));
@@ -8766,8 +8766,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CreateAndConditionFromArray(this, core::mem::transmute_copy(&conditions)) {
                     Ok(ok__) => {
                         newcondition.write(core::mem::transmute(ok__));
@@ -8782,8 +8782,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CreateAndConditionFromNativeArray(this, core::mem::transmute_copy(&conditions), core::mem::transmute_copy(&conditioncount)) {
                     Ok(ok__) => {
                         newcondition.write(core::mem::transmute(ok__));
@@ -8798,8 +8798,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CreateOrCondition(this, core::mem::transmute_copy(&condition1), core::mem::transmute_copy(&condition2)) {
                     Ok(ok__) => {
                         newcondition.write(core::mem::transmute(ok__));
@@ -8814,8 +8814,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CreateOrConditionFromArray(this, core::mem::transmute_copy(&conditions)) {
                     Ok(ok__) => {
                         newcondition.write(core::mem::transmute(ok__));
@@ -8830,8 +8830,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CreateOrConditionFromNativeArray(this, core::mem::transmute_copy(&conditions), core::mem::transmute_copy(&conditioncount)) {
                     Ok(ok__) => {
                         newcondition.write(core::mem::transmute(ok__));
@@ -8846,8 +8846,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CreateNotCondition(this, core::mem::transmute_copy(&condition)) {
                     Ok(ok__) => {
                         newcondition.write(core::mem::transmute(ok__));
@@ -8862,8 +8862,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation_Impl::AddAutomationEventHandler(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -8872,8 +8872,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation_Impl::RemoveAutomationEventHandler(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&element), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -8882,8 +8882,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation_Impl::AddPropertyChangedEventHandlerNativeArray(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler), core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
             }
         }
@@ -8892,8 +8892,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation_Impl::AddPropertyChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler), core::mem::transmute_copy(&propertyarray)).into()
             }
         }
@@ -8902,8 +8902,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation_Impl::RemovePropertyChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -8912,8 +8912,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation_Impl::AddStructureChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -8922,8 +8922,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation_Impl::RemoveStructureChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -8932,8 +8932,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation_Impl::AddFocusChangedEventHandler(this, core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -8942,8 +8942,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation_Impl::RemoveFocusChangedEventHandler(this, core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -8952,8 +8952,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation_Impl::RemoveAllEventHandlers(this).into()
             }
         }
@@ -8962,8 +8962,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::IntNativeArrayToSafeArray(this, core::mem::transmute_copy(&array), core::mem::transmute_copy(&arraycount)) {
                     Ok(ok__) => {
                         safearray.write(core::mem::transmute(ok__));
@@ -8978,8 +8978,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::IntSafeArrayToNativeArray(this, core::mem::transmute_copy(&intarray), core::mem::transmute_copy(&array)) {
                     Ok(ok__) => {
                         arraycount.write(core::mem::transmute(ok__));
@@ -8994,8 +8994,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::RectToVariant(this, core::mem::transmute(&rc)) {
                     Ok(ok__) => {
                         var.write(core::mem::transmute(ok__));
@@ -9010,8 +9010,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::VariantToRect(this, core::mem::transmute(&var)) {
                     Ok(ok__) => {
                         rc.write(core::mem::transmute(ok__));
@@ -9026,8 +9026,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::SafeArrayToRectNativeArray(this, core::mem::transmute_copy(&rects), core::mem::transmute_copy(&rectarray)) {
                     Ok(ok__) => {
                         rectarraycount.write(core::mem::transmute(ok__));
@@ -9042,8 +9042,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CreateProxyFactoryEntry(this, core::mem::transmute_copy(&factory)) {
                     Ok(ok__) => {
                         factoryentry.write(core::mem::transmute(ok__));
@@ -9058,8 +9058,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::ProxyFactoryMapping(this) {
                     Ok(ok__) => {
                         factorymapping.write(core::mem::transmute(ok__));
@@ -9074,8 +9074,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::GetPropertyProgrammaticName(this, core::mem::transmute_copy(&property)) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -9090,8 +9090,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::GetPatternProgrammaticName(this, core::mem::transmute_copy(&pattern)) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -9106,8 +9106,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation_Impl::PollForPotentialSupportedPatterns(this, core::mem::transmute_copy(&pelement), core::mem::transmute_copy(&patternids), core::mem::transmute_copy(&patternnames)).into()
             }
         }
@@ -9116,8 +9116,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation_Impl::PollForPotentialSupportedProperties(this, core::mem::transmute_copy(&pelement), core::mem::transmute_copy(&propertyids), core::mem::transmute_copy(&propertynames)).into()
             }
         }
@@ -9126,8 +9126,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::CheckNotSupported(this, core::mem::transmute(&value)) {
                     Ok(ok__) => {
                         isnotsupported.write(core::mem::transmute(ok__));
@@ -9142,8 +9142,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::ReservedNotSupportedValue(this) {
                     Ok(ok__) => {
                         notsupportedvalue.write(core::mem::transmute(ok__));
@@ -9158,8 +9158,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::ReservedMixedAttributeValue(this) {
                     Ok(ok__) => {
                         mixedattributevalue.write(core::mem::transmute(ok__));
@@ -9174,8 +9174,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::ElementFromIAccessible(this, core::mem::transmute_copy(&accessible), core::mem::transmute_copy(&childid)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
@@ -9190,8 +9190,8 @@ impl IUIAutomation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation_Impl::ElementFromIAccessibleBuildCache(this, core::mem::transmute_copy(&accessible), core::mem::transmute_copy(&childid), core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
@@ -9334,8 +9334,8 @@ impl IUIAutomation2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation2_Impl::AutoSetFocus(this) {
                     Ok(ok__) => {
                         autosetfocus.write(core::mem::transmute(ok__));
@@ -9350,8 +9350,8 @@ impl IUIAutomation2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation2_Impl::SetAutoSetFocus(this, core::mem::transmute_copy(&autosetfocus)).into()
             }
         }
@@ -9360,8 +9360,8 @@ impl IUIAutomation2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation2_Impl::ConnectionTimeout(this) {
                     Ok(ok__) => {
                         timeout.write(core::mem::transmute(ok__));
@@ -9376,8 +9376,8 @@ impl IUIAutomation2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation2_Impl::SetConnectionTimeout(this, core::mem::transmute_copy(&timeout)).into()
             }
         }
@@ -9386,8 +9386,8 @@ impl IUIAutomation2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation2_Impl::TransactionTimeout(this) {
                     Ok(ok__) => {
                         timeout.write(core::mem::transmute(ok__));
@@ -9402,8 +9402,8 @@ impl IUIAutomation2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation2_Impl::SetTransactionTimeout(this, core::mem::transmute_copy(&timeout)).into()
             }
         }
@@ -9471,8 +9471,8 @@ impl IUIAutomation3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation3_Impl::AddTextEditTextChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&texteditchangetype), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -9481,8 +9481,8 @@ impl IUIAutomation3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation3_Impl::RemoveTextEditTextChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -9546,8 +9546,8 @@ impl IUIAutomation4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation4_Impl::AddChangesEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&changetypes), core::mem::transmute_copy(&changescount), core::mem::transmute_copy(&pcacherequest), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -9556,8 +9556,8 @@ impl IUIAutomation4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation4_Impl::RemoveChangesEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -9621,8 +9621,8 @@ impl IUIAutomation5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation5_Impl::AddNotificationEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -9631,8 +9631,8 @@ impl IUIAutomation5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation5_Impl::RemoveNotificationEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -9748,8 +9748,8 @@ impl IUIAutomation6_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation6_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation6_Impl::CreateEventHandlerGroup(this) {
                     Ok(ok__) => {
                         handlergroup.write(core::mem::transmute(ok__));
@@ -9764,8 +9764,8 @@ impl IUIAutomation6_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation6_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation6_Impl::AddEventHandlerGroup(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handlergroup)).into()
             }
         }
@@ -9774,8 +9774,8 @@ impl IUIAutomation6_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation6_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation6_Impl::RemoveEventHandlerGroup(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handlergroup)).into()
             }
         }
@@ -9784,8 +9784,8 @@ impl IUIAutomation6_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation6_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation6_Impl::ConnectionRecoveryBehavior(this) {
                     Ok(ok__) => {
                         connectionrecoverybehavioroptions.write(core::mem::transmute(ok__));
@@ -9800,8 +9800,8 @@ impl IUIAutomation6_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation6_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation6_Impl::SetConnectionRecoveryBehavior(this, core::mem::transmute_copy(&connectionrecoverybehavioroptions)).into()
             }
         }
@@ -9810,8 +9810,8 @@ impl IUIAutomation6_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation6_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomation6_Impl::CoalesceEvents(this) {
                     Ok(ok__) => {
                         coalesceeventsoptions.write(core::mem::transmute(ok__));
@@ -9826,8 +9826,8 @@ impl IUIAutomation6_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation6_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation6_Impl::SetCoalesceEvents(this, core::mem::transmute_copy(&coalesceeventsoptions)).into()
             }
         }
@@ -9836,8 +9836,8 @@ impl IUIAutomation6_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation6_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation6_Impl::AddActiveTextPositionChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -9846,8 +9846,8 @@ impl IUIAutomation6_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomation6_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomation6_Impl::RemoveActiveTextPositionChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -9900,8 +9900,8 @@ impl IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationActiveTextPositionChangedEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationActiveTextPositionChangedEventHandler_Impl::HandleActiveTextPositionChangedEvent(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&range)).into()
             }
         }
@@ -9969,8 +9969,8 @@ impl IUIAutomationAndCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationAndCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationAndCondition_Impl::ChildCount(this) {
                     Ok(ok__) => {
                         childcount.write(core::mem::transmute(ok__));
@@ -9985,8 +9985,8 @@ impl IUIAutomationAndCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationAndCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationAndCondition_Impl::GetChildrenAsNativeArray(this, core::mem::transmute_copy(&childarray), core::mem::transmute_copy(&childarraycount)).into()
             }
         }
@@ -9995,8 +9995,8 @@ impl IUIAutomationAndCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationAndCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationAndCondition_Impl::GetChildren(this) {
                     Ok(ok__) => {
                         childarray.write(core::mem::transmute(ok__));
@@ -10120,8 +10120,8 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationAnnotationPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationAnnotationPattern_Impl::CurrentAnnotationTypeId(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10136,8 +10136,8 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationAnnotationPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationAnnotationPattern_Impl::CurrentAnnotationTypeName(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10152,8 +10152,8 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationAnnotationPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationAnnotationPattern_Impl::CurrentAuthor(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10168,8 +10168,8 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationAnnotationPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationAnnotationPattern_Impl::CurrentDateTime(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10184,8 +10184,8 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationAnnotationPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationAnnotationPattern_Impl::CurrentTarget(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10200,8 +10200,8 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationAnnotationPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationAnnotationPattern_Impl::CachedAnnotationTypeId(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10216,8 +10216,8 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationAnnotationPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationAnnotationPattern_Impl::CachedAnnotationTypeName(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10232,8 +10232,8 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationAnnotationPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationAnnotationPattern_Impl::CachedAuthor(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10248,8 +10248,8 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationAnnotationPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationAnnotationPattern_Impl::CachedDateTime(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10264,8 +10264,8 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationAnnotationPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationAnnotationPattern_Impl::CachedTarget(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10329,8 +10329,8 @@ impl IUIAutomationBoolCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationBoolCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationBoolCondition_Impl::BooleanValue(this) {
                     Ok(ok__) => {
                         boolval.write(core::mem::transmute(ok__));
@@ -10428,8 +10428,8 @@ impl IUIAutomationCacheRequest_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationCacheRequest_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationCacheRequest_Impl::AddProperty(this, core::mem::transmute_copy(&propertyid)).into()
             }
         }
@@ -10438,8 +10438,8 @@ impl IUIAutomationCacheRequest_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationCacheRequest_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationCacheRequest_Impl::AddPattern(this, core::mem::transmute_copy(&patternid)).into()
             }
         }
@@ -10448,8 +10448,8 @@ impl IUIAutomationCacheRequest_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationCacheRequest_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationCacheRequest_Impl::Clone(this) {
                     Ok(ok__) => {
                         clonedrequest.write(core::mem::transmute(ok__));
@@ -10464,8 +10464,8 @@ impl IUIAutomationCacheRequest_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationCacheRequest_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationCacheRequest_Impl::TreeScope(this) {
                     Ok(ok__) => {
                         scope.write(core::mem::transmute(ok__));
@@ -10480,8 +10480,8 @@ impl IUIAutomationCacheRequest_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationCacheRequest_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationCacheRequest_Impl::SetTreeScope(this, core::mem::transmute_copy(&scope)).into()
             }
         }
@@ -10490,8 +10490,8 @@ impl IUIAutomationCacheRequest_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationCacheRequest_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationCacheRequest_Impl::TreeFilter(this) {
                     Ok(ok__) => {
                         filter.write(core::mem::transmute(ok__));
@@ -10506,8 +10506,8 @@ impl IUIAutomationCacheRequest_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationCacheRequest_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationCacheRequest_Impl::SetTreeFilter(this, core::mem::transmute_copy(&filter)).into()
             }
         }
@@ -10516,8 +10516,8 @@ impl IUIAutomationCacheRequest_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationCacheRequest_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationCacheRequest_Impl::AutomationElementMode(this) {
                     Ok(ok__) => {
                         mode.write(core::mem::transmute(ok__));
@@ -10532,8 +10532,8 @@ impl IUIAutomationCacheRequest_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationCacheRequest_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationCacheRequest_Impl::SetAutomationElementMode(this, core::mem::transmute_copy(&mode)).into()
             }
         }
@@ -10590,8 +10590,8 @@ impl IUIAutomationChangesEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationChangesEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationChangesEventHandler_Impl::HandleChangesEvent(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&uiachanges), core::mem::transmute_copy(&changescount)).into()
             }
         }
@@ -10640,8 +10640,8 @@ impl IUIAutomationClientConnectionCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationClientConnectionCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationClientConnectionCallback_Impl::OnConnected(this, core::mem::transmute_copy(&clientinfo)).into()
             }
         }
@@ -10650,8 +10650,8 @@ impl IUIAutomationClientConnectionCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationClientConnectionCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationClientConnectionCallback_Impl::OnDisconnected(this, core::mem::transmute_copy(&clientinfo)).into()
             }
         }
@@ -10703,8 +10703,8 @@ impl IUIAutomationClientInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationClientInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationClientInfo_Impl::ProcessId(this) {
                     Ok(ok__) => {
                         processid.write(core::mem::transmute(ok__));
@@ -10719,8 +10719,8 @@ impl IUIAutomationClientInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationClientInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationClientInfo_Impl::ProcessName(this) {
                     Ok(ok__) => {
                         processname.write(core::mem::transmute(ok__));
@@ -10792,8 +10792,8 @@ impl IUIAutomationClientInfoSource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationClientInfoSource_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationClientInfoSource_Impl::RegisterClientConnectionCallback(this, core::mem::transmute_copy(&callback)) {
                     Ok(ok__) => {
                         handle.write(core::mem::transmute(ok__));
@@ -10808,8 +10808,8 @@ impl IUIAutomationClientInfoSource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationClientInfoSource_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationClientInfoSource_Impl::UnregisterClientConnectionCallback(this, core::mem::transmute_copy(&handle)).into()
             }
         }
@@ -10818,8 +10818,8 @@ impl IUIAutomationClientInfoSource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationClientInfoSource_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationClientInfoSource_Impl::GetConnectedClients(this) {
                     Ok(ok__) => {
                         clients.write(core::mem::transmute(ok__));
@@ -10891,8 +10891,8 @@ impl IUIAutomationCustomNavigationPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationCustomNavigationPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationCustomNavigationPattern_Impl::Navigate(this, core::mem::transmute_copy(&direction)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -10951,8 +10951,8 @@ impl IUIAutomationDockPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDockPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationDockPattern_Impl::SetDockPosition(this, core::mem::transmute_copy(&dockpos)).into()
             }
         }
@@ -10961,8 +10961,8 @@ impl IUIAutomationDockPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDockPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationDockPattern_Impl::CurrentDockPosition(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -10977,8 +10977,8 @@ impl IUIAutomationDockPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDockPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationDockPattern_Impl::CachedDockPosition(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11095,8 +11095,8 @@ impl IUIAutomationDragPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDragPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationDragPattern_Impl::CurrentIsGrabbed(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11111,8 +11111,8 @@ impl IUIAutomationDragPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDragPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationDragPattern_Impl::CachedIsGrabbed(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11127,8 +11127,8 @@ impl IUIAutomationDragPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDragPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationDragPattern_Impl::CurrentDropEffect(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11143,8 +11143,8 @@ impl IUIAutomationDragPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDragPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationDragPattern_Impl::CachedDropEffect(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11159,8 +11159,8 @@ impl IUIAutomationDragPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDragPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationDragPattern_Impl::CurrentDropEffects(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11175,8 +11175,8 @@ impl IUIAutomationDragPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDragPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationDragPattern_Impl::CachedDropEffects(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11191,8 +11191,8 @@ impl IUIAutomationDragPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDragPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationDragPattern_Impl::GetCurrentGrabbedItems(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11207,8 +11207,8 @@ impl IUIAutomationDragPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDragPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationDragPattern_Impl::GetCachedGrabbedItems(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11299,8 +11299,8 @@ impl IUIAutomationDropTargetPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDropTargetPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationDropTargetPattern_Impl::CurrentDropTargetEffect(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11315,8 +11315,8 @@ impl IUIAutomationDropTargetPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDropTargetPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationDropTargetPattern_Impl::CachedDropTargetEffect(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11331,8 +11331,8 @@ impl IUIAutomationDropTargetPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDropTargetPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationDropTargetPattern_Impl::CurrentDropTargetEffects(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -11347,8 +11347,8 @@ impl IUIAutomationDropTargetPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationDropTargetPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationDropTargetPattern_Impl::CachedDropTargetEffects(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12087,8 +12087,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationElement_Impl::SetFocus(this).into()
             }
         }
@@ -12097,8 +12097,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::GetRuntimeId(this) {
                     Ok(ok__) => {
                         runtimeid.write(core::mem::transmute(ok__));
@@ -12113,8 +12113,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::FindFirst(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
@@ -12129,8 +12129,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::FindAll(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
@@ -12145,8 +12145,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::FindFirstBuildCache(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition), core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
@@ -12161,8 +12161,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::FindAllBuildCache(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition), core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
@@ -12177,8 +12177,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::BuildUpdatedCache(this, core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         updatedelement.write(core::mem::transmute(ok__));
@@ -12193,8 +12193,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::GetCurrentPropertyValue(this, core::mem::transmute_copy(&propertyid)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12209,8 +12209,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::GetCurrentPropertyValueEx(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ignoredefaultvalue)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12225,8 +12225,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::GetCachedPropertyValue(this, core::mem::transmute_copy(&propertyid)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12241,8 +12241,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::GetCachedPropertyValueEx(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ignoredefaultvalue)) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12257,8 +12257,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationElement_Impl::GetCurrentPatternAs(this, core::mem::transmute_copy(&patternid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&patternobject)).into()
             }
         }
@@ -12267,8 +12267,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationElement_Impl::GetCachedPatternAs(this, core::mem::transmute_copy(&patternid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&patternobject)).into()
             }
         }
@@ -12277,8 +12277,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::GetCurrentPattern(this, core::mem::transmute_copy(&patternid)) {
                     Ok(ok__) => {
                         patternobject.write(core::mem::transmute(ok__));
@@ -12293,8 +12293,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::GetCachedPattern(this, core::mem::transmute_copy(&patternid)) {
                     Ok(ok__) => {
                         patternobject.write(core::mem::transmute(ok__));
@@ -12309,8 +12309,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::GetCachedParent(this) {
                     Ok(ok__) => {
                         parent.write(core::mem::transmute(ok__));
@@ -12325,8 +12325,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::GetCachedChildren(this) {
                     Ok(ok__) => {
                         children.write(core::mem::transmute(ok__));
@@ -12341,8 +12341,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentProcessId(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12357,8 +12357,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentControlType(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12373,8 +12373,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentLocalizedControlType(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12389,8 +12389,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentName(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12405,8 +12405,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentAcceleratorKey(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12421,8 +12421,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentAccessKey(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12437,8 +12437,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentHasKeyboardFocus(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12453,8 +12453,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentIsKeyboardFocusable(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12469,8 +12469,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentIsEnabled(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12485,8 +12485,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentAutomationId(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12501,8 +12501,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentClassName(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12517,8 +12517,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentHelpText(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12533,8 +12533,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentCulture(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12549,8 +12549,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentIsControlElement(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12565,8 +12565,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentIsContentElement(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12581,8 +12581,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentIsPassword(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12597,8 +12597,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentNativeWindowHandle(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12613,8 +12613,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentItemType(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12629,8 +12629,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentIsOffscreen(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12645,8 +12645,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentOrientation(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12661,8 +12661,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentFrameworkId(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12677,8 +12677,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentIsRequiredForForm(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12693,8 +12693,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentItemStatus(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12709,8 +12709,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentBoundingRectangle(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12725,8 +12725,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentLabeledBy(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12741,8 +12741,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentAriaRole(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12757,8 +12757,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentAriaProperties(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12773,8 +12773,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentIsDataValidForForm(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12789,8 +12789,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentControllerFor(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12805,8 +12805,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentDescribedBy(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12821,8 +12821,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentFlowsTo(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12837,8 +12837,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CurrentProviderDescription(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12853,8 +12853,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedProcessId(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12869,8 +12869,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedControlType(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12885,8 +12885,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedLocalizedControlType(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12901,8 +12901,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedName(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12917,8 +12917,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedAcceleratorKey(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12933,8 +12933,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedAccessKey(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12949,8 +12949,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedHasKeyboardFocus(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12965,8 +12965,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedIsKeyboardFocusable(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12981,8 +12981,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedIsEnabled(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -12997,8 +12997,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedAutomationId(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13013,8 +13013,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedClassName(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13029,8 +13029,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedHelpText(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13045,8 +13045,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedCulture(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13061,8 +13061,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedIsControlElement(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13077,8 +13077,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedIsContentElement(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13093,8 +13093,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedIsPassword(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13109,8 +13109,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedNativeWindowHandle(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13125,8 +13125,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedItemType(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13141,8 +13141,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedIsOffscreen(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13157,8 +13157,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedOrientation(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13173,8 +13173,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedFrameworkId(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13189,8 +13189,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedIsRequiredForForm(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13205,8 +13205,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedItemStatus(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13221,8 +13221,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedBoundingRectangle(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13237,8 +13237,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedLabeledBy(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13253,8 +13253,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedAriaRole(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13269,8 +13269,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedAriaProperties(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13285,8 +13285,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedIsDataValidForForm(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13301,8 +13301,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedControllerFor(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13317,8 +13317,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedDescribedBy(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13333,8 +13333,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedFlowsTo(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13349,8 +13349,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::CachedProviderDescription(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13365,8 +13365,8 @@ impl IUIAutomationElement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement_Impl::GetClickablePoint(this, core::mem::transmute_copy(&clickable)) {
                     Ok(ok__) => {
                         gotclickable.write(core::mem::transmute(ok__));
@@ -13545,8 +13545,8 @@ impl IUIAutomationElement2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement2_Impl::CurrentOptimizeForVisualContent(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13561,8 +13561,8 @@ impl IUIAutomationElement2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement2_Impl::CachedOptimizeForVisualContent(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13577,8 +13577,8 @@ impl IUIAutomationElement2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement2_Impl::CurrentLiveSetting(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13593,8 +13593,8 @@ impl IUIAutomationElement2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement2_Impl::CachedLiveSetting(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13609,8 +13609,8 @@ impl IUIAutomationElement2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement2_Impl::CurrentFlowsFrom(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13625,8 +13625,8 @@ impl IUIAutomationElement2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement2_Impl::CachedFlowsFrom(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13702,8 +13702,8 @@ impl IUIAutomationElement3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationElement3_Impl::ShowContextMenu(this).into()
             }
         }
@@ -13712,8 +13712,8 @@ impl IUIAutomationElement3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement3_Impl::CurrentIsPeripheral(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13728,8 +13728,8 @@ impl IUIAutomationElement3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement3_Impl::CachedIsPeripheral(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13869,8 +13869,8 @@ impl IUIAutomationElement4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement4_Impl::CurrentPositionInSet(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13885,8 +13885,8 @@ impl IUIAutomationElement4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement4_Impl::CurrentSizeOfSet(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13901,8 +13901,8 @@ impl IUIAutomationElement4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement4_Impl::CurrentLevel(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13917,8 +13917,8 @@ impl IUIAutomationElement4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement4_Impl::CurrentAnnotationTypes(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13933,8 +13933,8 @@ impl IUIAutomationElement4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement4_Impl::CurrentAnnotationObjects(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13949,8 +13949,8 @@ impl IUIAutomationElement4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement4_Impl::CachedPositionInSet(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13965,8 +13965,8 @@ impl IUIAutomationElement4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement4_Impl::CachedSizeOfSet(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13981,8 +13981,8 @@ impl IUIAutomationElement4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement4_Impl::CachedLevel(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -13997,8 +13997,8 @@ impl IUIAutomationElement4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement4_Impl::CachedAnnotationTypes(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -14013,8 +14013,8 @@ impl IUIAutomationElement4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement4_Impl::CachedAnnotationObjects(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -14105,8 +14105,8 @@ impl IUIAutomationElement5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement5_Impl::CurrentLandmarkType(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -14121,8 +14121,8 @@ impl IUIAutomationElement5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement5_Impl::CurrentLocalizedLandmarkType(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -14137,8 +14137,8 @@ impl IUIAutomationElement5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement5_Impl::CachedLandmarkType(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -14153,8 +14153,8 @@ impl IUIAutomationElement5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement5_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement5_Impl::CachedLocalizedLandmarkType(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -14223,8 +14223,8 @@ impl IUIAutomationElement6_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement6_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement6_Impl::CurrentFullDescription(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -14239,8 +14239,8 @@ impl IUIAutomationElement6_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement6_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement6_Impl::CachedFullDescription(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -14353,8 +14353,8 @@ impl IUIAutomationElement7_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement7_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement7_Impl::FindFirstWithOptions(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition), core::mem::transmute_copy(&traversaloptions), core::mem::transmute_copy(&root)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
@@ -14369,8 +14369,8 @@ impl IUIAutomationElement7_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement7_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement7_Impl::FindAllWithOptions(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition), core::mem::transmute_copy(&traversaloptions), core::mem::transmute_copy(&root)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
@@ -14385,8 +14385,8 @@ impl IUIAutomationElement7_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement7_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement7_Impl::FindFirstWithOptionsBuildCache(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&traversaloptions), core::mem::transmute_copy(&root)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
@@ -14401,8 +14401,8 @@ impl IUIAutomationElement7_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement7_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement7_Impl::FindAllWithOptionsBuildCache(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&traversaloptions), core::mem::transmute_copy(&root)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
@@ -14417,8 +14417,8 @@ impl IUIAutomationElement7_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement7_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement7_Impl::GetCurrentMetadataValue(this, core::mem::transmute_copy(&targetid), core::mem::transmute_copy(&metadataid)) {
                     Ok(ok__) => {
                         returnval.write(core::mem::transmute(ok__));
@@ -14488,8 +14488,8 @@ impl IUIAutomationElement8_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement8_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement8_Impl::CurrentHeadingLevel(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -14504,8 +14504,8 @@ impl IUIAutomationElement8_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement8_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement8_Impl::CachedHeadingLevel(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -14572,8 +14572,8 @@ impl IUIAutomationElement9_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement9_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement9_Impl::CurrentIsDialog(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -14588,8 +14588,8 @@ impl IUIAutomationElement9_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElement9_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElement9_Impl::CachedIsDialog(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -14648,8 +14648,8 @@ impl IUIAutomationElementArray_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElementArray_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElementArray_Impl::Length(this) {
                     Ok(ok__) => {
                         length.write(core::mem::transmute(ok__));
@@ -14664,8 +14664,8 @@ impl IUIAutomationElementArray_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationElementArray_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationElementArray_Impl::GetElement(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
@@ -14711,8 +14711,8 @@ impl IUIAutomationEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationEventHandler_Impl::HandleAutomationEvent(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&eventid)).into()
             }
         }
@@ -14807,8 +14807,8 @@ impl IUIAutomationEventHandlerGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationEventHandlerGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationEventHandlerGroup_Impl::AddActiveTextPositionChangedEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -14817,8 +14817,8 @@ impl IUIAutomationEventHandlerGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationEventHandlerGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationEventHandlerGroup_Impl::AddAutomationEventHandler(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -14827,8 +14827,8 @@ impl IUIAutomationEventHandlerGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationEventHandlerGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationEventHandlerGroup_Impl::AddChangesEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&changetypes), core::mem::transmute_copy(&changescount), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -14837,8 +14837,8 @@ impl IUIAutomationEventHandlerGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationEventHandlerGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationEventHandlerGroup_Impl::AddNotificationEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -14847,8 +14847,8 @@ impl IUIAutomationEventHandlerGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationEventHandlerGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationEventHandlerGroup_Impl::AddPropertyChangedEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler), core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
             }
         }
@@ -14857,8 +14857,8 @@ impl IUIAutomationEventHandlerGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationEventHandlerGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationEventHandlerGroup_Impl::AddStructureChangedEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -14867,8 +14867,8 @@ impl IUIAutomationEventHandlerGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationEventHandlerGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationEventHandlerGroup_Impl::AddTextEditTextChangedEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&texteditchangetype), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -14935,8 +14935,8 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationExpandCollapsePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationExpandCollapsePattern_Impl::Expand(this).into()
             }
         }
@@ -14945,8 +14945,8 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationExpandCollapsePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationExpandCollapsePattern_Impl::Collapse(this).into()
             }
         }
@@ -14955,8 +14955,8 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationExpandCollapsePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationExpandCollapsePattern_Impl::CurrentExpandCollapseState(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -14971,8 +14971,8 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationExpandCollapsePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationExpandCollapsePattern_Impl::CachedExpandCollapseState(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15024,8 +15024,8 @@ impl IUIAutomationFocusChangedEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationFocusChangedEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationFocusChangedEventHandler_Impl::HandleFocusChangedEvent(this, core::mem::transmute_copy(&sender)).into()
             }
         }
@@ -15137,8 +15137,8 @@ impl IUIAutomationGridItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridItemPattern_Impl::CurrentContainingGrid(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15153,8 +15153,8 @@ impl IUIAutomationGridItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridItemPattern_Impl::CurrentRow(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15169,8 +15169,8 @@ impl IUIAutomationGridItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridItemPattern_Impl::CurrentColumn(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15185,8 +15185,8 @@ impl IUIAutomationGridItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridItemPattern_Impl::CurrentRowSpan(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15201,8 +15201,8 @@ impl IUIAutomationGridItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridItemPattern_Impl::CurrentColumnSpan(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15217,8 +15217,8 @@ impl IUIAutomationGridItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridItemPattern_Impl::CachedContainingGrid(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15233,8 +15233,8 @@ impl IUIAutomationGridItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridItemPattern_Impl::CachedRow(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15249,8 +15249,8 @@ impl IUIAutomationGridItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridItemPattern_Impl::CachedColumn(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15265,8 +15265,8 @@ impl IUIAutomationGridItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridItemPattern_Impl::CachedRowSpan(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15281,8 +15281,8 @@ impl IUIAutomationGridItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridItemPattern_Impl::CachedColumnSpan(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15372,8 +15372,8 @@ impl IUIAutomationGridPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridPattern_Impl::GetItem(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
@@ -15388,8 +15388,8 @@ impl IUIAutomationGridPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridPattern_Impl::CurrentRowCount(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15404,8 +15404,8 @@ impl IUIAutomationGridPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridPattern_Impl::CurrentColumnCount(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15420,8 +15420,8 @@ impl IUIAutomationGridPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridPattern_Impl::CachedRowCount(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15436,8 +15436,8 @@ impl IUIAutomationGridPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationGridPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationGridPattern_Impl::CachedColumnCount(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -15487,8 +15487,8 @@ impl IUIAutomationInvokePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationInvokePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationInvokePattern_Impl::Invoke(this).into()
             }
         }
@@ -15537,8 +15537,8 @@ impl IUIAutomationItemContainerPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationItemContainerPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationItemContainerPattern_Impl::FindItemByProperty(this, core::mem::transmute_copy(&pstartafter), core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
                     Ok(ok__) => {
                         pfound.write(core::mem::transmute(ok__));
@@ -15769,8 +15769,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationLegacyIAccessiblePattern_Impl::Select(this, core::mem::transmute_copy(&flagsselect)).into()
             }
         }
@@ -15779,8 +15779,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationLegacyIAccessiblePattern_Impl::DoDefaultAction(this).into()
             }
         }
@@ -15789,8 +15789,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationLegacyIAccessiblePattern_Impl::SetValue(this, core::mem::transmute(&szvalue)).into()
             }
         }
@@ -15799,8 +15799,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentChildId(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -15815,8 +15815,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentName(this) {
                     Ok(ok__) => {
                         pszname.write(core::mem::transmute(ok__));
@@ -15831,8 +15831,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentValue(this) {
                     Ok(ok__) => {
                         pszvalue.write(core::mem::transmute(ok__));
@@ -15847,8 +15847,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentDescription(this) {
                     Ok(ok__) => {
                         pszdescription.write(core::mem::transmute(ok__));
@@ -15863,8 +15863,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentRole(this) {
                     Ok(ok__) => {
                         pdwrole.write(core::mem::transmute(ok__));
@@ -15879,8 +15879,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentState(this) {
                     Ok(ok__) => {
                         pdwstate.write(core::mem::transmute(ok__));
@@ -15895,8 +15895,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentHelp(this) {
                     Ok(ok__) => {
                         pszhelp.write(core::mem::transmute(ok__));
@@ -15911,8 +15911,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentKeyboardShortcut(this) {
                     Ok(ok__) => {
                         pszkeyboardshortcut.write(core::mem::transmute(ok__));
@@ -15927,8 +15927,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::GetCurrentSelection(this) {
                     Ok(ok__) => {
                         pvarselectedchildren.write(core::mem::transmute(ok__));
@@ -15943,8 +15943,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentDefaultAction(this) {
                     Ok(ok__) => {
                         pszdefaultaction.write(core::mem::transmute(ok__));
@@ -15959,8 +15959,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CachedChildId(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -15975,8 +15975,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CachedName(this) {
                     Ok(ok__) => {
                         pszname.write(core::mem::transmute(ok__));
@@ -15991,8 +15991,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CachedValue(this) {
                     Ok(ok__) => {
                         pszvalue.write(core::mem::transmute(ok__));
@@ -16007,8 +16007,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CachedDescription(this) {
                     Ok(ok__) => {
                         pszdescription.write(core::mem::transmute(ok__));
@@ -16023,8 +16023,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CachedRole(this) {
                     Ok(ok__) => {
                         pdwrole.write(core::mem::transmute(ok__));
@@ -16039,8 +16039,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CachedState(this) {
                     Ok(ok__) => {
                         pdwstate.write(core::mem::transmute(ok__));
@@ -16055,8 +16055,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CachedHelp(this) {
                     Ok(ok__) => {
                         pszhelp.write(core::mem::transmute(ok__));
@@ -16071,8 +16071,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CachedKeyboardShortcut(this) {
                     Ok(ok__) => {
                         pszkeyboardshortcut.write(core::mem::transmute(ok__));
@@ -16087,8 +16087,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::GetCachedSelection(this) {
                     Ok(ok__) => {
                         pvarselectedchildren.write(core::mem::transmute(ok__));
@@ -16103,8 +16103,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CachedDefaultAction(this) {
                     Ok(ok__) => {
                         pszdefaultaction.write(core::mem::transmute(ok__));
@@ -16119,8 +16119,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationLegacyIAccessiblePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::GetIAccessible(this) {
                     Ok(ok__) => {
                         ppaccessible.write(core::mem::transmute(ok__));
@@ -16240,8 +16240,8 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationMultipleViewPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationMultipleViewPattern_Impl::GetViewName(this, core::mem::transmute_copy(&view)) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -16256,8 +16256,8 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationMultipleViewPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationMultipleViewPattern_Impl::SetCurrentView(this, core::mem::transmute_copy(&view)).into()
             }
         }
@@ -16266,8 +16266,8 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationMultipleViewPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationMultipleViewPattern_Impl::CurrentCurrentView(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -16282,8 +16282,8 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationMultipleViewPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationMultipleViewPattern_Impl::GetCurrentSupportedViews(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -16298,8 +16298,8 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationMultipleViewPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationMultipleViewPattern_Impl::CachedCurrentView(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -16314,8 +16314,8 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationMultipleViewPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationMultipleViewPattern_Impl::GetCachedSupportedViews(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -16376,8 +16376,8 @@ impl IUIAutomationNotCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationNotCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationNotCondition_Impl::GetChild(this) {
                     Ok(ok__) => {
                         condition.write(core::mem::transmute(ok__));
@@ -16423,8 +16423,8 @@ impl IUIAutomationNotificationEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationNotificationEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationNotificationEventHandler_Impl::HandleNotificationEvent(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&notificationkind), core::mem::transmute_copy(&notificationprocessing), core::mem::transmute(&displaystring), core::mem::transmute(&activityid)).into()
             }
         }
@@ -16464,8 +16464,8 @@ impl IUIAutomationObjectModelPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationObjectModelPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationObjectModelPattern_Impl::GetUnderlyingObjectModel(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -16536,8 +16536,8 @@ impl IUIAutomationOrCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationOrCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationOrCondition_Impl::ChildCount(this) {
                     Ok(ok__) => {
                         childcount.write(core::mem::transmute(ok__));
@@ -16552,8 +16552,8 @@ impl IUIAutomationOrCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationOrCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationOrCondition_Impl::GetChildrenAsNativeArray(this, core::mem::transmute_copy(&childarray), core::mem::transmute_copy(&childarraycount)).into()
             }
         }
@@ -16562,8 +16562,8 @@ impl IUIAutomationOrCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationOrCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationOrCondition_Impl::GetChildren(this) {
                     Ok(ok__) => {
                         childarray.write(core::mem::transmute(ok__));
@@ -16626,8 +16626,8 @@ impl IUIAutomationPatternHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationPatternHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationPatternHandler_Impl::CreateClientWrapper(this, core::mem::transmute_copy(&ppatterninstance)) {
                     Ok(ok__) => {
                         pclientwrapper.write(core::mem::transmute(ok__));
@@ -16642,8 +16642,8 @@ impl IUIAutomationPatternHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationPatternHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationPatternHandler_Impl::Dispatch(this, core::mem::transmute_copy(&ptarget), core::mem::transmute_copy(&index), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&cparams)).into()
             }
         }
@@ -16689,8 +16689,8 @@ impl IUIAutomationPatternInstance_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationPatternInstance_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationPatternInstance_Impl::GetProperty(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&cached), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pptr)).into()
             }
         }
@@ -16699,8 +16699,8 @@ impl IUIAutomationPatternInstance_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationPatternInstance_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationPatternInstance_Impl::CallMethod(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&cparams)).into()
             }
         }
@@ -16750,8 +16750,8 @@ impl IUIAutomationPropertyChangedEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationPropertyChangedEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationPropertyChangedEventHandler_Impl::HandlePropertyChangedEvent(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&propertyid), core::mem::transmute(&newvalue)).into()
             }
         }
@@ -16820,8 +16820,8 @@ impl IUIAutomationPropertyCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationPropertyCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationPropertyCondition_Impl::PropertyId(this) {
                     Ok(ok__) => {
                         propertyid.write(core::mem::transmute(ok__));
@@ -16836,8 +16836,8 @@ impl IUIAutomationPropertyCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationPropertyCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationPropertyCondition_Impl::PropertyValue(this) {
                     Ok(ok__) => {
                         propertyvalue.write(core::mem::transmute(ok__));
@@ -16852,8 +16852,8 @@ impl IUIAutomationPropertyCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationPropertyCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationPropertyCondition_Impl::PropertyConditionFlags(this) {
                     Ok(ok__) => {
                         flags.write(core::mem::transmute(ok__));
@@ -16913,8 +16913,8 @@ impl IUIAutomationProxyFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationProxyFactory_Impl::CreateProvider(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild)) {
                     Ok(ok__) => {
                         provider.write(core::mem::transmute(ok__));
@@ -16929,8 +16929,8 @@ impl IUIAutomationProxyFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationProxyFactory_Impl::ProxyFactoryId(this) {
                     Ok(ok__) => {
                         factoryid.write(core::mem::transmute(ok__));
@@ -17074,8 +17074,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationProxyFactoryEntry_Impl::ProxyFactory(this) {
                     Ok(ok__) => {
                         factory.write(core::mem::transmute(ok__));
@@ -17090,8 +17090,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationProxyFactoryEntry_Impl::ClassName(this) {
                     Ok(ok__) => {
                         classname.write(core::mem::transmute(ok__));
@@ -17106,8 +17106,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationProxyFactoryEntry_Impl::ImageName(this) {
                     Ok(ok__) => {
                         imagename.write(core::mem::transmute(ok__));
@@ -17122,8 +17122,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationProxyFactoryEntry_Impl::AllowSubstringMatch(this) {
                     Ok(ok__) => {
                         allowsubstringmatch.write(core::mem::transmute(ok__));
@@ -17138,8 +17138,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationProxyFactoryEntry_Impl::CanCheckBaseClass(this) {
                     Ok(ok__) => {
                         cancheckbaseclass.write(core::mem::transmute(ok__));
@@ -17154,8 +17154,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationProxyFactoryEntry_Impl::NeedsAdviseEvents(this) {
                     Ok(ok__) => {
                         adviseevents.write(core::mem::transmute(ok__));
@@ -17170,8 +17170,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationProxyFactoryEntry_Impl::SetClassName(this, core::mem::transmute(&classname)).into()
             }
         }
@@ -17180,8 +17180,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationProxyFactoryEntry_Impl::SetImageName(this, core::mem::transmute(&imagename)).into()
             }
         }
@@ -17190,8 +17190,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationProxyFactoryEntry_Impl::SetAllowSubstringMatch(this, core::mem::transmute_copy(&allowsubstringmatch)).into()
             }
         }
@@ -17200,8 +17200,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationProxyFactoryEntry_Impl::SetCanCheckBaseClass(this, core::mem::transmute_copy(&cancheckbaseclass)).into()
             }
         }
@@ -17210,8 +17210,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationProxyFactoryEntry_Impl::SetNeedsAdviseEvents(this, core::mem::transmute_copy(&adviseevents)).into()
             }
         }
@@ -17220,8 +17220,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationProxyFactoryEntry_Impl::SetWinEventsForAutomationEvent(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&winevents)).into()
             }
         }
@@ -17230,8 +17230,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryEntry_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationProxyFactoryEntry_Impl::GetWinEventsForAutomationEvent(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&propertyid)) {
                     Ok(ok__) => {
                         winevents.write(core::mem::transmute(ok__));
@@ -17356,8 +17356,8 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryMapping_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationProxyFactoryMapping_Impl::Count(this) {
                     Ok(ok__) => {
                         count.write(core::mem::transmute(ok__));
@@ -17372,8 +17372,8 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryMapping_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationProxyFactoryMapping_Impl::GetTable(this) {
                     Ok(ok__) => {
                         table.write(core::mem::transmute(ok__));
@@ -17388,8 +17388,8 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryMapping_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationProxyFactoryMapping_Impl::GetEntry(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         entry.write(core::mem::transmute(ok__));
@@ -17404,8 +17404,8 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryMapping_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationProxyFactoryMapping_Impl::SetTable(this, core::mem::transmute_copy(&factorylist)).into()
             }
         }
@@ -17414,8 +17414,8 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryMapping_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationProxyFactoryMapping_Impl::InsertEntries(this, core::mem::transmute_copy(&before), core::mem::transmute_copy(&factorylist)).into()
             }
         }
@@ -17424,8 +17424,8 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryMapping_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationProxyFactoryMapping_Impl::InsertEntry(this, core::mem::transmute_copy(&before), core::mem::transmute_copy(&factory)).into()
             }
         }
@@ -17434,8 +17434,8 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryMapping_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationProxyFactoryMapping_Impl::RemoveEntry(this, core::mem::transmute_copy(&index)).into()
             }
         }
@@ -17444,8 +17444,8 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryMapping_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationProxyFactoryMapping_Impl::ClearTable(this).into()
             }
         }
@@ -17454,8 +17454,8 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationProxyFactoryMapping_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationProxyFactoryMapping_Impl::RestoreDefaultTable(this).into()
             }
         }
@@ -17600,8 +17600,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRangeValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationRangeValuePattern_Impl::SetValue(this, core::mem::transmute_copy(&val)).into()
             }
         }
@@ -17610,8 +17610,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRangeValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationRangeValuePattern_Impl::CurrentValue(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -17626,8 +17626,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRangeValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationRangeValuePattern_Impl::CurrentIsReadOnly(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -17642,8 +17642,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRangeValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationRangeValuePattern_Impl::CurrentMaximum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -17658,8 +17658,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRangeValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationRangeValuePattern_Impl::CurrentMinimum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -17674,8 +17674,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRangeValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationRangeValuePattern_Impl::CurrentLargeChange(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -17690,8 +17690,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRangeValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationRangeValuePattern_Impl::CurrentSmallChange(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -17706,8 +17706,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRangeValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationRangeValuePattern_Impl::CachedValue(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -17722,8 +17722,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRangeValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationRangeValuePattern_Impl::CachedIsReadOnly(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -17738,8 +17738,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRangeValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationRangeValuePattern_Impl::CachedMaximum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -17754,8 +17754,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRangeValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationRangeValuePattern_Impl::CachedMinimum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -17770,8 +17770,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRangeValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationRangeValuePattern_Impl::CachedLargeChange(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -17786,8 +17786,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRangeValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationRangeValuePattern_Impl::CachedSmallChange(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -17861,8 +17861,8 @@ impl IUIAutomationRegistrar_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRegistrar_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationRegistrar_Impl::RegisterProperty(this, core::mem::transmute_copy(&property)) {
                     Ok(ok__) => {
                         propertyid.write(core::mem::transmute(ok__));
@@ -17877,8 +17877,8 @@ impl IUIAutomationRegistrar_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRegistrar_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationRegistrar_Impl::RegisterEvent(this, core::mem::transmute_copy(&event)) {
                     Ok(ok__) => {
                         eventid.write(core::mem::transmute(ok__));
@@ -17893,8 +17893,8 @@ impl IUIAutomationRegistrar_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationRegistrar_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationRegistrar_Impl::RegisterPattern(this, core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&ppatternid), core::mem::transmute_copy(&ppatternavailablepropertyid), core::mem::transmute_copy(&propertyidcount), core::mem::transmute_copy(&ppropertyids), core::mem::transmute_copy(&eventidcount), core::mem::transmute_copy(&peventids)).into()
             }
         }
@@ -17936,8 +17936,8 @@ impl IUIAutomationScrollItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationScrollItemPattern_Impl::ScrollIntoView(this).into()
             }
         }
@@ -18075,8 +18075,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationScrollPattern_Impl::Scroll(this, core::mem::transmute_copy(&horizontalamount), core::mem::transmute_copy(&verticalamount)).into()
             }
         }
@@ -18085,8 +18085,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationScrollPattern_Impl::SetScrollPercent(this, core::mem::transmute_copy(&horizontalpercent), core::mem::transmute_copy(&verticalpercent)).into()
             }
         }
@@ -18095,8 +18095,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationScrollPattern_Impl::CurrentHorizontalScrollPercent(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18111,8 +18111,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationScrollPattern_Impl::CurrentVerticalScrollPercent(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18127,8 +18127,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationScrollPattern_Impl::CurrentHorizontalViewSize(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18143,8 +18143,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationScrollPattern_Impl::CurrentVerticalViewSize(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18159,8 +18159,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationScrollPattern_Impl::CurrentHorizontallyScrollable(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18175,8 +18175,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationScrollPattern_Impl::CurrentVerticallyScrollable(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18191,8 +18191,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationScrollPattern_Impl::CachedHorizontalScrollPercent(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18207,8 +18207,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationScrollPattern_Impl::CachedVerticalScrollPercent(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18223,8 +18223,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationScrollPattern_Impl::CachedHorizontalViewSize(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18239,8 +18239,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationScrollPattern_Impl::CachedVerticalViewSize(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18255,8 +18255,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationScrollPattern_Impl::CachedHorizontallyScrollable(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18271,8 +18271,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationScrollPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationScrollPattern_Impl::CachedVerticallyScrollable(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18373,8 +18373,8 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationSelectionItemPattern_Impl::Select(this).into()
             }
         }
@@ -18383,8 +18383,8 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationSelectionItemPattern_Impl::AddToSelection(this).into()
             }
         }
@@ -18393,8 +18393,8 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationSelectionItemPattern_Impl::RemoveFromSelection(this).into()
             }
         }
@@ -18403,8 +18403,8 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionItemPattern_Impl::CurrentIsSelected(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18419,8 +18419,8 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionItemPattern_Impl::CurrentSelectionContainer(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18435,8 +18435,8 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionItemPattern_Impl::CachedIsSelected(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18451,8 +18451,8 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionItemPattern_Impl::CachedSelectionContainer(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18547,8 +18547,8 @@ impl IUIAutomationSelectionPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionPattern_Impl::GetCurrentSelection(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18563,8 +18563,8 @@ impl IUIAutomationSelectionPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionPattern_Impl::CurrentCanSelectMultiple(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18579,8 +18579,8 @@ impl IUIAutomationSelectionPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionPattern_Impl::CurrentIsSelectionRequired(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18595,8 +18595,8 @@ impl IUIAutomationSelectionPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionPattern_Impl::GetCachedSelection(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18611,8 +18611,8 @@ impl IUIAutomationSelectionPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionPattern_Impl::CachedCanSelectMultiple(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18627,8 +18627,8 @@ impl IUIAutomationSelectionPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionPattern_Impl::CachedIsSelectionRequired(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18744,8 +18744,8 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionPattern2_Impl::CurrentFirstSelectedItem(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18760,8 +18760,8 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionPattern2_Impl::CurrentLastSelectedItem(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18776,8 +18776,8 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionPattern2_Impl::CurrentCurrentSelectedItem(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18792,8 +18792,8 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionPattern2_Impl::CurrentItemCount(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18808,8 +18808,8 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionPattern2_Impl::CachedFirstSelectedItem(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18824,8 +18824,8 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionPattern2_Impl::CachedLastSelectedItem(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18840,8 +18840,8 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionPattern2_Impl::CachedCurrentSelectedItem(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18856,8 +18856,8 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSelectionPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSelectionPattern2_Impl::CachedItemCount(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18963,8 +18963,8 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSpreadsheetItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSpreadsheetItemPattern_Impl::CurrentFormula(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18979,8 +18979,8 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSpreadsheetItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSpreadsheetItemPattern_Impl::GetCurrentAnnotationObjects(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -18995,8 +18995,8 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSpreadsheetItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSpreadsheetItemPattern_Impl::GetCurrentAnnotationTypes(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19011,8 +19011,8 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSpreadsheetItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSpreadsheetItemPattern_Impl::CachedFormula(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19027,8 +19027,8 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSpreadsheetItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSpreadsheetItemPattern_Impl::GetCachedAnnotationObjects(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19043,8 +19043,8 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSpreadsheetItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSpreadsheetItemPattern_Impl::GetCachedAnnotationTypes(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19099,8 +19099,8 @@ impl IUIAutomationSpreadsheetPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSpreadsheetPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationSpreadsheetPattern_Impl::GetItemByName(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
@@ -19152,8 +19152,8 @@ impl IUIAutomationStructureChangedEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStructureChangedEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationStructureChangedEventHandler_Impl::HandleStructureChangedEvent(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&changetype), core::mem::transmute_copy(&runtimeid)).into()
             }
         }
@@ -19308,8 +19308,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationStylesPattern_Impl::CurrentStyleId(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19324,8 +19324,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationStylesPattern_Impl::CurrentStyleName(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19340,8 +19340,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationStylesPattern_Impl::CurrentFillColor(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19356,8 +19356,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationStylesPattern_Impl::CurrentFillPatternStyle(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19372,8 +19372,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationStylesPattern_Impl::CurrentShape(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19388,8 +19388,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationStylesPattern_Impl::CurrentFillPatternColor(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19404,8 +19404,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationStylesPattern_Impl::CurrentExtendedProperties(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19420,8 +19420,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationStylesPattern_Impl::GetCurrentExtendedPropertiesAsArray(this, core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
             }
         }
@@ -19430,8 +19430,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationStylesPattern_Impl::CachedStyleId(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19446,8 +19446,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationStylesPattern_Impl::CachedStyleName(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19462,8 +19462,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationStylesPattern_Impl::CachedFillColor(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19478,8 +19478,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationStylesPattern_Impl::CachedFillPatternStyle(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19494,8 +19494,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationStylesPattern_Impl::CachedShape(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19510,8 +19510,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationStylesPattern_Impl::CachedFillPatternColor(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19526,8 +19526,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationStylesPattern_Impl::CachedExtendedProperties(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19542,8 +19542,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationStylesPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationStylesPattern_Impl::GetCachedExtendedPropertiesAsArray(this, core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
             }
         }
@@ -19603,8 +19603,8 @@ impl IUIAutomationSynchronizedInputPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSynchronizedInputPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationSynchronizedInputPattern_Impl::StartListening(this, core::mem::transmute_copy(&inputtype)).into()
             }
         }
@@ -19613,8 +19613,8 @@ impl IUIAutomationSynchronizedInputPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationSynchronizedInputPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationSynchronizedInputPattern_Impl::Cancel(this).into()
             }
         }
@@ -19682,8 +19682,8 @@ impl IUIAutomationTableItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTableItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTableItemPattern_Impl::GetCurrentRowHeaderItems(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19698,8 +19698,8 @@ impl IUIAutomationTableItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTableItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTableItemPattern_Impl::GetCurrentColumnHeaderItems(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19714,8 +19714,8 @@ impl IUIAutomationTableItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTableItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTableItemPattern_Impl::GetCachedRowHeaderItems(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19730,8 +19730,8 @@ impl IUIAutomationTableItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTableItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTableItemPattern_Impl::GetCachedColumnHeaderItems(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19823,8 +19823,8 @@ impl IUIAutomationTablePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTablePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTablePattern_Impl::GetCurrentRowHeaders(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19839,8 +19839,8 @@ impl IUIAutomationTablePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTablePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTablePattern_Impl::GetCurrentColumnHeaders(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19855,8 +19855,8 @@ impl IUIAutomationTablePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTablePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTablePattern_Impl::CurrentRowOrColumnMajor(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19871,8 +19871,8 @@ impl IUIAutomationTablePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTablePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTablePattern_Impl::GetCachedRowHeaders(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19887,8 +19887,8 @@ impl IUIAutomationTablePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTablePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTablePattern_Impl::GetCachedColumnHeaders(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19903,8 +19903,8 @@ impl IUIAutomationTablePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTablePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTablePattern_Impl::CachedRowOrColumnMajor(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -19966,8 +19966,8 @@ impl IUIAutomationTextChildPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextChildPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextChildPattern_Impl::TextContainer(this) {
                     Ok(ok__) => {
                         container.write(core::mem::transmute(ok__));
@@ -19982,8 +19982,8 @@ impl IUIAutomationTextChildPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextChildPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextChildPattern_Impl::TextRange(this) {
                     Ok(ok__) => {
                         range.write(core::mem::transmute(ok__));
@@ -20047,8 +20047,8 @@ impl IUIAutomationTextEditPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextEditPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextEditPattern_Impl::GetActiveComposition(this) {
                     Ok(ok__) => {
                         range.write(core::mem::transmute(ok__));
@@ -20063,8 +20063,8 @@ impl IUIAutomationTextEditPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextEditPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextEditPattern_Impl::GetConversionTarget(this) {
                     Ok(ok__) => {
                         range.write(core::mem::transmute(ok__));
@@ -20120,8 +20120,8 @@ impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextEditTextChangedEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationTextEditTextChangedEventHandler_Impl::HandleTextEditTextChangedEvent(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&texteditchangetype), core::mem::transmute_copy(&eventstrings)).into()
             }
         }
@@ -20208,8 +20208,8 @@ impl IUIAutomationTextPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextPattern_Impl::RangeFromPoint(this, core::mem::transmute(&pt)) {
                     Ok(ok__) => {
                         range.write(core::mem::transmute(ok__));
@@ -20224,8 +20224,8 @@ impl IUIAutomationTextPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextPattern_Impl::RangeFromChild(this, core::mem::transmute_copy(&child)) {
                     Ok(ok__) => {
                         range.write(core::mem::transmute(ok__));
@@ -20240,8 +20240,8 @@ impl IUIAutomationTextPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextPattern_Impl::GetSelection(this) {
                     Ok(ok__) => {
                         ranges.write(core::mem::transmute(ok__));
@@ -20256,8 +20256,8 @@ impl IUIAutomationTextPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextPattern_Impl::GetVisibleRanges(this) {
                     Ok(ok__) => {
                         ranges.write(core::mem::transmute(ok__));
@@ -20272,8 +20272,8 @@ impl IUIAutomationTextPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextPattern_Impl::DocumentRange(this) {
                     Ok(ok__) => {
                         range.write(core::mem::transmute(ok__));
@@ -20288,8 +20288,8 @@ impl IUIAutomationTextPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextPattern_Impl::SupportedTextSelection(this) {
                     Ok(ok__) => {
                         supportedtextselection.write(core::mem::transmute(ok__));
@@ -20360,8 +20360,8 @@ impl IUIAutomationTextPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextPattern2_Impl::RangeFromAnnotation(this, core::mem::transmute_copy(&annotation)) {
                     Ok(ok__) => {
                         range.write(core::mem::transmute(ok__));
@@ -20376,8 +20376,8 @@ impl IUIAutomationTextPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextPattern2_Impl::GetCaretRange(this, core::mem::transmute_copy(&isactive)) {
                     Ok(ok__) => {
                         range.write(core::mem::transmute(ok__));
@@ -20568,8 +20568,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange_Impl::Clone(this) {
                     Ok(ok__) => {
                         clonedrange.write(core::mem::transmute(ok__));
@@ -20584,8 +20584,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange_Impl::Compare(this, core::mem::transmute_copy(&range)) {
                     Ok(ok__) => {
                         aresame.write(core::mem::transmute(ok__));
@@ -20600,8 +20600,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange_Impl::CompareEndpoints(this, core::mem::transmute_copy(&srcendpoint), core::mem::transmute_copy(&range), core::mem::transmute_copy(&targetendpoint)) {
                     Ok(ok__) => {
                         compvalue.write(core::mem::transmute(ok__));
@@ -20616,8 +20616,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationTextRange_Impl::ExpandToEnclosingUnit(this, core::mem::transmute_copy(&textunit)).into()
             }
         }
@@ -20626,8 +20626,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange_Impl::FindAttribute(this, core::mem::transmute_copy(&attr), core::mem::transmute(&val), core::mem::transmute_copy(&backward)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
@@ -20642,8 +20642,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange_Impl::FindText(this, core::mem::transmute(&text), core::mem::transmute_copy(&backward), core::mem::transmute_copy(&ignorecase)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
@@ -20658,8 +20658,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange_Impl::GetAttributeValue(this, core::mem::transmute_copy(&attr)) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -20674,8 +20674,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange_Impl::GetBoundingRectangles(this) {
                     Ok(ok__) => {
                         boundingrects.write(core::mem::transmute(ok__));
@@ -20690,8 +20690,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange_Impl::GetEnclosingElement(this) {
                     Ok(ok__) => {
                         enclosingelement.write(core::mem::transmute(ok__));
@@ -20706,8 +20706,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange_Impl::GetText(this, core::mem::transmute_copy(&maxlength)) {
                     Ok(ok__) => {
                         text.write(core::mem::transmute(ok__));
@@ -20722,8 +20722,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange_Impl::Move(this, core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
                         moved.write(core::mem::transmute(ok__));
@@ -20738,8 +20738,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange_Impl::MoveEndpointByUnit(this, core::mem::transmute_copy(&endpoint), core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
                         moved.write(core::mem::transmute(ok__));
@@ -20754,8 +20754,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationTextRange_Impl::MoveEndpointByRange(this, core::mem::transmute_copy(&srcendpoint), core::mem::transmute_copy(&range), core::mem::transmute_copy(&targetendpoint)).into()
             }
         }
@@ -20764,8 +20764,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationTextRange_Impl::Select(this).into()
             }
         }
@@ -20774,8 +20774,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationTextRange_Impl::AddToSelection(this).into()
             }
         }
@@ -20784,8 +20784,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationTextRange_Impl::RemoveFromSelection(this).into()
             }
         }
@@ -20794,8 +20794,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationTextRange_Impl::ScrollIntoView(this, core::mem::transmute_copy(&aligntotop)).into()
             }
         }
@@ -20804,8 +20804,8 @@ impl IUIAutomationTextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange_Impl::GetChildren(this) {
                     Ok(ok__) => {
                         children.write(core::mem::transmute(ok__));
@@ -20877,8 +20877,8 @@ impl IUIAutomationTextRange2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationTextRange2_Impl::ShowContextMenu(this).into()
             }
         }
@@ -20953,8 +20953,8 @@ impl IUIAutomationTextRange3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange3_Impl::GetEnclosingElementBuildCache(this, core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         enclosingelement.write(core::mem::transmute(ok__));
@@ -20969,8 +20969,8 @@ impl IUIAutomationTextRange3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange3_Impl::GetChildrenBuildCache(this, core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         children.write(core::mem::transmute(ok__));
@@ -20985,8 +20985,8 @@ impl IUIAutomationTextRange3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRange3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRange3_Impl::GetAttributeValues(this, core::mem::transmute_copy(&attributeids), core::mem::transmute_copy(&attributeidcount)) {
                     Ok(ok__) => {
                         attributevalues.write(core::mem::transmute(ok__));
@@ -21046,8 +21046,8 @@ impl IUIAutomationTextRangeArray_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRangeArray_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRangeArray_Impl::Length(this) {
                     Ok(ok__) => {
                         length.write(core::mem::transmute(ok__));
@@ -21062,8 +21062,8 @@ impl IUIAutomationTextRangeArray_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTextRangeArray_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTextRangeArray_Impl::GetElement(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
@@ -21122,8 +21122,8 @@ impl IUIAutomationTogglePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTogglePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationTogglePattern_Impl::Toggle(this).into()
             }
         }
@@ -21132,8 +21132,8 @@ impl IUIAutomationTogglePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTogglePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTogglePattern_Impl::CurrentToggleState(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21148,8 +21148,8 @@ impl IUIAutomationTogglePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTogglePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTogglePattern_Impl::CachedToggleState(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21255,8 +21255,8 @@ impl IUIAutomationTransformPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationTransformPattern_Impl::Move(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
             }
         }
@@ -21265,8 +21265,8 @@ impl IUIAutomationTransformPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationTransformPattern_Impl::Resize(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
             }
         }
@@ -21275,8 +21275,8 @@ impl IUIAutomationTransformPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationTransformPattern_Impl::Rotate(this, core::mem::transmute_copy(&degrees)).into()
             }
         }
@@ -21285,8 +21285,8 @@ impl IUIAutomationTransformPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTransformPattern_Impl::CurrentCanMove(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21301,8 +21301,8 @@ impl IUIAutomationTransformPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTransformPattern_Impl::CurrentCanResize(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21317,8 +21317,8 @@ impl IUIAutomationTransformPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTransformPattern_Impl::CurrentCanRotate(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21333,8 +21333,8 @@ impl IUIAutomationTransformPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTransformPattern_Impl::CachedCanMove(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21349,8 +21349,8 @@ impl IUIAutomationTransformPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTransformPattern_Impl::CachedCanResize(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21365,8 +21365,8 @@ impl IUIAutomationTransformPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTransformPattern_Impl::CachedCanRotate(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21495,8 +21495,8 @@ impl IUIAutomationTransformPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationTransformPattern2_Impl::Zoom(this, core::mem::transmute_copy(&zoomvalue)).into()
             }
         }
@@ -21505,8 +21505,8 @@ impl IUIAutomationTransformPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationTransformPattern2_Impl::ZoomByUnit(this, core::mem::transmute_copy(&zoomunit)).into()
             }
         }
@@ -21515,8 +21515,8 @@ impl IUIAutomationTransformPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTransformPattern2_Impl::CurrentCanZoom(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21531,8 +21531,8 @@ impl IUIAutomationTransformPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTransformPattern2_Impl::CachedCanZoom(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21547,8 +21547,8 @@ impl IUIAutomationTransformPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTransformPattern2_Impl::CurrentZoomLevel(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21563,8 +21563,8 @@ impl IUIAutomationTransformPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTransformPattern2_Impl::CachedZoomLevel(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21579,8 +21579,8 @@ impl IUIAutomationTransformPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTransformPattern2_Impl::CurrentZoomMinimum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21595,8 +21595,8 @@ impl IUIAutomationTransformPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTransformPattern2_Impl::CachedZoomMinimum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21611,8 +21611,8 @@ impl IUIAutomationTransformPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTransformPattern2_Impl::CurrentZoomMaximum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21627,8 +21627,8 @@ impl IUIAutomationTransformPattern2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTransformPattern2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTransformPattern2_Impl::CachedZoomMaximum(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -21824,8 +21824,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTreeWalker_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTreeWalker_Impl::GetParentElement(this, core::mem::transmute_copy(&element)) {
                     Ok(ok__) => {
                         parent.write(core::mem::transmute(ok__));
@@ -21840,8 +21840,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTreeWalker_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTreeWalker_Impl::GetFirstChildElement(this, core::mem::transmute_copy(&element)) {
                     Ok(ok__) => {
                         first.write(core::mem::transmute(ok__));
@@ -21856,8 +21856,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTreeWalker_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTreeWalker_Impl::GetLastChildElement(this, core::mem::transmute_copy(&element)) {
                     Ok(ok__) => {
                         last.write(core::mem::transmute(ok__));
@@ -21872,8 +21872,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTreeWalker_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTreeWalker_Impl::GetNextSiblingElement(this, core::mem::transmute_copy(&element)) {
                     Ok(ok__) => {
                         next.write(core::mem::transmute(ok__));
@@ -21888,8 +21888,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTreeWalker_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTreeWalker_Impl::GetPreviousSiblingElement(this, core::mem::transmute_copy(&element)) {
                     Ok(ok__) => {
                         previous.write(core::mem::transmute(ok__));
@@ -21904,8 +21904,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTreeWalker_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTreeWalker_Impl::NormalizeElement(this, core::mem::transmute_copy(&element)) {
                     Ok(ok__) => {
                         normalized.write(core::mem::transmute(ok__));
@@ -21920,8 +21920,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTreeWalker_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTreeWalker_Impl::GetParentElementBuildCache(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         parent.write(core::mem::transmute(ok__));
@@ -21936,8 +21936,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTreeWalker_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTreeWalker_Impl::GetFirstChildElementBuildCache(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         first.write(core::mem::transmute(ok__));
@@ -21952,8 +21952,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTreeWalker_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTreeWalker_Impl::GetLastChildElementBuildCache(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         last.write(core::mem::transmute(ok__));
@@ -21968,8 +21968,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTreeWalker_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTreeWalker_Impl::GetNextSiblingElementBuildCache(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         next.write(core::mem::transmute(ok__));
@@ -21984,8 +21984,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTreeWalker_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTreeWalker_Impl::GetPreviousSiblingElementBuildCache(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         previous.write(core::mem::transmute(ok__));
@@ -22000,8 +22000,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTreeWalker_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTreeWalker_Impl::NormalizeElementBuildCache(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&cacherequest)) {
                     Ok(ok__) => {
                         normalized.write(core::mem::transmute(ok__));
@@ -22016,8 +22016,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationTreeWalker_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationTreeWalker_Impl::Condition(this) {
                     Ok(ok__) => {
                         condition.write(core::mem::transmute(ok__));
@@ -22107,8 +22107,8 @@ impl IUIAutomationValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationValuePattern_Impl::SetValue(this, core::mem::transmute(&val)).into()
             }
         }
@@ -22117,8 +22117,8 @@ impl IUIAutomationValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationValuePattern_Impl::CurrentValue(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22133,8 +22133,8 @@ impl IUIAutomationValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationValuePattern_Impl::CurrentIsReadOnly(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22149,8 +22149,8 @@ impl IUIAutomationValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationValuePattern_Impl::CachedValue(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22165,8 +22165,8 @@ impl IUIAutomationValuePattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationValuePattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationValuePattern_Impl::CachedIsReadOnly(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22216,8 +22216,8 @@ impl IUIAutomationVirtualizedItemPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationVirtualizedItemPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationVirtualizedItemPattern_Impl::Realize(this).into()
             }
         }
@@ -22363,8 +22363,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationWindowPattern_Impl::Close(this).into()
             }
         }
@@ -22373,8 +22373,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationWindowPattern_Impl::WaitForInputIdle(this, core::mem::transmute_copy(&milliseconds)) {
                     Ok(ok__) => {
                         success.write(core::mem::transmute(ok__));
@@ -22389,8 +22389,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAutomationWindowPattern_Impl::SetWindowVisualState(this, core::mem::transmute_copy(&state)).into()
             }
         }
@@ -22399,8 +22399,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationWindowPattern_Impl::CurrentCanMaximize(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22415,8 +22415,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationWindowPattern_Impl::CurrentCanMinimize(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22431,8 +22431,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationWindowPattern_Impl::CurrentIsModal(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22447,8 +22447,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationWindowPattern_Impl::CurrentIsTopmost(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22463,8 +22463,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationWindowPattern_Impl::CurrentWindowVisualState(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22479,8 +22479,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationWindowPattern_Impl::CurrentWindowInteractionState(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22495,8 +22495,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationWindowPattern_Impl::CachedCanMaximize(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22511,8 +22511,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationWindowPattern_Impl::CachedCanMinimize(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22527,8 +22527,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationWindowPattern_Impl::CachedIsModal(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22543,8 +22543,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationWindowPattern_Impl::CachedIsTopmost(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22559,8 +22559,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationWindowPattern_Impl::CachedWindowVisualState(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22575,8 +22575,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAutomationWindowPattern_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAutomationWindowPattern_Impl::CachedWindowInteractionState(this) {
                     Ok(ok__) => {
                         retval.write(core::mem::transmute(ok__));
@@ -22655,8 +22655,8 @@ impl IValueProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IValueProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IValueProvider_Impl::SetValue(this, core::mem::transmute(&val)).into()
             }
         }
@@ -22665,8 +22665,8 @@ impl IValueProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IValueProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IValueProvider_Impl::Value(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -22681,8 +22681,8 @@ impl IValueProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IValueProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IValueProvider_Impl::IsReadOnly(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -22730,8 +22730,8 @@ impl IVirtualizedItemProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IVirtualizedItemProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IVirtualizedItemProvider_Impl::Realize(this).into()
             }
         }
@@ -22829,8 +22829,8 @@ impl IWindowProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowProvider_Impl::SetVisualState(this, core::mem::transmute_copy(&state)).into()
             }
         }
@@ -22839,8 +22839,8 @@ impl IWindowProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowProvider_Impl::Close(this).into()
             }
         }
@@ -22849,8 +22849,8 @@ impl IWindowProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowProvider_Impl::WaitForInputIdle(this, core::mem::transmute_copy(&milliseconds)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -22865,8 +22865,8 @@ impl IWindowProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowProvider_Impl::CanMaximize(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -22881,8 +22881,8 @@ impl IWindowProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowProvider_Impl::CanMinimize(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -22897,8 +22897,8 @@ impl IWindowProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowProvider_Impl::IsModal(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -22913,8 +22913,8 @@ impl IWindowProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowProvider_Impl::WindowVisualState(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -22929,8 +22929,8 @@ impl IWindowProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowProvider_Impl::WindowInteractionState(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
@@ -22945,8 +22945,8 @@ impl IWindowProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowProvider_Impl::IsTopmost(this) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));

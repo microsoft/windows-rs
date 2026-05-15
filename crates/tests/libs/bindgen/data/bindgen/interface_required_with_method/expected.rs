@@ -188,10 +188,10 @@ impl IAsyncInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAsyncInfo_Impl::Id(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -212,10 +212,10 @@ impl IAsyncInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAsyncInfo_Impl::Status(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -236,10 +236,10 @@ impl IAsyncInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAsyncInfo_Impl::ErrorCode(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -259,10 +259,10 @@ impl IAsyncInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAsyncInfo_Impl::Cancel(this).into()
             }
         }
@@ -273,10 +273,10 @@ impl IAsyncInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAsyncInfo_Impl::Close(this).into()
             }
         }

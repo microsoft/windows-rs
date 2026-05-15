@@ -54,10 +54,10 @@ impl IStringable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStringable_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStringable_Impl::ToString(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -165,10 +165,10 @@ impl ITest_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITest_Impl::Numerics(this, core::mem::transmute(&n)).into()
             }
         }
@@ -183,10 +183,10 @@ impl ITest_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITest_Impl::Collections(this, core::mem::transmute_copy(&c)).into()
             }
         }
@@ -198,10 +198,10 @@ impl ITest_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITest_Impl::Async(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -223,10 +223,10 @@ impl ITest_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITest_Impl::Windows(this, core::mem::transmute_copy(&s)).into()
             }
         }

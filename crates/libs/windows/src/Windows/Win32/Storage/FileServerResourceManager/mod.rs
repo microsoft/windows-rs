@@ -570,8 +570,8 @@ impl IFsrmAccessDeniedRemediationClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmAccessDeniedRemediationClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmAccessDeniedRemediationClient_Impl::Show(this, core::mem::transmute_copy(&parentwnd), core::mem::transmute(&accesspath), core::mem::transmute_copy(&errortype), core::mem::transmute_copy(&flags), core::mem::transmute(&windowtitle), core::mem::transmute(&windowmessage)) {
                     Ok(ok__) => {
                         result.write(core::mem::transmute(ok__));
@@ -657,8 +657,8 @@ impl IFsrmAction_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmAction_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmAction_Impl::Id(this) {
                     Ok(ok__) => {
                         id.write(core::mem::transmute(ok__));
@@ -673,8 +673,8 @@ impl IFsrmAction_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmAction_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmAction_Impl::ActionType(this) {
                     Ok(ok__) => {
                         actiontype.write(core::mem::transmute(ok__));
@@ -689,8 +689,8 @@ impl IFsrmAction_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmAction_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmAction_Impl::RunLimitInterval(this) {
                     Ok(ok__) => {
                         minutes.write(core::mem::transmute(ok__));
@@ -705,8 +705,8 @@ impl IFsrmAction_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmAction_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmAction_Impl::SetRunLimitInterval(this, core::mem::transmute_copy(&minutes)).into()
             }
         }
@@ -715,8 +715,8 @@ impl IFsrmAction_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmAction_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmAction_Impl::Delete(this).into()
             }
         }
@@ -860,8 +860,8 @@ impl IFsrmActionCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionCommand_Impl::ExecutablePath(this) {
                     Ok(ok__) => {
                         executablepath.write(core::mem::transmute(ok__));
@@ -876,8 +876,8 @@ impl IFsrmActionCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionCommand_Impl::SetExecutablePath(this, core::mem::transmute(&executablepath)).into()
             }
         }
@@ -886,8 +886,8 @@ impl IFsrmActionCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionCommand_Impl::Arguments(this) {
                     Ok(ok__) => {
                         arguments.write(core::mem::transmute(ok__));
@@ -902,8 +902,8 @@ impl IFsrmActionCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionCommand_Impl::SetArguments(this, core::mem::transmute(&arguments)).into()
             }
         }
@@ -912,8 +912,8 @@ impl IFsrmActionCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionCommand_Impl::Account(this) {
                     Ok(ok__) => {
                         account.write(core::mem::transmute(ok__));
@@ -928,8 +928,8 @@ impl IFsrmActionCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionCommand_Impl::SetAccount(this, core::mem::transmute_copy(&account)).into()
             }
         }
@@ -938,8 +938,8 @@ impl IFsrmActionCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionCommand_Impl::WorkingDirectory(this) {
                     Ok(ok__) => {
                         workingdirectory.write(core::mem::transmute(ok__));
@@ -954,8 +954,8 @@ impl IFsrmActionCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionCommand_Impl::SetWorkingDirectory(this, core::mem::transmute(&workingdirectory)).into()
             }
         }
@@ -964,8 +964,8 @@ impl IFsrmActionCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionCommand_Impl::MonitorCommand(this) {
                     Ok(ok__) => {
                         monitorcommand.write(core::mem::transmute(ok__));
@@ -980,8 +980,8 @@ impl IFsrmActionCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionCommand_Impl::SetMonitorCommand(this, core::mem::transmute_copy(&monitorcommand)).into()
             }
         }
@@ -990,8 +990,8 @@ impl IFsrmActionCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionCommand_Impl::KillTimeOut(this) {
                     Ok(ok__) => {
                         minutes.write(core::mem::transmute(ok__));
@@ -1006,8 +1006,8 @@ impl IFsrmActionCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionCommand_Impl::SetKillTimeOut(this, core::mem::transmute_copy(&minutes)).into()
             }
         }
@@ -1016,8 +1016,8 @@ impl IFsrmActionCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionCommand_Impl::LogResult(this) {
                     Ok(ok__) => {
                         logresults.write(core::mem::transmute(ok__));
@@ -1032,8 +1032,8 @@ impl IFsrmActionCommand_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionCommand_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionCommand_Impl::SetLogResult(this, core::mem::transmute_copy(&logresults)).into()
             }
         }
@@ -1186,8 +1186,8 @@ impl IFsrmActionEmail_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionEmail_Impl::MailFrom(this) {
                     Ok(ok__) => {
                         mailfrom.write(core::mem::transmute(ok__));
@@ -1202,8 +1202,8 @@ impl IFsrmActionEmail_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionEmail_Impl::SetMailFrom(this, core::mem::transmute(&mailfrom)).into()
             }
         }
@@ -1212,8 +1212,8 @@ impl IFsrmActionEmail_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionEmail_Impl::MailReplyTo(this) {
                     Ok(ok__) => {
                         mailreplyto.write(core::mem::transmute(ok__));
@@ -1228,8 +1228,8 @@ impl IFsrmActionEmail_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionEmail_Impl::SetMailReplyTo(this, core::mem::transmute(&mailreplyto)).into()
             }
         }
@@ -1238,8 +1238,8 @@ impl IFsrmActionEmail_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionEmail_Impl::MailTo(this) {
                     Ok(ok__) => {
                         mailto.write(core::mem::transmute(ok__));
@@ -1254,8 +1254,8 @@ impl IFsrmActionEmail_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionEmail_Impl::SetMailTo(this, core::mem::transmute(&mailto)).into()
             }
         }
@@ -1264,8 +1264,8 @@ impl IFsrmActionEmail_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionEmail_Impl::MailCc(this) {
                     Ok(ok__) => {
                         mailcc.write(core::mem::transmute(ok__));
@@ -1280,8 +1280,8 @@ impl IFsrmActionEmail_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionEmail_Impl::SetMailCc(this, core::mem::transmute(&mailcc)).into()
             }
         }
@@ -1290,8 +1290,8 @@ impl IFsrmActionEmail_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionEmail_Impl::MailBcc(this) {
                     Ok(ok__) => {
                         mailbcc.write(core::mem::transmute(ok__));
@@ -1306,8 +1306,8 @@ impl IFsrmActionEmail_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionEmail_Impl::SetMailBcc(this, core::mem::transmute(&mailbcc)).into()
             }
         }
@@ -1316,8 +1316,8 @@ impl IFsrmActionEmail_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionEmail_Impl::MailSubject(this) {
                     Ok(ok__) => {
                         mailsubject.write(core::mem::transmute(ok__));
@@ -1332,8 +1332,8 @@ impl IFsrmActionEmail_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionEmail_Impl::SetMailSubject(this, core::mem::transmute(&mailsubject)).into()
             }
         }
@@ -1342,8 +1342,8 @@ impl IFsrmActionEmail_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionEmail_Impl::MessageText(this) {
                     Ok(ok__) => {
                         messagetext.write(core::mem::transmute(ok__));
@@ -1358,8 +1358,8 @@ impl IFsrmActionEmail_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionEmail_Impl::SetMessageText(this, core::mem::transmute(&messagetext)).into()
             }
         }
@@ -1434,8 +1434,8 @@ impl IFsrmActionEmail2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionEmail2_Impl::AttachmentFileListSize(this) {
                     Ok(ok__) => {
                         attachmentfilelistsize.write(core::mem::transmute(ok__));
@@ -1450,8 +1450,8 @@ impl IFsrmActionEmail2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEmail2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionEmail2_Impl::SetAttachmentFileListSize(this, core::mem::transmute_copy(&attachmentfilelistsize)).into()
             }
         }
@@ -1527,8 +1527,8 @@ impl IFsrmActionEventLog_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEventLog_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionEventLog_Impl::EventType(this) {
                     Ok(ok__) => {
                         eventtype.write(core::mem::transmute(ok__));
@@ -1543,8 +1543,8 @@ impl IFsrmActionEventLog_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEventLog_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionEventLog_Impl::SetEventType(this, core::mem::transmute_copy(&eventtype)).into()
             }
         }
@@ -1553,8 +1553,8 @@ impl IFsrmActionEventLog_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEventLog_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionEventLog_Impl::MessageText(this) {
                     Ok(ok__) => {
                         messagetext.write(core::mem::transmute(ok__));
@@ -1569,8 +1569,8 @@ impl IFsrmActionEventLog_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionEventLog_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionEventLog_Impl::SetMessageText(this, core::mem::transmute(&messagetext)).into()
             }
         }
@@ -1648,8 +1648,8 @@ impl IFsrmActionReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionReport_Impl::ReportTypes(this) {
                     Ok(ok__) => {
                         reporttypes.write(core::mem::transmute(ok__));
@@ -1664,8 +1664,8 @@ impl IFsrmActionReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionReport_Impl::SetReportTypes(this, core::mem::transmute_copy(&reporttypes)).into()
             }
         }
@@ -1674,8 +1674,8 @@ impl IFsrmActionReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmActionReport_Impl::MailTo(this) {
                     Ok(ok__) => {
                         mailto.write(core::mem::transmute(ok__));
@@ -1690,8 +1690,8 @@ impl IFsrmActionReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmActionReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmActionReport_Impl::SetMailTo(this, core::mem::transmute(&mailto)).into()
             }
         }
@@ -1764,8 +1764,8 @@ impl IFsrmAutoApplyQuota_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmAutoApplyQuota_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmAutoApplyQuota_Impl::ExcludeFolders(this) {
                     Ok(ok__) => {
                         folders.write(core::mem::transmute(ok__));
@@ -1780,8 +1780,8 @@ impl IFsrmAutoApplyQuota_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmAutoApplyQuota_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmAutoApplyQuota_Impl::SetExcludeFolders(this, core::mem::transmute_copy(&folders)).into()
             }
         }
@@ -1790,8 +1790,8 @@ impl IFsrmAutoApplyQuota_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmAutoApplyQuota_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmAutoApplyQuota_Impl::CommitAndUpdateDerived(this, core::mem::transmute_copy(&commitoptions), core::mem::transmute_copy(&applyoptions)) {
                     Ok(ok__) => {
                         derivedobjectsresult.write(core::mem::transmute(ok__));
@@ -2040,8 +2040,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::ClassificationReportFormats(this) {
                     Ok(ok__) => {
                         formats.write(core::mem::transmute(ok__));
@@ -2056,8 +2056,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassificationManager_Impl::SetClassificationReportFormats(this, core::mem::transmute_copy(&formats)).into()
             }
         }
@@ -2066,8 +2066,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::Logging(this) {
                     Ok(ok__) => {
                         logging.write(core::mem::transmute(ok__));
@@ -2082,8 +2082,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassificationManager_Impl::SetLogging(this, core::mem::transmute_copy(&logging)).into()
             }
         }
@@ -2092,8 +2092,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::ClassificationReportMailTo(this) {
                     Ok(ok__) => {
                         mailto.write(core::mem::transmute(ok__));
@@ -2108,8 +2108,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassificationManager_Impl::SetClassificationReportMailTo(this, core::mem::transmute(&mailto)).into()
             }
         }
@@ -2118,8 +2118,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::ClassificationReportEnabled(this) {
                     Ok(ok__) => {
                         reportenabled.write(core::mem::transmute(ok__));
@@ -2134,8 +2134,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassificationManager_Impl::SetClassificationReportEnabled(this, core::mem::transmute_copy(&reportenabled)).into()
             }
         }
@@ -2144,8 +2144,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::ClassificationLastReportPathWithoutExtension(this) {
                     Ok(ok__) => {
                         lastreportpath.write(core::mem::transmute(ok__));
@@ -2160,8 +2160,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::ClassificationLastError(this) {
                     Ok(ok__) => {
                         lasterror.write(core::mem::transmute(ok__));
@@ -2176,8 +2176,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::ClassificationRunningStatus(this) {
                     Ok(ok__) => {
                         runningstatus.write(core::mem::transmute(ok__));
@@ -2192,8 +2192,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::EnumPropertyDefinitions(this, core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         propertydefinitions.write(core::mem::transmute(ok__));
@@ -2208,8 +2208,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::CreatePropertyDefinition(this) {
                     Ok(ok__) => {
                         propertydefinition.write(core::mem::transmute(ok__));
@@ -2224,8 +2224,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::GetPropertyDefinition(this, core::mem::transmute(&propertyname)) {
                     Ok(ok__) => {
                         propertydefinition.write(core::mem::transmute(ok__));
@@ -2240,8 +2240,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::EnumRules(this, core::mem::transmute_copy(&ruletype), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         rules.write(core::mem::transmute(ok__));
@@ -2256,8 +2256,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::CreateRule(this, core::mem::transmute_copy(&ruletype)) {
                     Ok(ok__) => {
                         rule.write(core::mem::transmute(ok__));
@@ -2272,8 +2272,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::GetRule(this, core::mem::transmute(&rulename), core::mem::transmute_copy(&ruletype)) {
                     Ok(ok__) => {
                         rule.write(core::mem::transmute(ok__));
@@ -2288,8 +2288,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::EnumModuleDefinitions(this, core::mem::transmute_copy(&moduletype), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         moduledefinitions.write(core::mem::transmute(ok__));
@@ -2304,8 +2304,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::CreateModuleDefinition(this, core::mem::transmute_copy(&moduletype)) {
                     Ok(ok__) => {
                         moduledefinition.write(core::mem::transmute(ok__));
@@ -2320,8 +2320,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::GetModuleDefinition(this, core::mem::transmute(&modulename), core::mem::transmute_copy(&moduletype)) {
                     Ok(ok__) => {
                         moduledefinition.write(core::mem::transmute(ok__));
@@ -2336,8 +2336,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassificationManager_Impl::RunClassification(this, core::mem::transmute_copy(&context), core::mem::transmute(&reserved)).into()
             }
         }
@@ -2346,8 +2346,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::WaitForClassificationCompletion(this, core::mem::transmute_copy(&waitseconds)) {
                     Ok(ok__) => {
                         completed.write(core::mem::transmute(ok__));
@@ -2362,8 +2362,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassificationManager_Impl::CancelClassification(this).into()
             }
         }
@@ -2372,8 +2372,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::EnumFileProperties(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         fileproperties.write(core::mem::transmute(ok__));
@@ -2388,8 +2388,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationManager_Impl::GetFileProperty(this, core::mem::transmute(&filepath), core::mem::transmute(&propertyname), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         property.write(core::mem::transmute(ok__));
@@ -2404,8 +2404,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassificationManager_Impl::SetFileProperty(this, core::mem::transmute(&filepath), core::mem::transmute(&propertyname), core::mem::transmute(&propertyvalue)).into()
             }
         }
@@ -2414,8 +2414,8 @@ impl IFsrmClassificationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassificationManager_Impl::ClearFileProperty(this, core::mem::transmute(&filepath), core::mem::transmute(&property)).into()
             }
         }
@@ -2495,8 +2495,8 @@ impl IFsrmClassificationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassificationManager2_Impl::ClassifyFiles(this, core::mem::transmute_copy(&filepaths), core::mem::transmute_copy(&propertynames), core::mem::transmute_copy(&propertyvalues), core::mem::transmute_copy(&options)).into()
             }
         }
@@ -2581,8 +2581,8 @@ impl IFsrmClassificationRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationRule_Impl::ExecutionOption(this) {
                     Ok(ok__) => {
                         executionoption.write(core::mem::transmute(ok__));
@@ -2597,8 +2597,8 @@ impl IFsrmClassificationRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassificationRule_Impl::SetExecutionOption(this, core::mem::transmute_copy(&executionoption)).into()
             }
         }
@@ -2607,8 +2607,8 @@ impl IFsrmClassificationRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationRule_Impl::PropertyAffected(this) {
                     Ok(ok__) => {
                         property.write(core::mem::transmute(ok__));
@@ -2623,8 +2623,8 @@ impl IFsrmClassificationRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassificationRule_Impl::SetPropertyAffected(this, core::mem::transmute(&property)).into()
             }
         }
@@ -2633,8 +2633,8 @@ impl IFsrmClassificationRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassificationRule_Impl::Value(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -2649,8 +2649,8 @@ impl IFsrmClassificationRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassificationRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassificationRule_Impl::SetValue(this, core::mem::transmute(&value)).into()
             }
         }
@@ -2743,8 +2743,8 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassifierModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassifierModuleDefinition_Impl::PropertiesAffected(this) {
                     Ok(ok__) => {
                         propertiesaffected.write(core::mem::transmute(ok__));
@@ -2759,8 +2759,8 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassifierModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassifierModuleDefinition_Impl::SetPropertiesAffected(this, core::mem::transmute_copy(&propertiesaffected)).into()
             }
         }
@@ -2769,8 +2769,8 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassifierModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassifierModuleDefinition_Impl::PropertiesUsed(this) {
                     Ok(ok__) => {
                         propertiesused.write(core::mem::transmute(ok__));
@@ -2785,8 +2785,8 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassifierModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassifierModuleDefinition_Impl::SetPropertiesUsed(this, core::mem::transmute_copy(&propertiesused)).into()
             }
         }
@@ -2795,8 +2795,8 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassifierModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassifierModuleDefinition_Impl::NeedsExplicitValue(this) {
                     Ok(ok__) => {
                         needsexplicitvalue.write(core::mem::transmute(ok__));
@@ -2811,8 +2811,8 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassifierModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassifierModuleDefinition_Impl::SetNeedsExplicitValue(this, core::mem::transmute_copy(&needsexplicitvalue)).into()
             }
         }
@@ -2910,8 +2910,8 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassifierModuleImplementation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmClassifierModuleImplementation_Impl::LastModified(this) {
                     Ok(ok__) => {
                         lastmodified.write(core::mem::transmute(ok__));
@@ -2926,8 +2926,8 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassifierModuleImplementation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassifierModuleImplementation_Impl::UseRulesAndDefinitions(this, core::mem::transmute_copy(&rules), core::mem::transmute_copy(&propertydefinitions)).into()
             }
         }
@@ -2936,8 +2936,8 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassifierModuleImplementation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassifierModuleImplementation_Impl::OnBeginFile(this, core::mem::transmute_copy(&propertybag), core::mem::transmute_copy(&arrayruleids)).into()
             }
         }
@@ -2946,8 +2946,8 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassifierModuleImplementation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassifierModuleImplementation_Impl::DoesPropertyValueApply(this, core::mem::transmute(&property), core::mem::transmute(&value), core::mem::transmute_copy(&applyvalue), core::mem::transmute(&idrule), core::mem::transmute(&idpropdef)).into()
             }
         }
@@ -2956,8 +2956,8 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassifierModuleImplementation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassifierModuleImplementation_Impl::GetPropertyValueToApply(this, core::mem::transmute(&property), core::mem::transmute_copy(&value), core::mem::transmute(&idrule), core::mem::transmute(&idpropdef)).into()
             }
         }
@@ -2966,8 +2966,8 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmClassifierModuleImplementation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmClassifierModuleImplementation_Impl::OnEndFile(this).into()
             }
         }
@@ -3082,8 +3082,8 @@ impl IFsrmCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         unknown.write(core::mem::transmute(ok__));
@@ -3098,8 +3098,8 @@ impl IFsrmCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         item.write(core::mem::transmute(ok__));
@@ -3114,8 +3114,8 @@ impl IFsrmCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmCollection_Impl::Count(this) {
                     Ok(ok__) => {
                         count.write(core::mem::transmute(ok__));
@@ -3130,8 +3130,8 @@ impl IFsrmCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmCollection_Impl::State(this) {
                     Ok(ok__) => {
                         state.write(core::mem::transmute(ok__));
@@ -3146,8 +3146,8 @@ impl IFsrmCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmCollection_Impl::Cancel(this).into()
             }
         }
@@ -3156,8 +3156,8 @@ impl IFsrmCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmCollection_Impl::WaitForCompletion(this, core::mem::transmute_copy(&waitseconds)) {
                     Ok(ok__) => {
                         completed.write(core::mem::transmute(ok__));
@@ -3172,8 +3172,8 @@ impl IFsrmCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmCollection_Impl::GetById(this, core::mem::transmute(&id)) {
                     Ok(ok__) => {
                         entry.write(core::mem::transmute(ok__));
@@ -3242,8 +3242,8 @@ impl IFsrmCommittableCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmCommittableCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmCommittableCollection_Impl::Commit(this, core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         results.write(core::mem::transmute(ok__));
@@ -3311,8 +3311,8 @@ impl IFsrmDerivedObjectsResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmDerivedObjectsResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmDerivedObjectsResult_Impl::DerivedObjects(this) {
                     Ok(ok__) => {
                         derivedobjects.write(core::mem::transmute(ok__));
@@ -3327,8 +3327,8 @@ impl IFsrmDerivedObjectsResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmDerivedObjectsResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmDerivedObjectsResult_Impl::Results(this) {
                     Ok(ok__) => {
                         results.write(core::mem::transmute(ok__));
@@ -3447,8 +3447,8 @@ impl IFsrmExportImport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmExportImport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmExportImport_Impl::ExportFileGroups(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&filegroupnamessafearray), core::mem::transmute(&remotehost)).into()
             }
         }
@@ -3457,8 +3457,8 @@ impl IFsrmExportImport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmExportImport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmExportImport_Impl::ImportFileGroups(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&filegroupnamessafearray), core::mem::transmute(&remotehost)) {
                     Ok(ok__) => {
                         filegroups.write(core::mem::transmute(ok__));
@@ -3473,8 +3473,8 @@ impl IFsrmExportImport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmExportImport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmExportImport_Impl::ExportFileScreenTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)).into()
             }
         }
@@ -3483,8 +3483,8 @@ impl IFsrmExportImport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmExportImport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmExportImport_Impl::ImportFileScreenTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)) {
                     Ok(ok__) => {
                         templates.write(core::mem::transmute(ok__));
@@ -3499,8 +3499,8 @@ impl IFsrmExportImport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmExportImport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmExportImport_Impl::ExportQuotaTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)).into()
             }
         }
@@ -3509,8 +3509,8 @@ impl IFsrmExportImport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmExportImport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmExportImport_Impl::ImportQuotaTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)) {
                     Ok(ok__) => {
                         templates.write(core::mem::transmute(ok__));
@@ -3583,8 +3583,8 @@ impl IFsrmFileCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileCondition_Impl::Type(this) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -3599,8 +3599,8 @@ impl IFsrmFileCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileCondition_Impl::Delete(this).into()
             }
         }
@@ -3719,8 +3719,8 @@ impl IFsrmFileConditionProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileConditionProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileConditionProperty_Impl::PropertyName(this) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -3735,8 +3735,8 @@ impl IFsrmFileConditionProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileConditionProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileConditionProperty_Impl::SetPropertyName(this, core::mem::transmute(&newval)).into()
             }
         }
@@ -3745,8 +3745,8 @@ impl IFsrmFileConditionProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileConditionProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileConditionProperty_Impl::PropertyId(this) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -3761,8 +3761,8 @@ impl IFsrmFileConditionProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileConditionProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileConditionProperty_Impl::SetPropertyId(this, core::mem::transmute_copy(&newval)).into()
             }
         }
@@ -3771,8 +3771,8 @@ impl IFsrmFileConditionProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileConditionProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileConditionProperty_Impl::Operator(this) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -3787,8 +3787,8 @@ impl IFsrmFileConditionProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileConditionProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileConditionProperty_Impl::SetOperator(this, core::mem::transmute_copy(&newval)).into()
             }
         }
@@ -3797,8 +3797,8 @@ impl IFsrmFileConditionProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileConditionProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileConditionProperty_Impl::ValueType(this) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -3813,8 +3813,8 @@ impl IFsrmFileConditionProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileConditionProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileConditionProperty_Impl::SetValueType(this, core::mem::transmute_copy(&newval)).into()
             }
         }
@@ -3823,8 +3823,8 @@ impl IFsrmFileConditionProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileConditionProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileConditionProperty_Impl::Value(this) {
                     Ok(ok__) => {
                         pval.write(core::mem::transmute(ok__));
@@ -3839,8 +3839,8 @@ impl IFsrmFileConditionProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileConditionProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileConditionProperty_Impl::SetValue(this, core::mem::transmute(&newval)).into()
             }
         }
@@ -3943,8 +3943,8 @@ impl IFsrmFileGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileGroup_Impl::Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -3959,8 +3959,8 @@ impl IFsrmFileGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileGroup_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }
@@ -3969,8 +3969,8 @@ impl IFsrmFileGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileGroup_Impl::Members(this) {
                     Ok(ok__) => {
                         members.write(core::mem::transmute(ok__));
@@ -3985,8 +3985,8 @@ impl IFsrmFileGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileGroup_Impl::SetMembers(this, core::mem::transmute_copy(&members)).into()
             }
         }
@@ -3995,8 +3995,8 @@ impl IFsrmFileGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileGroup_Impl::NonMembers(this) {
                     Ok(ok__) => {
                         nonmembers.write(core::mem::transmute(ok__));
@@ -4011,8 +4011,8 @@ impl IFsrmFileGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileGroup_Impl::SetNonMembers(this, core::mem::transmute_copy(&nonmembers)).into()
             }
         }
@@ -4079,8 +4079,8 @@ impl IFsrmFileGroupImported_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileGroupImported_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileGroupImported_Impl::OverwriteOnCommit(this) {
                     Ok(ok__) => {
                         overwrite.write(core::mem::transmute(ok__));
@@ -4095,8 +4095,8 @@ impl IFsrmFileGroupImported_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileGroupImported_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileGroupImported_Impl::SetOverwriteOnCommit(this, core::mem::transmute_copy(&overwrite)).into()
             }
         }
@@ -4194,8 +4194,8 @@ impl IFsrmFileGroupManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileGroupManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileGroupManager_Impl::CreateFileGroup(this) {
                     Ok(ok__) => {
                         filegroup.write(core::mem::transmute(ok__));
@@ -4210,8 +4210,8 @@ impl IFsrmFileGroupManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileGroupManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileGroupManager_Impl::GetFileGroup(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         filegroup.write(core::mem::transmute(ok__));
@@ -4226,8 +4226,8 @@ impl IFsrmFileGroupManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileGroupManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileGroupManager_Impl::EnumFileGroups(this, core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         filegroups.write(core::mem::transmute(ok__));
@@ -4242,8 +4242,8 @@ impl IFsrmFileGroupManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileGroupManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileGroupManager_Impl::ExportFileGroups(this, core::mem::transmute_copy(&filegroupnamesarray)) {
                     Ok(ok__) => {
                         serializedfilegroups.write(core::mem::transmute(ok__));
@@ -4258,8 +4258,8 @@ impl IFsrmFileGroupManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileGroupManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileGroupManager_Impl::ImportFileGroups(this, core::mem::transmute(&serializedfilegroups), core::mem::transmute_copy(&filegroupnamesarray)) {
                     Ok(ok__) => {
                         filegroups.write(core::mem::transmute(ok__));
@@ -4647,8 +4647,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -4663,8 +4663,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }
@@ -4673,8 +4673,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::NamespaceRoots(this) {
                     Ok(ok__) => {
                         namespaceroots.write(core::mem::transmute(ok__));
@@ -4689,8 +4689,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetNamespaceRoots(this, core::mem::transmute_copy(&namespaceroots)).into()
             }
         }
@@ -4699,8 +4699,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::Enabled(this) {
                     Ok(ok__) => {
                         enabled.write(core::mem::transmute(ok__));
@@ -4715,8 +4715,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
             }
         }
@@ -4725,8 +4725,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::OperationType(this) {
                     Ok(ok__) => {
                         operationtype.write(core::mem::transmute(ok__));
@@ -4741,8 +4741,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetOperationType(this, core::mem::transmute_copy(&operationtype)).into()
             }
         }
@@ -4751,8 +4751,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::ExpirationDirectory(this) {
                     Ok(ok__) => {
                         expirationdirectory.write(core::mem::transmute(ok__));
@@ -4767,8 +4767,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetExpirationDirectory(this, core::mem::transmute(&expirationdirectory)).into()
             }
         }
@@ -4777,8 +4777,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::CustomAction(this) {
                     Ok(ok__) => {
                         action.write(core::mem::transmute(ok__));
@@ -4793,8 +4793,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::Notifications(this) {
                     Ok(ok__) => {
                         notifications.write(core::mem::transmute(ok__));
@@ -4809,8 +4809,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::Logging(this) {
                     Ok(ok__) => {
                         loggingflags.write(core::mem::transmute(ok__));
@@ -4825,8 +4825,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetLogging(this, core::mem::transmute_copy(&loggingflags)).into()
             }
         }
@@ -4835,8 +4835,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::ReportEnabled(this) {
                     Ok(ok__) => {
                         reportenabled.write(core::mem::transmute(ok__));
@@ -4851,8 +4851,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetReportEnabled(this, core::mem::transmute_copy(&reportenabled)).into()
             }
         }
@@ -4861,8 +4861,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::Formats(this) {
                     Ok(ok__) => {
                         formats.write(core::mem::transmute(ok__));
@@ -4877,8 +4877,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetFormats(this, core::mem::transmute_copy(&formats)).into()
             }
         }
@@ -4887,8 +4887,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::MailTo(this) {
                     Ok(ok__) => {
                         mailto.write(core::mem::transmute(ok__));
@@ -4903,8 +4903,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetMailTo(this, core::mem::transmute(&mailto)).into()
             }
         }
@@ -4913,8 +4913,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::DaysSinceFileCreated(this) {
                     Ok(ok__) => {
                         dayssincecreation.write(core::mem::transmute(ok__));
@@ -4929,8 +4929,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetDaysSinceFileCreated(this, core::mem::transmute_copy(&dayssincecreation)).into()
             }
         }
@@ -4939,8 +4939,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::DaysSinceFileLastAccessed(this) {
                     Ok(ok__) => {
                         dayssinceaccess.write(core::mem::transmute(ok__));
@@ -4955,8 +4955,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetDaysSinceFileLastAccessed(this, core::mem::transmute_copy(&dayssinceaccess)).into()
             }
         }
@@ -4965,8 +4965,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::DaysSinceFileLastModified(this) {
                     Ok(ok__) => {
                         dayssincemodify.write(core::mem::transmute(ok__));
@@ -4981,8 +4981,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetDaysSinceFileLastModified(this, core::mem::transmute_copy(&dayssincemodify)).into()
             }
         }
@@ -4991,8 +4991,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::PropertyConditions(this) {
                     Ok(ok__) => {
                         propertyconditions.write(core::mem::transmute(ok__));
@@ -5007,8 +5007,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::FromDate(this) {
                     Ok(ok__) => {
                         fromdate.write(core::mem::transmute(ok__));
@@ -5023,8 +5023,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetFromDate(this, core::mem::transmute_copy(&fromdate)).into()
             }
         }
@@ -5033,8 +5033,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::Task(this) {
                     Ok(ok__) => {
                         taskname.write(core::mem::transmute(ok__));
@@ -5049,8 +5049,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetTask(this, core::mem::transmute(&taskname)).into()
             }
         }
@@ -5059,8 +5059,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::Parameters(this) {
                     Ok(ok__) => {
                         parameters.write(core::mem::transmute(ok__));
@@ -5075,8 +5075,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetParameters(this, core::mem::transmute_copy(&parameters)).into()
             }
         }
@@ -5085,8 +5085,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::RunningStatus(this) {
                     Ok(ok__) => {
                         runningstatus.write(core::mem::transmute(ok__));
@@ -5101,8 +5101,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::LastError(this) {
                     Ok(ok__) => {
                         lasterror.write(core::mem::transmute(ok__));
@@ -5117,8 +5117,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::LastReportPathWithoutExtension(this) {
                     Ok(ok__) => {
                         path.write(core::mem::transmute(ok__));
@@ -5133,8 +5133,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::LastRun(this) {
                     Ok(ok__) => {
                         lastrun.write(core::mem::transmute(ok__));
@@ -5149,8 +5149,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::FileNamePattern(this) {
                     Ok(ok__) => {
                         filenamepattern.write(core::mem::transmute(ok__));
@@ -5165,8 +5165,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::SetFileNamePattern(this, core::mem::transmute(&filenamepattern)).into()
             }
         }
@@ -5175,8 +5175,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::Run(this, core::mem::transmute_copy(&context)).into()
             }
         }
@@ -5185,8 +5185,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::WaitForCompletion(this, core::mem::transmute_copy(&waitseconds)) {
                     Ok(ok__) => {
                         completed.write(core::mem::transmute(ok__));
@@ -5201,8 +5201,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::Cancel(this).into()
             }
         }
@@ -5211,8 +5211,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::AddNotification(this, core::mem::transmute_copy(&days)).into()
             }
         }
@@ -5221,8 +5221,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::DeleteNotification(this, core::mem::transmute_copy(&days)).into()
             }
         }
@@ -5231,8 +5231,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileManagementJob_Impl::ModifyNotification(this, core::mem::transmute_copy(&days), core::mem::transmute_copy(&newdays)).into()
             }
         }
@@ -5241,8 +5241,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::CreateNotificationAction(this, core::mem::transmute_copy(&days), core::mem::transmute_copy(&actiontype)) {
                     Ok(ok__) => {
                         action.write(core::mem::transmute(ok__));
@@ -5257,8 +5257,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::EnumNotificationActions(this, core::mem::transmute_copy(&days)) {
                     Ok(ok__) => {
                         actions.write(core::mem::transmute(ok__));
@@ -5273,8 +5273,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::CreatePropertyCondition(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         propertycondition.write(core::mem::transmute(ok__));
@@ -5289,8 +5289,8 @@ impl IFsrmFileManagementJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJob_Impl::CreateCustomAction(this) {
                     Ok(ok__) => {
                         customaction.write(core::mem::transmute(ok__));
@@ -5433,8 +5433,8 @@ impl IFsrmFileManagementJobManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJobManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJobManager_Impl::ActionVariables(this) {
                     Ok(ok__) => {
                         variables.write(core::mem::transmute(ok__));
@@ -5449,8 +5449,8 @@ impl IFsrmFileManagementJobManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJobManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJobManager_Impl::ActionVariableDescriptions(this) {
                     Ok(ok__) => {
                         descriptions.write(core::mem::transmute(ok__));
@@ -5465,8 +5465,8 @@ impl IFsrmFileManagementJobManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJobManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJobManager_Impl::EnumFileManagementJobs(this, core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         filemanagementjobs.write(core::mem::transmute(ok__));
@@ -5481,8 +5481,8 @@ impl IFsrmFileManagementJobManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJobManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJobManager_Impl::CreateFileManagementJob(this) {
                     Ok(ok__) => {
                         filemanagementjob.write(core::mem::transmute(ok__));
@@ -5497,8 +5497,8 @@ impl IFsrmFileManagementJobManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileManagementJobManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileManagementJobManager_Impl::GetFileManagementJob(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         filemanagementjob.write(core::mem::transmute(ok__));
@@ -5602,8 +5602,8 @@ impl IFsrmFileScreen_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreen_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreen_Impl::Path(this) {
                     Ok(ok__) => {
                         path.write(core::mem::transmute(ok__));
@@ -5618,8 +5618,8 @@ impl IFsrmFileScreen_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreen_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreen_Impl::SourceTemplateName(this) {
                     Ok(ok__) => {
                         filescreentemplatename.write(core::mem::transmute(ok__));
@@ -5634,8 +5634,8 @@ impl IFsrmFileScreen_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreen_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreen_Impl::MatchesSourceTemplate(this) {
                     Ok(ok__) => {
                         matches.write(core::mem::transmute(ok__));
@@ -5650,8 +5650,8 @@ impl IFsrmFileScreen_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreen_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreen_Impl::UserSid(this) {
                     Ok(ok__) => {
                         usersid.write(core::mem::transmute(ok__));
@@ -5666,8 +5666,8 @@ impl IFsrmFileScreen_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreen_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreen_Impl::UserAccount(this) {
                     Ok(ok__) => {
                         useraccount.write(core::mem::transmute(ok__));
@@ -5682,8 +5682,8 @@ impl IFsrmFileScreen_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreen_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileScreen_Impl::ApplyTemplate(this, core::mem::transmute(&filescreentemplatename)).into()
             }
         }
@@ -5782,8 +5782,8 @@ impl IFsrmFileScreenBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenBase_Impl::BlockedFileGroups(this) {
                     Ok(ok__) => {
                         blocklist.write(core::mem::transmute(ok__));
@@ -5798,8 +5798,8 @@ impl IFsrmFileScreenBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileScreenBase_Impl::SetBlockedFileGroups(this, core::mem::transmute_copy(&blocklist)).into()
             }
         }
@@ -5808,8 +5808,8 @@ impl IFsrmFileScreenBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenBase_Impl::FileScreenFlags(this) {
                     Ok(ok__) => {
                         filescreenflags.write(core::mem::transmute(ok__));
@@ -5824,8 +5824,8 @@ impl IFsrmFileScreenBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileScreenBase_Impl::SetFileScreenFlags(this, core::mem::transmute_copy(&filescreenflags)).into()
             }
         }
@@ -5834,8 +5834,8 @@ impl IFsrmFileScreenBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenBase_Impl::CreateAction(this, core::mem::transmute_copy(&actiontype)) {
                     Ok(ok__) => {
                         action.write(core::mem::transmute(ok__));
@@ -5850,8 +5850,8 @@ impl IFsrmFileScreenBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenBase_Impl::EnumActions(this) {
                     Ok(ok__) => {
                         actions.write(core::mem::transmute(ok__));
@@ -5935,8 +5935,8 @@ impl IFsrmFileScreenException_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenException_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenException_Impl::Path(this) {
                     Ok(ok__) => {
                         path.write(core::mem::transmute(ok__));
@@ -5951,8 +5951,8 @@ impl IFsrmFileScreenException_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenException_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenException_Impl::AllowedFileGroups(this) {
                     Ok(ok__) => {
                         allowlist.write(core::mem::transmute(ok__));
@@ -5967,8 +5967,8 @@ impl IFsrmFileScreenException_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenException_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileScreenException_Impl::SetAllowedFileGroups(this, core::mem::transmute_copy(&allowlist)).into()
             }
         }
@@ -6091,8 +6091,8 @@ impl IFsrmFileScreenManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenManager_Impl::ActionVariables(this) {
                     Ok(ok__) => {
                         variables.write(core::mem::transmute(ok__));
@@ -6107,8 +6107,8 @@ impl IFsrmFileScreenManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenManager_Impl::ActionVariableDescriptions(this) {
                     Ok(ok__) => {
                         descriptions.write(core::mem::transmute(ok__));
@@ -6123,8 +6123,8 @@ impl IFsrmFileScreenManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenManager_Impl::CreateFileScreen(this, core::mem::transmute(&path)) {
                     Ok(ok__) => {
                         filescreen.write(core::mem::transmute(ok__));
@@ -6139,8 +6139,8 @@ impl IFsrmFileScreenManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenManager_Impl::GetFileScreen(this, core::mem::transmute(&path)) {
                     Ok(ok__) => {
                         filescreen.write(core::mem::transmute(ok__));
@@ -6155,8 +6155,8 @@ impl IFsrmFileScreenManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenManager_Impl::EnumFileScreens(this, core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         filescreens.write(core::mem::transmute(ok__));
@@ -6171,8 +6171,8 @@ impl IFsrmFileScreenManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenManager_Impl::CreateFileScreenException(this, core::mem::transmute(&path)) {
                     Ok(ok__) => {
                         filescreenexception.write(core::mem::transmute(ok__));
@@ -6187,8 +6187,8 @@ impl IFsrmFileScreenManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenManager_Impl::GetFileScreenException(this, core::mem::transmute(&path)) {
                     Ok(ok__) => {
                         filescreenexception.write(core::mem::transmute(ok__));
@@ -6203,8 +6203,8 @@ impl IFsrmFileScreenManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenManager_Impl::EnumFileScreenExceptions(this, core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         filescreenexceptions.write(core::mem::transmute(ok__));
@@ -6219,8 +6219,8 @@ impl IFsrmFileScreenManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenManager_Impl::CreateFileScreenCollection(this) {
                     Ok(ok__) => {
                         collection.write(core::mem::transmute(ok__));
@@ -6309,8 +6309,8 @@ impl IFsrmFileScreenTemplate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenTemplate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenTemplate_Impl::Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -6325,8 +6325,8 @@ impl IFsrmFileScreenTemplate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenTemplate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileScreenTemplate_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }
@@ -6335,8 +6335,8 @@ impl IFsrmFileScreenTemplate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenTemplate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileScreenTemplate_Impl::CopyTemplate(this, core::mem::transmute(&filescreentemplatename)).into()
             }
         }
@@ -6345,8 +6345,8 @@ impl IFsrmFileScreenTemplate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenTemplate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenTemplate_Impl::CommitAndUpdateDerived(this, core::mem::transmute_copy(&commitoptions), core::mem::transmute_copy(&applyoptions)) {
                     Ok(ok__) => {
                         derivedobjectsresult.write(core::mem::transmute(ok__));
@@ -6417,8 +6417,8 @@ impl IFsrmFileScreenTemplateImported_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenTemplateImported_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenTemplateImported_Impl::OverwriteOnCommit(this) {
                     Ok(ok__) => {
                         overwrite.write(core::mem::transmute(ok__));
@@ -6433,8 +6433,8 @@ impl IFsrmFileScreenTemplateImported_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenTemplateImported_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmFileScreenTemplateImported_Impl::SetOverwriteOnCommit(this, core::mem::transmute_copy(&overwrite)).into()
             }
         }
@@ -6532,8 +6532,8 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenTemplateManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenTemplateManager_Impl::CreateTemplate(this) {
                     Ok(ok__) => {
                         filescreentemplate.write(core::mem::transmute(ok__));
@@ -6548,8 +6548,8 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenTemplateManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenTemplateManager_Impl::GetTemplate(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         filescreentemplate.write(core::mem::transmute(ok__));
@@ -6564,8 +6564,8 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenTemplateManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenTemplateManager_Impl::EnumTemplates(this, core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         filescreentemplates.write(core::mem::transmute(ok__));
@@ -6580,8 +6580,8 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenTemplateManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenTemplateManager_Impl::ExportTemplates(this, core::mem::transmute_copy(&filescreentemplatenamesarray)) {
                     Ok(ok__) => {
                         serializedfilescreentemplates.write(core::mem::transmute(ok__));
@@ -6596,8 +6596,8 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmFileScreenTemplateManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmFileScreenTemplateManager_Impl::ImportTemplates(this, core::mem::transmute(&serializedfilescreentemplates), core::mem::transmute_copy(&filescreentemplatenamesarray)) {
                     Ok(ok__) => {
                         filescreentemplates.write(core::mem::transmute(ok__));
@@ -6683,8 +6683,8 @@ impl IFsrmMutableCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmMutableCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmMutableCollection_Impl::Add(this, core::mem::transmute(&item)).into()
             }
         }
@@ -6693,8 +6693,8 @@ impl IFsrmMutableCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmMutableCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmMutableCollection_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
             }
         }
@@ -6703,8 +6703,8 @@ impl IFsrmMutableCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmMutableCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmMutableCollection_Impl::RemoveById(this, core::mem::transmute(&id)).into()
             }
         }
@@ -6713,8 +6713,8 @@ impl IFsrmMutableCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmMutableCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmMutableCollection_Impl::Clone(this) {
                     Ok(ok__) => {
                         collection.write(core::mem::transmute(ok__));
@@ -6803,8 +6803,8 @@ impl IFsrmObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmObject_Impl::Id(this) {
                     Ok(ok__) => {
                         id.write(core::mem::transmute(ok__));
@@ -6819,8 +6819,8 @@ impl IFsrmObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmObject_Impl::Description(this) {
                     Ok(ok__) => {
                         description.write(core::mem::transmute(ok__));
@@ -6835,8 +6835,8 @@ impl IFsrmObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmObject_Impl::SetDescription(this, core::mem::transmute(&description)).into()
             }
         }
@@ -6845,8 +6845,8 @@ impl IFsrmObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmObject_Impl::Delete(this).into()
             }
         }
@@ -6855,8 +6855,8 @@ impl IFsrmObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmObject_Impl::Commit(this).into()
             }
         }
@@ -6917,8 +6917,8 @@ impl IFsrmPathMapper_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPathMapper_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPathMapper_Impl::GetSharePathsForLocalPath(this, core::mem::transmute(&localpath)) {
                     Ok(ok__) => {
                         sharepaths.write(core::mem::transmute(ok__));
@@ -7014,8 +7014,8 @@ impl IFsrmPipelineModuleConnector_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleConnector_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleConnector_Impl::ModuleImplementation(this) {
                     Ok(ok__) => {
                         pipelinemoduleimplementation.write(core::mem::transmute(ok__));
@@ -7030,8 +7030,8 @@ impl IFsrmPipelineModuleConnector_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleConnector_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleConnector_Impl::ModuleName(this) {
                     Ok(ok__) => {
                         username.write(core::mem::transmute(ok__));
@@ -7046,8 +7046,8 @@ impl IFsrmPipelineModuleConnector_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleConnector_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleConnector_Impl::HostingUserAccount(this) {
                     Ok(ok__) => {
                         useraccount.write(core::mem::transmute(ok__));
@@ -7062,8 +7062,8 @@ impl IFsrmPipelineModuleConnector_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleConnector_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleConnector_Impl::HostingProcessPid(this) {
                     Ok(ok__) => {
                         pid.write(core::mem::transmute(ok__));
@@ -7078,8 +7078,8 @@ impl IFsrmPipelineModuleConnector_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleConnector_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPipelineModuleConnector_Impl::Bind(this, core::mem::transmute_copy(&moduledefinition), core::mem::transmute_copy(&moduleimplementation)).into()
             }
         }
@@ -7257,8 +7257,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleDefinition_Impl::ModuleClsid(this) {
                     Ok(ok__) => {
                         moduleclsid.write(core::mem::transmute(ok__));
@@ -7273,8 +7273,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPipelineModuleDefinition_Impl::SetModuleClsid(this, core::mem::transmute(&moduleclsid)).into()
             }
         }
@@ -7283,8 +7283,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleDefinition_Impl::Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -7299,8 +7299,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPipelineModuleDefinition_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }
@@ -7309,8 +7309,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleDefinition_Impl::Company(this) {
                     Ok(ok__) => {
                         company.write(core::mem::transmute(ok__));
@@ -7325,8 +7325,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPipelineModuleDefinition_Impl::SetCompany(this, core::mem::transmute(&company)).into()
             }
         }
@@ -7335,8 +7335,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleDefinition_Impl::Version(this) {
                     Ok(ok__) => {
                         version.write(core::mem::transmute(ok__));
@@ -7351,8 +7351,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPipelineModuleDefinition_Impl::SetVersion(this, core::mem::transmute(&version)).into()
             }
         }
@@ -7361,8 +7361,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleDefinition_Impl::ModuleType(this) {
                     Ok(ok__) => {
                         moduletype.write(core::mem::transmute(ok__));
@@ -7377,8 +7377,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleDefinition_Impl::Enabled(this) {
                     Ok(ok__) => {
                         enabled.write(core::mem::transmute(ok__));
@@ -7393,8 +7393,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPipelineModuleDefinition_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
             }
         }
@@ -7403,8 +7403,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleDefinition_Impl::NeedsFileContent(this) {
                     Ok(ok__) => {
                         needsfilecontent.write(core::mem::transmute(ok__));
@@ -7419,8 +7419,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPipelineModuleDefinition_Impl::SetNeedsFileContent(this, core::mem::transmute_copy(&needsfilecontent)).into()
             }
         }
@@ -7429,8 +7429,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleDefinition_Impl::Account(this) {
                     Ok(ok__) => {
                         retrievalaccount.write(core::mem::transmute(ok__));
@@ -7445,8 +7445,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPipelineModuleDefinition_Impl::SetAccount(this, core::mem::transmute_copy(&retrievalaccount)).into()
             }
         }
@@ -7455,8 +7455,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleDefinition_Impl::SupportedExtensions(this) {
                     Ok(ok__) => {
                         supportedextensions.write(core::mem::transmute(ok__));
@@ -7471,8 +7471,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPipelineModuleDefinition_Impl::SetSupportedExtensions(this, core::mem::transmute_copy(&supportedextensions)).into()
             }
         }
@@ -7481,8 +7481,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleDefinition_Impl::Parameters(this) {
                     Ok(ok__) => {
                         parameters.write(core::mem::transmute(ok__));
@@ -7497,8 +7497,8 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPipelineModuleDefinition_Impl::SetParameters(this, core::mem::transmute_copy(&parameters)).into()
             }
         }
@@ -7581,8 +7581,8 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleImplementation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPipelineModuleImplementation_Impl::OnLoad(this, core::mem::transmute_copy(&moduledefinition)) {
                     Ok(ok__) => {
                         moduleconnector.write(core::mem::transmute(ok__));
@@ -7597,8 +7597,8 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPipelineModuleImplementation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPipelineModuleImplementation_Impl::OnUnload(this).into()
             }
         }
@@ -7680,8 +7680,8 @@ impl IFsrmProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmProperty_Impl::Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -7696,8 +7696,8 @@ impl IFsrmProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmProperty_Impl::Value(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -7712,8 +7712,8 @@ impl IFsrmProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmProperty_Impl::Sources(this) {
                     Ok(ok__) => {
                         sources.write(core::mem::transmute(ok__));
@@ -7728,8 +7728,8 @@ impl IFsrmProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmProperty_Impl::PropertyFlags(this) {
                     Ok(ok__) => {
                         flags.write(core::mem::transmute(ok__));
@@ -7981,8 +7981,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -7997,8 +7997,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::RelativePath(this) {
                     Ok(ok__) => {
                         path.write(core::mem::transmute(ok__));
@@ -8013,8 +8013,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::VolumeName(this) {
                     Ok(ok__) => {
                         volumename.write(core::mem::transmute(ok__));
@@ -8029,8 +8029,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::RelativeNamespaceRoot(this) {
                     Ok(ok__) => {
                         relativenamespaceroot.write(core::mem::transmute(ok__));
@@ -8045,8 +8045,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::VolumeIndex(this) {
                     Ok(ok__) => {
                         volumeid.write(core::mem::transmute(ok__));
@@ -8061,8 +8061,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::FileId(this) {
                     Ok(ok__) => {
                         fileid.write(core::mem::transmute(ok__));
@@ -8077,8 +8077,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::ParentDirectoryId(this) {
                     Ok(ok__) => {
                         parentdirectoryid.write(core::mem::transmute(ok__));
@@ -8093,8 +8093,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::Size(this) {
                     Ok(ok__) => {
                         size.write(core::mem::transmute(ok__));
@@ -8109,8 +8109,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::SizeAllocated(this) {
                     Ok(ok__) => {
                         sizeallocated.write(core::mem::transmute(ok__));
@@ -8125,8 +8125,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::CreationTime(this) {
                     Ok(ok__) => {
                         creationtime.write(core::mem::transmute(ok__));
@@ -8141,8 +8141,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::LastAccessTime(this) {
                     Ok(ok__) => {
                         lastaccesstime.write(core::mem::transmute(ok__));
@@ -8157,8 +8157,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::LastModificationTime(this) {
                     Ok(ok__) => {
                         lastmodificationtime.write(core::mem::transmute(ok__));
@@ -8173,8 +8173,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::Attributes(this) {
                     Ok(ok__) => {
                         attributes.write(core::mem::transmute(ok__));
@@ -8189,8 +8189,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::OwnerSid(this) {
                     Ok(ok__) => {
                         ownersid.write(core::mem::transmute(ok__));
@@ -8205,8 +8205,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::FilePropertyNames(this) {
                     Ok(ok__) => {
                         filepropertynames.write(core::mem::transmute(ok__));
@@ -8221,8 +8221,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::Messages(this) {
                     Ok(ok__) => {
                         messages.write(core::mem::transmute(ok__));
@@ -8237,8 +8237,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::PropertyBagFlags(this) {
                     Ok(ok__) => {
                         flags.write(core::mem::transmute(ok__));
@@ -8253,8 +8253,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::GetFileProperty(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         fileproperty.write(core::mem::transmute(ok__));
@@ -8269,8 +8269,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPropertyBag_Impl::SetFileProperty(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
             }
         }
@@ -8279,8 +8279,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPropertyBag_Impl::AddMessage(this, core::mem::transmute(&message)).into()
             }
         }
@@ -8289,8 +8289,8 @@ impl IFsrmPropertyBag_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag_Impl::GetFileStreamInterface(this, core::mem::transmute_copy(&accessmode), core::mem::transmute_copy(&interfacetype)) {
                     Ok(ok__) => {
                         pstreaminterface.write(core::mem::transmute(ok__));
@@ -8385,8 +8385,8 @@ impl IFsrmPropertyBag2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag2_Impl::GetFieldValue(this, core::mem::transmute_copy(&field)) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -8401,8 +8401,8 @@ impl IFsrmPropertyBag2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyBag2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyBag2_Impl::GetUntrustedInFileProperties(this) {
                     Ok(ok__) => {
                         props.write(core::mem::transmute(ok__));
@@ -8502,8 +8502,8 @@ impl IFsrmPropertyCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyCondition_Impl::Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -8518,8 +8518,8 @@ impl IFsrmPropertyCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPropertyCondition_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }
@@ -8528,8 +8528,8 @@ impl IFsrmPropertyCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyCondition_Impl::Type(this) {
                     Ok(ok__) => {
                         r#type.write(core::mem::transmute(ok__));
@@ -8544,8 +8544,8 @@ impl IFsrmPropertyCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPropertyCondition_Impl::SetType(this, core::mem::transmute_copy(&r#type)).into()
             }
         }
@@ -8554,8 +8554,8 @@ impl IFsrmPropertyCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyCondition_Impl::Value(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -8570,8 +8570,8 @@ impl IFsrmPropertyCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPropertyCondition_Impl::SetValue(this, core::mem::transmute(&value)).into()
             }
         }
@@ -8580,8 +8580,8 @@ impl IFsrmPropertyCondition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyCondition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPropertyCondition_Impl::Delete(this).into()
             }
         }
@@ -8701,8 +8701,8 @@ impl IFsrmPropertyDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyDefinition_Impl::Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -8717,8 +8717,8 @@ impl IFsrmPropertyDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPropertyDefinition_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }
@@ -8727,8 +8727,8 @@ impl IFsrmPropertyDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyDefinition_Impl::Type(this) {
                     Ok(ok__) => {
                         r#type.write(core::mem::transmute(ok__));
@@ -8743,8 +8743,8 @@ impl IFsrmPropertyDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPropertyDefinition_Impl::SetType(this, core::mem::transmute_copy(&r#type)).into()
             }
         }
@@ -8753,8 +8753,8 @@ impl IFsrmPropertyDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyDefinition_Impl::PossibleValues(this) {
                     Ok(ok__) => {
                         possiblevalues.write(core::mem::transmute(ok__));
@@ -8769,8 +8769,8 @@ impl IFsrmPropertyDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPropertyDefinition_Impl::SetPossibleValues(this, core::mem::transmute_copy(&possiblevalues)).into()
             }
         }
@@ -8779,8 +8779,8 @@ impl IFsrmPropertyDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyDefinition_Impl::ValueDescriptions(this) {
                     Ok(ok__) => {
                         valuedescriptions.write(core::mem::transmute(ok__));
@@ -8795,8 +8795,8 @@ impl IFsrmPropertyDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPropertyDefinition_Impl::SetValueDescriptions(this, core::mem::transmute_copy(&valuedescriptions)).into()
             }
         }
@@ -8805,8 +8805,8 @@ impl IFsrmPropertyDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyDefinition_Impl::Parameters(this) {
                     Ok(ok__) => {
                         parameters.write(core::mem::transmute(ok__));
@@ -8821,8 +8821,8 @@ impl IFsrmPropertyDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPropertyDefinition_Impl::SetParameters(this, core::mem::transmute_copy(&parameters)).into()
             }
         }
@@ -8917,8 +8917,8 @@ impl IFsrmPropertyDefinition2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyDefinition2_Impl::PropertyDefinitionFlags(this) {
                     Ok(ok__) => {
                         propertydefinitionflags.write(core::mem::transmute(ok__));
@@ -8933,8 +8933,8 @@ impl IFsrmPropertyDefinition2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyDefinition2_Impl::DisplayName(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -8949,8 +8949,8 @@ impl IFsrmPropertyDefinition2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmPropertyDefinition2_Impl::SetDisplayName(this, core::mem::transmute(&name)).into()
             }
         }
@@ -8959,8 +8959,8 @@ impl IFsrmPropertyDefinition2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyDefinition2_Impl::AppliesTo(this) {
                     Ok(ok__) => {
                         appliesto.write(core::mem::transmute(ok__));
@@ -8975,8 +8975,8 @@ impl IFsrmPropertyDefinition2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinition2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyDefinition2_Impl::ValueDefinitions(this) {
                     Ok(ok__) => {
                         valuedefinitions.write(core::mem::transmute(ok__));
@@ -9067,8 +9067,8 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinitionValue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyDefinitionValue_Impl::Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -9083,8 +9083,8 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinitionValue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyDefinitionValue_Impl::DisplayName(this) {
                     Ok(ok__) => {
                         displayname.write(core::mem::transmute(ok__));
@@ -9099,8 +9099,8 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinitionValue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyDefinitionValue_Impl::Description(this) {
                     Ok(ok__) => {
                         description.write(core::mem::transmute(ok__));
@@ -9115,8 +9115,8 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmPropertyDefinitionValue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmPropertyDefinitionValue_Impl::UniqueID(this) {
                     Ok(ok__) => {
                         uniqueid.write(core::mem::transmute(ok__));
@@ -9216,8 +9216,8 @@ impl IFsrmQuota_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuota_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuota_Impl::QuotaUsed(this) {
                     Ok(ok__) => {
                         used.write(core::mem::transmute(ok__));
@@ -9232,8 +9232,8 @@ impl IFsrmQuota_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuota_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuota_Impl::QuotaPeakUsage(this) {
                     Ok(ok__) => {
                         peakusage.write(core::mem::transmute(ok__));
@@ -9248,8 +9248,8 @@ impl IFsrmQuota_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuota_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuota_Impl::QuotaPeakUsageTime(this) {
                     Ok(ok__) => {
                         peakusagedatetime.write(core::mem::transmute(ok__));
@@ -9264,8 +9264,8 @@ impl IFsrmQuota_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuota_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmQuota_Impl::ResetPeakUsage(this).into()
             }
         }
@@ -9274,8 +9274,8 @@ impl IFsrmQuota_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuota_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmQuota_Impl::RefreshUsageProperties(this).into()
             }
         }
@@ -9401,8 +9401,8 @@ impl IFsrmQuotaBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaBase_Impl::QuotaLimit(this) {
                     Ok(ok__) => {
                         quotalimit.write(core::mem::transmute(ok__));
@@ -9417,8 +9417,8 @@ impl IFsrmQuotaBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmQuotaBase_Impl::SetQuotaLimit(this, core::mem::transmute(&quotalimit)).into()
             }
         }
@@ -9427,8 +9427,8 @@ impl IFsrmQuotaBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaBase_Impl::QuotaFlags(this) {
                     Ok(ok__) => {
                         quotaflags.write(core::mem::transmute(ok__));
@@ -9443,8 +9443,8 @@ impl IFsrmQuotaBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmQuotaBase_Impl::SetQuotaFlags(this, core::mem::transmute_copy(&quotaflags)).into()
             }
         }
@@ -9453,8 +9453,8 @@ impl IFsrmQuotaBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaBase_Impl::Thresholds(this) {
                     Ok(ok__) => {
                         thresholds.write(core::mem::transmute(ok__));
@@ -9469,8 +9469,8 @@ impl IFsrmQuotaBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmQuotaBase_Impl::AddThreshold(this, core::mem::transmute_copy(&threshold)).into()
             }
         }
@@ -9479,8 +9479,8 @@ impl IFsrmQuotaBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmQuotaBase_Impl::DeleteThreshold(this, core::mem::transmute_copy(&threshold)).into()
             }
         }
@@ -9489,8 +9489,8 @@ impl IFsrmQuotaBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmQuotaBase_Impl::ModifyThreshold(this, core::mem::transmute_copy(&threshold), core::mem::transmute_copy(&newthreshold)).into()
             }
         }
@@ -9499,8 +9499,8 @@ impl IFsrmQuotaBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaBase_Impl::CreateThresholdAction(this, core::mem::transmute_copy(&threshold), core::mem::transmute_copy(&actiontype)) {
                     Ok(ok__) => {
                         action.write(core::mem::transmute(ok__));
@@ -9515,8 +9515,8 @@ impl IFsrmQuotaBase_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaBase_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaBase_Impl::EnumThresholdActions(this, core::mem::transmute_copy(&threshold)) {
                     Ok(ok__) => {
                         actions.write(core::mem::transmute(ok__));
@@ -9673,8 +9673,8 @@ impl IFsrmQuotaManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaManager_Impl::ActionVariables(this) {
                     Ok(ok__) => {
                         variables.write(core::mem::transmute(ok__));
@@ -9689,8 +9689,8 @@ impl IFsrmQuotaManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaManager_Impl::ActionVariableDescriptions(this) {
                     Ok(ok__) => {
                         descriptions.write(core::mem::transmute(ok__));
@@ -9705,8 +9705,8 @@ impl IFsrmQuotaManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaManager_Impl::CreateQuota(this, core::mem::transmute(&path)) {
                     Ok(ok__) => {
                         quota.write(core::mem::transmute(ok__));
@@ -9721,8 +9721,8 @@ impl IFsrmQuotaManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaManager_Impl::CreateAutoApplyQuota(this, core::mem::transmute(&quotatemplatename), core::mem::transmute(&path)) {
                     Ok(ok__) => {
                         quota.write(core::mem::transmute(ok__));
@@ -9737,8 +9737,8 @@ impl IFsrmQuotaManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaManager_Impl::GetQuota(this, core::mem::transmute(&path)) {
                     Ok(ok__) => {
                         quota.write(core::mem::transmute(ok__));
@@ -9753,8 +9753,8 @@ impl IFsrmQuotaManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaManager_Impl::GetAutoApplyQuota(this, core::mem::transmute(&path)) {
                     Ok(ok__) => {
                         quota.write(core::mem::transmute(ok__));
@@ -9769,8 +9769,8 @@ impl IFsrmQuotaManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaManager_Impl::GetRestrictiveQuota(this, core::mem::transmute(&path)) {
                     Ok(ok__) => {
                         quota.write(core::mem::transmute(ok__));
@@ -9785,8 +9785,8 @@ impl IFsrmQuotaManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaManager_Impl::EnumQuotas(this, core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         quotas.write(core::mem::transmute(ok__));
@@ -9801,8 +9801,8 @@ impl IFsrmQuotaManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaManager_Impl::EnumAutoApplyQuotas(this, core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         quotas.write(core::mem::transmute(ok__));
@@ -9817,8 +9817,8 @@ impl IFsrmQuotaManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaManager_Impl::EnumEffectiveQuotas(this, core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         quotas.write(core::mem::transmute(ok__));
@@ -9833,8 +9833,8 @@ impl IFsrmQuotaManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmQuotaManager_Impl::Scan(this, core::mem::transmute(&strpath)).into()
             }
         }
@@ -9843,8 +9843,8 @@ impl IFsrmQuotaManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaManager_Impl::CreateQuotaCollection(this) {
                     Ok(ok__) => {
                         collection.write(core::mem::transmute(ok__));
@@ -9918,8 +9918,8 @@ impl IFsrmQuotaManagerEx_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaManagerEx_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaManagerEx_Impl::IsAffectedByQuota(this, core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         affected.write(core::mem::transmute(ok__));
@@ -10016,8 +10016,8 @@ impl IFsrmQuotaObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaObject_Impl::Path(this) {
                     Ok(ok__) => {
                         path.write(core::mem::transmute(ok__));
@@ -10032,8 +10032,8 @@ impl IFsrmQuotaObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaObject_Impl::UserSid(this) {
                     Ok(ok__) => {
                         usersid.write(core::mem::transmute(ok__));
@@ -10048,8 +10048,8 @@ impl IFsrmQuotaObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaObject_Impl::UserAccount(this) {
                     Ok(ok__) => {
                         useraccount.write(core::mem::transmute(ok__));
@@ -10064,8 +10064,8 @@ impl IFsrmQuotaObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaObject_Impl::SourceTemplateName(this) {
                     Ok(ok__) => {
                         quotatemplatename.write(core::mem::transmute(ok__));
@@ -10080,8 +10080,8 @@ impl IFsrmQuotaObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaObject_Impl::MatchesSourceTemplate(this) {
                     Ok(ok__) => {
                         matches.write(core::mem::transmute(ok__));
@@ -10096,8 +10096,8 @@ impl IFsrmQuotaObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmQuotaObject_Impl::ApplyTemplate(this, core::mem::transmute(&quotatemplatename)).into()
             }
         }
@@ -10177,8 +10177,8 @@ impl IFsrmQuotaTemplate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaTemplate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaTemplate_Impl::Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -10193,8 +10193,8 @@ impl IFsrmQuotaTemplate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaTemplate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmQuotaTemplate_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }
@@ -10203,8 +10203,8 @@ impl IFsrmQuotaTemplate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaTemplate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmQuotaTemplate_Impl::CopyTemplate(this, core::mem::transmute(&quotatemplatename)).into()
             }
         }
@@ -10213,8 +10213,8 @@ impl IFsrmQuotaTemplate_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaTemplate_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaTemplate_Impl::CommitAndUpdateDerived(this, core::mem::transmute_copy(&commitoptions), core::mem::transmute_copy(&applyoptions)) {
                     Ok(ok__) => {
                         derivedobjectsresult.write(core::mem::transmute(ok__));
@@ -10285,8 +10285,8 @@ impl IFsrmQuotaTemplateImported_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaTemplateImported_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaTemplateImported_Impl::OverwriteOnCommit(this) {
                     Ok(ok__) => {
                         overwrite.write(core::mem::transmute(ok__));
@@ -10301,8 +10301,8 @@ impl IFsrmQuotaTemplateImported_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaTemplateImported_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmQuotaTemplateImported_Impl::SetOverwriteOnCommit(this, core::mem::transmute_copy(&overwrite)).into()
             }
         }
@@ -10400,8 +10400,8 @@ impl IFsrmQuotaTemplateManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaTemplateManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaTemplateManager_Impl::CreateTemplate(this) {
                     Ok(ok__) => {
                         quotatemplate.write(core::mem::transmute(ok__));
@@ -10416,8 +10416,8 @@ impl IFsrmQuotaTemplateManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaTemplateManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaTemplateManager_Impl::GetTemplate(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         quotatemplate.write(core::mem::transmute(ok__));
@@ -10432,8 +10432,8 @@ impl IFsrmQuotaTemplateManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaTemplateManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaTemplateManager_Impl::EnumTemplates(this, core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         quotatemplates.write(core::mem::transmute(ok__));
@@ -10448,8 +10448,8 @@ impl IFsrmQuotaTemplateManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaTemplateManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaTemplateManager_Impl::ExportTemplates(this, core::mem::transmute_copy(&quotatemplatenamesarray)) {
                     Ok(ok__) => {
                         serializedquotatemplates.write(core::mem::transmute(ok__));
@@ -10464,8 +10464,8 @@ impl IFsrmQuotaTemplateManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmQuotaTemplateManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmQuotaTemplateManager_Impl::ImportTemplates(this, core::mem::transmute(&serializedquotatemplates), core::mem::transmute_copy(&quotatemplatenamesarray)) {
                     Ok(ok__) => {
                         quotatemplates.write(core::mem::transmute(ok__));
@@ -10592,8 +10592,8 @@ impl IFsrmReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReport_Impl::Type(this) {
                     Ok(ok__) => {
                         reporttype.write(core::mem::transmute(ok__));
@@ -10608,8 +10608,8 @@ impl IFsrmReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReport_Impl::Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -10624,8 +10624,8 @@ impl IFsrmReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReport_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }
@@ -10634,8 +10634,8 @@ impl IFsrmReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReport_Impl::Description(this) {
                     Ok(ok__) => {
                         description.write(core::mem::transmute(ok__));
@@ -10650,8 +10650,8 @@ impl IFsrmReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReport_Impl::SetDescription(this, core::mem::transmute(&description)).into()
             }
         }
@@ -10660,8 +10660,8 @@ impl IFsrmReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReport_Impl::LastGeneratedFileNamePrefix(this) {
                     Ok(ok__) => {
                         prefix.write(core::mem::transmute(ok__));
@@ -10676,8 +10676,8 @@ impl IFsrmReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReport_Impl::GetFilter(this, core::mem::transmute_copy(&filter)) {
                     Ok(ok__) => {
                         filtervalue.write(core::mem::transmute(ok__));
@@ -10692,8 +10692,8 @@ impl IFsrmReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReport_Impl::SetFilter(this, core::mem::transmute_copy(&filter), core::mem::transmute(&filtervalue)).into()
             }
         }
@@ -10702,8 +10702,8 @@ impl IFsrmReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReport_Impl::Delete(this).into()
             }
         }
@@ -10878,8 +10878,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportJob_Impl::Task(this) {
                     Ok(ok__) => {
                         taskname.write(core::mem::transmute(ok__));
@@ -10894,8 +10894,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReportJob_Impl::SetTask(this, core::mem::transmute(&taskname)).into()
             }
         }
@@ -10904,8 +10904,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportJob_Impl::NamespaceRoots(this) {
                     Ok(ok__) => {
                         namespaceroots.write(core::mem::transmute(ok__));
@@ -10920,8 +10920,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReportJob_Impl::SetNamespaceRoots(this, core::mem::transmute_copy(&namespaceroots)).into()
             }
         }
@@ -10930,8 +10930,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportJob_Impl::Formats(this) {
                     Ok(ok__) => {
                         formats.write(core::mem::transmute(ok__));
@@ -10946,8 +10946,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReportJob_Impl::SetFormats(this, core::mem::transmute_copy(&formats)).into()
             }
         }
@@ -10956,8 +10956,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportJob_Impl::MailTo(this) {
                     Ok(ok__) => {
                         mailto.write(core::mem::transmute(ok__));
@@ -10972,8 +10972,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReportJob_Impl::SetMailTo(this, core::mem::transmute(&mailto)).into()
             }
         }
@@ -10982,8 +10982,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportJob_Impl::RunningStatus(this) {
                     Ok(ok__) => {
                         runningstatus.write(core::mem::transmute(ok__));
@@ -10998,8 +10998,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportJob_Impl::LastRun(this) {
                     Ok(ok__) => {
                         lastrun.write(core::mem::transmute(ok__));
@@ -11014,8 +11014,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportJob_Impl::LastError(this) {
                     Ok(ok__) => {
                         lasterror.write(core::mem::transmute(ok__));
@@ -11030,8 +11030,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportJob_Impl::LastGeneratedInDirectory(this) {
                     Ok(ok__) => {
                         path.write(core::mem::transmute(ok__));
@@ -11046,8 +11046,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportJob_Impl::EnumReports(this) {
                     Ok(ok__) => {
                         reports.write(core::mem::transmute(ok__));
@@ -11062,8 +11062,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportJob_Impl::CreateReport(this, core::mem::transmute_copy(&reporttype)) {
                     Ok(ok__) => {
                         report.write(core::mem::transmute(ok__));
@@ -11078,8 +11078,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReportJob_Impl::Run(this, core::mem::transmute_copy(&context)).into()
             }
         }
@@ -11088,8 +11088,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportJob_Impl::WaitForCompletion(this, core::mem::transmute_copy(&waitseconds)) {
                     Ok(ok__) => {
                         completed.write(core::mem::transmute(ok__));
@@ -11104,8 +11104,8 @@ impl IFsrmReportJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReportJob_Impl::Cancel(this).into()
             }
         }
@@ -11257,8 +11257,8 @@ impl IFsrmReportManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportManager_Impl::EnumReportJobs(this, core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         reportjobs.write(core::mem::transmute(ok__));
@@ -11273,8 +11273,8 @@ impl IFsrmReportManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportManager_Impl::CreateReportJob(this) {
                     Ok(ok__) => {
                         reportjob.write(core::mem::transmute(ok__));
@@ -11289,8 +11289,8 @@ impl IFsrmReportManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportManager_Impl::GetReportJob(this, core::mem::transmute(&taskname)) {
                     Ok(ok__) => {
                         reportjob.write(core::mem::transmute(ok__));
@@ -11305,8 +11305,8 @@ impl IFsrmReportManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportManager_Impl::GetOutputDirectory(this, core::mem::transmute_copy(&context)) {
                     Ok(ok__) => {
                         path.write(core::mem::transmute(ok__));
@@ -11321,8 +11321,8 @@ impl IFsrmReportManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReportManager_Impl::SetOutputDirectory(this, core::mem::transmute_copy(&context), core::mem::transmute(&path)).into()
             }
         }
@@ -11331,8 +11331,8 @@ impl IFsrmReportManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportManager_Impl::IsFilterValidForReportType(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&filter)) {
                     Ok(ok__) => {
                         valid.write(core::mem::transmute(ok__));
@@ -11347,8 +11347,8 @@ impl IFsrmReportManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportManager_Impl::GetDefaultFilter(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&filter)) {
                     Ok(ok__) => {
                         filtervalue.write(core::mem::transmute(ok__));
@@ -11363,8 +11363,8 @@ impl IFsrmReportManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReportManager_Impl::SetDefaultFilter(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&filter), core::mem::transmute(&filtervalue)).into()
             }
         }
@@ -11373,8 +11373,8 @@ impl IFsrmReportManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmReportManager_Impl::GetReportSizeLimit(this, core::mem::transmute_copy(&limit)) {
                     Ok(ok__) => {
                         limitvalue.write(core::mem::transmute(ok__));
@@ -11389,8 +11389,8 @@ impl IFsrmReportManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReportManager_Impl::SetReportSizeLimit(this, core::mem::transmute_copy(&limit), core::mem::transmute(&limitvalue)).into()
             }
         }
@@ -11480,8 +11480,8 @@ impl IFsrmReportScheduler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportScheduler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReportScheduler_Impl::VerifyNamespaces(this, core::mem::transmute_copy(&namespacessafearray)).into()
             }
         }
@@ -11490,8 +11490,8 @@ impl IFsrmReportScheduler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportScheduler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReportScheduler_Impl::CreateScheduleTask(this, core::mem::transmute(&taskname), core::mem::transmute_copy(&namespacessafearray), core::mem::transmute(&serializedtask)).into()
             }
         }
@@ -11500,8 +11500,8 @@ impl IFsrmReportScheduler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportScheduler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReportScheduler_Impl::ModifyScheduleTask(this, core::mem::transmute(&taskname), core::mem::transmute_copy(&namespacessafearray), core::mem::transmute(&serializedtask)).into()
             }
         }
@@ -11510,8 +11510,8 @@ impl IFsrmReportScheduler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmReportScheduler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmReportScheduler_Impl::DeleteScheduleTask(this, core::mem::transmute(&taskname)).into()
             }
         }
@@ -11648,8 +11648,8 @@ impl IFsrmRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmRule_Impl::Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -11664,8 +11664,8 @@ impl IFsrmRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmRule_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }
@@ -11674,8 +11674,8 @@ impl IFsrmRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmRule_Impl::RuleType(this) {
                     Ok(ok__) => {
                         ruletype.write(core::mem::transmute(ok__));
@@ -11690,8 +11690,8 @@ impl IFsrmRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmRule_Impl::ModuleDefinitionName(this) {
                     Ok(ok__) => {
                         moduledefinitionname.write(core::mem::transmute(ok__));
@@ -11706,8 +11706,8 @@ impl IFsrmRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmRule_Impl::SetModuleDefinitionName(this, core::mem::transmute(&moduledefinitionname)).into()
             }
         }
@@ -11716,8 +11716,8 @@ impl IFsrmRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmRule_Impl::NamespaceRoots(this) {
                     Ok(ok__) => {
                         namespaceroots.write(core::mem::transmute(ok__));
@@ -11732,8 +11732,8 @@ impl IFsrmRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmRule_Impl::SetNamespaceRoots(this, core::mem::transmute_copy(&namespaceroots)).into()
             }
         }
@@ -11742,8 +11742,8 @@ impl IFsrmRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmRule_Impl::RuleFlags(this) {
                     Ok(ok__) => {
                         ruleflags.write(core::mem::transmute(ok__));
@@ -11758,8 +11758,8 @@ impl IFsrmRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmRule_Impl::SetRuleFlags(this, core::mem::transmute_copy(&ruleflags)).into()
             }
         }
@@ -11768,8 +11768,8 @@ impl IFsrmRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmRule_Impl::Parameters(this) {
                     Ok(ok__) => {
                         parameters.write(core::mem::transmute(ok__));
@@ -11784,8 +11784,8 @@ impl IFsrmRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmRule_Impl::SetParameters(this, core::mem::transmute_copy(&parameters)).into()
             }
         }
@@ -11794,8 +11794,8 @@ impl IFsrmRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmRule_Impl::LastModified(this) {
                     Ok(ok__) => {
                         lastmodified.write(core::mem::transmute(ok__));
@@ -11944,8 +11944,8 @@ impl IFsrmSetting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmSetting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmSetting_Impl::SmtpServer(this) {
                     Ok(ok__) => {
                         smtpserver.write(core::mem::transmute(ok__));
@@ -11960,8 +11960,8 @@ impl IFsrmSetting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmSetting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmSetting_Impl::SetSmtpServer(this, core::mem::transmute(&smtpserver)).into()
             }
         }
@@ -11970,8 +11970,8 @@ impl IFsrmSetting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmSetting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmSetting_Impl::MailFrom(this) {
                     Ok(ok__) => {
                         mailfrom.write(core::mem::transmute(ok__));
@@ -11986,8 +11986,8 @@ impl IFsrmSetting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmSetting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmSetting_Impl::SetMailFrom(this, core::mem::transmute(&mailfrom)).into()
             }
         }
@@ -11996,8 +11996,8 @@ impl IFsrmSetting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmSetting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmSetting_Impl::AdminEmail(this) {
                     Ok(ok__) => {
                         adminemail.write(core::mem::transmute(ok__));
@@ -12012,8 +12012,8 @@ impl IFsrmSetting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmSetting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmSetting_Impl::SetAdminEmail(this, core::mem::transmute(&adminemail)).into()
             }
         }
@@ -12022,8 +12022,8 @@ impl IFsrmSetting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmSetting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmSetting_Impl::DisableCommandLine(this) {
                     Ok(ok__) => {
                         disablecommandline.write(core::mem::transmute(ok__));
@@ -12038,8 +12038,8 @@ impl IFsrmSetting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmSetting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmSetting_Impl::SetDisableCommandLine(this, core::mem::transmute_copy(&disablecommandline)).into()
             }
         }
@@ -12048,8 +12048,8 @@ impl IFsrmSetting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmSetting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmSetting_Impl::EnableScreeningAudit(this) {
                     Ok(ok__) => {
                         enablescreeningaudit.write(core::mem::transmute(ok__));
@@ -12064,8 +12064,8 @@ impl IFsrmSetting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmSetting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmSetting_Impl::SetEnableScreeningAudit(this, core::mem::transmute_copy(&enablescreeningaudit)).into()
             }
         }
@@ -12074,8 +12074,8 @@ impl IFsrmSetting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmSetting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmSetting_Impl::EmailTest(this, core::mem::transmute(&mailto)).into()
             }
         }
@@ -12084,8 +12084,8 @@ impl IFsrmSetting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmSetting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmSetting_Impl::SetActionRunLimitInterval(this, core::mem::transmute_copy(&actiontype), core::mem::transmute_copy(&delaytimeminutes)).into()
             }
         }
@@ -12094,8 +12094,8 @@ impl IFsrmSetting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmSetting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmSetting_Impl::GetActionRunLimitInterval(this, core::mem::transmute_copy(&actiontype)) {
                     Ok(ok__) => {
                         delaytimeminutes.write(core::mem::transmute(ok__));
@@ -12201,8 +12201,8 @@ impl IFsrmStorageModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmStorageModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmStorageModuleDefinition_Impl::Capabilities(this) {
                     Ok(ok__) => {
                         capabilities.write(core::mem::transmute(ok__));
@@ -12217,8 +12217,8 @@ impl IFsrmStorageModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmStorageModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmStorageModuleDefinition_Impl::SetCapabilities(this, core::mem::transmute_copy(&capabilities)).into()
             }
         }
@@ -12227,8 +12227,8 @@ impl IFsrmStorageModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmStorageModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmStorageModuleDefinition_Impl::StorageType(this) {
                     Ok(ok__) => {
                         storagetype.write(core::mem::transmute(ok__));
@@ -12243,8 +12243,8 @@ impl IFsrmStorageModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmStorageModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmStorageModuleDefinition_Impl::SetStorageType(this, core::mem::transmute_copy(&storagetype)).into()
             }
         }
@@ -12253,8 +12253,8 @@ impl IFsrmStorageModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmStorageModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFsrmStorageModuleDefinition_Impl::UpdatesFileContent(this) {
                     Ok(ok__) => {
                         updatesfilecontent.write(core::mem::transmute(ok__));
@@ -12269,8 +12269,8 @@ impl IFsrmStorageModuleDefinition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmStorageModuleDefinition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmStorageModuleDefinition_Impl::SetUpdatesFileContent(this, core::mem::transmute_copy(&updatesfilecontent)).into()
             }
         }
@@ -12348,8 +12348,8 @@ impl IFsrmStorageModuleImplementation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmStorageModuleImplementation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmStorageModuleImplementation_Impl::UseDefinitions(this, core::mem::transmute_copy(&propertydefinitions)).into()
             }
         }
@@ -12358,8 +12358,8 @@ impl IFsrmStorageModuleImplementation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmStorageModuleImplementation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmStorageModuleImplementation_Impl::LoadProperties(this, core::mem::transmute_copy(&propertybag)).into()
             }
         }
@@ -12368,8 +12368,8 @@ impl IFsrmStorageModuleImplementation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFsrmStorageModuleImplementation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFsrmStorageModuleImplementation_Impl::SaveProperties(this, core::mem::transmute_copy(&propertybag)).into()
             }
         }

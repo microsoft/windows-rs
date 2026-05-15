@@ -36,8 +36,8 @@ impl ILearningModelDeviceFactoryNative_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILearningModelDeviceFactoryNative_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILearningModelDeviceFactoryNative_Impl::CreateFromD3D12CommandQueue(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         result.write(core::mem::transmute(ok__));
@@ -90,8 +90,8 @@ impl ILearningModelOperatorProviderNative_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILearningModelOperatorProviderNative_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILearningModelOperatorProviderNative_Impl::GetRegistry(this) {
                     Ok(ok__) => {
                         ppoperatorregistry.write(core::mem::transmute(ok__));
@@ -135,8 +135,8 @@ impl ILearningModelSessionOptionsNative_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILearningModelSessionOptionsNative_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ILearningModelSessionOptionsNative_Impl::SetIntraOpNumThreadsOverride(this, core::mem::transmute_copy(&intraopnumthreads)).into()
             }
         }
@@ -173,8 +173,8 @@ impl ILearningModelSessionOptionsNative1_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILearningModelSessionOptionsNative1_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ILearningModelSessionOptionsNative1_Impl::SetIntraOpThreadSpinning(this, core::mem::transmute_copy(&allowspinning)).into()
             }
         }
@@ -225,8 +225,8 @@ impl ITensorNative_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITensorNative_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITensorNative_Impl::GetBuffer(this, core::mem::transmute_copy(&value), core::mem::transmute_copy(&capacity)).into()
             }
         }
@@ -235,8 +235,8 @@ impl ITensorNative_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITensorNative_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITensorNative_Impl::GetD3D12Resource(this) {
                     Ok(ok__) => {
                         result.write(core::mem::transmute(ok__));
@@ -293,8 +293,8 @@ impl ITensorStaticsNative_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITensorStaticsNative_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITensorStaticsNative_Impl::CreateFromD3D12Resource(this, core::mem::transmute_copy(&value), core::mem::transmute_copy(&shape), core::mem::transmute_copy(&shapecount), core::mem::transmute_copy(&result)).into()
             }
         }

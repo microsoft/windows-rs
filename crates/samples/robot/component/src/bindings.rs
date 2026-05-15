@@ -43,10 +43,10 @@ impl IRobot_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRobot_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRobot_Impl::Speak(this, core::mem::transmute(&message)).into()
             }
         }
@@ -105,10 +105,10 @@ impl IRobotInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRobotInterop_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRobotInterop_Impl::Handle(this)
             }
         }

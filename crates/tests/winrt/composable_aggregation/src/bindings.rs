@@ -116,10 +116,10 @@ impl IFoo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFoo_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFoo_Impl::Hello(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -207,10 +207,10 @@ impl IFooFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFooFactory_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFooFactory_Impl::CreateInstance(
                     this,
                     core::mem::transmute_copy(&outer),

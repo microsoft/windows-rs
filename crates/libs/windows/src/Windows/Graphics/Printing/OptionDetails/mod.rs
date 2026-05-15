@@ -198,8 +198,8 @@ impl IPrintCustomOptionDetails_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintCustomOptionDetails_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintCustomOptionDetails_Impl::SetDisplayName(this, core::mem::transmute(&value)).into()
             }
         }
@@ -208,8 +208,8 @@ impl IPrintCustomOptionDetails_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintCustomOptionDetails_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintCustomOptionDetails_Impl::DisplayName(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -383,8 +383,8 @@ impl IPrintItemListOptionDetails_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintItemListOptionDetails_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintItemListOptionDetails_Impl::Items(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -523,8 +523,8 @@ impl IPrintNumberOptionDetails_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintNumberOptionDetails_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintNumberOptionDetails_Impl::MinValue(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -539,8 +539,8 @@ impl IPrintNumberOptionDetails_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintNumberOptionDetails_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintNumberOptionDetails_Impl::MaxValue(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -642,8 +642,8 @@ impl IPrintOptionDetails_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintOptionDetails_Impl::OptionId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -659,8 +659,8 @@ impl IPrintOptionDetails_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintOptionDetails_Impl::OptionType(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -675,8 +675,8 @@ impl IPrintOptionDetails_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintOptionDetails_Impl::SetErrorText(this, core::mem::transmute(&value)).into()
             }
         }
@@ -685,8 +685,8 @@ impl IPrintOptionDetails_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintOptionDetails_Impl::ErrorText(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -702,8 +702,8 @@ impl IPrintOptionDetails_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintOptionDetails_Impl::SetState(this, value).into()
             }
         }
@@ -712,8 +712,8 @@ impl IPrintOptionDetails_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintOptionDetails_Impl::State(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -728,8 +728,8 @@ impl IPrintOptionDetails_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintOptionDetails_Impl::Value(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -745,8 +745,8 @@ impl IPrintOptionDetails_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintOptionDetails_Impl::TrySetValue(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -966,8 +966,8 @@ impl IPrintTextOptionDetails_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintTextOptionDetails_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintTextOptionDetails_Impl::MaxCharacters(this) {
                     Ok(ok__) => {
                         result__.write(ok__);

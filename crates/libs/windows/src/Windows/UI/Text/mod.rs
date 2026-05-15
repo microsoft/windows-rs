@@ -661,8 +661,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::AllCaps(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -677,8 +677,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetAllCaps(this, value).into()
             }
         }
@@ -687,8 +687,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::BackgroundColor(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -703,8 +703,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetBackgroundColor(this, core::mem::transmute(&value)).into()
             }
         }
@@ -713,8 +713,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::Bold(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -729,8 +729,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetBold(this, value).into()
             }
         }
@@ -739,8 +739,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::FontStretch(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -755,8 +755,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetFontStretch(this, value).into()
             }
         }
@@ -765,8 +765,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::FontStyle(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -781,8 +781,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetFontStyle(this, value).into()
             }
         }
@@ -791,8 +791,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::ForegroundColor(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -807,8 +807,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetForegroundColor(this, core::mem::transmute(&value)).into()
             }
         }
@@ -817,8 +817,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::Hidden(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -833,8 +833,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetHidden(this, value).into()
             }
         }
@@ -843,8 +843,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::Italic(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -859,8 +859,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetItalic(this, value).into()
             }
         }
@@ -869,8 +869,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::Kerning(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -885,8 +885,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetKerning(this, value).into()
             }
         }
@@ -895,8 +895,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::LanguageTag(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -912,8 +912,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetLanguageTag(this, core::mem::transmute(&value)).into()
             }
         }
@@ -922,8 +922,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::LinkType(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -938,8 +938,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::Name(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -955,8 +955,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetName(this, core::mem::transmute(&value)).into()
             }
         }
@@ -965,8 +965,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::Outline(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -981,8 +981,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetOutline(this, value).into()
             }
         }
@@ -991,8 +991,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::Position(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1007,8 +1007,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetPosition(this, value).into()
             }
         }
@@ -1017,8 +1017,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::ProtectedText(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1033,8 +1033,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetProtectedText(this, value).into()
             }
         }
@@ -1043,8 +1043,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::Size(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1059,8 +1059,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetSize(this, value).into()
             }
         }
@@ -1069,8 +1069,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::SmallCaps(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1085,8 +1085,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetSmallCaps(this, value).into()
             }
         }
@@ -1095,8 +1095,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::Spacing(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1111,8 +1111,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetSpacing(this, value).into()
             }
         }
@@ -1121,8 +1121,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::Strikethrough(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1137,8 +1137,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetStrikethrough(this, value).into()
             }
         }
@@ -1147,8 +1147,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::Subscript(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1163,8 +1163,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetSubscript(this, value).into()
             }
         }
@@ -1173,8 +1173,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::Superscript(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1189,8 +1189,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetSuperscript(this, value).into()
             }
         }
@@ -1199,8 +1199,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::TextScript(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1215,8 +1215,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetTextScript(this, value).into()
             }
         }
@@ -1225,8 +1225,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::Underline(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1241,8 +1241,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetUnderline(this, value).into()
             }
         }
@@ -1251,8 +1251,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::Weight(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1267,8 +1267,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetWeight(this, value).into()
             }
         }
@@ -1277,8 +1277,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextCharacterFormat_Impl::SetClone(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -1287,8 +1287,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::GetClone(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1304,8 +1304,8 @@ impl ITextCharacterFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextCharacterFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextCharacterFormat_Impl::IsEqual(this, core::mem::transmute_copy(&format)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1634,8 +1634,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextDocument_Impl::CaretType(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1650,8 +1650,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextDocument_Impl::SetCaretType(this, value).into()
             }
         }
@@ -1660,8 +1660,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextDocument_Impl::DefaultTabStop(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1676,8 +1676,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextDocument_Impl::SetDefaultTabStop(this, value).into()
             }
         }
@@ -1686,8 +1686,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextDocument_Impl::Selection(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1703,8 +1703,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextDocument_Impl::UndoLimit(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1719,8 +1719,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextDocument_Impl::SetUndoLimit(this, value).into()
             }
         }
@@ -1729,8 +1729,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextDocument_Impl::CanCopy(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1745,8 +1745,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextDocument_Impl::CanPaste(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1761,8 +1761,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextDocument_Impl::CanRedo(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1777,8 +1777,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextDocument_Impl::CanUndo(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1793,8 +1793,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextDocument_Impl::ApplyDisplayUpdates(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1809,8 +1809,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextDocument_Impl::BatchDisplayUpdates(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1825,8 +1825,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextDocument_Impl::BeginUndoGroup(this).into()
             }
         }
@@ -1835,8 +1835,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextDocument_Impl::EndUndoGroup(this).into()
             }
         }
@@ -1845,8 +1845,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextDocument_Impl::GetDefaultCharacterFormat(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1862,8 +1862,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextDocument_Impl::GetDefaultParagraphFormat(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1879,8 +1879,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextDocument_Impl::GetRange(this, startposition, endposition) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1896,8 +1896,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextDocument_Impl::GetRangeFromPoint(this, core::mem::transmute(&point), options) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1913,8 +1913,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextDocument_Impl::GetText(this, options, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -1923,8 +1923,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextDocument_Impl::LoadFromStream(this, options, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -1933,8 +1933,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextDocument_Impl::Redo(this).into()
             }
         }
@@ -1943,8 +1943,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextDocument_Impl::SaveToStream(this, options, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -1953,8 +1953,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextDocument_Impl::SetDefaultCharacterFormat(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -1963,8 +1963,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextDocument_Impl::SetDefaultParagraphFormat(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -1973,8 +1973,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextDocument_Impl::SetText(this, options, core::mem::transmute(&value)).into()
             }
         }
@@ -1983,8 +1983,8 @@ impl ITextDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextDocument_Impl::Undo(this).into()
             }
         }
@@ -2388,8 +2388,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::Alignment(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2404,8 +2404,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetAlignment(this, value).into()
             }
         }
@@ -2414,8 +2414,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::FirstLineIndent(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2430,8 +2430,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::KeepTogether(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2446,8 +2446,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetKeepTogether(this, value).into()
             }
         }
@@ -2456,8 +2456,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::KeepWithNext(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2472,8 +2472,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetKeepWithNext(this, value).into()
             }
         }
@@ -2482,8 +2482,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::LeftIndent(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2498,8 +2498,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::LineSpacing(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2514,8 +2514,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::LineSpacingRule(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2530,8 +2530,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::ListAlignment(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2546,8 +2546,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetListAlignment(this, value).into()
             }
         }
@@ -2556,8 +2556,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::ListLevelIndex(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2572,8 +2572,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetListLevelIndex(this, value).into()
             }
         }
@@ -2582,8 +2582,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::ListStart(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2598,8 +2598,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetListStart(this, value).into()
             }
         }
@@ -2608,8 +2608,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::ListStyle(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2624,8 +2624,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetListStyle(this, value).into()
             }
         }
@@ -2634,8 +2634,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::ListTab(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2650,8 +2650,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetListTab(this, value).into()
             }
         }
@@ -2660,8 +2660,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::ListType(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2676,8 +2676,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetListType(this, value).into()
             }
         }
@@ -2686,8 +2686,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::NoLineNumber(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2702,8 +2702,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetNoLineNumber(this, value).into()
             }
         }
@@ -2712,8 +2712,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::PageBreakBefore(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2728,8 +2728,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetPageBreakBefore(this, value).into()
             }
         }
@@ -2738,8 +2738,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::RightIndent(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2754,8 +2754,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetRightIndent(this, value).into()
             }
         }
@@ -2764,8 +2764,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::RightToLeft(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2780,8 +2780,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetRightToLeft(this, value).into()
             }
         }
@@ -2790,8 +2790,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::Style(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2806,8 +2806,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetStyle(this, value).into()
             }
         }
@@ -2816,8 +2816,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::SpaceAfter(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2832,8 +2832,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetSpaceAfter(this, value).into()
             }
         }
@@ -2842,8 +2842,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::SpaceBefore(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2858,8 +2858,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetSpaceBefore(this, value).into()
             }
         }
@@ -2868,8 +2868,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::WidowControl(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2884,8 +2884,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetWidowControl(this, value).into()
             }
         }
@@ -2894,8 +2894,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::TabCount(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2910,8 +2910,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::AddTab(this, position, align, leader).into()
             }
         }
@@ -2920,8 +2920,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::ClearAllTabs(this).into()
             }
         }
@@ -2930,8 +2930,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::DeleteTab(this, position).into()
             }
         }
@@ -2940,8 +2940,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::GetClone(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2957,8 +2957,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::GetTab(this, index, core::mem::transmute_copy(&position), core::mem::transmute_copy(&align), core::mem::transmute_copy(&leader)).into()
             }
         }
@@ -2967,8 +2967,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextParagraphFormat_Impl::IsEqual(this, core::mem::transmute_copy(&format)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2983,8 +2983,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetClone(this, core::mem::transmute_copy(&format)).into()
             }
         }
@@ -2993,8 +2993,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetIndents(this, start, left, right).into()
             }
         }
@@ -3003,8 +3003,8 @@ impl ITextParagraphFormat_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextParagraphFormat_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextParagraphFormat_Impl::SetLineSpacing(this, rule, spacing).into()
             }
         }
@@ -3455,8 +3455,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::Character(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3471,8 +3471,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::SetCharacter(this, value).into()
             }
         }
@@ -3481,8 +3481,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::CharacterFormat(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3498,8 +3498,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::SetCharacterFormat(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -3508,8 +3508,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::FormattedText(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3525,8 +3525,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::SetFormattedText(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -3535,8 +3535,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::EndPosition(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3551,8 +3551,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::SetEndPosition(this, value).into()
             }
         }
@@ -3561,8 +3561,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::Gravity(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3577,8 +3577,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::SetGravity(this, value).into()
             }
         }
@@ -3587,8 +3587,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::Length(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3603,8 +3603,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::Link(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3620,8 +3620,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::SetLink(this, core::mem::transmute(&value)).into()
             }
         }
@@ -3630,8 +3630,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::ParagraphFormat(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3647,8 +3647,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::SetParagraphFormat(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -3657,8 +3657,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::StartPosition(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3673,8 +3673,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::SetStartPosition(this, value).into()
             }
         }
@@ -3683,8 +3683,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::StoryLength(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3699,8 +3699,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::Text(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3716,8 +3716,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::SetText(this, core::mem::transmute(&value)).into()
             }
         }
@@ -3726,8 +3726,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::CanPaste(this, format) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3742,8 +3742,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::ChangeCase(this, value).into()
             }
         }
@@ -3752,8 +3752,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::Collapse(this, value).into()
             }
         }
@@ -3762,8 +3762,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::Copy(this).into()
             }
         }
@@ -3772,8 +3772,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::Cut(this).into()
             }
         }
@@ -3782,8 +3782,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::Delete(this, unit, count) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3798,8 +3798,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::EndOf(this, unit, extend) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3814,8 +3814,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::Expand(this, unit) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3830,8 +3830,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::FindText(this, core::mem::transmute(&value), scanlength, options) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3846,8 +3846,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::GetCharacterUtf32(this, core::mem::transmute_copy(&value), offset).into()
             }
         }
@@ -3856,8 +3856,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::GetClone(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3873,8 +3873,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::GetIndex(this, unit) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3889,8 +3889,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::GetPoint(this, horizontalalign, verticalalign, options, core::mem::transmute_copy(&point)).into()
             }
         }
@@ -3899,8 +3899,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::GetRect(this, options, core::mem::transmute_copy(&rect), core::mem::transmute_copy(&hit)).into()
             }
         }
@@ -3909,8 +3909,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::GetText(this, options, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -3919,8 +3919,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::GetTextViaStream(this, options, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -3929,8 +3929,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::InRange(this, core::mem::transmute_copy(&range)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3945,8 +3945,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::InsertImage(this, width, height, ascent, verticalalign, core::mem::transmute(&alternatetext), core::mem::transmute_copy(&value)).into()
             }
         }
@@ -3955,8 +3955,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::InStory(this, core::mem::transmute_copy(&range)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3971,8 +3971,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::IsEqual(this, core::mem::transmute_copy(&range)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3987,8 +3987,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::Move(this, unit, count) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4003,8 +4003,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::MoveEnd(this, unit, count) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4019,8 +4019,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::MoveStart(this, unit, count) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4035,8 +4035,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::Paste(this, format).into()
             }
         }
@@ -4045,8 +4045,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::ScrollIntoView(this, value).into()
             }
         }
@@ -4055,8 +4055,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::MatchSelection(this).into()
             }
         }
@@ -4065,8 +4065,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::SetIndex(this, unit, index, extend).into()
             }
         }
@@ -4075,8 +4075,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::SetPoint(this, core::mem::transmute(&point), options, extend).into()
             }
         }
@@ -4085,8 +4085,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::SetRange(this, startposition, endposition).into()
             }
         }
@@ -4095,8 +4095,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::SetText2(this, options, core::mem::transmute(&value)).into()
             }
         }
@@ -4105,8 +4105,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextRange_Impl::SetTextViaStream(this, options, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -4115,8 +4115,8 @@ impl ITextRange_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextRange_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextRange_Impl::StartOf(this, unit, extend) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4655,8 +4655,8 @@ impl ITextSelection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextSelection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextSelection_Impl::Options(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4671,8 +4671,8 @@ impl ITextSelection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextSelection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextSelection_Impl::SetOptions(this, value).into()
             }
         }
@@ -4681,8 +4681,8 @@ impl ITextSelection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextSelection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextSelection_Impl::Type(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4697,8 +4697,8 @@ impl ITextSelection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextSelection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextSelection_Impl::EndKey(this, unit, extend) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4713,8 +4713,8 @@ impl ITextSelection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextSelection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextSelection_Impl::HomeKey(this, unit, extend) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4729,8 +4729,8 @@ impl ITextSelection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextSelection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextSelection_Impl::MoveDown(this, unit, count, extend) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4745,8 +4745,8 @@ impl ITextSelection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextSelection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextSelection_Impl::MoveLeft(this, unit, count, extend) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4761,8 +4761,8 @@ impl ITextSelection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextSelection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextSelection_Impl::MoveRight(this, unit, count, extend) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4777,8 +4777,8 @@ impl ITextSelection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextSelection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextSelection_Impl::MoveUp(this, unit, count, extend) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4793,8 +4793,8 @@ impl ITextSelection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextSelection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITextSelection_Impl::TypeText(this, core::mem::transmute(&value)).into()
             }
         }

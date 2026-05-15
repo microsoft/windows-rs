@@ -163,8 +163,8 @@ impl EXPERIMENTAL_IPluginAuthenticator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: EXPERIMENTAL_IPluginAuthenticator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match EXPERIMENTAL_IPluginAuthenticator_Impl::EXPERIMENTAL_PluginMakeCredential(this, core::mem::transmute_copy(&request)) {
                     Ok(ok__) => {
                         response.write(core::mem::transmute(ok__));
@@ -179,8 +179,8 @@ impl EXPERIMENTAL_IPluginAuthenticator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: EXPERIMENTAL_IPluginAuthenticator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match EXPERIMENTAL_IPluginAuthenticator_Impl::EXPERIMENTAL_PluginGetAssertion(this, core::mem::transmute_copy(&request)) {
                     Ok(ok__) => {
                         response.write(core::mem::transmute(ok__));
@@ -195,8 +195,8 @@ impl EXPERIMENTAL_IPluginAuthenticator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: EXPERIMENTAL_IPluginAuthenticator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 EXPERIMENTAL_IPluginAuthenticator_Impl::EXPERIMENTAL_PluginCancelOperation(this, core::mem::transmute_copy(&request)).into()
             }
         }
@@ -601,8 +601,8 @@ impl IPluginAuthenticator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPluginAuthenticator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPluginAuthenticator_Impl::MakeCredential(this, core::mem::transmute_copy(&request)) {
                     Ok(ok__) => {
                         response.write(core::mem::transmute(ok__));
@@ -617,8 +617,8 @@ impl IPluginAuthenticator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPluginAuthenticator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPluginAuthenticator_Impl::GetAssertion(this, core::mem::transmute_copy(&request)) {
                     Ok(ok__) => {
                         response.write(core::mem::transmute(ok__));
@@ -633,8 +633,8 @@ impl IPluginAuthenticator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPluginAuthenticator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPluginAuthenticator_Impl::CancelOperation(this, core::mem::transmute_copy(&request)).into()
             }
         }
@@ -643,8 +643,8 @@ impl IPluginAuthenticator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPluginAuthenticator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPluginAuthenticator_Impl::GetLockStatus(this) {
                     Ok(ok__) => {
                         lockstatus.write(core::mem::transmute(ok__));

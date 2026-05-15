@@ -44,8 +44,8 @@ impl IDisplayDeviceInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDisplayDeviceInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDisplayDeviceInterop_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&psecurityattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         phandle.write(core::mem::transmute(ok__));
@@ -60,8 +60,8 @@ impl IDisplayDeviceInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDisplayDeviceInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDisplayDeviceInterop_Impl::OpenSharedHandle(this, core::mem::transmute_copy(&nthandle), core::mem::transmute(&riid)) {
                     Ok(ok__) => {
                         ppvobj.write(core::mem::transmute(ok__));
@@ -120,8 +120,8 @@ impl IDisplayPathInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDisplayPathInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDisplayPathInterop_Impl::CreateSourcePresentationHandle(this) {
                     Ok(ok__) => {
                         pvalue.write(core::mem::transmute(ok__));
@@ -136,8 +136,8 @@ impl IDisplayPathInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDisplayPathInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDisplayPathInterop_Impl::GetSourceId(this) {
                     Ok(ok__) => {
                         psourceid.write(core::mem::transmute(ok__));

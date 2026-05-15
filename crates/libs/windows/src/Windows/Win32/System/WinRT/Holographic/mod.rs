@@ -90,8 +90,8 @@ impl IHolographicCameraInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IHolographicCameraInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IHolographicCameraInterop_Impl::CreateDirect3D12BackBufferResource(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&ptexture2ddesc)) {
                     Ok(ok__) => {
                         ppcreatedtexture2dresource.write(core::mem::transmute(ok__));
@@ -106,8 +106,8 @@ impl IHolographicCameraInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IHolographicCameraInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IHolographicCameraInterop_Impl::CreateDirect3D12HardwareProtectedBackBufferResource(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&ptexture2ddesc), core::mem::transmute_copy(&pprotectedresourcesession)) {
                     Ok(ok__) => {
                         ppcreatedtexture2dresource.write(core::mem::transmute(ok__));
@@ -122,8 +122,8 @@ impl IHolographicCameraInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IHolographicCameraInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IHolographicCameraInterop_Impl::AcquireDirect3D12BufferResource(this, core::mem::transmute_copy(&presourcetoacquire), core::mem::transmute_copy(&pcommandqueue)).into()
             }
         }
@@ -132,8 +132,8 @@ impl IHolographicCameraInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IHolographicCameraInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IHolographicCameraInterop_Impl::AcquireDirect3D12BufferResourceWithTimeout(this, core::mem::transmute_copy(&presourcetoacquire), core::mem::transmute_copy(&pcommandqueue), core::mem::transmute_copy(&duration)).into()
             }
         }
@@ -142,8 +142,8 @@ impl IHolographicCameraInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IHolographicCameraInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IHolographicCameraInterop_Impl::UnacquireDirect3D12BufferResource(this, core::mem::transmute_copy(&presourcetounacquire)).into()
             }
         }
@@ -213,8 +213,8 @@ impl IHolographicCameraRenderingParametersInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IHolographicCameraRenderingParametersInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IHolographicCameraRenderingParametersInterop_Impl::CommitDirect3D12Resource(this, core::mem::transmute_copy(&pcolorresourcetocommit), core::mem::transmute_copy(&pcolorresourcefence), core::mem::transmute_copy(&colorresourcefencesignalvalue)).into()
             }
         }
@@ -223,8 +223,8 @@ impl IHolographicCameraRenderingParametersInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IHolographicCameraRenderingParametersInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IHolographicCameraRenderingParametersInterop_Impl::CommitDirect3D12ResourceWithDepthData(this, core::mem::transmute_copy(&pcolorresourcetocommit), core::mem::transmute_copy(&pcolorresourcefence), core::mem::transmute_copy(&colorresourcefencesignalvalue), core::mem::transmute_copy(&pdepthresourcetocommit), core::mem::transmute_copy(&pdepthresourcefence), core::mem::transmute_copy(&depthresourcefencesignalvalue)).into()
             }
         }
@@ -332,8 +332,8 @@ impl IHolographicQuadLayerInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IHolographicQuadLayerInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IHolographicQuadLayerInterop_Impl::CreateDirect3D12ContentBufferResource(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&ptexture2ddesc)) {
                     Ok(ok__) => {
                         pptexture2dresource.write(core::mem::transmute(ok__));
@@ -348,8 +348,8 @@ impl IHolographicQuadLayerInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IHolographicQuadLayerInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IHolographicQuadLayerInterop_Impl::CreateDirect3D12HardwareProtectedContentBufferResource(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&ptexture2ddesc), core::mem::transmute_copy(&pprotectedresourcesession)) {
                     Ok(ok__) => {
                         ppcreatedtexture2dresource.write(core::mem::transmute(ok__));
@@ -364,8 +364,8 @@ impl IHolographicQuadLayerInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IHolographicQuadLayerInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IHolographicQuadLayerInterop_Impl::AcquireDirect3D12BufferResource(this, core::mem::transmute_copy(&presourcetoacquire), core::mem::transmute_copy(&pcommandqueue)).into()
             }
         }
@@ -374,8 +374,8 @@ impl IHolographicQuadLayerInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IHolographicQuadLayerInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IHolographicQuadLayerInterop_Impl::AcquireDirect3D12BufferResourceWithTimeout(this, core::mem::transmute_copy(&presourcetoacquire), core::mem::transmute_copy(&pcommandqueue), core::mem::transmute_copy(&duration)).into()
             }
         }
@@ -384,8 +384,8 @@ impl IHolographicQuadLayerInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IHolographicQuadLayerInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IHolographicQuadLayerInterop_Impl::UnacquireDirect3D12BufferResource(this, core::mem::transmute_copy(&presourcetounacquire)).into()
             }
         }
@@ -440,8 +440,8 @@ impl IHolographicQuadLayerUpdateParametersInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IHolographicQuadLayerUpdateParametersInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IHolographicQuadLayerUpdateParametersInterop_Impl::CommitDirect3D12Resource(this, core::mem::transmute_copy(&pcolorresourcetocommit), core::mem::transmute_copy(&pcolorresourcefence), core::mem::transmute_copy(&colorresourcefencesignalvalue)).into()
             }
         }

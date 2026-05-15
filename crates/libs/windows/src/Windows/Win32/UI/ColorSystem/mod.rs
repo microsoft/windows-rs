@@ -1299,8 +1299,8 @@ impl IDeviceModelPlugIn_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDeviceModelPlugIn_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDeviceModelPlugIn_Impl::Initialize(this, core::mem::transmute(&bstrxml), core::mem::transmute_copy(&cnummodels), core::mem::transmute_copy(&imodelposition)).into()
             }
         }
@@ -1309,8 +1309,8 @@ impl IDeviceModelPlugIn_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDeviceModelPlugIn_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDeviceModelPlugIn_Impl::GetNumChannels(this) {
                     Ok(ok__) => {
                         pnumchannels.write(core::mem::transmute(ok__));
@@ -1325,8 +1325,8 @@ impl IDeviceModelPlugIn_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDeviceModelPlugIn_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDeviceModelPlugIn_Impl::DeviceToColorimetricColors(this, core::mem::transmute_copy(&ccolors), core::mem::transmute_copy(&cchannels), core::mem::transmute_copy(&pdevicevalues), core::mem::transmute_copy(&pxyzcolors)).into()
             }
         }
@@ -1335,8 +1335,8 @@ impl IDeviceModelPlugIn_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDeviceModelPlugIn_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDeviceModelPlugIn_Impl::ColorimetricToDeviceColors(this, core::mem::transmute_copy(&ccolors), core::mem::transmute_copy(&cchannels), core::mem::transmute_copy(&pxyzcolors)) {
                     Ok(ok__) => {
                         pdevicevalues.write(core::mem::transmute(ok__));
@@ -1351,8 +1351,8 @@ impl IDeviceModelPlugIn_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDeviceModelPlugIn_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDeviceModelPlugIn_Impl::ColorimetricToDeviceColorsWithBlack(this, core::mem::transmute_copy(&ccolors), core::mem::transmute_copy(&cchannels), core::mem::transmute_copy(&pxyzcolors), core::mem::transmute_copy(&pblackinformation)) {
                     Ok(ok__) => {
                         pdevicevalues.write(core::mem::transmute(ok__));
@@ -1367,8 +1367,8 @@ impl IDeviceModelPlugIn_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDeviceModelPlugIn_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDeviceModelPlugIn_Impl::SetTransformDeviceModelInfo(this, core::mem::transmute_copy(&imodelposition), core::mem::transmute_copy(&pidevicemodelother)).into()
             }
         }
@@ -1377,8 +1377,8 @@ impl IDeviceModelPlugIn_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDeviceModelPlugIn_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDeviceModelPlugIn_Impl::GetPrimarySamples(this, core::mem::transmute_copy(&pprimarycolor)).into()
             }
         }
@@ -1387,8 +1387,8 @@ impl IDeviceModelPlugIn_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDeviceModelPlugIn_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDeviceModelPlugIn_Impl::GetGamutBoundaryMeshSize(this, core::mem::transmute_copy(&pnumvertices), core::mem::transmute_copy(&pnumtriangles)).into()
             }
         }
@@ -1397,8 +1397,8 @@ impl IDeviceModelPlugIn_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDeviceModelPlugIn_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDeviceModelPlugIn_Impl::GetGamutBoundaryMesh(this, core::mem::transmute_copy(&cchannels), core::mem::transmute_copy(&cvertices), core::mem::transmute_copy(&ctriangles), core::mem::transmute_copy(&pvertices), core::mem::transmute_copy(&ptriangles)).into()
             }
         }
@@ -1407,8 +1407,8 @@ impl IDeviceModelPlugIn_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDeviceModelPlugIn_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDeviceModelPlugIn_Impl::GetNeutralAxisSize(this) {
                     Ok(ok__) => {
                         pccolors.write(core::mem::transmute(ok__));
@@ -1423,8 +1423,8 @@ impl IDeviceModelPlugIn_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDeviceModelPlugIn_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDeviceModelPlugIn_Impl::GetNeutralAxis(this, core::mem::transmute_copy(&ccolors), core::mem::transmute_copy(&pxyzcolors)).into()
             }
         }
@@ -1483,8 +1483,8 @@ impl IGamutMapModelPlugIn_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGamutMapModelPlugIn_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGamutMapModelPlugIn_Impl::Initialize(this, core::mem::transmute(&bstrxml), core::mem::transmute_copy(&psrcplugin), core::mem::transmute_copy(&pdestplugin), core::mem::transmute_copy(&psrcgbd), core::mem::transmute_copy(&pdestgbd)).into()
             }
         }
@@ -1493,8 +1493,8 @@ impl IGamutMapModelPlugIn_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGamutMapModelPlugIn_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGamutMapModelPlugIn_Impl::SourceToDestinationAppearanceColors(this, core::mem::transmute_copy(&ccolors), core::mem::transmute_copy(&pinputcolors), core::mem::transmute_copy(&poutputcolors)).into()
             }
         }

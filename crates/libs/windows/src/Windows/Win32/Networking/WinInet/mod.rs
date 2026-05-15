@@ -3031,8 +3031,8 @@ impl IDialBranding_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDialBranding_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDialBranding_Impl::Initialize(this, core::mem::transmute(&pwzconnectoid)).into()
             }
         }
@@ -3041,8 +3041,8 @@ impl IDialBranding_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDialBranding_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDialBranding_Impl::GetBitmap(this, core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
                         phbitmap.write(core::mem::transmute(ok__));
@@ -3138,8 +3138,8 @@ impl IDialEngine_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDialEngine_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDialEngine_Impl::Initialize(this, core::mem::transmute(&pwzconnectoid), core::mem::transmute_copy(&pides)).into()
             }
         }
@@ -3148,8 +3148,8 @@ impl IDialEngine_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDialEngine_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDialEngine_Impl::GetProperty(this, core::mem::transmute(&pwzproperty), core::mem::transmute(&pwzvalue), core::mem::transmute_copy(&dwbufsize)).into()
             }
         }
@@ -3158,8 +3158,8 @@ impl IDialEngine_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDialEngine_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDialEngine_Impl::SetProperty(this, core::mem::transmute(&pwzproperty), core::mem::transmute(&pwzvalue)).into()
             }
         }
@@ -3168,8 +3168,8 @@ impl IDialEngine_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDialEngine_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDialEngine_Impl::Dial(this).into()
             }
         }
@@ -3178,8 +3178,8 @@ impl IDialEngine_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDialEngine_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDialEngine_Impl::HangUp(this).into()
             }
         }
@@ -3188,8 +3188,8 @@ impl IDialEngine_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDialEngine_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDialEngine_Impl::GetConnectedState(this) {
                     Ok(ok__) => {
                         pdwstate.write(core::mem::transmute(ok__));
@@ -3204,8 +3204,8 @@ impl IDialEngine_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDialEngine_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDialEngine_Impl::GetConnectHandle(this) {
                     Ok(ok__) => {
                         pdwhandle.write(core::mem::transmute(ok__));
@@ -3257,8 +3257,8 @@ impl IDialEventSink_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDialEventSink_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDialEventSink_Impl::OnEvent(this, core::mem::transmute_copy(&dwevent), core::mem::transmute_copy(&dwstatus)).into()
             }
         }
@@ -4356,8 +4356,8 @@ impl IProofOfPossessionCookieInfoManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProofOfPossessionCookieInfoManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProofOfPossessionCookieInfoManager_Impl::GetCookieInfoForUri(this, core::mem::transmute(&uri), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
             }
         }
@@ -4398,8 +4398,8 @@ impl IProofOfPossessionCookieInfoManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProofOfPossessionCookieInfoManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProofOfPossessionCookieInfoManager2_Impl::GetCookieInfoWithUriForAccount(this, core::mem::transmute_copy(&webaccount), core::mem::transmute(&uri), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
             }
         }
@@ -4442,8 +4442,8 @@ impl IProofOfPossessionCookieInfoManager3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProofOfPossessionCookieInfoManager3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProofOfPossessionCookieInfoManager3_Impl::GetCookieInfoForUriWithOptions(this, core::mem::transmute(&uri), core::mem::transmute_copy(&options), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
             }
         }
@@ -4497,8 +4497,8 @@ impl IProofOfPossessionCookieInfoManager4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProofOfPossessionCookieInfoManager4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProofOfPossessionCookieInfoManager4_Impl::GetCookieInfoForUriWithUserAgentId(this, core::mem::transmute(&uri), core::mem::transmute(&uaclientid), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
             }
         }
@@ -4507,8 +4507,8 @@ impl IProofOfPossessionCookieInfoManager4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProofOfPossessionCookieInfoManager4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IProofOfPossessionCookieInfoManager4_Impl::GetCookieInfoWithUriAndUserAgentIdForAccount(this, core::mem::transmute_copy(&webaccount), core::mem::transmute(&uri), core::mem::transmute(&uaclientid), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
             }
         }

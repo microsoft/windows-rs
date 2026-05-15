@@ -172,8 +172,8 @@ impl ILampArrayEffect_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILampArrayEffect_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILampArrayEffect_Impl::ZIndex(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -188,8 +188,8 @@ impl ILampArrayEffect_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILampArrayEffect_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ILampArrayEffect_Impl::SetZIndex(this, value).into()
             }
         }

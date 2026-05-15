@@ -190,8 +190,8 @@ impl IIOControlCode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIOControlCode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIOControlCode_Impl::AccessMode(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -206,8 +206,8 @@ impl IIOControlCode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIOControlCode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIOControlCode_Impl::BufferingMethod(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -222,8 +222,8 @@ impl IIOControlCode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIOControlCode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIOControlCode_Impl::Function(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -238,8 +238,8 @@ impl IIOControlCode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIOControlCode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIOControlCode_Impl::DeviceType(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -254,8 +254,8 @@ impl IIOControlCode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIOControlCode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIOControlCode_Impl::ControlCode(this) {
                     Ok(ok__) => {
                         result__.write(ok__);

@@ -53,8 +53,8 @@ impl IXMLGraphBuilder_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IXMLGraphBuilder_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IXMLGraphBuilder_Impl::BuildFromXML(this, core::mem::transmute_copy(&pgraph), core::mem::transmute_copy(&pxml)).into()
             }
         }
@@ -63,8 +63,8 @@ impl IXMLGraphBuilder_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IXMLGraphBuilder_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IXMLGraphBuilder_Impl::SaveToXML(this, core::mem::transmute_copy(&pgraph), core::mem::transmute_copy(&pbstrxml)).into()
             }
         }
@@ -73,8 +73,8 @@ impl IXMLGraphBuilder_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IXMLGraphBuilder_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IXMLGraphBuilder_Impl::BuildFromXMLFile(this, core::mem::transmute_copy(&pgraph), core::mem::transmute(&wszfilename), core::mem::transmute(&wszbaseurl)).into()
             }
         }

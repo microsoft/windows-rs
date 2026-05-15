@@ -2029,8 +2029,8 @@ impl ITraceEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITraceEvent_Impl::Clone(this) {
                     Ok(ok__) => {
                         newevent.write(core::mem::transmute(ok__));
@@ -2045,8 +2045,8 @@ impl ITraceEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITraceEvent_Impl::GetUserContext(this) {
                     Ok(ok__) => {
                         usercontext.write(core::mem::transmute(ok__));
@@ -2061,8 +2061,8 @@ impl ITraceEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITraceEvent_Impl::GetEventRecord(this) {
                     Ok(ok__) => {
                         eventrecord.write(core::mem::transmute(ok__));
@@ -2077,8 +2077,8 @@ impl ITraceEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceEvent_Impl::SetPayload(this, core::mem::transmute_copy(&payload), core::mem::transmute_copy(&payloadsize)).into()
             }
         }
@@ -2087,8 +2087,8 @@ impl ITraceEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceEvent_Impl::SetEventDescriptor(this, core::mem::transmute_copy(&eventdescriptor)).into()
             }
         }
@@ -2097,8 +2097,8 @@ impl ITraceEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceEvent_Impl::SetProcessId(this, core::mem::transmute_copy(&processid)).into()
             }
         }
@@ -2107,8 +2107,8 @@ impl ITraceEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceEvent_Impl::SetProcessorIndex(this, core::mem::transmute_copy(&processorindex)).into()
             }
         }
@@ -2117,8 +2117,8 @@ impl ITraceEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceEvent_Impl::SetThreadId(this, core::mem::transmute_copy(&threadid)).into()
             }
         }
@@ -2127,8 +2127,8 @@ impl ITraceEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceEvent_Impl::SetThreadTimes(this, core::mem::transmute_copy(&kerneltime), core::mem::transmute_copy(&usertime)).into()
             }
         }
@@ -2137,8 +2137,8 @@ impl ITraceEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceEvent_Impl::SetActivityId(this, core::mem::transmute_copy(&activityid)).into()
             }
         }
@@ -2147,8 +2147,8 @@ impl ITraceEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceEvent_Impl::SetTimeStamp(this, core::mem::transmute_copy(&timestamp)).into()
             }
         }
@@ -2157,8 +2157,8 @@ impl ITraceEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceEvent_Impl::SetProviderId(this, core::mem::transmute_copy(&providerid)).into()
             }
         }
@@ -2230,8 +2230,8 @@ impl ITraceEventCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEventCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceEventCallback_Impl::OnBeginProcessTrace(this, core::mem::transmute_copy(&headerevent), core::mem::transmute_copy(&relogger)).into()
             }
         }
@@ -2240,8 +2240,8 @@ impl ITraceEventCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEventCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceEventCallback_Impl::OnFinalizeProcessTrace(this, core::mem::transmute_copy(&relogger)).into()
             }
         }
@@ -2250,8 +2250,8 @@ impl ITraceEventCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceEventCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceEventCallback_Impl::OnEvent(this, core::mem::transmute_copy(&event), core::mem::transmute_copy(&relogger)).into()
             }
         }
@@ -2348,8 +2348,8 @@ impl ITraceRelogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceRelogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITraceRelogger_Impl::AddLogfileTraceStream(this, core::mem::transmute(&logfilename), core::mem::transmute_copy(&usercontext)) {
                     Ok(ok__) => {
                         tracestreamid.write(core::mem::transmute(ok__));
@@ -2364,8 +2364,8 @@ impl ITraceRelogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceRelogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITraceRelogger_Impl::AddRealtimeTraceStream(this, core::mem::transmute(&loggername), core::mem::transmute_copy(&usercontext)) {
                     Ok(ok__) => {
                         tracestreamid.write(core::mem::transmute(ok__));
@@ -2380,8 +2380,8 @@ impl ITraceRelogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceRelogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceRelogger_Impl::RegisterCallback(this, core::mem::transmute_copy(&callback)).into()
             }
         }
@@ -2390,8 +2390,8 @@ impl ITraceRelogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceRelogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceRelogger_Impl::Inject(this, core::mem::transmute_copy(&event)).into()
             }
         }
@@ -2400,8 +2400,8 @@ impl ITraceRelogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceRelogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITraceRelogger_Impl::CreateEventInstance(this, core::mem::transmute_copy(&tracestreamid), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
                         event.write(core::mem::transmute(ok__));
@@ -2416,8 +2416,8 @@ impl ITraceRelogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceRelogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceRelogger_Impl::ProcessTrace(this).into()
             }
         }
@@ -2426,8 +2426,8 @@ impl ITraceRelogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceRelogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceRelogger_Impl::SetOutputFilename(this, core::mem::transmute(&logfilename)).into()
             }
         }
@@ -2436,8 +2436,8 @@ impl ITraceRelogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceRelogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceRelogger_Impl::SetCompressionMode(this, core::mem::transmute_copy(&compressionmode)).into()
             }
         }
@@ -2446,8 +2446,8 @@ impl ITraceRelogger_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITraceRelogger_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITraceRelogger_Impl::Cancel(this).into()
             }
         }

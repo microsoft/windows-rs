@@ -155,8 +155,8 @@ impl IDODownload_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDODownload_Impl::Start(this, core::mem::transmute_copy(&ranges)).into()
             }
         }
@@ -165,8 +165,8 @@ impl IDODownload_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDODownload_Impl::Pause(this).into()
             }
         }
@@ -175,8 +175,8 @@ impl IDODownload_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDODownload_Impl::Abort(this).into()
             }
         }
@@ -185,8 +185,8 @@ impl IDODownload_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDODownload_Impl::Finalize(this).into()
             }
         }
@@ -195,8 +195,8 @@ impl IDODownload_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDODownload_Impl::GetStatus(this, core::mem::transmute_copy(&status)).into()
             }
         }
@@ -205,8 +205,8 @@ impl IDODownload_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDODownload_Impl::GetProperty(this, core::mem::transmute_copy(&propid)) {
                     Ok(ok__) => {
                         propval.write(core::mem::transmute(ok__));
@@ -221,8 +221,8 @@ impl IDODownload_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDODownload_Impl::SetProperty(this, core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propval)).into()
             }
         }
@@ -272,8 +272,8 @@ impl IDODownloadStatusCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDODownloadStatusCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDODownloadStatusCallback_Impl::OnStatusChange(this, core::mem::transmute_copy(&download), core::mem::transmute_copy(&status)).into()
             }
         }
@@ -327,8 +327,8 @@ impl IDOManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDOManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDOManager_Impl::CreateDownload(this) {
                     Ok(ok__) => {
                         download.write(core::mem::transmute(ok__));
@@ -343,8 +343,8 @@ impl IDOManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDOManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDOManager_Impl::EnumDownloads(this, core::mem::transmute_copy(&category)) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));

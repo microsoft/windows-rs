@@ -214,10 +214,10 @@ pub mod Test {
                 <Identity as windows_core::IUnknownImpl>::Impl: IFooFactory_Impl,
             {
                 unsafe {
-                    let outer: &Identity =
+                    let this__outer__: &Identity =
                         &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                     let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                        <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                        <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                     match IFooFactory_Impl::CreateInstance(
                         this,
                         name,
@@ -246,10 +246,10 @@ pub mod Test {
                 <Identity as windows_core::IUnknownImpl>::Impl: IFooFactory_Impl,
             {
                 unsafe {
-                    let outer: &Identity =
+                    let this__outer__: &Identity =
                         &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                     let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                        <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                        <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                     match IFooFactory_Impl::Default(
                         this,
                         core::mem::transmute_copy(&outer),

@@ -167,10 +167,10 @@ impl IDynamicConceptProviderConcept_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDynamicConceptProviderConcept_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDynamicConceptProviderConcept_Impl::GetConcept(
                     this,
                     core::mem::transmute_copy(&contextobject),
@@ -196,10 +196,10 @@ impl IDynamicConceptProviderConcept_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDynamicConceptProviderConcept_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDynamicConceptProviderConcept_Impl::SetConcept(
                     this,
                     core::mem::transmute_copy(&contextobject),
@@ -221,10 +221,10 @@ impl IDynamicConceptProviderConcept_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDynamicConceptProviderConcept_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDynamicConceptProviderConcept_Impl::NotifyParent(
                     this,
                     core::mem::transmute_copy(&parentmodel),
@@ -243,10 +243,10 @@ impl IDynamicConceptProviderConcept_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDynamicConceptProviderConcept_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDynamicConceptProviderConcept_Impl::NotifyParentChange(
                     this,
                     core::mem::transmute_copy(&parentmodel),
@@ -264,10 +264,10 @@ impl IDynamicConceptProviderConcept_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDynamicConceptProviderConcept_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IDynamicConceptProviderConcept_Impl::NotifyDestruct(this).into()
             }
         }
@@ -445,10 +445,10 @@ impl IKeyStore_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IKeyStore_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IKeyStore_Impl::GetKey(
                     this,
                     core::mem::transmute(&key),
@@ -471,10 +471,10 @@ impl IKeyStore_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IKeyStore_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IKeyStore_Impl::SetKey(
                     this,
                     core::mem::transmute(&key),
@@ -497,10 +497,10 @@ impl IKeyStore_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IKeyStore_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IKeyStore_Impl::GetKeyValue(
                     this,
                     core::mem::transmute(&key),
@@ -522,10 +522,10 @@ impl IKeyStore_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IKeyStore_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IKeyStore_Impl::SetKeyValue(
                     this,
                     core::mem::transmute(&key),
@@ -544,10 +544,10 @@ impl IKeyStore_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IKeyStore_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IKeyStore_Impl::ClearKeys(this).into()
             }
         }

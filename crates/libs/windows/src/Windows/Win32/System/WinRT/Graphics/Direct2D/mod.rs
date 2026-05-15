@@ -62,8 +62,8 @@ impl IGeometrySource2DInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGeometrySource2DInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGeometrySource2DInterop_Impl::GetGeometry(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -78,8 +78,8 @@ impl IGeometrySource2DInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGeometrySource2DInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGeometrySource2DInterop_Impl::TryGetGeometryUsingFactory(this, core::mem::transmute_copy(&factory)) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -176,8 +176,8 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsEffectD2D1Interop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGraphicsEffectD2D1Interop_Impl::GetEffectId(this) {
                     Ok(ok__) => {
                         id.write(core::mem::transmute(ok__));
@@ -192,8 +192,8 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsEffectD2D1Interop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGraphicsEffectD2D1Interop_Impl::GetNamedPropertyMapping(this, core::mem::transmute(&name), core::mem::transmute_copy(&index), core::mem::transmute_copy(&mapping)).into()
             }
         }
@@ -202,8 +202,8 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsEffectD2D1Interop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGraphicsEffectD2D1Interop_Impl::GetPropertyCount(this) {
                     Ok(ok__) => {
                         count.write(core::mem::transmute(ok__));
@@ -218,8 +218,8 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsEffectD2D1Interop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGraphicsEffectD2D1Interop_Impl::GetProperty(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -234,8 +234,8 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsEffectD2D1Interop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGraphicsEffectD2D1Interop_Impl::GetSource(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         source.write(core::mem::transmute(ok__));
@@ -250,8 +250,8 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsEffectD2D1Interop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGraphicsEffectD2D1Interop_Impl::GetSourceCount(this) {
                     Ok(ok__) => {
                         count.write(core::mem::transmute(ok__));

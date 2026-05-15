@@ -1898,8 +1898,8 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDefaultAudioDeviceChangedEventArgs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDefaultAudioDeviceChangedEventArgs_Impl::Id(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1915,8 +1915,8 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDefaultAudioDeviceChangedEventArgs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDefaultAudioDeviceChangedEventArgs_Impl::Role(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2355,8 +2355,8 @@ impl IMediaDeviceController_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMediaDeviceController_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMediaDeviceController_Impl::GetAvailableMediaStreamProperties(this, mediastreamtype) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2372,8 +2372,8 @@ impl IMediaDeviceController_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMediaDeviceController_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMediaDeviceController_Impl::GetMediaStreamProperties(this, mediastreamtype) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2389,8 +2389,8 @@ impl IMediaDeviceController_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMediaDeviceController_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMediaDeviceController_Impl::SetMediaStreamPropertiesAsync(this, mediastreamtype, core::mem::transmute_copy(&mediaencodingproperties)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

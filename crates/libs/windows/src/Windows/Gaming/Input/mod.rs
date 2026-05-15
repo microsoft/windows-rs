@@ -1002,8 +1002,8 @@ impl IGameController_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameController_Impl::HeadsetConnected(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1018,8 +1018,8 @@ impl IGameController_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameController_Impl::RemoveHeadsetConnected(this, token).into()
             }
         }
@@ -1028,8 +1028,8 @@ impl IGameController_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameController_Impl::HeadsetDisconnected(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1044,8 +1044,8 @@ impl IGameController_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameController_Impl::RemoveHeadsetDisconnected(this, token).into()
             }
         }
@@ -1054,8 +1054,8 @@ impl IGameController_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameController_Impl::UserChanged(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1070,8 +1070,8 @@ impl IGameController_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameController_Impl::RemoveUserChanged(this, token).into()
             }
         }
@@ -1080,8 +1080,8 @@ impl IGameController_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameController_Impl::Headset(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1097,8 +1097,8 @@ impl IGameController_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameController_Impl::IsWireless(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1113,8 +1113,8 @@ impl IGameController_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameController_Impl::User(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1195,8 +1195,8 @@ impl IGameControllerBatteryInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameControllerBatteryInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameControllerBatteryInfo_Impl::TryGetBatteryReport(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

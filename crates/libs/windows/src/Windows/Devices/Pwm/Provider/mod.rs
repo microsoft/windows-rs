@@ -75,8 +75,8 @@ impl IPwmControllerProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPwmControllerProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPwmControllerProvider_Impl::PinCount(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -91,8 +91,8 @@ impl IPwmControllerProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPwmControllerProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPwmControllerProvider_Impl::ActualFrequency(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -107,8 +107,8 @@ impl IPwmControllerProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPwmControllerProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPwmControllerProvider_Impl::SetDesiredFrequency(this, frequency) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -123,8 +123,8 @@ impl IPwmControllerProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPwmControllerProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPwmControllerProvider_Impl::MaxFrequency(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -139,8 +139,8 @@ impl IPwmControllerProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPwmControllerProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPwmControllerProvider_Impl::MinFrequency(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -155,8 +155,8 @@ impl IPwmControllerProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPwmControllerProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPwmControllerProvider_Impl::AcquirePin(this, pin).into()
             }
         }
@@ -165,8 +165,8 @@ impl IPwmControllerProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPwmControllerProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPwmControllerProvider_Impl::ReleasePin(this, pin).into()
             }
         }
@@ -175,8 +175,8 @@ impl IPwmControllerProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPwmControllerProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPwmControllerProvider_Impl::EnablePin(this, pin).into()
             }
         }
@@ -185,8 +185,8 @@ impl IPwmControllerProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPwmControllerProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPwmControllerProvider_Impl::DisablePin(this, pin).into()
             }
         }
@@ -195,8 +195,8 @@ impl IPwmControllerProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPwmControllerProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPwmControllerProvider_Impl::SetPulseParameters(this, pin, dutycycle, invertpolarity).into()
             }
         }
@@ -262,8 +262,8 @@ impl IPwmProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPwmProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPwmProvider_Impl::GetControllers(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

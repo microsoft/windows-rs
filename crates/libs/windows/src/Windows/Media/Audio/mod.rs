@@ -3165,8 +3165,8 @@ impl IAudioInputNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioInputNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAudioInputNode_Impl::OutgoingConnections(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3182,8 +3182,8 @@ impl IAudioInputNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioInputNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAudioInputNode_Impl::AddOutgoingConnection(this, core::mem::transmute_copy(&destination)).into()
             }
         }
@@ -3192,8 +3192,8 @@ impl IAudioInputNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioInputNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAudioInputNode_Impl::AddOutgoingConnectionWithGain(this, core::mem::transmute_copy(&destination), gain).into()
             }
         }
@@ -3202,8 +3202,8 @@ impl IAudioInputNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioInputNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAudioInputNode_Impl::RemoveOutgoingConnection(this, core::mem::transmute_copy(&destination)).into()
             }
         }
@@ -3359,8 +3359,8 @@ impl IAudioInputNode2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioInputNode2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAudioInputNode2_Impl::Emitter(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3479,8 +3479,8 @@ impl IAudioNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAudioNode_Impl::EffectDefinitions(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3496,8 +3496,8 @@ impl IAudioNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAudioNode_Impl::SetOutgoingGain(this, value).into()
             }
         }
@@ -3506,8 +3506,8 @@ impl IAudioNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAudioNode_Impl::OutgoingGain(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3522,8 +3522,8 @@ impl IAudioNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAudioNode_Impl::EncodingProperties(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3539,8 +3539,8 @@ impl IAudioNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAudioNode_Impl::ConsumeInput(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -3555,8 +3555,8 @@ impl IAudioNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAudioNode_Impl::SetConsumeInput(this, value).into()
             }
         }
@@ -3565,8 +3565,8 @@ impl IAudioNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAudioNode_Impl::Start(this).into()
             }
         }
@@ -3575,8 +3575,8 @@ impl IAudioNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAudioNode_Impl::Stop(this).into()
             }
         }
@@ -3585,8 +3585,8 @@ impl IAudioNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAudioNode_Impl::Reset(this).into()
             }
         }
@@ -3595,8 +3595,8 @@ impl IAudioNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAudioNode_Impl::DisableEffectsByDefinition(this, core::mem::transmute_copy(&definition)).into()
             }
         }
@@ -3605,8 +3605,8 @@ impl IAudioNode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioNode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAudioNode_Impl::EnableEffectsByDefinition(this, core::mem::transmute_copy(&definition)).into()
             }
         }
@@ -3904,8 +3904,8 @@ impl IAudioNodeWithListener_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioNodeWithListener_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAudioNodeWithListener_Impl::SetListener(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -3914,8 +3914,8 @@ impl IAudioNodeWithListener_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAudioNodeWithListener_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IAudioNodeWithListener_Impl::Listener(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

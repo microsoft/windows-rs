@@ -51,8 +51,8 @@ impl IUserDataAccountProviderOperation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUserDataAccountProviderOperation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUserDataAccountProviderOperation_Impl::Kind(this) {
                     Ok(ok__) => {
                         result__.write(ok__);

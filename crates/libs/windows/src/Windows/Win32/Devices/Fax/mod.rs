@@ -1193,8 +1193,8 @@ impl IFaxAccount_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccount_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccount_Impl::AccountName(this) {
                     Ok(ok__) => {
                         pbstraccountname.write(core::mem::transmute(ok__));
@@ -1209,8 +1209,8 @@ impl IFaxAccount_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccount_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccount_Impl::Folders(this) {
                     Ok(ok__) => {
                         ppfolders.write(core::mem::transmute(ok__));
@@ -1225,8 +1225,8 @@ impl IFaxAccount_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccount_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccount_Impl::ListenToAccountEvents(this, core::mem::transmute_copy(&eventtypes)).into()
             }
         }
@@ -1235,8 +1235,8 @@ impl IFaxAccount_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccount_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccount_Impl::RegisteredEvents(this) {
                     Ok(ok__) => {
                         pregisteredevents.write(core::mem::transmute(ok__));
@@ -1326,8 +1326,8 @@ impl IFaxAccountFolders_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountFolders_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountFolders_Impl::OutgoingQueue(this) {
                     Ok(ok__) => {
                         pfaxoutgoingqueue.write(core::mem::transmute(ok__));
@@ -1342,8 +1342,8 @@ impl IFaxAccountFolders_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountFolders_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountFolders_Impl::IncomingQueue(this) {
                     Ok(ok__) => {
                         pfaxincomingqueue.write(core::mem::transmute(ok__));
@@ -1358,8 +1358,8 @@ impl IFaxAccountFolders_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountFolders_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountFolders_Impl::IncomingArchive(this) {
                     Ok(ok__) => {
                         pfaxincomingarchive.write(core::mem::transmute(ok__));
@@ -1374,8 +1374,8 @@ impl IFaxAccountFolders_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountFolders_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountFolders_Impl::OutgoingArchive(this) {
                     Ok(ok__) => {
                         pfaxoutgoingarchive.write(core::mem::transmute(ok__));
@@ -1470,8 +1470,8 @@ impl IFaxAccountIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountIncomingArchive_Impl::SizeLow(this) {
                     Ok(ok__) => {
                         plsizelow.write(core::mem::transmute(ok__));
@@ -1486,8 +1486,8 @@ impl IFaxAccountIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountIncomingArchive_Impl::SizeHigh(this) {
                     Ok(ok__) => {
                         plsizehigh.write(core::mem::transmute(ok__));
@@ -1502,8 +1502,8 @@ impl IFaxAccountIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccountIncomingArchive_Impl::Refresh(this).into()
             }
         }
@@ -1512,8 +1512,8 @@ impl IFaxAccountIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountIncomingArchive_Impl::GetMessages(this, core::mem::transmute_copy(&lprefetchsize)) {
                     Ok(ok__) => {
                         pfaxincomingmessageiterator.write(core::mem::transmute(ok__));
@@ -1528,8 +1528,8 @@ impl IFaxAccountIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountIncomingArchive_Impl::GetMessage(this, core::mem::transmute(&bstrmessageid)) {
                     Ok(ok__) => {
                         pfaxincomingmessage.write(core::mem::transmute(ok__));
@@ -1604,8 +1604,8 @@ impl IFaxAccountIncomingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountIncomingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountIncomingQueue_Impl::GetJobs(this) {
                     Ok(ok__) => {
                         pfaxincomingjobs.write(core::mem::transmute(ok__));
@@ -1620,8 +1620,8 @@ impl IFaxAccountIncomingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountIncomingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountIncomingQueue_Impl::GetJob(this, core::mem::transmute(&bstrjobid)) {
                     Ok(ok__) => {
                         pfaxincomingjob.write(core::mem::transmute(ok__));
@@ -1767,8 +1767,8 @@ impl IFaxAccountNotify_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountNotify_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccountNotify_Impl::OnIncomingJobAdded(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
             }
         }
@@ -1777,8 +1777,8 @@ impl IFaxAccountNotify_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountNotify_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccountNotify_Impl::OnIncomingJobRemoved(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
             }
         }
@@ -1787,8 +1787,8 @@ impl IFaxAccountNotify_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountNotify_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccountNotify_Impl::OnIncomingJobChanged(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrjobid), core::mem::transmute_copy(&pjobstatus)).into()
             }
         }
@@ -1797,8 +1797,8 @@ impl IFaxAccountNotify_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountNotify_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccountNotify_Impl::OnOutgoingJobAdded(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
             }
         }
@@ -1807,8 +1807,8 @@ impl IFaxAccountNotify_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountNotify_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccountNotify_Impl::OnOutgoingJobRemoved(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
             }
         }
@@ -1817,8 +1817,8 @@ impl IFaxAccountNotify_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountNotify_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccountNotify_Impl::OnOutgoingJobChanged(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrjobid), core::mem::transmute_copy(&pjobstatus)).into()
             }
         }
@@ -1827,8 +1827,8 @@ impl IFaxAccountNotify_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountNotify_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccountNotify_Impl::OnIncomingMessageAdded(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrmessageid), core::mem::transmute_copy(&faddedtoreceivefolder)).into()
             }
         }
@@ -1837,8 +1837,8 @@ impl IFaxAccountNotify_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountNotify_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccountNotify_Impl::OnIncomingMessageRemoved(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrmessageid), core::mem::transmute_copy(&fremovedfromreceivefolder)).into()
             }
         }
@@ -1847,8 +1847,8 @@ impl IFaxAccountNotify_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountNotify_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccountNotify_Impl::OnOutgoingMessageAdded(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrmessageid)).into()
             }
         }
@@ -1857,8 +1857,8 @@ impl IFaxAccountNotify_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountNotify_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccountNotify_Impl::OnOutgoingMessageRemoved(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrmessageid)).into()
             }
         }
@@ -1867,8 +1867,8 @@ impl IFaxAccountNotify_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountNotify_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccountNotify_Impl::OnServerShutDown(this, core::mem::transmute_copy(&pfaxserver)).into()
             }
         }
@@ -1964,8 +1964,8 @@ impl IFaxAccountOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountOutgoingArchive_Impl::SizeLow(this) {
                     Ok(ok__) => {
                         plsizelow.write(core::mem::transmute(ok__));
@@ -1980,8 +1980,8 @@ impl IFaxAccountOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountOutgoingArchive_Impl::SizeHigh(this) {
                     Ok(ok__) => {
                         plsizehigh.write(core::mem::transmute(ok__));
@@ -1996,8 +1996,8 @@ impl IFaxAccountOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccountOutgoingArchive_Impl::Refresh(this).into()
             }
         }
@@ -2006,8 +2006,8 @@ impl IFaxAccountOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountOutgoingArchive_Impl::GetMessages(this, core::mem::transmute_copy(&lprefetchsize)) {
                     Ok(ok__) => {
                         pfaxoutgoingmessageiterator.write(core::mem::transmute(ok__));
@@ -2022,8 +2022,8 @@ impl IFaxAccountOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountOutgoingArchive_Impl::GetMessage(this, core::mem::transmute(&bstrmessageid)) {
                     Ok(ok__) => {
                         pfaxoutgoingmessage.write(core::mem::transmute(ok__));
@@ -2098,8 +2098,8 @@ impl IFaxAccountOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountOutgoingQueue_Impl::GetJobs(this) {
                     Ok(ok__) => {
                         pfaxoutgoingjobs.write(core::mem::transmute(ok__));
@@ -2114,8 +2114,8 @@ impl IFaxAccountOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountOutgoingQueue_Impl::GetJob(this, core::mem::transmute(&bstrjobid)) {
                     Ok(ok__) => {
                         pfaxoutgoingjob.write(core::mem::transmute(ok__));
@@ -2200,8 +2200,8 @@ impl IFaxAccountSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountSet_Impl::GetAccounts(this) {
                     Ok(ok__) => {
                         ppfaxaccounts.write(core::mem::transmute(ok__));
@@ -2216,8 +2216,8 @@ impl IFaxAccountSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountSet_Impl::GetAccount(this, core::mem::transmute(&bstraccountname)) {
                     Ok(ok__) => {
                         pfaxaccount.write(core::mem::transmute(ok__));
@@ -2232,8 +2232,8 @@ impl IFaxAccountSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccountSet_Impl::AddAccount(this, core::mem::transmute(&bstraccountname)) {
                     Ok(ok__) => {
                         pfaxaccount.write(core::mem::transmute(ok__));
@@ -2248,8 +2248,8 @@ impl IFaxAccountSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccountSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxAccountSet_Impl::RemoveAccount(this, core::mem::transmute(&bstraccountname)).into()
             }
         }
@@ -2329,8 +2329,8 @@ impl IFaxAccounts_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccounts_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccounts_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -2345,8 +2345,8 @@ impl IFaxAccounts_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccounts_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccounts_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                     Ok(ok__) => {
                         pfaxaccount.write(core::mem::transmute(ok__));
@@ -2361,8 +2361,8 @@ impl IFaxAccounts_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxAccounts_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxAccounts_Impl::Count(this) {
                     Ok(ok__) => {
                         plcount.write(core::mem::transmute(ok__));
@@ -2456,8 +2456,8 @@ impl IFaxActivity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxActivity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxActivity_Impl::IncomingMessages(this) {
                     Ok(ok__) => {
                         plincomingmessages.write(core::mem::transmute(ok__));
@@ -2472,8 +2472,8 @@ impl IFaxActivity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxActivity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxActivity_Impl::RoutingMessages(this) {
                     Ok(ok__) => {
                         plroutingmessages.write(core::mem::transmute(ok__));
@@ -2488,8 +2488,8 @@ impl IFaxActivity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxActivity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxActivity_Impl::OutgoingMessages(this) {
                     Ok(ok__) => {
                         ploutgoingmessages.write(core::mem::transmute(ok__));
@@ -2504,8 +2504,8 @@ impl IFaxActivity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxActivity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxActivity_Impl::QueuedMessages(this) {
                     Ok(ok__) => {
                         plqueuedmessages.write(core::mem::transmute(ok__));
@@ -2520,8 +2520,8 @@ impl IFaxActivity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxActivity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxActivity_Impl::Refresh(this).into()
             }
         }
@@ -2623,8 +2623,8 @@ impl IFaxActivityLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxActivityLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxActivityLogging_Impl::LogIncoming(this) {
                     Ok(ok__) => {
                         pblogincoming.write(core::mem::transmute(ok__));
@@ -2639,8 +2639,8 @@ impl IFaxActivityLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxActivityLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxActivityLogging_Impl::SetLogIncoming(this, core::mem::transmute_copy(&blogincoming)).into()
             }
         }
@@ -2649,8 +2649,8 @@ impl IFaxActivityLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxActivityLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxActivityLogging_Impl::LogOutgoing(this) {
                     Ok(ok__) => {
                         pblogoutgoing.write(core::mem::transmute(ok__));
@@ -2665,8 +2665,8 @@ impl IFaxActivityLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxActivityLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxActivityLogging_Impl::SetLogOutgoing(this, core::mem::transmute_copy(&blogoutgoing)).into()
             }
         }
@@ -2675,8 +2675,8 @@ impl IFaxActivityLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxActivityLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxActivityLogging_Impl::DatabasePath(this) {
                     Ok(ok__) => {
                         pbstrdatabasepath.write(core::mem::transmute(ok__));
@@ -2691,8 +2691,8 @@ impl IFaxActivityLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxActivityLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxActivityLogging_Impl::SetDatabasePath(this, core::mem::transmute(&bstrdatabasepath)).into()
             }
         }
@@ -2701,8 +2701,8 @@ impl IFaxActivityLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxActivityLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxActivityLogging_Impl::Refresh(this).into()
             }
         }
@@ -2711,8 +2711,8 @@ impl IFaxActivityLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxActivityLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxActivityLogging_Impl::Save(this).into()
             }
         }
@@ -3041,8 +3041,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::UseArchive(this) {
                     Ok(ok__) => {
                         pbusearchive.write(core::mem::transmute(ok__));
@@ -3057,8 +3057,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetUseArchive(this, core::mem::transmute_copy(&busearchive)).into()
             }
         }
@@ -3067,8 +3067,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::ArchiveLocation(this) {
                     Ok(ok__) => {
                         pbstrarchivelocation.write(core::mem::transmute(ok__));
@@ -3083,8 +3083,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetArchiveLocation(this, core::mem::transmute(&bstrarchivelocation)).into()
             }
         }
@@ -3093,8 +3093,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::SizeQuotaWarning(this) {
                     Ok(ok__) => {
                         pbsizequotawarning.write(core::mem::transmute(ok__));
@@ -3109,8 +3109,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetSizeQuotaWarning(this, core::mem::transmute_copy(&bsizequotawarning)).into()
             }
         }
@@ -3119,8 +3119,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::HighQuotaWaterMark(this) {
                     Ok(ok__) => {
                         plhighquotawatermark.write(core::mem::transmute(ok__));
@@ -3135,8 +3135,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetHighQuotaWaterMark(this, core::mem::transmute_copy(&lhighquotawatermark)).into()
             }
         }
@@ -3145,8 +3145,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::LowQuotaWaterMark(this) {
                     Ok(ok__) => {
                         pllowquotawatermark.write(core::mem::transmute(ok__));
@@ -3161,8 +3161,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetLowQuotaWaterMark(this, core::mem::transmute_copy(&llowquotawatermark)).into()
             }
         }
@@ -3171,8 +3171,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::ArchiveAgeLimit(this) {
                     Ok(ok__) => {
                         plarchiveagelimit.write(core::mem::transmute(ok__));
@@ -3187,8 +3187,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetArchiveAgeLimit(this, core::mem::transmute_copy(&larchiveagelimit)).into()
             }
         }
@@ -3197,8 +3197,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::ArchiveSizeLow(this) {
                     Ok(ok__) => {
                         plsizelow.write(core::mem::transmute(ok__));
@@ -3213,8 +3213,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::ArchiveSizeHigh(this) {
                     Ok(ok__) => {
                         plsizehigh.write(core::mem::transmute(ok__));
@@ -3229,8 +3229,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::OutgoingQueueBlocked(this) {
                     Ok(ok__) => {
                         pboutgoingblocked.write(core::mem::transmute(ok__));
@@ -3245,8 +3245,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetOutgoingQueueBlocked(this, core::mem::transmute_copy(&boutgoingblocked)).into()
             }
         }
@@ -3255,8 +3255,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::OutgoingQueuePaused(this) {
                     Ok(ok__) => {
                         pboutgoingpaused.write(core::mem::transmute(ok__));
@@ -3271,8 +3271,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetOutgoingQueuePaused(this, core::mem::transmute_copy(&boutgoingpaused)).into()
             }
         }
@@ -3281,8 +3281,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::AllowPersonalCoverPages(this) {
                     Ok(ok__) => {
                         pballowpersonalcoverpages.write(core::mem::transmute(ok__));
@@ -3297,8 +3297,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetAllowPersonalCoverPages(this, core::mem::transmute_copy(&ballowpersonalcoverpages)).into()
             }
         }
@@ -3307,8 +3307,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::UseDeviceTSID(this) {
                     Ok(ok__) => {
                         pbusedevicetsid.write(core::mem::transmute(ok__));
@@ -3323,8 +3323,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetUseDeviceTSID(this, core::mem::transmute_copy(&busedevicetsid)).into()
             }
         }
@@ -3333,8 +3333,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::Retries(this) {
                     Ok(ok__) => {
                         plretries.write(core::mem::transmute(ok__));
@@ -3349,8 +3349,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetRetries(this, core::mem::transmute_copy(&lretries)).into()
             }
         }
@@ -3359,8 +3359,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::RetryDelay(this) {
                     Ok(ok__) => {
                         plretrydelay.write(core::mem::transmute(ok__));
@@ -3375,8 +3375,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetRetryDelay(this, core::mem::transmute_copy(&lretrydelay)).into()
             }
         }
@@ -3385,8 +3385,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::DiscountRateStart(this) {
                     Ok(ok__) => {
                         pdatediscountratestart.write(core::mem::transmute(ok__));
@@ -3401,8 +3401,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetDiscountRateStart(this, core::mem::transmute_copy(&datediscountratestart)).into()
             }
         }
@@ -3411,8 +3411,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::DiscountRateEnd(this) {
                     Ok(ok__) => {
                         pdatediscountrateend.write(core::mem::transmute(ok__));
@@ -3427,8 +3427,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetDiscountRateEnd(this, core::mem::transmute_copy(&datediscountrateend)).into()
             }
         }
@@ -3437,8 +3437,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::OutgoingQueueAgeLimit(this) {
                     Ok(ok__) => {
                         ploutgoingqueueagelimit.write(core::mem::transmute(ok__));
@@ -3453,8 +3453,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetOutgoingQueueAgeLimit(this, core::mem::transmute_copy(&loutgoingqueueagelimit)).into()
             }
         }
@@ -3463,8 +3463,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::Branding(this) {
                     Ok(ok__) => {
                         pbbranding.write(core::mem::transmute(ok__));
@@ -3479,8 +3479,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetBranding(this, core::mem::transmute_copy(&bbranding)).into()
             }
         }
@@ -3489,8 +3489,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::IncomingQueueBlocked(this) {
                     Ok(ok__) => {
                         pbincomingblocked.write(core::mem::transmute(ok__));
@@ -3505,8 +3505,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetIncomingQueueBlocked(this, core::mem::transmute_copy(&bincomingblocked)).into()
             }
         }
@@ -3515,8 +3515,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::AutoCreateAccountOnConnect(this) {
                     Ok(ok__) => {
                         pbautocreateaccountonconnect.write(core::mem::transmute(ok__));
@@ -3531,8 +3531,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetAutoCreateAccountOnConnect(this, core::mem::transmute_copy(&bautocreateaccountonconnect)).into()
             }
         }
@@ -3541,8 +3541,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxConfiguration_Impl::IncomingFaxesArePublic(this) {
                     Ok(ok__) => {
                         pbincomingfaxesarepublic.write(core::mem::transmute(ok__));
@@ -3557,8 +3557,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::SetIncomingFaxesArePublic(this, core::mem::transmute_copy(&bincomingfaxesarepublic)).into()
             }
         }
@@ -3567,8 +3567,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::Refresh(this).into()
             }
         }
@@ -3577,8 +3577,8 @@ impl IFaxConfiguration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxConfiguration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxConfiguration_Impl::Save(this).into()
             }
         }
@@ -3855,8 +3855,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::Id(this) {
                     Ok(ok__) => {
                         plid.write(core::mem::transmute(ok__));
@@ -3871,8 +3871,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::DeviceName(this) {
                     Ok(ok__) => {
                         pbstrdevicename.write(core::mem::transmute(ok__));
@@ -3887,8 +3887,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::ProviderUniqueName(this) {
                     Ok(ok__) => {
                         pbstrprovideruniquename.write(core::mem::transmute(ok__));
@@ -3903,8 +3903,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::PoweredOff(this) {
                     Ok(ok__) => {
                         pbpoweredoff.write(core::mem::transmute(ok__));
@@ -3919,8 +3919,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::ReceivingNow(this) {
                     Ok(ok__) => {
                         pbreceivingnow.write(core::mem::transmute(ok__));
@@ -3935,8 +3935,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::SendingNow(this) {
                     Ok(ok__) => {
                         pbsendingnow.write(core::mem::transmute(ok__));
@@ -3951,8 +3951,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::UsedRoutingMethods(this) {
                     Ok(ok__) => {
                         pvusedroutingmethods.write(core::mem::transmute(ok__));
@@ -3967,8 +3967,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::Description(this) {
                     Ok(ok__) => {
                         pbstrdescription.write(core::mem::transmute(ok__));
@@ -3983,8 +3983,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDevice_Impl::SetDescription(this, core::mem::transmute(&bstrdescription)).into()
             }
         }
@@ -3993,8 +3993,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::SendEnabled(this) {
                     Ok(ok__) => {
                         pbsendenabled.write(core::mem::transmute(ok__));
@@ -4009,8 +4009,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDevice_Impl::SetSendEnabled(this, core::mem::transmute_copy(&bsendenabled)).into()
             }
         }
@@ -4019,8 +4019,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::ReceiveMode(this) {
                     Ok(ok__) => {
                         preceivemode.write(core::mem::transmute(ok__));
@@ -4035,8 +4035,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDevice_Impl::SetReceiveMode(this, core::mem::transmute_copy(&receivemode)).into()
             }
         }
@@ -4045,8 +4045,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::RingsBeforeAnswer(this) {
                     Ok(ok__) => {
                         plringsbeforeanswer.write(core::mem::transmute(ok__));
@@ -4061,8 +4061,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDevice_Impl::SetRingsBeforeAnswer(this, core::mem::transmute_copy(&lringsbeforeanswer)).into()
             }
         }
@@ -4071,8 +4071,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::CSID(this) {
                     Ok(ok__) => {
                         pbstrcsid.write(core::mem::transmute(ok__));
@@ -4087,8 +4087,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDevice_Impl::SetCSID(this, core::mem::transmute(&bstrcsid)).into()
             }
         }
@@ -4097,8 +4097,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::TSID(this) {
                     Ok(ok__) => {
                         pbstrtsid.write(core::mem::transmute(ok__));
@@ -4113,8 +4113,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDevice_Impl::SetTSID(this, core::mem::transmute(&bstrtsid)).into()
             }
         }
@@ -4123,8 +4123,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDevice_Impl::Refresh(this).into()
             }
         }
@@ -4133,8 +4133,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDevice_Impl::Save(this).into()
             }
         }
@@ -4143,8 +4143,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::GetExtensionProperty(this, core::mem::transmute(&bstrguid)) {
                     Ok(ok__) => {
                         pvproperty.write(core::mem::transmute(ok__));
@@ -4159,8 +4159,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDevice_Impl::SetExtensionProperty(this, core::mem::transmute(&bstrguid), core::mem::transmute(&vproperty)).into()
             }
         }
@@ -4169,8 +4169,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDevice_Impl::UseRoutingMethod(this, core::mem::transmute(&bstrmethodguid), core::mem::transmute_copy(&buse)).into()
             }
         }
@@ -4179,8 +4179,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevice_Impl::RingingNow(this) {
                     Ok(ok__) => {
                         pbringingnow.write(core::mem::transmute(ok__));
@@ -4195,8 +4195,8 @@ impl IFaxDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDevice_Impl::AnswerCall(this).into()
             }
         }
@@ -4309,8 +4309,8 @@ impl IFaxDeviceIds_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceIds_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceIds_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -4325,8 +4325,8 @@ impl IFaxDeviceIds_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceIds_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceIds_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                     Ok(ok__) => {
                         pldeviceid.write(core::mem::transmute(ok__));
@@ -4341,8 +4341,8 @@ impl IFaxDeviceIds_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceIds_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceIds_Impl::Count(this) {
                     Ok(ok__) => {
                         plcount.write(core::mem::transmute(ok__));
@@ -4357,8 +4357,8 @@ impl IFaxDeviceIds_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceIds_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDeviceIds_Impl::Add(this, core::mem::transmute_copy(&ldeviceid)).into()
             }
         }
@@ -4367,8 +4367,8 @@ impl IFaxDeviceIds_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceIds_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDeviceIds_Impl::Remove(this, core::mem::transmute_copy(&lindex)).into()
             }
         }
@@ -4377,8 +4377,8 @@ impl IFaxDeviceIds_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceIds_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDeviceIds_Impl::SetOrder(this, core::mem::transmute_copy(&ldeviceid), core::mem::transmute_copy(&lneworder)).into()
             }
         }
@@ -4532,8 +4532,8 @@ impl IFaxDeviceProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProvider_Impl::FriendlyName(this) {
                     Ok(ok__) => {
                         pbstrfriendlyname.write(core::mem::transmute(ok__));
@@ -4548,8 +4548,8 @@ impl IFaxDeviceProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProvider_Impl::ImageName(this) {
                     Ok(ok__) => {
                         pbstrimagename.write(core::mem::transmute(ok__));
@@ -4564,8 +4564,8 @@ impl IFaxDeviceProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProvider_Impl::UniqueName(this) {
                     Ok(ok__) => {
                         pbstruniquename.write(core::mem::transmute(ok__));
@@ -4580,8 +4580,8 @@ impl IFaxDeviceProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProvider_Impl::TapiProviderName(this) {
                     Ok(ok__) => {
                         pbstrtapiprovidername.write(core::mem::transmute(ok__));
@@ -4596,8 +4596,8 @@ impl IFaxDeviceProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProvider_Impl::MajorVersion(this) {
                     Ok(ok__) => {
                         plmajorversion.write(core::mem::transmute(ok__));
@@ -4612,8 +4612,8 @@ impl IFaxDeviceProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProvider_Impl::MinorVersion(this) {
                     Ok(ok__) => {
                         plminorversion.write(core::mem::transmute(ok__));
@@ -4628,8 +4628,8 @@ impl IFaxDeviceProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProvider_Impl::MajorBuild(this) {
                     Ok(ok__) => {
                         plmajorbuild.write(core::mem::transmute(ok__));
@@ -4644,8 +4644,8 @@ impl IFaxDeviceProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProvider_Impl::MinorBuild(this) {
                     Ok(ok__) => {
                         plminorbuild.write(core::mem::transmute(ok__));
@@ -4660,8 +4660,8 @@ impl IFaxDeviceProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProvider_Impl::Debug(this) {
                     Ok(ok__) => {
                         pbdebug.write(core::mem::transmute(ok__));
@@ -4676,8 +4676,8 @@ impl IFaxDeviceProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProvider_Impl::Status(this) {
                     Ok(ok__) => {
                         pstatus.write(core::mem::transmute(ok__));
@@ -4692,8 +4692,8 @@ impl IFaxDeviceProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProvider_Impl::InitErrorCode(this) {
                     Ok(ok__) => {
                         pliniterrorcode.write(core::mem::transmute(ok__));
@@ -4708,8 +4708,8 @@ impl IFaxDeviceProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProvider_Impl::DeviceIds(this) {
                     Ok(ok__) => {
                         pvdeviceids.write(core::mem::transmute(ok__));
@@ -4803,8 +4803,8 @@ impl IFaxDeviceProviders_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProviders_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProviders_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -4819,8 +4819,8 @@ impl IFaxDeviceProviders_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProviders_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProviders_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                     Ok(ok__) => {
                         pfaxdeviceprovider.write(core::mem::transmute(ok__));
@@ -4835,8 +4835,8 @@ impl IFaxDeviceProviders_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDeviceProviders_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDeviceProviders_Impl::Count(this) {
                     Ok(ok__) => {
                         plcount.write(core::mem::transmute(ok__));
@@ -4929,8 +4929,8 @@ impl IFaxDevices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevices_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -4945,8 +4945,8 @@ impl IFaxDevices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevices_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                     Ok(ok__) => {
                         pfaxdevice.write(core::mem::transmute(ok__));
@@ -4961,8 +4961,8 @@ impl IFaxDevices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevices_Impl::Count(this) {
                     Ok(ok__) => {
                         plcount.write(core::mem::transmute(ok__));
@@ -4977,8 +4977,8 @@ impl IFaxDevices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDevices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDevices_Impl::get_ItemById(this, core::mem::transmute_copy(&lid)) {
                     Ok(ok__) => {
                         ppfaxdevice.write(core::mem::transmute(ok__));
@@ -5277,8 +5277,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::Body(this) {
                     Ok(ok__) => {
                         pbstrbody.write(core::mem::transmute(ok__));
@@ -5293,8 +5293,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::SetBody(this, core::mem::transmute(&bstrbody)).into()
             }
         }
@@ -5303,8 +5303,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::Sender(this) {
                     Ok(ok__) => {
                         ppfaxsender.write(core::mem::transmute(ok__));
@@ -5319,8 +5319,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::Recipients(this) {
                     Ok(ok__) => {
                         ppfaxrecipients.write(core::mem::transmute(ok__));
@@ -5335,8 +5335,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::CoverPage(this) {
                     Ok(ok__) => {
                         pbstrcoverpage.write(core::mem::transmute(ok__));
@@ -5351,8 +5351,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::SetCoverPage(this, core::mem::transmute(&bstrcoverpage)).into()
             }
         }
@@ -5361,8 +5361,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::Subject(this) {
                     Ok(ok__) => {
                         pbstrsubject.write(core::mem::transmute(ok__));
@@ -5377,8 +5377,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::SetSubject(this, core::mem::transmute(&bstrsubject)).into()
             }
         }
@@ -5387,8 +5387,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::Note(this) {
                     Ok(ok__) => {
                         pbstrnote.write(core::mem::transmute(ok__));
@@ -5403,8 +5403,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::SetNote(this, core::mem::transmute(&bstrnote)).into()
             }
         }
@@ -5413,8 +5413,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::ScheduleTime(this) {
                     Ok(ok__) => {
                         pdatescheduletime.write(core::mem::transmute(ok__));
@@ -5429,8 +5429,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::SetScheduleTime(this, core::mem::transmute_copy(&datescheduletime)).into()
             }
         }
@@ -5439,8 +5439,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::ReceiptAddress(this) {
                     Ok(ok__) => {
                         pbstrreceiptaddress.write(core::mem::transmute(ok__));
@@ -5455,8 +5455,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::SetReceiptAddress(this, core::mem::transmute(&bstrreceiptaddress)).into()
             }
         }
@@ -5465,8 +5465,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::DocumentName(this) {
                     Ok(ok__) => {
                         pbstrdocumentname.write(core::mem::transmute(ok__));
@@ -5481,8 +5481,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::SetDocumentName(this, core::mem::transmute(&bstrdocumentname)).into()
             }
         }
@@ -5491,8 +5491,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::CallHandle(this) {
                     Ok(ok__) => {
                         plcallhandle.write(core::mem::transmute(ok__));
@@ -5507,8 +5507,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::SetCallHandle(this, core::mem::transmute_copy(&lcallhandle)).into()
             }
         }
@@ -5517,8 +5517,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::CoverPageType(this) {
                     Ok(ok__) => {
                         pcoverpagetype.write(core::mem::transmute(ok__));
@@ -5533,8 +5533,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::SetCoverPageType(this, core::mem::transmute_copy(&coverpagetype)).into()
             }
         }
@@ -5543,8 +5543,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::ScheduleType(this) {
                     Ok(ok__) => {
                         pscheduletype.write(core::mem::transmute(ok__));
@@ -5559,8 +5559,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::SetScheduleType(this, core::mem::transmute_copy(&scheduletype)).into()
             }
         }
@@ -5569,8 +5569,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::ReceiptType(this) {
                     Ok(ok__) => {
                         preceipttype.write(core::mem::transmute(ok__));
@@ -5585,8 +5585,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::SetReceiptType(this, core::mem::transmute_copy(&receipttype)).into()
             }
         }
@@ -5595,8 +5595,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::GroupBroadcastReceipts(this) {
                     Ok(ok__) => {
                         pbusegrouping.write(core::mem::transmute(ok__));
@@ -5611,8 +5611,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::SetGroupBroadcastReceipts(this, core::mem::transmute_copy(&busegrouping)).into()
             }
         }
@@ -5621,8 +5621,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::Priority(this) {
                     Ok(ok__) => {
                         ppriority.write(core::mem::transmute(ok__));
@@ -5637,8 +5637,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::SetPriority(this, core::mem::transmute_copy(&priority)).into()
             }
         }
@@ -5647,8 +5647,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::TapiConnection(this) {
                     Ok(ok__) => {
                         pptapiconnection.write(core::mem::transmute(ok__));
@@ -5663,8 +5663,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::putref_TapiConnection(this, core::mem::transmute_copy(&ptapiconnection)).into()
             }
         }
@@ -5673,8 +5673,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::Submit(this, core::mem::transmute(&bstrfaxservername)) {
                     Ok(ok__) => {
                         pvfaxoutgoingjobids.write(core::mem::transmute(ok__));
@@ -5689,8 +5689,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::ConnectedSubmit(this, core::mem::transmute_copy(&pfaxserver)) {
                     Ok(ok__) => {
                         pvfaxoutgoingjobids.write(core::mem::transmute(ok__));
@@ -5705,8 +5705,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument_Impl::AttachFaxToReceipt(this) {
                     Ok(ok__) => {
                         pbattachfax.write(core::mem::transmute(ok__));
@@ -5721,8 +5721,8 @@ impl IFaxDocument_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument_Impl::SetAttachFaxToReceipt(this, core::mem::transmute_copy(&battachfax)).into()
             }
         }
@@ -5854,8 +5854,8 @@ impl IFaxDocument2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument2_Impl::SubmissionId(this) {
                     Ok(ok__) => {
                         pbstrsubmissionid.write(core::mem::transmute(ok__));
@@ -5870,8 +5870,8 @@ impl IFaxDocument2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxDocument2_Impl::Bodies(this) {
                     Ok(ok__) => {
                         pvbodies.write(core::mem::transmute(ok__));
@@ -5886,8 +5886,8 @@ impl IFaxDocument2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument2_Impl::SetBodies(this, core::mem::transmute(&vbodies)).into()
             }
         }
@@ -5896,8 +5896,8 @@ impl IFaxDocument2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument2_Impl::Submit2(this, core::mem::transmute(&bstrfaxservername), core::mem::transmute_copy(&pvfaxoutgoingjobids), core::mem::transmute_copy(&plerrorbodyfile)).into()
             }
         }
@@ -5906,8 +5906,8 @@ impl IFaxDocument2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxDocument2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxDocument2_Impl::ConnectedSubmit2(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute_copy(&pvfaxoutgoingjobids), core::mem::transmute_copy(&plerrorbodyfile)).into()
             }
         }
@@ -6022,8 +6022,8 @@ impl IFaxEventLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxEventLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxEventLogging_Impl::InitEventsLevel(this) {
                     Ok(ok__) => {
                         piniteventlevel.write(core::mem::transmute(ok__));
@@ -6038,8 +6038,8 @@ impl IFaxEventLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxEventLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxEventLogging_Impl::SetInitEventsLevel(this, core::mem::transmute_copy(&initeventlevel)).into()
             }
         }
@@ -6048,8 +6048,8 @@ impl IFaxEventLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxEventLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxEventLogging_Impl::InboundEventsLevel(this) {
                     Ok(ok__) => {
                         pinboundeventlevel.write(core::mem::transmute(ok__));
@@ -6064,8 +6064,8 @@ impl IFaxEventLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxEventLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxEventLogging_Impl::SetInboundEventsLevel(this, core::mem::transmute_copy(&inboundeventlevel)).into()
             }
         }
@@ -6074,8 +6074,8 @@ impl IFaxEventLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxEventLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxEventLogging_Impl::OutboundEventsLevel(this) {
                     Ok(ok__) => {
                         poutboundeventlevel.write(core::mem::transmute(ok__));
@@ -6090,8 +6090,8 @@ impl IFaxEventLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxEventLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxEventLogging_Impl::SetOutboundEventsLevel(this, core::mem::transmute_copy(&outboundeventlevel)).into()
             }
         }
@@ -6100,8 +6100,8 @@ impl IFaxEventLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxEventLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxEventLogging_Impl::GeneralEventsLevel(this) {
                     Ok(ok__) => {
                         pgeneraleventlevel.write(core::mem::transmute(ok__));
@@ -6116,8 +6116,8 @@ impl IFaxEventLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxEventLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxEventLogging_Impl::SetGeneralEventsLevel(this, core::mem::transmute_copy(&generaleventlevel)).into()
             }
         }
@@ -6126,8 +6126,8 @@ impl IFaxEventLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxEventLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxEventLogging_Impl::Refresh(this).into()
             }
         }
@@ -6136,8 +6136,8 @@ impl IFaxEventLogging_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxEventLogging_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxEventLogging_Impl::Save(this).into()
             }
         }
@@ -6227,8 +6227,8 @@ impl IFaxFolders_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxFolders_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxFolders_Impl::OutgoingQueue(this) {
                     Ok(ok__) => {
                         pfaxoutgoingqueue.write(core::mem::transmute(ok__));
@@ -6243,8 +6243,8 @@ impl IFaxFolders_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxFolders_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxFolders_Impl::IncomingQueue(this) {
                     Ok(ok__) => {
                         pfaxincomingqueue.write(core::mem::transmute(ok__));
@@ -6259,8 +6259,8 @@ impl IFaxFolders_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxFolders_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxFolders_Impl::IncomingArchive(this) {
                     Ok(ok__) => {
                         pfaxincomingarchive.write(core::mem::transmute(ok__));
@@ -6275,8 +6275,8 @@ impl IFaxFolders_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxFolders_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxFolders_Impl::OutgoingArchive(this) {
                     Ok(ok__) => {
                         pfaxoutgoingarchive.write(core::mem::transmute(ok__));
@@ -6350,8 +6350,8 @@ impl IFaxInboundRouting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRouting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRouting_Impl::GetExtensions(this) {
                     Ok(ok__) => {
                         pfaxinboundroutingextensions.write(core::mem::transmute(ok__));
@@ -6366,8 +6366,8 @@ impl IFaxInboundRouting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRouting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRouting_Impl::GetMethods(this) {
                     Ok(ok__) => {
                         pfaxinboundroutingmethods.write(core::mem::transmute(ok__));
@@ -6515,8 +6515,8 @@ impl IFaxInboundRoutingExtension_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingExtension_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingExtension_Impl::FriendlyName(this) {
                     Ok(ok__) => {
                         pbstrfriendlyname.write(core::mem::transmute(ok__));
@@ -6531,8 +6531,8 @@ impl IFaxInboundRoutingExtension_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingExtension_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingExtension_Impl::ImageName(this) {
                     Ok(ok__) => {
                         pbstrimagename.write(core::mem::transmute(ok__));
@@ -6547,8 +6547,8 @@ impl IFaxInboundRoutingExtension_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingExtension_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingExtension_Impl::UniqueName(this) {
                     Ok(ok__) => {
                         pbstruniquename.write(core::mem::transmute(ok__));
@@ -6563,8 +6563,8 @@ impl IFaxInboundRoutingExtension_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingExtension_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingExtension_Impl::MajorVersion(this) {
                     Ok(ok__) => {
                         plmajorversion.write(core::mem::transmute(ok__));
@@ -6579,8 +6579,8 @@ impl IFaxInboundRoutingExtension_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingExtension_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingExtension_Impl::MinorVersion(this) {
                     Ok(ok__) => {
                         plminorversion.write(core::mem::transmute(ok__));
@@ -6595,8 +6595,8 @@ impl IFaxInboundRoutingExtension_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingExtension_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingExtension_Impl::MajorBuild(this) {
                     Ok(ok__) => {
                         plmajorbuild.write(core::mem::transmute(ok__));
@@ -6611,8 +6611,8 @@ impl IFaxInboundRoutingExtension_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingExtension_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingExtension_Impl::MinorBuild(this) {
                     Ok(ok__) => {
                         plminorbuild.write(core::mem::transmute(ok__));
@@ -6627,8 +6627,8 @@ impl IFaxInboundRoutingExtension_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingExtension_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingExtension_Impl::Debug(this) {
                     Ok(ok__) => {
                         pbdebug.write(core::mem::transmute(ok__));
@@ -6643,8 +6643,8 @@ impl IFaxInboundRoutingExtension_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingExtension_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingExtension_Impl::Status(this) {
                     Ok(ok__) => {
                         pstatus.write(core::mem::transmute(ok__));
@@ -6659,8 +6659,8 @@ impl IFaxInboundRoutingExtension_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingExtension_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingExtension_Impl::InitErrorCode(this) {
                     Ok(ok__) => {
                         pliniterrorcode.write(core::mem::transmute(ok__));
@@ -6675,8 +6675,8 @@ impl IFaxInboundRoutingExtension_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingExtension_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingExtension_Impl::Methods(this) {
                     Ok(ok__) => {
                         pvmethods.write(core::mem::transmute(ok__));
@@ -6769,8 +6769,8 @@ impl IFaxInboundRoutingExtensions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingExtensions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingExtensions_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -6785,8 +6785,8 @@ impl IFaxInboundRoutingExtensions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingExtensions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingExtensions_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                     Ok(ok__) => {
                         pfaxinboundroutingextension.write(core::mem::transmute(ok__));
@@ -6801,8 +6801,8 @@ impl IFaxInboundRoutingExtensions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingExtensions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingExtensions_Impl::Count(this) {
                     Ok(ok__) => {
                         plcount.write(core::mem::transmute(ok__));
@@ -6922,8 +6922,8 @@ impl IFaxInboundRoutingMethod_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingMethod_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingMethod_Impl::Name(this) {
                     Ok(ok__) => {
                         pbstrname.write(core::mem::transmute(ok__));
@@ -6938,8 +6938,8 @@ impl IFaxInboundRoutingMethod_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingMethod_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingMethod_Impl::GUID(this) {
                     Ok(ok__) => {
                         pbstrguid.write(core::mem::transmute(ok__));
@@ -6954,8 +6954,8 @@ impl IFaxInboundRoutingMethod_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingMethod_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingMethod_Impl::FunctionName(this) {
                     Ok(ok__) => {
                         pbstrfunctionname.write(core::mem::transmute(ok__));
@@ -6970,8 +6970,8 @@ impl IFaxInboundRoutingMethod_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingMethod_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingMethod_Impl::ExtensionFriendlyName(this) {
                     Ok(ok__) => {
                         pbstrextensionfriendlyname.write(core::mem::transmute(ok__));
@@ -6986,8 +6986,8 @@ impl IFaxInboundRoutingMethod_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingMethod_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingMethod_Impl::ExtensionImageName(this) {
                     Ok(ok__) => {
                         pbstrextensionimagename.write(core::mem::transmute(ok__));
@@ -7002,8 +7002,8 @@ impl IFaxInboundRoutingMethod_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingMethod_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingMethod_Impl::Priority(this) {
                     Ok(ok__) => {
                         plpriority.write(core::mem::transmute(ok__));
@@ -7018,8 +7018,8 @@ impl IFaxInboundRoutingMethod_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingMethod_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxInboundRoutingMethod_Impl::SetPriority(this, core::mem::transmute_copy(&lpriority)).into()
             }
         }
@@ -7028,8 +7028,8 @@ impl IFaxInboundRoutingMethod_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingMethod_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxInboundRoutingMethod_Impl::Refresh(this).into()
             }
         }
@@ -7038,8 +7038,8 @@ impl IFaxInboundRoutingMethod_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingMethod_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxInboundRoutingMethod_Impl::Save(this).into()
             }
         }
@@ -7124,8 +7124,8 @@ impl IFaxInboundRoutingMethods_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingMethods_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingMethods_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -7140,8 +7140,8 @@ impl IFaxInboundRoutingMethods_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingMethods_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingMethods_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                     Ok(ok__) => {
                         pfaxinboundroutingmethod.write(core::mem::transmute(ok__));
@@ -7156,8 +7156,8 @@ impl IFaxInboundRoutingMethods_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxInboundRoutingMethods_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxInboundRoutingMethods_Impl::Count(this) {
                     Ok(ok__) => {
                         plcount.write(core::mem::transmute(ok__));
@@ -7334,8 +7334,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingArchive_Impl::UseArchive(this) {
                     Ok(ok__) => {
                         pbusearchive.write(core::mem::transmute(ok__));
@@ -7350,8 +7350,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingArchive_Impl::SetUseArchive(this, core::mem::transmute_copy(&busearchive)).into()
             }
         }
@@ -7360,8 +7360,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingArchive_Impl::ArchiveFolder(this) {
                     Ok(ok__) => {
                         pbstrarchivefolder.write(core::mem::transmute(ok__));
@@ -7376,8 +7376,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingArchive_Impl::SetArchiveFolder(this, core::mem::transmute(&bstrarchivefolder)).into()
             }
         }
@@ -7386,8 +7386,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingArchive_Impl::SizeQuotaWarning(this) {
                     Ok(ok__) => {
                         pbsizequotawarning.write(core::mem::transmute(ok__));
@@ -7402,8 +7402,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingArchive_Impl::SetSizeQuotaWarning(this, core::mem::transmute_copy(&bsizequotawarning)).into()
             }
         }
@@ -7412,8 +7412,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingArchive_Impl::HighQuotaWaterMark(this) {
                     Ok(ok__) => {
                         plhighquotawatermark.write(core::mem::transmute(ok__));
@@ -7428,8 +7428,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingArchive_Impl::SetHighQuotaWaterMark(this, core::mem::transmute_copy(&lhighquotawatermark)).into()
             }
         }
@@ -7438,8 +7438,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingArchive_Impl::LowQuotaWaterMark(this) {
                     Ok(ok__) => {
                         pllowquotawatermark.write(core::mem::transmute(ok__));
@@ -7454,8 +7454,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingArchive_Impl::SetLowQuotaWaterMark(this, core::mem::transmute_copy(&llowquotawatermark)).into()
             }
         }
@@ -7464,8 +7464,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingArchive_Impl::AgeLimit(this) {
                     Ok(ok__) => {
                         plagelimit.write(core::mem::transmute(ok__));
@@ -7480,8 +7480,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingArchive_Impl::SetAgeLimit(this, core::mem::transmute_copy(&lagelimit)).into()
             }
         }
@@ -7490,8 +7490,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingArchive_Impl::SizeLow(this) {
                     Ok(ok__) => {
                         plsizelow.write(core::mem::transmute(ok__));
@@ -7506,8 +7506,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingArchive_Impl::SizeHigh(this) {
                     Ok(ok__) => {
                         plsizehigh.write(core::mem::transmute(ok__));
@@ -7522,8 +7522,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingArchive_Impl::Refresh(this).into()
             }
         }
@@ -7532,8 +7532,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingArchive_Impl::Save(this).into()
             }
         }
@@ -7542,8 +7542,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingArchive_Impl::GetMessages(this, core::mem::transmute_copy(&lprefetchsize)) {
                     Ok(ok__) => {
                         pfaxincomingmessageiterator.write(core::mem::transmute(ok__));
@@ -7558,8 +7558,8 @@ impl IFaxIncomingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingArchive_Impl::GetMessage(this, core::mem::transmute(&bstrmessageid)) {
                     Ok(ok__) => {
                         pfaxincomingmessage.write(core::mem::transmute(ok__));
@@ -7774,8 +7774,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::Size(this) {
                     Ok(ok__) => {
                         plsize.write(core::mem::transmute(ok__));
@@ -7790,8 +7790,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::Id(this) {
                     Ok(ok__) => {
                         pbstrid.write(core::mem::transmute(ok__));
@@ -7806,8 +7806,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::CurrentPage(this) {
                     Ok(ok__) => {
                         plcurrentpage.write(core::mem::transmute(ok__));
@@ -7822,8 +7822,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::DeviceId(this) {
                     Ok(ok__) => {
                         pldeviceid.write(core::mem::transmute(ok__));
@@ -7838,8 +7838,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::Status(this) {
                     Ok(ok__) => {
                         pstatus.write(core::mem::transmute(ok__));
@@ -7854,8 +7854,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::ExtendedStatusCode(this) {
                     Ok(ok__) => {
                         pextendedstatuscode.write(core::mem::transmute(ok__));
@@ -7870,8 +7870,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::ExtendedStatus(this) {
                     Ok(ok__) => {
                         pbstrextendedstatus.write(core::mem::transmute(ok__));
@@ -7886,8 +7886,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::AvailableOperations(this) {
                     Ok(ok__) => {
                         pavailableoperations.write(core::mem::transmute(ok__));
@@ -7902,8 +7902,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::Retries(this) {
                     Ok(ok__) => {
                         plretries.write(core::mem::transmute(ok__));
@@ -7918,8 +7918,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::TransmissionStart(this) {
                     Ok(ok__) => {
                         pdatetransmissionstart.write(core::mem::transmute(ok__));
@@ -7934,8 +7934,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::TransmissionEnd(this) {
                     Ok(ok__) => {
                         pdatetransmissionend.write(core::mem::transmute(ok__));
@@ -7950,8 +7950,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::CSID(this) {
                     Ok(ok__) => {
                         pbstrcsid.write(core::mem::transmute(ok__));
@@ -7966,8 +7966,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::TSID(this) {
                     Ok(ok__) => {
                         pbstrtsid.write(core::mem::transmute(ok__));
@@ -7982,8 +7982,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::CallerId(this) {
                     Ok(ok__) => {
                         pbstrcallerid.write(core::mem::transmute(ok__));
@@ -7998,8 +7998,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::RoutingInformation(this) {
                     Ok(ok__) => {
                         pbstrroutinginformation.write(core::mem::transmute(ok__));
@@ -8014,8 +8014,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJob_Impl::JobType(this) {
                     Ok(ok__) => {
                         pjobtype.write(core::mem::transmute(ok__));
@@ -8030,8 +8030,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingJob_Impl::Cancel(this).into()
             }
         }
@@ -8040,8 +8040,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingJob_Impl::Refresh(this).into()
             }
         }
@@ -8050,8 +8050,8 @@ impl IFaxIncomingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingJob_Impl::CopyTiff(this, core::mem::transmute(&bstrtiffpath)).into()
             }
         }
@@ -8146,8 +8146,8 @@ impl IFaxIncomingJobs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJobs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJobs_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -8162,8 +8162,8 @@ impl IFaxIncomingJobs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJobs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJobs_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                     Ok(ok__) => {
                         pfaxincomingjob.write(core::mem::transmute(ok__));
@@ -8178,8 +8178,8 @@ impl IFaxIncomingJobs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingJobs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingJobs_Impl::Count(this) {
                     Ok(ok__) => {
                         plcount.write(core::mem::transmute(ok__));
@@ -8334,8 +8334,8 @@ impl IFaxIncomingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage_Impl::Id(this) {
                     Ok(ok__) => {
                         pbstrid.write(core::mem::transmute(ok__));
@@ -8350,8 +8350,8 @@ impl IFaxIncomingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage_Impl::Pages(this) {
                     Ok(ok__) => {
                         plpages.write(core::mem::transmute(ok__));
@@ -8366,8 +8366,8 @@ impl IFaxIncomingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage_Impl::Size(this) {
                     Ok(ok__) => {
                         plsize.write(core::mem::transmute(ok__));
@@ -8382,8 +8382,8 @@ impl IFaxIncomingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage_Impl::DeviceName(this) {
                     Ok(ok__) => {
                         pbstrdevicename.write(core::mem::transmute(ok__));
@@ -8398,8 +8398,8 @@ impl IFaxIncomingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage_Impl::Retries(this) {
                     Ok(ok__) => {
                         plretries.write(core::mem::transmute(ok__));
@@ -8414,8 +8414,8 @@ impl IFaxIncomingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage_Impl::TransmissionStart(this) {
                     Ok(ok__) => {
                         pdatetransmissionstart.write(core::mem::transmute(ok__));
@@ -8430,8 +8430,8 @@ impl IFaxIncomingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage_Impl::TransmissionEnd(this) {
                     Ok(ok__) => {
                         pdatetransmissionend.write(core::mem::transmute(ok__));
@@ -8446,8 +8446,8 @@ impl IFaxIncomingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage_Impl::CSID(this) {
                     Ok(ok__) => {
                         pbstrcsid.write(core::mem::transmute(ok__));
@@ -8462,8 +8462,8 @@ impl IFaxIncomingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage_Impl::TSID(this) {
                     Ok(ok__) => {
                         pbstrtsid.write(core::mem::transmute(ok__));
@@ -8478,8 +8478,8 @@ impl IFaxIncomingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage_Impl::CallerId(this) {
                     Ok(ok__) => {
                         pbstrcallerid.write(core::mem::transmute(ok__));
@@ -8494,8 +8494,8 @@ impl IFaxIncomingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage_Impl::RoutingInformation(this) {
                     Ok(ok__) => {
                         pbstrroutinginformation.write(core::mem::transmute(ok__));
@@ -8510,8 +8510,8 @@ impl IFaxIncomingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingMessage_Impl::CopyTiff(this, core::mem::transmute(&bstrtiffpath)).into()
             }
         }
@@ -8520,8 +8520,8 @@ impl IFaxIncomingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingMessage_Impl::Delete(this).into()
             }
         }
@@ -8683,8 +8683,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage2_Impl::Subject(this) {
                     Ok(ok__) => {
                         pbstrsubject.write(core::mem::transmute(ok__));
@@ -8699,8 +8699,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingMessage2_Impl::SetSubject(this, core::mem::transmute(&bstrsubject)).into()
             }
         }
@@ -8709,8 +8709,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage2_Impl::SenderName(this) {
                     Ok(ok__) => {
                         pbstrsendername.write(core::mem::transmute(ok__));
@@ -8725,8 +8725,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingMessage2_Impl::SetSenderName(this, core::mem::transmute(&bstrsendername)).into()
             }
         }
@@ -8735,8 +8735,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage2_Impl::SenderFaxNumber(this) {
                     Ok(ok__) => {
                         pbstrsenderfaxnumber.write(core::mem::transmute(ok__));
@@ -8751,8 +8751,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingMessage2_Impl::SetSenderFaxNumber(this, core::mem::transmute(&bstrsenderfaxnumber)).into()
             }
         }
@@ -8761,8 +8761,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage2_Impl::HasCoverPage(this) {
                     Ok(ok__) => {
                         pbhascoverpage.write(core::mem::transmute(ok__));
@@ -8777,8 +8777,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingMessage2_Impl::SetHasCoverPage(this, core::mem::transmute_copy(&bhascoverpage)).into()
             }
         }
@@ -8787,8 +8787,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage2_Impl::Recipients(this) {
                     Ok(ok__) => {
                         pbstrrecipients.write(core::mem::transmute(ok__));
@@ -8803,8 +8803,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingMessage2_Impl::SetRecipients(this, core::mem::transmute(&bstrrecipients)).into()
             }
         }
@@ -8813,8 +8813,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage2_Impl::WasReAssigned(this) {
                     Ok(ok__) => {
                         pbwasreassigned.write(core::mem::transmute(ok__));
@@ -8829,8 +8829,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessage2_Impl::Read(this) {
                     Ok(ok__) => {
                         pbread.write(core::mem::transmute(ok__));
@@ -8845,8 +8845,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingMessage2_Impl::SetRead(this, core::mem::transmute_copy(&bread)).into()
             }
         }
@@ -8855,8 +8855,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingMessage2_Impl::ReAssign(this).into()
             }
         }
@@ -8865,8 +8865,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingMessage2_Impl::Save(this).into()
             }
         }
@@ -8875,8 +8875,8 @@ impl IFaxIncomingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingMessage2_Impl::Refresh(this).into()
             }
         }
@@ -8979,8 +8979,8 @@ impl IFaxIncomingMessageIterator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessageIterator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessageIterator_Impl::Message(this) {
                     Ok(ok__) => {
                         pfaxincomingmessage.write(core::mem::transmute(ok__));
@@ -8995,8 +8995,8 @@ impl IFaxIncomingMessageIterator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessageIterator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessageIterator_Impl::PrefetchSize(this) {
                     Ok(ok__) => {
                         plprefetchsize.write(core::mem::transmute(ok__));
@@ -9011,8 +9011,8 @@ impl IFaxIncomingMessageIterator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessageIterator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingMessageIterator_Impl::SetPrefetchSize(this, core::mem::transmute_copy(&lprefetchsize)).into()
             }
         }
@@ -9021,8 +9021,8 @@ impl IFaxIncomingMessageIterator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessageIterator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingMessageIterator_Impl::AtEOF(this) {
                     Ok(ok__) => {
                         pbeof.write(core::mem::transmute(ok__));
@@ -9037,8 +9037,8 @@ impl IFaxIncomingMessageIterator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessageIterator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingMessageIterator_Impl::MoveFirst(this).into()
             }
         }
@@ -9047,8 +9047,8 @@ impl IFaxIncomingMessageIterator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingMessageIterator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingMessageIterator_Impl::MoveNext(this).into()
             }
         }
@@ -9141,8 +9141,8 @@ impl IFaxIncomingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingQueue_Impl::Blocked(this) {
                     Ok(ok__) => {
                         pbblocked.write(core::mem::transmute(ok__));
@@ -9157,8 +9157,8 @@ impl IFaxIncomingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingQueue_Impl::SetBlocked(this, core::mem::transmute_copy(&bblocked)).into()
             }
         }
@@ -9167,8 +9167,8 @@ impl IFaxIncomingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingQueue_Impl::Refresh(this).into()
             }
         }
@@ -9177,8 +9177,8 @@ impl IFaxIncomingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxIncomingQueue_Impl::Save(this).into()
             }
         }
@@ -9187,8 +9187,8 @@ impl IFaxIncomingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingQueue_Impl::GetJobs(this) {
                     Ok(ok__) => {
                         pfaxincomingjobs.write(core::mem::transmute(ok__));
@@ -9203,8 +9203,8 @@ impl IFaxIncomingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxIncomingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxIncomingQueue_Impl::GetJob(this, core::mem::transmute(&bstrjobid)) {
                     Ok(ok__) => {
                         pfaxincomingjob.write(core::mem::transmute(ok__));
@@ -9400,8 +9400,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::Status(this) {
                     Ok(ok__) => {
                         pstatus.write(core::mem::transmute(ok__));
@@ -9416,8 +9416,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::Pages(this) {
                     Ok(ok__) => {
                         plpages.write(core::mem::transmute(ok__));
@@ -9432,8 +9432,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::Size(this) {
                     Ok(ok__) => {
                         plsize.write(core::mem::transmute(ok__));
@@ -9448,8 +9448,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::CurrentPage(this) {
                     Ok(ok__) => {
                         plcurrentpage.write(core::mem::transmute(ok__));
@@ -9464,8 +9464,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::DeviceId(this) {
                     Ok(ok__) => {
                         pldeviceid.write(core::mem::transmute(ok__));
@@ -9480,8 +9480,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::CSID(this) {
                     Ok(ok__) => {
                         pbstrcsid.write(core::mem::transmute(ok__));
@@ -9496,8 +9496,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::TSID(this) {
                     Ok(ok__) => {
                         pbstrtsid.write(core::mem::transmute(ok__));
@@ -9512,8 +9512,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::ExtendedStatusCode(this) {
                     Ok(ok__) => {
                         pextendedstatuscode.write(core::mem::transmute(ok__));
@@ -9528,8 +9528,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::ExtendedStatus(this) {
                     Ok(ok__) => {
                         pbstrextendedstatus.write(core::mem::transmute(ok__));
@@ -9544,8 +9544,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::AvailableOperations(this) {
                     Ok(ok__) => {
                         pavailableoperations.write(core::mem::transmute(ok__));
@@ -9560,8 +9560,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::Retries(this) {
                     Ok(ok__) => {
                         plretries.write(core::mem::transmute(ok__));
@@ -9576,8 +9576,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::JobType(this) {
                     Ok(ok__) => {
                         pjobtype.write(core::mem::transmute(ok__));
@@ -9592,8 +9592,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::ScheduledTime(this) {
                     Ok(ok__) => {
                         pdatescheduledtime.write(core::mem::transmute(ok__));
@@ -9608,8 +9608,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::TransmissionStart(this) {
                     Ok(ok__) => {
                         pdatetransmissionstart.write(core::mem::transmute(ok__));
@@ -9624,8 +9624,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::TransmissionEnd(this) {
                     Ok(ok__) => {
                         pdatetransmissionend.write(core::mem::transmute(ok__));
@@ -9640,8 +9640,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::CallerId(this) {
                     Ok(ok__) => {
                         pbstrcallerid.write(core::mem::transmute(ok__));
@@ -9656,8 +9656,8 @@ impl IFaxJobStatus_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxJobStatus_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxJobStatus_Impl::RoutingInformation(this) {
                     Ok(ok__) => {
                         pbstrroutinginformation.write(core::mem::transmute(ok__));
@@ -9744,8 +9744,8 @@ impl IFaxLoggingOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxLoggingOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxLoggingOptions_Impl::EventLogging(this) {
                     Ok(ok__) => {
                         pfaxeventlogging.write(core::mem::transmute(ok__));
@@ -9760,8 +9760,8 @@ impl IFaxLoggingOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxLoggingOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxLoggingOptions_Impl::ActivityLogging(this) {
                     Ok(ok__) => {
                         pfaxactivitylogging.write(core::mem::transmute(ok__));
@@ -9833,8 +9833,8 @@ impl IFaxOutboundRouting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRouting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRouting_Impl::GetGroups(this) {
                     Ok(ok__) => {
                         pfaxoutboundroutinggroups.write(core::mem::transmute(ok__));
@@ -9849,8 +9849,8 @@ impl IFaxOutboundRouting_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRouting_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRouting_Impl::GetRules(this) {
                     Ok(ok__) => {
                         pfaxoutboundroutingrules.write(core::mem::transmute(ok__));
@@ -9930,8 +9930,8 @@ impl IFaxOutboundRoutingGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingGroup_Impl::Name(this) {
                     Ok(ok__) => {
                         pbstrname.write(core::mem::transmute(ok__));
@@ -9946,8 +9946,8 @@ impl IFaxOutboundRoutingGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingGroup_Impl::Status(this) {
                     Ok(ok__) => {
                         pstatus.write(core::mem::transmute(ok__));
@@ -9962,8 +9962,8 @@ impl IFaxOutboundRoutingGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingGroup_Impl::DeviceIds(this) {
                     Ok(ok__) => {
                         pfaxdeviceids.write(core::mem::transmute(ok__));
@@ -10065,8 +10065,8 @@ impl IFaxOutboundRoutingGroups_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingGroups_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingGroups_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -10081,8 +10081,8 @@ impl IFaxOutboundRoutingGroups_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingGroups_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingGroups_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                     Ok(ok__) => {
                         pfaxoutboundroutinggroup.write(core::mem::transmute(ok__));
@@ -10097,8 +10097,8 @@ impl IFaxOutboundRoutingGroups_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingGroups_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingGroups_Impl::Count(this) {
                     Ok(ok__) => {
                         plcount.write(core::mem::transmute(ok__));
@@ -10113,8 +10113,8 @@ impl IFaxOutboundRoutingGroups_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingGroups_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingGroups_Impl::Add(this, core::mem::transmute(&bstrname)) {
                     Ok(ok__) => {
                         pfaxoutboundroutinggroup.write(core::mem::transmute(ok__));
@@ -10129,8 +10129,8 @@ impl IFaxOutboundRoutingGroups_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingGroups_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutboundRoutingGroups_Impl::Remove(this, core::mem::transmute(&vindex)).into()
             }
         }
@@ -10256,8 +10256,8 @@ impl IFaxOutboundRoutingRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingRule_Impl::CountryCode(this) {
                     Ok(ok__) => {
                         plcountrycode.write(core::mem::transmute(ok__));
@@ -10272,8 +10272,8 @@ impl IFaxOutboundRoutingRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingRule_Impl::AreaCode(this) {
                     Ok(ok__) => {
                         plareacode.write(core::mem::transmute(ok__));
@@ -10288,8 +10288,8 @@ impl IFaxOutboundRoutingRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingRule_Impl::Status(this) {
                     Ok(ok__) => {
                         pstatus.write(core::mem::transmute(ok__));
@@ -10304,8 +10304,8 @@ impl IFaxOutboundRoutingRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingRule_Impl::UseDevice(this) {
                     Ok(ok__) => {
                         pbusedevice.write(core::mem::transmute(ok__));
@@ -10320,8 +10320,8 @@ impl IFaxOutboundRoutingRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutboundRoutingRule_Impl::SetUseDevice(this, core::mem::transmute_copy(&busedevice)).into()
             }
         }
@@ -10330,8 +10330,8 @@ impl IFaxOutboundRoutingRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingRule_Impl::DeviceId(this) {
                     Ok(ok__) => {
                         pldeviceid.write(core::mem::transmute(ok__));
@@ -10346,8 +10346,8 @@ impl IFaxOutboundRoutingRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutboundRoutingRule_Impl::SetDeviceId(this, core::mem::transmute_copy(&deviceid)).into()
             }
         }
@@ -10356,8 +10356,8 @@ impl IFaxOutboundRoutingRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingRule_Impl::GroupName(this) {
                     Ok(ok__) => {
                         pbstrgroupname.write(core::mem::transmute(ok__));
@@ -10372,8 +10372,8 @@ impl IFaxOutboundRoutingRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutboundRoutingRule_Impl::SetGroupName(this, core::mem::transmute(&bstrgroupname)).into()
             }
         }
@@ -10382,8 +10382,8 @@ impl IFaxOutboundRoutingRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutboundRoutingRule_Impl::Refresh(this).into()
             }
         }
@@ -10392,8 +10392,8 @@ impl IFaxOutboundRoutingRule_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRule_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutboundRoutingRule_Impl::Save(this).into()
             }
         }
@@ -10502,8 +10502,8 @@ impl IFaxOutboundRoutingRules_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRules_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingRules_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -10518,8 +10518,8 @@ impl IFaxOutboundRoutingRules_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRules_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingRules_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                     Ok(ok__) => {
                         pfaxoutboundroutingrule.write(core::mem::transmute(ok__));
@@ -10534,8 +10534,8 @@ impl IFaxOutboundRoutingRules_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRules_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingRules_Impl::Count(this) {
                     Ok(ok__) => {
                         plcount.write(core::mem::transmute(ok__));
@@ -10550,8 +10550,8 @@ impl IFaxOutboundRoutingRules_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRules_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingRules_Impl::ItemByCountryAndArea(this, core::mem::transmute_copy(&lcountrycode), core::mem::transmute_copy(&lareacode)) {
                     Ok(ok__) => {
                         pfaxoutboundroutingrule.write(core::mem::transmute(ok__));
@@ -10566,8 +10566,8 @@ impl IFaxOutboundRoutingRules_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRules_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutboundRoutingRules_Impl::RemoveByCountryAndArea(this, core::mem::transmute_copy(&lcountrycode), core::mem::transmute_copy(&lareacode)).into()
             }
         }
@@ -10576,8 +10576,8 @@ impl IFaxOutboundRoutingRules_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRules_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutboundRoutingRules_Impl::Remove(this, core::mem::transmute_copy(&lindex)).into()
             }
         }
@@ -10586,8 +10586,8 @@ impl IFaxOutboundRoutingRules_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutboundRoutingRules_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutboundRoutingRules_Impl::Add(this, core::mem::transmute_copy(&lcountrycode), core::mem::transmute_copy(&lareacode), core::mem::transmute_copy(&busedevice), core::mem::transmute(&bstrgroupname), core::mem::transmute_copy(&ldeviceid)) {
                     Ok(ok__) => {
                         pfaxoutboundroutingrule.write(core::mem::transmute(ok__));
@@ -10768,8 +10768,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingArchive_Impl::UseArchive(this) {
                     Ok(ok__) => {
                         pbusearchive.write(core::mem::transmute(ok__));
@@ -10784,8 +10784,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingArchive_Impl::SetUseArchive(this, core::mem::transmute_copy(&busearchive)).into()
             }
         }
@@ -10794,8 +10794,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingArchive_Impl::ArchiveFolder(this) {
                     Ok(ok__) => {
                         pbstrarchivefolder.write(core::mem::transmute(ok__));
@@ -10810,8 +10810,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingArchive_Impl::SetArchiveFolder(this, core::mem::transmute(&bstrarchivefolder)).into()
             }
         }
@@ -10820,8 +10820,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingArchive_Impl::SizeQuotaWarning(this) {
                     Ok(ok__) => {
                         pbsizequotawarning.write(core::mem::transmute(ok__));
@@ -10836,8 +10836,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingArchive_Impl::SetSizeQuotaWarning(this, core::mem::transmute_copy(&bsizequotawarning)).into()
             }
         }
@@ -10846,8 +10846,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingArchive_Impl::HighQuotaWaterMark(this) {
                     Ok(ok__) => {
                         plhighquotawatermark.write(core::mem::transmute(ok__));
@@ -10862,8 +10862,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingArchive_Impl::SetHighQuotaWaterMark(this, core::mem::transmute_copy(&lhighquotawatermark)).into()
             }
         }
@@ -10872,8 +10872,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingArchive_Impl::LowQuotaWaterMark(this) {
                     Ok(ok__) => {
                         pllowquotawatermark.write(core::mem::transmute(ok__));
@@ -10888,8 +10888,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingArchive_Impl::SetLowQuotaWaterMark(this, core::mem::transmute_copy(&llowquotawatermark)).into()
             }
         }
@@ -10898,8 +10898,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingArchive_Impl::AgeLimit(this) {
                     Ok(ok__) => {
                         plagelimit.write(core::mem::transmute(ok__));
@@ -10914,8 +10914,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingArchive_Impl::SetAgeLimit(this, core::mem::transmute_copy(&lagelimit)).into()
             }
         }
@@ -10924,8 +10924,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingArchive_Impl::SizeLow(this) {
                     Ok(ok__) => {
                         plsizelow.write(core::mem::transmute(ok__));
@@ -10940,8 +10940,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingArchive_Impl::SizeHigh(this) {
                     Ok(ok__) => {
                         plsizehigh.write(core::mem::transmute(ok__));
@@ -10956,8 +10956,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingArchive_Impl::Refresh(this).into()
             }
         }
@@ -10966,8 +10966,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingArchive_Impl::Save(this).into()
             }
         }
@@ -10976,8 +10976,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingArchive_Impl::GetMessages(this, core::mem::transmute_copy(&lprefetchsize)) {
                     Ok(ok__) => {
                         pfaxoutgoingmessageiterator.write(core::mem::transmute(ok__));
@@ -10992,8 +10992,8 @@ impl IFaxOutgoingArchive_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingArchive_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingArchive_Impl::GetMessage(this, core::mem::transmute(&bstrmessageid)) {
                     Ok(ok__) => {
                         pfaxoutgoingmessage.write(core::mem::transmute(ok__));
@@ -11295,8 +11295,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::Subject(this) {
                     Ok(ok__) => {
                         pbstrsubject.write(core::mem::transmute(ok__));
@@ -11311,8 +11311,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::DocumentName(this) {
                     Ok(ok__) => {
                         pbstrdocumentname.write(core::mem::transmute(ok__));
@@ -11327,8 +11327,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::Pages(this) {
                     Ok(ok__) => {
                         plpages.write(core::mem::transmute(ok__));
@@ -11343,8 +11343,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::Size(this) {
                     Ok(ok__) => {
                         plsize.write(core::mem::transmute(ok__));
@@ -11359,8 +11359,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::SubmissionId(this) {
                     Ok(ok__) => {
                         pbstrsubmissionid.write(core::mem::transmute(ok__));
@@ -11375,8 +11375,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::Id(this) {
                     Ok(ok__) => {
                         pbstrid.write(core::mem::transmute(ok__));
@@ -11391,8 +11391,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::OriginalScheduledTime(this) {
                     Ok(ok__) => {
                         pdateoriginalscheduledtime.write(core::mem::transmute(ok__));
@@ -11407,8 +11407,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::SubmissionTime(this) {
                     Ok(ok__) => {
                         pdatesubmissiontime.write(core::mem::transmute(ok__));
@@ -11423,8 +11423,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::ReceiptType(this) {
                     Ok(ok__) => {
                         preceipttype.write(core::mem::transmute(ok__));
@@ -11439,8 +11439,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::Priority(this) {
                     Ok(ok__) => {
                         ppriority.write(core::mem::transmute(ok__));
@@ -11455,8 +11455,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::Sender(this) {
                     Ok(ok__) => {
                         ppfaxsender.write(core::mem::transmute(ok__));
@@ -11471,8 +11471,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::Recipient(this) {
                     Ok(ok__) => {
                         ppfaxrecipient.write(core::mem::transmute(ok__));
@@ -11487,8 +11487,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::CurrentPage(this) {
                     Ok(ok__) => {
                         plcurrentpage.write(core::mem::transmute(ok__));
@@ -11503,8 +11503,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::DeviceId(this) {
                     Ok(ok__) => {
                         pldeviceid.write(core::mem::transmute(ok__));
@@ -11519,8 +11519,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::Status(this) {
                     Ok(ok__) => {
                         pstatus.write(core::mem::transmute(ok__));
@@ -11535,8 +11535,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::ExtendedStatusCode(this) {
                     Ok(ok__) => {
                         pextendedstatuscode.write(core::mem::transmute(ok__));
@@ -11551,8 +11551,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::ExtendedStatus(this) {
                     Ok(ok__) => {
                         pbstrextendedstatus.write(core::mem::transmute(ok__));
@@ -11567,8 +11567,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::AvailableOperations(this) {
                     Ok(ok__) => {
                         pavailableoperations.write(core::mem::transmute(ok__));
@@ -11583,8 +11583,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::Retries(this) {
                     Ok(ok__) => {
                         plretries.write(core::mem::transmute(ok__));
@@ -11599,8 +11599,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::ScheduledTime(this) {
                     Ok(ok__) => {
                         pdatescheduledtime.write(core::mem::transmute(ok__));
@@ -11615,8 +11615,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::TransmissionStart(this) {
                     Ok(ok__) => {
                         pdatetransmissionstart.write(core::mem::transmute(ok__));
@@ -11631,8 +11631,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::TransmissionEnd(this) {
                     Ok(ok__) => {
                         pdatetransmissionend.write(core::mem::transmute(ok__));
@@ -11647,8 +11647,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::CSID(this) {
                     Ok(ok__) => {
                         pbstrcsid.write(core::mem::transmute(ok__));
@@ -11663,8 +11663,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::TSID(this) {
                     Ok(ok__) => {
                         pbstrtsid.write(core::mem::transmute(ok__));
@@ -11679,8 +11679,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob_Impl::GroupBroadcastReceipts(this) {
                     Ok(ok__) => {
                         pbgroupbroadcastreceipts.write(core::mem::transmute(ok__));
@@ -11695,8 +11695,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingJob_Impl::Pause(this).into()
             }
         }
@@ -11705,8 +11705,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingJob_Impl::Resume(this).into()
             }
         }
@@ -11715,8 +11715,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingJob_Impl::Restart(this).into()
             }
         }
@@ -11725,8 +11725,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingJob_Impl::CopyTiff(this, core::mem::transmute(&bstrtiffpath)).into()
             }
         }
@@ -11735,8 +11735,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingJob_Impl::Refresh(this).into()
             }
         }
@@ -11745,8 +11745,8 @@ impl IFaxOutgoingJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingJob_Impl::Cancel(this).into()
             }
         }
@@ -11849,8 +11849,8 @@ impl IFaxOutgoingJob2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob2_Impl::HasCoverPage(this) {
                     Ok(ok__) => {
                         pbhascoverpage.write(core::mem::transmute(ok__));
@@ -11865,8 +11865,8 @@ impl IFaxOutgoingJob2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob2_Impl::ReceiptAddress(this) {
                     Ok(ok__) => {
                         pbstrreceiptaddress.write(core::mem::transmute(ok__));
@@ -11881,8 +11881,8 @@ impl IFaxOutgoingJob2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJob2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJob2_Impl::ScheduleType(this) {
                     Ok(ok__) => {
                         pscheduletype.write(core::mem::transmute(ok__));
@@ -11967,8 +11967,8 @@ impl IFaxOutgoingJobs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJobs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJobs_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -11983,8 +11983,8 @@ impl IFaxOutgoingJobs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJobs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJobs_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                     Ok(ok__) => {
                         pfaxoutgoingjob.write(core::mem::transmute(ok__));
@@ -11999,8 +11999,8 @@ impl IFaxOutgoingJobs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingJobs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingJobs_Impl::Count(this) {
                     Ok(ok__) => {
                         plcount.write(core::mem::transmute(ok__));
@@ -12203,8 +12203,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::SubmissionId(this) {
                     Ok(ok__) => {
                         pbstrsubmissionid.write(core::mem::transmute(ok__));
@@ -12219,8 +12219,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::Id(this) {
                     Ok(ok__) => {
                         pbstrid.write(core::mem::transmute(ok__));
@@ -12235,8 +12235,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::Subject(this) {
                     Ok(ok__) => {
                         pbstrsubject.write(core::mem::transmute(ok__));
@@ -12251,8 +12251,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::DocumentName(this) {
                     Ok(ok__) => {
                         pbstrdocumentname.write(core::mem::transmute(ok__));
@@ -12267,8 +12267,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::Retries(this) {
                     Ok(ok__) => {
                         plretries.write(core::mem::transmute(ok__));
@@ -12283,8 +12283,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::Pages(this) {
                     Ok(ok__) => {
                         plpages.write(core::mem::transmute(ok__));
@@ -12299,8 +12299,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::Size(this) {
                     Ok(ok__) => {
                         plsize.write(core::mem::transmute(ok__));
@@ -12315,8 +12315,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::OriginalScheduledTime(this) {
                     Ok(ok__) => {
                         pdateoriginalscheduledtime.write(core::mem::transmute(ok__));
@@ -12331,8 +12331,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::SubmissionTime(this) {
                     Ok(ok__) => {
                         pdatesubmissiontime.write(core::mem::transmute(ok__));
@@ -12347,8 +12347,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::Priority(this) {
                     Ok(ok__) => {
                         ppriority.write(core::mem::transmute(ok__));
@@ -12363,8 +12363,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::Sender(this) {
                     Ok(ok__) => {
                         ppfaxsender.write(core::mem::transmute(ok__));
@@ -12379,8 +12379,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::Recipient(this) {
                     Ok(ok__) => {
                         ppfaxrecipient.write(core::mem::transmute(ok__));
@@ -12395,8 +12395,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::DeviceName(this) {
                     Ok(ok__) => {
                         pbstrdevicename.write(core::mem::transmute(ok__));
@@ -12411,8 +12411,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::TransmissionStart(this) {
                     Ok(ok__) => {
                         pdatetransmissionstart.write(core::mem::transmute(ok__));
@@ -12427,8 +12427,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::TransmissionEnd(this) {
                     Ok(ok__) => {
                         pdatetransmissionend.write(core::mem::transmute(ok__));
@@ -12443,8 +12443,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::CSID(this) {
                     Ok(ok__) => {
                         pbstrcsid.write(core::mem::transmute(ok__));
@@ -12459,8 +12459,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage_Impl::TSID(this) {
                     Ok(ok__) => {
                         pbstrtsid.write(core::mem::transmute(ok__));
@@ -12475,8 +12475,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingMessage_Impl::CopyTiff(this, core::mem::transmute(&bstrtiffpath)).into()
             }
         }
@@ -12485,8 +12485,8 @@ impl IFaxOutgoingMessage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingMessage_Impl::Delete(this).into()
             }
         }
@@ -12600,8 +12600,8 @@ impl IFaxOutgoingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage2_Impl::HasCoverPage(this) {
                     Ok(ok__) => {
                         pbhascoverpage.write(core::mem::transmute(ok__));
@@ -12616,8 +12616,8 @@ impl IFaxOutgoingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage2_Impl::ReceiptType(this) {
                     Ok(ok__) => {
                         preceipttype.write(core::mem::transmute(ok__));
@@ -12632,8 +12632,8 @@ impl IFaxOutgoingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage2_Impl::ReceiptAddress(this) {
                     Ok(ok__) => {
                         pbstrreceiptaddress.write(core::mem::transmute(ok__));
@@ -12648,8 +12648,8 @@ impl IFaxOutgoingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessage2_Impl::Read(this) {
                     Ok(ok__) => {
                         pbread.write(core::mem::transmute(ok__));
@@ -12664,8 +12664,8 @@ impl IFaxOutgoingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingMessage2_Impl::SetRead(this, core::mem::transmute_copy(&bread)).into()
             }
         }
@@ -12674,8 +12674,8 @@ impl IFaxOutgoingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingMessage2_Impl::Save(this).into()
             }
         }
@@ -12684,8 +12684,8 @@ impl IFaxOutgoingMessage2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessage2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingMessage2_Impl::Refresh(this).into()
             }
         }
@@ -12779,8 +12779,8 @@ impl IFaxOutgoingMessageIterator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessageIterator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessageIterator_Impl::Message(this) {
                     Ok(ok__) => {
                         pfaxoutgoingmessage.write(core::mem::transmute(ok__));
@@ -12795,8 +12795,8 @@ impl IFaxOutgoingMessageIterator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessageIterator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessageIterator_Impl::AtEOF(this) {
                     Ok(ok__) => {
                         pbeof.write(core::mem::transmute(ok__));
@@ -12811,8 +12811,8 @@ impl IFaxOutgoingMessageIterator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessageIterator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingMessageIterator_Impl::PrefetchSize(this) {
                     Ok(ok__) => {
                         plprefetchsize.write(core::mem::transmute(ok__));
@@ -12827,8 +12827,8 @@ impl IFaxOutgoingMessageIterator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessageIterator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingMessageIterator_Impl::SetPrefetchSize(this, core::mem::transmute_copy(&lprefetchsize)).into()
             }
         }
@@ -12837,8 +12837,8 @@ impl IFaxOutgoingMessageIterator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessageIterator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingMessageIterator_Impl::MoveFirst(this).into()
             }
         }
@@ -12847,8 +12847,8 @@ impl IFaxOutgoingMessageIterator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingMessageIterator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingMessageIterator_Impl::MoveNext(this).into()
             }
         }
@@ -13058,8 +13058,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingQueue_Impl::Blocked(this) {
                     Ok(ok__) => {
                         pbblocked.write(core::mem::transmute(ok__));
@@ -13074,8 +13074,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingQueue_Impl::SetBlocked(this, core::mem::transmute_copy(&bblocked)).into()
             }
         }
@@ -13084,8 +13084,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingQueue_Impl::Paused(this) {
                     Ok(ok__) => {
                         pbpaused.write(core::mem::transmute(ok__));
@@ -13100,8 +13100,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingQueue_Impl::SetPaused(this, core::mem::transmute_copy(&bpaused)).into()
             }
         }
@@ -13110,8 +13110,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingQueue_Impl::AllowPersonalCoverPages(this) {
                     Ok(ok__) => {
                         pballowpersonalcoverpages.write(core::mem::transmute(ok__));
@@ -13126,8 +13126,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingQueue_Impl::SetAllowPersonalCoverPages(this, core::mem::transmute_copy(&ballowpersonalcoverpages)).into()
             }
         }
@@ -13136,8 +13136,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingQueue_Impl::UseDeviceTSID(this) {
                     Ok(ok__) => {
                         pbusedevicetsid.write(core::mem::transmute(ok__));
@@ -13152,8 +13152,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingQueue_Impl::SetUseDeviceTSID(this, core::mem::transmute_copy(&busedevicetsid)).into()
             }
         }
@@ -13162,8 +13162,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingQueue_Impl::Retries(this) {
                     Ok(ok__) => {
                         plretries.write(core::mem::transmute(ok__));
@@ -13178,8 +13178,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingQueue_Impl::SetRetries(this, core::mem::transmute_copy(&lretries)).into()
             }
         }
@@ -13188,8 +13188,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingQueue_Impl::RetryDelay(this) {
                     Ok(ok__) => {
                         plretrydelay.write(core::mem::transmute(ok__));
@@ -13204,8 +13204,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingQueue_Impl::SetRetryDelay(this, core::mem::transmute_copy(&lretrydelay)).into()
             }
         }
@@ -13214,8 +13214,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingQueue_Impl::DiscountRateStart(this) {
                     Ok(ok__) => {
                         pdatediscountratestart.write(core::mem::transmute(ok__));
@@ -13230,8 +13230,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingQueue_Impl::SetDiscountRateStart(this, core::mem::transmute_copy(&datediscountratestart)).into()
             }
         }
@@ -13240,8 +13240,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingQueue_Impl::DiscountRateEnd(this) {
                     Ok(ok__) => {
                         pdatediscountrateend.write(core::mem::transmute(ok__));
@@ -13256,8 +13256,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingQueue_Impl::SetDiscountRateEnd(this, core::mem::transmute_copy(&datediscountrateend)).into()
             }
         }
@@ -13266,8 +13266,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingQueue_Impl::AgeLimit(this) {
                     Ok(ok__) => {
                         plagelimit.write(core::mem::transmute(ok__));
@@ -13282,8 +13282,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingQueue_Impl::SetAgeLimit(this, core::mem::transmute_copy(&lagelimit)).into()
             }
         }
@@ -13292,8 +13292,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingQueue_Impl::Branding(this) {
                     Ok(ok__) => {
                         pbbranding.write(core::mem::transmute(ok__));
@@ -13308,8 +13308,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingQueue_Impl::SetBranding(this, core::mem::transmute_copy(&bbranding)).into()
             }
         }
@@ -13318,8 +13318,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingQueue_Impl::Refresh(this).into()
             }
         }
@@ -13328,8 +13328,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxOutgoingQueue_Impl::Save(this).into()
             }
         }
@@ -13338,8 +13338,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingQueue_Impl::GetJobs(this) {
                     Ok(ok__) => {
                         pfaxoutgoingjobs.write(core::mem::transmute(ok__));
@@ -13354,8 +13354,8 @@ impl IFaxOutgoingQueue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxOutgoingQueue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxOutgoingQueue_Impl::GetJob(this, core::mem::transmute(&bstrjobid)) {
                     Ok(ok__) => {
                         pfaxoutgoingjob.write(core::mem::transmute(ok__));
@@ -13547,8 +13547,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxReceiptOptions_Impl::AuthenticationType(this) {
                     Ok(ok__) => {
                         ptype.write(core::mem::transmute(ok__));
@@ -13563,8 +13563,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxReceiptOptions_Impl::SetAuthenticationType(this, core::mem::transmute_copy(&r#type)).into()
             }
         }
@@ -13573,8 +13573,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxReceiptOptions_Impl::SMTPServer(this) {
                     Ok(ok__) => {
                         pbstrsmtpserver.write(core::mem::transmute(ok__));
@@ -13589,8 +13589,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxReceiptOptions_Impl::SetSMTPServer(this, core::mem::transmute(&bstrsmtpserver)).into()
             }
         }
@@ -13599,8 +13599,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxReceiptOptions_Impl::SMTPPort(this) {
                     Ok(ok__) => {
                         plsmtpport.write(core::mem::transmute(ok__));
@@ -13615,8 +13615,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxReceiptOptions_Impl::SetSMTPPort(this, core::mem::transmute_copy(&lsmtpport)).into()
             }
         }
@@ -13625,8 +13625,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxReceiptOptions_Impl::SMTPSender(this) {
                     Ok(ok__) => {
                         pbstrsmtpsender.write(core::mem::transmute(ok__));
@@ -13641,8 +13641,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxReceiptOptions_Impl::SetSMTPSender(this, core::mem::transmute(&bstrsmtpsender)).into()
             }
         }
@@ -13651,8 +13651,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxReceiptOptions_Impl::SMTPUser(this) {
                     Ok(ok__) => {
                         pbstrsmtpuser.write(core::mem::transmute(ok__));
@@ -13667,8 +13667,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxReceiptOptions_Impl::SetSMTPUser(this, core::mem::transmute(&bstrsmtpuser)).into()
             }
         }
@@ -13677,8 +13677,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxReceiptOptions_Impl::AllowedReceipts(this) {
                     Ok(ok__) => {
                         pallowedreceipts.write(core::mem::transmute(ok__));
@@ -13693,8 +13693,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxReceiptOptions_Impl::SetAllowedReceipts(this, core::mem::transmute_copy(&allowedreceipts)).into()
             }
         }
@@ -13703,8 +13703,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxReceiptOptions_Impl::SMTPPassword(this) {
                     Ok(ok__) => {
                         pbstrsmtppassword.write(core::mem::transmute(ok__));
@@ -13719,8 +13719,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxReceiptOptions_Impl::SetSMTPPassword(this, core::mem::transmute(&bstrsmtppassword)).into()
             }
         }
@@ -13729,8 +13729,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxReceiptOptions_Impl::Refresh(this).into()
             }
         }
@@ -13739,8 +13739,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxReceiptOptions_Impl::Save(this).into()
             }
         }
@@ -13749,8 +13749,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxReceiptOptions_Impl::UseForInboundRouting(this) {
                     Ok(ok__) => {
                         pbuseforinboundrouting.write(core::mem::transmute(ok__));
@@ -13765,8 +13765,8 @@ impl IFaxReceiptOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxReceiptOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxReceiptOptions_Impl::SetUseForInboundRouting(this, core::mem::transmute_copy(&buseforinboundrouting)).into()
             }
         }
@@ -13858,8 +13858,8 @@ impl IFaxRecipient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxRecipient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxRecipient_Impl::FaxNumber(this) {
                     Ok(ok__) => {
                         pbstrfaxnumber.write(core::mem::transmute(ok__));
@@ -13874,8 +13874,8 @@ impl IFaxRecipient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxRecipient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxRecipient_Impl::SetFaxNumber(this, core::mem::transmute(&bstrfaxnumber)).into()
             }
         }
@@ -13884,8 +13884,8 @@ impl IFaxRecipient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxRecipient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxRecipient_Impl::Name(this) {
                     Ok(ok__) => {
                         pbstrname.write(core::mem::transmute(ok__));
@@ -13900,8 +13900,8 @@ impl IFaxRecipient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxRecipient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxRecipient_Impl::SetName(this, core::mem::transmute(&bstrname)).into()
             }
         }
@@ -13990,8 +13990,8 @@ impl IFaxRecipients_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxRecipients_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxRecipients_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -14006,8 +14006,8 @@ impl IFaxRecipients_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxRecipients_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxRecipients_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                     Ok(ok__) => {
                         ppfaxrecipient.write(core::mem::transmute(ok__));
@@ -14022,8 +14022,8 @@ impl IFaxRecipients_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxRecipients_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxRecipients_Impl::Count(this) {
                     Ok(ok__) => {
                         plcount.write(core::mem::transmute(ok__));
@@ -14038,8 +14038,8 @@ impl IFaxRecipients_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxRecipients_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxRecipients_Impl::Add(this, core::mem::transmute(&bstrfaxnumber), core::mem::transmute(&bstrrecipientname)) {
                     Ok(ok__) => {
                         ppfaxrecipient.write(core::mem::transmute(ok__));
@@ -14054,8 +14054,8 @@ impl IFaxRecipients_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxRecipients_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxRecipients_Impl::Remove(this, core::mem::transmute_copy(&lindex)).into()
             }
         }
@@ -14160,8 +14160,8 @@ impl IFaxSecurity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSecurity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSecurity_Impl::Descriptor(this) {
                     Ok(ok__) => {
                         pvdescriptor.write(core::mem::transmute(ok__));
@@ -14176,8 +14176,8 @@ impl IFaxSecurity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSecurity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSecurity_Impl::SetDescriptor(this, core::mem::transmute(&vdescriptor)).into()
             }
         }
@@ -14186,8 +14186,8 @@ impl IFaxSecurity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSecurity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSecurity_Impl::GrantedRights(this) {
                     Ok(ok__) => {
                         pgrantedrights.write(core::mem::transmute(ok__));
@@ -14202,8 +14202,8 @@ impl IFaxSecurity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSecurity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSecurity_Impl::Refresh(this).into()
             }
         }
@@ -14212,8 +14212,8 @@ impl IFaxSecurity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSecurity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSecurity_Impl::Save(this).into()
             }
         }
@@ -14222,8 +14222,8 @@ impl IFaxSecurity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSecurity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSecurity_Impl::InformationType(this) {
                     Ok(ok__) => {
                         plinformationtype.write(core::mem::transmute(ok__));
@@ -14238,8 +14238,8 @@ impl IFaxSecurity_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSecurity_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSecurity_Impl::SetInformationType(this, core::mem::transmute_copy(&linformationtype)).into()
             }
         }
@@ -14346,8 +14346,8 @@ impl IFaxSecurity2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSecurity2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSecurity2_Impl::Descriptor(this) {
                     Ok(ok__) => {
                         pvdescriptor.write(core::mem::transmute(ok__));
@@ -14362,8 +14362,8 @@ impl IFaxSecurity2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSecurity2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSecurity2_Impl::SetDescriptor(this, core::mem::transmute(&vdescriptor)).into()
             }
         }
@@ -14372,8 +14372,8 @@ impl IFaxSecurity2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSecurity2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSecurity2_Impl::GrantedRights(this) {
                     Ok(ok__) => {
                         pgrantedrights.write(core::mem::transmute(ok__));
@@ -14388,8 +14388,8 @@ impl IFaxSecurity2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSecurity2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSecurity2_Impl::Refresh(this).into()
             }
         }
@@ -14398,8 +14398,8 @@ impl IFaxSecurity2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSecurity2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSecurity2_Impl::Save(this).into()
             }
         }
@@ -14408,8 +14408,8 @@ impl IFaxSecurity2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSecurity2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSecurity2_Impl::InformationType(this) {
                     Ok(ok__) => {
                         plinformationtype.write(core::mem::transmute(ok__));
@@ -14424,8 +14424,8 @@ impl IFaxSecurity2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSecurity2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSecurity2_Impl::SetInformationType(this, core::mem::transmute_copy(&linformationtype)).into()
             }
         }
@@ -14698,8 +14698,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::BillingCode(this) {
                     Ok(ok__) => {
                         pbstrbillingcode.write(core::mem::transmute(ok__));
@@ -14714,8 +14714,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetBillingCode(this, core::mem::transmute(&bstrbillingcode)).into()
             }
         }
@@ -14724,8 +14724,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::City(this) {
                     Ok(ok__) => {
                         pbstrcity.write(core::mem::transmute(ok__));
@@ -14740,8 +14740,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetCity(this, core::mem::transmute(&bstrcity)).into()
             }
         }
@@ -14750,8 +14750,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::Company(this) {
                     Ok(ok__) => {
                         pbstrcompany.write(core::mem::transmute(ok__));
@@ -14766,8 +14766,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetCompany(this, core::mem::transmute(&bstrcompany)).into()
             }
         }
@@ -14776,8 +14776,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::Country(this) {
                     Ok(ok__) => {
                         pbstrcountry.write(core::mem::transmute(ok__));
@@ -14792,8 +14792,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetCountry(this, core::mem::transmute(&bstrcountry)).into()
             }
         }
@@ -14802,8 +14802,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::Department(this) {
                     Ok(ok__) => {
                         pbstrdepartment.write(core::mem::transmute(ok__));
@@ -14818,8 +14818,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetDepartment(this, core::mem::transmute(&bstrdepartment)).into()
             }
         }
@@ -14828,8 +14828,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::Email(this) {
                     Ok(ok__) => {
                         pbstremail.write(core::mem::transmute(ok__));
@@ -14844,8 +14844,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetEmail(this, core::mem::transmute(&bstremail)).into()
             }
         }
@@ -14854,8 +14854,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::FaxNumber(this) {
                     Ok(ok__) => {
                         pbstrfaxnumber.write(core::mem::transmute(ok__));
@@ -14870,8 +14870,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetFaxNumber(this, core::mem::transmute(&bstrfaxnumber)).into()
             }
         }
@@ -14880,8 +14880,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::HomePhone(this) {
                     Ok(ok__) => {
                         pbstrhomephone.write(core::mem::transmute(ok__));
@@ -14896,8 +14896,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetHomePhone(this, core::mem::transmute(&bstrhomephone)).into()
             }
         }
@@ -14906,8 +14906,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::Name(this) {
                     Ok(ok__) => {
                         pbstrname.write(core::mem::transmute(ok__));
@@ -14922,8 +14922,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetName(this, core::mem::transmute(&bstrname)).into()
             }
         }
@@ -14932,8 +14932,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::TSID(this) {
                     Ok(ok__) => {
                         pbstrtsid.write(core::mem::transmute(ok__));
@@ -14948,8 +14948,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetTSID(this, core::mem::transmute(&bstrtsid)).into()
             }
         }
@@ -14958,8 +14958,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::OfficePhone(this) {
                     Ok(ok__) => {
                         pbstrofficephone.write(core::mem::transmute(ok__));
@@ -14974,8 +14974,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetOfficePhone(this, core::mem::transmute(&bstrofficephone)).into()
             }
         }
@@ -14984,8 +14984,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::OfficeLocation(this) {
                     Ok(ok__) => {
                         pbstrofficelocation.write(core::mem::transmute(ok__));
@@ -15000,8 +15000,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetOfficeLocation(this, core::mem::transmute(&bstrofficelocation)).into()
             }
         }
@@ -15010,8 +15010,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::State(this) {
                     Ok(ok__) => {
                         pbstrstate.write(core::mem::transmute(ok__));
@@ -15026,8 +15026,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetState(this, core::mem::transmute(&bstrstate)).into()
             }
         }
@@ -15036,8 +15036,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::StreetAddress(this) {
                     Ok(ok__) => {
                         pbstrstreetaddress.write(core::mem::transmute(ok__));
@@ -15052,8 +15052,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetStreetAddress(this, core::mem::transmute(&bstrstreetaddress)).into()
             }
         }
@@ -15062,8 +15062,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::Title(this) {
                     Ok(ok__) => {
                         pbstrtitle.write(core::mem::transmute(ok__));
@@ -15078,8 +15078,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetTitle(this, core::mem::transmute(&bstrtitle)).into()
             }
         }
@@ -15088,8 +15088,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxSender_Impl::ZipCode(this) {
                     Ok(ok__) => {
                         pbstrzipcode.write(core::mem::transmute(ok__));
@@ -15104,8 +15104,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SetZipCode(this, core::mem::transmute(&bstrzipcode)).into()
             }
         }
@@ -15114,8 +15114,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::LoadDefaultSender(this).into()
             }
         }
@@ -15124,8 +15124,8 @@ impl IFaxSender_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxSender_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxSender_Impl::SaveDefaultSender(this).into()
             }
         }
@@ -15403,8 +15403,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServer_Impl::Connect(this, core::mem::transmute(&bstrservername)).into()
             }
         }
@@ -15413,8 +15413,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::ServerName(this) {
                     Ok(ok__) => {
                         pbstrservername.write(core::mem::transmute(ok__));
@@ -15429,8 +15429,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::GetDeviceProviders(this) {
                     Ok(ok__) => {
                         ppfaxdeviceproviders.write(core::mem::transmute(ok__));
@@ -15445,8 +15445,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::GetDevices(this) {
                     Ok(ok__) => {
                         ppfaxdevices.write(core::mem::transmute(ok__));
@@ -15461,8 +15461,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::InboundRouting(this) {
                     Ok(ok__) => {
                         ppfaxinboundrouting.write(core::mem::transmute(ok__));
@@ -15477,8 +15477,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::Folders(this) {
                     Ok(ok__) => {
                         pfaxfolders.write(core::mem::transmute(ok__));
@@ -15493,8 +15493,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::LoggingOptions(this) {
                     Ok(ok__) => {
                         ppfaxloggingoptions.write(core::mem::transmute(ok__));
@@ -15509,8 +15509,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::MajorVersion(this) {
                     Ok(ok__) => {
                         plmajorversion.write(core::mem::transmute(ok__));
@@ -15525,8 +15525,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::MinorVersion(this) {
                     Ok(ok__) => {
                         plminorversion.write(core::mem::transmute(ok__));
@@ -15541,8 +15541,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::MajorBuild(this) {
                     Ok(ok__) => {
                         plmajorbuild.write(core::mem::transmute(ok__));
@@ -15557,8 +15557,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::MinorBuild(this) {
                     Ok(ok__) => {
                         plminorbuild.write(core::mem::transmute(ok__));
@@ -15573,8 +15573,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::Debug(this) {
                     Ok(ok__) => {
                         pbdebug.write(core::mem::transmute(ok__));
@@ -15589,8 +15589,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::Activity(this) {
                     Ok(ok__) => {
                         ppfaxactivity.write(core::mem::transmute(ok__));
@@ -15605,8 +15605,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::OutboundRouting(this) {
                     Ok(ok__) => {
                         ppfaxoutboundrouting.write(core::mem::transmute(ok__));
@@ -15621,8 +15621,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::ReceiptOptions(this) {
                     Ok(ok__) => {
                         ppfaxreceiptoptions.write(core::mem::transmute(ok__));
@@ -15637,8 +15637,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::Security(this) {
                     Ok(ok__) => {
                         ppfaxsecurity.write(core::mem::transmute(ok__));
@@ -15653,8 +15653,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServer_Impl::Disconnect(this).into()
             }
         }
@@ -15663,8 +15663,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::GetExtensionProperty(this, core::mem::transmute(&bstrguid)) {
                     Ok(ok__) => {
                         pvproperty.write(core::mem::transmute(ok__));
@@ -15679,8 +15679,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServer_Impl::SetExtensionProperty(this, core::mem::transmute(&bstrguid), core::mem::transmute(&vproperty)).into()
             }
         }
@@ -15689,8 +15689,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServer_Impl::ListenToServerEvents(this, core::mem::transmute_copy(&eventtypes)).into()
             }
         }
@@ -15699,8 +15699,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServer_Impl::RegisterDeviceProvider(this, core::mem::transmute(&bstrguid), core::mem::transmute(&bstrfriendlyname), core::mem::transmute(&bstrimagename), core::mem::transmute(&tspname), core::mem::transmute_copy(&lfspiversion)).into()
             }
         }
@@ -15709,8 +15709,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServer_Impl::UnregisterDeviceProvider(this, core::mem::transmute(&bstruniquename)).into()
             }
         }
@@ -15719,8 +15719,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServer_Impl::RegisterInboundRoutingExtension(this, core::mem::transmute(&bstrextensionname), core::mem::transmute(&bstrfriendlyname), core::mem::transmute(&bstrimagename), core::mem::transmute(&vmethods)).into()
             }
         }
@@ -15729,8 +15729,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServer_Impl::UnregisterInboundRoutingExtension(this, core::mem::transmute(&bstrextensionuniquename)).into()
             }
         }
@@ -15739,8 +15739,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::RegisteredEvents(this) {
                     Ok(ok__) => {
                         peventtypes.write(core::mem::transmute(ok__));
@@ -15755,8 +15755,8 @@ impl IFaxServer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer_Impl::APIVersion(this) {
                     Ok(ok__) => {
                         papiversion.write(core::mem::transmute(ok__));
@@ -15868,8 +15868,8 @@ impl IFaxServer2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer2_Impl::Configuration(this) {
                     Ok(ok__) => {
                         ppfaxconfiguration.write(core::mem::transmute(ok__));
@@ -15884,8 +15884,8 @@ impl IFaxServer2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer2_Impl::CurrentAccount(this) {
                     Ok(ok__) => {
                         ppcurrentaccount.write(core::mem::transmute(ok__));
@@ -15900,8 +15900,8 @@ impl IFaxServer2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer2_Impl::FaxAccountSet(this) {
                     Ok(ok__) => {
                         ppfaxaccountset.write(core::mem::transmute(ok__));
@@ -15916,8 +15916,8 @@ impl IFaxServer2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServer2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFaxServer2_Impl::Security2(this) {
                     Ok(ok__) => {
                         ppfaxsecurity2.write(core::mem::transmute(ok__));
@@ -16218,8 +16218,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnIncomingJobAdded(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
             }
         }
@@ -16228,8 +16228,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnIncomingJobRemoved(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
             }
         }
@@ -16238,8 +16238,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnIncomingJobChanged(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrjobid), core::mem::transmute_copy(&pjobstatus)).into()
             }
         }
@@ -16248,8 +16248,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnOutgoingJobAdded(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
             }
         }
@@ -16258,8 +16258,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnOutgoingJobRemoved(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
             }
         }
@@ -16268,8 +16268,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnOutgoingJobChanged(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrjobid), core::mem::transmute_copy(&pjobstatus)).into()
             }
         }
@@ -16278,8 +16278,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnIncomingMessageAdded(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
             }
         }
@@ -16288,8 +16288,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnIncomingMessageRemoved(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
             }
         }
@@ -16298,8 +16298,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnOutgoingMessageAdded(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
             }
         }
@@ -16308,8 +16308,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnOutgoingMessageRemoved(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
             }
         }
@@ -16318,8 +16318,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnReceiptOptionsChange(this, core::mem::transmute_copy(&pfaxserver)).into()
             }
         }
@@ -16328,8 +16328,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnActivityLoggingConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
             }
         }
@@ -16338,8 +16338,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnSecurityConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
             }
         }
@@ -16348,8 +16348,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnEventLoggingConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
             }
         }
@@ -16358,8 +16358,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnOutgoingQueueConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
             }
         }
@@ -16368,8 +16368,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnOutgoingArchiveConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
             }
         }
@@ -16378,8 +16378,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnIncomingArchiveConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
             }
         }
@@ -16388,8 +16388,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnDevicesConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
             }
         }
@@ -16398,8 +16398,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnOutboundRoutingGroupsConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
             }
         }
@@ -16408,8 +16408,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnOutboundRoutingRulesConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
             }
         }
@@ -16418,8 +16418,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnServerActivityChange(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute_copy(&lincomingmessages), core::mem::transmute_copy(&lroutingmessages), core::mem::transmute_copy(&loutgoingmessages), core::mem::transmute_copy(&lqueuedmessages)).into()
             }
         }
@@ -16428,8 +16428,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnQueuesStatusChange(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute_copy(&boutgoingqueueblocked), core::mem::transmute_copy(&boutgoingqueuepaused), core::mem::transmute_copy(&bincomingqueueblocked)).into()
             }
         }
@@ -16438,8 +16438,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnNewCall(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute_copy(&lcallid), core::mem::transmute_copy(&ldeviceid), core::mem::transmute(&bstrcallerid)).into()
             }
         }
@@ -16448,8 +16448,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnServerShutDown(this, core::mem::transmute_copy(&pfaxserver)).into()
             }
         }
@@ -16458,8 +16458,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnDeviceStatusChange(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute_copy(&ldeviceid), core::mem::transmute_copy(&bpoweredoff), core::mem::transmute_copy(&bsending), core::mem::transmute_copy(&breceiving), core::mem::transmute_copy(&bringing)).into()
             }
         }
@@ -16468,8 +16468,8 @@ impl IFaxServerNotify2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFaxServerNotify2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFaxServerNotify2_Impl::OnGeneralServerConfigChanged(this, core::mem::transmute_copy(&pfaxserver)).into()
             }
         }
@@ -16641,8 +16641,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::Initialize(this, core::mem::transmute_copy(&hinst), core::mem::transmute(&pwszdevicename), core::mem::transmute_copy(&dwversion), core::mem::transmute_copy(&dwmode)).into()
             }
         }
@@ -16651,8 +16651,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::GetCapabilities(this, core::mem::transmute_copy(&pdevcaps)).into()
             }
         }
@@ -16661,8 +16661,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::GetStatus(this, core::mem::transmute_copy(&pdevstatus)).into()
             }
         }
@@ -16671,8 +16671,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::DeviceReset(this).into()
             }
         }
@@ -16681,8 +16681,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::Diagnostic(this, core::mem::transmute_copy(&pbuffer)).into()
             }
         }
@@ -16691,8 +16691,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::Escape(this, core::mem::transmute_copy(&escapefunction), core::mem::transmute_copy(&lpindata), core::mem::transmute_copy(&cbindatasize), core::mem::transmute_copy(&poutdata), core::mem::transmute_copy(&dwoutdatasize), core::mem::transmute_copy(&pdwactualdata)).into()
             }
         }
@@ -16701,8 +16701,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStiDevice_Impl::GetLastError(this) {
                     Ok(ok__) => {
                         pdwlastdeviceerror.write(core::mem::transmute(ok__));
@@ -16717,8 +16717,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::LockDevice(this, core::mem::transmute_copy(&dwtimeout)).into()
             }
         }
@@ -16727,8 +16727,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::UnLockDevice(this).into()
             }
         }
@@ -16737,8 +16737,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::RawReadData(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&lpdwnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
@@ -16747,8 +16747,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::RawWriteData(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&nnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
@@ -16757,8 +16757,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::RawReadCommand(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&lpdwnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
@@ -16767,8 +16767,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::RawWriteCommand(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&nnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
@@ -16777,8 +16777,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::Subscribe(this, core::mem::transmute_copy(&lpsubsribe)).into()
             }
         }
@@ -16787,8 +16787,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::GetLastNotificationData(this, core::mem::transmute_copy(&lpnotify)).into()
             }
         }
@@ -16797,8 +16797,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::UnSubscribe(this).into()
             }
         }
@@ -16807,8 +16807,8 @@ impl IStiDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDevice_Impl::GetLastErrorInfo(this, core::mem::transmute_copy(&plasterrorinfo)).into()
             }
         }
@@ -16939,8 +16939,8 @@ impl IStiDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDeviceControl_Impl::Initialize(this, core::mem::transmute_copy(&dwdevicetype), core::mem::transmute_copy(&dwmode), core::mem::transmute(&pwszportname), core::mem::transmute_copy(&dwflags)).into()
             }
         }
@@ -16949,8 +16949,8 @@ impl IStiDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDeviceControl_Impl::RawReadData(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&lpdwnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
@@ -16959,8 +16959,8 @@ impl IStiDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDeviceControl_Impl::RawWriteData(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&nnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
@@ -16969,8 +16969,8 @@ impl IStiDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDeviceControl_Impl::RawReadCommand(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&lpdwnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
@@ -16979,8 +16979,8 @@ impl IStiDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDeviceControl_Impl::RawWriteCommand(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&nnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
@@ -16989,8 +16989,8 @@ impl IStiDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDeviceControl_Impl::RawDeviceControl(this, core::mem::transmute_copy(&escapefunction), core::mem::transmute_copy(&lpindata), core::mem::transmute_copy(&cbindatasize), core::mem::transmute_copy(&poutdata), core::mem::transmute_copy(&dwoutdatasize), core::mem::transmute_copy(&pdwactualdata)).into()
             }
         }
@@ -16999,8 +16999,8 @@ impl IStiDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDeviceControl_Impl::GetLastError(this, core::mem::transmute_copy(&lpdwlasterror)).into()
             }
         }
@@ -17009,8 +17009,8 @@ impl IStiDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDeviceControl_Impl::GetMyDevicePortName(this, core::mem::transmute_copy(&lpszdevicepath), core::mem::transmute_copy(&cwdevicepathsize)).into()
             }
         }
@@ -17019,8 +17019,8 @@ impl IStiDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDeviceControl_Impl::GetMyDeviceHandle(this, core::mem::transmute_copy(&lph)).into()
             }
         }
@@ -17029,8 +17029,8 @@ impl IStiDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDeviceControl_Impl::GetMyDeviceOpenMode(this, core::mem::transmute_copy(&pdwopenmode)).into()
             }
         }
@@ -17039,8 +17039,8 @@ impl IStiDeviceControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiDeviceControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiDeviceControl_Impl::WriteToErrorLog(this, core::mem::transmute_copy(&dwmessagetype), core::mem::transmute(&pszmessage), core::mem::transmute_copy(&dwerrorcode)).into()
             }
         }
@@ -17197,8 +17197,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiUSD_Impl::Initialize(this, core::mem::transmute_copy(&pheldcb), core::mem::transmute_copy(&dwstiversion), core::mem::transmute_copy(&hparameterskey)).into()
             }
         }
@@ -17207,8 +17207,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStiUSD_Impl::GetCapabilities(this) {
                     Ok(ok__) => {
                         pdevcaps.write(core::mem::transmute(ok__));
@@ -17223,8 +17223,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiUSD_Impl::GetStatus(this, core::mem::transmute_copy(&pdevstatus)).into()
             }
         }
@@ -17233,8 +17233,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiUSD_Impl::DeviceReset(this).into()
             }
         }
@@ -17243,8 +17243,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiUSD_Impl::Diagnostic(this, core::mem::transmute_copy(&pbuffer)).into()
             }
         }
@@ -17253,8 +17253,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiUSD_Impl::Escape(this, core::mem::transmute_copy(&escapefunction), core::mem::transmute_copy(&lpindata), core::mem::transmute_copy(&cbindatasize), core::mem::transmute_copy(&poutdata), core::mem::transmute_copy(&cboutdatasize), core::mem::transmute_copy(&pdwactualdata)).into()
             }
         }
@@ -17263,8 +17263,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStiUSD_Impl::GetLastError(this) {
                     Ok(ok__) => {
                         pdwlastdeviceerror.write(core::mem::transmute(ok__));
@@ -17279,8 +17279,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiUSD_Impl::LockDevice(this).into()
             }
         }
@@ -17289,8 +17289,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiUSD_Impl::UnLockDevice(this).into()
             }
         }
@@ -17299,8 +17299,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiUSD_Impl::RawReadData(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&lpdwnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
@@ -17309,8 +17309,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiUSD_Impl::RawWriteData(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&nnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
@@ -17319,8 +17319,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiUSD_Impl::RawReadCommand(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&lpdwnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
@@ -17329,8 +17329,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiUSD_Impl::RawWriteCommand(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&nnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
@@ -17339,8 +17339,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiUSD_Impl::SetNotificationHandle(this, core::mem::transmute_copy(&hevent)).into()
             }
         }
@@ -17349,8 +17349,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiUSD_Impl::GetNotificationData(this, core::mem::transmute_copy(&lpnotify)).into()
             }
         }
@@ -17359,8 +17359,8 @@ impl IStiUSD_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStiUSD_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStiUSD_Impl::GetLastErrorInfo(this, core::mem::transmute_copy(&plasterrorinfo)).into()
             }
         }
@@ -17527,8 +17527,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStillImageW_Impl::Initialize(this, core::mem::transmute_copy(&hinst), core::mem::transmute_copy(&dwversion)).into()
             }
         }
@@ -17537,8 +17537,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStillImageW_Impl::GetDeviceList(this, core::mem::transmute_copy(&dwtype), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdwitemsreturned), core::mem::transmute_copy(&ppbuffer)).into()
             }
         }
@@ -17547,8 +17547,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStillImageW_Impl::GetDeviceInfo(this, core::mem::transmute(&pwszdevicename), core::mem::transmute_copy(&ppbuffer)).into()
             }
         }
@@ -17557,8 +17557,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStillImageW_Impl::CreateDevice(this, core::mem::transmute(&pwszdevicename), core::mem::transmute_copy(&dwmode), core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&punkouter)).into()
             }
         }
@@ -17567,8 +17567,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStillImageW_Impl::GetDeviceValue(this, core::mem::transmute(&pwszdevicename), core::mem::transmute(&pvaluename), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&cbdata)).into()
             }
         }
@@ -17577,8 +17577,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStillImageW_Impl::SetDeviceValue(this, core::mem::transmute(&pwszdevicename), core::mem::transmute(&pvaluename), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&cbdata)).into()
             }
         }
@@ -17587,8 +17587,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStillImageW_Impl::GetSTILaunchInformation(this, core::mem::transmute_copy(&pwszdevicename), core::mem::transmute_copy(&pdweventcode), core::mem::transmute_copy(&pwszeventname)).into()
             }
         }
@@ -17597,8 +17597,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStillImageW_Impl::RegisterLaunchApplication(this, core::mem::transmute(&pwszappname), core::mem::transmute(&pwszcommandline)).into()
             }
         }
@@ -17607,8 +17607,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStillImageW_Impl::UnregisterLaunchApplication(this, core::mem::transmute(&pwszappname)).into()
             }
         }
@@ -17617,8 +17617,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStillImageW_Impl::EnableHwNotifications(this, core::mem::transmute(&pwszdevicename), core::mem::transmute_copy(&bnewstate)).into()
             }
         }
@@ -17627,8 +17627,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStillImageW_Impl::GetHwNotificationState(this, core::mem::transmute(&pwszdevicename)) {
                     Ok(ok__) => {
                         pbcurrentstate.write(core::mem::transmute(ok__));
@@ -17643,8 +17643,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStillImageW_Impl::RefreshDeviceBus(this, core::mem::transmute(&pwszdevicename)).into()
             }
         }
@@ -17653,8 +17653,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStillImageW_Impl::LaunchApplicationForDevice(this, core::mem::transmute(&pwszdevicename), core::mem::transmute(&pwszappname), core::mem::transmute_copy(&pstinotify)).into()
             }
         }
@@ -17663,8 +17663,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStillImageW_Impl::SetupDeviceParameters(this, core::mem::transmute_copy(&param0)).into()
             }
         }
@@ -17673,8 +17673,8 @@ impl IStillImageW_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStillImageW_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IStillImageW_Impl::WriteToErrorLog(this, core::mem::transmute_copy(&dwmessagetype), core::mem::transmute(&pszmessage)).into()
             }
         }

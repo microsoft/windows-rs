@@ -111,8 +111,8 @@ impl ISpeechRecognitionConstraint_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISpeechRecognitionConstraint_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISpeechRecognitionConstraint_Impl::IsEnabled(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -127,8 +127,8 @@ impl ISpeechRecognitionConstraint_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISpeechRecognitionConstraint_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISpeechRecognitionConstraint_Impl::SetIsEnabled(this, value).into()
             }
         }
@@ -137,8 +137,8 @@ impl ISpeechRecognitionConstraint_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISpeechRecognitionConstraint_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISpeechRecognitionConstraint_Impl::Tag(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -154,8 +154,8 @@ impl ISpeechRecognitionConstraint_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISpeechRecognitionConstraint_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISpeechRecognitionConstraint_Impl::SetTag(this, core::mem::transmute(&value)).into()
             }
         }
@@ -164,8 +164,8 @@ impl ISpeechRecognitionConstraint_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISpeechRecognitionConstraint_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISpeechRecognitionConstraint_Impl::Type(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -180,8 +180,8 @@ impl ISpeechRecognitionConstraint_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISpeechRecognitionConstraint_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ISpeechRecognitionConstraint_Impl::Probability(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -196,8 +196,8 @@ impl ISpeechRecognitionConstraint_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ISpeechRecognitionConstraint_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ISpeechRecognitionConstraint_Impl::SetProbability(this, value).into()
             }
         }

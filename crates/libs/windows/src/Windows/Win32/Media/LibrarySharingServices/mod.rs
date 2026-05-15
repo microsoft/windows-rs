@@ -64,8 +64,8 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingDevice_Impl::DeviceID(this) {
                     Ok(ok__) => {
                         deviceid.write(core::mem::transmute(ok__));
@@ -80,8 +80,8 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingDevice_Impl::Authorization(this) {
                     Ok(ok__) => {
                         authorization.write(core::mem::transmute(ok__));
@@ -96,8 +96,8 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowsMediaLibrarySharingDevice_Impl::SetAuthorization(this, core::mem::transmute_copy(&authorization)).into()
             }
         }
@@ -106,8 +106,8 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingDevice_Impl::Properties(this) {
                     Ok(ok__) => {
                         deviceproperties.write(core::mem::transmute(ok__));
@@ -189,8 +189,8 @@ impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingDeviceProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingDeviceProperties_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         property.write(core::mem::transmute(ok__));
@@ -205,8 +205,8 @@ impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingDeviceProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingDeviceProperties_Impl::Count(this) {
                     Ok(ok__) => {
                         count.write(core::mem::transmute(ok__));
@@ -221,8 +221,8 @@ impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingDeviceProperties_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingDeviceProperties_Impl::GetProperty(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         property.write(core::mem::transmute(ok__));
@@ -299,8 +299,8 @@ impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingDeviceProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingDeviceProperty_Impl::Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -315,8 +315,8 @@ impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingDeviceProperty_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingDeviceProperty_Impl::Value(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -392,8 +392,8 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingDevices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingDevices_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         device.write(core::mem::transmute(ok__));
@@ -408,8 +408,8 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingDevices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingDevices_Impl::Count(this) {
                     Ok(ok__) => {
                         count.write(core::mem::transmute(ok__));
@@ -424,8 +424,8 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingDevices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingDevices_Impl::GetDevice(this, core::mem::transmute(&deviceid)) {
                     Ok(ok__) => {
                         device.write(core::mem::transmute(ok__));
@@ -604,8 +604,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowsMediaLibrarySharingServices_Impl::showShareMediaCPL(this, core::mem::transmute(&device)).into()
             }
         }
@@ -614,8 +614,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingServices_Impl::userHomeMediaSharingState(this) {
                     Ok(ok__) => {
                         sharingenabled.write(core::mem::transmute(ok__));
@@ -630,8 +630,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowsMediaLibrarySharingServices_Impl::SetuserHomeMediaSharingState(this, core::mem::transmute_copy(&sharingenabled)).into()
             }
         }
@@ -640,8 +640,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingServices_Impl::userHomeMediaSharingLibraryName(this) {
                     Ok(ok__) => {
                         libraryname.write(core::mem::transmute(ok__));
@@ -656,8 +656,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowsMediaLibrarySharingServices_Impl::SetuserHomeMediaSharingLibraryName(this, core::mem::transmute(&libraryname)).into()
             }
         }
@@ -666,8 +666,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingServices_Impl::computerHomeMediaSharingAllowedState(this) {
                     Ok(ok__) => {
                         sharingallowed.write(core::mem::transmute(ok__));
@@ -682,8 +682,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowsMediaLibrarySharingServices_Impl::SetcomputerHomeMediaSharingAllowedState(this, core::mem::transmute_copy(&sharingallowed)).into()
             }
         }
@@ -692,8 +692,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingServices_Impl::userInternetMediaSharingState(this) {
                     Ok(ok__) => {
                         sharingenabled.write(core::mem::transmute(ok__));
@@ -708,8 +708,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowsMediaLibrarySharingServices_Impl::SetuserInternetMediaSharingState(this, core::mem::transmute_copy(&sharingenabled)).into()
             }
         }
@@ -718,8 +718,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingServices_Impl::computerInternetMediaSharingAllowedState(this) {
                     Ok(ok__) => {
                         sharingallowed.write(core::mem::transmute(ok__));
@@ -734,8 +734,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowsMediaLibrarySharingServices_Impl::SetcomputerInternetMediaSharingAllowedState(this, core::mem::transmute_copy(&sharingallowed)).into()
             }
         }
@@ -744,8 +744,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingServices_Impl::internetMediaSharingSecurityGroup(this) {
                     Ok(ok__) => {
                         securitygroup.write(core::mem::transmute(ok__));
@@ -760,8 +760,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowsMediaLibrarySharingServices_Impl::SetinternetMediaSharingSecurityGroup(this, core::mem::transmute(&securitygroup)).into()
             }
         }
@@ -770,8 +770,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingServices_Impl::allowSharingToAllDevices(this) {
                     Ok(ok__) => {
                         sharingenabled.write(core::mem::transmute(ok__));
@@ -786,8 +786,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowsMediaLibrarySharingServices_Impl::SetallowSharingToAllDevices(this, core::mem::transmute_copy(&sharingenabled)).into()
             }
         }
@@ -796,8 +796,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowsMediaLibrarySharingServices_Impl::setDefaultAuthorization(this, core::mem::transmute(&macaddresses), core::mem::transmute(&friendlyname), core::mem::transmute_copy(&authorization)).into()
             }
         }
@@ -806,8 +806,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindowsMediaLibrarySharingServices_Impl::setAuthorizationState(this, core::mem::transmute(&macaddress), core::mem::transmute_copy(&authorizationstate)).into()
             }
         }
@@ -816,8 +816,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingServices_Impl::getAllDevices(this) {
                     Ok(ok__) => {
                         devices.write(core::mem::transmute(ok__));
@@ -832,8 +832,8 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowsMediaLibrarySharingServices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowsMediaLibrarySharingServices_Impl::customSettingsApplied(this) {
                     Ok(ok__) => {
                         customsettingsapplied.write(core::mem::transmute(ok__));

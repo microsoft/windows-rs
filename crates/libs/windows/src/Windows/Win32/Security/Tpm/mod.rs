@@ -40,8 +40,8 @@ impl ITpmVirtualSmartCardManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITpmVirtualSmartCardManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITpmVirtualSmartCardManager_Impl::CreateVirtualSmartCard(
                     this,
                     core::mem::transmute(&pszfriendlyname),
@@ -67,8 +67,8 @@ impl ITpmVirtualSmartCardManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITpmVirtualSmartCardManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITpmVirtualSmartCardManager_Impl::DestroyVirtualSmartCard(this, core::mem::transmute(&pszinstanceid), core::mem::transmute_copy(&pstatuscallback)) {
                     Ok(ok__) => {
                         pfneedreboot.write(core::mem::transmute(ok__));
@@ -146,8 +146,8 @@ impl ITpmVirtualSmartCardManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITpmVirtualSmartCardManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITpmVirtualSmartCardManager2_Impl::CreateVirtualSmartCardWithPinPolicy(
                     this,
                     core::mem::transmute(&pszfriendlyname),
@@ -238,8 +238,8 @@ impl ITpmVirtualSmartCardManager3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITpmVirtualSmartCardManager3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITpmVirtualSmartCardManager3_Impl::CreateVirtualSmartCardWithAttestation(
                     this,
                     core::mem::transmute(&pszfriendlyname),
@@ -307,8 +307,8 @@ impl ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITpmVirtualSmartCardManagerStatusCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITpmVirtualSmartCardManagerStatusCallback_Impl::ReportProgress(this, core::mem::transmute_copy(&status)).into()
             }
         }
@@ -317,8 +317,8 @@ impl ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITpmVirtualSmartCardManagerStatusCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITpmVirtualSmartCardManagerStatusCallback_Impl::ReportError(this, core::mem::transmute_copy(&error)).into()
             }
         }

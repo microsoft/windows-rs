@@ -75,8 +75,8 @@ impl ICompositionFramePresentStatistics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICompositionFramePresentStatistics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICompositionFramePresentStatistics_Impl::GetContentTag(this)
             }
         }
@@ -85,8 +85,8 @@ impl ICompositionFramePresentStatistics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICompositionFramePresentStatistics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICompositionFramePresentStatistics_Impl::GetCompositionFrameId(this)
             }
         }
@@ -95,8 +95,8 @@ impl ICompositionFramePresentStatistics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICompositionFramePresentStatistics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICompositionFramePresentStatistics_Impl::GetDisplayInstanceArray(this, core::mem::transmute_copy(&displayinstancearraycount), core::mem::transmute_copy(&displayinstancearray))
             }
         }
@@ -177,8 +177,8 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIndependentFlipFramePresentStatistics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = IIndependentFlipFramePresentStatistics_Impl::GetOutputAdapterLUID(this)
             }
         }
@@ -187,8 +187,8 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIndependentFlipFramePresentStatistics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IIndependentFlipFramePresentStatistics_Impl::GetOutputVidPnSourceId(this)
             }
         }
@@ -197,8 +197,8 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIndependentFlipFramePresentStatistics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IIndependentFlipFramePresentStatistics_Impl::GetContentTag(this)
             }
         }
@@ -207,8 +207,8 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIndependentFlipFramePresentStatistics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = IIndependentFlipFramePresentStatistics_Impl::GetDisplayedTime(this)
             }
         }
@@ -217,8 +217,8 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIndependentFlipFramePresentStatistics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 *result__ = IIndependentFlipFramePresentStatistics_Impl::GetPresentDuration(this)
             }
         }
@@ -267,8 +267,8 @@ impl IPresentStatistics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentStatistics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentStatistics_Impl::GetPresentId(this)
             }
         }
@@ -277,8 +277,8 @@ impl IPresentStatistics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentStatistics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentStatistics_Impl::GetKind(this)
             }
         }
@@ -330,8 +330,8 @@ impl IPresentStatusPresentStatistics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentStatusPresentStatistics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentStatusPresentStatistics_Impl::GetCompositionFrameId(this)
             }
         }
@@ -340,8 +340,8 @@ impl IPresentStatusPresentStatistics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentStatusPresentStatistics_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentStatusPresentStatistics_Impl::GetPresentStatus(this)
             }
         }
@@ -393,8 +393,8 @@ impl IPresentationBuffer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationBuffer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPresentationBuffer_Impl::GetAvailableEvent(this) {
                     Ok(ok__) => {
                         availableeventhandle.write(core::mem::transmute(ok__));
@@ -409,8 +409,8 @@ impl IPresentationBuffer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationBuffer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPresentationBuffer_Impl::IsAvailable(this) {
                     Ok(ok__) => {
                         isavailable.write(core::mem::transmute(ok__));
@@ -457,8 +457,8 @@ impl IPresentationContent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationContent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationContent_Impl::SetTag(this, core::mem::transmute_copy(&tag))
             }
         }
@@ -508,8 +508,8 @@ impl IPresentationFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationFactory_Impl::IsPresentationSupported(this)
             }
         }
@@ -518,8 +518,8 @@ impl IPresentationFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationFactory_Impl::IsPresentationSupportedWithIndependentFlip(this)
             }
         }
@@ -528,8 +528,8 @@ impl IPresentationFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPresentationFactory_Impl::CreatePresentationManager(this) {
                     Ok(ok__) => {
                         pppresentationmanager.write(core::mem::transmute(ok__));
@@ -679,8 +679,8 @@ impl IPresentationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPresentationManager_Impl::AddBufferFromResource(this, core::mem::transmute_copy(&resource)) {
                     Ok(ok__) => {
                         presentationbuffer.write(core::mem::transmute(ok__));
@@ -695,8 +695,8 @@ impl IPresentationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPresentationManager_Impl::CreatePresentationSurface(this, core::mem::transmute_copy(&compositionsurfacehandle)) {
                     Ok(ok__) => {
                         presentationsurface.write(core::mem::transmute(ok__));
@@ -711,8 +711,8 @@ impl IPresentationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationManager_Impl::GetNextPresentId(this)
             }
         }
@@ -721,8 +721,8 @@ impl IPresentationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationManager_Impl::SetTargetTime(this, core::mem::transmute(&targettime)).into()
             }
         }
@@ -731,8 +731,8 @@ impl IPresentationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationManager_Impl::SetPreferredPresentDuration(this, core::mem::transmute(&preferredduration), core::mem::transmute(&deviationtolerance)).into()
             }
         }
@@ -741,8 +741,8 @@ impl IPresentationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationManager_Impl::ForceVSyncInterrupt(this, core::mem::transmute_copy(&forcevsyncinterrupt)).into()
             }
         }
@@ -751,8 +751,8 @@ impl IPresentationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationManager_Impl::Present(this).into()
             }
         }
@@ -761,8 +761,8 @@ impl IPresentationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationManager_Impl::GetPresentRetiringFence(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&fence)).into()
             }
         }
@@ -771,8 +771,8 @@ impl IPresentationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationManager_Impl::CancelPresentsFrom(this, core::mem::transmute_copy(&presentidtocancelfrom)).into()
             }
         }
@@ -781,8 +781,8 @@ impl IPresentationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPresentationManager_Impl::GetLostEvent(this) {
                     Ok(ok__) => {
                         losteventhandle.write(core::mem::transmute(ok__));
@@ -797,8 +797,8 @@ impl IPresentationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPresentationManager_Impl::GetPresentStatisticsAvailableEvent(this) {
                     Ok(ok__) => {
                         presentstatisticsavailableeventhandle.write(core::mem::transmute(ok__));
@@ -813,8 +813,8 @@ impl IPresentationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationManager_Impl::EnablePresentStatisticsKind(this, core::mem::transmute_copy(&presentstatisticskind), core::mem::transmute_copy(&enabled)).into()
             }
         }
@@ -823,8 +823,8 @@ impl IPresentationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPresentationManager_Impl::GetNextPresentStatistics(this) {
                     Ok(ok__) => {
                         nextpresentstatistics.write(core::mem::transmute(ok__));
@@ -939,8 +939,8 @@ impl IPresentationSurface_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationSurface_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationSurface_Impl::SetBuffer(this, core::mem::transmute_copy(&presentationbuffer)).into()
             }
         }
@@ -949,8 +949,8 @@ impl IPresentationSurface_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationSurface_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationSurface_Impl::SetColorSpace(this, core::mem::transmute_copy(&colorspace)).into()
             }
         }
@@ -959,8 +959,8 @@ impl IPresentationSurface_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationSurface_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationSurface_Impl::SetAlphaMode(this, core::mem::transmute_copy(&alphamode)).into()
             }
         }
@@ -969,8 +969,8 @@ impl IPresentationSurface_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationSurface_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationSurface_Impl::SetSourceRect(this, core::mem::transmute_copy(&sourcerect)).into()
             }
         }
@@ -979,8 +979,8 @@ impl IPresentationSurface_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationSurface_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationSurface_Impl::SetTransform(this, core::mem::transmute_copy(&transform)).into()
             }
         }
@@ -989,8 +989,8 @@ impl IPresentationSurface_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationSurface_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationSurface_Impl::RestrictToOutput(this, core::mem::transmute_copy(&output)).into()
             }
         }
@@ -999,8 +999,8 @@ impl IPresentationSurface_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationSurface_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationSurface_Impl::SetDisableReadback(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -1009,8 +1009,8 @@ impl IPresentationSurface_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationSurface_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationSurface_Impl::SetLetterboxingMargins(this, core::mem::transmute_copy(&leftletterboxsize), core::mem::transmute_copy(&topletterboxsize), core::mem::transmute_copy(&rightletterboxsize), core::mem::transmute_copy(&bottomletterboxsize)).into()
             }
         }
@@ -1066,8 +1066,8 @@ impl IPresentationSurface2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPresentationSurface2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPresentationSurface2_Impl::SetIsHdrContent(this, core::mem::transmute_copy(&ishdrcontent))
             }
         }

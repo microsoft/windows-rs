@@ -507,8 +507,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::InitialOriginX(this) {
                     Ok(ok__) => {
                         x.write(core::mem::transmute(ok__));
@@ -523,8 +523,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetInitialOriginX(this, core::mem::transmute_copy(&x)).into()
             }
         }
@@ -533,8 +533,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::InitialOriginY(this) {
                     Ok(ok__) => {
                         y.write(core::mem::transmute(ok__));
@@ -549,8 +549,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetInitialOriginY(this, core::mem::transmute_copy(&y)).into()
             }
         }
@@ -559,8 +559,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::InitialVelocityX(this) {
                     Ok(ok__) => {
                         x.write(core::mem::transmute(ok__));
@@ -575,8 +575,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetInitialVelocityX(this, core::mem::transmute_copy(&x)).into()
             }
         }
@@ -585,8 +585,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::InitialVelocityY(this) {
                     Ok(ok__) => {
                         y.write(core::mem::transmute(ok__));
@@ -601,8 +601,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetInitialVelocityY(this, core::mem::transmute_copy(&y)).into()
             }
         }
@@ -611,8 +611,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::InitialAngularVelocity(this) {
                     Ok(ok__) => {
                         velocity.write(core::mem::transmute(ok__));
@@ -627,8 +627,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetInitialAngularVelocity(this, core::mem::transmute_copy(&velocity)).into()
             }
         }
@@ -637,8 +637,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::InitialExpansionVelocity(this) {
                     Ok(ok__) => {
                         velocity.write(core::mem::transmute(ok__));
@@ -653,8 +653,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetInitialExpansionVelocity(this, core::mem::transmute_copy(&velocity)).into()
             }
         }
@@ -663,8 +663,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::InitialRadius(this) {
                     Ok(ok__) => {
                         radius.write(core::mem::transmute(ok__));
@@ -679,8 +679,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetInitialRadius(this, core::mem::transmute_copy(&radius)).into()
             }
         }
@@ -689,8 +689,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::BoundaryLeft(this) {
                     Ok(ok__) => {
                         left.write(core::mem::transmute(ok__));
@@ -705,8 +705,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetBoundaryLeft(this, core::mem::transmute_copy(&left)).into()
             }
         }
@@ -715,8 +715,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::BoundaryTop(this) {
                     Ok(ok__) => {
                         top.write(core::mem::transmute(ok__));
@@ -731,8 +731,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetBoundaryTop(this, core::mem::transmute_copy(&top)).into()
             }
         }
@@ -741,8 +741,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::BoundaryRight(this) {
                     Ok(ok__) => {
                         right.write(core::mem::transmute(ok__));
@@ -757,8 +757,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetBoundaryRight(this, core::mem::transmute_copy(&right)).into()
             }
         }
@@ -767,8 +767,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::BoundaryBottom(this) {
                     Ok(ok__) => {
                         bottom.write(core::mem::transmute(ok__));
@@ -783,8 +783,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetBoundaryBottom(this, core::mem::transmute_copy(&bottom)).into()
             }
         }
@@ -793,8 +793,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::ElasticMarginLeft(this) {
                     Ok(ok__) => {
                         left.write(core::mem::transmute(ok__));
@@ -809,8 +809,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetElasticMarginLeft(this, core::mem::transmute_copy(&left)).into()
             }
         }
@@ -819,8 +819,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::ElasticMarginTop(this) {
                     Ok(ok__) => {
                         top.write(core::mem::transmute(ok__));
@@ -835,8 +835,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetElasticMarginTop(this, core::mem::transmute_copy(&top)).into()
             }
         }
@@ -845,8 +845,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::ElasticMarginRight(this) {
                     Ok(ok__) => {
                         right.write(core::mem::transmute(ok__));
@@ -861,8 +861,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetElasticMarginRight(this, core::mem::transmute_copy(&right)).into()
             }
         }
@@ -871,8 +871,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::ElasticMarginBottom(this) {
                     Ok(ok__) => {
                         bottom.write(core::mem::transmute(ok__));
@@ -887,8 +887,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetElasticMarginBottom(this, core::mem::transmute_copy(&bottom)).into()
             }
         }
@@ -897,8 +897,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::DesiredDisplacement(this) {
                     Ok(ok__) => {
                         displacement.write(core::mem::transmute(ok__));
@@ -913,8 +913,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetDesiredDisplacement(this, core::mem::transmute_copy(&displacement)).into()
             }
         }
@@ -923,8 +923,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::DesiredRotation(this) {
                     Ok(ok__) => {
                         rotation.write(core::mem::transmute(ok__));
@@ -939,8 +939,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetDesiredRotation(this, core::mem::transmute_copy(&rotation)).into()
             }
         }
@@ -949,8 +949,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::DesiredExpansion(this) {
                     Ok(ok__) => {
                         expansion.write(core::mem::transmute(ok__));
@@ -965,8 +965,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetDesiredExpansion(this, core::mem::transmute_copy(&expansion)).into()
             }
         }
@@ -975,8 +975,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::DesiredDeceleration(this) {
                     Ok(ok__) => {
                         deceleration.write(core::mem::transmute(ok__));
@@ -991,8 +991,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetDesiredDeceleration(this, core::mem::transmute_copy(&deceleration)).into()
             }
         }
@@ -1001,8 +1001,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::DesiredAngularDeceleration(this) {
                     Ok(ok__) => {
                         deceleration.write(core::mem::transmute(ok__));
@@ -1017,8 +1017,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetDesiredAngularDeceleration(this, core::mem::transmute_copy(&deceleration)).into()
             }
         }
@@ -1027,8 +1027,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::DesiredExpansionDeceleration(this) {
                     Ok(ok__) => {
                         deceleration.write(core::mem::transmute(ok__));
@@ -1043,8 +1043,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetDesiredExpansionDeceleration(this, core::mem::transmute_copy(&deceleration)).into()
             }
         }
@@ -1053,8 +1053,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::InitialTimestamp(this) {
                     Ok(ok__) => {
                         timestamp.write(core::mem::transmute(ok__));
@@ -1069,8 +1069,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::SetInitialTimestamp(this, core::mem::transmute_copy(&timestamp)).into()
             }
         }
@@ -1079,8 +1079,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::Reset(this).into()
             }
         }
@@ -1089,8 +1089,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::Process(this) {
                     Ok(ok__) => {
                         completed.write(core::mem::transmute(ok__));
@@ -1105,8 +1105,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IInertiaProcessor_Impl::ProcessTime(this, core::mem::transmute_copy(&timestamp)) {
                     Ok(ok__) => {
                         completed.write(core::mem::transmute(ok__));
@@ -1121,8 +1121,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::Complete(this).into()
             }
         }
@@ -1131,8 +1131,8 @@ impl IInertiaProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInertiaProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInertiaProcessor_Impl::CompleteTime(this, core::mem::transmute_copy(&timestamp)).into()
             }
         }
@@ -1347,8 +1347,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IManipulationProcessor_Impl::SupportedManipulations(this) {
                     Ok(ok__) => {
                         manipulations.write(core::mem::transmute(ok__));
@@ -1363,8 +1363,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IManipulationProcessor_Impl::SetSupportedManipulations(this, core::mem::transmute_copy(&manipulations)).into()
             }
         }
@@ -1373,8 +1373,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IManipulationProcessor_Impl::PivotPointX(this) {
                     Ok(ok__) => {
                         pivotpointx.write(core::mem::transmute(ok__));
@@ -1389,8 +1389,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IManipulationProcessor_Impl::SetPivotPointX(this, core::mem::transmute_copy(&pivotpointx)).into()
             }
         }
@@ -1399,8 +1399,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IManipulationProcessor_Impl::PivotPointY(this) {
                     Ok(ok__) => {
                         pivotpointy.write(core::mem::transmute(ok__));
@@ -1415,8 +1415,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IManipulationProcessor_Impl::SetPivotPointY(this, core::mem::transmute_copy(&pivotpointy)).into()
             }
         }
@@ -1425,8 +1425,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IManipulationProcessor_Impl::PivotRadius(this) {
                     Ok(ok__) => {
                         pivotradius.write(core::mem::transmute(ok__));
@@ -1441,8 +1441,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IManipulationProcessor_Impl::SetPivotRadius(this, core::mem::transmute_copy(&pivotradius)).into()
             }
         }
@@ -1451,8 +1451,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IManipulationProcessor_Impl::CompleteManipulation(this).into()
             }
         }
@@ -1461,8 +1461,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IManipulationProcessor_Impl::ProcessDown(this, core::mem::transmute_copy(&manipulatorid), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
             }
         }
@@ -1471,8 +1471,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IManipulationProcessor_Impl::ProcessMove(this, core::mem::transmute_copy(&manipulatorid), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
             }
         }
@@ -1481,8 +1481,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IManipulationProcessor_Impl::ProcessUp(this, core::mem::transmute_copy(&manipulatorid), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
             }
         }
@@ -1491,8 +1491,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IManipulationProcessor_Impl::ProcessDownWithTime(this, core::mem::transmute_copy(&manipulatorid), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&timestamp)).into()
             }
         }
@@ -1501,8 +1501,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IManipulationProcessor_Impl::ProcessMoveWithTime(this, core::mem::transmute_copy(&manipulatorid), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&timestamp)).into()
             }
         }
@@ -1511,8 +1511,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IManipulationProcessor_Impl::ProcessUpWithTime(this, core::mem::transmute_copy(&manipulatorid), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&timestamp)).into()
             }
         }
@@ -1521,8 +1521,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IManipulationProcessor_Impl::GetVelocityX(this) {
                     Ok(ok__) => {
                         velocityx.write(core::mem::transmute(ok__));
@@ -1537,8 +1537,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IManipulationProcessor_Impl::GetVelocityY(this) {
                     Ok(ok__) => {
                         velocityy.write(core::mem::transmute(ok__));
@@ -1553,8 +1553,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IManipulationProcessor_Impl::GetExpansionVelocity(this) {
                     Ok(ok__) => {
                         expansionvelocity.write(core::mem::transmute(ok__));
@@ -1569,8 +1569,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IManipulationProcessor_Impl::GetAngularVelocity(this) {
                     Ok(ok__) => {
                         angularvelocity.write(core::mem::transmute(ok__));
@@ -1585,8 +1585,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IManipulationProcessor_Impl::MinimumScaleRotateRadius(this) {
                     Ok(ok__) => {
                         minradius.write(core::mem::transmute(ok__));
@@ -1601,8 +1601,8 @@ impl IManipulationProcessor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IManipulationProcessor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IManipulationProcessor_Impl::SetMinimumScaleRotateRadius(this, core::mem::transmute_copy(&minradius)).into()
             }
         }
@@ -1818,8 +1818,8 @@ impl _IManipulationEvents_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: _IManipulationEvents_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 _IManipulationEvents_Impl::ManipulationStarted(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
             }
         }
@@ -1828,8 +1828,8 @@ impl _IManipulationEvents_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: _IManipulationEvents_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 _IManipulationEvents_Impl::ManipulationDelta(
                     this,
                     core::mem::transmute_copy(&x),
@@ -1853,8 +1853,8 @@ impl _IManipulationEvents_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: _IManipulationEvents_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 _IManipulationEvents_Impl::ManipulationCompleted(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&cumulativetranslationx), core::mem::transmute_copy(&cumulativetranslationy), core::mem::transmute_copy(&cumulativescale), core::mem::transmute_copy(&cumulativeexpansion), core::mem::transmute_copy(&cumulativerotation)).into()
             }
         }

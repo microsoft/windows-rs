@@ -49,8 +49,8 @@ impl IPrintDocumentPageSource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintDocumentPageSource_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintDocumentPageSource_Impl::GetPreviewPageCollection(this, core::mem::transmute_copy(&docpackagetarget)) {
                     Ok(ok__) => {
                         docpagecollection.write(core::mem::transmute(ok__));
@@ -65,8 +65,8 @@ impl IPrintDocumentPageSource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintDocumentPageSource_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintDocumentPageSource_Impl::MakeDocument(this, core::mem::transmute_copy(&printtaskoptions), core::mem::transmute_copy(&docpackagetarget)).into()
             }
         }
@@ -121,8 +121,8 @@ impl IPrintManagerInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintManagerInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintManagerInterop_Impl::GetForWindow(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&printmanager)).into()
             }
         }
@@ -131,8 +131,8 @@ impl IPrintManagerInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintManagerInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintManagerInterop_Impl::ShowPrintUIForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }
@@ -181,8 +181,8 @@ impl IPrintPreviewPageCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintPreviewPageCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintPreviewPageCollection_Impl::Paginate(this, core::mem::transmute_copy(&currentjobpage), core::mem::transmute_copy(&printtaskoptions)).into()
             }
         }
@@ -191,8 +191,8 @@ impl IPrintPreviewPageCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintPreviewPageCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintPreviewPageCollection_Impl::MakePage(this, core::mem::transmute_copy(&desiredjobpage), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
             }
         }
@@ -262,8 +262,8 @@ impl IPrintWorkflowConfigurationNative_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintWorkflowConfigurationNative_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintWorkflowConfigurationNative_Impl::PrinterQueue(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -278,8 +278,8 @@ impl IPrintWorkflowConfigurationNative_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintWorkflowConfigurationNative_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintWorkflowConfigurationNative_Impl::DriverProperties(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -294,8 +294,8 @@ impl IPrintWorkflowConfigurationNative_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintWorkflowConfigurationNative_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintWorkflowConfigurationNative_Impl::UserProperties(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -361,8 +361,8 @@ impl IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintWorkflowObjectModelSourceFileContentNative_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintWorkflowObjectModelSourceFileContentNative_Impl::StartXpsOMGeneration(this, core::mem::transmute_copy(&receiver)).into()
             }
         }
@@ -371,8 +371,8 @@ impl IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintWorkflowObjectModelSourceFileContentNative_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintWorkflowObjectModelSourceFileContentNative_Impl::ObjectFactory(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -429,8 +429,8 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintWorkflowXpsObjectModelTargetPackageNative_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPrintWorkflowXpsObjectModelTargetPackageNative_Impl::DocumentPackageTarget(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -522,8 +522,8 @@ impl IPrintWorkflowXpsReceiver_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintWorkflowXpsReceiver_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintWorkflowXpsReceiver_Impl::SetDocumentSequencePrintTicket(this, core::mem::transmute_copy(&documentsequenceprintticket)).into()
             }
         }
@@ -532,8 +532,8 @@ impl IPrintWorkflowXpsReceiver_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintWorkflowXpsReceiver_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintWorkflowXpsReceiver_Impl::SetDocumentSequenceUri(this, core::mem::transmute(&documentsequenceuri)).into()
             }
         }
@@ -542,8 +542,8 @@ impl IPrintWorkflowXpsReceiver_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintWorkflowXpsReceiver_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintWorkflowXpsReceiver_Impl::AddDocumentData(this, core::mem::transmute_copy(&documentid), core::mem::transmute_copy(&documentprintticket), core::mem::transmute(&documenturi)).into()
             }
         }
@@ -552,8 +552,8 @@ impl IPrintWorkflowXpsReceiver_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintWorkflowXpsReceiver_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintWorkflowXpsReceiver_Impl::AddPage(this, core::mem::transmute_copy(&documentid), core::mem::transmute_copy(&pageid), core::mem::transmute_copy(&pagereference), core::mem::transmute(&pageuri)).into()
             }
         }
@@ -562,8 +562,8 @@ impl IPrintWorkflowXpsReceiver_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintWorkflowXpsReceiver_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintWorkflowXpsReceiver_Impl::Close(this).into()
             }
         }
@@ -616,8 +616,8 @@ impl IPrintWorkflowXpsReceiver2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrintWorkflowXpsReceiver2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrintWorkflowXpsReceiver2_Impl::Failed(this, core::mem::transmute_copy(&xpserror)).into()
             }
         }
@@ -668,8 +668,8 @@ impl IPrinting3DManagerInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrinting3DManagerInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrinting3DManagerInterop_Impl::GetForWindow(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&printmanager)).into()
             }
         }
@@ -678,8 +678,8 @@ impl IPrinting3DManagerInterop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPrinting3DManagerInterop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPrinting3DManagerInterop_Impl::ShowPrintUIForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }

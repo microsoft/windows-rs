@@ -14142,8 +14142,8 @@ impl IAnimationObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAnimationObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAnimationObject_Impl::PopulatePropertyInfo(this, core::mem::transmute(&propertyname), core::mem::transmute_copy(&propertyinfo)).into()
             }
         }
@@ -15396,8 +15396,8 @@ impl ICompositionSupportsSystemBackdrop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICompositionSupportsSystemBackdrop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICompositionSupportsSystemBackdrop_Impl::SystemBackdrop(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -15413,8 +15413,8 @@ impl ICompositionSupportsSystemBackdrop_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICompositionSupportsSystemBackdrop_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICompositionSupportsSystemBackdrop_Impl::SetSystemBackdrop(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -15542,8 +15542,8 @@ impl ICompositionSurfaceFacade_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICompositionSurfaceFacade_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICompositionSurfaceFacade_Impl::GetRealSurface(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -16763,8 +16763,8 @@ impl IVisualElement2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IVisualElement2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVisualElement2_Impl::GetVisualInternal(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

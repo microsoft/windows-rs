@@ -66,8 +66,8 @@ impl IUIAnimationInterpolator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationInterpolator_Impl::SetInitialValueAndVelocity(this, core::mem::transmute_copy(&initialvalue), core::mem::transmute_copy(&initialvelocity)).into()
             }
         }
@@ -76,8 +76,8 @@ impl IUIAnimationInterpolator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationInterpolator_Impl::SetDuration(this, core::mem::transmute_copy(&duration)).into()
             }
         }
@@ -86,8 +86,8 @@ impl IUIAnimationInterpolator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationInterpolator_Impl::GetDuration(this) {
                     Ok(ok__) => {
                         duration.write(core::mem::transmute(ok__));
@@ -102,8 +102,8 @@ impl IUIAnimationInterpolator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationInterpolator_Impl::GetFinalValue(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -118,8 +118,8 @@ impl IUIAnimationInterpolator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationInterpolator_Impl::InterpolateValue(this, core::mem::transmute_copy(&offset)) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -134,8 +134,8 @@ impl IUIAnimationInterpolator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationInterpolator_Impl::InterpolateVelocity(this, core::mem::transmute_copy(&offset)) {
                     Ok(ok__) => {
                         velocity.write(core::mem::transmute(ok__));
@@ -150,8 +150,8 @@ impl IUIAnimationInterpolator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationInterpolator_Impl::GetDependencies(this, core::mem::transmute_copy(&initialvaluedependencies), core::mem::transmute_copy(&initialvelocitydependencies), core::mem::transmute_copy(&durationdependencies)).into()
             }
         }
@@ -246,8 +246,8 @@ impl IUIAnimationInterpolator2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationInterpolator2_Impl::GetDimension(this) {
                     Ok(ok__) => {
                         dimension.write(core::mem::transmute(ok__));
@@ -262,8 +262,8 @@ impl IUIAnimationInterpolator2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationInterpolator2_Impl::SetInitialValueAndVelocity(this, core::mem::transmute_copy(&initialvalue), core::mem::transmute_copy(&initialvelocity), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -272,8 +272,8 @@ impl IUIAnimationInterpolator2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationInterpolator2_Impl::SetDuration(this, core::mem::transmute_copy(&duration)).into()
             }
         }
@@ -282,8 +282,8 @@ impl IUIAnimationInterpolator2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationInterpolator2_Impl::GetDuration(this) {
                     Ok(ok__) => {
                         duration.write(core::mem::transmute(ok__));
@@ -298,8 +298,8 @@ impl IUIAnimationInterpolator2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationInterpolator2_Impl::GetFinalValue(this, core::mem::transmute_copy(&value), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -308,8 +308,8 @@ impl IUIAnimationInterpolator2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationInterpolator2_Impl::InterpolateValue(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&value), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -318,8 +318,8 @@ impl IUIAnimationInterpolator2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationInterpolator2_Impl::InterpolateVelocity(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&velocity), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -328,8 +328,8 @@ impl IUIAnimationInterpolator2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationInterpolator2_Impl::GetPrimitiveInterpolation(this, core::mem::transmute_copy(&interpolation), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -338,8 +338,8 @@ impl IUIAnimationInterpolator2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationInterpolator2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationInterpolator2_Impl::GetDependencies(this, core::mem::transmute_copy(&initialvaluedependencies), core::mem::transmute_copy(&initialvelocitydependencies), core::mem::transmute_copy(&durationdependencies)).into()
             }
         }
@@ -390,8 +390,8 @@ impl IUIAnimationLoopIterationChangeHandler2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationLoopIterationChangeHandler2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationLoopIterationChangeHandler2_Impl::OnLoopIterationChanged(this, core::mem::transmute_copy(&storyboard), core::mem::transmute_copy(&id), core::mem::transmute_copy(&newiterationcount), core::mem::transmute_copy(&olditerationcount)).into()
             }
         }
@@ -558,8 +558,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationManager_Impl::CreateAnimationVariable(this, core::mem::transmute_copy(&initialvalue)) {
                     Ok(ok__) => {
                         variable.write(core::mem::transmute(ok__));
@@ -574,8 +574,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager_Impl::ScheduleTransition(this, core::mem::transmute_copy(&variable), core::mem::transmute_copy(&transition), core::mem::transmute_copy(&timenow)).into()
             }
         }
@@ -584,8 +584,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationManager_Impl::CreateStoryboard(this) {
                     Ok(ok__) => {
                         storyboard.write(core::mem::transmute(ok__));
@@ -600,8 +600,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager_Impl::FinishAllStoryboards(this, core::mem::transmute_copy(&completiondeadline)).into()
             }
         }
@@ -610,8 +610,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager_Impl::AbandonAllStoryboards(this).into()
             }
         }
@@ -620,8 +620,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager_Impl::Update(this, core::mem::transmute_copy(&timenow), core::mem::transmute_copy(&updateresult)).into()
             }
         }
@@ -630,8 +630,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationManager_Impl::GetVariableFromTag(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&id)) {
                     Ok(ok__) => {
                         variable.write(core::mem::transmute(ok__));
@@ -646,8 +646,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationManager_Impl::GetStoryboardFromTag(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&id)) {
                     Ok(ok__) => {
                         storyboard.write(core::mem::transmute(ok__));
@@ -662,8 +662,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationManager_Impl::GetStatus(this) {
                     Ok(ok__) => {
                         status.write(core::mem::transmute(ok__));
@@ -678,8 +678,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager_Impl::SetAnimationMode(this, core::mem::transmute_copy(&mode)).into()
             }
         }
@@ -688,8 +688,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager_Impl::Pause(this).into()
             }
         }
@@ -698,8 +698,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager_Impl::Resume(this).into()
             }
         }
@@ -708,8 +708,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager_Impl::SetManagerEventHandler(this, core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -718,8 +718,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager_Impl::SetCancelPriorityComparison(this, core::mem::transmute_copy(&comparison)).into()
             }
         }
@@ -728,8 +728,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager_Impl::SetTrimPriorityComparison(this, core::mem::transmute_copy(&comparison)).into()
             }
         }
@@ -738,8 +738,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager_Impl::SetCompressPriorityComparison(this, core::mem::transmute_copy(&comparison)).into()
             }
         }
@@ -748,8 +748,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager_Impl::SetConcludePriorityComparison(this, core::mem::transmute_copy(&comparison)).into()
             }
         }
@@ -758,8 +758,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager_Impl::SetDefaultLongestAcceptableDelay(this, core::mem::transmute_copy(&delay)).into()
             }
         }
@@ -768,8 +768,8 @@ impl IUIAnimationManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager_Impl::Shutdown(this).into()
             }
         }
@@ -973,8 +973,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationManager2_Impl::CreateAnimationVectorVariable(this, core::mem::transmute_copy(&initialvalue), core::mem::transmute_copy(&cdimension)) {
                     Ok(ok__) => {
                         variable.write(core::mem::transmute(ok__));
@@ -989,8 +989,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationManager2_Impl::CreateAnimationVariable(this, core::mem::transmute_copy(&initialvalue)) {
                     Ok(ok__) => {
                         variable.write(core::mem::transmute(ok__));
@@ -1005,8 +1005,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager2_Impl::ScheduleTransition(this, core::mem::transmute_copy(&variable), core::mem::transmute_copy(&transition), core::mem::transmute_copy(&timenow)).into()
             }
         }
@@ -1015,8 +1015,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationManager2_Impl::CreateStoryboard(this) {
                     Ok(ok__) => {
                         storyboard.write(core::mem::transmute(ok__));
@@ -1031,8 +1031,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager2_Impl::FinishAllStoryboards(this, core::mem::transmute_copy(&completiondeadline)).into()
             }
         }
@@ -1041,8 +1041,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager2_Impl::AbandonAllStoryboards(this).into()
             }
         }
@@ -1051,8 +1051,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager2_Impl::Update(this, core::mem::transmute_copy(&timenow), core::mem::transmute_copy(&updateresult)).into()
             }
         }
@@ -1061,8 +1061,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationManager2_Impl::GetVariableFromTag(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&id)) {
                     Ok(ok__) => {
                         variable.write(core::mem::transmute(ok__));
@@ -1077,8 +1077,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationManager2_Impl::GetStoryboardFromTag(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&id)) {
                     Ok(ok__) => {
                         storyboard.write(core::mem::transmute(ok__));
@@ -1093,8 +1093,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationManager2_Impl::EstimateNextEventTime(this) {
                     Ok(ok__) => {
                         seconds.write(core::mem::transmute(ok__));
@@ -1109,8 +1109,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationManager2_Impl::GetStatus(this) {
                     Ok(ok__) => {
                         status.write(core::mem::transmute(ok__));
@@ -1125,8 +1125,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager2_Impl::SetAnimationMode(this, core::mem::transmute_copy(&mode)).into()
             }
         }
@@ -1135,8 +1135,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager2_Impl::Pause(this).into()
             }
         }
@@ -1145,8 +1145,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager2_Impl::Resume(this).into()
             }
         }
@@ -1155,8 +1155,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager2_Impl::SetManagerEventHandler(this, core::mem::transmute_copy(&handler), core::mem::transmute_copy(&fregisterfornextanimationevent)).into()
             }
         }
@@ -1165,8 +1165,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager2_Impl::SetCancelPriorityComparison(this, core::mem::transmute_copy(&comparison)).into()
             }
         }
@@ -1175,8 +1175,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager2_Impl::SetTrimPriorityComparison(this, core::mem::transmute_copy(&comparison)).into()
             }
         }
@@ -1185,8 +1185,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager2_Impl::SetCompressPriorityComparison(this, core::mem::transmute_copy(&comparison)).into()
             }
         }
@@ -1195,8 +1195,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager2_Impl::SetConcludePriorityComparison(this, core::mem::transmute_copy(&comparison)).into()
             }
         }
@@ -1205,8 +1205,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager2_Impl::SetDefaultLongestAcceptableDelay(this, core::mem::transmute_copy(&delay)).into()
             }
         }
@@ -1215,8 +1215,8 @@ impl IUIAnimationManager2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManager2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManager2_Impl::Shutdown(this).into()
             }
         }
@@ -1276,8 +1276,8 @@ impl IUIAnimationManagerEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManagerEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManagerEventHandler_Impl::OnManagerStatusChanged(this, core::mem::transmute_copy(&newstatus), core::mem::transmute_copy(&previousstatus)).into()
             }
         }
@@ -1314,8 +1314,8 @@ impl IUIAnimationManagerEventHandler2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationManagerEventHandler2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationManagerEventHandler2_Impl::OnManagerStatusChanged(this, core::mem::transmute_copy(&newstatus), core::mem::transmute_copy(&previousstatus)).into()
             }
         }
@@ -1357,8 +1357,8 @@ impl IUIAnimationPrimitiveInterpolation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationPrimitiveInterpolation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationPrimitiveInterpolation_Impl::AddCubic(this, core::mem::transmute_copy(&dimension), core::mem::transmute_copy(&beginoffset), core::mem::transmute_copy(&constantcoefficient), core::mem::transmute_copy(&linearcoefficient), core::mem::transmute_copy(&quadraticcoefficient), core::mem::transmute_copy(&cubiccoefficient)).into()
             }
         }
@@ -1367,8 +1367,8 @@ impl IUIAnimationPrimitiveInterpolation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationPrimitiveInterpolation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationPrimitiveInterpolation_Impl::AddSinusoidal(this, core::mem::transmute_copy(&dimension), core::mem::transmute_copy(&beginoffset), core::mem::transmute_copy(&bias), core::mem::transmute_copy(&amplitude), core::mem::transmute_copy(&frequency), core::mem::transmute_copy(&phase)).into()
             }
         }
@@ -1413,8 +1413,8 @@ impl IUIAnimationPriorityComparison_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationPriorityComparison_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationPriorityComparison_Impl::HasPriority(this, core::mem::transmute_copy(&scheduledstoryboard), core::mem::transmute_copy(&newstoryboard), core::mem::transmute_copy(&priorityeffect)).into()
             }
         }
@@ -1455,8 +1455,8 @@ impl IUIAnimationPriorityComparison2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationPriorityComparison2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationPriorityComparison2_Impl::HasPriority(this, core::mem::transmute_copy(&scheduledstoryboard), core::mem::transmute_copy(&newstoryboard), core::mem::transmute_copy(&priorityeffect)).into()
             }
         }
@@ -1609,8 +1609,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard_Impl::AddTransition(this, core::mem::transmute_copy(&variable), core::mem::transmute_copy(&transition)).into()
             }
         }
@@ -1619,8 +1619,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationStoryboard_Impl::AddKeyframeAtOffset(this, core::mem::transmute_copy(&existingkeyframe), core::mem::transmute_copy(&offset)) {
                     Ok(ok__) => {
                         keyframe.write(core::mem::transmute(ok__));
@@ -1635,8 +1635,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationStoryboard_Impl::AddKeyframeAfterTransition(this, core::mem::transmute_copy(&transition)) {
                     Ok(ok__) => {
                         keyframe.write(core::mem::transmute(ok__));
@@ -1651,8 +1651,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard_Impl::AddTransitionAtKeyframe(this, core::mem::transmute_copy(&variable), core::mem::transmute_copy(&transition), core::mem::transmute_copy(&startkeyframe)).into()
             }
         }
@@ -1661,8 +1661,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard_Impl::AddTransitionBetweenKeyframes(this, core::mem::transmute_copy(&variable), core::mem::transmute_copy(&transition), core::mem::transmute_copy(&startkeyframe), core::mem::transmute_copy(&endkeyframe)).into()
             }
         }
@@ -1671,8 +1671,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard_Impl::RepeatBetweenKeyframes(this, core::mem::transmute_copy(&startkeyframe), core::mem::transmute_copy(&endkeyframe), core::mem::transmute_copy(&repetitioncount)).into()
             }
         }
@@ -1681,8 +1681,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard_Impl::HoldVariable(this, core::mem::transmute_copy(&variable)).into()
             }
         }
@@ -1691,8 +1691,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard_Impl::SetLongestAcceptableDelay(this, core::mem::transmute_copy(&delay)).into()
             }
         }
@@ -1701,8 +1701,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard_Impl::Schedule(this, core::mem::transmute_copy(&timenow), core::mem::transmute_copy(&schedulingresult)).into()
             }
         }
@@ -1711,8 +1711,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard_Impl::Conclude(this).into()
             }
         }
@@ -1721,8 +1721,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard_Impl::Finish(this, core::mem::transmute_copy(&completiondeadline)).into()
             }
         }
@@ -1731,8 +1731,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard_Impl::Abandon(this).into()
             }
         }
@@ -1741,8 +1741,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard_Impl::SetTag(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&id)).into()
             }
         }
@@ -1751,8 +1751,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard_Impl::GetTag(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&id)).into()
             }
         }
@@ -1761,8 +1761,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationStoryboard_Impl::GetStatus(this) {
                     Ok(ok__) => {
                         status.write(core::mem::transmute(ok__));
@@ -1777,8 +1777,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationStoryboard_Impl::GetElapsedTime(this) {
                     Ok(ok__) => {
                         elapsedtime.write(core::mem::transmute(ok__));
@@ -1793,8 +1793,8 @@ impl IUIAnimationStoryboard_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard_Impl::SetStoryboardEventHandler(this, core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -1974,8 +1974,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard2_Impl::AddTransition(this, core::mem::transmute_copy(&variable), core::mem::transmute_copy(&transition)).into()
             }
         }
@@ -1984,8 +1984,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationStoryboard2_Impl::AddKeyframeAtOffset(this, core::mem::transmute_copy(&existingkeyframe), core::mem::transmute_copy(&offset)) {
                     Ok(ok__) => {
                         keyframe.write(core::mem::transmute(ok__));
@@ -2000,8 +2000,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationStoryboard2_Impl::AddKeyframeAfterTransition(this, core::mem::transmute_copy(&transition)) {
                     Ok(ok__) => {
                         keyframe.write(core::mem::transmute(ok__));
@@ -2016,8 +2016,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard2_Impl::AddTransitionAtKeyframe(this, core::mem::transmute_copy(&variable), core::mem::transmute_copy(&transition), core::mem::transmute_copy(&startkeyframe)).into()
             }
         }
@@ -2026,8 +2026,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard2_Impl::AddTransitionBetweenKeyframes(this, core::mem::transmute_copy(&variable), core::mem::transmute_copy(&transition), core::mem::transmute_copy(&startkeyframe), core::mem::transmute_copy(&endkeyframe)).into()
             }
         }
@@ -2036,8 +2036,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard2_Impl::RepeatBetweenKeyframes(this, core::mem::transmute_copy(&startkeyframe), core::mem::transmute_copy(&endkeyframe), core::mem::transmute_copy(&crepetition), core::mem::transmute_copy(&repeatmode), core::mem::transmute_copy(&piterationchangehandler), core::mem::transmute_copy(&id), core::mem::transmute_copy(&fregisterfornextanimationevent)).into()
             }
         }
@@ -2046,8 +2046,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard2_Impl::HoldVariable(this, core::mem::transmute_copy(&variable)).into()
             }
         }
@@ -2056,8 +2056,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard2_Impl::SetLongestAcceptableDelay(this, core::mem::transmute_copy(&delay)).into()
             }
         }
@@ -2066,8 +2066,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard2_Impl::SetSkipDuration(this, core::mem::transmute_copy(&secondsduration)).into()
             }
         }
@@ -2076,8 +2076,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard2_Impl::Schedule(this, core::mem::transmute_copy(&timenow), core::mem::transmute_copy(&schedulingresult)).into()
             }
         }
@@ -2086,8 +2086,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard2_Impl::Conclude(this).into()
             }
         }
@@ -2096,8 +2096,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard2_Impl::Finish(this, core::mem::transmute_copy(&completiondeadline)).into()
             }
         }
@@ -2106,8 +2106,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard2_Impl::Abandon(this).into()
             }
         }
@@ -2116,8 +2116,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard2_Impl::SetTag(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&id)).into()
             }
         }
@@ -2126,8 +2126,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard2_Impl::GetTag(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&id)).into()
             }
         }
@@ -2136,8 +2136,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationStoryboard2_Impl::GetStatus(this) {
                     Ok(ok__) => {
                         status.write(core::mem::transmute(ok__));
@@ -2152,8 +2152,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationStoryboard2_Impl::GetElapsedTime(this) {
                     Ok(ok__) => {
                         elapsedtime.write(core::mem::transmute(ok__));
@@ -2168,8 +2168,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboard2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboard2_Impl::SetStoryboardEventHandler(this, core::mem::transmute_copy(&handler), core::mem::transmute_copy(&fregisterstatuschangefornextanimationevent), core::mem::transmute_copy(&fregisterupdatefornextanimationevent)).into()
             }
         }
@@ -2237,8 +2237,8 @@ impl IUIAnimationStoryboardEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboardEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboardEventHandler_Impl::OnStoryboardStatusChanged(this, core::mem::transmute_copy(&storyboard), core::mem::transmute_copy(&newstatus), core::mem::transmute_copy(&previousstatus)).into()
             }
         }
@@ -2247,8 +2247,8 @@ impl IUIAnimationStoryboardEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboardEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboardEventHandler_Impl::OnStoryboardUpdated(this, core::mem::transmute_copy(&storyboard)).into()
             }
         }
@@ -2300,8 +2300,8 @@ impl IUIAnimationStoryboardEventHandler2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboardEventHandler2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboardEventHandler2_Impl::OnStoryboardStatusChanged(this, core::mem::transmute_copy(&storyboard), core::mem::transmute_copy(&newstatus), core::mem::transmute_copy(&previousstatus)).into()
             }
         }
@@ -2310,8 +2310,8 @@ impl IUIAnimationStoryboardEventHandler2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationStoryboardEventHandler2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationStoryboardEventHandler2_Impl::OnStoryboardUpdated(this, core::mem::transmute_copy(&storyboard)).into()
             }
         }
@@ -2391,8 +2391,8 @@ impl IUIAnimationTimer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTimer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTimer_Impl::SetTimerUpdateHandler(this, core::mem::transmute_copy(&updatehandler), core::mem::transmute_copy(&idlebehavior)).into()
             }
         }
@@ -2401,8 +2401,8 @@ impl IUIAnimationTimer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTimer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTimer_Impl::SetTimerEventHandler(this, core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -2411,8 +2411,8 @@ impl IUIAnimationTimer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTimer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTimer_Impl::Enable(this).into()
             }
         }
@@ -2421,8 +2421,8 @@ impl IUIAnimationTimer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTimer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTimer_Impl::Disable(this).into()
             }
         }
@@ -2431,8 +2431,8 @@ impl IUIAnimationTimer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTimer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTimer_Impl::IsEnabled(this).into()
             }
         }
@@ -2441,8 +2441,8 @@ impl IUIAnimationTimer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTimer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTimer_Impl::GetTime(this) {
                     Ok(ok__) => {
                         seconds.write(core::mem::transmute(ok__));
@@ -2457,8 +2457,8 @@ impl IUIAnimationTimer_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTimer_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTimer_Impl::SetFrameRateThreshold(this, core::mem::transmute_copy(&framespersecond)).into()
             }
         }
@@ -2504,8 +2504,8 @@ impl IUIAnimationTimerClientEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTimerClientEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTimerClientEventHandler_Impl::OnTimerClientStatusChanged(this, core::mem::transmute_copy(&newstatus), core::mem::transmute_copy(&previousstatus)).into()
             }
         }
@@ -2552,8 +2552,8 @@ impl IUIAnimationTimerEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTimerEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTimerEventHandler_Impl::OnPreUpdate(this).into()
             }
         }
@@ -2562,8 +2562,8 @@ impl IUIAnimationTimerEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTimerEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTimerEventHandler_Impl::OnPostUpdate(this).into()
             }
         }
@@ -2572,8 +2572,8 @@ impl IUIAnimationTimerEventHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTimerEventHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTimerEventHandler_Impl::OnRenderingTooSlow(this, core::mem::transmute_copy(&framespersecond)).into()
             }
         }
@@ -2631,8 +2631,8 @@ impl IUIAnimationTimerUpdateHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTimerUpdateHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTimerUpdateHandler_Impl::OnUpdate(this, core::mem::transmute_copy(&timenow)) {
                     Ok(ok__) => {
                         result.write(core::mem::transmute(ok__));
@@ -2647,8 +2647,8 @@ impl IUIAnimationTimerUpdateHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTimerUpdateHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTimerUpdateHandler_Impl::SetTimerClientEventHandler(this, core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -2657,8 +2657,8 @@ impl IUIAnimationTimerUpdateHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTimerUpdateHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTimerUpdateHandler_Impl::ClearTimerClientEventHandler(this).into()
             }
         }
@@ -2718,8 +2718,8 @@ impl IUIAnimationTransition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTransition_Impl::SetInitialValue(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -2728,8 +2728,8 @@ impl IUIAnimationTransition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTransition_Impl::SetInitialVelocity(this, core::mem::transmute_copy(&velocity)).into()
             }
         }
@@ -2738,8 +2738,8 @@ impl IUIAnimationTransition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTransition_Impl::IsDurationKnown(this).into()
             }
         }
@@ -2748,8 +2748,8 @@ impl IUIAnimationTransition_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransition_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransition_Impl::GetDuration(this) {
                     Ok(ok__) => {
                         duration.write(core::mem::transmute(ok__));
@@ -2834,8 +2834,8 @@ impl IUIAnimationTransition2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransition2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransition2_Impl::GetDimension(this) {
                     Ok(ok__) => {
                         dimension.write(core::mem::transmute(ok__));
@@ -2850,8 +2850,8 @@ impl IUIAnimationTransition2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransition2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTransition2_Impl::SetInitialValue(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -2860,8 +2860,8 @@ impl IUIAnimationTransition2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransition2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTransition2_Impl::SetInitialVectorValue(this, core::mem::transmute_copy(&value), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -2870,8 +2870,8 @@ impl IUIAnimationTransition2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransition2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTransition2_Impl::SetInitialVelocity(this, core::mem::transmute_copy(&velocity)).into()
             }
         }
@@ -2880,8 +2880,8 @@ impl IUIAnimationTransition2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransition2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTransition2_Impl::SetInitialVectorVelocity(this, core::mem::transmute_copy(&velocity), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -2890,8 +2890,8 @@ impl IUIAnimationTransition2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransition2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationTransition2_Impl::IsDurationKnown(this).into()
             }
         }
@@ -2900,8 +2900,8 @@ impl IUIAnimationTransition2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransition2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransition2_Impl::GetDuration(this) {
                     Ok(ok__) => {
                         duration.write(core::mem::transmute(ok__));
@@ -2959,8 +2959,8 @@ impl IUIAnimationTransitionFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionFactory_Impl::CreateTransition(this, core::mem::transmute_copy(&interpolator)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3009,8 +3009,8 @@ impl IUIAnimationTransitionFactory2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionFactory2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionFactory2_Impl::CreateTransition(this, core::mem::transmute_copy(&interpolator)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3144,8 +3144,8 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary_Impl::CreateInstantaneousTransition(this, core::mem::transmute_copy(&finalvalue)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3160,8 +3160,8 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary_Impl::CreateConstantTransition(this, core::mem::transmute_copy(&duration)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3176,8 +3176,8 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary_Impl::CreateDiscreteTransition(this, core::mem::transmute_copy(&delay), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&hold)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3192,8 +3192,8 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary_Impl::CreateLinearTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3208,8 +3208,8 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary_Impl::CreateLinearTransitionFromSpeed(this, core::mem::transmute_copy(&speed), core::mem::transmute_copy(&finalvalue)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3224,8 +3224,8 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary_Impl::CreateSinusoidalTransitionFromVelocity(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&period)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3240,8 +3240,8 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary_Impl::CreateSinusoidalTransitionFromRange(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&minimumvalue), core::mem::transmute_copy(&maximumvalue), core::mem::transmute_copy(&period), core::mem::transmute_copy(&slope)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3256,8 +3256,8 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary_Impl::CreateAccelerateDecelerateTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&accelerationratio), core::mem::transmute_copy(&decelerationratio)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3272,8 +3272,8 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary_Impl::CreateReversalTransition(this, core::mem::transmute_copy(&duration)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3288,8 +3288,8 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary_Impl::CreateCubicTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&finalvelocity)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3304,8 +3304,8 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary_Impl::CreateSmoothStopTransition(this, core::mem::transmute_copy(&maximumduration), core::mem::transmute_copy(&finalvalue)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3320,8 +3320,8 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary_Impl::CreateParabolicTransitionFromAcceleration(this, core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&finalvelocity), core::mem::transmute_copy(&acceleration)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3525,8 +3525,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateInstantaneousTransition(this, core::mem::transmute_copy(&finalvalue)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3541,8 +3541,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateInstantaneousVectorTransition(this, core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&cdimension)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3557,8 +3557,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateConstantTransition(this, core::mem::transmute_copy(&duration)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3573,8 +3573,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateDiscreteTransition(this, core::mem::transmute_copy(&delay), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&hold)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3589,8 +3589,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateDiscreteVectorTransition(this, core::mem::transmute_copy(&delay), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&cdimension), core::mem::transmute_copy(&hold)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3605,8 +3605,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateLinearTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3621,8 +3621,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateLinearVectorTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&cdimension)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3637,8 +3637,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateLinearTransitionFromSpeed(this, core::mem::transmute_copy(&speed), core::mem::transmute_copy(&finalvalue)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3653,8 +3653,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateLinearVectorTransitionFromSpeed(this, core::mem::transmute_copy(&speed), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&cdimension)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3669,8 +3669,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateSinusoidalTransitionFromVelocity(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&period)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3685,8 +3685,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateSinusoidalTransitionFromRange(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&minimumvalue), core::mem::transmute_copy(&maximumvalue), core::mem::transmute_copy(&period), core::mem::transmute_copy(&slope)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3701,8 +3701,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateAccelerateDecelerateTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&accelerationratio), core::mem::transmute_copy(&decelerationratio)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3717,8 +3717,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateReversalTransition(this, core::mem::transmute_copy(&duration)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3733,8 +3733,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateCubicTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&finalvelocity)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3749,8 +3749,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateCubicVectorTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&finalvelocity), core::mem::transmute_copy(&cdimension)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3765,8 +3765,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateSmoothStopTransition(this, core::mem::transmute_copy(&maximumduration), core::mem::transmute_copy(&finalvalue)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3781,8 +3781,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateParabolicTransitionFromAcceleration(this, core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&finalvelocity), core::mem::transmute_copy(&acceleration)) {
                     Ok(ok__) => {
                         transition.write(core::mem::transmute(ok__));
@@ -3797,8 +3797,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateCubicBezierLinearTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&x1), core::mem::transmute_copy(&y1), core::mem::transmute_copy(&x2), core::mem::transmute_copy(&y2)) {
                     Ok(ok__) => {
                         pptransition.write(core::mem::transmute(ok__));
@@ -3813,8 +3813,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationTransitionLibrary2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationTransitionLibrary2_Impl::CreateCubicBezierLinearVectorTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&cdimension), core::mem::transmute_copy(&x1), core::mem::transmute_copy(&y1), core::mem::transmute_copy(&x2), core::mem::transmute_copy(&y2)) {
                     Ok(ok__) => {
                         pptransition.write(core::mem::transmute(ok__));
@@ -3973,8 +3973,8 @@ impl IUIAnimationVariable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable_Impl::GetValue(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -3989,8 +3989,8 @@ impl IUIAnimationVariable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable_Impl::GetFinalValue(this) {
                     Ok(ok__) => {
                         finalvalue.write(core::mem::transmute(ok__));
@@ -4005,8 +4005,8 @@ impl IUIAnimationVariable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable_Impl::GetPreviousValue(this) {
                     Ok(ok__) => {
                         previousvalue.write(core::mem::transmute(ok__));
@@ -4021,8 +4021,8 @@ impl IUIAnimationVariable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable_Impl::GetIntegerValue(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -4037,8 +4037,8 @@ impl IUIAnimationVariable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable_Impl::GetFinalIntegerValue(this) {
                     Ok(ok__) => {
                         finalvalue.write(core::mem::transmute(ok__));
@@ -4053,8 +4053,8 @@ impl IUIAnimationVariable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable_Impl::GetPreviousIntegerValue(this) {
                     Ok(ok__) => {
                         previousvalue.write(core::mem::transmute(ok__));
@@ -4069,8 +4069,8 @@ impl IUIAnimationVariable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable_Impl::GetCurrentStoryboard(this) {
                     Ok(ok__) => {
                         storyboard.write(core::mem::transmute(ok__));
@@ -4085,8 +4085,8 @@ impl IUIAnimationVariable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable_Impl::SetLowerBound(this, core::mem::transmute_copy(&bound)).into()
             }
         }
@@ -4095,8 +4095,8 @@ impl IUIAnimationVariable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable_Impl::SetUpperBound(this, core::mem::transmute_copy(&bound)).into()
             }
         }
@@ -4105,8 +4105,8 @@ impl IUIAnimationVariable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable_Impl::SetRoundingMode(this, core::mem::transmute_copy(&mode)).into()
             }
         }
@@ -4115,8 +4115,8 @@ impl IUIAnimationVariable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable_Impl::SetTag(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&id)).into()
             }
         }
@@ -4125,8 +4125,8 @@ impl IUIAnimationVariable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable_Impl::GetTag(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&id)).into()
             }
         }
@@ -4135,8 +4135,8 @@ impl IUIAnimationVariable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable_Impl::SetVariableChangeHandler(this, core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -4145,8 +4145,8 @@ impl IUIAnimationVariable_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable_Impl::SetVariableIntegerChangeHandler(this, core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -4373,8 +4373,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable2_Impl::GetDimension(this) {
                     Ok(ok__) => {
                         dimension.write(core::mem::transmute(ok__));
@@ -4389,8 +4389,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable2_Impl::GetValue(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -4405,8 +4405,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::GetVectorValue(this, core::mem::transmute_copy(&value), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -4415,8 +4415,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::GetCurve(this, core::mem::transmute_copy(&animation)).into()
             }
         }
@@ -4425,8 +4425,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::GetVectorCurve(this, core::mem::transmute_copy(&animation), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -4435,8 +4435,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable2_Impl::GetFinalValue(this) {
                     Ok(ok__) => {
                         finalvalue.write(core::mem::transmute(ok__));
@@ -4451,8 +4451,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::GetFinalVectorValue(this, core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -4461,8 +4461,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable2_Impl::GetPreviousValue(this) {
                     Ok(ok__) => {
                         previousvalue.write(core::mem::transmute(ok__));
@@ -4477,8 +4477,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::GetPreviousVectorValue(this, core::mem::transmute_copy(&previousvalue), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -4487,8 +4487,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable2_Impl::GetIntegerValue(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -4503,8 +4503,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::GetIntegerVectorValue(this, core::mem::transmute_copy(&value), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -4513,8 +4513,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable2_Impl::GetFinalIntegerValue(this) {
                     Ok(ok__) => {
                         finalvalue.write(core::mem::transmute(ok__));
@@ -4529,8 +4529,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::GetFinalIntegerVectorValue(this, core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -4539,8 +4539,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable2_Impl::GetPreviousIntegerValue(this) {
                     Ok(ok__) => {
                         previousvalue.write(core::mem::transmute(ok__));
@@ -4555,8 +4555,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::GetPreviousIntegerVectorValue(this, core::mem::transmute_copy(&previousvalue), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -4565,8 +4565,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUIAnimationVariable2_Impl::GetCurrentStoryboard(this) {
                     Ok(ok__) => {
                         storyboard.write(core::mem::transmute(ok__));
@@ -4581,8 +4581,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::SetLowerBound(this, core::mem::transmute_copy(&bound)).into()
             }
         }
@@ -4591,8 +4591,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::SetLowerBoundVector(this, core::mem::transmute_copy(&bound), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -4601,8 +4601,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::SetUpperBound(this, core::mem::transmute_copy(&bound)).into()
             }
         }
@@ -4611,8 +4611,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::SetUpperBoundVector(this, core::mem::transmute_copy(&bound), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -4621,8 +4621,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::SetRoundingMode(this, core::mem::transmute_copy(&mode)).into()
             }
         }
@@ -4631,8 +4631,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::SetTag(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&id)).into()
             }
         }
@@ -4641,8 +4641,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::GetTag(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&id)).into()
             }
         }
@@ -4651,8 +4651,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::SetVariableChangeHandler(this, core::mem::transmute_copy(&handler), core::mem::transmute_copy(&fregisterfornextanimationevent)).into()
             }
         }
@@ -4661,8 +4661,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::SetVariableIntegerChangeHandler(this, core::mem::transmute_copy(&handler), core::mem::transmute_copy(&fregisterfornextanimationevent)).into()
             }
         }
@@ -4671,8 +4671,8 @@ impl IUIAnimationVariable2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariable2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariable2_Impl::SetVariableCurveChangeHandler(this, core::mem::transmute_copy(&handler)).into()
             }
         }
@@ -4742,8 +4742,8 @@ impl IUIAnimationVariableChangeHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariableChangeHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariableChangeHandler_Impl::OnValueChanged(this, core::mem::transmute_copy(&storyboard), core::mem::transmute_copy(&variable), core::mem::transmute_copy(&newvalue), core::mem::transmute_copy(&previousvalue)).into()
             }
         }
@@ -4784,8 +4784,8 @@ impl IUIAnimationVariableChangeHandler2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariableChangeHandler2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariableChangeHandler2_Impl::OnValueChanged(this, core::mem::transmute_copy(&storyboard), core::mem::transmute_copy(&variable), core::mem::transmute_copy(&newvalue), core::mem::transmute_copy(&previousvalue), core::mem::transmute_copy(&cdimension)).into()
             }
         }
@@ -4825,8 +4825,8 @@ impl IUIAnimationVariableCurveChangeHandler2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariableCurveChangeHandler2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariableCurveChangeHandler2_Impl::OnCurveChanged(this, core::mem::transmute_copy(&variable)).into()
             }
         }
@@ -4867,8 +4867,8 @@ impl IUIAnimationVariableIntegerChangeHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariableIntegerChangeHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariableIntegerChangeHandler_Impl::OnIntegerValueChanged(this, core::mem::transmute_copy(&storyboard), core::mem::transmute_copy(&variable), core::mem::transmute_copy(&newvalue), core::mem::transmute_copy(&previousvalue)).into()
             }
         }
@@ -4909,8 +4909,8 @@ impl IUIAnimationVariableIntegerChangeHandler2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIAnimationVariableIntegerChangeHandler2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIAnimationVariableIntegerChangeHandler2_Impl::OnIntegerValueChanged(this, core::mem::transmute_copy(&storyboard), core::mem::transmute_copy(&variable), core::mem::transmute_copy(&newvalue), core::mem::transmute_copy(&previousvalue), core::mem::transmute_copy(&cdimension)).into()
             }
         }

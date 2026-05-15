@@ -31,8 +31,8 @@ impl IMcpMessageFilterExperimental_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterExperimental_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMcpMessageFilterExperimental_Impl::Initialize(this, core::mem::transmute(&clientappusermodelid), clientprocessid, core::mem::transmute(&serveridentity), core::mem::transmute(&servername), serverprocessid).into()
             }
         }
@@ -41,8 +41,8 @@ impl IMcpMessageFilterExperimental_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterExperimental_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMcpMessageFilterExperimental_Impl::OnMessage(this, core::mem::transmute(&message), direction, core::mem::transmute_copy(&filterresponse)).into()
             }
         }
@@ -116,8 +116,8 @@ impl IMcpMessageFilterResponseExperimental_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterResponseExperimental_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMcpMessageFilterResponseExperimental_Impl::IsAllowed(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -132,8 +132,8 @@ impl IMcpMessageFilterResponseExperimental_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterResponseExperimental_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMcpMessageFilterResponseExperimental_Impl::SetIsAllowed(this, value).into()
             }
         }
@@ -142,8 +142,8 @@ impl IMcpMessageFilterResponseExperimental_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterResponseExperimental_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMcpMessageFilterResponseExperimental_Impl::MessageIfNotAllowed(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -159,8 +159,8 @@ impl IMcpMessageFilterResponseExperimental_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterResponseExperimental_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMcpMessageFilterResponseExperimental_Impl::SetMessageIfNotAllowed(this, core::mem::transmute(&value)).into()
             }
         }
@@ -215,8 +215,8 @@ impl IMcpMessageFilterResponseExperimental2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterResponseExperimental2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMcpMessageFilterResponseExperimental2_Impl::Allow(this).into()
             }
         }
@@ -225,8 +225,8 @@ impl IMcpMessageFilterResponseExperimental2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterResponseExperimental2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMcpMessageFilterResponseExperimental2_Impl::Reject(this, core::mem::transmute(&reason)).into()
             }
         }

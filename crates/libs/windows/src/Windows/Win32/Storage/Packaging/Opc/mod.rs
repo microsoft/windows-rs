@@ -57,8 +57,8 @@ impl IOpcCertificateEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcCertificateEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcCertificateEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
                         hasnext.write(core::mem::transmute(ok__));
@@ -73,8 +73,8 @@ impl IOpcCertificateEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcCertificateEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcCertificateEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
                         hasprevious.write(core::mem::transmute(ok__));
@@ -89,8 +89,8 @@ impl IOpcCertificateEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcCertificateEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcCertificateEnumerator_Impl::GetCurrent(this) {
                     Ok(ok__) => {
                         certificate.write(core::mem::transmute(ok__));
@@ -105,8 +105,8 @@ impl IOpcCertificateEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcCertificateEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcCertificateEnumerator_Impl::Clone(this) {
                     Ok(ok__) => {
                         copy.write(core::mem::transmute(ok__));
@@ -179,8 +179,8 @@ impl IOpcCertificateSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcCertificateSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcCertificateSet_Impl::Add(this, core::mem::transmute_copy(&certificate)).into()
             }
         }
@@ -189,8 +189,8 @@ impl IOpcCertificateSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcCertificateSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcCertificateSet_Impl::Remove(this, core::mem::transmute_copy(&certificate)).into()
             }
         }
@@ -199,8 +199,8 @@ impl IOpcCertificateSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcCertificateSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcCertificateSet_Impl::GetEnumerator(this) {
                     Ok(ok__) => {
                         certificateenumerator.write(core::mem::transmute(ok__));
@@ -361,8 +361,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcDigitalSignature_Impl::GetNamespaces(this, core::mem::transmute_copy(&prefixes), core::mem::transmute_copy(&namespaces), core::mem::transmute_copy(&count)).into()
             }
         }
@@ -371,8 +371,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignature_Impl::GetSignatureId(this) {
                     Ok(ok__) => {
                         signatureid.write(core::mem::transmute(ok__));
@@ -387,8 +387,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignature_Impl::GetSignaturePartName(this) {
                     Ok(ok__) => {
                         signaturepartname.write(core::mem::transmute(ok__));
@@ -403,8 +403,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignature_Impl::GetSignatureMethod(this) {
                     Ok(ok__) => {
                         signaturemethod.write(core::mem::transmute(ok__));
@@ -419,8 +419,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignature_Impl::GetCanonicalizationMethod(this) {
                     Ok(ok__) => {
                         canonicalizationmethod.write(core::mem::transmute(ok__));
@@ -435,8 +435,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcDigitalSignature_Impl::GetSignatureValue(this, core::mem::transmute_copy(&signaturevalue), core::mem::transmute_copy(&count)).into()
             }
         }
@@ -445,8 +445,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignature_Impl::GetSignaturePartReferenceEnumerator(this) {
                     Ok(ok__) => {
                         partreferenceenumerator.write(core::mem::transmute(ok__));
@@ -461,8 +461,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignature_Impl::GetSignatureRelationshipReferenceEnumerator(this) {
                     Ok(ok__) => {
                         relationshipreferenceenumerator.write(core::mem::transmute(ok__));
@@ -477,8 +477,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignature_Impl::GetSigningTime(this) {
                     Ok(ok__) => {
                         signingtime.write(core::mem::transmute(ok__));
@@ -493,8 +493,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignature_Impl::GetTimeFormat(this) {
                     Ok(ok__) => {
                         timeformat.write(core::mem::transmute(ok__));
@@ -509,8 +509,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignature_Impl::GetPackageObjectReference(this) {
                     Ok(ok__) => {
                         packageobjectreference.write(core::mem::transmute(ok__));
@@ -525,8 +525,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignature_Impl::GetCertificateEnumerator(this) {
                     Ok(ok__) => {
                         certificateenumerator.write(core::mem::transmute(ok__));
@@ -541,8 +541,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignature_Impl::GetCustomReferenceEnumerator(this) {
                     Ok(ok__) => {
                         customreferenceenumerator.write(core::mem::transmute(ok__));
@@ -557,8 +557,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignature_Impl::GetCustomObjectEnumerator(this) {
                     Ok(ok__) => {
                         customobjectenumerator.write(core::mem::transmute(ok__));
@@ -573,8 +573,8 @@ impl IOpcDigitalSignature_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignature_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcDigitalSignature_Impl::GetSignatureXml(this, core::mem::transmute_copy(&signaturexml), core::mem::transmute_copy(&count)).into()
             }
         }
@@ -656,8 +656,8 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignatureEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignatureEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
                         hasnext.write(core::mem::transmute(ok__));
@@ -672,8 +672,8 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignatureEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignatureEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
                         hasprevious.write(core::mem::transmute(ok__));
@@ -688,8 +688,8 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignatureEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignatureEnumerator_Impl::GetCurrent(this) {
                     Ok(ok__) => {
                         digitalsignature.write(core::mem::transmute(ok__));
@@ -704,8 +704,8 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignatureEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignatureEnumerator_Impl::Clone(this) {
                     Ok(ok__) => {
                         copy.write(core::mem::transmute(ok__));
@@ -848,8 +848,8 @@ impl IOpcDigitalSignatureManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignatureManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignatureManager_Impl::GetSignatureOriginPartName(this) {
                     Ok(ok__) => {
                         signatureoriginpartname.write(core::mem::transmute(ok__));
@@ -864,8 +864,8 @@ impl IOpcDigitalSignatureManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignatureManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcDigitalSignatureManager_Impl::SetSignatureOriginPartName(this, core::mem::transmute_copy(&signatureoriginpartname)).into()
             }
         }
@@ -874,8 +874,8 @@ impl IOpcDigitalSignatureManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignatureManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignatureManager_Impl::GetSignatureEnumerator(this) {
                     Ok(ok__) => {
                         signatureenumerator.write(core::mem::transmute(ok__));
@@ -890,8 +890,8 @@ impl IOpcDigitalSignatureManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignatureManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcDigitalSignatureManager_Impl::RemoveSignature(this, core::mem::transmute_copy(&signaturepartname)).into()
             }
         }
@@ -900,8 +900,8 @@ impl IOpcDigitalSignatureManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignatureManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignatureManager_Impl::CreateSigningOptions(this) {
                     Ok(ok__) => {
                         signingoptions.write(core::mem::transmute(ok__));
@@ -916,8 +916,8 @@ impl IOpcDigitalSignatureManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignatureManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignatureManager_Impl::Validate(this, core::mem::transmute_copy(&signature), core::mem::transmute_copy(&certificate)) {
                     Ok(ok__) => {
                         validationresult.write(core::mem::transmute(ok__));
@@ -932,8 +932,8 @@ impl IOpcDigitalSignatureManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignatureManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignatureManager_Impl::Sign(this, core::mem::transmute_copy(&certificate), core::mem::transmute_copy(&signingoptions)) {
                     Ok(ok__) => {
                         digitalsignature.write(core::mem::transmute(ok__));
@@ -948,8 +948,8 @@ impl IOpcDigitalSignatureManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcDigitalSignatureManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcDigitalSignatureManager_Impl::ReplaceSignatureXml(this, core::mem::transmute_copy(&signaturepartname), core::mem::transmute_copy(&newsignaturexml), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
                         digitalsignature.write(core::mem::transmute(ok__));
@@ -1089,8 +1089,8 @@ impl IOpcFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcFactory_Impl::CreatePackageRootUri(this) {
                     Ok(ok__) => {
                         rooturi.write(core::mem::transmute(ok__));
@@ -1105,8 +1105,8 @@ impl IOpcFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcFactory_Impl::CreatePartUri(this, core::mem::transmute(&pwzuri)) {
                     Ok(ok__) => {
                         parturi.write(core::mem::transmute(ok__));
@@ -1121,8 +1121,8 @@ impl IOpcFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcFactory_Impl::CreateStreamOnFile(this, core::mem::transmute(&filename), core::mem::transmute_copy(&iomode), core::mem::transmute_copy(&securityattributes), core::mem::transmute_copy(&dwflagsandattributes)) {
                     Ok(ok__) => {
                         stream.write(core::mem::transmute(ok__));
@@ -1137,8 +1137,8 @@ impl IOpcFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcFactory_Impl::CreatePackage(this) {
                     Ok(ok__) => {
                         package.write(core::mem::transmute(ok__));
@@ -1153,8 +1153,8 @@ impl IOpcFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcFactory_Impl::ReadPackageFromStream(this, core::mem::transmute_copy(&stream), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
                         package.write(core::mem::transmute(ok__));
@@ -1169,8 +1169,8 @@ impl IOpcFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcFactory_Impl::WritePackageToStream(this, core::mem::transmute_copy(&package), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&stream)).into()
             }
         }
@@ -1179,8 +1179,8 @@ impl IOpcFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcFactory_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcFactory_Impl::CreateDigitalSignatureManager(this, core::mem::transmute_copy(&package)) {
                     Ok(ok__) => {
                         signaturemanager.write(core::mem::transmute(ok__));
@@ -1244,8 +1244,8 @@ impl IOpcPackage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPackage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPackage_Impl::GetPartSet(this) {
                     Ok(ok__) => {
                         partset.write(core::mem::transmute(ok__));
@@ -1260,8 +1260,8 @@ impl IOpcPackage_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPackage_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPackage_Impl::GetRelationshipSet(this) {
                     Ok(ok__) => {
                         relationshipset.write(core::mem::transmute(ok__));
@@ -1353,8 +1353,8 @@ impl IOpcPart_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPart_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPart_Impl::GetRelationshipSet(this) {
                     Ok(ok__) => {
                         relationshipset.write(core::mem::transmute(ok__));
@@ -1369,8 +1369,8 @@ impl IOpcPart_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPart_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPart_Impl::GetContentStream(this) {
                     Ok(ok__) => {
                         stream.write(core::mem::transmute(ok__));
@@ -1385,8 +1385,8 @@ impl IOpcPart_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPart_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPart_Impl::GetName(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -1401,8 +1401,8 @@ impl IOpcPart_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPart_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPart_Impl::GetContentType(this) {
                     Ok(ok__) => {
                         contenttype.write(core::mem::transmute(ok__));
@@ -1417,8 +1417,8 @@ impl IOpcPart_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPart_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPart_Impl::GetCompressionOptions(this) {
                     Ok(ok__) => {
                         compressionoptions.write(core::mem::transmute(ok__));
@@ -1496,8 +1496,8 @@ impl IOpcPartEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPartEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPartEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
                         hasnext.write(core::mem::transmute(ok__));
@@ -1512,8 +1512,8 @@ impl IOpcPartEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPartEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPartEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
                         hasprevious.write(core::mem::transmute(ok__));
@@ -1528,8 +1528,8 @@ impl IOpcPartEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPartEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPartEnumerator_Impl::GetCurrent(this) {
                     Ok(ok__) => {
                         part.write(core::mem::transmute(ok__));
@@ -1544,8 +1544,8 @@ impl IOpcPartEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPartEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPartEnumerator_Impl::Clone(this) {
                     Ok(ok__) => {
                         copy.write(core::mem::transmute(ok__));
@@ -1657,8 +1657,8 @@ impl IOpcPartSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPartSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPartSet_Impl::GetPart(this, core::mem::transmute_copy(&name)) {
                     Ok(ok__) => {
                         part.write(core::mem::transmute(ok__));
@@ -1673,8 +1673,8 @@ impl IOpcPartSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPartSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPartSet_Impl::CreatePart(this, core::mem::transmute_copy(&name), core::mem::transmute(&contenttype), core::mem::transmute_copy(&compressionoptions)) {
                     Ok(ok__) => {
                         part.write(core::mem::transmute(ok__));
@@ -1689,8 +1689,8 @@ impl IOpcPartSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPartSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcPartSet_Impl::DeletePart(this, core::mem::transmute_copy(&name)).into()
             }
         }
@@ -1699,8 +1699,8 @@ impl IOpcPartSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPartSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPartSet_Impl::PartExists(this, core::mem::transmute_copy(&name)) {
                     Ok(ok__) => {
                         partexists.write(core::mem::transmute(ok__));
@@ -1715,8 +1715,8 @@ impl IOpcPartSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPartSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPartSet_Impl::GetEnumerator(this) {
                     Ok(ok__) => {
                         partenumerator.write(core::mem::transmute(ok__));
@@ -1802,8 +1802,8 @@ impl IOpcPartUri_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPartUri_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPartUri_Impl::ComparePartUri(this, core::mem::transmute_copy(&parturi)) {
                     Ok(ok__) => {
                         comparisonresult.write(core::mem::transmute(ok__));
@@ -1818,8 +1818,8 @@ impl IOpcPartUri_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPartUri_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPartUri_Impl::GetSourceUri(this) {
                     Ok(ok__) => {
                         sourceuri.write(core::mem::transmute(ok__));
@@ -1834,8 +1834,8 @@ impl IOpcPartUri_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcPartUri_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcPartUri_Impl::IsRelationshipsPartUri(this) {
                     Ok(ok__) => {
                         isrelationshipuri.write(core::mem::transmute(ok__));
@@ -1929,8 +1929,8 @@ impl IOpcRelationship_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationship_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationship_Impl::GetId(this) {
                     Ok(ok__) => {
                         relationshipidentifier.write(core::mem::transmute(ok__));
@@ -1945,8 +1945,8 @@ impl IOpcRelationship_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationship_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationship_Impl::GetRelationshipType(this) {
                     Ok(ok__) => {
                         relationshiptype.write(core::mem::transmute(ok__));
@@ -1961,8 +1961,8 @@ impl IOpcRelationship_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationship_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationship_Impl::GetSourceUri(this) {
                     Ok(ok__) => {
                         sourceuri.write(core::mem::transmute(ok__));
@@ -1977,8 +1977,8 @@ impl IOpcRelationship_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationship_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationship_Impl::GetTargetUri(this) {
                     Ok(ok__) => {
                         targeturi.write(core::mem::transmute(ok__));
@@ -1993,8 +1993,8 @@ impl IOpcRelationship_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationship_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationship_Impl::GetTargetMode(this) {
                     Ok(ok__) => {
                         targetmode.write(core::mem::transmute(ok__));
@@ -2072,8 +2072,8 @@ impl IOpcRelationshipEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
                         hasnext.write(core::mem::transmute(ok__));
@@ -2088,8 +2088,8 @@ impl IOpcRelationshipEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
                         hasprevious.write(core::mem::transmute(ok__));
@@ -2104,8 +2104,8 @@ impl IOpcRelationshipEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipEnumerator_Impl::GetCurrent(this) {
                     Ok(ok__) => {
                         relationship.write(core::mem::transmute(ok__));
@@ -2120,8 +2120,8 @@ impl IOpcRelationshipEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipEnumerator_Impl::Clone(this) {
                     Ok(ok__) => {
                         copy.write(core::mem::transmute(ok__));
@@ -2181,8 +2181,8 @@ impl IOpcRelationshipSelector_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSelector_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipSelector_Impl::GetSelectorType(this) {
                     Ok(ok__) => {
                         selector.write(core::mem::transmute(ok__));
@@ -2197,8 +2197,8 @@ impl IOpcRelationshipSelector_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSelector_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipSelector_Impl::GetSelectionCriterion(this) {
                     Ok(ok__) => {
                         selectioncriterion.write(core::mem::transmute(ok__));
@@ -2272,8 +2272,8 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSelectorEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipSelectorEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
                         hasnext.write(core::mem::transmute(ok__));
@@ -2288,8 +2288,8 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSelectorEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipSelectorEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
                         hasprevious.write(core::mem::transmute(ok__));
@@ -2304,8 +2304,8 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSelectorEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipSelectorEnumerator_Impl::GetCurrent(this) {
                     Ok(ok__) => {
                         relationshipselector.write(core::mem::transmute(ok__));
@@ -2320,8 +2320,8 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSelectorEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipSelectorEnumerator_Impl::Clone(this) {
                     Ok(ok__) => {
                         copy.write(core::mem::transmute(ok__));
@@ -2392,8 +2392,8 @@ impl IOpcRelationshipSelectorSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSelectorSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipSelectorSet_Impl::Create(this, core::mem::transmute_copy(&selector), core::mem::transmute(&selectioncriterion)) {
                     Ok(ok__) => {
                         relationshipselector.write(core::mem::transmute(ok__));
@@ -2408,8 +2408,8 @@ impl IOpcRelationshipSelectorSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSelectorSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcRelationshipSelectorSet_Impl::Delete(this, core::mem::transmute_copy(&relationshipselector)).into()
             }
         }
@@ -2418,8 +2418,8 @@ impl IOpcRelationshipSelectorSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSelectorSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipSelectorSet_Impl::GetEnumerator(this) {
                     Ok(ok__) => {
                         relationshipselectorenumerator.write(core::mem::transmute(ok__));
@@ -2542,8 +2542,8 @@ impl IOpcRelationshipSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipSet_Impl::GetRelationship(this, core::mem::transmute(&relationshipidentifier)) {
                     Ok(ok__) => {
                         relationship.write(core::mem::transmute(ok__));
@@ -2558,8 +2558,8 @@ impl IOpcRelationshipSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipSet_Impl::CreateRelationship(this, core::mem::transmute(&relationshipidentifier), core::mem::transmute(&relationshiptype), core::mem::transmute_copy(&targeturi), core::mem::transmute_copy(&targetmode)) {
                     Ok(ok__) => {
                         relationship.write(core::mem::transmute(ok__));
@@ -2574,8 +2574,8 @@ impl IOpcRelationshipSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcRelationshipSet_Impl::DeleteRelationship(this, core::mem::transmute(&relationshipidentifier)).into()
             }
         }
@@ -2584,8 +2584,8 @@ impl IOpcRelationshipSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipSet_Impl::RelationshipExists(this, core::mem::transmute(&relationshipidentifier)) {
                     Ok(ok__) => {
                         relationshipexists.write(core::mem::transmute(ok__));
@@ -2600,8 +2600,8 @@ impl IOpcRelationshipSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipSet_Impl::GetEnumerator(this) {
                     Ok(ok__) => {
                         relationshipenumerator.write(core::mem::transmute(ok__));
@@ -2616,8 +2616,8 @@ impl IOpcRelationshipSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipSet_Impl::GetEnumeratorForType(this, core::mem::transmute(&relationshiptype)) {
                     Ok(ok__) => {
                         relationshipenumerator.write(core::mem::transmute(ok__));
@@ -2632,8 +2632,8 @@ impl IOpcRelationshipSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcRelationshipSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcRelationshipSet_Impl::GetRelationshipsContentStream(this) {
                     Ok(ok__) => {
                         contents.write(core::mem::transmute(ok__));
@@ -2686,8 +2686,8 @@ impl IOpcSignatureCustomObject_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureCustomObject_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcSignatureCustomObject_Impl::GetXml(this, core::mem::transmute_copy(&xmlmarkup), core::mem::transmute_copy(&count)).into()
             }
         }
@@ -2751,8 +2751,8 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureCustomObjectEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureCustomObjectEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
                         hasnext.write(core::mem::transmute(ok__));
@@ -2767,8 +2767,8 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureCustomObjectEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureCustomObjectEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
                         hasprevious.write(core::mem::transmute(ok__));
@@ -2783,8 +2783,8 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureCustomObjectEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureCustomObjectEnumerator_Impl::GetCurrent(this) {
                     Ok(ok__) => {
                         customobject.write(core::mem::transmute(ok__));
@@ -2799,8 +2799,8 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureCustomObjectEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureCustomObjectEnumerator_Impl::Clone(this) {
                     Ok(ok__) => {
                         copy.write(core::mem::transmute(ok__));
@@ -2868,8 +2868,8 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureCustomObjectSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureCustomObjectSet_Impl::Create(this, core::mem::transmute_copy(&xmlmarkup), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
                         customobject.write(core::mem::transmute(ok__));
@@ -2884,8 +2884,8 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureCustomObjectSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcSignatureCustomObjectSet_Impl::Delete(this, core::mem::transmute_copy(&customobject)).into()
             }
         }
@@ -2894,8 +2894,8 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureCustomObjectSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureCustomObjectSet_Impl::GetEnumerator(this) {
                     Ok(ok__) => {
                         customobjectenumerator.write(core::mem::transmute(ok__));
@@ -2981,8 +2981,8 @@ impl IOpcSignaturePartReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignaturePartReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignaturePartReference_Impl::GetPartName(this) {
                     Ok(ok__) => {
                         partname.write(core::mem::transmute(ok__));
@@ -2997,8 +2997,8 @@ impl IOpcSignaturePartReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignaturePartReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignaturePartReference_Impl::GetContentType(this) {
                     Ok(ok__) => {
                         contenttype.write(core::mem::transmute(ok__));
@@ -3013,8 +3013,8 @@ impl IOpcSignaturePartReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignaturePartReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignaturePartReference_Impl::GetDigestMethod(this) {
                     Ok(ok__) => {
                         digestmethod.write(core::mem::transmute(ok__));
@@ -3029,8 +3029,8 @@ impl IOpcSignaturePartReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignaturePartReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcSignaturePartReference_Impl::GetDigestValue(this, core::mem::transmute_copy(&digestvalue), core::mem::transmute_copy(&count)).into()
             }
         }
@@ -3039,8 +3039,8 @@ impl IOpcSignaturePartReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignaturePartReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignaturePartReference_Impl::GetTransformMethod(this) {
                     Ok(ok__) => {
                         transformmethod.write(core::mem::transmute(ok__));
@@ -3118,8 +3118,8 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignaturePartReferenceEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignaturePartReferenceEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
                         hasnext.write(core::mem::transmute(ok__));
@@ -3134,8 +3134,8 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignaturePartReferenceEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignaturePartReferenceEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
                         hasprevious.write(core::mem::transmute(ok__));
@@ -3150,8 +3150,8 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignaturePartReferenceEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignaturePartReferenceEnumerator_Impl::GetCurrent(this) {
                     Ok(ok__) => {
                         partreference.write(core::mem::transmute(ok__));
@@ -3166,8 +3166,8 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignaturePartReferenceEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignaturePartReferenceEnumerator_Impl::Clone(this) {
                     Ok(ok__) => {
                         copy.write(core::mem::transmute(ok__));
@@ -3245,8 +3245,8 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignaturePartReferenceSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignaturePartReferenceSet_Impl::Create(this, core::mem::transmute_copy(&parturi), core::mem::transmute(&digestmethod), core::mem::transmute_copy(&transformmethod)) {
                     Ok(ok__) => {
                         partreference.write(core::mem::transmute(ok__));
@@ -3261,8 +3261,8 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignaturePartReferenceSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcSignaturePartReferenceSet_Impl::Delete(this, core::mem::transmute_copy(&partreference)).into()
             }
         }
@@ -3271,8 +3271,8 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignaturePartReferenceSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignaturePartReferenceSet_Impl::GetEnumerator(this) {
                     Ok(ok__) => {
                         partreferenceenumerator.write(core::mem::transmute(ok__));
@@ -3367,8 +3367,8 @@ impl IOpcSignatureReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureReference_Impl::GetId(this) {
                     Ok(ok__) => {
                         referenceid.write(core::mem::transmute(ok__));
@@ -3383,8 +3383,8 @@ impl IOpcSignatureReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureReference_Impl::GetUri(this) {
                     Ok(ok__) => {
                         referenceuri.write(core::mem::transmute(ok__));
@@ -3399,8 +3399,8 @@ impl IOpcSignatureReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureReference_Impl::GetType(this) {
                     Ok(ok__) => {
                         r#type.write(core::mem::transmute(ok__));
@@ -3415,8 +3415,8 @@ impl IOpcSignatureReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureReference_Impl::GetTransformMethod(this) {
                     Ok(ok__) => {
                         transformmethod.write(core::mem::transmute(ok__));
@@ -3431,8 +3431,8 @@ impl IOpcSignatureReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureReference_Impl::GetDigestMethod(this) {
                     Ok(ok__) => {
                         digestmethod.write(core::mem::transmute(ok__));
@@ -3447,8 +3447,8 @@ impl IOpcSignatureReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcSignatureReference_Impl::GetDigestValue(this, core::mem::transmute_copy(&digestvalue), core::mem::transmute_copy(&count)).into()
             }
         }
@@ -3521,8 +3521,8 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureReferenceEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureReferenceEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
                         hasnext.write(core::mem::transmute(ok__));
@@ -3537,8 +3537,8 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureReferenceEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureReferenceEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
                         hasprevious.write(core::mem::transmute(ok__));
@@ -3553,8 +3553,8 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureReferenceEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureReferenceEnumerator_Impl::GetCurrent(this) {
                     Ok(ok__) => {
                         reference.write(core::mem::transmute(ok__));
@@ -3569,8 +3569,8 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureReferenceEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureReferenceEnumerator_Impl::Clone(this) {
                     Ok(ok__) => {
                         copy.write(core::mem::transmute(ok__));
@@ -3650,8 +3650,8 @@ impl IOpcSignatureReferenceSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureReferenceSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureReferenceSet_Impl::Create(this, core::mem::transmute_copy(&referenceuri), core::mem::transmute(&referenceid), core::mem::transmute(&r#type), core::mem::transmute(&digestmethod), core::mem::transmute_copy(&transformmethod)) {
                     Ok(ok__) => {
                         reference.write(core::mem::transmute(ok__));
@@ -3666,8 +3666,8 @@ impl IOpcSignatureReferenceSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureReferenceSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcSignatureReferenceSet_Impl::Delete(this, core::mem::transmute_copy(&reference)).into()
             }
         }
@@ -3676,8 +3676,8 @@ impl IOpcSignatureReferenceSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureReferenceSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureReferenceSet_Impl::GetEnumerator(this) {
                     Ok(ok__) => {
                         referenceenumerator.write(core::mem::transmute(ok__));
@@ -3772,8 +3772,8 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureRelationshipReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureRelationshipReference_Impl::GetSourceUri(this) {
                     Ok(ok__) => {
                         sourceuri.write(core::mem::transmute(ok__));
@@ -3788,8 +3788,8 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureRelationshipReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureRelationshipReference_Impl::GetDigestMethod(this) {
                     Ok(ok__) => {
                         digestmethod.write(core::mem::transmute(ok__));
@@ -3804,8 +3804,8 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureRelationshipReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcSignatureRelationshipReference_Impl::GetDigestValue(this, core::mem::transmute_copy(&digestvalue), core::mem::transmute_copy(&count)).into()
             }
         }
@@ -3814,8 +3814,8 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureRelationshipReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureRelationshipReference_Impl::GetTransformMethod(this) {
                     Ok(ok__) => {
                         transformmethod.write(core::mem::transmute(ok__));
@@ -3830,8 +3830,8 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureRelationshipReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureRelationshipReference_Impl::GetRelationshipSigningOption(this) {
                     Ok(ok__) => {
                         relationshipsigningoption.write(core::mem::transmute(ok__));
@@ -3846,8 +3846,8 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureRelationshipReference_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureRelationshipReference_Impl::GetRelationshipSelectorEnumerator(this) {
                     Ok(ok__) => {
                         selectorenumerator.write(core::mem::transmute(ok__));
@@ -3926,8 +3926,8 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureRelationshipReferenceEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
                         hasnext.write(core::mem::transmute(ok__));
@@ -3942,8 +3942,8 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureRelationshipReferenceEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
                         hasprevious.write(core::mem::transmute(ok__));
@@ -3958,8 +3958,8 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureRelationshipReferenceEnumerator_Impl::GetCurrent(this) {
                     Ok(ok__) => {
                         relationshipreference.write(core::mem::transmute(ok__));
@@ -3974,8 +3974,8 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureRelationshipReferenceEnumerator_Impl::Clone(this) {
                     Ok(ok__) => {
                         copy.write(core::mem::transmute(ok__));
@@ -4062,8 +4062,8 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureRelationshipReferenceSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureRelationshipReferenceSet_Impl::Create(this, core::mem::transmute_copy(&sourceuri), core::mem::transmute(&digestmethod), core::mem::transmute_copy(&relationshipsigningoption), core::mem::transmute_copy(&selectorset), core::mem::transmute_copy(&transformmethod)) {
                     Ok(ok__) => {
                         relationshipreference.write(core::mem::transmute(ok__));
@@ -4078,8 +4078,8 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureRelationshipReferenceSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureRelationshipReferenceSet_Impl::CreateRelationshipSelectorSet(this) {
                     Ok(ok__) => {
                         selectorset.write(core::mem::transmute(ok__));
@@ -4094,8 +4094,8 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureRelationshipReferenceSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcSignatureRelationshipReferenceSet_Impl::Delete(this, core::mem::transmute_copy(&relationshipreference)).into()
             }
         }
@@ -4104,8 +4104,8 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSignatureRelationshipReferenceSet_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSignatureRelationshipReferenceSet_Impl::GetEnumerator(this) {
                     Ok(ok__) => {
                         relationshipreferenceenumerator.write(core::mem::transmute(ok__));
@@ -4290,8 +4290,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSigningOptions_Impl::GetSignatureId(this) {
                     Ok(ok__) => {
                         signatureid.write(core::mem::transmute(ok__));
@@ -4306,8 +4306,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcSigningOptions_Impl::SetSignatureId(this, core::mem::transmute(&signatureid)).into()
             }
         }
@@ -4316,8 +4316,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSigningOptions_Impl::GetSignatureMethod(this) {
                     Ok(ok__) => {
                         signaturemethod.write(core::mem::transmute(ok__));
@@ -4332,8 +4332,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcSigningOptions_Impl::SetSignatureMethod(this, core::mem::transmute(&signaturemethod)).into()
             }
         }
@@ -4342,8 +4342,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSigningOptions_Impl::GetDefaultDigestMethod(this) {
                     Ok(ok__) => {
                         digestmethod.write(core::mem::transmute(ok__));
@@ -4358,8 +4358,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcSigningOptions_Impl::SetDefaultDigestMethod(this, core::mem::transmute(&digestmethod)).into()
             }
         }
@@ -4368,8 +4368,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSigningOptions_Impl::GetCertificateEmbeddingOption(this) {
                     Ok(ok__) => {
                         embeddingoption.write(core::mem::transmute(ok__));
@@ -4384,8 +4384,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcSigningOptions_Impl::SetCertificateEmbeddingOption(this, core::mem::transmute_copy(&embeddingoption)).into()
             }
         }
@@ -4394,8 +4394,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSigningOptions_Impl::GetTimeFormat(this) {
                     Ok(ok__) => {
                         timeformat.write(core::mem::transmute(ok__));
@@ -4410,8 +4410,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcSigningOptions_Impl::SetTimeFormat(this, core::mem::transmute_copy(&timeformat)).into()
             }
         }
@@ -4420,8 +4420,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSigningOptions_Impl::GetSignaturePartReferenceSet(this) {
                     Ok(ok__) => {
                         partreferenceset.write(core::mem::transmute(ok__));
@@ -4436,8 +4436,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSigningOptions_Impl::GetSignatureRelationshipReferenceSet(this) {
                     Ok(ok__) => {
                         relationshipreferenceset.write(core::mem::transmute(ok__));
@@ -4452,8 +4452,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSigningOptions_Impl::GetCustomObjectSet(this) {
                     Ok(ok__) => {
                         customobjectset.write(core::mem::transmute(ok__));
@@ -4468,8 +4468,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSigningOptions_Impl::GetCustomReferenceSet(this) {
                     Ok(ok__) => {
                         customreferenceset.write(core::mem::transmute(ok__));
@@ -4484,8 +4484,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSigningOptions_Impl::GetCertificateSet(this) {
                     Ok(ok__) => {
                         certificateset.write(core::mem::transmute(ok__));
@@ -4500,8 +4500,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcSigningOptions_Impl::GetSignaturePartName(this) {
                     Ok(ok__) => {
                         signaturepartname.write(core::mem::transmute(ok__));
@@ -4516,8 +4516,8 @@ impl IOpcSigningOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcSigningOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOpcSigningOptions_Impl::SetSignaturePartName(this, core::mem::transmute_copy(&signaturepartname)).into()
             }
         }
@@ -4612,8 +4612,8 @@ impl IOpcUri_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcUri_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcUri_Impl::GetRelationshipsPartUri(this) {
                     Ok(ok__) => {
                         relationshipparturi.write(core::mem::transmute(ok__));
@@ -4628,8 +4628,8 @@ impl IOpcUri_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcUri_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcUri_Impl::GetRelativeUri(this, core::mem::transmute_copy(&targetparturi)) {
                     Ok(ok__) => {
                         relativeuri.write(core::mem::transmute(ok__));
@@ -4644,8 +4644,8 @@ impl IOpcUri_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOpcUri_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IOpcUri_Impl::CombinePartUri(this, core::mem::transmute_copy(&relativeuri)) {
                     Ok(ok__) => {
                         combineduri.write(core::mem::transmute(ok__));

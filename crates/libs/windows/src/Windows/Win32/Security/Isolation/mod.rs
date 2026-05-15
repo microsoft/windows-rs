@@ -128,8 +128,8 @@ impl IIsolatedAppLauncher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedAppLauncher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IIsolatedAppLauncher_Impl::Launch(this, core::mem::transmute(&appusermodelid), core::mem::transmute(&arguments), core::mem::transmute_copy(&telemetryparameters)).into()
             }
         }
@@ -201,8 +201,8 @@ impl IIsolatedProcessLauncher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedProcessLauncher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IIsolatedProcessLauncher_Impl::LaunchProcess(this, core::mem::transmute(&process), core::mem::transmute(&arguments), core::mem::transmute(&workingdirectory)).into()
             }
         }
@@ -211,8 +211,8 @@ impl IIsolatedProcessLauncher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedProcessLauncher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IIsolatedProcessLauncher_Impl::ShareDirectory(this, core::mem::transmute(&hostpath), core::mem::transmute(&containerpath), core::mem::transmute_copy(&readonly)).into()
             }
         }
@@ -221,8 +221,8 @@ impl IIsolatedProcessLauncher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedProcessLauncher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIsolatedProcessLauncher_Impl::GetContainerGuid(this) {
                     Ok(ok__) => {
                         guid.write(core::mem::transmute(ok__));
@@ -237,8 +237,8 @@ impl IIsolatedProcessLauncher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedProcessLauncher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IIsolatedProcessLauncher_Impl::AllowSetForegroundAccess(this, core::mem::transmute_copy(&pid)).into()
             }
         }
@@ -247,8 +247,8 @@ impl IIsolatedProcessLauncher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedProcessLauncher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIsolatedProcessLauncher_Impl::IsContainerRunning(this) {
                     Ok(ok__) => {
                         running.write(core::mem::transmute(ok__));
@@ -309,8 +309,8 @@ impl IIsolatedProcessLauncher2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedProcessLauncher2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IIsolatedProcessLauncher2_Impl::LaunchProcess2(this, core::mem::transmute(&process), core::mem::transmute(&arguments), core::mem::transmute(&workingdirectory), core::mem::transmute_copy(&correlationguid)).into()
             }
         }

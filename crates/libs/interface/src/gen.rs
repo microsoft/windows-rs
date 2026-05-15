@@ -192,7 +192,7 @@ impl Interface {
                             #(#args),*
                         ) #ret
                         where
-                            Identity : #trait_name
+                            <Identity as ::windows_core::IUnknownImpl>::Impl : #trait_name
                         {
                             // This step is essentially a virtual dispatch adjustor thunk. Its purpose is to adjust
                             // the "this" pointer from the address used by the COM interface to the root of the
@@ -200,12 +200,15 @@ impl Interface {
                             // (and more than one COM interface chain), we need to know how to get from COM's "this"
                             // back to &MyApp_Impl. The OFFSET constant gives us the value (in pointer-sized units).
                             let this_outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                            // Forward to the user's `IFoo_Impl` impl, which now lives on the inner type rather
+                            // than the macro-synthesized outer wrapper.
+                            let this_inner: &<Identity as ::windows_core::IUnknownImpl>::Impl =
+                                <Identity as ::windows_core::IUnknownImpl>::get_impl(this_outer);
 
-                            // Last, we invoke the implementation function.
                             // We use explicit <Impl as IFoo_Impl> so that we can select the correct method
                             // for situations where IFoo3 derives from IFoo2 and both declare a method with
                             // the same name.
-                            <Identity as #trait_name>::#method_name(this_outer, #(#params),*).into()
+                            <<Identity as ::windows_core::IUnknownImpl>::Impl as #trait_name>::#method_name(this_inner, #(#params),*).into()
                         }
                     }
                 } else {
@@ -243,7 +246,7 @@ impl Interface {
                         const OFFSET: isize,
                     >() -> Self
                     where
-                        Identity : #trait_name
+                        <Identity as ::windows_core::IUnknownImpl>::Impl : #trait_name
                     {
                         #(#functions)*
                         Self { base__: #parent_vtable::new::<#parent_vtable_generics>(), #(#entries),* }

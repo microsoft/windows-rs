@@ -42,8 +42,8 @@ impl INetworkTransportSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: INetworkTransportSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 INetworkTransportSettings_Impl::ApplySetting(this, core::mem::transmute_copy(&settingid), core::mem::transmute_copy(&lengthin), core::mem::transmute_copy(&valuein), core::mem::transmute_copy(&lengthout), core::mem::transmute_copy(&valueout)).into()
             }
         }
@@ -52,8 +52,8 @@ impl INetworkTransportSettings_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: INetworkTransportSettings_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 INetworkTransportSettings_Impl::QuerySetting(this, core::mem::transmute_copy(&settingid), core::mem::transmute_copy(&lengthin), core::mem::transmute_copy(&valuein), core::mem::transmute_copy(&lengthout), core::mem::transmute_copy(&valueout)).into()
             }
         }
@@ -100,8 +100,8 @@ impl INotificationTransportSync_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: INotificationTransportSync_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 INotificationTransportSync_Impl::CompleteDelivery(this).into()
             }
         }
@@ -110,8 +110,8 @@ impl INotificationTransportSync_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: INotificationTransportSync_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 INotificationTransportSync_Impl::Flush(this).into()
             }
         }
@@ -169,8 +169,8 @@ impl IRTCBuddy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddy_Impl::Status(this) {
                     Ok(ok__) => {
                         penstatus.write(core::mem::transmute(ok__));
@@ -185,8 +185,8 @@ impl IRTCBuddy_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddy_Impl::Notes(this) {
                     Ok(ok__) => {
                         pbstrnotes.write(core::mem::transmute(ok__));
@@ -301,8 +301,8 @@ impl IRTCBuddy2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddy2_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -317,8 +317,8 @@ impl IRTCBuddy2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCBuddy2_Impl::Refresh(this).into()
             }
         }
@@ -327,8 +327,8 @@ impl IRTCBuddy2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddy2_Impl::EnumerateGroups(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -343,8 +343,8 @@ impl IRTCBuddy2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddy2_Impl::Groups(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -359,8 +359,8 @@ impl IRTCBuddy2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddy2_Impl::get_PresenceProperty(this, core::mem::transmute_copy(&enproperty)) {
                     Ok(ok__) => {
                         pbstrproperty.write(core::mem::transmute(ok__));
@@ -375,8 +375,8 @@ impl IRTCBuddy2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddy2_Impl::EnumeratePresenceDevices(this) {
                     Ok(ok__) => {
                         ppenumdevices.write(core::mem::transmute(ok__));
@@ -391,8 +391,8 @@ impl IRTCBuddy2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddy2_Impl::PresenceDevices(this) {
                     Ok(ok__) => {
                         ppdevicescollection.write(core::mem::transmute(ok__));
@@ -407,8 +407,8 @@ impl IRTCBuddy2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddy2_Impl::SubscriptionType(this) {
                     Ok(ok__) => {
                         pensubscriptiontype.write(core::mem::transmute(ok__));
@@ -478,8 +478,8 @@ impl IRTCBuddyEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddyEvent_Impl::Buddy(this) {
                     Ok(ok__) => {
                         ppbuddy.write(core::mem::transmute(ok__));
@@ -555,8 +555,8 @@ impl IRTCBuddyEvent2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyEvent2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddyEvent2_Impl::EventType(this) {
                     Ok(ok__) => {
                         peventtype.write(core::mem::transmute(ok__));
@@ -571,8 +571,8 @@ impl IRTCBuddyEvent2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyEvent2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddyEvent2_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -587,8 +587,8 @@ impl IRTCBuddyEvent2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyEvent2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddyEvent2_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -704,8 +704,8 @@ impl IRTCBuddyGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddyGroup_Impl::Name(this) {
                     Ok(ok__) => {
                         pbstrgroupname.write(core::mem::transmute(ok__));
@@ -720,8 +720,8 @@ impl IRTCBuddyGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCBuddyGroup_Impl::SetName(this, core::mem::transmute(&bstrgroupname)).into()
             }
         }
@@ -730,8 +730,8 @@ impl IRTCBuddyGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCBuddyGroup_Impl::AddBuddy(this, core::mem::transmute_copy(&pbuddy)).into()
             }
         }
@@ -740,8 +740,8 @@ impl IRTCBuddyGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCBuddyGroup_Impl::RemoveBuddy(this, core::mem::transmute_copy(&pbuddy)).into()
             }
         }
@@ -750,8 +750,8 @@ impl IRTCBuddyGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddyGroup_Impl::EnumerateBuddies(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -766,8 +766,8 @@ impl IRTCBuddyGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddyGroup_Impl::Buddies(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -782,8 +782,8 @@ impl IRTCBuddyGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddyGroup_Impl::Data(this) {
                     Ok(ok__) => {
                         pbstrdata.write(core::mem::transmute(ok__));
@@ -798,8 +798,8 @@ impl IRTCBuddyGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCBuddyGroup_Impl::SetData(this, core::mem::transmute(&bstrdata)).into()
             }
         }
@@ -808,8 +808,8 @@ impl IRTCBuddyGroup_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddyGroup_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -904,8 +904,8 @@ impl IRTCBuddyGroupEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroupEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddyGroupEvent_Impl::EventType(this) {
                     Ok(ok__) => {
                         peventtype.write(core::mem::transmute(ok__));
@@ -920,8 +920,8 @@ impl IRTCBuddyGroupEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroupEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddyGroupEvent_Impl::Group(this) {
                     Ok(ok__) => {
                         ppgroup.write(core::mem::transmute(ok__));
@@ -936,8 +936,8 @@ impl IRTCBuddyGroupEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroupEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddyGroupEvent_Impl::Buddy(this) {
                     Ok(ok__) => {
                         ppbuddy.write(core::mem::transmute(ok__));
@@ -952,8 +952,8 @@ impl IRTCBuddyGroupEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroupEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCBuddyGroupEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -1284,8 +1284,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::Initialize(this).into()
             }
         }
@@ -1294,8 +1294,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::Shutdown(this).into()
             }
         }
@@ -1304,8 +1304,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::PrepareForShutdown(this).into()
             }
         }
@@ -1314,8 +1314,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::SetEventFilter(this, core::mem::transmute_copy(&lfilter)).into()
             }
         }
@@ -1324,8 +1324,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::EventFilter(this) {
                     Ok(ok__) => {
                         plfilter.write(core::mem::transmute(ok__));
@@ -1340,8 +1340,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::SetPreferredMediaTypes(this, core::mem::transmute_copy(&lmediatypes), core::mem::transmute_copy(&fpersistent)).into()
             }
         }
@@ -1350,8 +1350,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::PreferredMediaTypes(this) {
                     Ok(ok__) => {
                         plmediatypes.write(core::mem::transmute(ok__));
@@ -1366,8 +1366,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::MediaCapabilities(this) {
                     Ok(ok__) => {
                         plmediatypes.write(core::mem::transmute(ok__));
@@ -1382,8 +1382,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::CreateSession(this, core::mem::transmute_copy(&entype), core::mem::transmute(&bstrlocalphoneuri), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -1398,8 +1398,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::SetListenForIncomingSessions(this, core::mem::transmute_copy(&enlisten)).into()
             }
         }
@@ -1408,8 +1408,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::ListenForIncomingSessions(this) {
                     Ok(ok__) => {
                         penlisten.write(core::mem::transmute(ok__));
@@ -1424,8 +1424,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::get_NetworkAddresses(this, core::mem::transmute_copy(&ftcp), core::mem::transmute_copy(&fexternal)) {
                     Ok(ok__) => {
                         pvaddresses.write(core::mem::transmute(ok__));
@@ -1440,8 +1440,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::put_Volume(this, core::mem::transmute_copy(&endevice), core::mem::transmute_copy(&lvolume)).into()
             }
         }
@@ -1450,8 +1450,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::get_Volume(this, core::mem::transmute_copy(&endevice)) {
                     Ok(ok__) => {
                         plvolume.write(core::mem::transmute(ok__));
@@ -1466,8 +1466,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::put_AudioMuted(this, core::mem::transmute_copy(&endevice), core::mem::transmute_copy(&fmuted)).into()
             }
         }
@@ -1476,8 +1476,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::get_AudioMuted(this, core::mem::transmute_copy(&endevice)) {
                     Ok(ok__) => {
                         pfmuted.write(core::mem::transmute(ok__));
@@ -1492,8 +1492,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::get_IVideoWindow(this, core::mem::transmute_copy(&endevice)) {
                     Ok(ok__) => {
                         ppivideowindow.write(core::mem::transmute(ok__));
@@ -1508,8 +1508,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::put_PreferredAudioDevice(this, core::mem::transmute_copy(&endevice), core::mem::transmute(&bstrdevicename)).into()
             }
         }
@@ -1518,8 +1518,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::get_PreferredAudioDevice(this, core::mem::transmute_copy(&endevice)) {
                     Ok(ok__) => {
                         pbstrdevicename.write(core::mem::transmute(ok__));
@@ -1534,8 +1534,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::put_PreferredVolume(this, core::mem::transmute_copy(&endevice), core::mem::transmute_copy(&lvolume)).into()
             }
         }
@@ -1544,8 +1544,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::get_PreferredVolume(this, core::mem::transmute_copy(&endevice)) {
                     Ok(ok__) => {
                         plvolume.write(core::mem::transmute(ok__));
@@ -1560,8 +1560,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::SetPreferredAEC(this, core::mem::transmute_copy(&benable)).into()
             }
         }
@@ -1570,8 +1570,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::PreferredAEC(this) {
                     Ok(ok__) => {
                         pbenabled.write(core::mem::transmute(ok__));
@@ -1586,8 +1586,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::SetPreferredVideoDevice(this, core::mem::transmute(&bstrdevicename)).into()
             }
         }
@@ -1596,8 +1596,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::PreferredVideoDevice(this) {
                     Ok(ok__) => {
                         pbstrdevicename.write(core::mem::transmute(ok__));
@@ -1612,8 +1612,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::ActiveMedia(this) {
                     Ok(ok__) => {
                         plmediatype.write(core::mem::transmute(ok__));
@@ -1628,8 +1628,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::SetMaxBitrate(this, core::mem::transmute_copy(&lmaxbitrate)).into()
             }
         }
@@ -1638,8 +1638,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::MaxBitrate(this) {
                     Ok(ok__) => {
                         plmaxbitrate.write(core::mem::transmute(ok__));
@@ -1654,8 +1654,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::SetTemporalSpatialTradeOff(this, core::mem::transmute_copy(&lvalue)).into()
             }
         }
@@ -1664,8 +1664,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::TemporalSpatialTradeOff(this) {
                     Ok(ok__) => {
                         plvalue.write(core::mem::transmute(ok__));
@@ -1680,8 +1680,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::NetworkQuality(this) {
                     Ok(ok__) => {
                         plnetworkquality.write(core::mem::transmute(ok__));
@@ -1696,8 +1696,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::StartT120Applet(this, core::mem::transmute_copy(&enapplet)).into()
             }
         }
@@ -1706,8 +1706,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::StopT120Applets(this).into()
             }
         }
@@ -1716,8 +1716,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::get_IsT120AppletRunning(this, core::mem::transmute_copy(&enapplet)) {
                     Ok(ok__) => {
                         pfrunning.write(core::mem::transmute(ok__));
@@ -1732,8 +1732,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::LocalUserURI(this) {
                     Ok(ok__) => {
                         pbstruseruri.write(core::mem::transmute(ok__));
@@ -1748,8 +1748,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::SetLocalUserURI(this, core::mem::transmute(&bstruseruri)).into()
             }
         }
@@ -1758,8 +1758,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::LocalUserName(this) {
                     Ok(ok__) => {
                         pbstrusername.write(core::mem::transmute(ok__));
@@ -1774,8 +1774,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::SetLocalUserName(this, core::mem::transmute(&bstrusername)).into()
             }
         }
@@ -1784,8 +1784,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::PlayRing(this, core::mem::transmute_copy(&entype), core::mem::transmute_copy(&bplay)).into()
             }
         }
@@ -1794,8 +1794,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::SendDTMF(this, core::mem::transmute_copy(&endtmf)).into()
             }
         }
@@ -1804,8 +1804,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient_Impl::InvokeTuningWizard(this, core::mem::transmute_copy(&hwndparent)).into()
             }
         }
@@ -1814,8 +1814,8 @@ impl IRTCClient_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient_Impl::IsTuned(this) {
                     Ok(ok__) => {
                         pftuned.write(core::mem::transmute(ok__));
@@ -1992,8 +1992,8 @@ impl IRTCClient2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient2_Impl::put_AnswerMode(this, core::mem::transmute_copy(&entype), core::mem::transmute_copy(&enmode)).into()
             }
         }
@@ -2002,8 +2002,8 @@ impl IRTCClient2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient2_Impl::get_AnswerMode(this, core::mem::transmute_copy(&entype)) {
                     Ok(ok__) => {
                         penmode.write(core::mem::transmute(ok__));
@@ -2018,8 +2018,8 @@ impl IRTCClient2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient2_Impl::InvokeTuningWizardEx(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&fallowaudio), core::mem::transmute_copy(&fallowvideo)).into()
             }
         }
@@ -2028,8 +2028,8 @@ impl IRTCClient2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient2_Impl::Version(this) {
                     Ok(ok__) => {
                         plversion.write(core::mem::transmute(ok__));
@@ -2044,8 +2044,8 @@ impl IRTCClient2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient2_Impl::SetClientName(this, core::mem::transmute(&bstrclientname)).into()
             }
         }
@@ -2054,8 +2054,8 @@ impl IRTCClient2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient2_Impl::SetClientCurVer(this, core::mem::transmute(&bstrclientcurver)).into()
             }
         }
@@ -2064,8 +2064,8 @@ impl IRTCClient2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient2_Impl::InitializeEx(this, core::mem::transmute_copy(&lflags)).into()
             }
         }
@@ -2074,8 +2074,8 @@ impl IRTCClient2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient2_Impl::CreateSessionWithDescription(this, core::mem::transmute(&bstrcontenttype), core::mem::transmute(&bstrsessiondescription), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppsession2.write(core::mem::transmute(ok__));
@@ -2090,8 +2090,8 @@ impl IRTCClient2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient2_Impl::SetSessionDescriptionManager(this, core::mem::transmute_copy(&psessiondescriptionmanager)).into()
             }
         }
@@ -2100,8 +2100,8 @@ impl IRTCClient2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient2_Impl::put_PreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype), core::mem::transmute_copy(&ensecuritylevel)).into()
             }
         }
@@ -2110,8 +2110,8 @@ impl IRTCClient2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient2_Impl::get_PreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
                         pensecuritylevel.write(core::mem::transmute(ok__));
@@ -2126,8 +2126,8 @@ impl IRTCClient2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClient2_Impl::put_AllowedPorts(this, core::mem::transmute_copy(&ltransport), core::mem::transmute_copy(&enlistenmode)).into()
             }
         }
@@ -2136,8 +2136,8 @@ impl IRTCClient2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClient2_Impl::get_AllowedPorts(this, core::mem::transmute_copy(&ltransport)) {
                     Ok(ok__) => {
                         penlistenmode.write(core::mem::transmute(ok__));
@@ -2220,8 +2220,8 @@ impl IRTCClientEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientEvent_Impl::EventType(this) {
                     Ok(ok__) => {
                         peneventtype.write(core::mem::transmute(ok__));
@@ -2236,8 +2236,8 @@ impl IRTCClientEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientEvent_Impl::Client(this) {
                     Ok(ok__) => {
                         ppclient.write(core::mem::transmute(ok__));
@@ -2291,8 +2291,8 @@ impl IRTCClientPortManagement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPortManagement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPortManagement_Impl::StartListenAddressAndPort(this, core::mem::transmute(&bstrinternallocaladdress), core::mem::transmute_copy(&linternallocalport)).into()
             }
         }
@@ -2301,8 +2301,8 @@ impl IRTCClientPortManagement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPortManagement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPortManagement_Impl::StopListenAddressAndPort(this, core::mem::transmute(&bstrinternallocaladdress), core::mem::transmute_copy(&linternallocalport)).into()
             }
         }
@@ -2311,8 +2311,8 @@ impl IRTCClientPortManagement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPortManagement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPortManagement_Impl::GetPortRange(this, core::mem::transmute_copy(&enporttype), core::mem::transmute_copy(&plminvalue), core::mem::transmute_copy(&plmaxvalue)).into()
             }
         }
@@ -2500,8 +2500,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence_Impl::EnablePresence(this, core::mem::transmute_copy(&fusestorage), core::mem::transmute(&varstorage)).into()
             }
         }
@@ -2510,8 +2510,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence_Impl::Export(this, core::mem::transmute(&varstorage)).into()
             }
         }
@@ -2520,8 +2520,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence_Impl::Import(this, core::mem::transmute(&varstorage), core::mem::transmute_copy(&freplaceall)).into()
             }
         }
@@ -2530,8 +2530,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence_Impl::EnumerateBuddies(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -2546,8 +2546,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence_Impl::Buddies(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -2562,8 +2562,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence_Impl::get_Buddy(this, core::mem::transmute(&bstrpresentityuri)) {
                     Ok(ok__) => {
                         ppbuddy.write(core::mem::transmute(ok__));
@@ -2578,8 +2578,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence_Impl::AddBuddy(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&fpersistent), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppbuddy.write(core::mem::transmute(ok__));
@@ -2594,8 +2594,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence_Impl::RemoveBuddy(this, core::mem::transmute_copy(&pbuddy)).into()
             }
         }
@@ -2604,8 +2604,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence_Impl::EnumerateWatchers(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -2620,8 +2620,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence_Impl::Watchers(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -2636,8 +2636,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence_Impl::get_Watcher(this, core::mem::transmute(&bstrpresentityuri)) {
                     Ok(ok__) => {
                         ppwatcher.write(core::mem::transmute(ok__));
@@ -2652,8 +2652,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence_Impl::AddWatcher(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&fblocked), core::mem::transmute_copy(&fpersistent)) {
                     Ok(ok__) => {
                         ppwatcher.write(core::mem::transmute(ok__));
@@ -2668,8 +2668,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence_Impl::RemoveWatcher(this, core::mem::transmute_copy(&pwatcher)).into()
             }
         }
@@ -2678,8 +2678,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence_Impl::SetLocalPresenceInfo(this, core::mem::transmute_copy(&enstatus), core::mem::transmute(&bstrnotes)).into()
             }
         }
@@ -2688,8 +2688,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence_Impl::OfferWatcherMode(this) {
                     Ok(ok__) => {
                         penmode.write(core::mem::transmute(ok__));
@@ -2704,8 +2704,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence_Impl::SetOfferWatcherMode(this, core::mem::transmute_copy(&enmode)).into()
             }
         }
@@ -2714,8 +2714,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence_Impl::PrivacyMode(this) {
                     Ok(ok__) => {
                         penmode.write(core::mem::transmute(ok__));
@@ -2730,8 +2730,8 @@ impl IRTCClientPresence_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence_Impl::SetPrivacyMode(this, core::mem::transmute_copy(&enmode)).into()
             }
         }
@@ -2914,8 +2914,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence2_Impl::EnablePresenceEx(this, core::mem::transmute_copy(&pprofile), core::mem::transmute(&varstorage), core::mem::transmute_copy(&lflags)).into()
             }
         }
@@ -2924,8 +2924,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence2_Impl::DisablePresence(this).into()
             }
         }
@@ -2934,8 +2934,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence2_Impl::AddGroup(this, core::mem::transmute(&bstrgroupname), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppgroup.write(core::mem::transmute(ok__));
@@ -2950,8 +2950,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence2_Impl::RemoveGroup(this, core::mem::transmute_copy(&pgroup)).into()
             }
         }
@@ -2960,8 +2960,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence2_Impl::EnumerateGroups(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -2976,8 +2976,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence2_Impl::Groups(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -2992,8 +2992,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence2_Impl::get_Group(this, core::mem::transmute(&bstrgroupname)) {
                     Ok(ok__) => {
                         ppgroup.write(core::mem::transmute(ok__));
@@ -3008,8 +3008,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence2_Impl::AddWatcherEx(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&enstate), core::mem::transmute_copy(&fpersistent), core::mem::transmute_copy(&enscope), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppwatcher.write(core::mem::transmute(ok__));
@@ -3024,8 +3024,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence2_Impl::get_WatcherEx(this, core::mem::transmute_copy(&enmode), core::mem::transmute(&bstrpresentityuri)) {
                     Ok(ok__) => {
                         ppwatcher.write(core::mem::transmute(ok__));
@@ -3040,8 +3040,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence2_Impl::put_PresenceProperty(this, core::mem::transmute_copy(&enproperty), core::mem::transmute(&bstrproperty)).into()
             }
         }
@@ -3050,8 +3050,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence2_Impl::get_PresenceProperty(this, core::mem::transmute_copy(&enproperty)) {
                     Ok(ok__) => {
                         pbstrproperty.write(core::mem::transmute(ok__));
@@ -3066,8 +3066,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence2_Impl::SetPresenceData(this, core::mem::transmute(&bstrnamespace), core::mem::transmute(&bstrdata)).into()
             }
         }
@@ -3076,8 +3076,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence2_Impl::GetPresenceData(this, core::mem::transmute_copy(&pbstrnamespace), core::mem::transmute_copy(&pbstrdata)).into()
             }
         }
@@ -3086,8 +3086,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientPresence2_Impl::GetLocalPresenceInfo(this, core::mem::transmute_copy(&penstatus), core::mem::transmute_copy(&pbstrnotes)).into()
             }
         }
@@ -3096,8 +3096,8 @@ impl IRTCClientPresence2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientPresence2_Impl::AddBuddyEx(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&fpersistent), core::mem::transmute_copy(&ensubscriptiontype), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppbuddy.write(core::mem::transmute(ok__));
@@ -3212,8 +3212,8 @@ impl IRTCClientProvisioning_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientProvisioning_Impl::CreateProfile(this, core::mem::transmute(&bstrprofilexml)) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -3228,8 +3228,8 @@ impl IRTCClientProvisioning_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientProvisioning_Impl::EnableProfile(this, core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lregisterflags)).into()
             }
         }
@@ -3238,8 +3238,8 @@ impl IRTCClientProvisioning_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientProvisioning_Impl::DisableProfile(this, core::mem::transmute_copy(&pprofile)).into()
             }
         }
@@ -3248,8 +3248,8 @@ impl IRTCClientProvisioning_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientProvisioning_Impl::EnumerateProfiles(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -3264,8 +3264,8 @@ impl IRTCClientProvisioning_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientProvisioning_Impl::Profiles(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -3280,8 +3280,8 @@ impl IRTCClientProvisioning_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientProvisioning_Impl::GetProfile(this, core::mem::transmute(&bstruseraccount), core::mem::transmute(&bstruserpassword), core::mem::transmute(&bstruseruri), core::mem::transmute(&bstrserver), core::mem::transmute_copy(&ltransport), core::mem::transmute_copy(&lcookie)).into()
             }
         }
@@ -3290,8 +3290,8 @@ impl IRTCClientProvisioning_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCClientProvisioning_Impl::SessionCapabilities(this) {
                     Ok(ok__) => {
                         plsupportedsessions.write(core::mem::transmute(ok__));
@@ -3355,8 +3355,8 @@ impl IRTCClientProvisioning2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCClientProvisioning2_Impl::EnableProfileEx(this, core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lregisterflags), core::mem::transmute_copy(&lroamingflags)).into()
             }
         }
@@ -3430,8 +3430,8 @@ impl IRTCCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCCollection_Impl::Count(this) {
                     Ok(ok__) => {
                         lcount.write(core::mem::transmute(ok__));
@@ -3446,8 +3446,8 @@ impl IRTCCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         pvariant.write(core::mem::transmute(ok__));
@@ -3462,8 +3462,8 @@ impl IRTCCollection_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCCollection_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppnewenum.write(core::mem::transmute(ok__));
@@ -3563,8 +3563,8 @@ impl IRTCEnumBuddies_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumBuddies_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumBuddies_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppelements), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
@@ -3573,8 +3573,8 @@ impl IRTCEnumBuddies_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumBuddies_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumBuddies_Impl::Reset(this).into()
             }
         }
@@ -3583,8 +3583,8 @@ impl IRTCEnumBuddies_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumBuddies_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumBuddies_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
@@ -3593,8 +3593,8 @@ impl IRTCEnumBuddies_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumBuddies_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCEnumBuddies_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -3661,8 +3661,8 @@ impl IRTCEnumGroups_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumGroups_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumGroups_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppelements), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
@@ -3671,8 +3671,8 @@ impl IRTCEnumGroups_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumGroups_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumGroups_Impl::Reset(this).into()
             }
         }
@@ -3681,8 +3681,8 @@ impl IRTCEnumGroups_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumGroups_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumGroups_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
@@ -3691,8 +3691,8 @@ impl IRTCEnumGroups_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumGroups_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCEnumGroups_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -3759,8 +3759,8 @@ impl IRTCEnumParticipants_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumParticipants_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumParticipants_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppelements), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
@@ -3769,8 +3769,8 @@ impl IRTCEnumParticipants_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumParticipants_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumParticipants_Impl::Reset(this).into()
             }
         }
@@ -3779,8 +3779,8 @@ impl IRTCEnumParticipants_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumParticipants_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumParticipants_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
@@ -3789,8 +3789,8 @@ impl IRTCEnumParticipants_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumParticipants_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCEnumParticipants_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -3857,8 +3857,8 @@ impl IRTCEnumPresenceDevices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumPresenceDevices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumPresenceDevices_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppelements), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
@@ -3867,8 +3867,8 @@ impl IRTCEnumPresenceDevices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumPresenceDevices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumPresenceDevices_Impl::Reset(this).into()
             }
         }
@@ -3877,8 +3877,8 @@ impl IRTCEnumPresenceDevices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumPresenceDevices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumPresenceDevices_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
@@ -3887,8 +3887,8 @@ impl IRTCEnumPresenceDevices_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumPresenceDevices_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCEnumPresenceDevices_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -3955,8 +3955,8 @@ impl IRTCEnumProfiles_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumProfiles_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumProfiles_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppelements), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
@@ -3965,8 +3965,8 @@ impl IRTCEnumProfiles_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumProfiles_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumProfiles_Impl::Reset(this).into()
             }
         }
@@ -3975,8 +3975,8 @@ impl IRTCEnumProfiles_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumProfiles_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumProfiles_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
@@ -3985,8 +3985,8 @@ impl IRTCEnumProfiles_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumProfiles_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCEnumProfiles_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -4053,8 +4053,8 @@ impl IRTCEnumUserSearchResults_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumUserSearchResults_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumUserSearchResults_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppelements), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
@@ -4063,8 +4063,8 @@ impl IRTCEnumUserSearchResults_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumUserSearchResults_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumUserSearchResults_Impl::Reset(this).into()
             }
         }
@@ -4073,8 +4073,8 @@ impl IRTCEnumUserSearchResults_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumUserSearchResults_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumUserSearchResults_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
@@ -4083,8 +4083,8 @@ impl IRTCEnumUserSearchResults_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumUserSearchResults_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCEnumUserSearchResults_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -4151,8 +4151,8 @@ impl IRTCEnumWatchers_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumWatchers_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumWatchers_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppelements), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
@@ -4161,8 +4161,8 @@ impl IRTCEnumWatchers_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumWatchers_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumWatchers_Impl::Reset(this).into()
             }
         }
@@ -4171,8 +4171,8 @@ impl IRTCEnumWatchers_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumWatchers_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEnumWatchers_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
@@ -4181,8 +4181,8 @@ impl IRTCEnumWatchers_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumWatchers_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCEnumWatchers_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -4240,8 +4240,8 @@ impl IRTCEventNotification_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCEventNotification_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCEventNotification_Impl::Event(this, core::mem::transmute_copy(&rtcevent), core::mem::transmute_copy(&pevent)).into()
             }
         }
@@ -4319,8 +4319,8 @@ impl IRTCInfoEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCInfoEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCInfoEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -4335,8 +4335,8 @@ impl IRTCInfoEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCInfoEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCInfoEvent_Impl::Participant(this) {
                     Ok(ok__) => {
                         ppparticipant.write(core::mem::transmute(ok__));
@@ -4351,8 +4351,8 @@ impl IRTCInfoEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCInfoEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCInfoEvent_Impl::Info(this) {
                     Ok(ok__) => {
                         pbstrinfo.write(core::mem::transmute(ok__));
@@ -4367,8 +4367,8 @@ impl IRTCInfoEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCInfoEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCInfoEvent_Impl::InfoHeader(this) {
                     Ok(ok__) => {
                         pbstrinfoheader.write(core::mem::transmute(ok__));
@@ -4458,8 +4458,8 @@ impl IRTCIntensityEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCIntensityEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCIntensityEvent_Impl::Level(this) {
                     Ok(ok__) => {
                         pllevel.write(core::mem::transmute(ok__));
@@ -4474,8 +4474,8 @@ impl IRTCIntensityEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCIntensityEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCIntensityEvent_Impl::Min(this) {
                     Ok(ok__) => {
                         plmin.write(core::mem::transmute(ok__));
@@ -4490,8 +4490,8 @@ impl IRTCIntensityEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCIntensityEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCIntensityEvent_Impl::Max(this) {
                     Ok(ok__) => {
                         plmax.write(core::mem::transmute(ok__));
@@ -4506,8 +4506,8 @@ impl IRTCIntensityEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCIntensityEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCIntensityEvent_Impl::Direction(this) {
                     Ok(ok__) => {
                         pendirection.write(core::mem::transmute(ok__));
@@ -4589,8 +4589,8 @@ impl IRTCMediaEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCMediaEvent_Impl::MediaType(this) {
                     Ok(ok__) => {
                         pmediatype.write(core::mem::transmute(ok__));
@@ -4605,8 +4605,8 @@ impl IRTCMediaEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCMediaEvent_Impl::EventType(this) {
                     Ok(ok__) => {
                         peneventtype.write(core::mem::transmute(ok__));
@@ -4621,8 +4621,8 @@ impl IRTCMediaEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCMediaEvent_Impl::EventReason(this) {
                     Ok(ok__) => {
                         peneventreason.write(core::mem::transmute(ok__));
@@ -4729,8 +4729,8 @@ impl IRTCMediaRequestEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCMediaRequestEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -4745,8 +4745,8 @@ impl IRTCMediaRequestEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCMediaRequestEvent_Impl::ProposedMedia(this) {
                     Ok(ok__) => {
                         plmediatypes.write(core::mem::transmute(ok__));
@@ -4761,8 +4761,8 @@ impl IRTCMediaRequestEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCMediaRequestEvent_Impl::CurrentMedia(this) {
                     Ok(ok__) => {
                         plmediatypes.write(core::mem::transmute(ok__));
@@ -4777,8 +4777,8 @@ impl IRTCMediaRequestEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCMediaRequestEvent_Impl::Accept(this, core::mem::transmute_copy(&lmediatypes)).into()
             }
         }
@@ -4787,8 +4787,8 @@ impl IRTCMediaRequestEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCMediaRequestEvent_Impl::get_RemotePreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
                         pensecuritylevel.write(core::mem::transmute(ok__));
@@ -4803,8 +4803,8 @@ impl IRTCMediaRequestEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCMediaRequestEvent_Impl::Reject(this).into()
             }
         }
@@ -4813,8 +4813,8 @@ impl IRTCMediaRequestEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCMediaRequestEvent_Impl::State(this) {
                     Ok(ok__) => {
                         pstate.write(core::mem::transmute(ok__));
@@ -4923,8 +4923,8 @@ impl IRTCMessagingEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMessagingEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCMessagingEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -4939,8 +4939,8 @@ impl IRTCMessagingEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMessagingEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCMessagingEvent_Impl::Participant(this) {
                     Ok(ok__) => {
                         ppparticipant.write(core::mem::transmute(ok__));
@@ -4955,8 +4955,8 @@ impl IRTCMessagingEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMessagingEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCMessagingEvent_Impl::EventType(this) {
                     Ok(ok__) => {
                         peneventtype.write(core::mem::transmute(ok__));
@@ -4971,8 +4971,8 @@ impl IRTCMessagingEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMessagingEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCMessagingEvent_Impl::Message(this) {
                     Ok(ok__) => {
                         pbstrmessage.write(core::mem::transmute(ok__));
@@ -4987,8 +4987,8 @@ impl IRTCMessagingEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMessagingEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCMessagingEvent_Impl::MessageHeader(this) {
                     Ok(ok__) => {
                         pbstrmessageheader.write(core::mem::transmute(ok__));
@@ -5003,8 +5003,8 @@ impl IRTCMessagingEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCMessagingEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCMessagingEvent_Impl::UserStatus(this) {
                     Ok(ok__) => {
                         penuserstatus.write(core::mem::transmute(ok__));
@@ -5091,8 +5091,8 @@ impl IRTCParticipant_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipant_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCParticipant_Impl::UserURI(this) {
                     Ok(ok__) => {
                         pbstruseruri.write(core::mem::transmute(ok__));
@@ -5107,8 +5107,8 @@ impl IRTCParticipant_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipant_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCParticipant_Impl::Name(this) {
                     Ok(ok__) => {
                         pbstrname.write(core::mem::transmute(ok__));
@@ -5123,8 +5123,8 @@ impl IRTCParticipant_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipant_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCParticipant_Impl::Removable(this) {
                     Ok(ok__) => {
                         pfremovable.write(core::mem::transmute(ok__));
@@ -5139,8 +5139,8 @@ impl IRTCParticipant_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipant_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCParticipant_Impl::State(this) {
                     Ok(ok__) => {
                         penstate.write(core::mem::transmute(ok__));
@@ -5155,8 +5155,8 @@ impl IRTCParticipant_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipant_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCParticipant_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -5238,8 +5238,8 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipantStateChangeEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCParticipantStateChangeEvent_Impl::Participant(this) {
                     Ok(ok__) => {
                         ppparticipant.write(core::mem::transmute(ok__));
@@ -5254,8 +5254,8 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipantStateChangeEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCParticipantStateChangeEvent_Impl::State(this) {
                     Ok(ok__) => {
                         penstate.write(core::mem::transmute(ok__));
@@ -5270,8 +5270,8 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipantStateChangeEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCParticipantStateChangeEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -5330,8 +5330,8 @@ impl IRTCPortManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPortManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCPortManager_Impl::GetMapping(this, core::mem::transmute(&bstrremoteaddress), core::mem::transmute_copy(&enporttype), core::mem::transmute_copy(&pbstrinternallocaladdress), core::mem::transmute_copy(&plinternallocalport), core::mem::transmute_copy(&pbstrexternallocaladdress), core::mem::transmute_copy(&plexternallocalport)).into()
             }
         }
@@ -5340,8 +5340,8 @@ impl IRTCPortManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPortManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCPortManager_Impl::UpdateRemoteAddress(this, core::mem::transmute(&bstrremoteaddress), core::mem::transmute(&bstrinternallocaladdress), core::mem::transmute_copy(&linternallocalport), core::mem::transmute(&bstrexternallocaladdress), core::mem::transmute_copy(&lexternallocalport)).into()
             }
         }
@@ -5350,8 +5350,8 @@ impl IRTCPortManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPortManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCPortManager_Impl::ReleaseMapping(this, core::mem::transmute(&bstrinternallocaladdress), core::mem::transmute_copy(&linternallocalport), core::mem::transmute(&bstrexternallocaladdress), core::mem::transmute_copy(&lexternallocaladdress)).into()
             }
         }
@@ -5440,8 +5440,8 @@ impl IRTCPresenceContact_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresenceContact_Impl::PresentityURI(this) {
                     Ok(ok__) => {
                         pbstrpresentityuri.write(core::mem::transmute(ok__));
@@ -5456,8 +5456,8 @@ impl IRTCPresenceContact_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCPresenceContact_Impl::SetPresentityURI(this, core::mem::transmute(&bstrpresentityuri)).into()
             }
         }
@@ -5466,8 +5466,8 @@ impl IRTCPresenceContact_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresenceContact_Impl::Name(this) {
                     Ok(ok__) => {
                         pbstrname.write(core::mem::transmute(ok__));
@@ -5482,8 +5482,8 @@ impl IRTCPresenceContact_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCPresenceContact_Impl::SetName(this, core::mem::transmute(&bstrname)).into()
             }
         }
@@ -5492,8 +5492,8 @@ impl IRTCPresenceContact_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresenceContact_Impl::Data(this) {
                     Ok(ok__) => {
                         pbstrdata.write(core::mem::transmute(ok__));
@@ -5508,8 +5508,8 @@ impl IRTCPresenceContact_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCPresenceContact_Impl::SetData(this, core::mem::transmute(&bstrdata)).into()
             }
         }
@@ -5518,8 +5518,8 @@ impl IRTCPresenceContact_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresenceContact_Impl::Persistent(this) {
                     Ok(ok__) => {
                         pfpersistent.write(core::mem::transmute(ok__));
@@ -5534,8 +5534,8 @@ impl IRTCPresenceContact_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCPresenceContact_Impl::SetPersistent(this, core::mem::transmute_copy(&fpersistent)).into()
             }
         }
@@ -5611,8 +5611,8 @@ impl IRTCPresenceDataEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDataEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresenceDataEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -5627,8 +5627,8 @@ impl IRTCPresenceDataEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDataEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresenceDataEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -5643,8 +5643,8 @@ impl IRTCPresenceDataEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDataEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCPresenceDataEvent_Impl::GetPresenceData(this, core::mem::transmute_copy(&pbstrnamespace), core::mem::transmute_copy(&pbstrdata)).into()
             }
         }
@@ -5711,8 +5711,8 @@ impl IRTCPresenceDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresenceDevice_Impl::Status(this) {
                     Ok(ok__) => {
                         penstatus.write(core::mem::transmute(ok__));
@@ -5727,8 +5727,8 @@ impl IRTCPresenceDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresenceDevice_Impl::Notes(this) {
                     Ok(ok__) => {
                         pbstrnotes.write(core::mem::transmute(ok__));
@@ -5743,8 +5743,8 @@ impl IRTCPresenceDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresenceDevice_Impl::get_PresenceProperty(this, core::mem::transmute_copy(&enproperty)) {
                     Ok(ok__) => {
                         pbstrproperty.write(core::mem::transmute(ok__));
@@ -5759,8 +5759,8 @@ impl IRTCPresenceDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCPresenceDevice_Impl::GetPresenceData(this, core::mem::transmute_copy(&pbstrnamespace), core::mem::transmute_copy(&pbstrdata)).into()
             }
         }
@@ -5843,8 +5843,8 @@ impl IRTCPresencePropertyEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresencePropertyEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresencePropertyEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -5859,8 +5859,8 @@ impl IRTCPresencePropertyEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresencePropertyEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresencePropertyEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -5875,8 +5875,8 @@ impl IRTCPresencePropertyEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresencePropertyEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresencePropertyEvent_Impl::PresenceProperty(this) {
                     Ok(ok__) => {
                         penpresprop.write(core::mem::transmute(ok__));
@@ -5891,8 +5891,8 @@ impl IRTCPresencePropertyEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresencePropertyEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresencePropertyEvent_Impl::Value(this) {
                     Ok(ok__) => {
                         pbstrvalue.write(core::mem::transmute(ok__));
@@ -5971,8 +5971,8 @@ impl IRTCPresenceStatusEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceStatusEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresenceStatusEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -5987,8 +5987,8 @@ impl IRTCPresenceStatusEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceStatusEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCPresenceStatusEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -6003,8 +6003,8 @@ impl IRTCPresenceStatusEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceStatusEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCPresenceStatusEvent_Impl::GetLocalPresenceInfo(this, core::mem::transmute_copy(&penstatus), core::mem::transmute_copy(&pbstrnotes)).into()
             }
         }
@@ -6183,8 +6183,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::Key(this) {
                     Ok(ok__) => {
                         pbstrkey.write(core::mem::transmute(ok__));
@@ -6199,8 +6199,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::Name(this) {
                     Ok(ok__) => {
                         pbstrname.write(core::mem::transmute(ok__));
@@ -6215,8 +6215,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::XML(this) {
                     Ok(ok__) => {
                         pbstrxml.write(core::mem::transmute(ok__));
@@ -6231,8 +6231,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::ProviderName(this) {
                     Ok(ok__) => {
                         pbstrname.write(core::mem::transmute(ok__));
@@ -6247,8 +6247,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::get_ProviderURI(this, core::mem::transmute_copy(&enuri)) {
                     Ok(ok__) => {
                         pbstruri.write(core::mem::transmute(ok__));
@@ -6263,8 +6263,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::ProviderData(this) {
                     Ok(ok__) => {
                         pbstrdata.write(core::mem::transmute(ok__));
@@ -6279,8 +6279,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::ClientName(this) {
                     Ok(ok__) => {
                         pbstrname.write(core::mem::transmute(ok__));
@@ -6295,8 +6295,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::ClientBanner(this) {
                     Ok(ok__) => {
                         pfbanner.write(core::mem::transmute(ok__));
@@ -6311,8 +6311,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::ClientMinVer(this) {
                     Ok(ok__) => {
                         pbstrminver.write(core::mem::transmute(ok__));
@@ -6327,8 +6327,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::ClientCurVer(this) {
                     Ok(ok__) => {
                         pbstrcurver.write(core::mem::transmute(ok__));
@@ -6343,8 +6343,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::ClientUpdateURI(this) {
                     Ok(ok__) => {
                         pbstrupdateuri.write(core::mem::transmute(ok__));
@@ -6359,8 +6359,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::ClientData(this) {
                     Ok(ok__) => {
                         pbstrdata.write(core::mem::transmute(ok__));
@@ -6375,8 +6375,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::UserURI(this) {
                     Ok(ok__) => {
                         pbstruseruri.write(core::mem::transmute(ok__));
@@ -6391,8 +6391,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::UserName(this) {
                     Ok(ok__) => {
                         pbstrusername.write(core::mem::transmute(ok__));
@@ -6407,8 +6407,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::UserAccount(this) {
                     Ok(ok__) => {
                         pbstruseraccount.write(core::mem::transmute(ok__));
@@ -6423,8 +6423,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCProfile_Impl::SetCredentials(this, core::mem::transmute(&bstruseruri), core::mem::transmute(&bstruseraccount), core::mem::transmute(&bstrpassword)).into()
             }
         }
@@ -6433,8 +6433,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::SessionCapabilities(this) {
                     Ok(ok__) => {
                         plsupportedsessions.write(core::mem::transmute(ok__));
@@ -6449,8 +6449,8 @@ impl IRTCProfile_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile_Impl::State(this) {
                     Ok(ok__) => {
                         penstate.write(core::mem::transmute(ok__));
@@ -6540,8 +6540,8 @@ impl IRTCProfile2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile2_Impl::Realm(this) {
                     Ok(ok__) => {
                         pbstrrealm.write(core::mem::transmute(ok__));
@@ -6556,8 +6556,8 @@ impl IRTCProfile2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCProfile2_Impl::SetRealm(this, core::mem::transmute(&bstrrealm)).into()
             }
         }
@@ -6566,8 +6566,8 @@ impl IRTCProfile2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfile2_Impl::AllowedAuth(this) {
                     Ok(ok__) => {
                         plallowedauth.write(core::mem::transmute(ok__));
@@ -6582,8 +6582,8 @@ impl IRTCProfile2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCProfile2_Impl::SetAllowedAuth(this, core::mem::transmute_copy(&lallowedauth)).into()
             }
         }
@@ -6658,8 +6658,8 @@ impl IRTCProfileEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfileEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfileEvent_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -6674,8 +6674,8 @@ impl IRTCProfileEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfileEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfileEvent_Impl::Cookie(this) {
                     Ok(ok__) => {
                         plcookie.write(core::mem::transmute(ok__));
@@ -6690,8 +6690,8 @@ impl IRTCProfileEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfileEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfileEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -6756,8 +6756,8 @@ impl IRTCProfileEvent2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfileEvent2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCProfileEvent2_Impl::EventType(this) {
                     Ok(ok__) => {
                         peventtype.write(core::mem::transmute(ok__));
@@ -6840,8 +6840,8 @@ impl IRTCReInviteEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCReInviteEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCReInviteEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession2.write(core::mem::transmute(ok__));
@@ -6856,8 +6856,8 @@ impl IRTCReInviteEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCReInviteEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCReInviteEvent_Impl::Accept(this, core::mem::transmute(&bstrcontenttype), core::mem::transmute(&bstrsessiondescription)).into()
             }
         }
@@ -6866,8 +6866,8 @@ impl IRTCReInviteEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCReInviteEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCReInviteEvent_Impl::Reject(this).into()
             }
         }
@@ -6876,8 +6876,8 @@ impl IRTCReInviteEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCReInviteEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCReInviteEvent_Impl::State(this) {
                     Ok(ok__) => {
                         pstate.write(core::mem::transmute(ok__));
@@ -6892,8 +6892,8 @@ impl IRTCReInviteEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCReInviteEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCReInviteEvent_Impl::GetRemoteSessionDescription(this, core::mem::transmute_copy(&pbstrcontenttype), core::mem::transmute_copy(&pbstrsessiondescription)).into()
             }
         }
@@ -6978,8 +6978,8 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCRegistrationStateChangeEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCRegistrationStateChangeEvent_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -6994,8 +6994,8 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCRegistrationStateChangeEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCRegistrationStateChangeEvent_Impl::State(this) {
                     Ok(ok__) => {
                         penstate.write(core::mem::transmute(ok__));
@@ -7010,8 +7010,8 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCRegistrationStateChangeEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCRegistrationStateChangeEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -7026,8 +7026,8 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCRegistrationStateChangeEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCRegistrationStateChangeEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -7117,8 +7117,8 @@ impl IRTCRoamingEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCRoamingEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCRoamingEvent_Impl::EventType(this) {
                     Ok(ok__) => {
                         peventtype.write(core::mem::transmute(ok__));
@@ -7133,8 +7133,8 @@ impl IRTCRoamingEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCRoamingEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCRoamingEvent_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -7149,8 +7149,8 @@ impl IRTCRoamingEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCRoamingEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCRoamingEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -7165,8 +7165,8 @@ impl IRTCRoamingEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCRoamingEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCRoamingEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -7353,8 +7353,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSession_Impl::Client(this) {
                     Ok(ok__) => {
                         ppclient.write(core::mem::transmute(ok__));
@@ -7369,8 +7369,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSession_Impl::State(this) {
                     Ok(ok__) => {
                         penstate.write(core::mem::transmute(ok__));
@@ -7385,8 +7385,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSession_Impl::Type(this) {
                     Ok(ok__) => {
                         pentype.write(core::mem::transmute(ok__));
@@ -7401,8 +7401,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSession_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -7417,8 +7417,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSession_Impl::Participants(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -7433,8 +7433,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSession_Impl::Answer(this).into()
             }
         }
@@ -7443,8 +7443,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSession_Impl::Terminate(this, core::mem::transmute_copy(&enreason)).into()
             }
         }
@@ -7453,8 +7453,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSession_Impl::Redirect(this, core::mem::transmute_copy(&entype), core::mem::transmute(&bstrlocalphoneuri), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)).into()
             }
         }
@@ -7463,8 +7463,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSession_Impl::AddParticipant(this, core::mem::transmute(&bstraddress), core::mem::transmute(&bstrname)) {
                     Ok(ok__) => {
                         ppparticipant.write(core::mem::transmute(ok__));
@@ -7479,8 +7479,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSession_Impl::RemoveParticipant(this, core::mem::transmute_copy(&pparticipant)).into()
             }
         }
@@ -7489,8 +7489,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSession_Impl::EnumerateParticipants(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -7505,8 +7505,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSession_Impl::CanAddParticipants(this) {
                     Ok(ok__) => {
                         pfcanadd.write(core::mem::transmute(ok__));
@@ -7521,8 +7521,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSession_Impl::RedirectedUserURI(this) {
                     Ok(ok__) => {
                         pbstruseruri.write(core::mem::transmute(ok__));
@@ -7537,8 +7537,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSession_Impl::RedirectedUserName(this) {
                     Ok(ok__) => {
                         pbstrusername.write(core::mem::transmute(ok__));
@@ -7553,8 +7553,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSession_Impl::NextRedirectedUser(this).into()
             }
         }
@@ -7563,8 +7563,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSession_Impl::SendMessage(this, core::mem::transmute(&bstrmessageheader), core::mem::transmute(&bstrmessage), core::mem::transmute_copy(&lcookie)).into()
             }
         }
@@ -7573,8 +7573,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSession_Impl::SendMessageStatus(this, core::mem::transmute_copy(&enuserstatus), core::mem::transmute_copy(&lcookie)).into()
             }
         }
@@ -7583,8 +7583,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSession_Impl::AddStream(this, core::mem::transmute_copy(&lmediatype), core::mem::transmute_copy(&lcookie)).into()
             }
         }
@@ -7593,8 +7593,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSession_Impl::RemoveStream(this, core::mem::transmute_copy(&lmediatype), core::mem::transmute_copy(&lcookie)).into()
             }
         }
@@ -7603,8 +7603,8 @@ impl IRTCSession_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSession_Impl::put_EncryptionKey(this, core::mem::transmute_copy(&lmediatype), core::mem::transmute(&encryptionkey)).into()
             }
         }
@@ -7703,8 +7703,8 @@ impl IRTCSession2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSession2_Impl::SendInfo(this, core::mem::transmute(&bstrinfoheader), core::mem::transmute(&bstrinfo), core::mem::transmute_copy(&lcookie)).into()
             }
         }
@@ -7713,8 +7713,8 @@ impl IRTCSession2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSession2_Impl::put_PreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype), core::mem::transmute_copy(&ensecuritylevel)).into()
             }
         }
@@ -7723,8 +7723,8 @@ impl IRTCSession2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSession2_Impl::get_PreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
                         pensecuritylevel.write(core::mem::transmute(ok__));
@@ -7739,8 +7739,8 @@ impl IRTCSession2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSession2_Impl::IsSecurityEnabled(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
                         pfsecurityenabled.write(core::mem::transmute(ok__));
@@ -7755,8 +7755,8 @@ impl IRTCSession2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSession2_Impl::AnswerWithSessionDescription(this, core::mem::transmute(&bstrcontenttype), core::mem::transmute(&bstrsessiondescription)).into()
             }
         }
@@ -7765,8 +7765,8 @@ impl IRTCSession2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSession2_Impl::ReInviteWithSessionDescription(this, core::mem::transmute(&bstrcontenttype), core::mem::transmute(&bstrsessiondescription), core::mem::transmute_copy(&lcookie)).into()
             }
         }
@@ -7861,8 +7861,8 @@ impl IRTCSessionCallControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSessionCallControl_Impl::Hold(this, core::mem::transmute_copy(&lcookie)).into()
             }
         }
@@ -7871,8 +7871,8 @@ impl IRTCSessionCallControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSessionCallControl_Impl::UnHold(this, core::mem::transmute_copy(&lcookie)).into()
             }
         }
@@ -7881,8 +7881,8 @@ impl IRTCSessionCallControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSessionCallControl_Impl::Forward(this, core::mem::transmute(&bstrforwardtouri)).into()
             }
         }
@@ -7891,8 +7891,8 @@ impl IRTCSessionCallControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSessionCallControl_Impl::Refer(this, core::mem::transmute(&bstrrefertouri), core::mem::transmute(&bstrrefercookie)).into()
             }
         }
@@ -7901,8 +7901,8 @@ impl IRTCSessionCallControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSessionCallControl_Impl::SetReferredByURI(this, core::mem::transmute(&bstrreferredbyuri)).into()
             }
         }
@@ -7911,8 +7911,8 @@ impl IRTCSessionCallControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionCallControl_Impl::ReferredByURI(this) {
                     Ok(ok__) => {
                         pbstrreferredbyuri.write(core::mem::transmute(ok__));
@@ -7927,8 +7927,8 @@ impl IRTCSessionCallControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSessionCallControl_Impl::SetReferCookie(this, core::mem::transmute(&bstrrefercookie)).into()
             }
         }
@@ -7937,8 +7937,8 @@ impl IRTCSessionCallControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionCallControl_Impl::ReferCookie(this) {
                     Ok(ok__) => {
                         pbstrrefercookie.write(core::mem::transmute(ok__));
@@ -7953,8 +7953,8 @@ impl IRTCSessionCallControl_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionCallControl_Impl::IsReferred(this) {
                     Ok(ok__) => {
                         pfisreferred.write(core::mem::transmute(ok__));
@@ -8008,8 +8008,8 @@ impl IRTCSessionDescriptionManager_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionDescriptionManager_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSessionDescriptionManager_Impl::EvaluateSessionDescription(this, core::mem::transmute(&bstrcontenttype), core::mem::transmute(&bstrsessiondescription), core::mem::transmute_copy(&pfapplicationsession)).into()
             }
         }
@@ -8086,8 +8086,8 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionOperationCompleteEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionOperationCompleteEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -8102,8 +8102,8 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionOperationCompleteEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionOperationCompleteEvent_Impl::Cookie(this) {
                     Ok(ok__) => {
                         plcookie.write(core::mem::transmute(ok__));
@@ -8118,8 +8118,8 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionOperationCompleteEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionOperationCompleteEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -8134,8 +8134,8 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionOperationCompleteEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionOperationCompleteEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -8206,8 +8206,8 @@ impl IRTCSessionOperationCompleteEvent2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionOperationCompleteEvent2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionOperationCompleteEvent2_Impl::Participant(this) {
                     Ok(ok__) => {
                         ppparticipant.write(core::mem::transmute(ok__));
@@ -8222,8 +8222,8 @@ impl IRTCSessionOperationCompleteEvent2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionOperationCompleteEvent2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSessionOperationCompleteEvent2_Impl::GetRemoteSessionDescription(this, core::mem::transmute_copy(&pbstrcontenttype), core::mem::transmute_copy(&pbstrsessiondescription)).into()
             }
         }
@@ -8268,8 +8268,8 @@ impl IRTCSessionPortManagement_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionPortManagement_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSessionPortManagement_Impl::SetPortManager(this, core::mem::transmute_copy(&pportmanager)).into()
             }
         }
@@ -8346,8 +8346,8 @@ impl IRTCSessionReferStatusEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferStatusEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionReferStatusEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -8362,8 +8362,8 @@ impl IRTCSessionReferStatusEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferStatusEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionReferStatusEvent_Impl::ReferStatus(this) {
                     Ok(ok__) => {
                         penreferstatus.write(core::mem::transmute(ok__));
@@ -8378,8 +8378,8 @@ impl IRTCSessionReferStatusEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferStatusEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionReferStatusEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -8394,8 +8394,8 @@ impl IRTCSessionReferStatusEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferStatusEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionReferStatusEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -8500,8 +8500,8 @@ impl IRTCSessionReferredEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionReferredEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -8516,8 +8516,8 @@ impl IRTCSessionReferredEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionReferredEvent_Impl::ReferredByURI(this) {
                     Ok(ok__) => {
                         pbstrreferredbyuri.write(core::mem::transmute(ok__));
@@ -8532,8 +8532,8 @@ impl IRTCSessionReferredEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionReferredEvent_Impl::ReferToURI(this) {
                     Ok(ok__) => {
                         pbstrreferouri.write(core::mem::transmute(ok__));
@@ -8548,8 +8548,8 @@ impl IRTCSessionReferredEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionReferredEvent_Impl::ReferCookie(this) {
                     Ok(ok__) => {
                         pbstrrefercookie.write(core::mem::transmute(ok__));
@@ -8564,8 +8564,8 @@ impl IRTCSessionReferredEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSessionReferredEvent_Impl::Accept(this).into()
             }
         }
@@ -8574,8 +8574,8 @@ impl IRTCSessionReferredEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSessionReferredEvent_Impl::Reject(this).into()
             }
         }
@@ -8584,8 +8584,8 @@ impl IRTCSessionReferredEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSessionReferredEvent_Impl::SetReferredSessionState(this, core::mem::transmute_copy(&enstate)).into()
             }
         }
@@ -8672,8 +8672,8 @@ impl IRTCSessionStateChangeEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionStateChangeEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -8688,8 +8688,8 @@ impl IRTCSessionStateChangeEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionStateChangeEvent_Impl::State(this) {
                     Ok(ok__) => {
                         penstate.write(core::mem::transmute(ok__));
@@ -8704,8 +8704,8 @@ impl IRTCSessionStateChangeEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionStateChangeEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -8720,8 +8720,8 @@ impl IRTCSessionStateChangeEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionStateChangeEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -8808,8 +8808,8 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionStateChangeEvent2_Impl::MediaTypes(this) {
                     Ok(ok__) => {
                         pmediatypes.write(core::mem::transmute(ok__));
@@ -8824,8 +8824,8 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionStateChangeEvent2_Impl::get_RemotePreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
                         pensecuritylevel.write(core::mem::transmute(ok__));
@@ -8840,8 +8840,8 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCSessionStateChangeEvent2_Impl::IsForked(this) {
                     Ok(ok__) => {
                         pfisforked.write(core::mem::transmute(ok__));
@@ -8856,8 +8856,8 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCSessionStateChangeEvent2_Impl::GetRemoteSessionDescription(this, core::mem::transmute_copy(&pbstrcontenttype), core::mem::transmute_copy(&pbstrsessiondescription)).into()
             }
         }
@@ -8913,8 +8913,8 @@ impl IRTCUserSearch_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearch_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCUserSearch_Impl::CreateQuery(this) {
                     Ok(ok__) => {
                         ppquery.write(core::mem::transmute(ok__));
@@ -8929,8 +8929,8 @@ impl IRTCUserSearch_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearch_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCUserSearch_Impl::ExecuteSearch(this, core::mem::transmute_copy(&pquery), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lcookie)).into()
             }
         }
@@ -9013,8 +9013,8 @@ impl IRTCUserSearchQuery_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCUserSearchQuery_Impl::put_SearchTerm(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrvalue)).into()
             }
         }
@@ -9023,8 +9023,8 @@ impl IRTCUserSearchQuery_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCUserSearchQuery_Impl::get_SearchTerm(this, core::mem::transmute(&bstrname)) {
                     Ok(ok__) => {
                         pbstrvalue.write(core::mem::transmute(ok__));
@@ -9039,8 +9039,8 @@ impl IRTCUserSearchQuery_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCUserSearchQuery_Impl::SearchTerms(this) {
                     Ok(ok__) => {
                         pbstrnames.write(core::mem::transmute(ok__));
@@ -9055,8 +9055,8 @@ impl IRTCUserSearchQuery_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCUserSearchQuery_Impl::put_SearchPreference(this, core::mem::transmute_copy(&enpreference), core::mem::transmute_copy(&lvalue)).into()
             }
         }
@@ -9065,8 +9065,8 @@ impl IRTCUserSearchQuery_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCUserSearchQuery_Impl::get_SearchPreference(this, core::mem::transmute_copy(&enpreference)) {
                     Ok(ok__) => {
                         plvalue.write(core::mem::transmute(ok__));
@@ -9081,8 +9081,8 @@ impl IRTCUserSearchQuery_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCUserSearchQuery_Impl::SetSearchDomain(this, core::mem::transmute(&bstrdomain)).into()
             }
         }
@@ -9091,8 +9091,8 @@ impl IRTCUserSearchQuery_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCUserSearchQuery_Impl::SearchDomain(this) {
                     Ok(ok__) => {
                         pbstrdomain.write(core::mem::transmute(ok__));
@@ -9147,8 +9147,8 @@ impl IRTCUserSearchResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCUserSearchResult_Impl::get_Value(this, core::mem::transmute_copy(&encolumn)) {
                     Ok(ok__) => {
                         pbstrvalue.write(core::mem::transmute(ok__));
@@ -9255,8 +9255,8 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCUserSearchResultsEvent_Impl::EnumerateResults(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -9271,8 +9271,8 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCUserSearchResultsEvent_Impl::Results(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -9287,8 +9287,8 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCUserSearchResultsEvent_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -9303,8 +9303,8 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCUserSearchResultsEvent_Impl::Query(this) {
                     Ok(ok__) => {
                         ppquery.write(core::mem::transmute(ok__));
@@ -9319,8 +9319,8 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCUserSearchResultsEvent_Impl::Cookie(this) {
                     Ok(ok__) => {
                         plcookie.write(core::mem::transmute(ok__));
@@ -9335,8 +9335,8 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCUserSearchResultsEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -9351,8 +9351,8 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCUserSearchResultsEvent_Impl::MoreAvailable(this) {
                     Ok(ok__) => {
                         pfmoreavailable.write(core::mem::transmute(ok__));
@@ -9419,8 +9419,8 @@ impl IRTCWatcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCWatcher_Impl::State(this) {
                     Ok(ok__) => {
                         penstate.write(core::mem::transmute(ok__));
@@ -9435,8 +9435,8 @@ impl IRTCWatcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRTCWatcher_Impl::SetState(this, core::mem::transmute_copy(&enstate)).into()
             }
         }
@@ -9490,8 +9490,8 @@ impl IRTCWatcher2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcher2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCWatcher2_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -9506,8 +9506,8 @@ impl IRTCWatcher2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcher2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCWatcher2_Impl::Scope(this) {
                     Ok(ok__) => {
                         penscope.write(core::mem::transmute(ok__));
@@ -9566,8 +9566,8 @@ impl IRTCWatcherEvent_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcherEvent_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCWatcherEvent_Impl::Watcher(this) {
                     Ok(ok__) => {
                         ppwatcher.write(core::mem::transmute(ok__));
@@ -9635,8 +9635,8 @@ impl IRTCWatcherEvent2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcherEvent2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCWatcherEvent2_Impl::EventType(this) {
                     Ok(ok__) => {
                         peventtype.write(core::mem::transmute(ok__));
@@ -9651,8 +9651,8 @@ impl IRTCWatcherEvent2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcherEvent2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRTCWatcherEvent2_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -9711,8 +9711,8 @@ impl ITransportSettingsInternal_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITransportSettingsInternal_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITransportSettingsInternal_Impl::ApplySetting(this, core::mem::transmute_copy(&setting)).into()
             }
         }
@@ -9721,8 +9721,8 @@ impl ITransportSettingsInternal_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITransportSettingsInternal_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ITransportSettingsInternal_Impl::QuerySetting(this, core::mem::transmute_copy(&setting)).into()
             }
         }

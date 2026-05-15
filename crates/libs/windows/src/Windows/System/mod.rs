@@ -2046,8 +2046,8 @@ impl ILauncherViewOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILauncherViewOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILauncherViewOptions_Impl::DesiredRemainingView(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2062,8 +2062,8 @@ impl ILauncherViewOptions_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILauncherViewOptions_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ILauncherViewOptions_Impl::SetDesiredRemainingView(this, value).into()
             }
         }

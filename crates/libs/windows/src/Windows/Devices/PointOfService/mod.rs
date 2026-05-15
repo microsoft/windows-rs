@@ -3441,8 +3441,8 @@ impl ICashDrawerEventSourceEventArgs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICashDrawerEventSourceEventArgs_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICashDrawerEventSourceEventArgs_Impl::CashDrawer(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4025,8 +4025,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICommonClaimedPosPrinterStation_Impl::SetCharactersPerLine(this, value).into()
             }
         }
@@ -4035,8 +4035,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonClaimedPosPrinterStation_Impl::CharactersPerLine(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4051,8 +4051,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICommonClaimedPosPrinterStation_Impl::SetLineHeight(this, value).into()
             }
         }
@@ -4061,8 +4061,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonClaimedPosPrinterStation_Impl::LineHeight(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4077,8 +4077,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICommonClaimedPosPrinterStation_Impl::SetLineSpacing(this, value).into()
             }
         }
@@ -4087,8 +4087,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonClaimedPosPrinterStation_Impl::LineSpacing(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4103,8 +4103,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonClaimedPosPrinterStation_Impl::LineWidth(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4119,8 +4119,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICommonClaimedPosPrinterStation_Impl::SetIsLetterQuality(this, value).into()
             }
         }
@@ -4129,8 +4129,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonClaimedPosPrinterStation_Impl::IsLetterQuality(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4145,8 +4145,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonClaimedPosPrinterStation_Impl::IsPaperNearEnd(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4161,8 +4161,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICommonClaimedPosPrinterStation_Impl::SetColorCartridge(this, value).into()
             }
         }
@@ -4171,8 +4171,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonClaimedPosPrinterStation_Impl::ColorCartridge(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4187,8 +4187,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonClaimedPosPrinterStation_Impl::IsCoverOpen(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4203,8 +4203,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonClaimedPosPrinterStation_Impl::IsCartridgeRemoved(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4219,8 +4219,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonClaimedPosPrinterStation_Impl::IsCartridgeEmpty(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4235,8 +4235,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonClaimedPosPrinterStation_Impl::IsHeadCleaning(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4251,8 +4251,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonClaimedPosPrinterStation_Impl::IsPaperEmpty(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4267,8 +4267,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonClaimedPosPrinterStation_Impl::IsReadyToPrint(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4283,8 +4283,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonClaimedPosPrinterStation_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonClaimedPosPrinterStation_Impl::ValidateData(this, core::mem::transmute(&data)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4458,8 +4458,8 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonPosPrintStationCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonPosPrintStationCapabilities_Impl::IsPrinterPresent(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4474,8 +4474,8 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonPosPrintStationCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonPosPrintStationCapabilities_Impl::IsDualColorSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4490,8 +4490,8 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonPosPrintStationCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonPosPrintStationCapabilities_Impl::ColorCartridgeCapabilities(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4506,8 +4506,8 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonPosPrintStationCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonPosPrintStationCapabilities_Impl::CartridgeSensors(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4522,8 +4522,8 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonPosPrintStationCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonPosPrintStationCapabilities_Impl::IsBoldSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4538,8 +4538,8 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonPosPrintStationCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonPosPrintStationCapabilities_Impl::IsItalicSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4554,8 +4554,8 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonPosPrintStationCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonPosPrintStationCapabilities_Impl::IsUnderlineSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4570,8 +4570,8 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonPosPrintStationCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonPosPrintStationCapabilities_Impl::IsDoubleHighPrintSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4586,8 +4586,8 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonPosPrintStationCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonPosPrintStationCapabilities_Impl::IsDoubleWidePrintSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4602,8 +4602,8 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonPosPrintStationCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonPosPrintStationCapabilities_Impl::IsDoubleHighDoubleWidePrintSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4618,8 +4618,8 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonPosPrintStationCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonPosPrintStationCapabilities_Impl::IsPaperEmptySensorSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4634,8 +4634,8 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonPosPrintStationCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonPosPrintStationCapabilities_Impl::IsPaperNearEndSensorSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4650,8 +4650,8 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonPosPrintStationCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonPosPrintStationCapabilities_Impl::SupportedCharactersPerLine(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4878,8 +4878,8 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonReceiptSlipCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonReceiptSlipCapabilities_Impl::IsBarcodeSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4894,8 +4894,8 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonReceiptSlipCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonReceiptSlipCapabilities_Impl::IsBitmapSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4910,8 +4910,8 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonReceiptSlipCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonReceiptSlipCapabilities_Impl::IsLeft90RotationSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4926,8 +4926,8 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonReceiptSlipCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonReceiptSlipCapabilities_Impl::IsRight90RotationSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4942,8 +4942,8 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonReceiptSlipCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonReceiptSlipCapabilities_Impl::Is180RotationSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4958,8 +4958,8 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonReceiptSlipCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonReceiptSlipCapabilities_Impl::IsPrintAreaSupported(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4974,8 +4974,8 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonReceiptSlipCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonReceiptSlipCapabilities_Impl::RuledLineCapabilities(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4990,8 +4990,8 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonReceiptSlipCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonReceiptSlipCapabilities_Impl::SupportedBarcodeRotations(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5007,8 +5007,8 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICommonReceiptSlipCapabilities_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICommonReceiptSlipCapabilities_Impl::SupportedBitmapRotations(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5667,8 +5667,8 @@ impl IPosPrinterJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPosPrinterJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPosPrinterJob_Impl::Print(this, core::mem::transmute(&data)).into()
             }
         }
@@ -5677,8 +5677,8 @@ impl IPosPrinterJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPosPrinterJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPosPrinterJob_Impl::PrintLine(this, core::mem::transmute(&data)).into()
             }
         }
@@ -5687,8 +5687,8 @@ impl IPosPrinterJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPosPrinterJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IPosPrinterJob_Impl::PrintNewline(this).into()
             }
         }
@@ -5697,8 +5697,8 @@ impl IPosPrinterJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IPosPrinterJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IPosPrinterJob_Impl::ExecuteAsync(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5954,8 +5954,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::SetBarcodeRotation(this, value).into()
             }
         }
@@ -5964,8 +5964,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::SetPrintRotation(this, value, includebitmaps).into()
             }
         }
@@ -5974,8 +5974,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::SetPrintArea(this, core::mem::transmute(&value)).into()
             }
         }
@@ -5984,8 +5984,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::SetBitmap(this, bitmapnumber, core::mem::transmute_copy(&bitmap), alignment).into()
             }
         }
@@ -5994,8 +5994,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::SetBitmapCustomWidthStandardAlign(this, bitmapnumber, core::mem::transmute_copy(&bitmap), alignment, width).into()
             }
         }
@@ -6004,8 +6004,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::SetCustomAlignedBitmap(this, bitmapnumber, core::mem::transmute_copy(&bitmap), alignmentdistance).into()
             }
         }
@@ -6014,8 +6014,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::SetBitmapCustomWidthCustomAlign(this, bitmapnumber, core::mem::transmute_copy(&bitmap), alignmentdistance, width).into()
             }
         }
@@ -6024,8 +6024,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::PrintSavedBitmap(this, bitmapnumber).into()
             }
         }
@@ -6034,8 +6034,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::DrawRuledLine(this, core::mem::transmute(&positionlist), linedirection, linewidth, linestyle, linecolor).into()
             }
         }
@@ -6044,8 +6044,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::PrintBarcode(this, core::mem::transmute(&data), symbology, height, width, textposition, alignment).into()
             }
         }
@@ -6054,8 +6054,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::PrintBarcodeCustomAlign(this, core::mem::transmute(&data), symbology, height, width, textposition, alignmentdistance).into()
             }
         }
@@ -6064,8 +6064,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::PrintBitmap(this, core::mem::transmute_copy(&bitmap), alignment).into()
             }
         }
@@ -6074,8 +6074,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::PrintBitmapCustomWidthStandardAlign(this, core::mem::transmute_copy(&bitmap), alignment, width).into()
             }
         }
@@ -6084,8 +6084,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::PrintCustomAlignedBitmap(this, core::mem::transmute_copy(&bitmap), alignmentdistance).into()
             }
         }
@@ -6094,8 +6094,8 @@ impl IReceiptOrSlipJob_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IReceiptOrSlipJob_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IReceiptOrSlipJob_Impl::PrintBitmapCustomWidthCustomAlign(this, core::mem::transmute_copy(&bitmap), alignmentdistance, width).into()
             }
         }

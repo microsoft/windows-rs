@@ -2262,8 +2262,8 @@ impl IRtwqAsyncCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRtwqAsyncCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRtwqAsyncCallback_Impl::GetParameters(this, core::mem::transmute_copy(&pdwflags), core::mem::transmute_copy(&pdwqueue)).into()
             }
         }
@@ -2272,8 +2272,8 @@ impl IRtwqAsyncCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRtwqAsyncCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRtwqAsyncCallback_Impl::Invoke(this, core::mem::transmute_copy(&pasyncresult)).into()
             }
         }
@@ -2340,8 +2340,8 @@ impl IRtwqAsyncResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRtwqAsyncResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRtwqAsyncResult_Impl::GetState(this) {
                     Ok(ok__) => {
                         ppunkstate.write(core::mem::transmute(ok__));
@@ -2356,8 +2356,8 @@ impl IRtwqAsyncResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRtwqAsyncResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRtwqAsyncResult_Impl::GetStatus(this).into()
             }
         }
@@ -2366,8 +2366,8 @@ impl IRtwqAsyncResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRtwqAsyncResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRtwqAsyncResult_Impl::SetStatus(this, core::mem::transmute_copy(&hrstatus)).into()
             }
         }
@@ -2376,8 +2376,8 @@ impl IRtwqAsyncResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRtwqAsyncResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRtwqAsyncResult_Impl::GetObject(this) {
                     Ok(ok__) => {
                         ppobject.write(core::mem::transmute(ok__));
@@ -2392,8 +2392,8 @@ impl IRtwqAsyncResult_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRtwqAsyncResult_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRtwqAsyncResult_Impl::GetStateNoAddRef(this)
             }
         }
@@ -2447,8 +2447,8 @@ impl IRtwqPlatformEvents_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRtwqPlatformEvents_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRtwqPlatformEvents_Impl::InitializationComplete(this).into()
             }
         }
@@ -2457,8 +2457,8 @@ impl IRtwqPlatformEvents_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRtwqPlatformEvents_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRtwqPlatformEvents_Impl::ShutdownStart(this).into()
             }
         }
@@ -2467,8 +2467,8 @@ impl IRtwqPlatformEvents_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRtwqPlatformEvents_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IRtwqPlatformEvents_Impl::ShutdownComplete(this).into()
             }
         }

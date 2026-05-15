@@ -146,10 +146,10 @@ impl IClass_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IClass_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IClass_Impl::Signal(this, value) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -168,10 +168,10 @@ impl IClass_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IClass_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IClass_Impl::Event(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -192,10 +192,10 @@ impl IClass_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IClass_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IClass_Impl::RemoveEvent(this, token).into()
             }
         }
@@ -261,10 +261,10 @@ impl IClassStatics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IClassStatics_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IClassStatics_Impl::StaticSignal(this, value) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -286,10 +286,10 @@ impl IClassStatics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IClassStatics_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IClassStatics_Impl::StaticEvent(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -310,10 +310,10 @@ impl IClassStatics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IClassStatics_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IClassStatics_Impl::RemoveStaticEvent(this, token).into()
             }
         }

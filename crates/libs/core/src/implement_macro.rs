@@ -37,7 +37,7 @@
 //!     impl Foo as pub Foo_Impl: [IFoo]
 //! }
 //!
-//! impl IFoo_Impl for Foo_Impl {
+//! impl IFoo_Impl for Foo {
 //!     unsafe fn Method(&self) -> HRESULT { HRESULT(0) }
 //! }
 //! ```

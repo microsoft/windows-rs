@@ -68,8 +68,8 @@ impl IGpioControllerProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGpioControllerProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGpioControllerProvider_Impl::PinCount(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -84,8 +84,8 @@ impl IGpioControllerProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGpioControllerProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGpioControllerProvider_Impl::OpenPinProvider(this, pin, sharingmode) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -203,8 +203,8 @@ impl IGpioPinProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGpioPinProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGpioPinProvider_Impl::ValueChanged(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -219,8 +219,8 @@ impl IGpioPinProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGpioPinProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGpioPinProvider_Impl::RemoveValueChanged(this, token).into()
             }
         }
@@ -229,8 +229,8 @@ impl IGpioPinProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGpioPinProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGpioPinProvider_Impl::DebounceTimeout(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -245,8 +245,8 @@ impl IGpioPinProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGpioPinProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGpioPinProvider_Impl::SetDebounceTimeout(this, core::mem::transmute(&value)).into()
             }
         }
@@ -255,8 +255,8 @@ impl IGpioPinProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGpioPinProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGpioPinProvider_Impl::PinNumber(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -271,8 +271,8 @@ impl IGpioPinProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGpioPinProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGpioPinProvider_Impl::SharingMode(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -287,8 +287,8 @@ impl IGpioPinProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGpioPinProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGpioPinProvider_Impl::IsDriveModeSupported(this, drivemode) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -303,8 +303,8 @@ impl IGpioPinProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGpioPinProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGpioPinProvider_Impl::GetDriveMode(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -319,8 +319,8 @@ impl IGpioPinProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGpioPinProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGpioPinProvider_Impl::SetDriveMode(this, value).into()
             }
         }
@@ -329,8 +329,8 @@ impl IGpioPinProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGpioPinProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGpioPinProvider_Impl::Write(this, value).into()
             }
         }
@@ -339,8 +339,8 @@ impl IGpioPinProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGpioPinProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGpioPinProvider_Impl::Read(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -434,8 +434,8 @@ impl IGpioProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGpioProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGpioProvider_Impl::GetControllers(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

@@ -2160,8 +2160,8 @@ impl IBackgroundTask_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTask_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IBackgroundTask_Impl::Run(this, core::mem::transmute_copy(&taskinstance)).into()
             }
         }
@@ -2362,8 +2362,8 @@ impl IBackgroundTaskInstance_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskInstance_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskInstance_Impl::InstanceId(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2378,8 +2378,8 @@ impl IBackgroundTaskInstance_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskInstance_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskInstance_Impl::Task(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2395,8 +2395,8 @@ impl IBackgroundTaskInstance_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskInstance_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskInstance_Impl::Progress(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2411,8 +2411,8 @@ impl IBackgroundTaskInstance_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskInstance_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IBackgroundTaskInstance_Impl::SetProgress(this, value).into()
             }
         }
@@ -2421,8 +2421,8 @@ impl IBackgroundTaskInstance_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskInstance_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskInstance_Impl::TriggerDetails(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2438,8 +2438,8 @@ impl IBackgroundTaskInstance_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskInstance_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskInstance_Impl::Canceled(this, core::mem::transmute_copy(&cancelhandler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2454,8 +2454,8 @@ impl IBackgroundTaskInstance_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskInstance_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IBackgroundTaskInstance_Impl::RemoveCanceled(this, cookie).into()
             }
         }
@@ -2464,8 +2464,8 @@ impl IBackgroundTaskInstance_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskInstance_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskInstance_Impl::SuspendedCount(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2480,8 +2480,8 @@ impl IBackgroundTaskInstance_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskInstance_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskInstance_Impl::GetDeferral(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2613,8 +2613,8 @@ impl IBackgroundTaskInstance2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskInstance2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskInstance2_Impl::GetThrottleCount(this, counter) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2733,8 +2733,8 @@ impl IBackgroundTaskInstance4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskInstance4_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskInstance4_Impl::User(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2839,8 +2839,8 @@ impl IBackgroundTaskRegistration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskRegistration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskRegistration_Impl::TaskId(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2855,8 +2855,8 @@ impl IBackgroundTaskRegistration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskRegistration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskRegistration_Impl::Name(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2872,8 +2872,8 @@ impl IBackgroundTaskRegistration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskRegistration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskRegistration_Impl::Progress(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2888,8 +2888,8 @@ impl IBackgroundTaskRegistration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskRegistration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IBackgroundTaskRegistration_Impl::RemoveProgress(this, cookie).into()
             }
         }
@@ -2898,8 +2898,8 @@ impl IBackgroundTaskRegistration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskRegistration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskRegistration_Impl::Completed(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2914,8 +2914,8 @@ impl IBackgroundTaskRegistration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskRegistration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IBackgroundTaskRegistration_Impl::RemoveCompleted(this, cookie).into()
             }
         }
@@ -2924,8 +2924,8 @@ impl IBackgroundTaskRegistration_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskRegistration_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IBackgroundTaskRegistration_Impl::Unregister(this, canceltask).into()
             }
         }
@@ -3032,8 +3032,8 @@ impl IBackgroundTaskRegistration2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskRegistration2_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskRegistration2_Impl::Trigger(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3132,8 +3132,8 @@ impl IBackgroundTaskRegistration3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundTaskRegistration3_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IBackgroundTaskRegistration3_Impl::TaskGroup(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

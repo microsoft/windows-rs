@@ -48,8 +48,8 @@ impl IAccessibleWinSAT_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAccessibleWinSAT_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAccessibleWinSAT_Impl::SetAccessiblityData(this, core::mem::transmute(&wsname), core::mem::transmute(&wsvalue), core::mem::transmute(&wsdesc)).into()
             }
         }
@@ -107,8 +107,8 @@ impl IInitiateWinSATAssessment_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInitiateWinSATAssessment_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInitiateWinSATAssessment_Impl::InitiateAssessment(this, core::mem::transmute(&cmdline), core::mem::transmute_copy(&pcallbacks), core::mem::transmute_copy(&callerhwnd)).into()
             }
         }
@@ -117,8 +117,8 @@ impl IInitiateWinSATAssessment_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInitiateWinSATAssessment_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInitiateWinSATAssessment_Impl::InitiateFormalAssessment(this, core::mem::transmute_copy(&pcallbacks), core::mem::transmute_copy(&callerhwnd)).into()
             }
         }
@@ -127,8 +127,8 @@ impl IInitiateWinSATAssessment_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IInitiateWinSATAssessment_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IInitiateWinSATAssessment_Impl::CancelAssessment(this).into()
             }
         }
@@ -202,8 +202,8 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProvideWinSATAssessmentInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IProvideWinSATAssessmentInfo_Impl::Score(this) {
                     Ok(ok__) => {
                         score.write(core::mem::transmute(ok__));
@@ -218,8 +218,8 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProvideWinSATAssessmentInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IProvideWinSATAssessmentInfo_Impl::Title(this) {
                     Ok(ok__) => {
                         title.write(core::mem::transmute(ok__));
@@ -234,8 +234,8 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProvideWinSATAssessmentInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IProvideWinSATAssessmentInfo_Impl::Description(this) {
                     Ok(ok__) => {
                         description.write(core::mem::transmute(ok__));
@@ -336,8 +336,8 @@ impl IProvideWinSATResultsInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProvideWinSATResultsInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IProvideWinSATResultsInfo_Impl::GetAssessmentInfo(this, core::mem::transmute_copy(&assessment)) {
                     Ok(ok__) => {
                         ppinfo.write(core::mem::transmute(ok__));
@@ -352,8 +352,8 @@ impl IProvideWinSATResultsInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProvideWinSATResultsInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IProvideWinSATResultsInfo_Impl::AssessmentState(this) {
                     Ok(ok__) => {
                         state.write(core::mem::transmute(ok__));
@@ -368,8 +368,8 @@ impl IProvideWinSATResultsInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProvideWinSATResultsInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IProvideWinSATResultsInfo_Impl::AssessmentDateTime(this) {
                     Ok(ok__) => {
                         filetime.write(core::mem::transmute(ok__));
@@ -384,8 +384,8 @@ impl IProvideWinSATResultsInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProvideWinSATResultsInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IProvideWinSATResultsInfo_Impl::SystemRating(this) {
                     Ok(ok__) => {
                         level.write(core::mem::transmute(ok__));
@@ -400,8 +400,8 @@ impl IProvideWinSATResultsInfo_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProvideWinSATResultsInfo_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IProvideWinSATResultsInfo_Impl::RatingStateDesc(this) {
                     Ok(ok__) => {
                         description.write(core::mem::transmute(ok__));
@@ -461,8 +461,8 @@ impl IProvideWinSATVisuals_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IProvideWinSATVisuals_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IProvideWinSATVisuals_Impl::get_Bitmap(this, core::mem::transmute_copy(&bitmapsize), core::mem::transmute_copy(&state), core::mem::transmute_copy(&rating)) {
                     Ok(ok__) => {
                         pbitmap.write(core::mem::transmute(ok__));
@@ -526,8 +526,8 @@ impl IQueryAllWinSATAssessments_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IQueryAllWinSATAssessments_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IQueryAllWinSATAssessments_Impl::get_AllXML(this, core::mem::transmute(&xpath), core::mem::transmute(&namespaces)) {
                     Ok(ok__) => {
                         ppdomnodelist.write(core::mem::transmute(ok__));
@@ -574,8 +574,8 @@ impl IQueryOEMWinSATCustomization_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IQueryOEMWinSATCustomization_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IQueryOEMWinSATCustomization_Impl::GetOEMPrePopulationInfo(this) {
                     Ok(ok__) => {
                         state.write(core::mem::transmute(ok__));
@@ -646,8 +646,8 @@ impl IQueryRecentWinSATAssessment_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IQueryRecentWinSATAssessment_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IQueryRecentWinSATAssessment_Impl::get_XML(this, core::mem::transmute(&xpath), core::mem::transmute(&namespaces)) {
                     Ok(ok__) => {
                         ppdomnodelist.write(core::mem::transmute(ok__));
@@ -662,8 +662,8 @@ impl IQueryRecentWinSATAssessment_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IQueryRecentWinSATAssessment_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IQueryRecentWinSATAssessment_Impl::Info(this) {
                     Ok(ok__) => {
                         ppwinsatassessmentinfo.write(core::mem::transmute(ok__));
@@ -718,8 +718,8 @@ impl IWinSATInitiateEvents_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWinSATInitiateEvents_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWinSATInitiateEvents_Impl::WinSATComplete(this, core::mem::transmute_copy(&hresult), core::mem::transmute(&strdescription)).into()
             }
         }
@@ -728,8 +728,8 @@ impl IWinSATInitiateEvents_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWinSATInitiateEvents_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWinSATInitiateEvents_Impl::WinSATUpdate(this, core::mem::transmute_copy(&ucurrenttick), core::mem::transmute_copy(&uticktotal), core::mem::transmute(&strcurrentstate)).into()
             }
         }

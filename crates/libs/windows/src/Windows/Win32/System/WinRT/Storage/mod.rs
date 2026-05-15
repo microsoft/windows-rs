@@ -157,8 +157,8 @@ impl IOplockBreakingHandler_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IOplockBreakingHandler_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IOplockBreakingHandler_Impl::OplockBreaking(this).into()
             }
         }
@@ -198,8 +198,8 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IRandomAccessStreamFileAccessMode_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IRandomAccessStreamFileAccessMode_Impl::GetMode(this) {
                     Ok(ok__) => {
                         fileaccessmode.write(core::mem::transmute(ok__));
@@ -249,8 +249,8 @@ impl IStorageFolderHandleAccess_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStorageFolderHandleAccess_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStorageFolderHandleAccess_Impl::Create(this, core::mem::transmute(&filename), core::mem::transmute_copy(&creationoptions), core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), core::mem::transmute_copy(&oplockbreakinghandler)) {
                     Ok(ok__) => {
                         interophandle.write(core::mem::transmute(ok__));
@@ -299,8 +299,8 @@ impl IStorageItemHandleAccess_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IStorageItemHandleAccess_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IStorageItemHandleAccess_Impl::Create(this, core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), core::mem::transmute_copy(&oplockbreakinghandler)) {
                     Ok(ok__) => {
                         interophandle.write(core::mem::transmute(ok__));
@@ -343,8 +343,8 @@ impl IUnbufferedFileHandleOplockCallback_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUnbufferedFileHandleOplockCallback_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUnbufferedFileHandleOplockCallback_Impl::OnBrokenCallback(this).into()
             }
         }
@@ -392,8 +392,8 @@ impl IUnbufferedFileHandleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUnbufferedFileHandleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IUnbufferedFileHandleProvider_Impl::OpenUnbufferedFileHandle(this, core::mem::transmute_copy(&oplockbreakcallback)) {
                     Ok(ok__) => {
                         filehandle.write(core::mem::transmute(ok__));
@@ -408,8 +408,8 @@ impl IUnbufferedFileHandleProvider_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUnbufferedFileHandleProvider_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUnbufferedFileHandleProvider_Impl::CloseUnbufferedFileHandle(this).into()
             }
         }

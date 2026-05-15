@@ -1693,8 +1693,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInput_Impl::GetCurrentTimestamp(this)
             }
         }
@@ -1703,8 +1703,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInput_Impl::GetCurrentReading(this, core::mem::transmute_copy(&inputkind), core::mem::transmute_copy(&device)) {
                     Ok(ok__) => {
                         reading.write(core::mem::transmute(ok__));
@@ -1719,8 +1719,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInput_Impl::GetNextReading(this, core::mem::transmute_copy(&referencereading), core::mem::transmute_copy(&inputkind), core::mem::transmute_copy(&device)) {
                     Ok(ok__) => {
                         reading.write(core::mem::transmute(ok__));
@@ -1735,8 +1735,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInput_Impl::GetPreviousReading(this, core::mem::transmute_copy(&referencereading), core::mem::transmute_copy(&inputkind), core::mem::transmute_copy(&device)) {
                     Ok(ok__) => {
                         reading.write(core::mem::transmute(ok__));
@@ -1751,8 +1751,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInput_Impl::GetTemporalReading(this, core::mem::transmute_copy(&timestamp), core::mem::transmute_copy(&device)) {
                     Ok(ok__) => {
                         reading.write(core::mem::transmute(ok__));
@@ -1767,8 +1767,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInput_Impl::RegisterReadingCallback(this, core::mem::transmute_copy(&device), core::mem::transmute_copy(&inputkind), core::mem::transmute_copy(&analogthreshold), core::mem::transmute_copy(&context), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&callbacktoken)).into()
             }
         }
@@ -1777,8 +1777,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInput_Impl::RegisterDeviceCallback(this, core::mem::transmute_copy(&device), core::mem::transmute_copy(&inputkind), core::mem::transmute_copy(&statusfilter), core::mem::transmute_copy(&enumerationkind), core::mem::transmute_copy(&context), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&callbacktoken)).into()
             }
         }
@@ -1787,8 +1787,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInput_Impl::RegisterSystemButtonCallback(this, core::mem::transmute_copy(&device), core::mem::transmute_copy(&buttonfilter), core::mem::transmute_copy(&context), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&callbacktoken)).into()
             }
         }
@@ -1797,8 +1797,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInput_Impl::RegisterKeyboardLayoutCallback(this, core::mem::transmute_copy(&device), core::mem::transmute_copy(&context), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&callbacktoken)).into()
             }
         }
@@ -1807,8 +1807,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInput_Impl::StopCallback(this, core::mem::transmute_copy(&callbacktoken))
             }
         }
@@ -1817,8 +1817,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInput_Impl::UnregisterCallback(this, core::mem::transmute_copy(&callbacktoken), core::mem::transmute_copy(&timeoutinmicroseconds))
             }
         }
@@ -1827,8 +1827,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInput_Impl::CreateDispatcher(this) {
                     Ok(ok__) => {
                         dispatcher.write(core::mem::transmute(ok__));
@@ -1843,8 +1843,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInput_Impl::CreateAggregateDevice(this, core::mem::transmute_copy(&inputkind)) {
                     Ok(ok__) => {
                         device.write(core::mem::transmute(ok__));
@@ -1859,8 +1859,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInput_Impl::FindDeviceFromId(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         device.write(core::mem::transmute(ok__));
@@ -1875,8 +1875,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInput_Impl::FindDeviceFromObject(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         device.write(core::mem::transmute(ok__));
@@ -1891,8 +1891,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInput_Impl::FindDeviceFromPlatformHandle(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         device.write(core::mem::transmute(ok__));
@@ -1907,8 +1907,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInput_Impl::FindDeviceFromPlatformString(this, core::mem::transmute(&value)) {
                     Ok(ok__) => {
                         device.write(core::mem::transmute(ok__));
@@ -1923,8 +1923,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInput_Impl::EnableOemDeviceSupport(this, core::mem::transmute_copy(&vendorid), core::mem::transmute_copy(&productid), core::mem::transmute_copy(&interfacenumber), core::mem::transmute_copy(&collectionnumber)).into()
             }
         }
@@ -1933,8 +1933,8 @@ impl IGameInput_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInput_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInput_Impl::SetFocusPolicy(this, core::mem::transmute_copy(&policy))
             }
         }
@@ -2103,8 +2103,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::GetDeviceInfo(this)
             }
         }
@@ -2113,8 +2113,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::GetDeviceStatus(this)
             }
         }
@@ -2123,8 +2123,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::GetBatteryState(this, core::mem::transmute_copy(&state))
             }
         }
@@ -2133,8 +2133,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInputDevice_Impl::CreateForceFeedbackEffect(this, core::mem::transmute_copy(&motorindex), core::mem::transmute_copy(&params)) {
                     Ok(ok__) => {
                         effect.write(core::mem::transmute(ok__));
@@ -2149,8 +2149,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::IsForceFeedbackMotorPoweredOn(this, core::mem::transmute_copy(&motorindex))
             }
         }
@@ -2159,8 +2159,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::SetForceFeedbackMotorGain(this, core::mem::transmute_copy(&motorindex), core::mem::transmute_copy(&mastergain))
             }
         }
@@ -2169,8 +2169,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::SetHapticMotorState(this, core::mem::transmute_copy(&motorindex), core::mem::transmute_copy(&params)).into()
             }
         }
@@ -2179,8 +2179,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::SetRumbleState(this, core::mem::transmute_copy(&params))
             }
         }
@@ -2189,8 +2189,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::SetInputSynchronizationState(this, core::mem::transmute_copy(&enabled))
             }
         }
@@ -2199,8 +2199,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::SendInputSynchronizationHint(this)
             }
         }
@@ -2209,8 +2209,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::PowerOff(this)
             }
         }
@@ -2219,8 +2219,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInputDevice_Impl::CreateRawDeviceReport(this, core::mem::transmute_copy(&reportid), core::mem::transmute_copy(&reportkind)) {
                     Ok(ok__) => {
                         report.write(core::mem::transmute(ok__));
@@ -2235,8 +2235,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInputDevice_Impl::GetRawDeviceFeature(this, core::mem::transmute_copy(&reportid)) {
                     Ok(ok__) => {
                         report.write(core::mem::transmute(ok__));
@@ -2251,8 +2251,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::SetRawDeviceFeature(this, core::mem::transmute_copy(&report)).into()
             }
         }
@@ -2261,8 +2261,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::SendRawDeviceOutput(this, core::mem::transmute_copy(&report)).into()
             }
         }
@@ -2271,8 +2271,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInputDevice_Impl::SendRawDeviceOutputWithResponse(this, core::mem::transmute_copy(&requestreport)) {
                     Ok(ok__) => {
                         responsereport.write(core::mem::transmute(ok__));
@@ -2287,8 +2287,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::ExecuteRawDeviceIoControl(this, core::mem::transmute_copy(&controlcode), core::mem::transmute_copy(&inputbuffersize), core::mem::transmute_copy(&inputbuffer), core::mem::transmute_copy(&outputbuffersize), core::mem::transmute_copy(&outputbuffer), core::mem::transmute_copy(&outputsize)).into()
             }
         }
@@ -2297,8 +2297,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::AcquireExclusiveRawDeviceAccess(this, core::mem::transmute_copy(&timeoutinmicroseconds))
             }
         }
@@ -2307,8 +2307,8 @@ impl IGameInputDevice_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDevice_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDevice_Impl::ReleaseExclusiveRawDeviceAccess(this)
             }
         }
@@ -2374,8 +2374,8 @@ impl IGameInputDispatcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDispatcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputDispatcher_Impl::Dispatch(this, core::mem::transmute_copy(&quotainmicroseconds))
             }
         }
@@ -2384,8 +2384,8 @@ impl IGameInputDispatcher_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputDispatcher_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IGameInputDispatcher_Impl::OpenWaitHandle(this) {
                     Ok(ok__) => {
                         waithandle.write(core::mem::transmute(ok__));
@@ -2471,8 +2471,8 @@ impl IGameInputForceFeedbackEffect_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputForceFeedbackEffect_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputForceFeedbackEffect_Impl::GetDevice(this, core::mem::transmute_copy(&device))
             }
         }
@@ -2481,8 +2481,8 @@ impl IGameInputForceFeedbackEffect_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputForceFeedbackEffect_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputForceFeedbackEffect_Impl::GetMotorIndex(this)
             }
         }
@@ -2491,8 +2491,8 @@ impl IGameInputForceFeedbackEffect_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputForceFeedbackEffect_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputForceFeedbackEffect_Impl::GetGain(this)
             }
         }
@@ -2501,8 +2501,8 @@ impl IGameInputForceFeedbackEffect_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputForceFeedbackEffect_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputForceFeedbackEffect_Impl::SetGain(this, core::mem::transmute_copy(&gain))
             }
         }
@@ -2511,8 +2511,8 @@ impl IGameInputForceFeedbackEffect_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputForceFeedbackEffect_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputForceFeedbackEffect_Impl::GetParams(this, core::mem::transmute_copy(&params))
             }
         }
@@ -2521,8 +2521,8 @@ impl IGameInputForceFeedbackEffect_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputForceFeedbackEffect_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputForceFeedbackEffect_Impl::SetParams(this, core::mem::transmute_copy(&params))
             }
         }
@@ -2531,8 +2531,8 @@ impl IGameInputForceFeedbackEffect_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputForceFeedbackEffect_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputForceFeedbackEffect_Impl::GetState(this)
             }
         }
@@ -2541,8 +2541,8 @@ impl IGameInputForceFeedbackEffect_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputForceFeedbackEffect_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputForceFeedbackEffect_Impl::SetState(this, core::mem::transmute_copy(&state))
             }
         }
@@ -2633,8 +2633,8 @@ impl IGameInputRawDeviceReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputRawDeviceReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputRawDeviceReport_Impl::GetDevice(this, core::mem::transmute_copy(&device))
             }
         }
@@ -2643,8 +2643,8 @@ impl IGameInputRawDeviceReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputRawDeviceReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputRawDeviceReport_Impl::GetReportInfo(this)
             }
         }
@@ -2653,8 +2653,8 @@ impl IGameInputRawDeviceReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputRawDeviceReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputRawDeviceReport_Impl::GetRawDataSize(this)
             }
         }
@@ -2663,8 +2663,8 @@ impl IGameInputRawDeviceReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputRawDeviceReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputRawDeviceReport_Impl::GetRawData(this, core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&buffer))
             }
         }
@@ -2673,8 +2673,8 @@ impl IGameInputRawDeviceReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputRawDeviceReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputRawDeviceReport_Impl::SetRawData(this, core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&buffer))
             }
         }
@@ -2683,8 +2683,8 @@ impl IGameInputRawDeviceReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputRawDeviceReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputRawDeviceReport_Impl::GetItemValue(this, core::mem::transmute_copy(&itemindex), core::mem::transmute_copy(&value))
             }
         }
@@ -2693,8 +2693,8 @@ impl IGameInputRawDeviceReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputRawDeviceReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputRawDeviceReport_Impl::SetItemValue(this, core::mem::transmute_copy(&itemindex), core::mem::transmute_copy(&value))
             }
         }
@@ -2703,8 +2703,8 @@ impl IGameInputRawDeviceReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputRawDeviceReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputRawDeviceReport_Impl::ResetItemValue(this, core::mem::transmute_copy(&itemindex))
             }
         }
@@ -2713,8 +2713,8 @@ impl IGameInputRawDeviceReport_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputRawDeviceReport_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputRawDeviceReport_Impl::ResetAllItems(this)
             }
         }
@@ -2871,8 +2871,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetInputKind(this)
             }
         }
@@ -2881,8 +2881,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetSequenceNumber(this, core::mem::transmute_copy(&inputkind))
             }
         }
@@ -2891,8 +2891,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetTimestamp(this)
             }
         }
@@ -2901,8 +2901,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetDevice(this, core::mem::transmute_copy(&device))
             }
         }
@@ -2911,8 +2911,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetRawReport(this, core::mem::transmute_copy(&report))
             }
         }
@@ -2921,8 +2921,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetControllerAxisCount(this)
             }
         }
@@ -2931,8 +2931,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetControllerAxisState(this, core::mem::transmute_copy(&statearraycount), core::mem::transmute_copy(&statearray))
             }
         }
@@ -2941,8 +2941,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetControllerButtonCount(this)
             }
         }
@@ -2951,8 +2951,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetControllerButtonState(this, core::mem::transmute_copy(&statearraycount), core::mem::transmute_copy(&statearray))
             }
         }
@@ -2961,8 +2961,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetControllerSwitchCount(this)
             }
         }
@@ -2971,8 +2971,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetControllerSwitchState(this, core::mem::transmute_copy(&statearraycount), core::mem::transmute_copy(&statearray))
             }
         }
@@ -2981,8 +2981,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetKeyCount(this)
             }
         }
@@ -2991,8 +2991,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetKeyState(this, core::mem::transmute_copy(&statearraycount), core::mem::transmute_copy(&statearray))
             }
         }
@@ -3001,8 +3001,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetMouseState(this, core::mem::transmute_copy(&state))
             }
         }
@@ -3011,8 +3011,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetTouchCount(this)
             }
         }
@@ -3021,8 +3021,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetTouchState(this, core::mem::transmute_copy(&statearraycount), core::mem::transmute_copy(&statearray))
             }
         }
@@ -3031,8 +3031,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetMotionState(this, core::mem::transmute_copy(&state))
             }
         }
@@ -3041,8 +3041,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetArcadeStickState(this, core::mem::transmute_copy(&state))
             }
         }
@@ -3051,8 +3051,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetFlightStickState(this, core::mem::transmute_copy(&state))
             }
         }
@@ -3061,8 +3061,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetGamepadState(this, core::mem::transmute_copy(&state))
             }
         }
@@ -3071,8 +3071,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetRacingWheelState(this, core::mem::transmute_copy(&state))
             }
         }
@@ -3081,8 +3081,8 @@ impl IGameInputReading_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IGameInputReading_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IGameInputReading_Impl::GetUiNavigationState(this, core::mem::transmute_copy(&state))
             }
         }

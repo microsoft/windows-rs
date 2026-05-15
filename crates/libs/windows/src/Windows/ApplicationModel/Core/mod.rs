@@ -630,8 +630,8 @@ impl ICoreApplicationUnhandledError_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICoreApplicationUnhandledError_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ICoreApplicationUnhandledError_Impl::UnhandledErrorDetected(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -646,8 +646,8 @@ impl ICoreApplicationUnhandledError_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ICoreApplicationUnhandledError_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 ICoreApplicationUnhandledError_Impl::RemoveUnhandledErrorDetected(this, token).into()
             }
         }
@@ -854,8 +854,8 @@ impl IFrameworkView_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkView_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFrameworkView_Impl::Initialize(this, core::mem::transmute_copy(&applicationview)).into()
             }
         }
@@ -864,8 +864,8 @@ impl IFrameworkView_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkView_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFrameworkView_Impl::SetWindow(this, core::mem::transmute_copy(&window)).into()
             }
         }
@@ -874,8 +874,8 @@ impl IFrameworkView_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkView_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFrameworkView_Impl::Load(this, core::mem::transmute(&entrypoint)).into()
             }
         }
@@ -884,8 +884,8 @@ impl IFrameworkView_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkView_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFrameworkView_Impl::Run(this).into()
             }
         }
@@ -894,8 +894,8 @@ impl IFrameworkView_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkView_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFrameworkView_Impl::Uninitialize(this).into()
             }
         }
@@ -954,8 +954,8 @@ impl IFrameworkViewSource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkViewSource_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFrameworkViewSource_Impl::CreateView(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

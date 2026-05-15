@@ -78,10 +78,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IIterable_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIterable_Impl::First(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -233,10 +233,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IIterator_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIterator_Impl::Current(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -259,10 +259,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IIterator_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIterator_Impl::HasCurrent(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -284,10 +284,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IIterator_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIterator_Impl::MoveNext(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -311,10 +311,10 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IIterator_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IIterator_Impl::GetMany(
                     this,
                     core::slice::from_raw_parts_mut(
@@ -473,10 +473,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IKeyValuePair_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IKeyValuePair_Impl::Key(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -500,10 +500,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IKeyValuePair_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IKeyValuePair_Impl::Value(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -742,10 +742,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IMap_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMap_Impl::Lookup(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -769,10 +769,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IMap_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMap_Impl::Size(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -796,10 +796,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IMap_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMap_Impl::HasKey(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -822,10 +822,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IMap_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMap_Impl::GetView(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -851,10 +851,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IMap_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMap_Impl::Insert(
                     this,
                     core::mem::transmute_copy(&key),
@@ -881,10 +881,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IMap_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMap_Impl::Remove(this, core::mem::transmute_copy(&key)).into()
             }
         }
@@ -900,10 +900,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IMap_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMap_Impl::Clear(this).into()
             }
         }
@@ -1037,10 +1037,10 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
             <Identity as windows_core::IUnknownImpl>::Impl: IMapChangedEventArgs_Impl<K>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMapChangedEventArgs_Impl::CollectionChange(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1062,10 +1062,10 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
             <Identity as windows_core::IUnknownImpl>::Impl: IMapChangedEventArgs_Impl<K>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMapChangedEventArgs_Impl::Key(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1271,10 +1271,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IMapView_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMapView_Impl::Lookup(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1298,10 +1298,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IMapView_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMapView_Impl::Size(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1325,10 +1325,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IMapView_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IMapView_Impl::HasKey(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1352,10 +1352,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IMapView_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IMapView_Impl::Split(
                     this,
                     core::mem::transmute_copy(&first),
@@ -1633,10 +1633,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IObservableMap_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IObservableMap_Impl::MapChanged(this, core::mem::transmute_copy(&vhnd)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1659,10 +1659,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             <Identity as windows_core::IUnknownImpl>::Impl: IObservableMap_Impl<K, V>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IObservableMap_Impl::RemoveMapChanged(this, token).into()
             }
         }
@@ -1964,10 +1964,10 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IObservableVector_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IObservableVector_Impl::VectorChanged(this, core::mem::transmute_copy(&vhnd))
                 {
                     Ok(ok__) => {
@@ -1990,10 +1990,10 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IObservableVector_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IObservableVector_Impl::RemoveVectorChanged(this, token).into()
             }
         }
@@ -2264,10 +2264,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVector_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVector_Impl::GetAt(this, index) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2290,10 +2290,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVector_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVector_Impl::Size(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2315,10 +2315,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVector_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVector_Impl::GetView(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2343,10 +2343,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVector_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVector_Impl::IndexOf(
                     this,
                     core::mem::transmute_copy(&value),
@@ -2373,10 +2373,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVector_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IVector_Impl::SetAt(this, index, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -2393,10 +2393,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVector_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IVector_Impl::InsertAt(this, index, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -2412,10 +2412,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVector_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IVector_Impl::RemoveAt(this, index).into()
             }
         }
@@ -2431,10 +2431,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVector_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IVector_Impl::Append(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -2449,10 +2449,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVector_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IVector_Impl::RemoveAtEnd(this).into()
             }
         }
@@ -2467,10 +2467,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVector_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IVector_Impl::Clear(this).into()
             }
         }
@@ -2489,10 +2489,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVector_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVector_Impl::GetMany(
                     this,
                     startindex,
@@ -2522,10 +2522,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVector_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IVector_Impl::ReplaceAll(
                     this,
                     core::slice::from_raw_parts(
@@ -2670,10 +2670,10 @@ impl IVectorChangedEventArgs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IVectorChangedEventArgs_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVectorChangedEventArgs_Impl::CollectionChange(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2691,10 +2691,10 @@ impl IVectorChangedEventArgs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IVectorChangedEventArgs_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVectorChangedEventArgs_Impl::Index(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2869,10 +2869,10 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVectorView_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVectorView_Impl::GetAt(this, index) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2895,10 +2895,10 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVectorView_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVectorView_Impl::Size(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2922,10 +2922,10 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVectorView_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVectorView_Impl::IndexOf(
                     this,
                     core::mem::transmute_copy(&value),
@@ -2954,10 +2954,10 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             <Identity as windows_core::IUnknownImpl>::Impl: IVectorView_Impl<T>,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IVectorView_Impl::GetMany(
                     this,
                     startindex,

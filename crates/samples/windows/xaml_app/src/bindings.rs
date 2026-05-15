@@ -4777,10 +4777,10 @@ impl IApplicationFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IApplicationFactory_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IApplicationFactory_Impl::CreateInstance(
                     this,
                     core::mem::transmute_copy(&baseinterface),
@@ -4925,10 +4925,10 @@ impl IApplicationOverrides_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IApplicationOverrides_Impl::OnActivated(this, core::mem::transmute_copy(&args))
                     .into()
             }
@@ -4944,10 +4944,10 @@ impl IApplicationOverrides_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IApplicationOverrides_Impl::OnLaunched(this, core::mem::transmute_copy(&args))
                     .into()
             }
@@ -4963,10 +4963,10 @@ impl IApplicationOverrides_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IApplicationOverrides_Impl::OnFileActivated(this, core::mem::transmute_copy(&args))
                     .into()
             }
@@ -4982,10 +4982,10 @@ impl IApplicationOverrides_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IApplicationOverrides_Impl::OnSearchActivated(
                     this,
                     core::mem::transmute_copy(&args),
@@ -5004,10 +5004,10 @@ impl IApplicationOverrides_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IApplicationOverrides_Impl::OnShareTargetActivated(
                     this,
                     core::mem::transmute_copy(&args),
@@ -5026,10 +5026,10 @@ impl IApplicationOverrides_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IApplicationOverrides_Impl::OnFileOpenPickerActivated(
                     this,
                     core::mem::transmute_copy(&args),
@@ -5048,10 +5048,10 @@ impl IApplicationOverrides_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IApplicationOverrides_Impl::OnFileSavePickerActivated(
                     this,
                     core::mem::transmute_copy(&args),
@@ -5070,10 +5070,10 @@ impl IApplicationOverrides_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IApplicationOverrides_Impl::OnCachedFileUpdaterActivated(
                     this,
                     core::mem::transmute_copy(&args),
@@ -5092,10 +5092,10 @@ impl IApplicationOverrides_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IApplicationOverrides_Impl::OnWindowCreated(this, core::mem::transmute_copy(&args))
                     .into()
             }
@@ -5195,10 +5195,10 @@ impl IApplicationOverrides2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides2_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IApplicationOverrides2_Impl::OnBackgroundActivated(
                     this,
                     core::mem::transmute_copy(&args),
@@ -5376,10 +5376,10 @@ impl IControl2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IControl2_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IControl2_Impl::IsTextScaleFactorEnabled(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -5400,10 +5400,10 @@ impl IControl2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IControl2_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IControl2_Impl::SetIsTextScaleFactorEnabled(this, value).into()
             }
         }
@@ -5458,10 +5458,10 @@ impl IControl3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IControl3_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IControl3_Impl::UseSystemFocusVisuals(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -5482,10 +5482,10 @@ impl IControl3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IControl3_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IControl3_Impl::SetUseSystemFocusVisuals(this, value).into()
             }
         }
@@ -5612,10 +5612,10 @@ impl IControl5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IControl5_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IControl5_Impl::DefaultStyleResourceUri(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5637,10 +5637,10 @@ impl IControl5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IControl5_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IControl5_Impl::SetDefaultStyleResourceUri(this, core::mem::transmute_copy(&value))
                     .into()
             }
@@ -5726,10 +5726,10 @@ impl IControlFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IControlFactory_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IControlFactory_Impl::CreateInstance(
                     this,
                     core::mem::transmute_copy(&baseinterface),
@@ -5865,10 +5865,10 @@ impl IControlProtected_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IControlProtected_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IControlProtected_Impl::DefaultStyleKey(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5890,10 +5890,10 @@ impl IControlProtected_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IControlProtected_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IControlProtected_Impl::SetDefaultStyleKey(this, core::mem::transmute_copy(&value))
                     .into()
             }
@@ -5910,10 +5910,10 @@ impl IControlProtected_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IControlProtected_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IControlProtected_Impl::GetTemplateChild(
                     this,
                     core::mem::transmute(&childname),
@@ -6195,10 +6195,10 @@ impl IDependencyObjectFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IDependencyObjectFactory_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IDependencyObjectFactory_Impl::CreateInstance(
                     this,
                     core::mem::transmute_copy(&baseinterface),
@@ -6415,10 +6415,10 @@ impl IFrameworkElement3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElement3_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFrameworkElement3_Impl::Loading(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -6439,10 +6439,10 @@ impl IFrameworkElement3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElement3_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFrameworkElement3_Impl::RemoveLoading(this, token).into()
             }
         }
@@ -6587,10 +6587,10 @@ impl IFrameworkElementFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementFactory_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFrameworkElementFactory_Impl::CreateInstance(
                     this,
                     core::mem::transmute_copy(&baseinterface),
@@ -6669,10 +6669,10 @@ impl IFrameworkElementOverrides_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementOverrides_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFrameworkElementOverrides_Impl::MeasureOverride(
                     this,
                     core::mem::transmute(&availablesize),
@@ -6697,10 +6697,10 @@ impl IFrameworkElementOverrides_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementOverrides_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFrameworkElementOverrides_Impl::ArrangeOverride(
                     this,
                     core::mem::transmute(&finalsize),
@@ -6723,10 +6723,10 @@ impl IFrameworkElementOverrides_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementOverrides_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFrameworkElementOverrides_Impl::OnApplyTemplate(this).into()
             }
         }
@@ -6798,10 +6798,10 @@ impl IFrameworkElementOverrides2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementOverrides2_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IFrameworkElementOverrides2_Impl::GoToElementStateCore(
                     this,
                     core::mem::transmute(&statename),
@@ -6869,10 +6869,10 @@ impl IFrameworkElementProtected7_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementProtected7_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFrameworkElementProtected7_Impl::InvalidateViewport(this).into()
             }
         }
@@ -7003,10 +7003,10 @@ impl IFrameworkElementStatics5_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementStatics5_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IFrameworkElementStatics5_Impl::DeferTree(this, core::mem::transmute_copy(&element))
                     .into()
             }
@@ -7255,10 +7255,10 @@ impl ITextBox4_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextBox4_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextBox4_Impl::GetLinguisticAlternativesAsync(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -7445,10 +7445,10 @@ impl ITextBoxFactory_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITextBoxFactory_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITextBoxFactory_Impl::CreateInstance(
                     this,
                     core::mem::transmute_copy(&baseinterface),
@@ -8286,10 +8286,10 @@ impl IUIElementOverrides9_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IUIElementOverrides9_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IUIElementOverrides9_Impl::PopulatePropertyInfoOverride(
                     this,
                     core::mem::transmute(&propertyname),
@@ -8649,10 +8649,10 @@ impl IWindow2_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindow2_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWindow2_Impl::SetTitleBar(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -8705,10 +8705,10 @@ impl IWindow3_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindow3_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindow3_Impl::Compositor(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -8786,10 +8786,10 @@ impl IWindowCreatedEventArgs_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowCreatedEventArgs_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowCreatedEventArgs_Impl::Window(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -8850,10 +8850,10 @@ impl IWindowStatics_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWindowStatics_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWindowStatics_Impl::Current(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

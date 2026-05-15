@@ -198,8 +198,8 @@ impl ILearningModelFeatureDescriptor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILearningModelFeatureDescriptor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILearningModelFeatureDescriptor_Impl::Name(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -215,8 +215,8 @@ impl ILearningModelFeatureDescriptor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILearningModelFeatureDescriptor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILearningModelFeatureDescriptor_Impl::Description(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -232,8 +232,8 @@ impl ILearningModelFeatureDescriptor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILearningModelFeatureDescriptor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILearningModelFeatureDescriptor_Impl::Kind(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -248,8 +248,8 @@ impl ILearningModelFeatureDescriptor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILearningModelFeatureDescriptor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILearningModelFeatureDescriptor_Impl::IsRequired(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -309,8 +309,8 @@ impl ILearningModelFeatureValue_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ILearningModelFeatureValue_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ILearningModelFeatureValue_Impl::Kind(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -529,8 +529,8 @@ impl ITensor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITensor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITensor_Impl::TensorKind(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -545,8 +545,8 @@ impl ITensor_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: ITensor_Impl,
         {
             unsafe {
-                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                let this__outer__: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match ITensor_Impl::Shape(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

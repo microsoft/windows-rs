@@ -104,10 +104,10 @@ impl IAgileReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IAgileReference_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IAgileReference_Impl::Resolve(
                     this,
                     core::mem::transmute_copy(&riid),
@@ -182,10 +182,10 @@ impl IWeakReference_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWeakReference_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 IWeakReference_Impl::Resolve(
                     this,
                     core::mem::transmute_copy(&riid),
@@ -250,10 +250,10 @@ impl IWeakReferenceSource_Vtbl {
             <Identity as windows_core::IUnknownImpl>::Impl: IWeakReferenceSource_Impl,
         {
             unsafe {
-                let outer: &Identity =
+                let this__outer__: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let this: &<Identity as windows_core::IUnknownImpl>::Impl =
-                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
+                    <Identity as windows_core::IUnknownImpl>::get_impl(this__outer__);
                 match IWeakReferenceSource_Impl::GetWeakReference(this) {
                     Ok(ok__) => {
                         weakreference.write(core::mem::transmute(ok__));
