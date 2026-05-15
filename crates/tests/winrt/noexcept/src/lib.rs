@@ -20,6 +20,6 @@ pub fn produce() -> Result<ITest> {
     unsafe {
         let mut test = None;
         produce((&mut test).into()).ok()?;
-        Type::from_default(&test)
+        imp::Type::from_default(&test)
     }
 }

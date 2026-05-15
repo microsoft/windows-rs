@@ -10,12 +10,12 @@ use windows_collections::*;
 struct Thing<T>(Vec<T::Default>)
 where
     T: RuntimeType + 'static,
-    <T as Type<T>>::Default: PartialEq;
+    <T as imp::Type<T>>::Default: PartialEq;
 
 impl<T> IVectorView_Impl<T> for Thing_Impl<T>
 where
     T: RuntimeType + 'static,
-    <T as Type<T>>::Default: PartialEq,
+    <T as imp::Type<T>>::Default: PartialEq,
 {
     fn GetAt(&self, index: u32) -> Result<T> {
         match self.0.get(index as usize) {
@@ -50,7 +50,7 @@ where
 impl<T> IIterable_Impl<T> for Thing_Impl<T>
 where
     T: RuntimeType + 'static,
-    <T as Type<T>>::Default: PartialEq,
+    <T as imp::Type<T>>::Default: PartialEq,
 {
     fn First(&self) -> Result<IIterator<T>> {
         unimplemented!()

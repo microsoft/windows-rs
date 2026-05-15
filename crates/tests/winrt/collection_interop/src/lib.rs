@@ -12,6 +12,6 @@ pub fn make_cpp() -> Result<ITest> {
     unsafe {
         let mut test = None;
         make_cpp(&mut test as *mut _ as *mut _).ok()?;
-        Type::from_default(&test)
+        imp::Type::from_default(&test)
     }
 }
